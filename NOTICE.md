@@ -1,0 +1,37 @@
+# Notice
+
+This repository is a maintenance build of Custom Field Suite.
+
+## Original Project
+
+- Name: Custom Field Suite
+- Original author: Matt Gibbs
+- WordPress.org project: https://wordpress.org/plugins/custom-field-suite/
+- Original GitHub repository: https://github.com/mgibbs189/custom-field-suite
+- License: GPLv2
+
+## Maintenance Build
+
+- Maintainer: @shift Yoshiya Tsuchisaka
+- GitHub account: https://github.com/at-shift
+- Base version: Custom Field Suite 2.6.7
+- Maintenance version: 2.6.7.11
+
+This maintenance build preserves the original GPLv2 licensing and author
+attribution. It adds local security and compatibility hardening for continued
+use where a maintained build is required.
+
+## Summary of Changes
+
+- Security hardening for known 2024 CFS vulnerability classes.
+- Additional output escaping and input sanitization.
+- Safer handling of Relationship, Term, and User ID values.
+- Removal of Loop field `eval()` execution.
+- Safer session, import/export, serialized data, and reverse relationship
+  handling.
+- PHP 8.2+ compatibility fixes for the WordPress admin post edit screen.
+- TinyMCE code plugin loading fix for CFS WYSIWYG fields.
+
+This maintenance build is provided without warranty, to the extent permitted by
+law.
+
