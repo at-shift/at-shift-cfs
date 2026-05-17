@@ -67,6 +67,12 @@ folder to `custom-field-suite` and place it at:
 
 GitHub の ZIP ダウンロードは `custom-field-suite-maintenance-main` というフォルダ名で展開されます。WordPress プラグインとしてインストールまたは既存版と置き換える前に、展開されたフォルダ名を `custom-field-suite` に変更し、以下の場所に配置してください。
 
+Do not overwrite your original plugin copy without first saving it locally. Keep
+the original upstream version in a separate backup folder so that you can restore
+it if this maintenance build does not work correctly in your environment.
+
+オリジナル版のプラグインを、事前に保存せず上書きしないでください。メンテナンス版が利用環境で正しく機能しない場合に備えて、オリジナルの上流版を別のバックアップフォルダにローカル保存し、いつでも復元できる状態にしてください。
+
 ```text
 wp-content/plugins/custom-field-suite
 ```
