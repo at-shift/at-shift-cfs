@@ -156,3 +156,9 @@ When replacing an existing Custom Field Suite 2.6.7 installation, back up the
 site files and database first.
 
 既存の Custom Field Suite 2.6.7 を置き換える場合は、事前にサイトファイルとデータベースをバックアップしてください。
+
+Also keep a local copy of the original upstream version before installing this
+maintenance build, so that you can restore the original version at any time if
+this maintenance build does not work correctly in your environment.
+
+また、このメンテナンス版が利用環境で正しく機能しない場合に備えて、インストール前にオリジナルの上流版をローカルに保存しておいてください。必要に応じて、いつでも元のバージョンへ戻せる状態にしておくことを推奨します。
