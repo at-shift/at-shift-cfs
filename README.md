@@ -34,6 +34,9 @@ See [LICENSE](LICENSE) for the full GPLv2 license text.
 
 Current maintenance version: 2.6.7.11
 
+Plugin download:
+https://github.com/at-shift/custom-field-suite-maintenance/archive/refs/heads/main.zip
+
 Versioning follows the upstream 2.6.7 base version with an additional maintenance
 suffix. Future stabilization updates should increment the final number, for
 example 2.6.7.12, 2.6.7.13, and so on.
@@ -86,4 +89,3 @@ Then activate Custom Field Suite from the WordPress admin Plugins screen.
 
 When replacing an existing Custom Field Suite 2.6.7 installation, back up the
 site files and database first.
-
