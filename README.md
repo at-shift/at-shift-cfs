@@ -7,39 +7,32 @@ This maintenance build fixes known vulnerabilities up to Custom Field Suite
 2.6.7. It is intended to reduce the effort required to replace websites built
 with Custom Field Suite with alternative plugins.
 
+Custom Field Suite is a WordPress plugin for adding custom fields to posts,
+pages, and custom post types.
+
 このメンテナンスビルドは、Custom Field Suite 2.6.7 までの既知の脆弱性を修正するものです。Custom Field Suite を利用して構築した Web サイトを他の代替プラグインに置き換える手間を軽減するためのものです。
 
 このリポジトリは、上流版 Custom Field Suite 2.6.7 をベースにした、セキュリティおよび互換性維持のためのメンテナンスビルドです。
-
-Custom Field Suite is a WordPress plugin for adding custom fields to posts,
-pages, and custom post types.
 
 Custom Field Suite は、投稿、固定ページ、カスタム投稿タイプにカスタムフィールドを追加するための WordPress プラグインです。
 
 ## Attribution
 
-- Original plugin: Custom Field Suite
-- Original author: Matt Gibbs
-- Original project: https://wordpress.org/plugins/custom-field-suite/
-- Original source: https://github.com/mgibbs189/custom-field-suite
-- Maintenance build: @shift Yoshiya Tsuchisaka
-- GitHub account: https://github.com/at-shift
-
-- 元プラグイン: Custom Field Suite
-- 元作者: Matt Gibbs
-- 元プロジェクト: https://wordpress.org/plugins/custom-field-suite/
-- 元ソースコード: https://github.com/mgibbs189/custom-field-suite
-- メンテナンスビルド: @shift Yoshiya Tsuchisaka
-- GitHub アカウント: https://github.com/at-shift
+- Original plugin (元プラグイン): Custom Field Suite
+- Original author (元作者): Matt Gibbs
+- Original project (元プロジェクト): https://wordpress.org/plugins/custom-field-suite/
+- Original source (元ソースコード): https://github.com/mgibbs189/custom-field-suite
+- Maintenance build (メンテナンスビルド): @shift Yoshiya Tsuchisaka
+- GitHub account (GitHub アカウント): https://github.com/at-shift
 
 The original author attribution and GPLv2 license are preserved. This repository
 is a maintenance build, not an official upstream release by the original author.
 
-元作者の表記および GPLv2 ライセンス表記は保持しています。このリポジトリはメンテナンスビルドであり、元作者による公式の上流リリースではありません。
-
 This repository is not a GitHub fork of the upstream repository. It is an
 independent GPLv2 maintenance redistribution based on the upstream 2.6.7 source
 code.
+
+元作者の表記および GPLv2 ライセンス表記は保持しています。このリポジトリはメンテナンスビルドであり、元作者による公式の上流リリースではありません。
 
 このリポジトリは GitHub 上の fork ではありません。上流版 2.6.7 のソースコードをベースに、GPLv2 に基づいて独立して再配布しているメンテナンス版です。
 
@@ -48,40 +41,38 @@ code.
 This maintenance build is distributed under the GNU General Public License
 version 2 (GPLv2), the same license as the upstream plugin.
 
-このメンテナンスビルドは、上流プラグインと同じ GNU General Public License version 2 (GPLv2) のもとで配布されます。
-
 You may use, copy, modify, and redistribute this package, including modified
 versions, under the terms of GPLv2. When redistributing, keep the GPLv2 license
 notice, preserve the original author attribution, include the source code, and
 make clear that this is a maintenance build.
 
+このメンテナンスビルドは、上流プラグインと同じ GNU General Public License version 2 (GPLv2) のもとで配布されます。
+
 GPLv2 の条件に従い、このパッケージおよび改変版を使用、複製、改変、再配布できます。再配布する場合は、GPLv2 のライセンス表記、元作者の表記、ソースコードを保持し、これがメンテナンスビルドであることを明示してください。
 
-See [LICENSE](LICENSE) for the full GPLv2 license text.
-
-GPLv2 の全文は [LICENSE](LICENSE) を参照してください。
+See [LICENSE](LICENSE) for the full GPLv2 license text. GPLv2 の全文は [LICENSE](LICENSE) を参照してください。
 
 ## Maintenance Version
 
 Current maintenance version: 2.6.7.11
 
-現在のメンテナンスバージョン: 2.6.7.11
-
 Plugin download:
-https://github.com/at-shift/custom-field-suite-maintenance/archive/refs/heads/main.zip
-
-プラグインのダウンロード:
 https://github.com/at-shift/custom-field-suite-maintenance/archive/refs/heads/main.zip
 
 GitHub ZIP downloads are extracted as `custom-field-suite-maintenance-main`.
 Before installing or replacing an existing WordPress plugin, rename the extracted
 folder to `custom-field-suite` and place it at:
 
-GitHub の ZIP ダウンロードは `custom-field-suite-maintenance-main` というフォルダ名で展開されます。WordPress プラグインとしてインストールまたは既存版と置き換える前に、展開されたフォルダ名を `custom-field-suite` に変更し、以下の場所に配置してください。
-
 Do not overwrite your original plugin copy without first saving it locally. Keep
 the original upstream version in a separate backup folder so that you can restore
 it if this maintenance build does not work correctly in your environment.
+
+現在のメンテナンスバージョン: 2.6.7.11
+
+プラグインのダウンロード:
+https://github.com/at-shift/custom-field-suite-maintenance/archive/refs/heads/main.zip
+
+GitHub の ZIP ダウンロードは `custom-field-suite-maintenance-main` というフォルダ名で展開されます。WordPress プラグインとしてインストールまたは既存版と置き換える前に、展開されたフォルダ名を `custom-field-suite` に変更し、以下の場所に配置してください。
 
 オリジナル版のプラグインを、事前に保存せず上書きしないでください。メンテナンス版が利用環境で正しく機能しない場合に備えて、オリジナルの上流版を別のバックアップフォルダにローカル保存し、いつでも復元できる状態にしてください。
 
@@ -168,15 +159,14 @@ wp-content/plugins/custom-field-suite
 
 Then activate Custom Field Suite from the WordPress admin Plugins screen.
 
-その後、WordPress 管理画面のプラグイン画面から Custom Field Suite を有効化してください。
-
 When replacing an existing Custom Field Suite 2.6.7 installation, back up the
 site files and database first.
-
-既存の Custom Field Suite 2.6.7 を置き換える場合は、事前にサイトファイルとデータベースをバックアップしてください。
 
 Also keep a local copy of the original upstream version before installing this
 maintenance build, so that you can restore the original version at any time if
 this maintenance build does not work correctly in your environment.
+
+その後、WordPress 管理画面のプラグイン画面から Custom Field Suite を有効化してください。
+既存の Custom Field Suite 2.6.7 を置き換える場合は、事前にサイトファイルとデータベースをバックアップしてください。
 
 また、このメンテナンス版が利用環境で正しく機能しない場合に備えて、インストール前にオリジナルの上流版をローカルに保存しておいてください。必要に応じて、いつでも元のバージョンへ戻せる状態にしておくことを推奨します。
