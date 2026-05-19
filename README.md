@@ -1,6 +1,6 @@
 # Custom Field Suite Maintenance Build
 
-Custom Field Suite (CFS)￼ is a plugin that allows you to add custom fields to WordPress posts.
+Custom Field Suite (CFS) is a WordPress plugin for adding custom fields to posts, pages, and custom post types.
 
 Development of Custom Field Suite (CFS) by the original author has been discontinued. This “Custom Field Suite Maintenance Build” is released under the GPLv2 license in order to address abandoned security vulnerabilities.
 
@@ -13,15 +13,16 @@ to reduce the effort required to replace websites built with Custom Field Suite
 with alternative plugins.
 
 Custom Field Suite is a WordPress plugin for adding custom fields to posts,
-pages, and custom post types.
+pages, and custom post types. In other words, simply replacing the original Custom Field Suite (CFS) — which is no longer maintained and contains known vulnerabilities — with Custom Field Suite Maintenance Build allows you to mitigate security risks such as XSS attacks.
 
-Custom Field Suite (CFS)￼ は、Wordpressの投稿にカスタムフィールドを追加できるプラグインです。Custom Field Suite (CFS) は作者による開発が停止しており"当 Custom Field Suite Maintenance Build" は放置された脆弱性に対応するために GPLv2 ライセンスに基づき公開するものです。
+Custom Field Suite (CFS)￼ は、投稿、固定ページ、カスタム投稿タイプにカスタムフィールドを追加するための WordPress プラグインです。
 
-このリポジトリは、上流版 Custom Field Suite 2.6.7 をベースにした、セキュリティおよび互換性維持のためのメンテナンスビルドです。
+Custom Field Suite (CFS) は作者による開発が終了しており、この「Custom Field Suite Maintenance Build」は、放置されたセキュリティ脆弱性へ対応するため、GPLv2 ライセンスに基づいて公開されています。
 
-このメンテナンスビルドは、2024年を最後に更新を放置された Custom Field Suite 2.6.7 までの既知の脆弱性を修正するものです。Custom Field Suite を利用して構築した Web サイトを他の代替プラグインに置き換える手間を軽減するためのものです。
+このリポジトリには、上流版 Custom Field Suite 2.6.7 をベースにした、セキュリティおよび互換性維持のためのメンテナンスビルドが含まれています。
 
-Custom Field Suite は、投稿、固定ページ、カスタム投稿タイプにカスタムフィールドを追加するための WordPress プラグインです。
+このメンテナンスビルドでは、2024年以降アップデートが停止している Custom Field Suite 2.6.7 までに確認されている既知の脆弱性へ対応しています。また、Custom Field Suite を利用して構築された Web サイトを、他の代替プラグインへ移行する際の負担を軽減することを目的としています。つまり、Custom Field Suite Maintenance Build は、すでに開発が終了している脆弱性を含むオリジナルの Custom Field Suite (CFS) を置き換えるだけで、XSS などのセキュリティリスクを軽減できます。
+
 ## Attribution
 
 - Original plugin (元プラグイン): Custom Field Suite
