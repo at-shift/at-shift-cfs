@@ -15,7 +15,7 @@ with alternative plugins.
 Custom Field Suite is a WordPress plugin for adding custom fields to posts,
 pages, and custom post types.
 
-Custom Field Suite (CFS)￼ は、Wordpressの投稿にカスタムフィールドを追加できるプラグインです。Custom Field Suite (CFS) は作者による開発が停止しており当Custom Field Suite Maintenance Build は放置された脆弱性に対応するためにGPLv2 ライセンスに基づき公開するものです。
+Custom Field Suite (CFS)￼ は、Wordpressの投稿にカスタムフィールドを追加できるプラグインです。Custom Field Suite (CFS) は作者による開発が停止しており"当 Custom Field Suite Maintenance Build" は放置された脆弱性に対応するために GPLv2 ライセンスに基づき公開するものです。
 
 このリポジトリは、上流版 Custom Field Suite 2.6.7 をベースにした、セキュリティおよび互換性維持のためのメンテナンスビルドです。
 
