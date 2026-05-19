@@ -90,6 +90,50 @@
 }
 
 /*---------------------------------------------------------------------------------------------
+    Checkbox, Radio
+---------------------------------------------------------------------------------------------*/
+
+.cfs_input .field .cfs_choice_list {
+    --cfs-choice-gap-x: 24px;
+    --cfs-choice-gap-y: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--cfs-choice-gap-y) var(--cfs-choice-gap-x);
+}
+
+.cfs_input .field .cfs_choice_list .cfs_choice {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex: 0 1 auto;
+    align-items: flex-start;
+    gap: 6px;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+    font-weight: normal;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.cfs_input .field .cfs_choice_list .cfs_choice input {
+    flex: 0 0 auto;
+    margin-top: 2px;
+}
+
+.cfs_input .field .cfs_choice_list .cfs_choice span {
+    min-width: 0;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+@media (max-width: 600px) {
+    .cfs_input .field .cfs_choice_list .cfs_choice {
+        flex-basis: 100%;
+    }
+}
+
+/*---------------------------------------------------------------------------------------------
     Date
 ---------------------------------------------------------------------------------------------*/
 

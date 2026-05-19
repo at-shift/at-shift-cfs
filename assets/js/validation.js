@@ -55,6 +55,16 @@
             'select': function(el) {
                 return el.find('select').val();
             },
+            'checkbox': function(el) {
+                var values = [];
+                el.find('input[type="checkbox"]:checked').each(function() {
+                    values.push($(this).val());
+                });
+                return values.join(',');
+            },
+            'radio': function(el) {
+                return el.find('input[type="radio"]:checked').val();
+            },
             'relationship': function(el) {
                 return el.find('input.relationship').val();
             },

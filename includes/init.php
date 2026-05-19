@@ -97,6 +97,8 @@ class cfs_init
             'date'          => CFS_DIR . '/includes/fields/date/date.php',
             'color'         => CFS_DIR . '/includes/fields/color/color.php',
             'true_false'    => CFS_DIR . '/includes/fields/true_false.php',
+            'checkbox'      => CFS_DIR . '/includes/fields/checkbox.php',
+            'radio'         => CFS_DIR . '/includes/fields/radio.php',
             'select'        => CFS_DIR . '/includes/fields/select.php',
             'relationship'  => CFS_DIR . '/includes/fields/relationship.php',
             'term'          => CFS_DIR . '/includes/fields/term.php',

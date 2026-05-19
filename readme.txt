@@ -1,5 +1,5 @@
 === Custom Field Suite ===
-Contributors: mgibbs189
+Contributors: mgibbs189, at-shift
 Tags: custom fields, fields, postmeta, relationship, repeater, file upload
 Requires at least: 5.0
 Tested up to: 6.5.2
@@ -16,7 +16,7 @@ Custom Field Suite (CFS) lets you add custom fields to your posts. It's lightwei
 = Things to know =
 * We do not provide support.
 * This is a free plugin. We're not selling anything.
-* CFS includes 14 [field types](https://mgibbs189.github.io/custom-field-suite/field-types.html). There are no plans to add more.
+* The upstream CFS 2.6.7 release includes 14 field types. This maintenance build adds Checkbox and Radio Button fields to help migration from existing CFS sites.
 * If you want all the bells-and-whistles, use ACF.
 
 = Field types =
@@ -27,6 +27,8 @@ Custom Field Suite (CFS) lets you add custom fields to your posts. It's lightwei
 * Color
 * True / False
 * Select
+* Checkbox
+* Radio Button
 * File Upload
 * Relationship
 * Term
@@ -46,9 +48,9 @@ This package includes local security and compatibility hardening on top of the u
 
 This maintenance build is inherited and maintained by @shift Yoshiya Tsuchisaka. The original Custom Field Suite copyright, authorship, and GPLv2 license notices are preserved.
 
-The 2.6.7.11 maintenance build addresses the known 2024 CFS vulnerability classes around Loop field code execution, Term field SQL injection, and CFS form title/content stored XSS. It also keeps the existing public-form behavior where new posts may be created, while requiring normal WordPress edit capabilities before an existing post can be updated.
+The 2.6.7.20 maintenance build addresses the known 2024 CFS vulnerability classes around Loop field code execution, Term field SQL injection, and CFS form title/content stored XSS. It also keeps the existing public-form behavior where new posts may be created, while requiring normal WordPress edit capabilities before an existing post can be updated.
 
-The changes were verified against the built-in CFS field types and an upgrade path from the original 2.6.7 codebase. These checks are local verification only and are not a third-party security audit.
+The changes were verified against the built-in CFS field types, the added Checkbox and Radio Button fields, and an upgrade path from the original 2.6.7 codebase. These checks are local verification only and are not a third-party security audit.
 
 = Redistribution and license =
 This maintenance build is distributed under the GNU General Public License version 2 (GPLv2), the same license as the upstream plugin. You may use, copy, modify, and redistribute this package, including modified versions, under GPLv2.
@@ -61,7 +63,7 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
-= 2.6.7.11 =
+= 2.6.7.20 =
 * Removed Loop field `eval()` rendering and replaced it with structured lookup logic.
 * Normalized Relationship, Term, and User field IDs before saving and querying.
 * Sanitized CFS form `post_title` and `post_content` submissions to reduce stored XSS risk.
@@ -69,7 +71,9 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * Hardened session queries, import/export handling, reverse-relationship filtering, and serialized field data loading.
 * Escaped admin field output across field settings, tabs, file links, selected Relationship / Term / User labels, and generated JSON.
 * Stabilized PHP 8.2+ admin edit screen compatibility and TinyMCE code plugin loading.
-* Verified Text, Textarea, WYSIWYG, Hyperlink, Date, Color, True / False, Select, Relationship, Term, User, File, Loop, and Tab field round-trips.
+* Added Checkbox and Radio Button field types.
+* Documented safe front-end output patterns for CFS values.
+* Verified Text, Textarea, WYSIWYG, Hyperlink, Date, Color, True / False, Select, Checkbox, Radio Button, Relationship, Term, User, File, Loop, and Tab field round-trips.
 * Verified replacement from the original 2.6.7 codebase to this maintenance build.
 
 = 2.6.7.3 =
