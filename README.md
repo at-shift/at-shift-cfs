@@ -311,6 +311,9 @@ meta box compatibility.
 The "Hide the content editor" display setting only hides the classic editor
 (`postdivrich`) and does not remove the Gutenberg block editor content area.
 
+This is a limitation of the WordPress block editor integration and not a bug in
+Custom Field Suite (CFS).
+
 If you are not using the Classic Editor plugin, you may need to disable editor
 support manually with `remove_post_type_support()` in your theme's
 `functions.php`.
@@ -318,6 +321,8 @@ support manually with `remove_post_type_support()` in your theme's
 Custom Field Suite (CFS) は、WordPress のクラシックメタボックス互換機能を通じて Gutenberg をサポートしています。
 
 フィールドグループ内の設定「Hide the content editor」は Classic Editor (`postdivrich`) を対象としており、Gutenberg の本文ブロックエリアは非表示になりません。
+
+これは Custom Field Suite (CFS) の不具合ではなく、WordPress ブロックエディタとの互換仕様によるものです。
 
 そのため、「Classic Editor」プラグインを利用していない場合は、必要に応じて `functions.php` で直接 `remove_post_type_support()` によりコンテンツエディターサポートを無効化してください。
 
@@ -341,6 +346,24 @@ add_action( 'init', function() {
 
 Custom Post Types (カスタム投稿タイプ):
 
+If you register the custom post type yourself, the usual approach is to remove
+`editor` from the post type's `supports` setting.
+
+カスタム投稿タイプを自分で登録している場合は、通常はその投稿タイプの `supports` 設定から `editor` を外します。
+
+```php
+register_post_type( 'your_post_type', [
+    'label'    => 'Your Post Type',
+    'public'   => true,
+    'supports' => [ 'title', 'thumbnail' ],
+] );
+```
+
+If the post type is already registered, or is registered by another theme or
+plugin, you can remove editor support later with `remove_post_type_support()`.
+
+投稿タイプがすでに登録済みの場合や、他のテーマ・プラグインによって登録されている場合は、後から `remove_post_type_support()` で editor サポートを外すこともできます。
+
 ```php
 add_action( 'init', function() {
     remove_post_type_support( 'your_post_type', 'editor' );
@@ -354,8 +377,3 @@ add_action( 'init', function() {
     remove_post_type_support( 'information', 'editor' );
 } );
 ```
-
-This is a limitation of the WordPress block editor integration and not a bug in
-Custom Field Suite (CFS).
-
-これは Custom Field Suite (CFS) の不具合ではなく、WordPress ブロックエディタとの互換仕様によるものです。
