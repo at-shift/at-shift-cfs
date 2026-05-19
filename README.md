@@ -1,4 +1,4 @@
-# Custom Field Suite Maintenance Build
+# Custom Field Suite (CFS) Maintenance Build
 
 Custom Field Suite (CFS) is a WordPress plugin for adding custom fields to posts, pages, and custom post types.
 
