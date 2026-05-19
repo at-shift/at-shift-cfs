@@ -302,3 +302,60 @@ this maintenance build does not work correctly in your environment.
 既存の Custom Field Suite 2.6.7 を置き換える場合は、事前にサイトファイルとデータベースをバックアップしてください。
 
 また、このメンテナンス版が利用環境で正しく機能しない場合に備えて、インストール前にオリジナルの上流版をローカルに保存しておいてください。必要に応じて、いつでも元のバージョンへ戻せる状態にしておくことを推奨します。
+
+## Gutenberg / Block Editor Compatibility (Gutenberg（ブロックエディタ）対応について)
+
+Custom Field Suite (CFS) supports the WordPress block editor through classic
+meta box compatibility.
+
+The "Hide the content editor" display setting only hides the classic editor
+(`postdivrich`) and does not remove the Gutenberg block editor content area.
+
+If you are not using the Classic Editor plugin, you may need to disable editor
+support manually with `remove_post_type_support()` in your theme's
+`functions.php`.
+
+Custom Field Suite (CFS) は、WordPress のクラシックメタボックス互換機能を通じて Gutenberg をサポートしています。
+
+フィールドグループ内の設定「Hide the content editor」は Classic Editor (`postdivrich`) を対象としており、Gutenberg の本文ブロックエリアは非表示になりません。
+
+そのため、「Classic Editor」プラグインを利用していない場合は、必要に応じて `functions.php` で直接 `remove_post_type_support()` によりコンテンツエディターサポートを無効化してください。
+
+Add the following code to `functions.php` as needed (`functions.php` に必要に応じて以下のコードを追加してください):
+
+Posts (投稿):
+
+```php
+add_action( 'init', function() {
+    remove_post_type_support( 'post', 'editor' );
+} );
+```
+
+Pages (固定ページ):
+
+```php
+add_action( 'init', function() {
+    remove_post_type_support( 'page', 'editor' );
+} );
+```
+
+Custom Post Types (カスタム投稿タイプ):
+
+```php
+add_action( 'init', function() {
+    remove_post_type_support( 'your_post_type', 'editor' );
+} );
+```
+
+Example (例):
+
+```php
+add_action( 'init', function() {
+    remove_post_type_support( 'information', 'editor' );
+} );
+```
+
+This is a limitation of the WordPress block editor integration and not a bug in
+Custom Field Suite (CFS).
+
+これは Custom Field Suite (CFS) の不具合ではなく、WordPress ブロックエディタとの互換仕様によるものです。
