@@ -30,22 +30,18 @@ if ( 'cfs' == $screen->post_type ) {
     ob_start();
     CFS()->field_html( $field );
     $field_clone = ob_get_clean();
-?>
 
-<script>
-var CFS = CFS || {};
-CFS['field_index'] = <?php echo $field_count; ?>;
-CFS['field_clone'] = <?php echo wp_json_encode( $field_clone ); ?>;
-CFS['options_html'] = <?php echo wp_json_encode( $options_html ); ?>;
-</script>
-<script src="<?php echo esc_url( CFS_URL . '/assets/js/fields.js' ); ?>"></script>
-<script src="<?php echo esc_url( CFS_URL . '/assets/js/select2/select2.min.js' ); ?>"></script>
-<script src="<?php echo esc_url( CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js' ); ?>"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo esc_url( CFS_URL . '/assets/css/fields.css' ); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo esc_url( CFS_URL . '/assets/js/select2/select2.css' ); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo esc_url( CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css' ); ?>" />
+    wp_add_inline_script(
+        'cfs-fields',
+        sprintf(
+            "var CFS = CFS || {};\nCFS['field_index'] = %d;\nCFS['field_clone'] = %s;\nCFS['options_html'] = %s;",
+            (int) $field_count,
+            wp_json_encode( $field_clone ),
+            wp_json_encode( $options_html )
+        ),
+        'before'
+    );
 
-<?php
 }
 
 /*---------------------------------------------------------------------------------------------

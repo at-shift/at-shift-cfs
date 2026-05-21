@@ -88,7 +88,7 @@ if ( '' !== $value ) {
 
 ## Installation (インストール方法)
 
-Current maintenance version: 2.6.7.21 (現在のメンテナンスバージョン: 2.6.7.21)
+Current maintenance version: 2.6.7.22 (現在のメンテナンスバージョン: 2.6.7.22)
 
 Plugin download (プラグインのダウンロード): https://github.com/at-shift/custom-field-suite-maintenance/archive/refs/heads/main.zip
 
@@ -115,6 +115,20 @@ environment.
 インストール後、WordPress 管理画面のプラグイン画面から Custom Field Suite を有効化してください。
 
 また、このメンテナンスビルドが利用環境で正しく機能しない場合に備えて、オリジナルの上流版 v2.6.7 を別のバックアップフォルダに保存し、必要に応じていつでも元のバージョンへ戻せる状態にしておくことを推奨します。
+
+```text
+Verified environment (確認環境):
+
+- WordPress: 7.0
+- PHP: 8.3.31
+- MySQL: 8.4.9
+
+The versions above are the local verification environment, not strict minimum
+requirements. Other environments may work, but they have not been verified by
+this maintenance build.
+
+上記はローカルで動作確認を行った環境であり、必須環境ではありません。他の環境でも動作する可能性はありますが、このメンテナンスビルドでは未検証です。
+```
 
 ## Safe Front-End Output (フロントエンドでの安全な出力方法)
 
@@ -279,6 +293,8 @@ Main changes (脆弱性に対する対策):
   and Select field settings.
 - Fixed Field Group Placement Rules layout overflow in the WordPress admin
   screen.
+- Moved Field Group admin asset loading to WordPress enqueue APIs for better
+  WordPress 7.0 admin compatibility.
 - Updated bundled translation files for the added and changed admin strings.
 - Fixed TinyMCE code plugin loading for CFS WYSIWYG fields.
 
@@ -291,6 +307,7 @@ Main changes (脆弱性に対する対策):
 - PHP 8.2 以降の管理画面投稿編集ページとの互換性を安定化しました。
 - Checkbox、Radio Button、Select フィールド設定で発生していた PHP 8.2 以降の動的プロパティ Deprecated 通知を修正しました。
 - WordPress 管理画面内の Field Group Placement Rules レイアウトが横にはみ出す問題を修正しました。
+- WordPress 7.0 の管理画面互換性を高めるため、Field Group 管理画面のアセット読み込みを WordPress の enqueue API に移行しました。
 - 追加・変更された管理画面文字列に対応する同梱翻訳ファイルを更新しました。
 - CFS WYSIWYG フィールドで TinyMCE code プラグインが正しく読み込まれるように修正しました。
 
@@ -307,7 +324,8 @@ The maintenance build was locally verified against:
   Checkbox, Radio Button, Relationship, Term, User, File, Loop, and Tab.
 - XSS and SQL hardening checks for the modified areas.
 - Replacement from the original upstream 2.6.7 plugin to this maintenance build.
-- WordPress admin post edit screen compatibility on PHP 8.3.
+- WordPress 7.0 admin compatibility for Field Group editing, CFS meta boxes,
+  WYSIWYG fields, and File media modal handling on PHP 8.3.
 
 - プラグイン全体の PHP 構文チェック。
 - 標準的な CFS の保存および読み込み動作。
@@ -315,7 +333,7 @@ The maintenance build was locally verified against:
   Text、Textarea、WYSIWYG、Hyperlink、Date、Color、True / False、Select、Checkbox、Radio Button、Relationship、Term、User、File、Loop、Tab。
 - 修正箇所に対する XSS および SQL 強化の確認。
 - 元の上流版 2.6.7 プラグインからこのメンテナンスビルドへの置き換え確認。
-- PHP 8.3 上での WordPress 管理画面投稿編集ページの互換性確認。
+- PHP 8.3 上での WordPress 7.0 管理画面、Field Group 編集、CFS メタボックス、WYSIWYG フィールド、File メディアモーダルの互換性確認。
 
 These checks are local verification only and are not a third-party security
 audit.

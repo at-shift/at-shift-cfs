@@ -15,6 +15,7 @@ class cfs_init
         }
 
         add_action( 'admin_head',                       [ $this, 'admin_head' ] );
+        add_action( 'admin_enqueue_scripts',            [ $this, 'admin_enqueue_scripts' ] );
         add_action( 'admin_menu',                       [ $this, 'admin_menu' ] );
         add_action( 'admin_footer',                     [ $this, 'show_credits' ] );
         add_action( 'save_post',                        [ $this, 'save_post' ] );
@@ -120,6 +121,33 @@ class cfs_init
         }
 
         return $field_types;
+    }
+
+
+    /**
+     * admin_enqueue_scripts
+     */
+    function admin_enqueue_scripts() {
+        $screen = get_current_screen();
+
+        if ( ! is_object( $screen ) || 'cfs' !== $screen->post_type ) {
+            return;
+        }
+
+        wp_enqueue_script( 'jquery-ui-sortable' );
+        wp_enqueue_script( 'cfs-select2', CFS_URL . '/assets/js/select2/select2.min.js', [ 'jquery' ], CFS_VERSION, true );
+        wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', [ 'jquery' ], CFS_VERSION, true );
+        wp_enqueue_script(
+            'cfs-fields',
+            CFS_URL . '/assets/js/fields.js',
+            [ 'jquery', 'jquery-ui-sortable', 'cfs-select2', 'jquery-powertip' ],
+            CFS_VERSION,
+            true
+        );
+
+        wp_enqueue_style( 'cfs-fields', CFS_URL . '/assets/css/fields.css', [], CFS_VERSION );
+        wp_enqueue_style( 'cfs-select2', CFS_URL . '/assets/js/select2/select2.css', [], CFS_VERSION );
+        wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', [], CFS_VERSION );
     }
 
 

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Custom Field Suite
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 2.6.7.21
+Version: 2.6.7.22
 Author: Matt Gibbs / Maintenance: @shift Yoshiya Tsuchisaka
 Author URI: https://github.com/at-shift/custom-field-suite-maintenance
 Maintenance Build: @shift Yoshiya Tsuchisaka
@@ -27,7 +27,7 @@ class Custom_Field_Suite
     function __construct() {
 
         // setup variables
-        define( 'CFS_VERSION', '2.6.7.21' );
+        define( 'CFS_VERSION', '2.6.7.22' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( '', __FILE__ ) );
 

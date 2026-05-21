@@ -2,7 +2,7 @@
 Contributors: mgibbs189, at-shift
 Tags: custom fields, fields, postmeta, relationship, repeater, file upload
 Requires at least: 5.0
-Tested up to: 6.5.2
+Tested up to: 7.0
 Stable tag: trunk
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -48,7 +48,7 @@ This package includes local security and compatibility hardening on top of the u
 
 This maintenance build is inherited and maintained by @shift Yoshiya Tsuchisaka. The original Custom Field Suite copyright, authorship, and GPLv2 license notices are preserved.
 
-The 2.6.7.21 maintenance build addresses the known 2024 CFS vulnerability classes around Loop field code execution, Term field SQL injection, and CFS form title/content stored XSS. It also keeps the existing public-form behavior where new posts may be created, while requiring normal WordPress edit capabilities before an existing post can be updated.
+This maintenance build addresses the known 2024 CFS vulnerability classes around Loop field code execution, Term field SQL injection, and CFS form title/content stored XSS. It also keeps the existing public-form behavior where new posts may be created, while requiring normal WordPress edit capabilities before an existing post can be updated.
 
 The changes were verified against the built-in CFS field types, the added Checkbox and Radio Button fields, and an upgrade path from the original 2.6.7 codebase. These checks are local verification only and are not a third-party security audit.
 
@@ -62,6 +62,10 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * [Github →](https://github.com/mgibbs189/custom-field-suite)
 
 == Changelog ==
+
+= 2.6.7.22 =
+* Verified WordPress 7.0 admin compatibility for Field Group editing, CFS meta boxes, WYSIWYG fields, and File media modal handling.
+* Moved Field Group admin asset loading to WordPress enqueue APIs.
 
 = 2.6.7.21 =
 * Fixed PHP 8.2+ deprecated dynamic property notices in Checkbox, Radio Button, and Select field settings.
