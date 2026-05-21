@@ -128,11 +128,12 @@ Verified environment (確認環境):
 - PHP: 8.3.31
 - MySQL: 8.4.9
 
-The versions above are the local verification environment, not strict minimum
-requirements. Other environments may work, but they have not been verified by
-this maintenance build.
+The versions above describe the local verification environment and are not
+strict minimum requirements. In addition to local checks, replacement and
+compatibility have been verified on several live sites, but operation in other
+environments is not guaranteed unless separately verified.
 
-上記はローカルで動作確認を行った環境であり、必須環境ではありません。他の環境でも動作する可能性はありますが、このメンテナンスビルドでは未検証です。
+上記はローカルで動作確認を行った環境であり、厳密な最低動作要件を示すものではありません。ローカル検証に加えて、数サイトの実運用環境でも置き換えと互換性を確認していますが、その他の環境での動作は、個別に検証されていない限り保証されません。
 ```
 
 ## Safe Front-End Output (フロントエンドでの安全な出力方法)
