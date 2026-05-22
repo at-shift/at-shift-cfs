@@ -176,16 +176,16 @@ context-appropriate escaping instead:
 新規テンプレートを作成する場合や既存テンプレートを保守する場合は、代わりに、出力先に応じたエスケープを行ってください。
 
 ```php
-// Plain text.
+// Plain text. (単一行テキスト)
 echo esc_html( CFS()->get( 'text_field' ) );
 
-// Multi-line plain text.
+// Multi-line plain text. (テキストエリア)
 echo nl2br( esc_html( CFS()->get( 'textarea_field' ) ) );
 
-// WYSIWYG or other content where limited post HTML should be allowed.
+// WYSIWYG or other content where limited post HTML should be allowed. (リッチエディタ)
 echo wp_kses_post( CFS()->get( 'wysiwyg_field' ) );
 
-// Hyperlink output when the field is configured to return a PHP array.
+// Hyperlink output when the field is configured to return a PHP array. (ハイパーリンク)
 $link = (array) CFS()->get( 'hyperlink_field' );
 if ( ! empty( $link['url'] ) ) {
     printf(
@@ -196,59 +196,62 @@ if ( ! empty( $link['url'] ) ) {
     );
 }
 
-// HTML attribute output.
-echo esc_attr( CFS()->get( 'attribute_field' ) );
+// HTML attribute output. (単一テキストフィールドを利用してHTMLタグの属性を出力する場合)
+echo '<div class="' . esc_attr( CFS()->get( 'attribute_field' ) ) . '"></div>';
 
-// Date output.
+// Date output. (日付フォーマット)
 echo esc_html( CFS()->get( 'date_field' ) );
 
-// Color value used in an HTML attribute.
-echo esc_attr( CFS()->get( 'color_field' ) );
+// Color value used in an HTML attribute. (カラーピッカー)
+$color = sanitize_hex_color( CFS()->get( 'color_field' ) );
+if ( $color ) {
+    echo '<div style="background-color: ' . esc_attr( $color ) . ';"></div>';
+}
 
-// True / False output.
+// True / False output. (真/偽 - 簡易チェックボックス)
 if ( CFS()->get( 'true_false_field' ) ) {
     echo esc_html__( 'Yes', 'your-theme-textdomain' );
 }
 
-// Select output. CFS returns an array even for single-select fields.
+// Select output. CFS returns an array even for single-select fields. (セレクト - ドロップダウン選択メニュー)
 $select_values = (array) CFS()->get( 'select_field' );
 foreach ( $select_values as $select_value ) {
     echo esc_html( $select_value );
 }
 
-// Checkbox output.
+// Checkbox output. (チェックボックス)
 $checkbox_values = (array) CFS()->get( 'checkbox_field' );
 foreach ( $checkbox_values as $checkbox_value ) {
     echo esc_html( $checkbox_value );
 }
 
-// Radio Button output.
+// Radio Button output. (ラジオボタン)
 echo esc_html( CFS()->get( 'radio_field' ) );
 
-// File URL output.
+// File URL output. (ファイルのアップロード)
 $file_id  = (int) CFS()->get( 'file_field', false, [ 'format' => 'raw' ] );
 $file_url = wp_get_attachment_url( $file_id );
 if ( $file_url ) {
     echo esc_url( $file_url );
 }
 
-// Relationship IDs.
+// Relationship IDs. (関連ポスト選択)
 $relationship_ids = array_map( 'intval', (array) CFS()->get( 'relationship_field', false, [ 'format' => 'raw' ] ) );
 
-// Term IDs.
+// Term IDs. (ターム)
 $term_ids = array_map( 'intval', (array) CFS()->get( 'term_field', false, [ 'format' => 'raw' ] ) );
 
-// User IDs.
+// User IDs. (ユーザ)
 $user_ids = array_map( 'intval', (array) CFS()->get( 'user_field', false, [ 'format' => 'raw' ] ) );
 
-// Loop output. Escape each sub-field according to its own output context.
+// Loop output. Escape each sub-field according to its own output context. (ループ - 複製フィールド)
 $rows = (array) CFS()->get( 'loop_field' );
 foreach ( $rows as $row ) {
     echo esc_html( $row['text_sub_field'] ?? '' );
 }
 
 // Tab fields are layout-only fields in the admin screen and do not need
-// front-end output escaping.
+// front-end output escaping. (タブは管理画面用の表示整理フィールドのため、フロントエンド出力は不要です)
 ```
 
 The correct escaping function depends on the output context: use `esc_html()`
