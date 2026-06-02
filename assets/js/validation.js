@@ -21,6 +21,82 @@
                     return regex.test(val);
                 }
             },
+            'valid_phone': {
+                'error': 'Please enter a valid phone number',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    var regex = /^[0-9+\-().\s]+$/;
+                    return '' == val || regex.test(val);
+                }
+            },
+            'required_phone': {
+                'error': 'Please enter a valid phone number',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    var regex = /^[0-9+\-().\s]+$/;
+                    return '' != val && null != val && regex.test(val);
+                }
+            },
+            'valid_email': {
+                'error': 'Please enter a valid email address',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return '' == val || regex.test(val);
+                }
+            },
+            'required_email': {
+                'error': 'Please enter a valid email address',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return '' != val && null != val && regex.test(val);
+                }
+            },
+            'valid_number': {
+                'error': 'Please enter a valid number',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    return '' == val || /^-?(?:\d+|\d*\.\d+)$/.test(val);
+                }
+            },
+            'required_number': {
+                'error': 'Please enter a valid number',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    return '' != val && null != val && /^-?(?:\d+|\d*\.\d+)$/.test(val);
+                }
+            },
+            'valid_url': {
+                'error': 'Please enter a valid URL',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    return '' == val || /^(https?:\/\/|mailto:|tel:)/i.test(val);
+                }
+            },
+            'required_url': {
+                'error': 'Please enter a valid URL',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    return '' != val && null != val && /^(https?:\/\/|mailto:|tel:)/i.test(val);
+                }
+            },
+            'valid_time': {
+                'error': 'Please select a valid time',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    var regex = /^([01]\d|2[0-3]):[0-5]\d$/;
+                    return '' == val || regex.test(val);
+                }
+            },
+            'required_time': {
+                'error': 'Please select a valid time',
+                'validate': function(val) {
+                    val = $.trim(val);
+                    var regex = /^([01]\d|2[0-3]):[0-5]\d$/;
+                    return '' != val && null != val && regex.test(val);
+                }
+            },
             'limit': {
                 'error': function(el) {
                     var limits = el.attr('data-validator').split('|')[1].split(',');
@@ -74,6 +150,11 @@
             'user': function(el) {
                 return el.find('input.user').val();
             },
+            'time': function(el) {
+                var hour = el.find('.cfs-time-hour').val();
+                var minute = el.find('.cfs-time-minute').val();
+                return ('' == hour && '' == minute) ? '' : hour + ':' + minute;
+            },
             'wysiwyg': function(el) {
                 tinyMCE.triggerSave();
                 return el.find('textarea').val();
@@ -92,68 +173,101 @@
             CFS.is_draft = true;
         });
 
+        CFS.validate_field = function(field_name, obj, options) {
+            options = $.extend({
+                show_empty_required: true,
+                open_loop: true
+            }, options);
+
+            var is_valid = true;
+
+            $('.cfs_input .field-' + field_name).each(function() {
+                var $this = $(this);
+                var type = obj.type;
+                var validator = obj.rule.split('|')[0];
+
+                $this.find('> .error').hide();
+
+                if ('object' != typeof CFS.validators[validator]) {
+                    return;
+                }
+
+                $this.attr('data-validator', obj.rule);
+
+                var val = ('function' == typeof CFS.get_field_value[type]) ? CFS.get_field_value[type]($this) : $this.find('input').val();
+                var is_required = 0 === validator.indexOf('required') || 'required' == validator;
+                var is_empty = '' == $.trim(null == val ? '' : val);
+
+                if (is_empty && !is_required) {
+                    $this.find('> .error').hide();
+                    return;
+                }
+
+                if (is_empty && is_required && !options.show_empty_required) {
+                    $this.find('> .error').hide();
+                    return;
+                }
+
+                if (!CFS.validators[validator]['validate'](val, $this)) {
+                    is_valid = false;
+
+                    if ($this.find('> .error').length < 1) {
+                        $this.append('<div class="error"></div>');
+                    }
+
+                    if (options.open_loop && $this.parents('.cfs_loop_body').length > 0) {
+                        var $loop = $this.parents('.cfs_loop_body');
+                        $loop.addClass('open');
+                        $loop.siblings('.cfs_loop_head').addClass('open');
+                    }
+
+                    var error_msg = CFS.validators[validator]['error'];
+                    if ('function' == typeof error_msg) {
+                        error_msg = error_msg($this);
+                    }
+
+                    $this.find('> .error').text(error_msg).show();
+                }
+            });
+
+            return is_valid;
+        };
+
+        CFS.validate_all_fields = function() {
+            var passthru = true;
+
+            $.each(CFS.field_rules, function(field_name, obj) {
+                if (!CFS.validate_field(field_name, obj)) {
+                    passthru = false;
+                }
+            });
+
+            if (!passthru) {
+                $('#cfs-validation-admin-notice').show();
+            }
+
+            return passthru;
+        };
+
+        $(document).on('input change blur', '.cfs_input .field :input', function(event) {
+            var $field = $(this).closest('.field');
+            var field_name = $field.attr('data-name');
+
+            if (!field_name || !CFS.field_rules || !CFS.field_rules[field_name]) {
+                return;
+            }
+
+            CFS.validate_field(field_name, CFS.field_rules[field_name], {
+                show_empty_required: 'input' != event.type,
+                open_loop: false
+            });
+        });
+
         $('form#post').submit(function() {
 
             // skip validation for drafts
             if (false === CFS.is_draft) {
-                var passthru = true;
-
-                // handle each validator field
-                $.each(CFS.field_rules, function(field_name, obj) {
-                    $('.cfs_input .field-' + field_name).each(function() {
-                        var $this = $(this);
-
-                        // reset error styling
-                        $this.find('.error').hide();
-
-                        var type = obj.type;
-                        var validator = obj.rule.split('|')[0];
-
-                        // the validator exists
-                        if ('object' == typeof CFS.validators[validator]) {
-
-                            // set the DOM attribute
-                            $this.attr('data-validator', obj.rule);
-
-                            // figure out the field value
-                            if ('function' == typeof CFS.get_field_value[type]) {
-                                var val = CFS.get_field_value[type]($this);
-                            }
-                            else {
-                                var val = $this.find('input').val();
-                            }
-
-                            // pass the value through the validator
-                            var is_valid = CFS.validators[validator]['validate'](val, $this);
-
-                            if (!is_valid) {
-                                passthru = false;
-
-                                if ($this.find('.error').length < 1) {
-                                    $this.append('<div class="error"></div>');
-                                }
-
-                                // if the error is inside a loop field, open it up
-                                if ($this.parents('.cfs_loop_body').length > 0) {
-                                    $loop = $this.parents('.cfs_loop_body');
-                                    $loop.addClass('open');
-                                    $loop.siblings('.cfs_loop_head').addClass('open');
-                                }
-
-                                // error can be either a string or function
-                                var error_msg = CFS.validators[validator]['error'];
-                                if ('function' == typeof error_msg) {
-                                    error_msg = error_msg($this);
-                                }
-
-                                $this.find('.error').html(error_msg);
-                                $this.find('.error').show();
-
-                                $('#cfs-validation-admin-notice').show();
-                            }
-                        }
-                    });
-                });
+                var passthru = CFS.validate_all_fields();
 
                 if (!passthru) {
                     $('#publish').removeClass('button-primary-disabled');

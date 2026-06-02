@@ -73,6 +73,22 @@
             init_tooltip();
         });
 
+        // Add a new field immediately below the current field
+        $(document).on('click', '.cfs_add_field_below', function() {
+            var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
+            var $current = $(this).closest('li');
+            var parent_id = $current.children('.field').find('.parent_id').first().val();
+            var $new_field = $('<li>' + html + '</li>');
+
+            $new_field.find('.parent_id').first().val(parent_id);
+            $current.after($new_field);
+            $new_field.find('.field_label a').click();
+            $new_field.find('.field_type select').change();
+            CFS.field_index = CFS.field_index + 1;
+            zebra_stripes();
+            init_tooltip();
+        });
+
         // Delete a field
         $(document).on('click', '.cfs_delete_field', function() {
             $(this).closest('li').remove();
@@ -99,7 +115,45 @@
             $(this).closest('.field').find('.field_meta .field_type').text(type);
             $(this).closest('.field').find('.field_option').remove();
             $(this).closest('.field_basics').after($options);
+
+            var $item = $(this).closest('li');
+            if ('loop' == type || 'group' == type) {
+                $item.addClass('loop');
+                if ($item.children('ul').length < 1) {
+                    $item.append('<ul></ul>');
+                }
+            }
+            else if ($item.children('ul').children('li').length < 1) {
+                $item.removeClass('loop');
+                $item.children('ul').remove();
+            }
+
             init_tooltip();
+        });
+
+        $(document).on('change', '.cfs-time-minute-interval', function() {
+            var interval = parseInt($(this).val(), 10);
+            var $field = $(this).closest('.field');
+            var $minute = $field.find('.cfs-time-default-minute').first();
+            var selected = $minute.val();
+
+            if (!interval || 1 > interval || 60 < interval || 0 !== 60 % interval) {
+                interval = 1;
+            }
+
+            $minute.empty().append($('<option>', { value: '', text: '' }));
+
+            for (var i = 0; i < 60; i += interval) {
+                var value = ('0' + i).slice(-2);
+                $minute.append($('<option>', { value: value, text: value }));
+            }
+
+            if ($minute.find('option[value="' + selected + '"]').length) {
+                $minute.val(selected);
+            }
+            else {
+                $minute.val('');
+            }
         });
 
         // Auto-populate the field name

@@ -1,9 +1,3 @@
-# This German Language File: Copyright (C) 2013 by David Decker of deckerweb.de & genesisthemes.de
-# This file is distributed under the same license as the Custom Field Suite Plugin package.
-#
-# Weitere deutsche Sprachdateien fuer WordPress-Plugins und -Themes sind hier zu finden:
-# --> http://deckerweb.de/sprachdateien/
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
@@ -24,12 +18,12 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-# @ cfs
+#  @ cfs
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
 msgstr "Texto"
 
-# @ cfs
+#  @ cfs
 #: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
@@ -37,7 +31,7 @@ msgstr "Texto"
 msgid "Validation"
 msgstr "Validación"
 
-# @ cfs
+#  @ cfs
 #: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
@@ -45,57 +39,57 @@ msgstr "Validación"
 msgid "This is a required field"
 msgstr "Este es un campo obligatorio"
 
-# @ cfs
+#  @ cfs
 #: ../includes/field_group.php:112
 msgid "Imported"
 msgstr "Importadas"
 
-# @ cfs
+#  @ cfs
 #: ../includes/field_group.php:115
 msgid "Skipped"
 msgstr "Saltadas"
 
-# @ cfs
+#  @ cfs
 #: ../includes/field_group.php:120
 msgid "Nothing to import"
 msgstr "Nada para importar"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/color/color.php:8
 msgid "Color"
 msgstr "Color"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/date/date.php:8
 msgid "Date"
 msgstr "Fecha"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/file.php:8
 msgid "File Upload"
 msgstr "Carga de archivos"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/file.php:32
 msgid "Add File"
 msgstr "Agregar archivo"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/file.php:33
 msgid "Remove"
 msgstr "Eliminar"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/file.php:43
 msgid "Return Value"
 msgstr "Valor de retorno"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/file.php:52
 msgid "File URL"
 msgstr "URL del archivo"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/file.php:53
 msgid "Attachment ID"
 msgstr "ID del adjunto"
@@ -128,50 +122,50 @@ msgstr "HTML"
 msgid "PHP Array"
 msgstr "Array de PHP"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/loop.php:8
 msgid "Loop"
 msgstr "Bucle"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/loop.php:36
 msgid "Row Display"
 msgstr "Pantalla por filas"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/loop.php:45
 msgid "Show the values by default"
 msgstr "Muestra los valores por defecto"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/loop.php:52
 msgid "Row Label"
 msgstr "Etiqueta de Filas"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
 #: ../includes/fields/loop.php:194
 msgid "Loop Row"
 msgstr "Bucle de filas"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/loop.php:66
 msgid "Button Label"
 msgstr "Etiqueta de Botón"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
 #: ../includes/fields/loop.php:195
 msgid "Add Row"
 msgstr "Añadir Fila"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "Límites"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "Relación"
@@ -180,38 +174,38 @@ msgstr "Relación"
 msgid "Search posts"
 msgstr "Buscar notas"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/relationship.php:88 ../includes/init.php:282
 #: ../templates/meta_box_rules.php:136
 msgid "Post Types"
 msgstr "Tipos de Publicación"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
 msgstr "Limitar mensajes a los siguientes tipos"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/select.php:8
 msgid "Select"
 msgstr "Seleccionar"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/select.php:86
 msgid "Choices"
 msgstr "Opciones"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
 msgstr "Introducir una opción por línea"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/select.php:101
 msgid "Multi-select?"
 msgstr "¿Selección múltiple?"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
 msgstr "Este es un campo de selección múltiple"
@@ -220,47 +214,47 @@ msgstr "Este es un campo de selección múltiple"
 msgid "Tab"
 msgstr "Tabulación"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
 msgstr "Valor por defecto"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
 msgstr "Área de texto"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
 msgstr "Formateando"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/textarea.php:46
 msgid "None"
 msgstr "Ninguno"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
 msgstr "Convertir líneas nuevas a <br />"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/true_false.php:8
 msgid "True / False"
 msgstr "Verdadero / Falso"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/true_false.php:30
 msgid "Message"
 msgstr "Mensaje"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
 msgstr "El texto al lado de la casilla"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/user.php:8
 msgid "User"
 msgstr "Usuario"
@@ -269,32 +263,32 @@ msgstr "Usuario"
 msgid "Search users"
 msgstr "Buscar colaboradores"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
 msgstr "Editor Wysiwyg"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/wysiwyg.php:42
 msgid "Default"
 msgstr "Predeterminado"
 
-# @ cfs
+#  @ cfs
 #: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
 msgstr "Ninguno ( filtros de derivación)"
 
-# @ cfs
+#  @ cfs
 #: ../includes/form.php:194
 msgid "Submit"
 msgstr "Enviar"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:58
 msgid "Field Groups"
 msgstr "Grupos de Campo"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:59
 msgid "Field Group"
 msgstr "Grupo de Campo"
@@ -303,299 +297,284 @@ msgstr "Grupo de Campo"
 msgid "All Field Groups"
 msgstr "Todos los grupos de campo"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:61
 msgid "Add New Field Group"
 msgstr "Agregar nuevo Grupo de Campo"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:62
 msgid "Edit Field Group"
 msgstr "Editar Grupo de Campo"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:63
 msgid "New Field Group"
 msgstr "Nuevo Grupo de Campo"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:64
 msgid "View Field Group"
 msgstr "Ver campo Grupo"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:65
 msgid "Search Field Groups"
 msgstr "Buscar Grupos de Campo"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:66
 msgid "No Field Groups found"
 msgstr "No hay Grupos de Campos"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
 msgstr "No se encontraron grupos de campos en la basura"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr "Herramientas"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:153
 msgid "Fields"
 msgstr "Campos"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:154
 msgid "Placement Rules"
 msgstr "Reglas de colocación"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:155
 msgid "Extras"
 msgstr "Extras"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:268
 msgid "Title"
 msgstr "Título"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:269
 msgid "Placement"
 msgstr "Colocación"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:283 ../templates/meta_box_rules.php:202
 msgid "User Roles"
 msgstr "Roles de usuario"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:284 ../templates/meta_box_rules.php:234
 msgid "Posts"
 msgstr "Publicaciones"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:285
 msgid "Term IDs"
 msgstr "IDs de Término"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:286 ../templates/meta_box_rules.php:290
 msgid "Page Templates"
 msgstr "Plantillas de Página"
 
-# @ cfs
+#  @ cfs
 #: ../includes/init.php:287 ../templates/meta_box_rules.php:169
 msgid "Post Formats"
 msgstr "Formatos de entrada"
 
-# @ cfs
+#  @ cfs
 #: ../includes/revision.php:26
 msgid "Post Meta"
 msgstr "Meta Entradas"
 
-# @ cfs
+#  @ cfs
 #: ../templates/admin_head.php:24
 msgid "New Field"
 msgstr "Nuevo Campo"
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:30
 msgid "Label"
 msgstr "Etiqueta"
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "La etiqueta de campo que los editores van a ver."
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:39
 msgid "Name"
 msgstr "Nombre"
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:42
-msgid ""
-"The field name is passed into get() to retrieve values. Use only lowercase letters, "
-"numbers, and underscores."
-msgstr ""
-"El nombre del campo se pasa a get() para recuperar los valores. Utilice sólo letras en "
-"minúscula, números y guiones bajos."
+msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
+msgstr "El nombre del campo se pasa a get() para recuperar los valores. Utilice sólo letras en minúscula, números y guiones bajos."
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:49
 msgid "Field Type"
 msgstr "Tipo de campo"
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:67
 msgid "Notes"
 msgstr "Notas"
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "Notas para los editores durante la entrada de datos"
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:82
 msgid "Close"
 msgstr "Cerrar"
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:83
 msgid "or"
 msgstr "U"
 
-# @ cfs
+#  @ cfs
 #: ../templates/field_html.php:83
 msgid "delete"
 msgstr "ocultar"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_extras.php:33
 msgid "Order"
 msgstr "Orden"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
 msgstr "El grupo de campo con el más bajo orden aparecerá en primer lugar."
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_extras.php:45
 msgid "Position"
 msgstr "Posición"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_extras.php:48
 msgid "Normal"
 msgstr "Normal"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_extras.php:49
 msgid "Side"
 msgstr "Lado"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_extras.php:54
 msgid "Display Settings"
 msgstr "Configuración de visualización"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor"
 msgstr "Ocultar el editor de contenido"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "Agregar nuevo campo"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "es igual a"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "No es"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
 msgstr "Dejar en blanco para saltarse esta regla"
 
-# @ cfs
+#  @ cfs
 #: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
 msgstr "Términos Taxonomía"
 
-# @ cfs
+#  @ cfs
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
 msgstr "Exportar"
 
-# @ cfs
+#  @ cfs
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
 msgstr "Importar"
 
-# @ cfs
+#  @ cfs
 #: ../templates/page_tools.php:78
 msgid "Reset"
 msgstr "Restablecer"
 
-# @ cfs
+#  @ cfs
 #: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
 msgstr "Resetear y desactivar."
 
-# @ cfs
+#  @ cfs
 #: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr "Esto borrará todos los datos del CFS y desactivará el plugin."
 
-# @ cfs
+#  @ cfs
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "Eliminar todo"
 
-# @ cfs
-#~ msgid "Use This File"
-#~ msgstr "Usar este archivo"
-
-# @ cfs
-#~ msgid "Add New"
-#~ msgstr "Añadir nuevo"
-
-# @ cfs
-#~ msgid "Add-ons"
-#~ msgstr "Añadidos"
-
-# @ cfs
-#~ msgid "Post IDs"
-#~ msgstr "IDs de Publicaciones"
-
-# @ cfs
-#~ msgid "Gravity Forms"
-#~ msgstr "Formularios de gravedad"
-
-# @ cfs
-#~ msgid "Your Gravity Form and CFS field labels must match exactly"
-#~ msgstr ""
-#~ "Su formulario de gravedad y las etiquetas de campo CFS deben coincidir exactamente"
-
-# @ cfs
-#~ msgid "Learn more"
-#~ msgstr "Saber más"
-
-# @ cfs
-#~ msgid "Which field groups would you like to export?"
-#~ msgstr "¿Qué grupos de campo le gustaría exportar?"
-
-# @ cfs
-#~ msgid "Paste the import code below."
-#~ msgstr "Pegue el código de importación por debajo."
-
-# @ cfs
-#~ msgid "Please install %s to use this feature."
-#~ msgstr "Por favor, instale %s para usar esta función."
-
-# @ cfs
-#~ msgid "Debug"
-#~ msgstr "Depurar"
-
-# @ cfs
-#~ msgid "Debug information"
-#~ msgstr "Información de depuración"
-
+#  @ cfs
+#  msgid "Use This File"
+#  msgstr "Usar este archivo"
+#  @ cfs
+#  msgid "Add New"
+#  msgstr "Añadir nuevo"
+#  @ cfs
+#  msgid "Add-ons"
+#  msgstr "Añadidos"
+#  @ cfs
+#  msgid "Post IDs"
+#  msgstr "IDs de Publicaciones"
+#  @ cfs
+#  msgid "Gravity Forms"
+#  msgstr "Formularios de gravedad"
+#  @ cfs
+#  msgid "Your Gravity Form and CFS field labels must match exactly"
+#  msgstr ""
+#  "Su formulario de gravedad y las etiquetas de campo CFS deben coincidir
+#  exactamente"
+#  @ cfs
+#  msgid "Learn more"
+#  msgstr "Saber más"
+#  @ cfs
+#  msgid "Which field groups would you like to export?"
+#  msgstr "¿Qué grupos de campo le gustaría exportar?"
+#  @ cfs
+#  msgid "Paste the import code below."
+#  msgstr "Pegue el código de importación por debajo."
+#  @ cfs
+#  msgid "Please install %s to use this feature."
+#  msgstr "Por favor, instale %s para usar esta función."
+#  @ cfs
+#  msgid "Debug"
+#  msgstr "Depurar"
+#  @ cfs
+#  msgid "Debug information"
+#  msgstr "Información de depuración"
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
 msgstr "Ocultar el editor de contenido (no se aplica al área de contenido de Gutenberg / editor de bloques)"
 
@@ -649,3 +628,87 @@ msgstr "Custom Field Suite"
 
 msgid "CFS Tools"
 msgstr "Herramientas CFS"
+
+#: ../includes/fields/phone.php:8
+msgid "Phone"
+msgstr "Phone"
+
+#: ../includes/fields/email.php:8
+msgid "Email Address"
+msgstr "Email Address"
+
+#: ../includes/fields/number.php:8
+msgid "Number"
+msgstr "Number"
+
+#: ../includes/fields/number.php:40
+msgid "Number Settings"
+msgstr "Number Settings"
+
+#: ../includes/fields/time.php:8
+msgid "Time"
+msgstr "Time"
+
+#: ../includes/fields/time.php:54
+msgid "Minute Interval"
+msgstr "Minute Interval"
+
+#: ../includes/fields/time.php:64
+msgid "1 minute"
+msgstr "1 minute"
+
+#: ../includes/fields/time.php:65
+msgid "5 minutes"
+msgstr "5 minutes"
+
+#: ../includes/fields/time.php:66
+msgid "10 minutes"
+msgstr "10 minutes"
+
+#: ../includes/fields/time.php:67
+msgid "15 minutes"
+msgstr "15 minutes"
+
+#: ../includes/fields/time.php:68
+msgid "30 minutes"
+msgstr "30 minutes"
+
+#: ../includes/fields/group.php:8
+msgid "Horizontal Group"
+msgstr "Horizontal Group"
+
+#: ../includes/fields/group.php:68
+msgid "Columns"
+msgstr "Columns"
+
+#: ../includes/fields/group.php:77
+msgid "Auto"
+msgstr "Auto"
+
+#: ../includes/fields/group.php:78
+msgid "2 columns"
+msgstr "2 columns"
+
+#: ../includes/fields/group.php:79
+msgid "3 columns"
+msgstr "3 columns"
+
+#: ../includes/fields/group.php:80
+msgid "4 columns"
+msgstr "4 columns"
+
+#: ../templates/field_html.php:84
+msgid "Add new field below"
+msgstr "Add new field below"
+
+msgid "CFS Field Groups"
+msgstr "CFS Field Groups"
+
+msgid "CFS Field Group: %s"
+msgstr "CFS Field Group: %s"
+
+msgid "Displays a CFS field group."
+msgstr "Displays a CFS field group."
+
+msgid "No fields in this group."
+msgstr "No fields in this group."

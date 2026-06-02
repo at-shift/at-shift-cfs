@@ -401,12 +401,27 @@ CFS['loop_buffer'] = [];
                 $validator = "limit|$min,$max";
             }
 
+            $format_validators = [
+                'phone'  => 'valid_phone',
+                'email'  => 'valid_email',
+                'number' => 'valid_number',
+                'url'    => 'valid_url',
+                'time'   => 'valid_time',
+            ];
+
+            if ( isset( $format_validators[ $field->type ] ) ) {
+                $validator = $format_validators[ $field->type ];
+            }
+
             if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
                 if ( 'date' == $field->type ) {
                     $validator = 'valid_date';
                 }
                 elseif ( 'color' == $field->type ) {
                     $validator = 'valid_color';
+                }
+                elseif ( isset( $format_validators[ $field->type ] ) ) {
+                    $validator = 'required_' . $field->type;
                 }
                 else {
                     $validator = 'required';
@@ -439,7 +454,7 @@ CFS['loop_buffer'] = [];
                 else {
     ?>
 
-        <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>"">
+        <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
             <?php if ( 'loop' == $field->type ) : ?>
             <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_html_e( 'Toggle row visibility', 'cfs' ); ?>"></a>
             <?php endif; ?>

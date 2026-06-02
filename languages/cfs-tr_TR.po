@@ -342,9 +342,7 @@ msgid "Name"
 msgstr "İsim (kodu)"
 
 #: templates/field_html.php:42
-msgid ""
-"The field name is passed into get() to retrieve values. Use only lowercase "
-"letters, numbers, and underscores."
+msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
 msgstr "Kod kısmında kullanılacak"
 
 #: templates/field_html.php:49
@@ -443,50 +441,37 @@ msgstr "Eklentiyi kaldırırken bütün verileri sil"
 msgid "Delete everything"
 msgstr "Her şeyi sil"
 
-#~ msgid "Use This File"
-#~ msgstr "Dosyayı Kullan"
-
-#~ msgid "Add New"
-#~ msgstr "Yeni Özel Alan Ekle"
-
-#~ msgid "Add-ons"
-#~ msgstr "Eklentiler"
-
-#~ msgid "Post IDs"
-#~ msgstr "Yazı IDs"
-
-#~ msgid "Gravity Forms"
-#~ msgstr "Form Alanı"
-
-#~ msgid "Your Gravity Form and CFS field labels must match exactly"
-#~ msgstr ""
-#~ "Kullanmış olduğunuz iletişim formu (Gravity) ile CFS alan etiketleri tam "
-#~ "olarak eşleşmelidir"
-
-#~ msgid "Learn more"
-#~ msgstr "Daha fazla bilgi"
-
-#~ msgid "Attach file"
-#~ msgstr "Dosya"
-
-#~ msgid "Custom Field Suite"
-#~ msgstr "Özel Alanlar"
-
-#~ msgid "Documentation"
-#~ msgstr "Dökümantasyon"
-
-#~ msgid "Homepage"
-#~ msgstr "Anasayfa"
-
-#~ msgid "Please install %s to use this feature."
-#~ msgstr "Gravity Özelliğini aktif edin."
-
-#~ msgid "Post Content"
-#~ msgstr "Yazı İçeriği"
-
-#~ msgid "Post Title"
-#~ msgstr "Yazı Başlığı"
-
+#  msgid "Use This File"
+#  msgstr "Dosyayı Kullan"
+#  msgid "Add New"
+#  msgstr "Yeni Özel Alan Ekle"
+#  msgid "Add-ons"
+#  msgstr "Eklentiler"
+#  msgid "Post IDs"
+#  msgstr "Yazı IDs"
+#  msgid "Gravity Forms"
+#  msgstr "Form Alanı"
+#  msgid "Your Gravity Form and CFS field labels must match exactly"
+#  msgstr ""
+#  "Kullanmış olduğunuz iletişim formu (Gravity) ile CFS alan etiketleri
+#  tam "
+#  "olarak eşleşmelidir"
+#  msgid "Learn more"
+#  msgstr "Daha fazla bilgi"
+#  msgid "Attach file"
+#  msgstr "Dosya"
+#  msgid "Custom Field Suite"
+#  msgstr "Özel Alanlar"
+#  msgid "Documentation"
+#  msgstr "Dökümantasyon"
+#  msgid "Homepage"
+#  msgstr "Anasayfa"
+#  msgid "Please install %s to use this feature."
+#  msgstr "Gravity Özelliğini aktif edin."
+#  msgid "Post Content"
+#  msgstr "Yazı İçeriği"
+#  msgid "Post Title"
+#  msgstr "Yazı Başlığı"
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
 msgstr "İçerik düzenleyiciyi gizle (Gutenberg / blok düzenleyici içerik alanı için geçerli değildir)"
 
@@ -540,3 +525,87 @@ msgstr "Custom Field Suite"
 
 msgid "CFS Tools"
 msgstr "CFS Araçları"
+
+#: ../includes/fields/phone.php:8
+msgid "Phone"
+msgstr "Phone"
+
+#: ../includes/fields/email.php:8
+msgid "Email Address"
+msgstr "Email Address"
+
+#: ../includes/fields/number.php:8
+msgid "Number"
+msgstr "Number"
+
+#: ../includes/fields/number.php:40
+msgid "Number Settings"
+msgstr "Number Settings"
+
+#: ../includes/fields/time.php:8
+msgid "Time"
+msgstr "Time"
+
+#: ../includes/fields/time.php:54
+msgid "Minute Interval"
+msgstr "Minute Interval"
+
+#: ../includes/fields/time.php:64
+msgid "1 minute"
+msgstr "1 minute"
+
+#: ../includes/fields/time.php:65
+msgid "5 minutes"
+msgstr "5 minutes"
+
+#: ../includes/fields/time.php:66
+msgid "10 minutes"
+msgstr "10 minutes"
+
+#: ../includes/fields/time.php:67
+msgid "15 minutes"
+msgstr "15 minutes"
+
+#: ../includes/fields/time.php:68
+msgid "30 minutes"
+msgstr "30 minutes"
+
+#: ../includes/fields/group.php:8
+msgid "Horizontal Group"
+msgstr "Horizontal Group"
+
+#: ../includes/fields/group.php:68
+msgid "Columns"
+msgstr "Columns"
+
+#: ../includes/fields/group.php:77
+msgid "Auto"
+msgstr "Auto"
+
+#: ../includes/fields/group.php:78
+msgid "2 columns"
+msgstr "2 columns"
+
+#: ../includes/fields/group.php:79
+msgid "3 columns"
+msgstr "3 columns"
+
+#: ../includes/fields/group.php:80
+msgid "4 columns"
+msgstr "4 columns"
+
+#: ../templates/field_html.php:84
+msgid "Add new field below"
+msgstr "Add new field below"
+
+msgid "CFS Field Groups"
+msgstr "CFS Field Groups"
+
+msgid "CFS Field Group: %s"
+msgstr "CFS Field Group: %s"
+
+msgid "Displays a CFS field group."
+msgstr "Displays a CFS field group."
+
+msgid "No fields in this group."
+msgstr "No fields in this group."

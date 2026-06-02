@@ -1,5 +1,3 @@
-# Copyright (C) 2013 
-# This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
@@ -346,13 +344,8 @@ msgid "Name"
 msgstr "Nom"
 
 #: ../templates/field_html.php:42
-msgid ""
-"The field name is passed into get() to retrieve values. Use only lowercase "
-"letters, numbers, and underscores."
-msgstr ""
-"Le nom du champ qui sera passé dans get() afin de récupérer ses valeurs. "
-"Seules les lettres minuscules, les chiffres ou le caractère de soulignement "
-"sont autorisés."
+msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
+msgstr "Le nom du champ qui sera passé dans get() afin de récupérer ses valeurs. Seules les lettres minuscules, les chiffres ou le caractère de soulignement sont autorisés."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
@@ -384,8 +377,7 @@ msgstr "Ordre"
 
 #: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
-msgstr ""
-"Le groupe de champ possédant l'ordre le plus faible sera affiché en premier."
+msgstr "Le groupe de champ possédant l'ordre le plus faible sera affiché en premier."
 
 #: ../templates/meta_box_extras.php:45
 msgid "Position"
@@ -445,78 +437,56 @@ msgstr "Remettre à zéro et désactiver."
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
-msgstr ""
-"Toutes les données de CFS seront supprimées et le plugin sera désactivé."
+msgstr "Toutes les données de CFS seront supprimées et le plugin sera désactivé."
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "Supprimer tout"
 
-#~ msgid "Use This File"
-#~ msgstr "Utiliser ce fichier"
-
-#~ msgid "Add New"
-#~ msgstr "Ajouter un nouveau"
-
-#~ msgid "Add-ons"
-#~ msgstr "Add-ons"
-
-#~ msgid "Post IDs"
-#~ msgstr "IDs des articles"
-
-#~ msgid "Gravity Forms"
-#~ msgstr "Gravity Forms"
-
-#~ msgid "Your Gravity Form and CFS field labels must match exactly"
-#~ msgstr ""
-#~ "Les champs de Gravity Forms et Custom Field Suite doivent correspondre "
-#~ "parfaitement"
-
-#~ msgid "Learn more"
-#~ msgstr "En savoir plus"
-
-#~ msgid "Which field groups would you like to export?"
-#~ msgstr "Quels groupes de champs souhaitez-vous exporter?"
-
-#~ msgid "Paste the import code below."
-#~ msgstr "Veuillez coller le code d'import ci-dessous."
-
-#~ msgid "Please install %s to use this feature."
-#~ msgstr "Veuillez installer %s pour utiliser cette fonctionnalité"
-
-#~ msgid "Debug"
-#~ msgstr "Débuggage"
-
-#~ msgid "Debug information"
-#~ msgstr "Informations de débuggage"
-
-#~ msgid "Custom Field Suite"
-#~ msgstr "Custom Field Suite"
-
-#~ msgid "Homepage"
-#~ msgstr "Page d'accueil"
-
-#~ msgid "User Guide"
-#~ msgstr "Guide utilisateur"
-
-#~ msgid "Changelog"
-#~ msgstr "Notes de version"
-
-#~ msgid "Donate"
-#~ msgstr "Faire un don"
-
-#~ msgid "Rate the plugin"
-#~ msgstr "Noter le plugin"
-
-#~ msgid "Content Editor"
-#~ msgstr "Éditeur visuel (WYSIWYG)"
-
-#~ msgid "Please install"
-#~ msgstr "Veuillez installer"
-
-#~ msgid "Attach file"
-#~ msgstr "Attacher le fichier"
-
+#  msgid "Use This File"
+#  msgstr "Utiliser ce fichier"
+#  msgid "Add New"
+#  msgstr "Ajouter un nouveau"
+#  msgid "Add-ons"
+#  msgstr "Add-ons"
+#  msgid "Post IDs"
+#  msgstr "IDs des articles"
+#  msgid "Gravity Forms"
+#  msgstr "Gravity Forms"
+#  msgid "Your Gravity Form and CFS field labels must match exactly"
+#  msgstr ""
+#  "Les champs de Gravity Forms et Custom Field Suite doivent correspondre "
+#  "parfaitement"
+#  msgid "Learn more"
+#  msgstr "En savoir plus"
+#  msgid "Which field groups would you like to export?"
+#  msgstr "Quels groupes de champs souhaitez-vous exporter?"
+#  msgid "Paste the import code below."
+#  msgstr "Veuillez coller le code d'import ci-dessous."
+#  msgid "Please install %s to use this feature."
+#  msgstr "Veuillez installer %s pour utiliser cette fonctionnalité"
+#  msgid "Debug"
+#  msgstr "Débuggage"
+#  msgid "Debug information"
+#  msgstr "Informations de débuggage"
+#  msgid "Custom Field Suite"
+#  msgstr "Custom Field Suite"
+#  msgid "Homepage"
+#  msgstr "Page d'accueil"
+#  msgid "User Guide"
+#  msgstr "Guide utilisateur"
+#  msgid "Changelog"
+#  msgstr "Notes de version"
+#  msgid "Donate"
+#  msgstr "Faire un don"
+#  msgid "Rate the plugin"
+#  msgstr "Noter le plugin"
+#  msgid "Content Editor"
+#  msgstr "Éditeur visuel (WYSIWYG)"
+#  msgid "Please install"
+#  msgstr "Veuillez installer"
+#  msgid "Attach file"
+#  msgstr "Attacher le fichier"
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
 msgstr "Masquer l’éditeur de contenu (ne s’applique pas à la zone de contenu Gutenberg / éditeur de blocs)"
 
@@ -570,3 +540,87 @@ msgstr "Custom Field Suite"
 
 msgid "CFS Tools"
 msgstr "Outils CFS"
+
+#: ../includes/fields/phone.php:8
+msgid "Phone"
+msgstr "Phone"
+
+#: ../includes/fields/email.php:8
+msgid "Email Address"
+msgstr "Email Address"
+
+#: ../includes/fields/number.php:8
+msgid "Number"
+msgstr "Number"
+
+#: ../includes/fields/number.php:40
+msgid "Number Settings"
+msgstr "Number Settings"
+
+#: ../includes/fields/time.php:8
+msgid "Time"
+msgstr "Time"
+
+#: ../includes/fields/time.php:54
+msgid "Minute Interval"
+msgstr "Minute Interval"
+
+#: ../includes/fields/time.php:64
+msgid "1 minute"
+msgstr "1 minute"
+
+#: ../includes/fields/time.php:65
+msgid "5 minutes"
+msgstr "5 minutes"
+
+#: ../includes/fields/time.php:66
+msgid "10 minutes"
+msgstr "10 minutes"
+
+#: ../includes/fields/time.php:67
+msgid "15 minutes"
+msgstr "15 minutes"
+
+#: ../includes/fields/time.php:68
+msgid "30 minutes"
+msgstr "30 minutes"
+
+#: ../includes/fields/group.php:8
+msgid "Horizontal Group"
+msgstr "Horizontal Group"
+
+#: ../includes/fields/group.php:68
+msgid "Columns"
+msgstr "Columns"
+
+#: ../includes/fields/group.php:77
+msgid "Auto"
+msgstr "Auto"
+
+#: ../includes/fields/group.php:78
+msgid "2 columns"
+msgstr "2 columns"
+
+#: ../includes/fields/group.php:79
+msgid "3 columns"
+msgstr "3 columns"
+
+#: ../includes/fields/group.php:80
+msgid "4 columns"
+msgstr "4 columns"
+
+#: ../templates/field_html.php:84
+msgid "Add new field below"
+msgstr "Add new field below"
+
+msgid "CFS Field Groups"
+msgstr "CFS Field Groups"
+
+msgid "CFS Field Group: %s"
+msgstr "CFS Field Group: %s"
+
+msgid "Displays a CFS field group."
+msgstr "Displays a CFS field group."
+
+msgid "No fields in this group."
+msgstr "No fields in this group."

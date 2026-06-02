@@ -81,6 +81,7 @@
                         <input type="hidden" name="cfs[fields][<?php echo absint( $field->weight ); ?>][parent_id]" class="parent_id" value="<?php echo absint( $field->parent_id ); ?>" />
                         <input type="button" value="<?php _e( 'Close', 'cfs' ); ?>" class="button-secondary cfs_edit_field" />
                         &nbsp; -<?php _e( 'or', 'cfs' ); ?>- &nbsp; <span class="cfs_delete_field"><?php _e( 'delete', 'cfs' ); ?></span>
+                        &nbsp; -<?php _e( 'or', 'cfs' ); ?>- &nbsp; <span class="cfs_add_field_below"><?php _e( 'Add new field below', 'cfs' ); ?></span>
                     </td>
                 </tr>
             </tbody>

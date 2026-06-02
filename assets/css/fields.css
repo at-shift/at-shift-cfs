@@ -187,7 +187,10 @@
 
 .field_form select,
 .field_form textarea,
-.field_form input[type="text"] {
+.field_form input[type="text"],
+.field_form input[type="email"],
+.field_form input[type="number"],
+.field_form input[type="url"] {
     width: 99.95%;
     margin-top: 10px;
 }
@@ -215,6 +218,16 @@ span.cfs_delete_field:hover {
     text-decoration: none;
     background: red;
     color: #fff;
+}
+
+span.cfs_add_field_below {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #2271b1;
+}
+
+span.cfs_add_field_below:hover {
+    text-decoration: none;
 }
 
 /*---------------------------------------------------------------------------------------------

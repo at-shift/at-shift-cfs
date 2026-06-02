@@ -92,6 +92,11 @@ class cfs_init
         // support custom field types
         $field_types = apply_filters( 'cfs_field_types', [
             'text'          => CFS_DIR . '/includes/fields/text.php',
+            'phone'         => CFS_DIR . '/includes/fields/phone.php',
+            'email'         => CFS_DIR . '/includes/fields/email.php',
+            'number'        => CFS_DIR . '/includes/fields/number.php',
+            'url'           => CFS_DIR . '/includes/fields/url.php',
+            'time'          => CFS_DIR . '/includes/fields/time.php',
             'textarea'      => CFS_DIR . '/includes/fields/textarea.php',
             'wysiwyg'       => CFS_DIR . '/includes/fields/wysiwyg.php',
             'hyperlink'     => CFS_DIR . '/includes/fields/hyperlink.php',
@@ -107,6 +112,7 @@ class cfs_init
             'file'          => CFS_DIR . '/includes/fields/file.php',
             'loop'          => CFS_DIR . '/includes/fields/loop.php',
             'tab'           => CFS_DIR . '/includes/fields/tab.php',
+            'group'         => CFS_DIR . '/includes/fields/group.php',
         ] );
 
         foreach ( $field_types as $type => $path ) {

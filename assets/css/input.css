@@ -18,6 +18,10 @@
 }
 
 .cfs_input .field input[type="text"],
+.cfs_input .field input[type="email"],
+.cfs_input .field input[type="number"],
+.cfs_input .field input[type="url"],
+.cfs_input .field input[type="tel"],
 .cfs_input .field textarea,
 .cfs_input .field select {
     width: 99.8%;
@@ -79,6 +83,55 @@
 
 .cfs_select .select2 {
     width: 99.95%;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Time
+---------------------------------------------------------------------------------------------*/
+
+.cfs_input .field .cfs_time select {
+    width: auto;
+    min-width: 70px;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Group
+---------------------------------------------------------------------------------------------*/
+
+.cfs_input .field .cfs_group .cfs-group-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+}
+
+.cfs_input .field .cfs_group .cfs-group-fields > .field {
+    box-sizing: border-box;
+    flex: 1 1 220px;
+    min-width: 0;
+    padding: 0;
+    border: none;
+}
+
+.cfs_input .field .cfs_group .cfs-group-columns-2 > .field {
+    flex-basis: calc((100% - 16px) / 2);
+}
+
+.cfs_input .field .cfs_group .cfs-group-columns-3 > .field {
+    flex-basis: calc((100% - 32px) / 3);
+}
+
+.cfs_input .field .cfs_group .cfs-group-columns-4 > .field {
+    flex-basis: calc((100% - 48px) / 4);
+}
+
+.cfs_input .field .cfs_group .cfs-group-fields > .field:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .cfs_input .field .cfs_group .cfs-group-fields > .field {
+        flex-basis: 100%;
+    }
 }
 
 /*---------------------------------------------------------------------------------------------

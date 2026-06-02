@@ -42,7 +42,7 @@ foreach ( $results as $field ) {
         }
     }
 
-    echo ( 'loop' == $field->type ) ? '<li class="loop">' : '<li>';
+    echo in_array( $field->type, [ 'loop', 'group' ], true ) ? '<li class="loop">' : '<li>';
 
     CFS()->field_html( $field );
 }

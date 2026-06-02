@@ -1,4 +1,3 @@
-# This file is distributed under the same license as the Custom Field Suite package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
@@ -343,9 +342,7 @@ msgid "Name"
 msgstr "名称"
 
 #: ../templates/field_html.php:42
-msgid ""
-"The field name is passed into get() to retrieve values. Use only lowercase "
-"letters, numbers, and underscores."
+msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
 msgstr "使用 get() 获取字段值.字段名称只能使用小写字母,数字和下划线."
 
 #: ../templates/field_html.php:49
@@ -444,27 +441,20 @@ msgstr "删除CFS所有数据,并停用插件."
 msgid "Delete everything"
 msgstr "删除一切"
 
-#~ msgid "Use This File"
-#~ msgstr "使用此文件"
-
-#~ msgid "Add New"
-#~ msgstr "新建"
-
-#~ msgid "Add-ons"
-#~ msgstr "附加组件"
-
-#~ msgid "Post IDs"
-#~ msgstr "文章 ID"
-
-#~ msgid "Gravity Forms"
-#~ msgstr "重力形态"
-
-#~ msgid "Your Gravity Form and CFS field labels must match exactly"
-#~ msgstr "Your Gravity Form and CFS field labels must match exactly"
-
-#~ msgid "Learn more"
-#~ msgstr "了解更多"
-
+#  msgid "Use This File"
+#  msgstr "使用此文件"
+#  msgid "Add New"
+#  msgstr "新建"
+#  msgid "Add-ons"
+#  msgstr "附加组件"
+#  msgid "Post IDs"
+#  msgstr "文章 ID"
+#  msgid "Gravity Forms"
+#  msgstr "重力形态"
+#  msgid "Your Gravity Form and CFS field labels must match exactly"
+#  msgstr "Your Gravity Form and CFS field labels must match exactly"
+#  msgid "Learn more"
+#  msgstr "了解更多"
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
 msgstr "隐藏内容编辑器（不适用于 Gutenberg / 区块编辑器的内容区域）"
 
@@ -518,3 +508,87 @@ msgstr "Custom Field Suite"
 
 msgid "CFS Tools"
 msgstr "CFS 工具"
+
+#: ../includes/fields/phone.php:8
+msgid "Phone"
+msgstr "Phone"
+
+#: ../includes/fields/email.php:8
+msgid "Email Address"
+msgstr "Email Address"
+
+#: ../includes/fields/number.php:8
+msgid "Number"
+msgstr "Number"
+
+#: ../includes/fields/number.php:40
+msgid "Number Settings"
+msgstr "Number Settings"
+
+#: ../includes/fields/time.php:8
+msgid "Time"
+msgstr "Time"
+
+#: ../includes/fields/time.php:54
+msgid "Minute Interval"
+msgstr "Minute Interval"
+
+#: ../includes/fields/time.php:64
+msgid "1 minute"
+msgstr "1 minute"
+
+#: ../includes/fields/time.php:65
+msgid "5 minutes"
+msgstr "5 minutes"
+
+#: ../includes/fields/time.php:66
+msgid "10 minutes"
+msgstr "10 minutes"
+
+#: ../includes/fields/time.php:67
+msgid "15 minutes"
+msgstr "15 minutes"
+
+#: ../includes/fields/time.php:68
+msgid "30 minutes"
+msgstr "30 minutes"
+
+#: ../includes/fields/group.php:8
+msgid "Horizontal Group"
+msgstr "Horizontal Group"
+
+#: ../includes/fields/group.php:68
+msgid "Columns"
+msgstr "Columns"
+
+#: ../includes/fields/group.php:77
+msgid "Auto"
+msgstr "Auto"
+
+#: ../includes/fields/group.php:78
+msgid "2 columns"
+msgstr "2 columns"
+
+#: ../includes/fields/group.php:79
+msgid "3 columns"
+msgstr "3 columns"
+
+#: ../includes/fields/group.php:80
+msgid "4 columns"
+msgstr "4 columns"
+
+#: ../templates/field_html.php:84
+msgid "Add new field below"
+msgstr "Add new field below"
+
+msgid "CFS Field Groups"
+msgstr "CFS Field Groups"
+
+msgid "CFS Field Group: %s"
+msgstr "CFS Field Group: %s"
+
+msgid "Displays a CFS field group."
+msgstr "Displays a CFS field group."
+
+msgid "No fields in this group."
+msgstr "No fields in this group."

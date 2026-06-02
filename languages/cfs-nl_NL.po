@@ -1,4 +1,3 @@
-# This file is distributed under the same license as the Custom Field Suite package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
@@ -343,12 +342,8 @@ msgid "Name"
 msgstr "Naam"
 
 #: ../templates/field_html.php:42
-msgid ""
-"The field name is passed into get() to retrieve values. Use only lowercase "
-"letters, numbers, and underscores."
-msgstr ""
-"De veldnaam wordt doorgegeven naar get() om waarden op te halen. Gebruik "
-"alleen kleinte letters, en liggende streepjes."
+msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
+msgstr "De veldnaam wordt doorgegeven naar get() om waarden op te halen. Gebruik alleen kleinte letters, en liggende streepjes."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
@@ -446,27 +441,20 @@ msgstr "Dit zal alle CFS gegevens verwijderen en de plug-in deactiveren."
 msgid "Delete everything"
 msgstr "Verwijder alles"
 
-#~ msgid "Use This File"
-#~ msgstr "Gebruik dit bestand"
-
-#~ msgid "Add New"
-#~ msgstr "Voeg nieuwe toe"
-
-#~ msgid "Add-ons"
-#~ msgstr "Add-ons"
-
-#~ msgid "Post IDs"
-#~ msgstr "Post IDs"
-
-#~ msgid "Gravity Forms"
-#~ msgstr "Gravity Forms"
-
-#~ msgid "Your Gravity Form and CFS field labels must match exactly"
-#~ msgstr "Uw Gravity Forms en CFS veldlabels moeten precies overeenkomen"
-
-#~ msgid "Learn more"
-#~ msgstr "Lees er meer over"
-
+#  msgid "Use This File"
+#  msgstr "Gebruik dit bestand"
+#  msgid "Add New"
+#  msgstr "Voeg nieuwe toe"
+#  msgid "Add-ons"
+#  msgstr "Add-ons"
+#  msgid "Post IDs"
+#  msgstr "Post IDs"
+#  msgid "Gravity Forms"
+#  msgstr "Gravity Forms"
+#  msgid "Your Gravity Form and CFS field labels must match exactly"
+#  msgstr "Uw Gravity Forms en CFS veldlabels moeten precies overeenkomen"
+#  msgid "Learn more"
+#  msgstr "Lees er meer over"
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
 msgstr "Verberg de inhoudseditor (geldt niet voor het inhoudsgebied van Gutenberg / blok-editor)"
 
@@ -520,3 +508,87 @@ msgstr "Custom Field Suite"
 
 msgid "CFS Tools"
 msgstr "CFS-gereedschappen"
+
+#: ../includes/fields/phone.php:8
+msgid "Phone"
+msgstr "Phone"
+
+#: ../includes/fields/email.php:8
+msgid "Email Address"
+msgstr "Email Address"
+
+#: ../includes/fields/number.php:8
+msgid "Number"
+msgstr "Number"
+
+#: ../includes/fields/number.php:40
+msgid "Number Settings"
+msgstr "Number Settings"
+
+#: ../includes/fields/time.php:8
+msgid "Time"
+msgstr "Time"
+
+#: ../includes/fields/time.php:54
+msgid "Minute Interval"
+msgstr "Minute Interval"
+
+#: ../includes/fields/time.php:64
+msgid "1 minute"
+msgstr "1 minute"
+
+#: ../includes/fields/time.php:65
+msgid "5 minutes"
+msgstr "5 minutes"
+
+#: ../includes/fields/time.php:66
+msgid "10 minutes"
+msgstr "10 minutes"
+
+#: ../includes/fields/time.php:67
+msgid "15 minutes"
+msgstr "15 minutes"
+
+#: ../includes/fields/time.php:68
+msgid "30 minutes"
+msgstr "30 minutes"
+
+#: ../includes/fields/group.php:8
+msgid "Horizontal Group"
+msgstr "Horizontal Group"
+
+#: ../includes/fields/group.php:68
+msgid "Columns"
+msgstr "Columns"
+
+#: ../includes/fields/group.php:77
+msgid "Auto"
+msgstr "Auto"
+
+#: ../includes/fields/group.php:78
+msgid "2 columns"
+msgstr "2 columns"
+
+#: ../includes/fields/group.php:79
+msgid "3 columns"
+msgstr "3 columns"
+
+#: ../includes/fields/group.php:80
+msgid "4 columns"
+msgstr "4 columns"
+
+#: ../templates/field_html.php:84
+msgid "Add new field below"
+msgstr "Add new field below"
+
+msgid "CFS Field Groups"
+msgstr "CFS Field Groups"
+
+msgid "CFS Field Group: %s"
+msgstr "CFS Field Group: %s"
+
+msgid "Displays a CFS field group."
+msgstr "Displays a CFS field group."
+
+msgid "No fields in this group."
+msgstr "No fields in this group."
