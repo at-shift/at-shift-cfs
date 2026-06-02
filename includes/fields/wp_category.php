@@ -38,6 +38,7 @@ class cfs_wp_category extends cfs_field
 
         $auto_select_children = 0 < (int) $this->get_option( $field, 'auto_select_children' );
         $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents' );
+        $default_category = absint( get_option( 'default_category' ) );
     ?>
         <div class="cfs-wp-category-tools">
             <input type="search" class="cfs-wp-category-search" autocomplete="off" placeholder="<?php esc_attr_e( 'Search categories', 'cfs' ); ?>" />
@@ -47,13 +48,13 @@ class cfs_wp_category extends cfs_field
             </label>
         </div>
     <?php
-        echo '<div class="cfs-wp-category-list" data-auto-select-children="' . esc_attr( $auto_select_children ? '1' : '0' ) . '" data-auto-select-parents="' . esc_attr( $auto_select_parents ? '1' : '0' ) . '">';
-        $this->render_terms( $children, 0, $selected, $field->input_name );
+        echo '<div class="cfs-wp-category-list" data-auto-select-children="' . esc_attr( $auto_select_children ? '1' : '0' ) . '" data-auto-select-parents="' . esc_attr( $auto_select_parents ? '1' : '0' ) . '" data-default-category="' . esc_attr( $default_category ) . '">';
+        $this->render_terms( $children, 0, $selected, $field->input_name, $default_category );
         echo '</div>';
     }
 
 
-    private function render_terms( $children, $parent_id, $selected, $input_name ) {
+    private function render_terms( $children, $parent_id, $selected, $input_name, $default_category ) {
         if ( empty( $children[ $parent_id ] ) ) {
             return;
         }
@@ -71,13 +72,16 @@ class cfs_wp_category extends cfs_field
             if ( $has_children ) {
                 $classes[] = 'has-children';
             }
+            if ( $default_category === $term_id ) {
+                $classes[] = 'is-default-category';
+            }
 
             echo '<li class="' . esc_attr( implode( ' ', $classes ) ) . '" data-term-name="' . esc_attr( strtolower( $term->name ) ) . '">';
             echo '<label>';
             echo '<input type="checkbox" name="' . esc_attr( $input_name ) . '[]" value="' . absint( $term_id ) . '"' . checked( $is_selected, true, false ) . ' /> ';
             echo esc_html( $term->name );
             echo '</label>';
-            $this->render_terms( $children, $term_id, $selected, $input_name );
+            $this->render_terms( $children, $term_id, $selected, $input_name, $default_category );
             echo '</li>';
         }
         echo '</ul>';
@@ -90,6 +94,12 @@ class cfs_wp_category extends cfs_field
 
         if ( 0 < $post_id && $taxonomy && current_user_can( 'edit_post', $post_id ) && current_user_can( $taxonomy->cap->assign_terms ) ) {
             $term_ids = array_values( array_filter( array_map( 'absint', (array) $value ) ) );
+            $default_category = absint( get_option( 'default_category' ) );
+
+            if ( 0 < $default_category && 1 < count( $term_ids ) ) {
+                $term_ids = array_values( array_diff( $term_ids, [ $default_category ] ) );
+            }
+
             wp_set_post_terms( $post_id, $term_ids, 'category', false );
         }
 
@@ -177,6 +187,18 @@ class cfs_wp_category extends cfs_field
 
                 if (checked && '1' === $list.attr('data-auto-select-parents')) {
                     $item.parents('.cfs-wp-category-item').children('label').find('input[type="checkbox"]').prop('checked', true);
+                }
+
+                if (checked) {
+                    var defaultCategory = $list.attr('data-default-category');
+                    var isDefaultCategory = defaultCategory && defaultCategory === $input.val();
+
+                    if (isDefaultCategory) {
+                        $list.find('input[type="checkbox"]').not($input).prop('checked', false);
+                    }
+                    else if (defaultCategory) {
+                        $list.find('input[type="checkbox"][value="' + defaultCategory + '"]').prop('checked', false);
+                    }
                 }
 
                 refreshCategoryState($list);
