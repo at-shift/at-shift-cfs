@@ -37,7 +37,7 @@ class cfs_wp_category extends cfs_field
         }
 
         $auto_select_children = 0 < (int) $this->get_option( $field, 'auto_select_children' );
-        $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents' );
+        $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents', 1 );
         $default_category = absint( get_option( 'default_category' ) );
     ?>
         <div class="cfs-wp-category-tools">
@@ -95,6 +95,11 @@ class cfs_wp_category extends cfs_field
         if ( 0 < $post_id && $taxonomy && current_user_can( 'edit_post', $post_id ) && current_user_can( $taxonomy->cap->assign_terms ) ) {
             $term_ids = array_values( array_filter( array_map( 'absint', (array) $value ) ) );
             $default_category = absint( get_option( 'default_category' ) );
+            $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents', 1 );
+
+            if ( $auto_select_parents ) {
+                $term_ids = $this->include_parent_terms( $term_ids );
+            }
 
             if ( 0 < $default_category && 1 < count( $term_ids ) ) {
                 $term_ids = array_values( array_diff( $term_ids, [ $default_category ] ) );
@@ -129,7 +134,7 @@ class cfs_wp_category extends cfs_field
                         'type' => 'true_false',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][auto_select_parents]',
                         'input_class' => 'true_false',
-                        'value' => $this->get_option( $field, 'auto_select_parents' ),
+                        'value' => $this->get_option( $field, 'auto_select_parents', 1 ),
                         'options' => [ 'message' => __( 'Selecting a child also selects its parent categories', 'cfs' ) ],
                     ] );
                 ?>
@@ -188,6 +193,16 @@ class cfs_wp_category extends cfs_field
                 if (checked && '1' === $list.attr('data-auto-select-parents')) {
                     $item.parents('.cfs-wp-category-item').children('label').find('input[type="checkbox"]').prop('checked', true);
                 }
+                else if (!checked && '1' === $list.attr('data-auto-select-parents')) {
+                    $item.parents('.cfs-wp-category-item').each(function() {
+                        var $parent = $(this);
+                        var hasCheckedChildren = $parent.children('ul').find('input[type="checkbox"]:checked').length > 0;
+
+                        if (!hasCheckedChildren) {
+                            $parent.children('label').find('input[type="checkbox"]').prop('checked', false);
+                        }
+                    });
+                }
 
                 if (checked) {
                     var defaultCategory = $list.attr('data-default-category');
@@ -217,5 +232,21 @@ class cfs_wp_category extends cfs_field
         })(jQuery);
         </script>
     <?php
+    }
+
+
+    private function include_parent_terms( $term_ids ) {
+        $term_ids = array_values( array_filter( array_map( 'absint', (array) $term_ids ) ) );
+        $expanded = $term_ids;
+
+        foreach ( $term_ids as $term_id ) {
+            $ancestors = get_ancestors( $term_id, 'category', 'taxonomy' );
+
+            if ( ! empty( $ancestors ) ) {
+                $expanded = array_merge( $expanded, array_map( 'absint', $ancestors ) );
+            }
+        }
+
+        return array_values( array_unique( array_filter( $expanded ) ) );
     }
 }
