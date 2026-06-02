@@ -592,3 +592,24 @@ msgstr ""
 
 msgid "No fields in this group."
 msgstr ""
+
+msgid "Post Categories"
+msgstr ""
+
+msgid "Post Tags"
+msgstr ""
+
+msgid "Featured Image"
+msgstr ""
+
+msgid "No categories found"
+msgstr ""
+
+msgid "Separate tags with commas"
+msgstr ""
+
+msgid "Select Image"
+msgstr ""
+
+msgid "Remove Image"
+msgstr ""

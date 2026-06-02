@@ -56,6 +56,42 @@ else {
 
         // Store field group IDs as an array for front-end forms
         CFS()->group_ids = array_keys( $field_groups );
+        $native_fields = CFS()->api->find_input_fields( [
+            'group_id' => CFS()->group_ids,
+            'field_type' => [ 'wp_category', 'wp_tag', 'featured_image' ],
+        ] );
+        $hide_native = [];
+
+        foreach ( $native_fields as $native_field ) {
+            $hide_native[ $native_field['type'] ] = true;
+        }
+
+        if ( ! empty( $hide_native ) ) {
+            if ( isset( $hide_native['wp_category'] ) ) {
+                remove_meta_box( 'categorydiv', $post->post_type, 'side' );
+            }
+            if ( isset( $hide_native['wp_tag'] ) ) {
+                remove_meta_box( 'tagsdiv-post_tag', $post->post_type, 'side' );
+            }
+            if ( isset( $hide_native['featured_image'] ) ) {
+                remove_meta_box( 'postimagediv', $post->post_type, 'side' );
+            }
+
+            $selectors = [];
+            if ( isset( $hide_native['wp_category'] ) ) {
+                $selectors[] = '#categorydiv';
+            }
+            if ( isset( $hide_native['wp_tag'] ) ) {
+                $selectors[] = '#tagsdiv-post_tag';
+            }
+            if ( isset( $hide_native['featured_image'] ) ) {
+                $selectors[] = '#postimagediv';
+            }
+
+            if ( ! empty( $selectors ) ) {
+                echo '<style type="text/css">' . esc_html( implode( ',', $selectors ) ) . '{display:none!important;}</style>';
+            }
+        }
 
         if (
             function_exists( 'use_block_editor_for_post' ) &&

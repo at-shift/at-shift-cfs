@@ -593,3 +593,24 @@ msgstr "CFSフィールドグループを表示します。"
 
 msgid "No fields in this group."
 msgstr "このグループにフィールドはありません。"
+
+msgid "Post Categories"
+msgstr "投稿カテゴリー"
+
+msgid "Post Tags"
+msgstr "投稿タグ"
+
+msgid "Featured Image"
+msgstr "アイキャッチ画像"
+
+msgid "No categories found"
+msgstr "カテゴリーが見つかりません"
+
+msgid "Separate tags with commas"
+msgstr "タグはカンマ区切りで入力してください"
+
+msgid "Select Image"
+msgstr "画像を選択"
+
+msgid "Remove Image"
+msgstr "画像を削除"

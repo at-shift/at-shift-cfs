@@ -609,3 +609,24 @@ msgstr "Displays a CFS field group."
 
 msgid "No fields in this group."
 msgstr "No fields in this group."
+
+msgid "Post Categories"
+msgstr "Post Categories"
+
+msgid "Post Tags"
+msgstr "Post Tags"
+
+msgid "Featured Image"
+msgstr "Featured Image"
+
+msgid "No categories found"
+msgstr "No categories found"
+
+msgid "Separate tags with commas"
+msgstr "Separate tags with commas"
+
+msgid "Select Image"
+msgstr "Select Image"
+
+msgid "Remove Image"
+msgstr "Remove Image"

@@ -40,4 +40,22 @@
             }
         });
     });
+
+    if (config.hidePanels && config.hidePanels.length && window.wp.data && window.wp.domReady) {
+        window.wp.domReady(function () {
+            var editor = window.wp.data.dispatch('core/editor');
+
+            if (!editor || 'function' !== typeof editor.removeEditorPanel) {
+                editor = window.wp.data.dispatch('core/edit-post');
+            }
+
+            if (!editor || 'function' !== typeof editor.removeEditorPanel) {
+                return;
+            }
+
+            config.hidePanels.forEach(function (panelName) {
+                editor.removeEditorPanel(panelName);
+            });
+        });
+    }
 })(window.wp.blocks, window.wp.element, window.wp.i18n);

@@ -117,6 +117,9 @@ class cfs_init
             'term'          => CFS_DIR . '/includes/fields/term.php',
             'user'          => CFS_DIR . '/includes/fields/user.php',
             'file'          => CFS_DIR . '/includes/fields/file.php',
+            'wp_category'   => CFS_DIR . '/includes/fields/wp_category.php',
+            'wp_tag'        => CFS_DIR . '/includes/fields/wp_tag.php',
+            'featured_image' => CFS_DIR . '/includes/fields/featured_image.php',
             'loop'          => CFS_DIR . '/includes/fields/loop.php',
             'tab'           => CFS_DIR . '/includes/fields/tab.php',
             'group'         => CFS_DIR . '/includes/fields/group.php',
@@ -224,6 +227,7 @@ class cfs_init
         $field_groups = CFS()->field_group->load_field_groups();
         $group_ids = array_keys( $field_groups );
         $groups = [];
+        $hide_panels = [];
 
         if ( $post instanceof WP_Post && 'cfs' !== $post->post_type ) {
             $matching_groups = CFS()->api->get_matching_groups( $post->ID );
@@ -238,6 +242,22 @@ class cfs_init
             $group = $field_groups[ $group_id ];
             $fields = isset( $group['fields'] ) && is_array( $group['fields'] ) ? $group['fields'] : [];
 
+            foreach ( $fields as $field ) {
+                if ( ! isset( $field['type'] ) ) {
+                    continue;
+                }
+
+                if ( 'wp_category' === $field['type'] ) {
+                    $hide_panels[] = 'taxonomy-panel-category';
+                }
+                elseif ( 'wp_tag' === $field['type'] ) {
+                    $hide_panels[] = 'taxonomy-panel-post_tag';
+                }
+                elseif ( 'featured_image' === $field['type'] ) {
+                    $hide_panels[] = 'featured-image';
+                }
+            }
+
             $groups[] = [
                 'id'         => absint( $group_id ),
                 'name'       => 'cfs/field-group-' . absint( $group_id ),
@@ -250,7 +270,7 @@ class cfs_init
         wp_enqueue_script(
             'cfs-block-editor',
             CFS_URL . '/assets/js/block-editor.js',
-            [ 'wp-blocks', 'wp-element', 'wp-i18n' ],
+            [ 'wp-blocks', 'wp-data', 'wp-dom-ready', 'wp-element', 'wp-i18n' ],
             CFS_VERSION,
             true
         );
@@ -264,6 +284,7 @@ class cfs_init
                 'fieldGroup'   => __( 'Field Group', 'cfs' ),
                 'fieldCount'   => __( 'Fields', 'cfs' ),
                 'noFields'     => __( 'No fields in this group.', 'cfs' ),
+                'hidePanels'   => array_values( array_unique( $hide_panels ) ),
             ] ) . ';',
             'before'
         );

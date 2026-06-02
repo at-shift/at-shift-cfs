@@ -592,3 +592,26 @@
     font-size: 22px;
     top: -2px;
 }
+
+.cfs-wp-category-list ul {
+    margin: 0 0 0 18px;
+}
+
+.cfs-wp-category-list > ul {
+    margin-left: 0;
+}
+
+.cfs-wp-category-list li {
+    list-style: none;
+    margin: 4px 0;
+}
+
+.cfs_featured_image .featured_image_preview {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.cfs_featured_image .featured_image_preview img {
+    max-width: 150px;
+    height: auto;
+}
