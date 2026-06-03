@@ -19,6 +19,12 @@ class cfs_wp_category extends cfs_field
         $post_id = $post instanceof WP_Post ? $post->ID : 0;
         $selected = 0 < $post_id ? wp_get_post_terms( $post_id, 'category', [ 'fields' => 'ids' ] ) : [];
         $selected = array_map( 'absint', is_array( $selected ) ? $selected : [] );
+        $default_category = absint( get_option( 'default_category' ) );
+
+        if ( empty( $selected ) && 0 < $default_category ) {
+            $selected = [ $default_category ];
+        }
+
         $terms = get_terms( [
             'taxonomy'   => 'category',
             'hide_empty' => false,
@@ -38,7 +44,6 @@ class cfs_wp_category extends cfs_field
 
         $auto_select_children = 0 < (int) $this->get_option( $field, 'auto_select_children' );
         $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents', 1 );
-        $default_category = absint( get_option( 'default_category' ) );
     ?>
         <div class="cfs-wp-category-tools">
             <input type="search" class="cfs-wp-category-search" autocomplete="off" placeholder="<?php esc_attr_e( 'Search categories', 'cfs' ); ?>" />
@@ -62,6 +67,7 @@ class cfs_wp_category extends cfs_field
         echo '<ul>';
         foreach ( $children[ $parent_id ] as $term ) {
             $term_id = (int) $term->term_id;
+            $term_name = $this->get_term_name( $term );
             $is_selected = in_array( $term_id, $selected, true );
             $has_children = ! empty( $children[ $term_id ] );
             $classes = [ 'cfs-wp-category-item' ];
@@ -76,15 +82,24 @@ class cfs_wp_category extends cfs_field
                 $classes[] = 'is-default-category';
             }
 
-            echo '<li class="' . esc_attr( implode( ' ', $classes ) ) . '" data-term-name="' . esc_attr( strtolower( $term->name ) ) . '">';
+            echo '<li class="' . esc_attr( implode( ' ', $classes ) ) . '" data-term-name="' . esc_attr( strtolower( $term_name ) ) . '">';
             echo '<label>';
             echo '<input type="checkbox" name="' . esc_attr( $input_name ) . '[]" value="' . absint( $term_id ) . '"' . checked( $is_selected, true, false ) . ' /> ';
-            echo esc_html( $term->name );
+            echo esc_html( $term_name );
             echo '</label>';
             $this->render_terms( $children, $term_id, $selected, $input_name, $default_category );
             echo '</li>';
         }
         echo '</ul>';
+    }
+
+
+    private function get_term_name( $term ) {
+        if ( 'Uncategorized' === $term->name ) {
+            return __( 'Uncategorized', 'cfs' );
+        }
+
+        return $term->name;
     }
 
 
@@ -96,6 +111,10 @@ class cfs_wp_category extends cfs_field
             $term_ids = array_values( array_filter( array_map( 'absint', (array) $value ) ) );
             $default_category = absint( get_option( 'default_category' ) );
             $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents', 1 );
+
+            if ( empty( $term_ids ) && 0 < $default_category ) {
+                $term_ids = [ $default_category ];
+            }
 
             if ( $auto_select_parents ) {
                 $term_ids = $this->include_parent_terms( $term_ids );
@@ -186,8 +205,11 @@ class cfs_wp_category extends cfs_field
                 var $list = $input.closest('.cfs-wp-category-list');
                 var checked = $input.prop('checked');
 
-                if ('1' === $list.attr('data-auto-select-children')) {
+                if (checked && '1' === $list.attr('data-auto-select-children')) {
                     $item.find('ul input[type="checkbox"]').prop('checked', checked);
+                }
+                else if (!checked) {
+                    $item.find('ul input[type="checkbox"]').prop('checked', false);
                 }
 
                 if (checked && '1' === $list.attr('data-auto-select-parents')) {
@@ -204,8 +226,9 @@ class cfs_wp_category extends cfs_field
                     });
                 }
 
+                var defaultCategory = $list.attr('data-default-category');
+
                 if (checked) {
-                    var defaultCategory = $list.attr('data-default-category');
                     var isDefaultCategory = defaultCategory && defaultCategory === $input.val();
 
                     if (isDefaultCategory) {
@@ -214,6 +237,9 @@ class cfs_wp_category extends cfs_field
                     else if (defaultCategory) {
                         $list.find('input[type="checkbox"][value="' + defaultCategory + '"]').prop('checked', false);
                     }
+                }
+                else if (defaultCategory && 0 === $list.find('input[type="checkbox"]:checked').length) {
+                    $list.find('input[type="checkbox"][value="' + defaultCategory + '"]').prop('checked', true);
                 }
 
                 refreshCategoryState($list);

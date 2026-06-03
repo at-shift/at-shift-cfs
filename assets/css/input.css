@@ -34,6 +34,18 @@
     display: block;
 }
 
+.cfs_input .field label .cfs-required-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 5px;
+    border-radius: 2px;
+    background: #d63638;
+    color: #fff;
+    font-size: 11px;
+    line-height: 1.5;
+    vertical-align: 1px;
+}
+
 .cfs_input .field p.notes {
     margin: 0 0 1em 0;
     color: #999;
@@ -62,6 +74,23 @@
     border: 1px solid #dcc6d7;
     border-left: 4px solid #dc3232;
     font-weight: bold;
+}
+
+.cfs_input .field.cfs-field-invalid {
+    box-shadow: inset 4px 0 0 #dc3232;
+}
+
+#cfs-validation-error-list {
+    margin: 0 0 8px 1.2em;
+    list-style: disc;
+}
+
+#cfs-validation-error-list li {
+    margin: 2px 0;
+}
+
+#cfs-validation-error-list a {
+    font-weight: 600;
 }
 
 .hidden {
@@ -104,6 +133,11 @@
     gap: 12px 16px;
 }
 
+.cfs_input .field[data-type="group"] > label {
+    font-size: 1.18em;
+    line-height: 1.35;
+}
+
 .cfs_input .field .cfs_group .cfs-group-fields > .field {
     box-sizing: border-box;
     flex: 1 1 220px;
@@ -124,8 +158,29 @@
     flex-basis: calc((100% - 48px) / 4);
 }
 
+.cfs_input .field .cfs_group .cfs-group-align-left {
+    justify-content: flex-start;
+}
+
+.cfs_input .field .cfs_group .cfs-group-align-left.cfs-group-columns-auto > .field {
+    flex: 0 1 240px;
+}
+
+.cfs_input .field .cfs_group .cfs-group-align-left.cfs-group-columns-2 > .field,
+.cfs_input .field .cfs_group .cfs-group-align-left.cfs-group-columns-3 > .field,
+.cfs_input .field .cfs_group .cfs-group-align-left.cfs-group-columns-4 > .field {
+    flex-grow: 0;
+}
+
 .cfs_input .field .cfs_group .cfs-group-fields > .field:last-child {
     border-bottom: none;
+}
+
+.cfs_input .field .cfs_group .cfs-group-warning {
+    border-left: 4px solid #d63638;
+    color: #1d2327;
+    padding: 8px 10px;
+    background: #fff8e5;
 }
 
 @media (max-width: 600px) {

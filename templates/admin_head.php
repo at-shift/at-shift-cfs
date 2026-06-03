@@ -42,6 +42,14 @@ if ( 'cfs' == $screen->post_type ) {
         'before'
     );
 
+    wp_add_inline_script(
+        'cfs-fields',
+        'CFS.messages = ' . wp_json_encode( [
+            'disallowed_group_child' => __( 'Tabs, loops, and horizontal groups cannot be placed inside a horizontal group.', 'cfs' ),
+        ] ) . ';',
+        'before'
+    );
+
 }
 
 /*---------------------------------------------------------------------------------------------

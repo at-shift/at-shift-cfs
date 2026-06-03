@@ -34,6 +34,10 @@ msgstr "バリデーション"
 msgid "This is a required field"
 msgstr "入力必須フィールド"
 
+#: ../includes/form.php:266 ../includes/fields/group.php:147
+msgid "Required"
+msgstr "必須"
+
 #: ../includes/field_group.php:112
 msgid "Imported"
 msgstr "インポート完了しました"
@@ -161,6 +165,10 @@ msgstr "表示される投稿タイプを限定"
 #: ../includes/fields/select.php:8
 msgid "Select"
 msgstr "セレクト（ドロップダウンリスト）"
+
+#: ../includes/fields/select.php:43
+msgid "Please select..."
+msgstr "選択してください..."
 
 #: ../includes/fields/select.php:86
 msgid "Choices"
@@ -512,7 +520,7 @@ msgstr "CFS ツール"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
-msgstr "電話"
+msgstr "電話番号"
 
 #: ../includes/fields/email.php:8
 msgid "Email Address"
@@ -578,6 +586,18 @@ msgstr "3カラム"
 msgid "4 columns"
 msgstr "4カラム"
 
+#: ../includes/fields/group.php:92
+msgid "Alignment"
+msgstr "配置"
+
+#: ../includes/fields/group.php:101
+msgid "Evenly distributed"
+msgstr "均等配置"
+
+#: ../includes/fields/group.php:102
+msgid "Left aligned"
+msgstr "左寄せ"
+
 #: ../templates/field_html.php:84
 msgid "Add new field below"
 msgstr "この下に新規フィールドを追加"
@@ -595,16 +615,19 @@ msgid "No fields in this group."
 msgstr "このグループにフィールドはありません。"
 
 msgid "Post Categories"
-msgstr "投稿カテゴリー"
+msgstr "投稿カテゴリー（標準）"
 
 msgid "Post Tags"
-msgstr "投稿タグ"
+msgstr "投稿タグ（標準）"
 
 msgid "Featured Image"
-msgstr "アイキャッチ画像"
+msgstr "アイキャッチ画像（標準）"
 
 msgid "No categories found"
 msgstr "カテゴリーが見つかりません"
+
+msgid "Uncategorized"
+msgstr "未分類"
 
 msgid "Separate tags with commas"
 msgstr "タグはカンマ区切りで入力してください"
@@ -629,3 +652,27 @@ msgstr "親を選択したとき子カテゴリーもすべて選択する"
 
 msgid "Selecting a child also selects its parent categories"
 msgstr "子を選択したとき親カテゴリーも選択する"
+
+msgid "CFS placement warning:"
+msgstr "CFS配置の警告:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "このフィールドグループには配置ルールがありません。編集可能なすべての投稿画面に一致する可能性があるため、意図していない場合は投稿タイプなどの配置ルールを設定してください。"
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "保存しましたが、このフィールドグループには配置ルールがありません。編集可能なすべての投稿画面に一致する可能性があるため、意図していない場合は投稿タイプなどの配置ルールを設定してください。"
+
+msgid "No placement rules"
+msgstr "配置ルールなし"
+
+msgid "This field group can match every editable post screen."
+msgstr "このフィールドグループは編集可能なすべての投稿画面に一致する可能性があります。"
+
+msgid "Latest version %s has been released on GitHub."
+msgstr "最新版 %s がGitHubにリリースされました。"
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "横並びグループには複数のフィールドを登録してください。"
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "タブ、ループ、横並びグループは、横並びグループの中には配置できません。"

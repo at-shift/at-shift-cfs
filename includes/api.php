@@ -261,6 +261,24 @@ class cfs_api
     }
 
 
+    private function flatten_scalar_values( $values ) {
+        $output = [];
+
+        foreach ( (array) $values as $value ) {
+            if ( is_array( $value ) ) {
+                $output = array_merge( $output, $this->flatten_scalar_values( $value ) );
+                continue;
+            }
+
+            if ( is_scalar( $value ) ) {
+                $output[] = (string) $value;
+            }
+        }
+
+        return $output;
+    }
+
+
     private function prepare_in_clause( $column, $values, $placeholder ) {
         global $wpdb;
 
@@ -723,8 +741,10 @@ class cfs_api
                         $value = $wpdb->get_col( $wpdb->prepare( $sql, $post_id ) );
                     }
 
-                    $operator = (array) $rules[ $rule_type ]['operator'];
-                    $in_array = ( 0 < count( array_intersect( (array) $value, $rules[ $rule_type ]['values'] ) ) );
+                    $operator = isset( $rules[ $rule_type ]['operator'] ) ? (array) $rules[ $rule_type ]['operator'] : [ '==' ];
+                    $rule_values = isset( $rules[ $rule_type ]['values'] ) ? $this->flatten_scalar_values( $rules[ $rule_type ]['values'] ) : [];
+                    $current_values = $this->flatten_scalar_values( $value );
+                    $in_array = ( 0 < count( array_intersect( $current_values, $rule_values ) ) );
 
                     if ( ( $in_array && '!=' == $operator[0] ) || ( ! $in_array && '==' == $operator[0] ) ) {
                         $fail = true;

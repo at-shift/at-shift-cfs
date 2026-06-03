@@ -17,14 +17,19 @@ class cfs_group extends cfs_field
             'parent_id' => $field->id,
         ] );
 
-        if ( empty( $children ) ) {
-            return;
+        if ( 2 > count( $children ) ) {
+            ?>
+            <div class="cfs-group-warning">
+                <?php esc_html_e( 'Add two or more fields to this horizontal group.', 'cfs' ); ?>
+            </div>
+            <?php
         }
 
         $values = CFS()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
         $columns = $this->get_columns( $this->get_option( $field, 'columns', 'auto' ) );
+        $alignment = $this->get_alignment( $this->get_option( $field, 'alignment', 'stretch' ) );
     ?>
-        <div class="cfs-group-fields cfs-group-columns-<?php echo esc_attr( $columns ); ?>">
+        <div class="cfs-group-fields cfs-group-columns-<?php echo esc_attr( $columns ); ?> cfs-group-align-<?php echo esc_attr( $alignment ); ?>">
             <?php foreach ( $children as $child ) : ?>
                 <?php
                 if ( ! isset( CFS()->fields[ $child->type ] ) ) {
@@ -44,7 +49,7 @@ class cfs_group extends cfs_field
                 ?>
                 <div class="field field-<?php echo esc_attr( $child->name ); ?>" data-type="<?php echo esc_attr( $child->type ); ?>" data-name="<?php echo esc_attr( $child->name ); ?>">
                     <?php if ( ! empty( $child->label ) ) : ?>
-                    <label><?php echo esc_html( $child->label ); ?></label>
+                    <label><?php echo esc_html( $child->label ); ?><?php echo $this->is_required_child( $child ) ? $this->required_badge() : ''; ?></label>
                     <?php endif; ?>
 
                     <?php if ( ! empty( $child->notes ) ) : ?>
@@ -86,6 +91,27 @@ class cfs_group extends cfs_field
                 ?>
             </td>
         </tr>
+        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
+            <td class="label">
+                <label><?php _e( 'Alignment', 'cfs' ); ?></label>
+            </td>
+            <td>
+                <?php
+                    CFS()->create_field( [
+                        'type' => 'select',
+                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][alignment]',
+                        'options' => [
+                            'choices' => [
+                                'stretch' => __( 'Evenly distributed', 'cfs' ),
+                                'left' => __( 'Left aligned', 'cfs' ),
+                            ],
+                            'force_single' => true,
+                        ],
+                        'value' => $this->get_option( $field, 'alignment', 'stretch' ),
+                    ] );
+                ?>
+            </td>
+        </tr>
     <?php
     }
 
@@ -94,5 +120,28 @@ class cfs_group extends cfs_field
         $value = (string) $value;
 
         return in_array( $value, [ '2', '3', '4' ], true ) ? $value : 'auto';
+    }
+
+
+    private function get_alignment( $value ) {
+        return 'left' === $value ? 'left' : 'stretch';
+    }
+
+
+    private function is_required_child( $field ) {
+        if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
+            return true;
+        }
+
+        if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop' ], true ) ) {
+            return ! empty( $field->options['limit_min'] ) && 0 < (int) $field->options['limit_min'];
+        }
+
+        return false;
+    }
+
+
+    private function required_badge() {
+        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'cfs' ) . '</span>';
     }
 }

@@ -22,8 +22,64 @@
             });
         }
 
+        function sync_parent_ids() {
+            $('ul.fields li').each(function() {
+                var $item = $(this);
+                var parent_id = 0;
+                var parent_key = '';
+                var $parent = $item.parents('li.loop').first();
+
+                if (0 < $parent.length) {
+                    var $parent_field = $parent.children('.field');
+                    parent_id = $parent_field.find('.field_id').first().val();
+                    parent_key = $parent_field.find('.field_key').first().val();
+                }
+
+                $item.children('.field').find('.parent_id').first().val(parent_id);
+                $item.children('.field').find('.parent_key').first().val(parent_key);
+            });
+        }
+
+        function get_item_type($item) {
+            return $item.children('.field').find('.field_form .field_type select').first().val() ||
+                $.trim($item.children('.field').find('.field_meta .field_type').first().text());
+        }
+
+        function get_disallowed_parent_child_message(parent_type, child_type) {
+            if ('group' == parent_type && ('tab' == child_type || 'group' == child_type || 'loop' == child_type)) {
+                return CFS.messages && CFS.messages.disallowed_group_child ?
+                    CFS.messages.disallowed_group_child :
+                    'Tabs, loops, and horizontal groups cannot be placed inside a horizontal group.';
+            }
+
+            return '';
+        }
+
+        function enforce_group_child_rules($item) {
+            var $parent = $item.parents('li.loop').first();
+            var message = '';
+
+            if (1 > $parent.length) {
+                return false;
+            }
+
+            message = get_disallowed_parent_child_message(get_item_type($parent), get_item_type($item));
+
+            if ('' === message) {
+                return false;
+            }
+
+            $parent.after($item);
+            sync_parent_ids();
+
+            window.alert(message);
+
+            return true;
+        }
+
         zebra_stripes();
         init_tooltip();
+        sync_parent_ids();
 
         // Setup checkboxes
         $(document).on('change click', 'input[type="checkbox"]', function() {
@@ -45,6 +101,7 @@
             },
             update: function(event, ui) {
                 zebra_stripes();
+                enforce_group_child_rules(ui.item);
 
                 // Use parents() because closest() includes the current element
                 // ui.item is the <li>, and loop fields have <li class="loop">
@@ -53,6 +110,7 @@
                     parent_id = ui.item.parents('li.loop').first().find('.field_id').first().val();
                 }
                 ui.item.find('.parent_id').first().val(parent_id);
+                sync_parent_ids();
 
                 /*
                 var $container = ui.item.closest('.fields');
@@ -66,11 +124,14 @@
         // Add a new field
         $(document).on('click', '.cfs_add_field', function() {
             var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
-            $('.fields').append('<li>' + html + '</li>');
-            $('.fields li:last .field_label a').click();
-            $('.fields li:last .field_type select').change();
+            var $new_field = $('<li>' + html + '</li>');
+            $('.fields').append($new_field);
+            $new_field.find('.field_key').first().val(CFS.field_index);
+            $new_field.find('.field_label a').click();
+            $new_field.find('.field_type select').change();
             CFS.field_index = CFS.field_index + 1;
             init_tooltip();
+            sync_parent_ids();
         });
 
         // Add a new field immediately below the current field
@@ -80,6 +141,7 @@
             var parent_id = $current.children('.field').find('.parent_id').first().val();
             var $new_field = $('<li>' + html + '</li>');
 
+            $new_field.find('.field_key').first().val(CFS.field_index);
             $new_field.find('.parent_id').first().val(parent_id);
             $current.after($new_field);
             $new_field.find('.field_label a').click();
@@ -87,6 +149,7 @@
             CFS.field_index = CFS.field_index + 1;
             zebra_stripes();
             init_tooltip();
+            sync_parent_ids();
         });
 
         // Delete a field
@@ -129,6 +192,12 @@
             }
 
             init_tooltip();
+            enforce_group_child_rules($item);
+            sync_parent_ids();
+        });
+
+        $(document).on('submit', '#post', function() {
+            sync_parent_ids();
         });
 
         $(document).on('change', '.cfs-time-minute-interval', function() {

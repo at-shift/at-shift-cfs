@@ -33,6 +33,10 @@ msgstr ""
 msgid "This is a required field"
 msgstr ""
 
+#: ../includes/form.php:266 ../includes/fields/group.php:147
+msgid "Required"
+msgstr ""
+
 #: ../includes/field_group.php:112
 msgid "Imported"
 msgstr ""
@@ -159,6 +163,10 @@ msgstr ""
 
 #: ../includes/fields/select.php:8
 msgid "Select"
+msgstr ""
+
+#: ../includes/fields/select.php:43
+msgid "Please select..."
 msgstr ""
 
 #: ../includes/fields/select.php:86
@@ -577,6 +585,18 @@ msgstr ""
 msgid "4 columns"
 msgstr ""
 
+#: ../includes/fields/group.php:92
+msgid "Alignment"
+msgstr ""
+
+#: ../includes/fields/group.php:101
+msgid "Evenly distributed"
+msgstr ""
+
+#: ../includes/fields/group.php:102
+msgid "Left aligned"
+msgstr ""
+
 #: ../templates/field_html.php:84
 msgid "Add new field below"
 msgstr ""
@@ -627,4 +647,28 @@ msgid "Selecting a parent also selects all child categories"
 msgstr ""
 
 msgid "Selecting a child also selects its parent categories"
+msgstr ""
+
+msgid "CFS placement warning:"
+msgstr ""
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr ""
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr ""
+
+msgid "No placement rules"
+msgstr ""
+
+msgid "This field group can match every editable post screen."
+msgstr ""
+
+msgid "Latest version %s has been released on GitHub."
+msgstr ""
+
+msgid "Add two or more fields to this horizontal group."
+msgstr ""
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
 msgstr ""

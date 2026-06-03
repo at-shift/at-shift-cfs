@@ -84,14 +84,22 @@ class cfs_radio extends cfs_field
 
     function pre_save_field( $field ) {
         $new_choices = [];
-        $choices = trim( $field['options']['choices'] );
+        $choices = isset( $field['options']['choices'] ) ? $field['options']['choices'] : '';
 
         if ( ! empty( $choices ) ) {
-            $choices = str_replace( "\r\n", "\n", $choices );
-            $choices = str_replace( "\r", "\n", $choices );
-            $choices = ( false !== strpos( $choices, "\n" ) ) ? explode( "\n", $choices ) : (array) $choices;
+            if ( ! is_array( $choices ) ) {
+                $choices = trim( $choices );
+                $choices = str_replace( "\r\n", "\n", $choices );
+                $choices = str_replace( "\r", "\n", $choices );
+                $choices = ( false !== strpos( $choices, "\n" ) ) ? explode( "\n", $choices ) : (array) $choices;
+            }
 
-            foreach ( $choices as $choice ) {
+            foreach ( $choices as $key => $choice ) {
+                if ( is_string( $key ) ) {
+                    $new_choices[ $key ] = $choice;
+                    continue;
+                }
+
                 $choice = trim( $choice );
                 if ( false !== ( $pos = strpos( $choice, ' : ' ) ) ) {
                     $array_key = substr( $choice, 0, $pos );

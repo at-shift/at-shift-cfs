@@ -16,12 +16,14 @@ class cfs_init
 
         add_action( 'admin_head',                       [ $this, 'admin_head' ] );
         add_action( 'admin_enqueue_scripts',            [ $this, 'admin_enqueue_scripts' ] );
+        add_action( 'admin_notices',                    [ $this, 'admin_notices' ] );
         add_action( 'admin_menu',                       [ $this, 'admin_menu' ] );
         add_action( 'admin_footer',                     [ $this, 'show_credits' ] );
         add_action( 'save_post',                        [ $this, 'save_post' ] );
         add_action( 'delete_post',                      [ $this, 'delete_post' ] );
         add_action( 'add_meta_boxes',                   [ $this, 'add_meta_boxes' ] );
         add_action( 'wp_ajax_cfs_ajax_handler',         [ $this, 'ajax_handler' ] );
+        add_filter( 'plugin_row_meta',                  [ $this, 'plugin_row_meta' ], 10, 2 );
         add_filter( 'manage_cfs_posts_columns',         [ $this, 'cfs_columns' ] );
         add_action( 'manage_cfs_posts_custom_column',   [ $this, 'cfs_column_content' ], 10, 2 );
         add_action( 'enqueue_block_editor_assets',      [ $this, 'enqueue_block_editor_assets' ] );
@@ -99,27 +101,27 @@ class cfs_init
         // support custom field types
         $field_types = apply_filters( 'cfs_field_types', [
             'text'          => CFS_DIR . '/includes/fields/text.php',
-            'phone'         => CFS_DIR . '/includes/fields/phone.php',
-            'email'         => CFS_DIR . '/includes/fields/email.php',
-            'number'        => CFS_DIR . '/includes/fields/number.php',
-            'url'           => CFS_DIR . '/includes/fields/url.php',
-            'time'          => CFS_DIR . '/includes/fields/time.php',
             'textarea'      => CFS_DIR . '/includes/fields/textarea.php',
             'wysiwyg'       => CFS_DIR . '/includes/fields/wysiwyg.php',
+            'phone'         => CFS_DIR . '/includes/fields/phone.php',
+            'email'         => CFS_DIR . '/includes/fields/email.php',
             'hyperlink'     => CFS_DIR . '/includes/fields/hyperlink.php',
-            'date'          => CFS_DIR . '/includes/fields/date/date.php',
-            'color'         => CFS_DIR . '/includes/fields/color/color.php',
-            'true_false'    => CFS_DIR . '/includes/fields/true_false.php',
-            'checkbox'      => CFS_DIR . '/includes/fields/checkbox.php',
-            'radio'         => CFS_DIR . '/includes/fields/radio.php',
+            'url'           => CFS_DIR . '/includes/fields/url.php',
+            'number'        => CFS_DIR . '/includes/fields/number.php',
             'select'        => CFS_DIR . '/includes/fields/select.php',
-            'relationship'  => CFS_DIR . '/includes/fields/relationship.php',
-            'term'          => CFS_DIR . '/includes/fields/term.php',
-            'user'          => CFS_DIR . '/includes/fields/user.php',
+            'checkbox'      => CFS_DIR . '/includes/fields/checkbox.php',
+            'true_false'    => CFS_DIR . '/includes/fields/true_false.php',
+            'radio'         => CFS_DIR . '/includes/fields/radio.php',
+            'date'          => CFS_DIR . '/includes/fields/date/date.php',
+            'time'          => CFS_DIR . '/includes/fields/time.php',
             'file'          => CFS_DIR . '/includes/fields/file.php',
+            'color'         => CFS_DIR . '/includes/fields/color/color.php',
             'wp_category'   => CFS_DIR . '/includes/fields/wp_category.php',
             'wp_tag'        => CFS_DIR . '/includes/fields/wp_tag.php',
             'featured_image' => CFS_DIR . '/includes/fields/featured_image.php',
+            'term'          => CFS_DIR . '/includes/fields/term.php',
+            'relationship'  => CFS_DIR . '/includes/fields/relationship.php',
+            'user'          => CFS_DIR . '/includes/fields/user.php',
             'loop'          => CFS_DIR . '/includes/fields/loop.php',
             'tab'           => CFS_DIR . '/includes/fields/tab.php',
             'group'         => CFS_DIR . '/includes/fields/group.php',
@@ -490,7 +492,50 @@ class cfs_init
                 'rules'     => $rules,
                 'extras'    => $extras,
             ] );
+
+            if ( ! $this->has_placement_rules( $rules ) ) {
+                set_transient( 'cfs_empty_rules_notice_' . (int) $post_id, 1, MINUTE_IN_SECONDS );
+            }
         }
+    }
+
+
+    /**
+     * Display guardrail notices for broadly-matching field groups.
+     */
+    function admin_notices() {
+        $screen = get_current_screen();
+
+        if ( ! is_object( $screen ) || 'cfs' !== $screen->post_type ) {
+            return;
+        }
+
+        $post_id = isset( $_GET['post'] ) ? absint( $_GET['post'] ) : 0;
+
+        if ( 0 === $post_id || 'cfs' !== get_post_type( $post_id ) ) {
+            return;
+        }
+
+        $rules = get_post_meta( $post_id, 'cfs_rules', true );
+
+        if ( $this->has_placement_rules( $rules ) ) {
+            return;
+        }
+
+        $just_saved = (bool) get_transient( 'cfs_empty_rules_notice_' . $post_id );
+        delete_transient( 'cfs_empty_rules_notice_' . $post_id );
+
+        $message = __( 'This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional.', 'cfs' );
+
+        if ( $just_saved ) {
+            $message = __( 'Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional.', 'cfs' );
+        }
+
+        printf(
+            '<div class="notice notice-warning"><p><strong>%s</strong> %s</p></div>',
+            esc_html__( 'CFS placement warning:', 'cfs' ),
+            esc_html( $message )
+        );
     }
 
 
@@ -557,6 +602,111 @@ class cfs_init
 
 
     /**
+     * Show GitHub update status on the Plugins screen.
+     */
+    function plugin_row_meta( $links, $file ) {
+        if ( 'custom-field-suite/cfs.php' !== $file ) {
+            return $links;
+        }
+
+        $status = $this->get_github_update_status();
+
+        if ( 'update' === $status['state'] ) {
+            $links[] = sprintf(
+                '<a href="%1$s" target="_blank" rel="noopener">%2$s</a>',
+                esc_url( $status['url'] ),
+                esc_html( sprintf( __( 'Latest version %s has been released on GitHub.', 'cfs' ), $status['version'] ) )
+            );
+        }
+
+        return $links;
+    }
+
+
+    /**
+     * Fetch and cache the latest GitHub tag for this maintenance build.
+     */
+    private function get_github_update_status() {
+        $repo_url = 'https://github.com/at-shift/custom-field-suite-maintenance';
+        $fallback = [
+            'state'   => 'unknown',
+            'version' => '',
+            'url'     => $repo_url,
+        ];
+
+        $cached = get_transient( 'cfs_github_update_status' );
+
+        if ( is_array( $cached ) && isset( $cached['state'], $cached['url'] ) ) {
+            return $cached;
+        }
+
+        $response = wp_remote_get( 'https://api.github.com/repos/at-shift/custom-field-suite-maintenance/tags', [
+            'timeout' => 5,
+            'headers' => [
+                'User-Agent' => 'Custom Field Suite/' . CFS_VERSION . '; ' . home_url( '/' ),
+            ],
+        ] );
+
+        if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
+            set_transient( 'cfs_github_update_status', $fallback, HOUR_IN_SECONDS );
+            return $fallback;
+        }
+
+        $tags = json_decode( wp_remote_retrieve_body( $response ), true );
+        $latest_version = '';
+        $latest_tag = '';
+
+        if ( is_array( $tags ) ) {
+            foreach ( $tags as $tag ) {
+                if ( empty( $tag['name'] ) ) {
+                    continue;
+                }
+
+                $version = $this->normalize_github_version( $tag['name'] );
+
+                if ( '' === $version ) {
+                    continue;
+                }
+
+                if ( '' === $latest_version || version_compare( $latest_version, $version, '<' ) ) {
+                    $latest_version = $version;
+                    $latest_tag = $tag['name'];
+                }
+            }
+        }
+
+        if ( '' === $latest_version ) {
+            set_transient( 'cfs_github_update_status', $fallback, HOUR_IN_SECONDS );
+            return $fallback;
+        }
+
+        $status = [
+            'state'   => version_compare( CFS_VERSION, $latest_version, '<' ) ? 'update' : 'current',
+            'version' => $latest_tag,
+            'url'     => $repo_url . '/releases',
+        ];
+
+        set_transient( 'cfs_github_update_status', $status, 12 * HOUR_IN_SECONDS );
+
+        return $status;
+    }
+
+
+    /**
+     * Normalize tags like v2.6.7.39 to values version_compare can read.
+     */
+    private function normalize_github_version( $tag ) {
+        $version = ltrim( (string) $tag, "vV \t\n\r\0\x0B" );
+
+        if ( ! preg_match( '/^\d+(?:\.\d+)+(?:[-+][0-9A-Za-z.-]+)?$/', $version ) ) {
+            return '';
+        }
+
+        return $version;
+    }
+
+
+    /**
      * Customize table columns on the Field Group listing
      */
     function cfs_columns() {
@@ -592,10 +742,19 @@ class cfs_init
                 $rules = $field_groups[ $post_id ]['rules'];
             }
 
+            if ( ! $this->has_placement_rules( $rules ) ) {
+                echo '<div class="cfs-placement-warning"><strong>' . esc_html__( 'No placement rules', 'cfs' ) . '</strong><br />' . esc_html__( 'This field group can match every editable post screen.', 'cfs' ) . '</div>';
+                return;
+            }
+
             foreach ( $rules as $criteria => $data ) {
+                if ( ! isset( $labels[ $criteria ], $data['values'] ) ) {
+                    continue;
+                }
+
                 $label = $labels[ $criteria ];
-                $values = $data['values'];
-                $operator = ( '==' == $data['operator'] ) ? '=' : '!=';
+                $values = (array) $data['values'];
+                $operator = ( isset( $data['operator'] ) && '==' == $data['operator'] ) ? '=' : '!=';
 
                 // Get post titles
                 if ( 'post_ids' == $criteria ) {
@@ -609,6 +768,38 @@ class cfs_init
                 echo "<div><strong>$label</strong> " . $operator . ' ' . esc_html( implode( ', ', $values ) ) . '</div>';
             }
         }
+    }
+
+
+    /**
+     * Check whether a field group has at least one non-empty placement rule.
+     *
+     * Empty rules are valid in CFS, but they can unintentionally match broadly.
+     */
+    private function has_placement_rules( $rules ) {
+        if ( empty( $rules ) || ! is_array( $rules ) ) {
+            return false;
+        }
+
+        foreach ( $rules as $criteria => $data ) {
+            if ( 'operator' === $criteria || ! is_array( $data ) ) {
+                continue;
+            }
+
+            if ( empty( $data['values'] ) ) {
+                continue;
+            }
+
+            $values = array_filter( (array) $data['values'], static function( $value ) {
+                return '' !== (string) $value;
+            } );
+
+            if ( ! empty( $values ) ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 

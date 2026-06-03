@@ -176,7 +176,8 @@
         CFS.validate_field = function(field_name, obj, options) {
             options = $.extend({
                 show_empty_required: true,
-                open_loop: true
+                open_loop: true,
+                collect_errors: false
             }, options);
 
             var is_valid = true;
@@ -187,6 +188,7 @@
                 var validator = obj.rule.split('|')[0];
 
                 $this.find('> .error').hide();
+                $this.removeClass('cfs-field-invalid');
 
                 if ('object' != typeof CFS.validators[validator]) {
                     return;
@@ -200,16 +202,19 @@
 
                 if (is_empty && !is_required) {
                     $this.find('> .error').hide();
+                    $this.removeClass('cfs-field-invalid');
                     return;
                 }
 
                 if (is_empty && is_required && !options.show_empty_required) {
                     $this.find('> .error').hide();
+                    $this.removeClass('cfs-field-invalid');
                     return;
                 }
 
                 if (!CFS.validators[validator]['validate'](val, $this)) {
                     is_valid = false;
+                    $this.addClass('cfs-field-invalid');
 
                     if ($this.find('> .error').length < 1) {
                         $this.append('<div class="error"></div>');
@@ -227,23 +232,62 @@
                     }
 
                     $this.find('> .error').text(error_msg).show();
+
+                    if (options.collect_errors) {
+                        var field_id = $this.attr('id');
+                        var label = $.trim($this.find('> label').first().text());
+
+                        if (!field_id) {
+                            field_id = 'cfs-validation-field-' + field_name.replace(/[^a-zA-Z0-9_-]/g, '-') + '-' + CFS.validation_errors.length;
+                            $this.attr('id', field_id);
+                        }
+
+                        CFS.validation_errors.push({
+                            id: field_id,
+                            name: field_name,
+                            label: '' != label ? label : field_name,
+                            message: error_msg
+                        });
+                    }
                 }
             });
 
             return is_valid;
         };
 
+        CFS.render_validation_notice = function() {
+            var $notice = $('#cfs-validation-admin-notice');
+            var $list = $('#cfs-validation-error-list');
+
+            $list.empty();
+
+            $.each(CFS.validation_errors || [], function(index, item) {
+                $('<li></li>').append(
+                    $('<a></a>')
+                        .attr('href', '#' + item.id)
+                        .text(item.label + ': ' + item.message)
+                ).appendTo($list);
+            });
+
+            $notice.show();
+        };
+
         CFS.validate_all_fields = function() {
             var passthru = true;
+            CFS.validation_errors = [];
+            $('#cfs-validation-admin-notice').hide();
+            $('#cfs-validation-error-list').empty();
 
             $.each(CFS.field_rules, function(field_name, obj) {
-                if (!CFS.validate_field(field_name, obj)) {
+                if (!CFS.validate_field(field_name, obj, {
+                    collect_errors: true
+                })) {
                     passthru = false;
                 }
             });
 
             if (!passthru) {
-                $('#cfs-validation-admin-notice').show();
+                CFS.render_validation_notice();
             }
 
             return passthru;

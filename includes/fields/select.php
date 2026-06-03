@@ -31,11 +31,18 @@ class cfs_select extends cfs_field
         if ( '[]' != substr( $field->input_name, -2 ) && empty( $field->options['force_single'] ) ) {
             $field->input_name .= '[]';
         }
+
+        $choices = isset( $field->options['choices'] ) && is_array( $field->options['choices'] ) ? $field->options['choices'] : [];
+        $has_empty_choice = isset( $choices[''] ) || isset( $choices['{empty}'] );
+        $show_placeholder = '' === $multiple && empty( $field->options['force_single'] ) && ! $has_empty_choice;
     ?>
         <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php echo $multiple; ?>>
-        <?php foreach ( $field->options['choices'] as $val => $label ) : ?>
+        <?php if ( $show_placeholder ) : ?>
+            <option value=""<?php echo in_array( '', (array) $field->value, true ) ? ' selected' : ''; ?>><?php esc_html_e( 'Please select...', 'cfs' ); ?></option>
+        <?php endif; ?>
+        <?php foreach ( $choices as $val => $label ) : ?>
             <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
-            <?php $selected = in_array( $val, (array) $field->value ) ? ' selected' : ''; ?>
+            <?php $selected = in_array( $val, (array) $field->value, true ) ? ' selected' : ''; ?>
             <option value="<?php echo esc_attr( $val ); ?>"<?php echo $selected; ?>><?php echo esc_attr( $label ); ?></option>
         <?php endforeach; ?>
         </select>
@@ -187,14 +194,22 @@ class cfs_select extends cfs_field
 
     function pre_save_field( $field ) {
         $new_choices = [];
-        $choices = trim( $field['options']['choices'] );
+        $choices = isset( $field['options']['choices'] ) ? $field['options']['choices'] : '';
 
         if ( ! empty( $choices ) ) {
-            $choices = str_replace( "\r\n", "\n", $choices );
-            $choices = str_replace( "\r", "\n", $choices );
-            $choices = ( false !== strpos( $choices, "\n" ) ) ? explode( "\n", $choices ) : (array) $choices;
+            if ( ! is_array( $choices ) ) {
+                $choices = trim( $choices );
+                $choices = str_replace( "\r\n", "\n", $choices );
+                $choices = str_replace( "\r", "\n", $choices );
+                $choices = ( false !== strpos( $choices, "\n" ) ) ? explode( "\n", $choices ) : (array) $choices;
+            }
 
-            foreach ( $choices as $choice ) {
+            foreach ( $choices as $key => $choice ) {
+                if ( is_string( $key ) ) {
+                    $new_choices[ $key ] = $choice;
+                    continue;
+                }
+
                 $choice = trim( $choice );
                 if ( false !== ( $pos = strpos( $choice, ' : ' ) ) ) {
                     $array_key = substr( $choice, 0, $pos );

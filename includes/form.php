@@ -245,7 +245,31 @@ CFS['loop_buffer'] = [];
 
         echo '<div class="notice notice-error" id="cfs-validation-admin-notice" style="display: none;"><p><strong>';
         echo __( 'One (or more) of your fields had validation errors. More information is available below.', 'cfs' );
-        echo '</strong></p></div>';
+        echo '</strong></p><ul id="cfs-validation-error-list"></ul></div>';
+    }
+
+
+    /**
+     * Determine whether a field should be marked as required in the editor UI.
+     */
+    private function is_required_field( $field ) {
+        if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
+            return true;
+        }
+
+        if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop' ], true ) ) {
+            return ! empty( $field->options['limit_min'] ) && 0 < (int) $field->options['limit_min'];
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Render the required badge shown beside field labels.
+     */
+    private function required_badge() {
+        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'cfs' ) . '</span>';
     }
 
 
@@ -460,7 +484,7 @@ CFS['loop_buffer'] = [];
             <?php endif; ?>
 
             <?php if ( ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?></label>
+            <label><?php echo esc_html( $field->label ); ?><?php echo $this->is_required_field( $field ) ? $this->required_badge() : ''; ?></label>
             <?php endif; ?>
 
             <?php if ( ! empty( $field->notes ) ) : ?>

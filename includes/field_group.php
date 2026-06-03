@@ -175,6 +175,9 @@ class cfs_field_group
         global $wpdb;
 
         $post_id = $params['post_id'];
+        $params['rules'] = isset( $params['rules'] ) && is_array( $params['rules'] ) ? $params['rules'] : [];
+        $params['rules']['operator'] = isset( $params['rules']['operator'] ) && is_array( $params['rules']['operator'] ) ? $params['rules']['operator'] : [];
+        $params['extras'] = isset( $params['extras'] ) && is_array( $params['extras'] ) ? $params['extras'] : [];
 
         /*---------------------------------------------------------------------------------------------
             Save fields
@@ -192,18 +195,27 @@ class cfs_field_group
             }
         }
 
-        $new_fields = [];
+        $prepared_fields = [];
+        $field_key_to_id = [];
 
         foreach ( $params['fields'] as $key => $field ) {
 
             // Sanitize the field
             $field = stripslashes_deep( $field );
+            $field['id'] = isset( $field['id'] ) ? (int) $field['id'] : 0;
+            $field['type'] = isset( $field['type'] ) && isset( CFS()->fields[ $field['type'] ] ) ? $field['type'] : 'text';
+            $field['name'] = isset( $field['name'] ) ? $field['name'] : '';
+            $field['label'] = isset( $field['label'] ) ? $field['label'] : '';
+            $field['notes'] = isset( $field['notes'] ) ? $field['notes'] : '';
 
             // Allow for field customizations
             $field = CFS()->fields[ $field['type'] ]->pre_save_field( $field );
+            $field['id'] = isset( $field['id'] ) ? (int) $field['id'] : 0;
 
             // Set the parent ID
             $field['parent_id'] = empty( $field['parent_id'] ) ? 0 : (int) $field['parent_id'];
+            $field['key'] = isset( $field['key'] ) ? (string) $field['key'] : (string) $key;
+            $field['parent_key'] = isset( $field['parent_key'] ) ? (string) $field['parent_key'] : '';
 
             // Save empty array for fields without options
             $field['options'] = empty( $field['options'] ) ? [] : $field['options'];
@@ -215,7 +227,7 @@ class cfs_field_group
                 $current_field_ids[] = $field['id'];
 
                 // Rename the postmeta key if necessary
-                if ( $field['name'] != $prev_fields[ $field['id'] ] ) {
+                if ( isset( $prev_fields[ $field['id'] ] ) && $field['name'] != $prev_fields[ $field['id'] ] ) {
                     $wpdb->query(
                         $wpdb->prepare("
                             UPDATE {$wpdb->postmeta} m
@@ -230,6 +242,36 @@ class cfs_field_group
             else {
                 $field['id'] = $next_field_id;
                 $next_field_id++;
+            }
+
+            $field_key_to_id[ $field['key'] ] = (int) $field['id'];
+            $prepared_fields[] = $field;
+        }
+
+        $valid_field_ids = array_fill_keys( array_map( 'intval', $field_key_to_id ), true );
+        $field_types_by_id = [];
+
+        foreach ( $prepared_fields as $field ) {
+            $field_types_by_id[ (int) $field['id'] ] = $field['type'];
+        }
+
+        $new_fields = [];
+
+        foreach ( $prepared_fields as $field ) {
+            if ( '' !== $field['parent_key'] && isset( $field_key_to_id[ $field['parent_key'] ] ) ) {
+                $field['parent_id'] = (int) $field_key_to_id[ $field['parent_key'] ];
+            }
+
+            if ( 0 < (int) $field['parent_id'] && empty( $valid_field_ids[ (int) $field['parent_id'] ] ) ) {
+                $field['parent_id'] = 0;
+            }
+
+            if ( 0 < (int) $field['parent_id'] && isset( $field_types_by_id[ (int) $field['parent_id'] ] ) ) {
+                $parent_type = $field_types_by_id[ (int) $field['parent_id'] ];
+
+                if ( 'group' === $parent_type && in_array( $field['type'], [ 'tab', 'group', 'loop' ], true ) ) {
+                    $field['parent_id'] = 0;
+                }
             }
 
             $data = [
@@ -288,7 +330,7 @@ class cfs_field_group
                 }
 
                 $data[ $type ] = [
-                    'operator' => $params['rules']['operator'][ $type ],
+                    'operator' => isset( $params['rules']['operator'][ $type ] ) ? $params['rules']['operator'][ $type ] : '==',
                     'values' => $params['rules'][ $type ],
                 ];
             }

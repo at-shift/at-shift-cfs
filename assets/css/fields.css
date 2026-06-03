@@ -76,12 +76,29 @@
     color: #fff;
 }
 
+#cfs_fields .field_meta tr.field_warning td {
+    background: #fff8e5;
+    color: #1d2327;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+#cfs_fields .field_meta tr.field_warning td:nth-child(2) {
+    border-left: 4px solid #d63638;
+    padding-left: 8px;
+}
+
 /*---------------------------------------------------------------------------------------------
     #cfs_rules (container)
 ---------------------------------------------------------------------------------------------*/
 
 #cfs_rules .select2 {
     width: 99.95%;
+}
+
+.cfs-placement-warning {
+    border-left: 4px solid #d63638;
+    color: #1d2327;
+    padding-left: 8px;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -220,14 +237,8 @@ span.cfs_delete_field:hover {
     color: #fff;
 }
 
-span.cfs_add_field_below {
-    text-decoration: underline;
-    cursor: pointer;
-    color: #2271b1;
-}
-
-span.cfs_add_field_below:hover {
-    text-decoration: none;
+#cfs_fields .fields .button-primary.cfs_add_field_below {
+    vertical-align: baseline;
 }
 
 /*---------------------------------------------------------------------------------------------

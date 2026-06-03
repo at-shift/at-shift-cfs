@@ -1,3 +1,16 @@
+<?php
+global $post;
+
+$child_count = 0;
+
+if ( 'group' === $field->type && ! empty( $field->id ) ) {
+    $child_fields = CFS()->api->get_input_fields( [
+        'group_id'  => $post->ID,
+        'parent_id' => $field->id,
+    ] );
+    $child_count = is_array( $child_fields ) ? count( $child_fields ) : 0;
+}
+?>
 <div class="field">
     <div class="field_meta">
         <table class="widefat">
@@ -15,6 +28,14 @@
                     <a class="cfs_edit_field"><?php echo esc_html( $field->type ); ?></a>
                 </td>
             </tr>
+            <?php if ( 'group' === $field->type && 2 > $child_count ) : ?>
+            <tr class="field_warning">
+                <td></td>
+                <td colspan="3">
+                    <?php esc_html_e( 'Add two or more fields to this horizontal group.', 'cfs' ); ?>
+                </td>
+            </tr>
+            <?php endif; ?>
         </table>
     </div>
 
@@ -78,10 +99,12 @@
                     <td class="label"></td>
                     <td style="vertical-align:middle">
                         <input type="hidden" name="cfs[fields][<?php echo absint( $field->weight ); ?>][id]" class="field_id" value="<?php echo absint( $field->id ); ?>" />
+                        <input type="hidden" name="cfs[fields][<?php echo absint( $field->weight ); ?>][key]" class="field_key" value="<?php echo absint( $field->weight ); ?>" />
                         <input type="hidden" name="cfs[fields][<?php echo absint( $field->weight ); ?>][parent_id]" class="parent_id" value="<?php echo absint( $field->parent_id ); ?>" />
+                        <input type="hidden" name="cfs[fields][<?php echo absint( $field->weight ); ?>][parent_key]" class="parent_key" value="" />
                         <input type="button" value="<?php _e( 'Close', 'cfs' ); ?>" class="button-secondary cfs_edit_field" />
                         &nbsp; -<?php _e( 'or', 'cfs' ); ?>- &nbsp; <span class="cfs_delete_field"><?php _e( 'delete', 'cfs' ); ?></span>
-                        &nbsp; -<?php _e( 'or', 'cfs' ); ?>- &nbsp; <span class="cfs_add_field_below"><?php _e( 'Add new field below', 'cfs' ); ?></span>
+                        &nbsp; -<?php _e( 'or', 'cfs' ); ?>- &nbsp; <input type="button" value="<?php esc_attr_e( 'Add new field below', 'cfs' ); ?>" class="button-primary cfs_add_field_below" />
                     </td>
                 </tr>
             </tbody>
