@@ -100,10 +100,6 @@ Category behavior (カテゴリーの動作):
 
 ### Horizontal Group (横並びグループ)
 
-#### Caution (注意)
-- A bug has been discovered in the current v2.6.7.40 where horizontally arranged fields cannot be saved correctly within a Loop. A corrected version is scheduled to be released today.
-- 現在の v2.6.7.40 において、Loop 内に横並びフィールをが正常に保存できない不具合が発見されています。修正版は本日中にリリース予定です。
-
 Horizontal Group is a layout field for arranging multiple child fields side by
 side in the post edit screen. It is useful for related fields such as first /
 last name, phone / email, or date / time combinations.
@@ -125,7 +121,7 @@ Behavior (動作):
 
 ## Installation (インストール方法)
 
-Current maintenance version: 2.6.7.41 (現在のメンテナンスバージョン: 2.6.7.41)
+Current maintenance version: 2.6.7.41.1 (現在のメンテナンスバージョン: 2.6.7.41.1)
 
 Plugin download (プラグインのダウンロード): https://github.com/at-shift/custom-field-suite-maintenance/archive/refs/heads/main.zip
 
@@ -406,6 +402,13 @@ add_action( 'init', function() {
 ```
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
+
+### 2.6.7.41.1
+
+- Hardened CFS field group saves with explicit post type and capability checks.
+- Prevented duplicate field IDs across field groups from causing post edit values to be overwritten.
+- CFSフィールドグループ保存時に投稿タイプと権限チェックを明示し、CSRF/認可防御を強化
+- フィールドグループ間のフィールドID重複により投稿編集画面の値が上書きされる問題を防止
 
 ### 2.6.7.41
 

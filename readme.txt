@@ -113,6 +113,12 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.41.1 =
+* Hardened CFS field group saves with explicit post type and capability checks.
+* Prevented duplicate field IDs across field groups from causing post edit values to be overwritten.
+* CFSフィールドグループ保存時に投稿タイプと権限チェックを明示し、CSRF/認可防御を強化
+* フィールドグループ間のフィールドID重複により投稿編集画面の値が上書きされる問題を防止
+
 = 2.6.7.41 =
 * タブ・ループ(複製フィールド)・横並びグループで発生した不具合を修正
 

@@ -481,7 +481,17 @@ class cfs_init
             return;
         }
 
-        if ( wp_verify_nonce( $_POST['cfs']['save'], 'cfs_save_fields' ) ) {
+        if ( 'cfs' !== get_post_type( $post_id ) ) {
+            return;
+        }
+
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
+
+        $nonce = sanitize_text_field( wp_unslash( $_POST['cfs']['save'] ) );
+
+        if ( wp_verify_nonce( $nonce, 'cfs_save_fields' ) ) {
             $fields = isset( $_POST['cfs']['fields'] ) ? $_POST['cfs']['fields'] : [];
             $rules = isset( $_POST['cfs']['rules'] ) ? $_POST['cfs']['rules'] : [];
             $extras = isset( $_POST['cfs']['extras'] ) ? $_POST['cfs']['extras'] : [];

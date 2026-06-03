@@ -186,8 +186,10 @@ class cfs_field_group
         $weight = 0;
         $prev_fields = [];
         $current_field_ids = [];
+        $remapped_field_ids = [];
         $next_field_id = (int) get_option( 'cfs_next_field_id' );
         $existing_fields = get_post_meta( $post_id, 'cfs_fields', true );
+        $other_field_ids = $this->get_field_ids_for_other_groups( $post_id );
 
         if ( ! empty( $existing_fields ) ) {
             foreach ( $existing_fields as $item ) {
@@ -220,6 +222,11 @@ class cfs_field_group
             // Save empty array for fields without options
             $field['options'] = empty( $field['options'] ) ? [] : $field['options'];
 
+            if ( 0 < (int) $field['id'] && isset( $other_field_ids[ (int) $field['id'] ] ) ) {
+                $field['remapped_from'] = (int) $field['id'];
+                $field['id'] = 0;
+            }
+
             // Use an existing ID if available
             if ( 0 < (int) $field['id'] ) {
 
@@ -242,6 +249,10 @@ class cfs_field_group
             else {
                 $field['id'] = $next_field_id;
                 $next_field_id++;
+
+                if ( isset( $field['remapped_from'] ) ) {
+                    $remapped_field_ids[ (int) $field['remapped_from'] ] = (int) $field['id'];
+                }
             }
 
             $field_key_to_id[ $field['key'] ] = (int) $field['id'];
@@ -292,12 +303,14 @@ class cfs_field_group
 
         // Save the fields
         update_post_meta( $post_id, 'cfs_fields', $new_fields );
+        $this->migrate_remapped_field_values( $new_fields, $remapped_field_ids );
 
         // Update the field ID counter
         update_option( 'cfs_next_field_id', $next_field_id );
 
         // Remove values for deleted fields
         $deleted_field_ids = array_diff( array_keys( $prev_fields ), $current_field_ids );
+        $deleted_field_ids = array_diff( $deleted_field_ids, array_keys( $remapped_field_ids ) );
 
         // Filter deleted field IDs before deleting meta
         $deleted_field_ids = apply_filters( 'cfs_deleted_field_ids', $deleted_field_ids );
@@ -344,6 +357,103 @@ class cfs_field_group
         ---------------------------------------------------------------------------------------------*/
 
         update_post_meta( $post_id, 'cfs_extras', $params['extras'] );
+    }
+
+
+    private function get_field_ids_for_other_groups( $post_id ) {
+        $field_ids = [];
+        $field_groups = $this->load_field_groups();
+
+        foreach ( $field_groups as $group_id => $group ) {
+            if ( (int) $group_id === (int) $post_id ) {
+                continue;
+            }
+
+            foreach ( (array) $group['fields'] as $field ) {
+                if ( isset( $field['id'] ) && 0 < (int) $field['id'] ) {
+                    $field_ids[ (int) $field['id'] ] = true;
+                }
+            }
+        }
+
+        return $field_ids;
+    }
+
+
+    private function migrate_remapped_field_values( $fields, $field_id_map ) {
+        global $wpdb;
+
+        if ( empty( $field_id_map ) ) {
+            return;
+        }
+
+        $field_names = [];
+        foreach ( $fields as $field ) {
+            if ( ! empty( $field['name'] ) ) {
+                $field_names[] = $field['name'];
+            }
+        }
+        $field_names = array_values( array_unique( $field_names ) );
+
+        if ( empty( $field_names ) ) {
+            return;
+        }
+
+        $meta_placeholders = implode( ',', array_fill( 0, count( $field_names ), '%s' ) );
+
+        foreach ( $field_id_map as $old_field_id => $new_field_id ) {
+            $params = array_merge( [ (int) $new_field_id, (int) $old_field_id ], $field_names );
+            $wpdb->query(
+                $wpdb->prepare(
+                    "UPDATE {$wpdb->prefix}cfs_values v
+                    INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
+                    SET v.field_id = %d
+                    WHERE v.field_id = %d AND m.meta_key IN ($meta_placeholders)",
+                    $params
+                )
+            );
+
+            $params = array_merge( [ (int) $new_field_id, (int) $old_field_id ], $field_names );
+            $wpdb->query(
+                $wpdb->prepare(
+                    "UPDATE {$wpdb->prefix}cfs_values v
+                    INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
+                    SET v.base_field_id = %d
+                    WHERE v.base_field_id = %d AND m.meta_key IN ($meta_placeholders)",
+                    $params
+                )
+            );
+        }
+
+        $rows = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT v.meta_id, v.hierarchy
+                FROM {$wpdb->prefix}cfs_values v
+                INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
+                WHERE v.hierarchy <> '' AND m.meta_key IN ($meta_placeholders)",
+                $field_names
+            )
+        );
+
+        foreach ( $rows as $row ) {
+            $parts = explode( ':', $row->hierarchy );
+            foreach ( $parts as $index => $part ) {
+                if ( 0 === $index % 2 && isset( $field_id_map[ (int) $part ] ) ) {
+                    $parts[ $index ] = (string) $field_id_map[ (int) $part ];
+                }
+            }
+
+            $hierarchy = implode( ':', $parts );
+            if ( $hierarchy !== $row->hierarchy ) {
+                $wpdb->update(
+                    $wpdb->prefix . 'cfs_values',
+                    [ 'hierarchy' => $hierarchy ],
+                    [ 'meta_id' => (int) $row->meta_id ],
+                    [ '%s' ],
+                    [ '%d' ]
+                );
+            }
+        }
     }
 
 
