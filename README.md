@@ -409,6 +409,7 @@ add_action( 'init', function() {
 
 ### 2.6.7.41
 
+- Fixed issues related to Tabs, Loops (Repeatable Fields), and Horizontal Groups.
 - タブ・ループ(複製フィールド)・横並びグループで発生した不具合を修正
 
 ### 2.6.7.40
