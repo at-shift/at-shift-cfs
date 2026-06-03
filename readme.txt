@@ -113,6 +113,9 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.41 =
+* タブ・ループ(複製フィールド)・横並びグループで発生した不具合を修正
+
 = 2.6.7.40 =
 * Reordered the Field Group field type selector into grouped, workflow-oriented sections.
 * Clarified Japanese admin labels, including Phone as `電話番号` and native WordPress fields with `（標準）`.

@@ -11,47 +11,40 @@ $results = CFS()->api->get_input_fields( [ 'group_id' => $post->ID ] );
     Create <ul> based on field structure
 ---------------------------------------------------------------------------------------------*/
 
-$level = 0;
-$levels = [];
-$last_level = $diff = 0;
+$fields_by_parent = [];
 
 foreach ( $results as $field ) {
-
-    // Skip missing field types
     if ( ! isset( CFS()->fields[ $field->type ] ) ) {
         continue;
     }
 
-    $level = 0;
-    if ( 0 < (int) $field->parent_id ) {
-        $level = isset( $levels[ $field->parent_id ] ) ? $levels[ $field->parent_id ] + 1 : 1;
-        $levels[ $field->id ] = (int) $level;
-    }
-    $diff = ( $level - $last_level );
-    $last_level = $level;
-
-    if ( 0 < $diff ) {
-        for ( $i = 0; $i < ( $diff - 1 ); $i++ ) {
-            echo '<ul><li>';
-        }
-        echo '<ul>';
-    }
-    elseif ( 0 > $diff ) {
-        for ( $i = 0; $i < abs( $diff ); $i++ ) {
-            echo '</li></ul>';
-        }
-    }
-
-    echo in_array( $field->type, [ 'loop', 'group' ], true ) ? '<li class="loop">' : '<li>';
-
-    CFS()->field_html( $field );
+    $parent_id = (int) $field->parent_id;
+    $fields_by_parent[ $parent_id ][] = $field;
 }
 
-for ( $i = 0; $i < abs($level); $i++ ) {
-    echo '</li></ul>';
-}
+$render_fields = function( $parent_id ) use ( &$render_fields, $fields_by_parent ) {
+    $parent_id = (int) $parent_id;
 
-echo '</li>';
+    if ( empty( $fields_by_parent[ $parent_id ] ) ) {
+        return;
+    }
+
+    foreach ( $fields_by_parent[ $parent_id ] as $field ) {
+        echo in_array( $field->type, [ 'loop', 'group' ], true ) ? '<li class="loop">' : '<li>';
+
+        CFS()->field_html( $field );
+
+        if ( ! empty( $fields_by_parent[ (int) $field->id ] ) ) {
+            echo '<ul>';
+            $render_fields( $field->id );
+            echo '</ul>';
+        }
+
+        echo '</li>';
+    }
+};
+
+$render_fields( 0 );
 
 ?>
 </ul>

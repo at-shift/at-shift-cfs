@@ -378,10 +378,11 @@ CFS['loop_buffer'] = [];
         $tabs = [];
         $is_first_tab = true;
         foreach ( $input_fields as $key => $field ) {
-            if ( 'tab' == $field->type ) {
+            if ( 'tab' == $field->type && 1 > (int) $field->parent_id ) {
                 $tabs[] = $field;
             }
         }
+        $has_tabs = 1 < count( $tabs );
 
         do_action( 'cfs_form_before_fields', $params, [
             'group_ids'     => $all_group_ids,
@@ -402,7 +403,7 @@ CFS['loop_buffer'] = [];
             }
 
             // Output tabs
-            if ( 'tab' == $field->type && $is_first_tab ) {
+            if ( $has_tabs && 'tab' == $field->type && 1 > (int) $field->parent_id && $is_first_tab ) {
                 echo '<div class="cfs-tabs">';
                 foreach ( $tabs as $key => $tab ) {
                     echo '<div class="cfs-tab" rel="' . esc_attr( $tab->name ) . '">' . esc_html( $tab->label ) . '</div>';
@@ -465,15 +466,17 @@ CFS['loop_buffer'] = [];
                 // Tab handling
                 if ( 'tab' == $field->type ) {
 
-                    // Close the previous tab
-                    if ( $field->name != $tabs[0]->name ) {
-                        echo '</div>';
-                    }
-                    echo '<div class="cfs-tab-content cfs-tab-content-' . esc_attr( $field->name ) . '">';
+                    if ( $has_tabs ) {
+                        // Close the previous tab
+                        if ( $field->name != $tabs[0]->name ) {
+                            echo '</div>';
+                        }
+                        echo '<div class="cfs-tab-content cfs-tab-content-' . esc_attr( $field->name ) . '">';
 
-					if ( ! empty( $field->notes ) ) {
-						echo '<div class="cfs-tab-notes">' . esc_html( $field->notes ) . '</div>';
-					}
+                        if ( ! empty( $field->notes ) ) {
+                            echo '<div class="cfs-tab-notes">' . esc_html( $field->notes ) . '</div>';
+                        }
+                    }
                 }
                 else {
     ?>
@@ -515,7 +518,7 @@ CFS['loop_buffer'] = [];
         }
 
         // Make sure to close tabs
-        if ( ! empty( $tabs ) ) {
+        if ( $has_tabs ) {
             echo '</div>';
         }
 

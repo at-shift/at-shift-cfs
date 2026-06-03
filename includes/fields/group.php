@@ -25,7 +25,14 @@ class cfs_group extends cfs_field
             <?php
         }
 
-        $values = CFS()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
+        $has_values = property_exists( $field, 'values' ) && is_array( $field->values );
+        $values = $has_values ? $field->values : [];
+
+        if ( ! $has_values && ! empty( $post->ID ) ) {
+            $values = CFS()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
+        }
+
+        $input_name_template = isset( $field->input_name_template ) ? (string) $field->input_name_template : 'cfs[input][%d][value]';
         $columns = $this->get_columns( $this->get_option( $field, 'columns', 'auto' ) );
         $alignment = $this->get_alignment( $this->get_option( $field, 'alignment', 'stretch' ) );
     ?>
@@ -40,7 +47,7 @@ class cfs_group extends cfs_field
                     'id' => $child->id,
                     'group_id' => $child->group_id,
                     'type' => $child->type,
-                    'input_name' => "cfs[input][$child->id][value]",
+                    'input_name' => sprintf( $input_name_template, $child->id ),
                     'input_class' => $child->type,
                     'options' => $child->options,
                     'value' => isset( $values[ $child->id ] ) ? $values[ $child->id ] : $this->get_option( $child, 'default_value' ),

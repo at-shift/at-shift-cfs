@@ -26,19 +26,32 @@ class cfs_tab extends cfs_field
     ?>
         <script>
         (function($) {
+            function activate_first_tabs($context) {
+                $context.find('.cfs-tabs').each(function(){
+                    var $tabs = $(this);
+
+                    if (!$tabs.children('.cfs-tab.active').length) {
+                        $tabs.children('.cfs-tab:first').click();
+                    }
+                });
+            }
+
             $(document).on('click', '.cfs-tab', function() {
                 var tab = $(this).attr('rel'),
-                    $context = $(this).parents('.cfs_input');
-                $context.find('.cfs-tab').removeClass('active');
-                $context.find('.cfs-tab-content').removeClass('active');
+                    $tabs = $(this).closest('.cfs-tabs'),
+                    $context = $tabs.parent();
+                $tabs.children('.cfs-tab').removeClass('active');
+                $context.children('.cfs-tab-content').removeClass('active');
                 $(this).addClass('active');
-                $context.find('.cfs-tab-content-' + tab).addClass('active');
+                $context.children('.cfs-tab-content-' + tab).addClass('active');
             });
 
             $(function() {
-                $('.cfs-tabs').each(function(){
-                    $(this).find('.cfs-tab:first').click();
-                });
+                activate_first_tabs($(document));
+            });
+
+            $(document).on('cfs/ready', function(event) {
+                activate_first_tabs($(event.target).closest('.cfs_input'));
             });
         })(jQuery);
         </script>

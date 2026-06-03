@@ -121,7 +121,7 @@ Behavior (動作):
 
 ## Installation (インストール方法)
 
-Current maintenance version: 2.6.7.40 (現在のメンテナンスバージョン: 2.6.7.40)
+Current maintenance version: 2.6.7.41 (現在のメンテナンスバージョン: 2.6.7.41)
 
 Plugin download (プラグインのダウンロード): https://github.com/at-shift/custom-field-suite-maintenance/archive/refs/heads/main.zip
 
@@ -402,6 +402,10 @@ add_action( 'init', function() {
 ```
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
+
+### 2.6.7.41
+
+- タブ・ループ(複製フィールド)・横並びグループで発生した不具合を修正
 
 ### 2.6.7.40
 

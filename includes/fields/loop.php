@@ -124,34 +124,11 @@ class cfs_loop extends cfs_field
                 <span class="label"><?php echo esc_attr( $row_label ); ?></span>
             </div>
             <div class="cfs_loop_body open">
-            <?php foreach ( $results as $field ) : ?>
-                <label><?php echo esc_html( $field->label ); ?></label>
-
-                <?php if ( ! empty( $field->notes ) ) : ?>
-                <p class="notes"><?php echo esc_html( $field->notes ); ?></p>
-                <?php endif; ?>
-
-                <div class="field field-<?php echo esc_attr( $field->name ); ?> cfs_<?php echo esc_attr( $field->type ); ?>">
-                <?php
-                if ( 'loop' == $field->type ) :
-                    $loop_field_ids[] = $field->id;
-                ?>
-                    <div class="table_footer">
-                        <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $this->get_option( $field, 'button_label', __( 'Add Row', 'cfs' ) ) ); ?>" data-loop-tag="[clone][<?php echo absint( $field->id ); ?>]" data-rows="0" />
-                    </div>
-                <?php else : ?>
-                <?php
-                    CFS()->create_field( [
-                        'type' => $field->type,
-                        'input_name' => "cfs[input][clone][$field->id][value][]",
-                        'input_class' => $field->type,
-                        'options' => $field->options,
-                        'value' => $this->get_option( $field, 'default_value' ),
-                    ] );
-                ?>
-                <?php endif; ?>
-                </div>
-            <?php endforeach; ?>
+            <?php
+                $this->render_loop_fields( $results, function( $field ) use ( &$loop_field_ids ) {
+                    $this->render_clone_field( $field, $loop_field_ids );
+                } );
+            ?>
             </div>
         </div>
     <?php
@@ -195,6 +172,7 @@ class cfs_loop extends cfs_field
         $row_label = $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'cfs' ) );
         $button_label = $this->get_option( $loop_field[ $field_id ], 'button_label', __( 'Add Row', 'cfs' ) );
         $css_class = ( 0 < (int) $row_display ) ? ' open' : '';
+        $label_fields = $this->get_label_fields( $group_id, $results );
 
         // Do the dirty work
         $row_offset = -1;
@@ -208,40 +186,14 @@ class cfs_loop extends cfs_field
                 <a class="cfs_delete_field" href="javascript:;"></a>
                 <a class="cfs_toggle_field" href="javascript:;"></a>
                 <a class="cfs_insert_field" href="javascript:;"></a>
-                <span class="label"><?php echo esc_attr( $this->dynamic_label( $row_label, $results, $values[ $i ] ) ); ?>&nbsp;</span>
+                <span class="label"><?php echo esc_attr( $this->dynamic_label( $row_label, $label_fields, $values[ $i ] ) ); ?>&nbsp;</span>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
-            <?php foreach ( $results as $field ) : ?>
-                <label><?php echo esc_html( $field->label ); ?></label>
-
-                <?php if ( ! empty( $field->notes ) ) : ?>
-                <p class="notes"><?php echo esc_html( $field->notes ); ?></p>
-                <?php endif; ?>
-
-                <div class="field field-<?php echo esc_attr( $field->name ); ?> cfs_<?php echo esc_attr( $field->type ); ?>">
-                <?php if ( 'loop' == $field->type ) : ?>
-                    <?php $this->recursive_html( $group_id, $field->id, "{$parent_tag}[$i][$field->id]", $i ); ?>
-                <?php else : ?>
-                <?php
-                    $args = [
-                        'type' => $field->type,
-                        'input_name' => "cfs[input]{$parent_tag}[$i][$field->id][value][]",
-                        'input_class' => $field->type,
-                        'options' => $field->options,
-                    ];
-
-                    if ( isset( $values[ $i ][ $field->id ] ) ) {
-                        $args['value'] = $values[ $i ][ $field->id ];
-                    }
-                    elseif ( isset( $field->options['default_value'] ) ) {
-                        $args['value'] = $field->options['default_value'];
-                    }
-
-                    CFS()->create_field( $args );
-                ?>
-                <?php endif; ?>
-                </div>
-            <?php endforeach; ?>
+            <?php
+                $this->render_loop_fields( $results, function( $field ) use ( $group_id, $parent_tag, $i, $values ) {
+                    $this->render_value_field( $field, $group_id, $parent_tag, $i, $values );
+                } );
+            ?>
             </div>
         </div>
 
@@ -251,10 +203,180 @@ class cfs_loop extends cfs_field
             <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $button_label ); ?>" data-loop-tag="<?php echo esc_attr( $parent_tag ); ?>" data-rows="<?php echo ( $row_offset + 1 ); ?>" />
         </div>
     <?php
+	    }
+
+
+    private function render_loop_fields( $fields, $render_field ) {
+        $fields = array_values( $fields );
+        $tabs = [];
+        $first_tab_index = false;
+
+        foreach ( $fields as $index => $field ) {
+            if ( 'tab' == $field->type ) {
+                $tabs[] = $field;
+                if ( false === $first_tab_index ) {
+                    $first_tab_index = $index;
+                }
+            }
+        }
+
+        if ( 2 > count( $tabs ) ) {
+            foreach ( $fields as $field ) {
+                if ( 'tab' != $field->type ) {
+                    $render_field( $field );
+                }
+            }
+            return;
+        }
+
+        foreach ( $fields as $index => $field ) {
+            if ( $index >= $first_tab_index ) {
+                break;
+            }
+
+            if ( 'tab' != $field->type ) {
+                $render_field( $field );
+            }
+        }
+
+        echo '<div class="cfs-tabbed-fields">';
+        echo '<div class="cfs-tabs">';
+        foreach ( $tabs as $tab ) {
+            echo '<div class="cfs-tab" rel="' . esc_attr( $tab->name ) . '">' . esc_html( $tab->label ) . '</div>';
+        }
+        echo '</div>';
+
+        $content_open = false;
+        foreach ( $fields as $index => $field ) {
+            if ( $index < $first_tab_index ) {
+                continue;
+            }
+
+            if ( 'tab' == $field->type ) {
+                if ( $content_open ) {
+                    echo '</div>';
+                }
+
+                echo '<div class="cfs-tab-content cfs-tab-content-' . esc_attr( $field->name ) . '">';
+
+                if ( ! empty( $field->notes ) ) {
+                    echo '<div class="cfs-tab-notes">' . esc_html( $field->notes ) . '</div>';
+                }
+
+                $content_open = true;
+            }
+            else {
+                $render_field( $field );
+            }
+        }
+
+        if ( $content_open ) {
+            echo '</div>';
+        }
+
+        echo '</div>';
     }
 
 
-    private function get_values_by_tag( $parent_tag ) {
+    private function render_clone_field( $field, &$loop_field_ids ) {
+    ?>
+        <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
+        <?php if ( ! empty( $field->label ) ) : ?>
+            <label><?php echo esc_html( $field->label ); ?></label>
+        <?php endif; ?>
+
+        <?php if ( ! empty( $field->notes ) ) : ?>
+            <p class="notes"><?php echo esc_html( $field->notes ); ?></p>
+        <?php endif; ?>
+
+            <div class="cfs_<?php echo esc_attr( $field->type ); ?>">
+        <?php
+        if ( 'loop' == $field->type ) :
+            $loop_field_ids[] = $field->id;
+        ?>
+            <div class="table_footer">
+                <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $this->get_option( $field, 'button_label', __( 'Add Row', 'cfs' ) ) ); ?>" data-loop-tag="[clone][<?php echo absint( $field->id ); ?>]" data-rows="0" />
+            </div>
+        <?php elseif ( 'group' == $field->type ) : ?>
+        <?php
+            CFS()->create_field( [
+                'id' => $field->id,
+                'group_id' => $field->group_id,
+                'type' => $field->type,
+                'input_class' => $field->type,
+                'options' => $field->options,
+                'input_name_template' => 'cfs[input][clone][%d][value][]',
+            ] );
+        ?>
+        <?php else : ?>
+        <?php
+            CFS()->create_field( [
+                'type' => $field->type,
+                'input_name' => "cfs[input][clone][$field->id][value][]",
+                'input_class' => $field->type,
+                'options' => $field->options,
+                'value' => $this->get_option( $field, 'default_value' ),
+            ] );
+        ?>
+        <?php endif; ?>
+            </div>
+        </div>
+    <?php
+    }
+
+
+    private function render_value_field( $field, $group_id, $parent_tag, $row_index, $values ) {
+    ?>
+        <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
+        <?php if ( ! empty( $field->label ) ) : ?>
+            <label><?php echo esc_html( $field->label ); ?></label>
+        <?php endif; ?>
+
+        <?php if ( ! empty( $field->notes ) ) : ?>
+            <p class="notes"><?php echo esc_html( $field->notes ); ?></p>
+        <?php endif; ?>
+
+            <div class="cfs_<?php echo esc_attr( $field->type ); ?>">
+        <?php if ( 'loop' == $field->type ) : ?>
+            <?php $this->recursive_html( $group_id, $field->id, "{$parent_tag}[$row_index][$field->id]", $row_index ); ?>
+        <?php elseif ( 'group' == $field->type ) : ?>
+        <?php
+            CFS()->create_field( [
+                'id' => $field->id,
+                'group_id' => $field->group_id,
+                'type' => $field->type,
+                'input_class' => $field->type,
+                'options' => $field->options,
+                'values' => isset( $values[ $row_index ] ) && is_array( $values[ $row_index ] ) ? $values[ $row_index ] : [],
+                'input_name_template' => "cfs[input]{$parent_tag}[$row_index][%d][value][]",
+            ] );
+        ?>
+        <?php else : ?>
+        <?php
+            $args = [
+                'type' => $field->type,
+                'input_name' => "cfs[input]{$parent_tag}[$row_index][$field->id][value][]",
+                'input_class' => $field->type,
+                'options' => $field->options,
+            ];
+
+            if ( isset( $values[ $row_index ][ $field->id ] ) ) {
+                $args['value'] = $values[ $row_index ][ $field->id ];
+            }
+            elseif ( isset( $field->options['default_value'] ) ) {
+                $args['value'] = $field->options['default_value'];
+            }
+
+            CFS()->create_field( $args );
+        ?>
+        <?php endif; ?>
+            </div>
+        </div>
+    <?php
+    }
+
+
+	    private function get_values_by_tag( $parent_tag ) {
         preg_match_all( '/\[([0-9]+)\]/', $parent_tag, $matches );
 
         $values = $this->values;
@@ -266,6 +388,30 @@ class cfs_loop extends cfs_field
         }
 
         return $values;
+    }
+
+
+    private function get_label_fields( $group_id, $fields ) {
+        $label_fields = [];
+
+        foreach ( $fields as $field ) {
+            $label_fields[] = $field;
+
+            if ( 'group' != $field->type ) {
+                continue;
+            }
+
+            $children = CFS()->api->get_input_fields( [
+                'group_id' => $group_id,
+                'parent_id' => $field->id,
+            ] );
+
+            foreach ( $children as $child ) {
+                $label_fields[] = $child;
+            }
+        }
+
+        return $label_fields;
     }
 
 
