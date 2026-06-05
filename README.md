@@ -3,6 +3,23 @@
 Custom Field Suite (CFS) is a WordPress plugin for adding custom fields to
 posts, pages, and custom post types.
 
+### Custom Field Suite (CFS) supports the following WordPress custom fields:
+
+- Single-line text
+- Textarea
+- WYSIWYG
+- Date
+- Color
+- Hyprerlink
+- True / False (Chackbox)
+- Select
+- File Upload
+- Relationship
+- Term
+- User
+- Loop
+- Tab
+
 For more information about Custom Field Suite (CFS), see the documentation
 created by the original author: https://mgibbs189.github.io/custom-field-suite/
 
@@ -22,6 +39,23 @@ Suite 2.6.7 release, with an additional maintenance suffix appended to the
 version number.
 
 Custom Field Suite (CFS) は、投稿、固定ページ、カスタム投稿タイプにカスタムフィールドを追加するための WordPress プラグインです。
+
+### Custom Field Suite (CFS) はwordpressで以下のカスタムフィールドが利用できます:
+
+- 単一行テキスト
+- テキストエリア
+- リッチエディタ
+- 日付フォーマット
+- カラーピッカー
+- ハイパーリンク
+- 真/偽 (簡易チェックボックス)
+- セレクト (ドロップダウンメニュー)
+- ファイルのアップロード
+- 関連ポスト選択
+- ターム
+- ユーザー
+- ループ (複製フィールド)
+- タブ
 
 Custom Field Suite (CFS) の機能については、元作者作成のドキュメントをご覧ください: https://mgibbs189.github.io/custom-field-suite/
 
