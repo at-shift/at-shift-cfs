@@ -309,7 +309,7 @@ foreach ( $rows as $row ) {
 // (タブは管理画面用の表示整理フィールドのため、フロントエンド出力は不要です)
 ```
 
-### メンテナンス版で追加したフィールドの出力方法
+### メンテナンスビルド版で追加したフィールドの出力方法
 
 Maintenance-build added fields output examples:
 
