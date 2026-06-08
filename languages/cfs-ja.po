@@ -668,8 +668,8 @@ msgstr "配置ルールなし"
 msgid "This field group can match every editable post screen."
 msgstr "このフィールドグループは編集可能なすべての投稿画面に一致する可能性があります。"
 
-msgid "Latest version %s has been released on GitHub."
-msgstr "最新版 %s がGitHubにリリースされました。"
+msgid "A newer version %s is available on GitHub."
+msgstr "GitHub上に最新版 %s が出ています。"
 
 msgid "Add two or more fields to this horizontal group."
 msgstr "横並びグループには複数のフィールドを登録してください。"

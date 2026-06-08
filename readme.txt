@@ -113,6 +113,12 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.41.2 =
+* Fixed an issue where required fields rendered inside Loop rows did not show the Required badge.
+* Added and completed bundled translations for recently added admin strings across supported non-Japanese language files.
+* Loop 内の必須フィールドに「必須」バッジが表示されない問題を修正しました。
+* 追加済みの管理画面文字列について、日本語以外の同梱翻訳ファイルの不足分を補完しました。
+
 = 2.6.7.41.1 =
 * Hardened CFS field group saves with explicit post type and capability checks.
 * Prevented duplicate field IDs across field groups from causing post edit values to be overwritten.

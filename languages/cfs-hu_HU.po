@@ -513,104 +513,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "Ido"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "Percenkenti lepeskoz"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 perc"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 perc"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 perc"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 perc"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 perc"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "Vizszintes csoport"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "Oszlopok"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automatikus"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "2 oszlop"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "3 oszlop"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "4 oszlop"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "Uj mezo hozzaadasa ala"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "CFS mezocsoportok"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "CFS mezocsoport: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "Megjelenit egy CFS mezocsoportot."
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "Ebben a csoportban nincsenek mezok."
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "Bejegyzes kategoriai"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "Bejegyzes cimkei"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "Kiemelt kep"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "Nem talalhatok kategoriak"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "A cimkeket vesszovel valassza el"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "Kep kivalasztasa"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "Kep eltavolitasa"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "Kategoriak keresese"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "Csak a kijeloltek megjelenitese"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "Kategoriavalasztas"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "Szulokategoria kivalasztasakor az osszes gyermekkategoria is kijelolesre kerul"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "Gyermekkategoria kivalasztasakor a szulokategoriak is kijelolesre kerulnek"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Elérhető egy újabb verzió (%s) a GitHubon."
+
+msgid "Required"
+msgstr "Kotelezo"
+
+msgid "Please select..."
+msgstr "Valasszon..."
+
+msgid "Alignment"
+msgstr "Igazitas"
+
+msgid "Evenly distributed"
+msgstr "Egyenletesen elosztva"
+
+msgid "Left aligned"
+msgstr "Balra igazitva"
+
+msgid "CFS placement warning:"
+msgstr "CFS elhelyezesi figyelmeztetes:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Ennek a mezocsoportnak nincsenek elhelyezesi szabalyai. Minden szerkesztheto bejegyzeskepernyore illeszkedhet, ezert allitson be bejegyzestipust vagy mas elhelyezesi szabalyt, hacsak ez nem szandekos."
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Mentve, de ennek a mezocsoportnak nincsenek elhelyezesi szabalyai. Minden szerkesztheto bejegyzeskepernyore illeszkedhet, ezert allitson be bejegyzestipust vagy mas elhelyezesi szabalyt, hacsak ez nem szandekos."
+
+msgid "No placement rules"
+msgstr "Nincsenek elhelyezesi szabalyok"
+
+msgid "This field group can match every editable post screen."
+msgstr "Ez a mezocsoport minden szerkesztheto bejegyzeskepernyore illeszkedhet."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "Adjon hozza legalabb ket mezot ehhez a vizszintes csoporthoz."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Lapok, ismetlok es vizszintes csoportok nem helyezhetok vizszintes csoportba."

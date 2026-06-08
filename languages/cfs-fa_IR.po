@@ -560,104 +560,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "زمان"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "بازه دقیقه"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "۱ دقیقه"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "۵ دقیقه"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "۱۰ دقیقه"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "۱۵ دقیقه"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "۳۰ دقیقه"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "گروه افقی"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "ستون‌ها"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "خودکار"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "۲ ستون"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "۳ ستون"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "۴ ستون"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "افزودن فیلد جدید در پایین"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "گروه‌های فیلد CFS"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "گروه فیلد CFS: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "یک گروه فیلد CFS را نمایش می‌دهد."
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "هیچ فیلدی در این گروه وجود ندارد."
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "دسته‌های نوشته"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "برچسب‌های نوشته"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "تصویر شاخص"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "دسته‌ای پیدا نشد"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "برچسب‌ها را با ویرگول جدا کنید"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "انتخاب تصویر"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "حذف تصویر"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "جستجوی دسته‌ها"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "فقط انتخاب‌شده‌ها را نمایش بده"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "انتخاب دسته"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "با انتخاب دسته والد، همه دسته‌های فرزند نیز انتخاب می‌شوند"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "با انتخاب دسته فرزند، دسته‌های والد آن نیز انتخاب می‌شوند"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "نسخه جدیدتر %s در GitHub در دسترس است."
+
+msgid "Required"
+msgstr "ضروری"
+
+msgid "Please select..."
+msgstr "لطفاً انتخاب کنید..."
+
+msgid "Alignment"
+msgstr "تراز"
+
+msgid "Evenly distributed"
+msgstr "توزیع یکنواخت"
+
+msgid "Left aligned"
+msgstr "تراز چپ"
+
+msgid "CFS placement warning:"
+msgstr "هشدار جای‌گذاری CFS:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "این گروه فیلد هیچ قانون جای‌گذاری ندارد. ممکن است با همه صفحه‌های قابل ویرایش نوشته مطابقت پیدا کند؛ بنابراین اگر عمدی نیست، یک نوع نوشته یا قانون جای‌گذاری دیگر تعیین کنید."
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "ذخیره شد، اما این گروه فیلد هیچ قانون جای‌گذاری ندارد. ممکن است با همه صفحه‌های قابل ویرایش نوشته مطابقت پیدا کند؛ بنابراین اگر عمدی نیست، یک نوع نوشته یا قانون جای‌گذاری دیگر تعیین کنید."
+
+msgid "No placement rules"
+msgstr "بدون قانون جای‌گذاری"
+
+msgid "This field group can match every editable post screen."
+msgstr "این گروه فیلد می‌تواند با همه صفحه‌های قابل ویرایش نوشته مطابقت پیدا کند."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "دو یا چند فیلد به این گروه افقی اضافه کنید."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "زبانه‌ها، حلقه‌ها و گروه‌های افقی را نمی‌توان داخل یک گروه افقی قرار داد."

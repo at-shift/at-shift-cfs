@@ -623,9 +623,9 @@ class cfs_init
 
         if ( 'update' === $status['state'] ) {
             $links[] = sprintf(
-                '<a href="%1$s" target="_blank" rel="noopener">%2$s</a>',
+                '<a class="cfs-github-update-link" style="color:#d63638;font-weight:600;" href="%1$s" target="_blank" rel="noopener">%2$s</a>',
                 esc_url( $status['url'] ),
-                esc_html( sprintf( __( 'Latest version %s has been released on GitHub.', 'cfs' ), $status['version'] ) )
+                esc_html( sprintf( __( 'A newer version %s is available on GitHub.', 'cfs' ), $status['version'] ) )
             );
         }
 

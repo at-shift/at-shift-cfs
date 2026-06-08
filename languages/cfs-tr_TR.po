@@ -544,104 +544,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "Saat"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "Dakika araligi"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 dakika"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 dakika"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 dakika"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 dakika"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 dakika"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "Yatay grup"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "Sutunlar"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "Otomatik"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "2 sutun"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "3 sutun"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "4 sutun"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "Asagiya yeni alan ekle"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "CFS alan gruplari"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "CFS alan grubu: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "Bir CFS alan grubunu goruntuler."
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "Bu grupta alan yok."
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "Yazi kategorileri"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "Yazi etiketleri"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "One cikan gorsel"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "Kategori bulunamadi"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "Etiketleri virgulle ayirin"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "Gorsel sec"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "Gorseli kaldir"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "Kategorilerde ara"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "Yalnizca secilenleri goster"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "Kategori secimi"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "Bir ust kategori secildiginde tum alt kategoriler de secilir"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "Bir alt kategori secildiginde ust kategorileri de secilir"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Daha yeni bir sürüm %s GitHub'da mevcut."
+
+msgid "Required"
+msgstr "Zorunlu"
+
+msgid "Please select..."
+msgstr "Lutfen secin..."
+
+msgid "Alignment"
+msgstr "Hizalama"
+
+msgid "Evenly distributed"
+msgstr "Esit dagitilmis"
+
+msgid "Left aligned"
+msgstr "Sola hizali"
+
+msgid "CFS placement warning:"
+msgstr "CFS yerlesim uyarisi:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Bu alan grubunun yerlesim kurali yok. Duzenlenebilir tum yazi ekranlariyla eslesebilir; bu kasitli degilse bir yazi turu veya baska bir yerlesim kurali belirleyin."
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Kaydedildi, ancak bu alan grubunun yerlesim kurali yok. Duzenlenebilir tum yazi ekranlariyla eslesebilir; bu kasitli degilse bir yazi turu veya baska bir yerlesim kurali belirleyin."
+
+msgid "No placement rules"
+msgstr "Yerlesim kurali yok"
+
+msgid "This field group can match every editable post screen."
+msgstr "Bu alan grubu duzenlenebilir tum yazi ekranlariyla eslesebilir."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "Bu yatay gruba iki veya daha fazla alan ekleyin."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Sekmeler, donguler ve yatay gruplar bir yatay grubun icine yerlestirilemez."

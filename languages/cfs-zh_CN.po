@@ -527,104 +527,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "时间"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "分钟间隔"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 分钟"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 分钟"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 分钟"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 分钟"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 分钟"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "横向分组"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "列"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "自动"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "2 列"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "3 列"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "4 列"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "在下方添加新字段"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "CFS 字段组"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "CFS 字段组：%s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "显示一个 CFS 字段组。"
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "此组中没有字段。"
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "文章分类"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "文章标签"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "特色图片"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "未找到分类"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "用逗号分隔标签"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "选择图片"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "移除图片"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "搜索分类"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "仅显示已选择"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "分类选择"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "选择父分类时也会选择所有子分类"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "选择子分类时也会选择其父分类"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "GitHub 上有较新的版本 %s 可用。"
+
+msgid "Required"
+msgstr "必填"
+
+msgid "Please select..."
+msgstr "请选择..."
+
+msgid "Alignment"
+msgstr "对齐方式"
+
+msgid "Evenly distributed"
+msgstr "均匀分布"
+
+msgid "Left aligned"
+msgstr "左对齐"
+
+msgid "CFS placement warning:"
+msgstr "CFS 位置规则警告："
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "此字段组没有位置规则。它可能匹配所有可编辑的文章页面，因此除非这是有意设置，请指定文章类型或其他位置规则。"
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "已保存，但此字段组没有位置规则。它可能匹配所有可编辑的文章页面，因此除非这是有意设置，请指定文章类型或其他位置规则。"
+
+msgid "No placement rules"
+msgstr "没有位置规则"
+
+msgid "This field group can match every editable post screen."
+msgstr "此字段组可能匹配所有可编辑的文章页面。"
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "请向此横向分组添加两个或更多字段。"
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "选项卡、循环和横向分组不能放在横向分组内。"

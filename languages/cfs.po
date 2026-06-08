@@ -664,7 +664,7 @@ msgstr ""
 msgid "This field group can match every editable post screen."
 msgstr ""
 
-msgid "Latest version %s has been released on GitHub."
+msgid "A newer version %s is available on GitHub."
 msgstr ""
 
 msgid "Add two or more fields to this horizontal group."

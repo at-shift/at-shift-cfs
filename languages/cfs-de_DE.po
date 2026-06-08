@@ -649,104 +649,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "Uhrzeit"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "Minutenintervall"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 Minute"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 Minuten"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 Minuten"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 Minuten"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 Minuten"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "Horizontale Gruppe"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "Spalten"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automatisch"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "2 Spalten"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "3 Spalten"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "4 Spalten"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "Neues Feld darunter hinzufuegen"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "CFS-Feldgruppen"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "CFS-Feldgruppe: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "Zeigt eine CFS-Feldgruppe an."
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "Keine Felder in dieser Gruppe."
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "Beitragskategorien"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "Beitragsschlagwoerter"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "Beitragsbild"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "Keine Kategorien gefunden"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "Schlagwoerter durch Kommas trennen"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "Bild auswaehlen"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "Bild entfernen"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "Kategorien suchen"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "Nur ausgewaehlte anzeigen"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "Kategorieauswahl"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "Beim Auswaehlen einer uebergeordneten Kategorie werden auch alle untergeordneten Kategorien ausgewaehlt"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "Beim Auswaehlen einer untergeordneten Kategorie werden auch die uebergeordneten Kategorien ausgewaehlt"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Eine neuere Version %s ist auf GitHub verfügbar."
+
+msgid "Required"
+msgstr "Erforderlich"
+
+msgid "Please select..."
+msgstr "Bitte auswaehlen..."
+
+msgid "Alignment"
+msgstr "Ausrichtung"
+
+msgid "Evenly distributed"
+msgstr "Gleichmaessig verteilt"
+
+msgid "Left aligned"
+msgstr "Linksbuendig"
+
+msgid "CFS placement warning:"
+msgstr "CFS-Platzierungswarnung:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Diese Feldgruppe hat keine Platzierungsregeln. Sie kann auf jede bearbeitbare Beitragsansicht zutreffen. Legen Sie daher einen Beitragstyp oder eine andere Platzierungsregel fest, sofern dies nicht beabsichtigt ist."
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Gespeichert, aber diese Feldgruppe hat keine Platzierungsregeln. Sie kann auf jede bearbeitbare Beitragsansicht zutreffen. Legen Sie daher einen Beitragstyp oder eine andere Platzierungsregel fest, sofern dies nicht beabsichtigt ist."
+
+msgid "No placement rules"
+msgstr "Keine Platzierungsregeln"
+
+msgid "This field group can match every editable post screen."
+msgstr "Diese Feldgruppe kann auf jede bearbeitbare Beitragsansicht zutreffen."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "Fuegen Sie dieser horizontalen Gruppe mindestens zwei Felder hinzu."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Tabs, Schleifen und horizontale Gruppen koennen nicht innerhalb einer horizontalen Gruppe platziert werden."

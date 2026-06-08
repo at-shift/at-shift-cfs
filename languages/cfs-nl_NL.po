@@ -527,104 +527,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "Tijd"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "Minuteninterval"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 minuut"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 minuten"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 minuten"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 minuten"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 minuten"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "Horizontale groep"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "Kolommen"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automatisch"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "2 kolommen"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "3 kolommen"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "4 kolommen"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "Nieuw veld hieronder toevoegen"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "CFS-veldgroepen"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "CFS-veldgroep: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "Toont een CFS-veldgroep."
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "Geen velden in deze groep."
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "Berichtcategorieen"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "Berichttags"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "Uitgelichte afbeelding"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "Geen categorieen gevonden"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "Scheid tags met kommas"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "Afbeelding selecteren"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "Afbeelding verwijderen"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "Categorieen zoeken"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "Alleen geselecteerde tonen"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "Categorieselectie"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "Als je een bovenliggende categorie selecteert, worden ook alle onderliggende categorieen geselecteerd"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "Als je een onderliggende categorie selecteert, worden ook de bovenliggende categorieen geselecteerd"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Er is een nieuwere versie %s beschikbaar op GitHub."
+
+msgid "Required"
+msgstr "Vereist"
+
+msgid "Please select..."
+msgstr "Selecteer..."
+
+msgid "Alignment"
+msgstr "Uitlijning"
+
+msgid "Evenly distributed"
+msgstr "Gelijkmatig verdeeld"
+
+msgid "Left aligned"
+msgstr "Links uitgelijnd"
+
+msgid "CFS placement warning:"
+msgstr "CFS-plaatsingswaarschuwing:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Deze veldgroep heeft geen plaatsingsregels. Daardoor kan deze op elk bewerkbaar berichtscherm verschijnen. Stel daarom een berichttype of een andere plaatsingsregel in, tenzij dit de bedoeling is."
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Opgeslagen, maar deze veldgroep heeft geen plaatsingsregels. Daardoor kan deze op elk bewerkbaar berichtscherm verschijnen. Stel daarom een berichttype of een andere plaatsingsregel in, tenzij dit de bedoeling is."
+
+msgid "No placement rules"
+msgstr "Geen plaatsingsregels"
+
+msgid "This field group can match every editable post screen."
+msgstr "Deze veldgroep kan op elk bewerkbaar berichtscherm verschijnen."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "Voeg twee of meer velden toe aan deze horizontale groep."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Tabs, loops en horizontale groepen kunnen niet in een horizontale groep worden geplaatst."

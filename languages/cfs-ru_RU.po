@@ -551,104 +551,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "Время"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "Интервал в минутах"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 минута"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 минут"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 минут"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 минут"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 минут"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "Горизонтальная группа"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "Колонки"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "Авто"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "2 колонки"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "3 колонки"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "4 колонки"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "Добавить новое поле ниже"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "Группы полей CFS"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "Группа полей CFS: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "Отображает группу полей CFS."
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "В этой группе нет полей."
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "Рубрики записи"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "Метки записи"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "Изображение записи"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "Рубрики не найдены"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "Разделяйте метки запятыми"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "Выбрать изображение"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "Удалить изображение"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "Искать рубрики"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "Показывать только выбранные"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "Выбор рубрик"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "При выборе родительской рубрики также выбираются все дочерние рубрики"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "При выборе дочерней рубрики также выбираются ее родительские рубрики"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Более новая версия %s доступна на GitHub."
+
+msgid "Required"
+msgstr "Обязательно"
+
+msgid "Please select..."
+msgstr "Пожалуйста, выберите..."
+
+msgid "Alignment"
+msgstr "Выравнивание"
+
+msgid "Evenly distributed"
+msgstr "Равномерно распределено"
+
+msgid "Left aligned"
+msgstr "По левому краю"
+
+msgid "CFS placement warning:"
+msgstr "Предупреждение о размещении CFS:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "У этой группы полей нет правил размещения. Она может отображаться на любом экране редактирования записей, поэтому задайте тип записи или другое правило размещения, если это не было задумано."
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Сохранено, но у этой группы полей нет правил размещения. Она может отображаться на любом экране редактирования записей, поэтому задайте тип записи или другое правило размещения, если это не было задумано."
+
+msgid "No placement rules"
+msgstr "Нет правил размещения"
+
+msgid "This field group can match every editable post screen."
+msgstr "Эта группа полей может отображаться на любом экране редактирования записей."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "Добавьте два или более поля в эту горизонтальную группу."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Вкладки, циклы и горизонтальные группы нельзя помещать внутрь горизонтальной группы."

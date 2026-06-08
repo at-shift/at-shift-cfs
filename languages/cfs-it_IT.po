@@ -647,104 +647,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "Ora"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "Intervallo in minuti"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 minuto"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 minuti"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 minuti"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 minuti"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 minuti"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "Gruppo orizzontale"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "Colonne"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automatico"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "2 colonne"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "3 colonne"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "4 colonne"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "Aggiungi un nuovo campo sotto"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "Gruppi di campi CFS"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "Gruppo di campi CFS: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "Mostra un gruppo di campi CFS."
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "Nessun campo in questo gruppo."
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "Categorie dell articolo"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "Tag dell articolo"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "Immagine in evidenza"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "Nessuna categoria trovata"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "Separa i tag con virgole"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "Seleziona immagine"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "Rimuovi immagine"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "Cerca categorie"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "Mostra solo selezionate"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "Selezione categoria"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "Selezionando una categoria genitore vengono selezionate anche tutte le categorie figlie"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "Selezionando una categoria figlia vengono selezionate anche le categorie genitore"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Una versione più recente %s è disponibile su GitHub."
+
+msgid "Required"
+msgstr "Obbligatorio"
+
+msgid "Please select..."
+msgstr "Seleziona..."
+
+msgid "Alignment"
+msgstr "Allineamento"
+
+msgid "Evenly distributed"
+msgstr "Distribuito uniformemente"
+
+msgid "Left aligned"
+msgstr "Allineato a sinistra"
+
+msgid "CFS placement warning:"
+msgstr "Avviso di posizionamento CFS:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Questo gruppo di campi non ha regole di posizionamento. Puo corrispondere a qualsiasi schermata di modifica degli articoli, quindi imposta un tipo di contenuto o un altra regola di posizionamento, a meno che non sia intenzionale."
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Salvato, ma questo gruppo di campi non ha regole di posizionamento. Puo corrispondere a qualsiasi schermata di modifica degli articoli, quindi imposta un tipo di contenuto o un altra regola di posizionamento, a meno che non sia intenzionale."
+
+msgid "No placement rules"
+msgstr "Nessuna regola di posizionamento"
+
+msgid "This field group can match every editable post screen."
+msgstr "Questo gruppo di campi puo corrispondere a qualsiasi schermata di modifica degli articoli."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "Aggiungi due o piu campi a questo gruppo orizzontale."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Schede, loop e gruppi orizzontali non possono essere inseriti all interno di un gruppo orizzontale."

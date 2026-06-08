@@ -529,104 +529,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "Hora"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "Interval de minuts"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 minut"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 minuts"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 minuts"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 minuts"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 minuts"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "Grup horitzontal"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "Columnes"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automatic"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "2 columnes"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "3 columnes"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "4 columnes"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "Afegeix un camp nou a sota"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "Grups de camps CFS"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "Grup de camps CFS: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "Mostra un grup de camps CFS."
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "No hi ha camps en aquest grup."
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "Categories de l entrada"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "Etiquetes de l entrada"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "Imatge destacada"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "No s han trobat categories"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "Separeu les etiquetes amb comes"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "Selecciona una imatge"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "Elimina la imatge"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "Cerca categories"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "Mostra nomes les seleccionades"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "Seleccio de categories"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "En seleccionar una categoria pare tambe se seleccionen totes les categories filles"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "En seleccionar una categoria filla tambe se seleccionen les categories pare"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Hi ha una versió més recent %s disponible a GitHub."
+
+msgid "Required"
+msgstr "Obligatori"
+
+msgid "Please select..."
+msgstr "Seleccioneu..."
+
+msgid "Alignment"
+msgstr "Alineacio"
+
+msgid "Evenly distributed"
+msgstr "Distribuit uniformement"
+
+msgid "Left aligned"
+msgstr "Alineat a l esquerra"
+
+msgid "CFS placement warning:"
+msgstr "Avis d ubicacio de CFS:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Aquest grup de camps no te regles d ubicacio. Pot coincidir amb qualsevol pantalla d edicio d entrades, aixi que definiu un tipus d entrada o una altra regla d ubicacio tret que sigui intencionat."
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "S ha desat, pero aquest grup de camps no te regles d ubicacio. Pot coincidir amb qualsevol pantalla d edicio d entrades, aixi que definiu un tipus d entrada o una altra regla d ubicacio tret que sigui intencionat."
+
+msgid "No placement rules"
+msgstr "Sense regles d ubicacio"
+
+msgid "This field group can match every editable post screen."
+msgstr "Aquest grup de camps pot coincidir amb qualsevol pantalla d edicio d entrades."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "Afegiu dos o mes camps a aquest grup horitzontal."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Les pestanyes, els bucles i els grups horitzontals no es poden col locar dins d un grup horitzontal."

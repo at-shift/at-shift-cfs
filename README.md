@@ -158,7 +158,7 @@ Behavior (動作):
 
 ## Installation (インストール方法)
 
-Current maintenance version: 2.6.7.41.1 (現在のメンテナンスバージョン: 2.6.7.41.1)
+Current maintenance version: 2.6.7.41.2 (現在のメンテナンスバージョン: 2.6.7.41.2)
 
 Plugin download (プラグインのダウンロード): https://github.com/at-shift/custom-field-suite-maintenance/archive/refs/heads/main.zip
 
@@ -439,6 +439,15 @@ add_action( 'init', function() {
 ```
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
+
+### 2.6.7.41.2
+
+- Fixed an issue where required fields rendered inside Loop rows did not show
+  the `Required` badge.
+- Added and completed bundled translations for recently added admin strings
+  across supported non-Japanese language files.
+- Loop 内の必須フィールドに「必須」バッジが表示されない問題を修正しました。
+- 追加済みの管理画面文字列について、日本語以外の同梱翻訳ファイルの不足分を補完しました。
 
 ### 2.6.7.41.1
 

@@ -598,104 +598,143 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Time"
+msgstr "Godzina"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minute Interval"
+msgstr "Odstep minutowy"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 minuta"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 minut"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 minut"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 minut"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 minut"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontal Group"
+msgstr "Grupa pozioma"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Columns"
+msgstr "Kolumny"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automatycznie"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 columns"
+msgstr "2 kolumny"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 columns"
+msgstr "3 kolumny"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 columns"
+msgstr "4 kolumny"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Add new field below"
+msgstr "Dodaj nowe pole ponizej"
 
 msgid "CFS Field Groups"
-msgstr "CFS Field Groups"
+msgstr "Grupy pol CFS"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS Field Group: %s"
+msgstr "Grupa pol CFS: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Displays a CFS field group."
+msgstr "Wyswietla grupe pol CFS."
 
 msgid "No fields in this group."
-msgstr "No fields in this group."
+msgstr "Brak pol w tej grupie."
 
 msgid "Post Categories"
-msgstr "Post Categories"
+msgstr "Kategorie wpisu"
 
 msgid "Post Tags"
-msgstr "Post Tags"
+msgstr "Tagi wpisu"
 
 msgid "Featured Image"
-msgstr "Featured Image"
+msgstr "Obrazek wyrozniajacy"
 
 msgid "No categories found"
-msgstr "No categories found"
+msgstr "Nie znaleziono kategorii"
 
 msgid "Separate tags with commas"
-msgstr "Separate tags with commas"
+msgstr "Oddziel tagi przecinkami"
 
 msgid "Select Image"
-msgstr "Select Image"
+msgstr "Wybierz obraz"
 
 msgid "Remove Image"
-msgstr "Remove Image"
+msgstr "Usun obraz"
 
 msgid "Search categories"
-msgstr "Search categories"
+msgstr "Szukaj kategorii"
 
 msgid "Show selected only"
-msgstr "Show selected only"
+msgstr "Pokaz tylko wybrane"
 
 msgid "Category Selection"
-msgstr "Category Selection"
+msgstr "Wybor kategorii"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selecting a parent also selects all child categories"
+msgstr "Wybranie kategorii nadrzednej zaznacza takze wszystkie kategorie podrzedne"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selecting a child also selects its parent categories"
+msgstr "Wybranie kategorii podrzednej zaznacza takze jej kategorie nadrzedne"
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Nowsza wersja %s jest dostępna na GitHubie."
+
+msgid "Required"
+msgstr "Wymagane"
+
+msgid "Please select..."
+msgstr "Wybierz..."
+
+msgid "Alignment"
+msgstr "Wyrownanie"
+
+msgid "Evenly distributed"
+msgstr "Rozlozone rownomiernie"
+
+msgid "Left aligned"
+msgstr "Wyrownane do lewej"
+
+msgid "CFS placement warning:"
+msgstr "Ostrzezenie o umiejscowieniu CFS:"
+
+msgid "This field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Ta grupa pol nie ma regul umiejscowienia. Moze pasowac do kazdego edytowalnego ekranu wpisu, wiec ustaw typ tresci lub inna regule umiejscowienia, chyba ze jest to zamierzone."
+
+msgid "Saved, but this field group has no placement rules. It can match every editable post screen, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Zapisano, ale ta grupa pol nie ma regul umiejscowienia. Moze pasowac do kazdego edytowalnego ekranu wpisu, wiec ustaw typ tresci lub inna regule umiejscowienia, chyba ze jest to zamierzone."
+
+msgid "No placement rules"
+msgstr "Brak regul umiejscowienia"
+
+msgid "This field group can match every editable post screen."
+msgstr "Ta grupa pol moze pasowac do kazdego edytowalnego ekranu wpisu."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "Dodaj co najmniej dwa pola do tej grupy poziomej."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Zakladki, petle i grupy poziome nie moga byc umieszczane wewnatrz grupy poziomej."
