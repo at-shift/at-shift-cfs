@@ -349,6 +349,22 @@ echo esc_html( CFS()->get( 'radio_field' ) );
 // Time output. (時間)
 echo esc_html( CFS()->get( 'time_field' ) );
 
+// Code View output. The field returns escaped display markup with a language
+// label and optional copy button. (コード)
+$code_view = CFS()->get( 'code_view_field' );
+echo wp_kses( $code_view, [
+    'div'    => [ 'class' => true ],
+    'span'   => [ 'class' => true ],
+    'pre'    => [],
+    'code'   => [ 'class' => true ],
+    'button' => [
+        'type'        => true,
+        'class'       => true,
+        'data-label'  => true,
+        'data-copied' => true,
+    ],
+] );
+
 // Native WordPress category IDs. (投稿カテゴリー - WordPress 標準)
 $category_ids = array_map( 'intval', (array) CFS()->get( 'wp_category_field', false, [ 'format' => 'raw' ] ) );
 
