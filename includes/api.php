@@ -468,6 +468,12 @@ class cfs_api
         if ( isset( $field_array['value'] ) || 'loop' != $field_type ) {
             $values = isset( $field_array['value'] ) ? $field_array['value'] : $field_array;
 
+            // Scalar fields inside loops arrive as one-item arrays. Normalize those
+            // values here and reject malformed nested arrays before field handlers run.
+            if ( $this->is_scalar_field_type( $field_type ) ) {
+                $values = $this->first_scalar_value( $values );
+            }
+
             // Trigger the pre_save hook
             $field = $params['all_fields'][ $field_id ];
             $field->post_id = $params['post_id'];
@@ -535,6 +541,30 @@ class cfs_api
                 $this->save_fields_recursive( $new_params );
             }
         }
+    }
+
+
+    private function is_scalar_field_type( $field_type ) {
+        return in_array( $field_type, [
+            'text', 'textarea', 'wysiwyg', 'phone', 'email', 'url', 'number',
+            'radio', 'date', 'file', 'color', 'true_false', 'wp_tag',
+            'featured_image',
+        ], true );
+    }
+
+
+    private function first_scalar_value( $value ) {
+        if ( is_scalar( $value ) || null === $value ) {
+            return null === $value ? '' : $value;
+        }
+
+        foreach ( (array) $value as $item ) {
+            if ( is_scalar( $item ) || null === $item ) {
+                return null === $item ? '' : $item;
+            }
+        }
+
+        return '';
     }
 
 

@@ -694,3 +694,5 @@ msgstr "已复制"
 
 msgid "Language"
 msgstr "语言"
+msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
+msgstr "此插件是 Custom Field Suite 的维护版本，可让您在 WordPress 编辑页面中以可视化方式添加自定义字段。"

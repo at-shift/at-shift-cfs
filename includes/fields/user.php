@@ -15,8 +15,10 @@ class cfs_user extends cfs_field
         $selected_users = [];
         $available_users = [];
 
-        $results = $wpdb->get_results( "SELECT ID, user_login FROM $wpdb->users ORDER BY user_login" );
+        $can_list_users = current_user_can( 'list_users' );
+        $results = $wpdb->get_results( "SELECT ID, user_login, display_name FROM $wpdb->users ORDER BY user_login" );
         foreach ( $results as $result ) {
+            $result->cfs_label = $can_list_users ? $result->user_login : $result->display_name;
             $available_users[] = $result;
         }
 
@@ -25,8 +27,9 @@ class cfs_user extends cfs_field
 
         if ( ! empty( $field_value ) ) {
             $field_value = implode( ',', $field_value );
-            $results = $wpdb->get_results( "SELECT ID, user_login FROM $wpdb->users WHERE ID IN ($field_value) ORDER BY FIELD(ID,$field_value)" );
+            $results = $wpdb->get_results( "SELECT ID, user_login, display_name FROM $wpdb->users WHERE ID IN ($field_value) ORDER BY FIELD(ID,$field_value)" );
             foreach ( $results as $result ) {
+                $result->cfs_label = $can_list_users ? $result->user_login : $result->display_name;
                 $selected_users[ $result->ID ] = $result;
             }
         }
@@ -38,13 +41,13 @@ class cfs_user extends cfs_field
         <div class="available_posts post_list">
         <?php foreach ( $available_users as $user ) : ?>
             <?php $class = ( isset( $selected_users[ $user->ID ] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo absint( $user->ID ); ?>"<?php echo $class; ?>><?php echo wp_kses_post( apply_filters( 'cfs_user_display', $user->user_login, $user->ID, $field ) ); ?></div>
+            <div rel="<?php echo absint( $user->ID ); ?>"<?php echo $class; ?>><?php echo wp_kses_post( apply_filters( 'cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_users as $user ) : ?>
-            <div rel="<?php echo absint( $user->ID ); ?>"><span class="remove"></span><?php echo wp_kses_post( apply_filters( 'cfs_user_display', $user->user_login, $user->ID, $field ) ); ?></div>
+            <div rel="<?php echo absint( $user->ID ); ?>"><span class="remove"></span><?php echo wp_kses_post( apply_filters( 'cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>

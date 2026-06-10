@@ -696,3 +696,5 @@ msgstr "Copiat"
 
 msgid "Language"
 msgstr "Idioma"
+msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
+msgstr "Aquest connector és una versió de manteniment de Custom Field Suite que permet afegir visualment camps personalitzats a les pantalles d'edició de WordPress."

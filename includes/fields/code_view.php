@@ -7,7 +7,7 @@ class cfs_code_view extends cfs_field
         $this->name = 'code_view';
         $this->label = __( 'Code View', 'cfs' );
 
-        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+        add_action( 'wp_enqueue_scripts', [ $this, 'maybe_enqueue_assets' ] );
     }
 
 
@@ -15,7 +15,7 @@ class cfs_code_view extends cfs_field
         $field->value = $this->normalize_value_with_default( $field->value, '' );
     ?>
         <div class="cfs-code-view-language-control" style="margin-bottom:10px;">
-            <label style="display:block;margin-bottom:3px;"><?php esc_html_e( 'Language', 'cfs' ); ?><?php echo $this->is_required_field( $field ) ? $this->required_badge() : ''; ?></label>
+            <label style="display:block;margin-bottom:3px;"><?php esc_html_e( 'Language', 'cfs' ); ?><?php echo cfs_field::is_required_field( $field ) ? cfs_field::required_badge() : ''; ?></label>
             <select name="<?php echo esc_attr( $field->input_name ); ?>[language]" class="cfs-code-view-language">
                 <?php foreach ( $this->get_input_languages() as $language => $label ) : ?>
                     <option value="<?php echo esc_attr( $language ); ?>"<?php selected( $field->value['language'], $language ); ?>><?php echo esc_html( $label ); ?></option>
@@ -85,6 +85,32 @@ class cfs_code_view extends cfs_field
     }
 
 
+    function maybe_enqueue_assets() {
+        global $wp_query;
+
+        $post_ids = [];
+        if ( isset( $wp_query->posts ) && is_array( $wp_query->posts ) ) {
+            foreach ( $wp_query->posts as $post ) {
+                if ( $post instanceof WP_Post ) {
+                    $post_ids[] = (int) $post->ID;
+                }
+            }
+        }
+
+        foreach ( array_unique( $post_ids ) as $post_id ) {
+            $fields = CFS()->api->find_input_fields( [
+                'post_id'    => $post_id,
+                'field_type' => 'code_view',
+            ] );
+
+            if ( ! empty( $fields ) ) {
+                $this->enqueue_assets();
+                return;
+            }
+        }
+    }
+
+
     function pre_save( $value, $field = null ) {
         $value = $this->normalize_value( $this->normalize_posted_value( $value ) );
 
@@ -106,6 +132,8 @@ class cfs_code_view extends cfs_field
         if ( '' === $value['code'] ) {
             return '';
         }
+
+        $this->enqueue_assets();
 
         $language = $this->sanitize_language( $value['language'] );
         $language_label = $this->get_language_label( $language );
@@ -219,15 +247,5 @@ class cfs_code_view extends cfs_field
 
     private function get_input_languages() {
         return [ '' => __( 'Please select a language...', 'cfs' ) ] + $this->get_languages();
-    }
-
-
-    private function is_required_field( $field ) {
-        return isset( $field->options['required'] ) && 0 < (int) $field->options['required'];
-    }
-
-
-    private function required_badge() {
-        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'cfs' ) . '</span>';
     }
 }

@@ -711,3 +711,5 @@ msgstr "Kopyalandi"
 
 msgid "Language"
 msgstr "Dil"
+msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
+msgstr "Bu eklenti, WordPress düzenleme ekranlarına görsel olarak özel alanlar eklemenizi sağlayan Custom Field Suite bakım sürümüdür."

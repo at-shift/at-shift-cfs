@@ -680,3 +680,5 @@ msgstr "Masolva"
 
 msgid "Language"
 msgstr "Nyelv"
+msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
+msgstr "Ez a bővítmény a Custom Field Suite karbantartott változata, amellyel vizuálisan adhatsz egyéni mezőket a WordPress szerkesztőoldalaihoz."

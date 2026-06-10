@@ -56,7 +56,7 @@ class cfs_group extends cfs_field
                 ?>
                 <div class="field field-<?php echo esc_attr( $child->name ); ?>" data-type="<?php echo esc_attr( $child->type ); ?>" data-name="<?php echo esc_attr( $child->name ); ?>">
                     <?php if ( ! empty( $child->label ) ) : ?>
-                    <label><?php echo esc_html( $child->label ); ?><?php echo $this->is_required_child( $child ) ? $this->required_badge() : ''; ?></label>
+                    <label><?php echo esc_html( $child->label ); ?><?php echo cfs_field::is_required_field( $child ) ? cfs_field::required_badge() : ''; ?></label>
                     <?php endif; ?>
 
                     <?php if ( ! empty( $child->notes ) ) : ?>
@@ -132,23 +132,5 @@ class cfs_group extends cfs_field
 
     private function get_alignment( $value ) {
         return 'left' === $value ? 'left' : 'stretch';
-    }
-
-
-    private function is_required_child( $field ) {
-        if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
-            return true;
-        }
-
-        if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop' ], true ) ) {
-            return ! empty( $field->options['limit_min'] ) && 0 < (int) $field->options['limit_min'];
-        }
-
-        return false;
-    }
-
-
-    private function required_badge() {
-        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'cfs' ) . '</span>';
     }
 }

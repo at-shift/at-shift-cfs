@@ -741,3 +741,5 @@ msgstr "Copie"
 
 msgid "Language"
 msgstr "Langue"
+msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
+msgstr "Cette extension est une version de maintenance de Custom Field Suite qui permet d'ajouter visuellement des champs personnalisés aux écrans d'édition de WordPress."

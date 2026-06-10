@@ -91,6 +91,18 @@ class cfs_form
                     return;
                 }
 
+                if ( ! $this->is_admin_draft_save( $is_front_end ) ) {
+                    $validation_errors = $this->validate_submission( $field_data, $field_groups );
+
+                    if ( ! empty( $validation_errors ) ) {
+                        wp_die(
+                            esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'cfs' ),
+                            esc_html__( 'Validation', 'cfs' ),
+                            [ 'response' => 400 ]
+                        );
+                    }
+                }
+
                 $options = [
                     'format'        => 'input',
                     'field_groups'  => $field_groups
@@ -182,6 +194,115 @@ class cfs_form
     }
 
 
+    private function is_admin_draft_save( $is_front_end ) {
+        return false === $is_front_end && isset( $_POST['save'] );
+    }
+
+
+    protected function validate_submission( $field_data, $field_groups ) {
+        if ( empty( $field_groups ) ) {
+            return [];
+        }
+
+        $fields_by_parent = [];
+        $fields = CFS()->api->find_input_fields( [ 'group_id' => $field_groups ] );
+
+        foreach ( $fields as $field ) {
+            $field = (object) $field;
+            $fields_by_parent[ (int) $field->parent_id ][] = $field;
+        }
+
+        $errors = [];
+        $this->validate_field_container( (array) $field_data, 0, $fields_by_parent, $errors );
+
+        return $errors;
+    }
+
+
+    private function validate_field_container( $data, $parent_id, $fields_by_parent, &$errors ) {
+        if ( empty( $fields_by_parent[ $parent_id ] ) ) {
+            return;
+        }
+
+        foreach ( $fields_by_parent[ $parent_id ] as $field ) {
+            if ( 'tab' === $field->type ) {
+                continue;
+            }
+
+            if ( 'group' === $field->type ) {
+                $this->validate_field_container( $data, (int) $field->id, $fields_by_parent, $errors );
+                continue;
+            }
+
+            $field_data = isset( $data[ $field->id ] ) ? $data[ $field->id ] : [];
+
+            if ( 'loop' === $field->type ) {
+                $rows = is_array( $field_data ) ? $field_data : [];
+                $this->validate_count_limits( $field, count( $rows ), $errors );
+
+                foreach ( $rows as $row ) {
+                    $this->validate_field_container( (array) $row, (int) $field->id, $fields_by_parent, $errors );
+                }
+                continue;
+            }
+
+            $value = is_array( $field_data ) && array_key_exists( 'value', $field_data ) ? $field_data['value'] : '';
+
+            if ( in_array( $field->type, [ 'relationship', 'term', 'user' ], true ) ) {
+                $this->validate_count_limits( $field, count( $this->normalize_submitted_ids( $value ) ), $errors );
+            }
+
+            if ( ! empty( $field->options['required'] ) && $this->is_empty_submission_value( $value, $field->type ) ) {
+                $errors[] = $field->name;
+            }
+        }
+    }
+
+
+    private function validate_count_limits( $field, $count, &$errors ) {
+        $min = empty( $field->options['limit_min'] ) ? 0 : (int) $field->options['limit_min'];
+        $max = empty( $field->options['limit_max'] ) ? 0 : (int) $field->options['limit_max'];
+
+        if ( ( 0 < $min && $count < $min ) || ( 0 < $max && $max < $count ) ) {
+            $errors[] = $field->name;
+        }
+    }
+
+
+    private function normalize_submitted_ids( $value ) {
+        $values = [];
+
+        foreach ( (array) $value as $item ) {
+            if ( is_scalar( $item ) ) {
+                $values = array_merge( $values, explode( ',', (string) $item ) );
+            }
+        }
+
+        return array_values( array_filter( array_map( 'absint', $values ) ) );
+    }
+
+
+    private function is_empty_submission_value( $value, $field_type ) {
+        if ( 'code_view' === $field_type ) {
+            $value = is_array( $value ) ? $value : [];
+            $language = isset( $value['language'] ) && is_scalar( $value['language'] ) ? trim( (string) $value['language'] ) : '';
+            $code = isset( $value['code'] ) && is_scalar( $value['code'] ) ? trim( (string) $value['code'] ) : '';
+            return '' === $language || '' === $code;
+        }
+
+        if ( is_array( $value ) ) {
+            foreach ( $value as $item ) {
+                if ( is_scalar( $item ) && '' !== trim( (string) $item ) ) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        return ! is_scalar( $value ) || '' === trim( (string) $value );
+    }
+
+
     /**
      * Load form dependencies
      * @since 1.8.5
@@ -246,30 +367,6 @@ CFS['loop_buffer'] = [];
         echo '<div class="notice notice-error" id="cfs-validation-admin-notice" style="display: none;"><p><strong>';
         echo __( 'One (or more) of your fields had validation errors. More information is available below.', 'cfs' );
         echo '</strong></p><ul id="cfs-validation-error-list"></ul></div>';
-    }
-
-
-    /**
-     * Determine whether a field should be marked as required in the editor UI.
-     */
-    private function is_required_field( $field ) {
-        if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
-            return true;
-        }
-
-        if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop' ], true ) ) {
-            return ! empty( $field->options['limit_min'] ) && 0 < (int) $field->options['limit_min'];
-        }
-
-        return false;
-    }
-
-
-    /**
-     * Render the required badge shown beside field labels.
-     */
-    private function required_badge() {
-        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'cfs' ) . '</span>';
     }
 
 
@@ -490,7 +587,7 @@ CFS['loop_buffer'] = [];
             <?php endif; ?>
 
             <?php if ( ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?><?php echo $this->is_required_field( $field ) ? $this->required_badge() : ''; ?></label>
+            <label><?php echo esc_html( $field->label ); ?><?php echo cfs_field::is_required_field( $field ) ? cfs_field::required_badge() : ''; ?></label>
             <?php endif; ?>
 
             <?php if ( ! empty( $field->notes ) ) : ?>

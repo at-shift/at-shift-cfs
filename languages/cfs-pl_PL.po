@@ -765,3 +765,5 @@ msgstr "Skopiowano"
 
 msgid "Language"
 msgstr "Jezyk"
+msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
+msgstr "Ta wtyczka jest wersją konserwacyjną Custom Field Suite, która umożliwia wizualne dodawanie własnych pól do ekranów edycji WordPressa."

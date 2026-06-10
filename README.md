@@ -164,7 +164,7 @@ Behavior (動作):
 
 ## Installation (インストール方法)
 
-Current maintenance version: 2.6.7.41.4 (現在のメンテナンスバージョン: 2.6.7.41.4)
+Current maintenance version: 2.6.7.41.5 (現在のメンテナンスバージョン: 2.6.7.41.5)
 
 Plugin download (プラグインのダウンロード): https://github.com/at-shift/custom-field-suite-maintenance/archive/refs/heads/main.zip
 
@@ -461,6 +461,21 @@ add_action( 'init', function() {
 ```
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
+
+### 2.6.7.41.5
+
+- Prevented public CFS forms from exposing private post titles or WordPress
+  login names through Relationship and User fields.
+- Added server-side validation for required fields and item limits, including
+  fields inside Loops and Horizontal Groups.
+- Hardened field saves against malformed nested input and strengthened CFS
+  session ID generation while retaining the existing session format.
+- Consolidated required badge handling and limited Code View assets to pages
+  where they are needed.
+- 公開CFSフォームの関連ポスト選択・ユーザーフィールドから、非公開投稿タイトルやWordPressログイン名が表示される問題を修正しました。
+- ループ・横並びグループ内を含む必須フィールドと件数制限について、サーバー側でも入力チェックを行うようにしました。
+- 不正な多重入力による保存エラーを防止し、既存形式を維持したままCFSセッションIDの生成を強化しました。
+- 必須バッジの処理を共通化し、コードフィールドのCSS・JavaScriptを必要なページだけで読み込むようにしました。
 
 ### 2.6.7.41.4
 

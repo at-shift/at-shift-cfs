@@ -113,6 +113,16 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.41.5 =
+* Prevented public CFS forms from exposing private post titles or WordPress login names through Relationship and User fields.
+* Added server-side validation for required fields and item limits, including fields inside Loops and Horizontal Groups.
+* Hardened field saves against malformed nested input and strengthened CFS session ID generation while retaining the existing session format.
+* Consolidated required badge handling and limited Code View assets to pages where they are needed.
+* 公開CFSフォームの関連ポスト選択・ユーザーフィールドから、非公開投稿タイトルやWordPressログイン名が表示される問題を修正しました。
+* ループ・横並びグループ内を含む必須フィールドと件数制限について、サーバー側でも入力チェックを行うようにしました。
+* 不正な多重入力による保存エラーを防止し、既存形式を維持したままCFSセッションIDの生成を強化しました。
+* 必須バッジの処理を共通化し、コードフィールドのCSS・JavaScriptを必要なページだけで読み込むようにしました。
+
 = 2.6.7.41.4 =
 * Improved drag-and-drop behavior when moving fields into Loop (repeatable field) and Horizontal Group fields in the Field Group editor.
 * Improved the "Add new field below" button in the Field Group editor so fields can be added directly inside Loop (repeatable field) and Horizontal Group fields.

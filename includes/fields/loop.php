@@ -282,7 +282,7 @@ class cfs_loop extends cfs_field
     ?>
         <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
         <?php if ( ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?><?php echo $this->is_required_child( $field ) ? $this->required_badge() : ''; ?></label>
+            <label><?php echo esc_html( $field->label ); ?><?php echo cfs_field::is_required_field( $field ) ? cfs_field::required_badge() : ''; ?></label>
         <?php endif; ?>
 
         <?php if ( ! empty( $field->notes ) ) : ?>
@@ -329,7 +329,7 @@ class cfs_loop extends cfs_field
     ?>
         <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
         <?php if ( ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?><?php echo $this->is_required_child( $field ) ? $this->required_badge() : ''; ?></label>
+            <label><?php echo esc_html( $field->label ); ?><?php echo cfs_field::is_required_field( $field ) ? cfs_field::required_badge() : ''; ?></label>
         <?php endif; ?>
 
         <?php if ( ! empty( $field->notes ) ) : ?>
@@ -374,26 +374,6 @@ class cfs_loop extends cfs_field
         </div>
     <?php
     }
-
-
-    private function is_required_child( $field ) {
-        if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
-            return true;
-        }
-
-        if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop' ], true ) ) {
-            return ! empty( $field->options['limit_min'] ) && 0 < (int) $field->options['limit_min'];
-        }
-
-        return false;
-    }
-
-
-    private function required_badge() {
-        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'cfs' ) . '</span>';
-    }
-
-
 	    private function get_values_by_tag( $parent_tag ) {
         preg_match_all( '/\[([0-9]+)\]/', $parent_tag, $matches );
 

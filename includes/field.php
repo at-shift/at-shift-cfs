@@ -148,4 +148,22 @@ class cfs_field
         }
         return $default_value;
     }
+
+
+    public static function is_required_field( $field ) {
+        if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
+            return true;
+        }
+
+        if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop' ], true ) ) {
+            return ! empty( $field->options['limit_min'] ) && 0 < (int) $field->options['limit_min'];
+        }
+
+        return false;
+    }
+
+
+    public static function required_badge() {
+        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'cfs' ) . '</span>';
+    }
 }

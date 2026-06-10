@@ -15,7 +15,7 @@ class cfs_session
             $this->session_id = $_POST['cfs']['session_id'];
         }
         else {
-            $this->session_id = md5( uniqid() );
+            $this->session_id = $this->generate_session_id();
         }
     }
 
@@ -91,5 +91,19 @@ class cfs_session
      */
     public function is_valid( $session_id ) {
         return preg_match( "/^([a-f0-9]{32})$/", $session_id ) ? true : false;
+    }
+
+
+    private function generate_session_id() {
+        if ( function_exists( 'random_bytes' ) ) {
+            try {
+                return bin2hex( random_bytes( 16 ) );
+            }
+            catch ( Exception $e ) {
+                // Fall through to the compatibility fallback.
+            }
+        }
+
+        return md5( wp_generate_uuid4() . microtime( true ) );
     }
 }

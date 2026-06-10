@@ -37,6 +37,10 @@ class cfs_relationship extends cfs_field
         $query = new WP_Query( $args );
 
         foreach ( $query->posts as $post_obj ) {
+            if ( 'private' === $post_obj->post_status && ! current_user_can( 'read_post', $post_obj->ID ) ) {
+                continue;
+            }
+
             $post_title = ( 'private' == $post_obj->post_status ) ? '(Private) ' . $post_obj->post_title : $post_obj->post_title;
             $available_posts[] = (object) [
                 'ID'            => $post_obj->ID,
@@ -53,6 +57,10 @@ class cfs_relationship extends cfs_field
             $field_value = implode( ',', $field_value );
             $results = $wpdb->get_results( "SELECT ID, post_status, post_title FROM $wpdb->posts WHERE ID IN ($field_value) ORDER BY FIELD(ID,$field_value)" );
             foreach ( $results as $result ) {
+                if ( 'private' === $result->post_status && ! current_user_can( 'read_post', $result->ID ) ) {
+                    continue;
+                }
+
                 $result->post_title = ( 'private' == $result->post_status ) ? '(Private) ' . $result->post_title : $result->post_title;
                 $selected_posts[ $result->ID ] = $result;
             }
