@@ -462,7 +462,7 @@ add_action( 'init', function() {
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
 
-### 2.6.7.41.5
+### [2.6.7.41.5](https://github.com/at-shift/custom-field-suite-maintenance/releases/tag/v2.6.7.41.5)
 
 - Prevented public CFS forms from exposing private post titles or WordPress
   login names through Relationship and User fields.
@@ -477,161 +477,39 @@ add_action( 'init', function() {
 - 不正な多重入力による保存エラーを防止し、既存形式を維持したままCFSセッションIDの生成を強化しました。
 - 必須バッジの処理を共通化し、コードフィールドのCSS・JavaScriptを必要なページだけで読み込むようにしました。
 
-### 2.6.7.41.4
+Past release notes are available on the [Releases page](https://github.com/at-shift/custom-field-suite-maintenance/releases).
 
-- Improved drag-and-drop behavior when moving fields into Loop (repeatable
-  field) and Horizontal Group fields in the Field Group editor.
-- Improved the "Add new field below" button in the Field Group editor so fields
-  can be added directly inside Loop (repeatable field) and Horizontal Group
-  fields.
-- フィールドグループ内の「ループ(複製フィールド)」と「横並びグループ」へフィールドをドラッグ移動しやすくしました。
-- フィールドグループ内の「この下に新規フィールドを作る。」ボタンを改善し、「ループ(複製フィールド)」と「横並びグループ」内へ直接フィールドを追加できるようにしました。
+過去の履歴は[リリースページ](https://github.com/at-shift/custom-field-suite-maintenance/releases)をご覧ください。
 
-### 2.6.7.41.3
-
-- Added a Code View field for showing examples such as HTML code on the front
-  end.
-- Fixed display issues after saving in some field inputs.
-- フロントエンドでHTMLコードなどの例を記載できるコードフィールドを追加しました。
-- フィールドの一部で保存後に表示が崩れる問題を修正しました。
-
-### 2.6.7.41.2
-
-- Fixed an issue where required fields rendered inside Loop rows did not show
-  the `Required` badge.
-- Added and completed bundled translations for recently added admin strings
-  across supported non-Japanese language files.
-- Loop 内の必須フィールドに「必須」バッジが表示されない問題を修正しました。
-- 追加済みの管理画面文字列について、日本語以外の同梱翻訳ファイルの不足分を補完しました。
-
-### 2.6.7.41.1
-
-- Hardened CFS field group saves with explicit post type and capability checks.
-- Prevented duplicate field IDs across field groups from causing post edit values to be overwritten.
-- CFSフィールドグループ保存時に投稿タイプと権限チェックを明示し、CSRF/認可防御を強化
-- フィールドグループ間のフィールドID重複により投稿編集画面の値が上書きされる問題を防止
-
-### 2.6.7.41
-
-- Fixed issues related to Tabs, Loops (Repeatable Fields), and Horizontal Groups.
-- タブ・ループ(複製フィールド)・横並びグループで発生した不具合を修正
-
-### 2.6.7.40
-
-- Added Phone, Email Address, Number, URL, and Time fields with post edit
-  screen format validation.
-- Added hour and minute select menus for the Time field, including configurable
-  minute intervals.
-- Added an empty `Please select...` option to the top of existing single Select
-  field dropdown lists.
-- Added native WordPress Post Categories, Post Tags, and Featured Image fields
-  that can be placed inside CFS field groups.
-- Improved native category behavior: default category fallback, Japanese
-  `未分類` display, parent auto-selection, descendant unchecking, and automatic
-  default category removal / restoration.
-- Added Horizontal Group for arranging multiple child fields side by side in
-  the post edit screen.
-- Added Horizontal Group alignment options: evenly distributed and left aligned.
-- Added warnings when a Horizontal Group has fewer than two child fields.
-- Prevented Tabs, Loops, and other Horizontal Groups from being placed inside a
-  Horizontal Group.
-- Added an "Add new field below" button to the Field Group editor.
-- Reordered the Field Group field type selector into grouped,
-  workflow-oriented sections.
-- Hardened Field Group editor parent / child synchronization so hidden
-  `parent_id` values follow the visible nested structure.
-- Fixed cases where newly nested fields could trigger undefined `id` warnings
-  or disappear from the post edit screen after saving.
-- Added a visible `Required` badge beside required field labels in the post edit
-  screen.
-- Added placement rule warnings for Field Groups with no placement rules.
-- Added a GitHub release notice on the WordPress Plugins screen when a newer
-  release is available.
-- Updated Japanese translation files for added and changed admin strings.
-
-- 電話番号、メールアドレス、数字、URL、時間フィールドを追加し、投稿編集画面で形式チェックを行うようにしました。
-- 時間フィールドに時・分のセレクトメニューを追加し、設定した分の刻み幅が選択肢へ反映されるようにしました。
-- 既存のセレクト（ドロップダウン）リストの先頭に「選択してください...」を追加しました。
-- WordPress 標準の投稿カテゴリー、投稿タグ、アイキャッチ画像を CFS フィールドグループ内に配置できるフィールドを追加しました。
-- 投稿カテゴリーの動作を改善し、デフォルトカテゴリー復元、`未分類` 表示、親カテゴリーの自動選択、親を外した際の子孫カテゴリー解除、デフォルトカテゴリーの自動解除 / 復元に対応しました。
-- 複数の子フィールドを投稿編集画面で横に並べる横並びグループを追加しました。
-- 横並びグループに均等配置と左寄せの配置設定を追加しました。
-- 横並びグループ内の子フィールドが2つ未満の場合に警告を表示するようにしました。
-- 横並びグループの中に、タブ、ループ、別の横並びグループを入れられないようにしました。
-- Field Group 編集画面に「このフィールドの下に新規フィールドを追加」ボタンを追加しました。
-- Field Group のフィールドタイプ選択メニューを、用途ごとに探しやすい順番へ整理しました。
-- Field Group 編集画面の親子関係同期を強化し、hidden の `parent_id` が画面上の入れ子構造に追従するようにしました。
-- 新規フィールドをグループへ追加して保存した際に、未定義の `id` 警告が出たり、投稿編集画面から子フィールドが消える可能性があるケースを修正しました。
-- 入力必須フィールドに「必須」バッジを表示するようにしました。
-- 配置ルールが空の Field Group に警告を表示するようにしました。
-- WordPress プラグイン一覧画面で、GitHub に新しいリリースがある場合のみ通知を表示するようにしました。
-- 追加・変更された管理画面文字列に対応する日本語翻訳ファイルを更新しました。
-
-### 2.6.7.23
-
-- Hardened Field Group type switching JavaScript so field type labels are
-  written as text and generated option controls are updated through DOM
-  attributes instead of string-rewritten HTML.
-- Replaced an unnecessary jQuery object wrapper in the bundled datepicker
-  parser with array filtering to reduce CodeQL unsafe jQuery plugin findings.
-- Verified the updated Field Group field-type switching behavior directly in
-  Safari, including option row insertion, field name replacement, and new field
-  indexing.
-
-- フィールドタイプ切り替え時の管理画面 JavaScript を強化し、フィールドタイプ表示はテキストとして書き込み、生成されるオプション入力の更新は文字列 HTML の再解釈ではなく DOM 属性の更新で行うようにしました。
-- 同梱 datepicker のパーサー内で不要な jQuery オブジェクト化を配列フィルタリングに置き換え、CodeQL の unsafe jQuery plugin 検出を低減しました。
-- Safari で、更新後の Field Group フィールドタイプ切り替え動作を直接検証しました。オプション行の挿入、フィールド名の置換、新規フィールド index の更新を確認しています。
-
-### 2.6.7.22
-
-- Verified WordPress 7.0 admin compatibility for Field Group editing, CFS meta
-  boxes, WYSIWYG fields, and File media modal handling.
-- Moved Field Group admin asset loading to WordPress enqueue APIs.
-
-- WordPress 7.0 管理画面での Field Group 編集、CFS メタボックス、WYSIWYG フィールド、File メディアモーダル処理の互換性を検証しました。
-- Field Group 管理画面のアセット読み込みを WordPress の enqueue API に移行しました。
 
 ## Security and Compatibility Changes (脆弱性対策と互換性)
 
-This maintenance build includes security and compatibility hardening on top of upstream
-2.6.7.
+This maintenance build strengthens upstream 2.6.7 while preserving existing
+field data and APIs.
 
-このメンテナンスビルド版には、上流版 2.6.7 に対するセキュリティおよび互換性の強化が含まれています。
+This maintenance build addresses reported known vulnerabilities, strengthens
+protection against various attack methods, and fixes bugs.
 
-Main changes (脆弱性に対する対策):
+- Added CSRF protection, capability checks, input sanitization, and output
+  escaping to administrative and public form processing.
+- Prevented public fields from exposing private post titles or WordPress login
+  names to unauthorized users.
+- Added server-side validation for required fields and item limits, including
+  nested fields, and hardened malformed input handling.
+- Strengthened session, query, import/export, and serialized data handling
+  without changing existing data formats.
+- Improved compatibility with current WordPress and PHP versions while
+  retaining the behavior of existing CFS fields.
 
-- Removed Loop field `eval()` rendering and replaced it with structured lookup
-  logic.
-- Normalized Relationship, Term, and User field IDs before saving and querying.
-- Sanitized CFS form `post_title` and `post_content` submissions to reduce
-  stored XSS risk.
-- Added capability checks before CFS form submissions update existing posts.
-- Hardened session queries, import/export handling, reverse-relationship
-  filtering, and serialized field data loading.
-- Escaped admin field output across field settings, tabs, file links, selected
-  Relationship / Term / User labels, and generated JSON.
-- Stabilized PHP 8.2+ admin edit screen compatibility.
-- Fixed PHP 8.2+ deprecated dynamic property notices in Checkbox, Radio Button,
-  and Select field settings.
-- Fixed Field Group Placement Rules layout overflow in the WordPress admin
-  screen.
-- Moved Field Group admin asset loading to WordPress enqueue APIs for better
-  WordPress 7.0 admin compatibility.
-- Updated bundled translation files for the added and changed admin strings.
-- Fixed TinyMCE code plugin loading for CFS WYSIWYG fields.
+このメンテナンスビルド版では、既存のフィールドデータとAPIとの互換性を維持しながら、上流版2.6.7を強化しています。
 
-- Loop フィールドの `eval()` による描画を削除し、構造化された参照ロジックに置き換えました。
-- Relationship、Term、User フィールドの ID を、保存およびクエリ前に正規化するようにしました。
-- CFS フォームの `post_title` と `post_content` 送信値をサニタイズし、保存型 XSS リスクを低減しました。
-- CFS フォーム送信で既存投稿を更新する前に、権限チェックを行うようにしました。
-- セッション SQL、インポート/エクスポート処理、逆引き Relationship のフィルタリング、シリアライズ済みフィールドデータの読み込みを強化しました。
-- フィールド設定、タブ、ファイルリンク、選択済み Relationship / Term / User ラベル、生成 JSON など、管理画面の出力エスケープを強化しました。
-- PHP 8.2 以降の管理画面投稿編集ページとの互換性を安定化しました。
-- Checkbox、Radio Button、Select フィールド設定で発生していた PHP 8.2 以降の動的プロパティ Deprecated 通知を修正しました。
-- WordPress 管理画面内の Field Group Placement Rules レイアウトが横にはみ出す問題を修正しました。
-- WordPress 7.0 の管理画面互換性を高めるため、Field Group 管理画面のアセット読み込みを WordPress の enqueue API に移行しました。
-- 追加・変更された管理画面文字列に対応する同梱翻訳ファイルを更新しました。
-- CFS WYSIWYG フィールドで TinyMCE code プラグインが正しく読み込まれるように修正しました。
+このメンテナンスビルド版では、報告された既知の脆弱性への対策、様々な攻撃手法への対処、およびバグ修正を行っています。
+
+- 管理画面と公開フォームの処理に、CSRF対策、権限確認、入力値の無害化、出力時のエスケープを追加しました。
+- 権限のない利用者に、非公開投稿タイトルやWordPressログイン名が表示されないようにしました。
+- 入れ子フィールドを含む必須項目と件数制限をサーバー側でも検証し、不正な入力データの処理を強化しました。
+- 既存のデータ形式を変更せず、セッション、クエリ、インポート／エクスポート、シリアライズデータの処理を強化しました。
+- 既存CFSフィールドの動作を維持しながら、現行のWordPressおよびPHPとの互換性を改善しました。
 
 ## Verification (検証)
 
