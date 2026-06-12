@@ -96,8 +96,8 @@ class cfs_form
 
                     if ( ! empty( $validation_errors ) ) {
                         wp_die(
-                            esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'cfs' ),
-                            esc_html__( 'Validation', 'cfs' ),
+                            esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' ),
+                            esc_html__( 'Validation', 'at-shift-cfs' ),
                             [ 'response' => 400 ]
                         );
                     }
@@ -338,22 +338,22 @@ var CFS = CFS || {};
 CFS['get_field_value'] = {};
 CFS['loop_buffer'] = [];
 CFS['validation_messages'] = <?php echo wp_json_encode( [
-    'enter_value'       => __( 'Please enter a value', 'cfs' ),
-    'valid_date'        => __( 'Please enter a valid date (YYYY-MM-DD HH:MM)', 'cfs' ),
-    'valid_color'       => __( 'Please enter a valid color HEX (#ff0000)', 'cfs' ),
-    'enter_phone'       => __( 'Please enter a phone number', 'cfs' ),
-    'valid_phone'       => __( 'Please enter a valid phone number', 'cfs' ),
-    'enter_email'       => __( 'Please enter an email address', 'cfs' ),
-    'valid_email'       => __( 'Please enter a valid email address', 'cfs' ),
-    'enter_number'      => __( 'Please enter a number', 'cfs' ),
-    'valid_number'      => __( 'Please enter a valid number', 'cfs' ),
-    'enter_url'         => __( 'Please enter a URL', 'cfs' ),
-    'valid_url'         => __( 'Please enter a valid URL', 'cfs' ),
-    'select_time'       => __( 'Please select a time', 'cfs' ),
-    'valid_time'        => __( 'Please select a valid time', 'cfs' ),
-    'enter_code'        => __( 'Please select a language and enter code', 'cfs' ),
-    'select_items'      => __( 'Please select %s item(s)', 'cfs' ),
-    'select_item_range' => __( 'Please select between %1$s and %2$s items', 'cfs' ),
+    'enter_value'       => __( 'Please enter a value', 'at-shift-cfs' ),
+    'valid_date'        => __( 'Please enter a valid date (YYYY-MM-DD HH:MM)', 'at-shift-cfs' ),
+    'valid_color'       => __( 'Please enter a valid color HEX (#ff0000)', 'at-shift-cfs' ),
+    'enter_phone'       => __( 'Please enter a phone number', 'at-shift-cfs' ),
+    'valid_phone'       => __( 'Please enter a valid phone number', 'at-shift-cfs' ),
+    'enter_email'       => __( 'Please enter an email address', 'at-shift-cfs' ),
+    'valid_email'       => __( 'Please enter a valid email address', 'at-shift-cfs' ),
+    'enter_number'      => __( 'Please enter a number', 'at-shift-cfs' ),
+    'valid_number'      => __( 'Please enter a valid number', 'at-shift-cfs' ),
+    'enter_url'         => __( 'Please enter a URL', 'at-shift-cfs' ),
+    'valid_url'         => __( 'Please enter a valid URL', 'at-shift-cfs' ),
+    'select_time'       => __( 'Please select a time', 'at-shift-cfs' ),
+    'valid_time'        => __( 'Please select a valid time', 'at-shift-cfs' ),
+    'enter_code'        => __( 'Please select a language and enter code', 'at-shift-cfs' ),
+    'select_items'      => __( 'Please select %s item(s)', 'at-shift-cfs' ),
+    'select_item_range' => __( 'Please select between %1$s and %2$s items', 'at-shift-cfs' ),
 ] ); ?>;
 </script>
 
@@ -383,7 +383,7 @@ CFS['validation_messages'] = <?php echo wp_json_encode( [
         }
 
         echo '<div class="notice notice-error" id="cfs-validation-admin-notice" style="display: none;"><p><strong>';
-        echo __( 'One (or more) of your fields had validation errors. More information is available below.', 'cfs' );
+        echo __( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' );
         echo '</strong></p><ul id="cfs-validation-error-list"></ul></div>';
     }
 
@@ -407,7 +407,7 @@ CFS['validation_messages'] = <?php echo wp_json_encode( [
             'excluded_fields'       => [],
             'confirmation_message'  => '',
             'confirmation_url'      => '',
-            'submit_label'          => __( 'Submit', 'cfs' ),
+            'submit_label'          => __( 'Submit', 'at-shift-cfs' ),
             'front_end'             => true,
         ];
 
@@ -608,7 +608,7 @@ CFS['validation_messages'] = <?php echo wp_json_encode( [
 
         <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
             <?php if ( 'loop' == $field->type ) : ?>
-            <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_html_e( 'Toggle row visibility', 'cfs' ); ?>"></a>
+            <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_html_e( 'Toggle row visibility', 'at-shift-cfs' ); ?>"></a>
             <?php endif; ?>
 
             <?php if ( 'accordion' !== $field->type && ! empty( $field->label ) ) : ?>

@@ -1,6 +1,6 @@
-=== Custom Field Suite ===
+=== at-shift CFS ===
 Contributors: mgibbs189, at-shift
-Tags: custom fields, fields, postmeta, relationship, repeater, file upload, categories, tags
+Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
 Stable tag: trunk
@@ -70,6 +70,7 @@ This package is a maintenance build based on the upstream Custom Field Suite 2.6
 * Field Group parent / child synchronization to reduce cases where nested fields disappear from the post edit screen.
 * Placement rule warnings for field groups that have no placement rules.
 * GitHub release notice on the WordPress Plugins screen when a newer release is available.
+* Configurable placeholders for Text, Phone, Email Address, Hyperlink, and URL fields.
 
 = Usage =
 
@@ -118,11 +119,25 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 = Links =
 
-* Documentation: https://mgibbs189.github.io/custom-field-suite/
+* Documentation: https://cfs.at-shift.net/
 * Original Github: https://github.com/mgibbs189/custom-field-suite
-* Maintenance Github: https://github.com/at-shift/custom-field-suite-maintenance
+* Maintenance Github: https://github.com/at-shift/at-shift-cfs
 
 == Changelog ==
+
+= 2.6.7.41.22 =
+* Localized the Date field calendar using the WordPress user language.
+* Displayed calendar year and month headings in each locale's standard order.
+* 日付フィールドのカレンダーをWordPressのユーザー言語に合わせて翻訳しました。
+* カレンダーの年月見出しを各言語・地域の標準的な順序で表示するようにしました。
+
+= 2.6.7.41.21 =
+* Renamed the plugin to at-shift CFS.
+* Added configurable placeholders for Text, Phone, Email Address, Hyperlink, and URL fields.
+* Added tooltips explaining Default Value and Placeholder settings.
+* プラグイン名を at-shift CFS に変更しました。
+* 単一行テキスト、電話番号、メールアドレス、ハイパーリンク、URLにプレースホルダー設定を追加しました。
+* デフォルト値とプレースホルダー設定に説明ツールチップを追加しました。
 
 = 2.6.7.41.20 =
 * Added a new Accordion Group field for organizing fields into collapsible sections.

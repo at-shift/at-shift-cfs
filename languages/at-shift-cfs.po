@@ -1,731 +1,783 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Field Suite\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
+"Project-Id-Version: at-shift CFS\n"
 "POT-Creation-Date: 2015-10-20 22:30-0400\n"
 "PO-Revision-Date: 2015-10-20 22:30-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
-"Language-Team: www.ZooZ.ir <masoomi.vahid@gmail.com>\n"
-"Language: fa_IR\n"
+"Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.5\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
-msgstr "متن"
+msgstr ""
 
 #: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
-msgstr "مجوز"
+msgstr ""
 
 #: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
-msgstr "تکمیل این فیلد اجباری است"
+msgstr ""
+
+#: ../includes/form.php:266 ../includes/fields/group.php:147
+msgid "Required"
+msgstr ""
 
 #: ../includes/field_group.php:112
 msgid "Imported"
-msgstr "وارد شد"
+msgstr ""
 
 #: ../includes/field_group.php:115
 msgid "Skipped"
-msgstr "رد شده"
+msgstr ""
 
 #: ../includes/field_group.php:120
 msgid "Nothing to import"
-msgstr "چیزی برای وارد کردن وجود ندارد"
+msgstr ""
 
 #: ../includes/fields/color/color.php:8
 msgid "Color"
-msgstr "رنگ"
+msgstr ""
 
 #: ../includes/fields/date/date.php:8
 msgid "Date"
-msgstr "تاریخ"
+msgstr ""
 
 #: ../includes/fields/file.php:8
 msgid "File Upload"
-msgstr "آپلود فایل"
+msgstr ""
 
 #: ../includes/fields/file.php:32
 msgid "Add File"
-msgstr "افزودن فایل"
+msgstr ""
 
 #: ../includes/fields/file.php:33
 msgid "Remove"
-msgstr "حذف"
+msgstr ""
 
 #: ../includes/fields/file.php:43
 msgid "Return Value"
-msgstr "مقدار برگشت"
+msgstr ""
 
 #: ../includes/fields/file.php:52
 msgid "File URL"
-msgstr "آدرس فایل"
+msgstr ""
 
 #: ../includes/fields/file.php:53
 msgid "Attachment ID"
-msgstr "آی دی فایل پیوستی"
+msgstr ""
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr "ابرپیوند"
+msgstr ""
 
 #: ../includes/fields/hyperlink.php:23
 msgid "URL"
-msgstr "لینک"
+msgstr ""
 
 #: ../includes/fields/hyperlink.php:27
 msgid "Link Text"
-msgstr "متن لینک"
+msgstr ""
 
 #: ../includes/fields/hyperlink.php:31
 msgid "Link Target"
-msgstr "هدف پیوند"
+msgstr ""
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr "قالب خروجی"
+msgstr ""
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
-msgstr "HTML"
+msgstr ""
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr "آرایه پی اچ پی"
+msgstr ""
 
 #: ../includes/fields/loop.php:8
 msgid "Loop"
-msgstr "حلقه"
+msgstr ""
 
 #: ../includes/fields/loop.php:36
 msgid "Row Display"
-msgstr "نمایش ردیف"
+msgstr ""
 
 #: ../includes/fields/loop.php:45
 msgid "Show the values by default"
-msgstr "نمایش مقادیر پیشفرض"
+msgstr ""
 
 #: ../includes/fields/loop.php:52
 msgid "Row Label"
-msgstr "برچسب ردیف"
+msgstr ""
 
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
 #: ../includes/fields/loop.php:194
 msgid "Loop Row"
-msgstr "ردیف حلقه"
+msgstr ""
 
 #: ../includes/fields/loop.php:66
 msgid "Button Label"
-msgstr "برچسب دکمه"
+msgstr ""
 
 #: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
 #: ../includes/fields/loop.php:195
 msgid "Add Row"
-msgstr "افزودن ردیف"
+msgstr ""
 
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
-msgstr "محدودیت ها"
+msgstr ""
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
-msgstr "ارتباط"
+msgstr ""
 
 #: ../includes/fields/relationship.php:60
 msgid "Search posts"
-msgstr "جستجو پست ها"
+msgstr ""
 
 #: ../includes/fields/relationship.php:88 ../includes/init.php:282
 #: ../templates/meta_box_rules.php:136
 msgid "Post Types"
-msgstr "نوع نوشته"
+msgstr ""
 
 #: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
-msgstr "محدودسازی نوشته ها به این نوع"
+msgstr ""
 
 #: ../includes/fields/select.php:8
 msgid "Select"
-msgstr "انتخاب"
+msgstr ""
+
+#: ../includes/fields/select.php:43
+msgid "Please select..."
+msgstr ""
+
+#: ../includes/fields/code_view.php:210
+msgid "Please select a language..."
+msgstr ""
 
 #: ../includes/fields/select.php:86
 msgid "Choices"
-msgstr "انتخاب"
+msgstr ""
 
 #: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
-msgstr "هر انتخاب در هر سطر"
+msgstr ""
 
 #: ../includes/fields/select.php:101
 msgid "Multi-select?"
-msgstr "چند انتخابی؟"
+msgstr ""
 
 #: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
-msgstr "این یک فیلت چند انتخابی است"
+msgstr ""
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr "زبانه"
+msgstr ""
 
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
-msgstr "مقدار پیشفرض"
+msgstr ""
+
+msgid "Placeholder"
+msgstr ""
+
+msgid "The value specified from the beginning."
+msgstr ""
+
+msgid "An input example or other helpful hint."
+msgstr ""
+
+msgid "at-shift CFS"
+msgstr ""
+
+msgctxt "date picker"
+msgid "Clear"
+msgstr ""
 
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
-msgstr "جعبه متن"
+msgstr ""
 
 #: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
-msgstr "فرمت"
+msgstr ""
 
 #: ../includes/fields/textarea.php:46
 msgid "None"
-msgstr "هیچ"
+msgstr ""
 
 #: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
-msgstr "تبدیل نیوزلاین به <br />"
+msgstr ""
 
 #: ../includes/fields/true_false.php:8
 msgid "True / False"
-msgstr "صحیح/غلط"
+msgstr ""
 
 #: ../includes/fields/true_false.php:30
 msgid "Message"
-msgstr "پیغام"
+msgstr ""
 
 #: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
-msgstr "متن کنار جعبه علامت زن"
+msgstr ""
 
 #: ../includes/fields/user.php:8
 msgid "User"
-msgstr "کاربر"
+msgstr ""
 
 #: ../includes/fields/user.php:31
 msgid "Search users"
-msgstr "جستجوی کاربران…"
+msgstr ""
 
 #: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
-msgstr "ویرایشگر Wysiwyg"
+msgstr ""
 
 #: ../includes/fields/wysiwyg.php:42
 msgid "Default"
-msgstr "پیشفرض"
+msgstr ""
 
 #: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
-msgstr "هیچ (bypass filters)"
+msgstr ""
 
 #: ../includes/form.php:194
 msgid "Submit"
-msgstr "ارسال"
+msgstr ""
 
 #: ../includes/init.php:58
 msgid "Field Groups"
-msgstr "گروه های فلید"
+msgstr ""
 
 #: ../includes/init.php:59
 msgid "Field Group"
-msgstr "ویرایش گروه فیلد"
+msgstr ""
 
 #: ../includes/init.php:60
 msgid "All Field Groups"
-msgstr "همه گروه های زمینه"
+msgstr ""
 
 #: ../includes/init.php:61
 msgid "Add New Field Group"
-msgstr "افزودن گروه رشته تازه"
+msgstr ""
 
 #: ../includes/init.php:62
 msgid "Edit Field Group"
-msgstr "ویرایش گروه فیلد"
+msgstr ""
 
 #: ../includes/init.php:63
 msgid "New Field Group"
-msgstr "فیلد گروه جدید"
+msgstr ""
 
 #: ../includes/init.php:64
 msgid "View Field Group"
-msgstr "مشاهده  گروه فیلد"
+msgstr ""
 
 #: ../includes/init.php:65
 msgid "Search Field Groups"
-msgstr "جستجوی گروه فیلد"
+msgstr ""
 
 #: ../includes/init.php:66
 msgid "No Field Groups found"
-msgstr "هیچ گروه فیلدی یافت نشد"
+msgstr ""
 
 #: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
-msgstr "هیچ گروه فیلدی در سطل بازیافت یافت نشد"
+msgstr ""
 
 #: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
-msgstr "ابزارها"
+msgstr ""
 
 #: ../includes/init.php:153
 msgid "Fields"
-msgstr "فیلدها"
+msgstr ""
 
 #: ../includes/init.php:154
 msgid "Placement Rules"
-msgstr "شروط جاگذاری"
+msgstr ""
 
 #: ../includes/init.php:155
 msgid "Extras"
-msgstr "اضافات"
+msgstr ""
 
 #: ../includes/init.php:268
 msgid "Title"
-msgstr "عنوان"
+msgstr ""
 
 #: ../includes/init.php:269
 msgid "Placement"
-msgstr "محل قرارگیری"
+msgstr ""
 
 #: ../includes/init.php:283 ../templates/meta_box_rules.php:202
 msgid "User Roles"
-msgstr "مجوز کاربری"
+msgstr ""
 
 #: ../includes/init.php:284 ../templates/meta_box_rules.php:234
 msgid "Posts"
-msgstr "نوشته ها"
+msgstr ""
 
 #: ../includes/init.php:285
 msgid "Term IDs"
-msgstr "شناسه مدت"
+msgstr ""
 
 #: ../includes/init.php:286 ../templates/meta_box_rules.php:290
 msgid "Page Templates"
-msgstr "قالب های برگه"
+msgstr ""
 
 #: ../includes/init.php:287 ../templates/meta_box_rules.php:169
 msgid "Post Formats"
-msgstr "نوع نوشته"
+msgstr ""
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
-msgstr "اطلاعات نوشته"
+msgstr ""
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
-msgstr "رشته (فیلد) جدید"
+msgstr ""
 
 #: ../templates/field_html.php:30
 msgid "Label"
-msgstr "برچسب"
+msgstr ""
 
 #: ../templates/field_html.php:32
 msgid "The field label that editors will see."
-msgstr "برچسبی که نویسنده آن را می بیند"
+msgstr ""
 
 #: ../templates/field_html.php:39
 msgid "Name"
-msgstr "نام"
+msgstr ""
 
 #: ../templates/field_html.php:42
 msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "نام فیلد توسط فرمان get() جهت بازیابی مقادیر ارسال می شود. لطفا فقط از حروف کوچک، اعداد و علائم تاکیدی استفاده کنید."
+msgstr ""
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
-msgstr "نوع فیلد"
+msgstr ""
 
 #: ../templates/field_html.php:67
 msgid "Notes"
-msgstr "تذکر"
+msgstr ""
 
 #: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
-msgstr "تذکری برای نویسنده"
+msgstr ""
 
 #: ../templates/field_html.php:82
 msgid "Close"
-msgstr "بستن"
+msgstr ""
 
 #: ../templates/field_html.php:83
 msgid "or"
-msgstr "یا"
+msgstr ""
 
 #: ../templates/field_html.php:83
 msgid "delete"
-msgstr "حذف"
+msgstr ""
 
 #: ../templates/meta_box_extras.php:33
 msgid "Order"
-msgstr "سفارش"
+msgstr ""
 
 #: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
-msgstr "گروه میدان با پایین ترین مرتبه اول ظاهر خواهد شد."
+msgstr ""
 
 #: ../templates/meta_box_extras.php:45
 msgid "Position"
-msgstr "موقعیت"
+msgstr ""
 
 #: ../templates/meta_box_extras.php:48
 msgid "Normal"
-msgstr "معمولی"
+msgstr ""
 
 #: ../templates/meta_box_extras.php:49
 msgid "Side"
-msgstr "سیده"
+msgstr ""
 
 #: ../templates/meta_box_extras.php:54
 msgid "Display Settings"
-msgstr "نمایش تنظیمات"
+msgstr ""
 
 #: ../templates/meta_box_extras.php:64
-msgid "Hide the content editor"
-msgstr "مخفی سازی محتوای ویرایشگر"
+msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
+msgstr ""
 
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
-msgstr "افزودن فیلد جدید"
+msgstr ""
 
 #: ../templates/meta_box_rules.php:5
 msgid "equals"
-msgstr "برابر با"
+msgstr ""
 
 #: ../templates/meta_box_rules.php:6
 msgid "is not"
-msgstr "نباشد"
+msgstr ""
 
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
-msgstr "درصورتی که مایل به انتخاب این شرط نیستید، خالی رها کنید."
+msgstr ""
 
 #: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
-msgstr "قوانین طبقه بندی"
+msgstr ""
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
-msgstr "دریافت خروجی"
+msgstr ""
 
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
-msgstr "وارد کردن"
+msgstr ""
 
 #: ../templates/page_tools.php:78
 msgid "Reset"
-msgstr "بازنشانی"
+msgstr ""
 
 #: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
-msgstr "بازنشانی و غیرفعال سازی."
+msgstr ""
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
-msgstr "با انتخاب گزینه زیر، تمام اطلاعات افزونه گروه فیلد حذف و افزونه غیرفعال می شود."
+msgstr ""
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
-msgstr "حذف و غیرفعال سازی"
+msgstr ""
 
-#  msgid "Use This File"
-#  msgstr "استفاده از این فایل"
-#  msgid "Add New"
-#  msgstr "اضافه کنید"
-#  msgid "Add-ons"
-#  msgstr "اضافات"
-#  msgid "Post IDs"
-#  msgstr "شناسه نوشته ها"
-#  msgid "Gravity Forms"
-#  msgstr "فرم Gravity"
-#  msgid "Your Gravity Form and CFS field labels must match exactly"
-#  msgstr ""
-#  "برچسبهای Gravity Form و گروه فیلدهای شما باید
-#  دقیقا با یکدیگر مطابقت "
-#  "داشته باشند."
-#  msgid "Learn more"
-#  msgstr "توضیحات بیشتر"
-#  msgid "Which field groups would you like to export?"
-#  msgstr "مایلید از کدام گروه فیلد خروجی تهیه
-#  کنید؟"
-#  msgid "Paste the import code below."
-#  msgstr "کد خروجی را اینجا وارد کنید."
-#  msgid "Please install %s to use this feature."
-#  msgstr "را نصب کنید تا بتوانید از این قابلیت
-#  استفاده کنید"
-#  msgid "Debug"
-#  msgstr "اشکال زدایی"
-#  msgid "Debug information"
-#  msgstr "اطلاعات اشکال زدایی"
-#  msgid "Custom Field Suite"
-#  msgstr "فیلد سفارشی"
-#  msgid "Documentation"
-#  msgstr "اسناد"
-#  msgid "Donate"
-#  msgstr "کمک مالی"
-#  msgid "Changelog"
-#  msgstr "تغییرات"
-#  msgid "Review CFS on WordPress.org"
-#  msgstr "صفحه افزونه در وردپرس"
-#  msgid "Please install"
-#  msgstr "لطفا"
-#  msgid "Post Title"
-#  msgstr "عنوان نوشته"
-#  msgid "Attach file"
-#  msgstr "پیوست فایل"
-#, fuzzy
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "پنهان کردن ویرایشگر محتوا (برای ناحیه محتوای گوتنبرگ / ویرایشگر بلوک اعمال نمی‌شود)"
-
+#: ../includes/fields/checkbox.php:8
 msgid "Checkbox"
-msgstr "چک‌باکس"
+msgstr ""
 
+#: ../includes/fields/file.php:44
 msgid "File Type"
-msgstr "نوع فایل"
+msgstr ""
 
+#: ../includes/fields/file.php:53
 msgid "Any"
-msgstr "هرکدام"
+msgstr ""
 
+#: ../includes/fields/file.php:54
 msgid "Image"
-msgstr "تصویر"
+msgstr ""
 
+#: ../includes/fields/file.php:55
 msgid "Audio"
-msgstr "صدا"
+msgstr ""
 
+#: ../includes/fields/file.php:56
 msgid "Video"
-msgstr "ویدئو"
+msgstr ""
 
+#: ../includes/fields/radio.php:8
 msgid "Radio Button"
-msgstr "دکمه رادیویی"
+msgstr ""
 
+#: ../includes/fields/select.php:133
 msgid "Select2"
-msgstr "Select2"
+msgstr ""
 
+#: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
-msgstr "نمایش این فیلد با Select2"
+msgstr ""
 
+#: ../includes/fields/term.php:8
 msgid "Term"
-msgstr "ترم"
+msgstr ""
 
+#: ../includes/fields/term.php:69
 msgid "Search terms"
-msgstr "جستجوی ترم‌ها"
+msgstr ""
 
+#: ../includes/fields/term.php:97
 msgid "Taxonomies"
-msgstr "طبقه‌بندی‌ها"
+msgstr ""
 
+#: ../includes/fields/term.php:98
 msgid "Limit terms to the following taxonomies"
-msgstr "محدود کردن ترم‌ها به طبقه‌بندی‌های زیر"
+msgstr ""
 
+#: ../includes/form.php:247
 msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "یک یا چند فیلد دارای خطای اعتبارسنجی است. اطلاعات بیشتر در ادامه موجود است."
+msgstr ""
 
+#: ../includes/form.php:444
 msgid "Toggle row visibility"
-msgstr "تغییر نمایش ردیف"
+msgstr ""
 
+#: ../includes/init.php:60
 msgid "Custom Field Suite"
-msgstr "Custom Field Suite"
+msgstr ""
 
+#: ../includes/init.php:154
 msgid "CFS Tools"
-msgstr "ابزارهای CFS"
+msgstr ""
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
-msgstr "Phone"
+msgstr ""
 
 #: ../includes/fields/email.php:8
 msgid "Email Address"
-msgstr "Email Address"
+msgstr ""
 
 #: ../includes/fields/number.php:8
 msgid "Number"
-msgstr "Number"
+msgstr ""
 
 #: ../includes/fields/number.php:40
 msgid "Number Settings"
-msgstr "Number Settings"
+msgstr ""
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "زمان"
+msgstr ""
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "بازه دقیقه"
+msgstr ""
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "۱ دقیقه"
+msgstr ""
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "۵ دقیقه"
+msgstr ""
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "۱۰ دقیقه"
+msgstr ""
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "۱۵ دقیقه"
+msgstr ""
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "۳۰ دقیقه"
+msgstr ""
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "گروه افقی"
+msgstr ""
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "ستون‌ها"
+msgstr ""
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "خودکار"
+msgstr ""
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "۲ ستون"
+msgstr ""
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "۳ ستون"
+msgstr ""
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "۴ ستون"
+msgstr ""
+
+#: ../includes/fields/group.php:92
+msgid "Alignment"
+msgstr ""
+
+#: ../includes/fields/group.php:101
+msgid "Evenly distributed"
+msgstr ""
+
+#: ../includes/fields/group.php:102
+msgid "Left aligned"
+msgstr ""
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "افزودن فیلد جدید در پایین"
+msgstr ""
 
 msgid "Add field inside"
-msgstr "افزودن فیلد در داخل"
+msgstr ""
 
 msgid "CFS Field Groups"
-msgstr "گروه‌های فیلد CFS"
+msgstr ""
 
 msgid "CFS Field Group: %s"
-msgstr "گروه فیلد CFS: %s"
+msgstr ""
 
 msgid "Displays a CFS field group."
-msgstr "یک گروه فیلد CFS را نمایش می‌دهد."
+msgstr ""
 
 msgid "No fields in this group."
-msgstr "هیچ فیلدی در این گروه وجود ندارد."
+msgstr ""
 
 msgid "Post Categories"
-msgstr "دسته‌های نوشته"
+msgstr ""
 
 msgid "Post Tags"
-msgstr "برچسب‌های نوشته"
+msgstr ""
 
 msgid "Featured Image"
-msgstr "تصویر شاخص"
+msgstr ""
 
 msgid "No categories found"
-msgstr "دسته‌ای پیدا نشد"
+msgstr ""
 
 msgid "Separate tags with commas"
-msgstr "برچسب‌ها را با ویرگول جدا کنید"
+msgstr ""
 
 msgid "Select Image"
-msgstr "انتخاب تصویر"
+msgstr ""
 
 msgid "Remove Image"
-msgstr "حذف تصویر"
+msgstr ""
 
 msgid "Search categories"
-msgstr "جستجوی دسته‌ها"
+msgstr ""
 
 msgid "Show selected only"
-msgstr "فقط انتخاب‌شده‌ها را نمایش بده"
+msgstr ""
 
 msgid "Category Selection"
-msgstr "انتخاب دسته"
+msgstr ""
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "با انتخاب دسته والد، همه دسته‌های فرزند نیز انتخاب می‌شوند"
+msgstr ""
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "با انتخاب دسته فرزند، دسته‌های والد آن نیز انتخاب می‌شوند"
-
-msgid "A newer version %s is available on GitHub."
-msgstr "نسخه جدیدتر %s در GitHub در دسترس است."
-
-msgid "Required"
-msgstr "ضروری"
-
-msgid "Please select..."
-msgstr "لطفاً انتخاب کنید..."
-
-msgid "Please select a language..."
-msgstr "یک زبان را انتخاب کنید..."
-
-msgid "Alignment"
-msgstr "تراز"
-
-msgid "Evenly distributed"
-msgstr "توزیع یکنواخت"
-
-msgid "Left aligned"
-msgstr "تراز چپ"
+msgstr ""
 
 msgid "CFS placement warning:"
-msgstr "هشدار جای‌گذاری CFS:"
+msgstr ""
 
 msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "این گروه فیلد هیچ قانون جای‌گذاری ندارد. ممکن است با همه صفحه‌های قابل ویرایش نوشته مطابقت پیدا کند؛ بنابراین اگر عمدی نیست، یک نوع نوشته یا قانون جای‌گذاری دیگر تعیین کنید."
+msgstr ""
 
 msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "ذخیره شد، اما این گروه فیلد هیچ قانون جای‌گذاری ندارد. ممکن است با همه صفحه‌های قابل ویرایش نوشته مطابقت پیدا کند؛ بنابراین اگر عمدی نیست، یک نوع نوشته یا قانون جای‌گذاری دیگر تعیین کنید."
+msgstr ""
 
 msgid "No placement rules"
-msgstr "بدون قانون جای‌گذاری"
+msgstr ""
 
 msgid "This field group will appear on all editable post screens."
-msgstr "این گروه فیلد می‌تواند با همه صفحه‌های قابل ویرایش نوشته مطابقت پیدا کند."
+msgstr ""
+
+msgid "A newer version %s is available on GitHub."
+msgstr ""
 
 msgid "Add two or more fields to this horizontal group."
-msgstr "دو یا چند فیلد به این گروه افقی اضافه کنید."
+msgstr ""
 
 msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "زبانه‌ها، حلقه‌ها و گروه‌های افقی را نمی‌توان داخل یک گروه افقی قرار داد."
+msgstr ""
 
 msgid "Code View"
-msgstr "نمایش کد"
+msgstr ""
 
 msgid "Plain text"
-msgstr "متن ساده"
+msgstr ""
 
 msgid "Copy Button"
-msgstr "دکمه کپی"
+msgstr ""
 
 msgid "Show copy button"
-msgstr "نمایش دکمه کپی"
+msgstr ""
 
 msgid "Copy"
-msgstr "کپی"
+msgstr ""
 
 msgid "Copied"
-msgstr "کپی شد"
+msgstr ""
 
 msgid "Language"
-msgstr "زبان"
+msgstr ""
 msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
-msgstr "این افزونه نسخه نگهداری Custom Field Suite است که به شما امکان می‌دهد فیلدهای سفارشی را به‌صورت بصری به صفحات ویرایش وردپرس اضافه کنید."
+msgstr ""
+
+msgid "Accordion Group"
+msgstr ""
+
+msgid "Initial State"
+msgstr ""
+
+msgid "Open by default"
+msgstr ""
+
+msgid "Tabs, loops, accordions, and horizontal groups cannot be placed inside a horizontal group."
+msgstr ""
+
+msgid "Tabs and loops cannot be placed inside an accordion."
+msgstr ""
+
+msgid "Please enter a value"
+msgstr ""
+
+msgid "Please enter a valid date (YYYY-MM-DD HH:MM)"
+msgstr ""
+
+msgid "Please enter a valid color HEX (#ff0000)"
+msgstr ""
+
+msgid "Please enter a phone number"
+msgstr ""
+
+msgid "Please enter a valid phone number"
+msgstr ""
+
+msgid "Please enter an email address"
+msgstr ""
+
+msgid "Please enter a valid email address"
+msgstr ""
+
+msgid "Please enter a number"
+msgstr ""
+
+msgid "Please enter a valid number"
+msgstr ""
+
+msgid "Please enter a URL"
+msgstr ""
+
+msgid "Please enter a valid URL"
+msgstr ""
+
+msgid "Please select a time"
+msgstr ""
+
+msgid "Please select a valid time"
+msgstr ""
+
+msgid "Please select a language and enter code"
+msgstr ""
+
+msgid "Please select %s item(s)"
+msgstr ""
+
+msgid "Please select between %1$s and %2$s items"
+msgstr ""

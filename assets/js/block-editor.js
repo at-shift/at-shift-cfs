@@ -8,7 +8,7 @@
         blocks.registerBlockType(group.name, {
             apiVersion: 3,
             title: group.blockTitle,
-            description: config.description || __('Displays a CFS field group.', 'cfs'),
+            description: config.description || __('Displays a CFS field group.', 'at-shift-cfs' ),
             category: 'cfs',
             icon: 'feedback',
             attributes: {
@@ -29,10 +29,10 @@
                     createElement(
                         'span',
                         {},
-                        (config.fieldGroup || __('Field Group', 'cfs')) + ' / ' +
-                            (config.fieldCount || __('Fields', 'cfs')) + ': ' + group.fieldCount
+                        (config.fieldGroup || __('Field Group', 'at-shift-cfs' )) + ' / ' +
+                            (config.fieldCount || __('Fields', 'at-shift-cfs' )) + ': ' + group.fieldCount
                     ),
-                    0 === group.fieldCount ? createElement('em', {}, config.noFields || __('No fields in this group.', 'cfs')) : null
+                    0 === group.fieldCount ? createElement('em', {}, config.noFields || __('No fields in this group.', 'at-shift-cfs' )) : null
                 );
             },
             save: function () {

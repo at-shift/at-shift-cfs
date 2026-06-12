@@ -745,8 +745,11 @@
 				todaytxt = dates[this.o.language].today || dates['en'].today || '',
 				cleartxt = dates[this.o.language].clear || dates['en'].clear || '',
 				tooltip;
+			var title = $.isFunction(this.o.titleFormatter)
+				? this.o.titleFormatter(year, month)
+				: dates[this.o.language].months[month]+' '+year;
 			this.picker.find('.datepicker-days thead th.datepicker-switch')
-						.text(dates[this.o.language].months[month]+' '+year);
+						.text(title);
 			this.picker.find('tfoot th.today')
 						.text(todaytxt)
 						.toggle(this.o.todayBtn !== false);
@@ -1408,6 +1411,7 @@
 		startView: 0,
 		todayBtn: false,
 		todayHighlight: false,
+		titleFormatter: null,
 		weekStart: 0
 	};
 	var locale_opts = $.fn.datepicker.locale_opts = [

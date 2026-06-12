@@ -5,7 +5,7 @@ class cfs_user extends cfs_field
 
     function __construct() {
         $this->name = 'user';
-        $this->label = __( 'User', 'cfs' );
+        $this->label = __( 'User', 'at-shift-cfs' );
     }
 
 
@@ -35,7 +35,7 @@ class cfs_user extends cfs_field
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php _e( 'Search users', 'cfs' ); ?>" />
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php _e( 'Search users', 'at-shift-cfs' ); ?>" />
         </div>
 
         <div class="available_posts post_list">
@@ -60,7 +60,7 @@ class cfs_user extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Limits', 'cfs' ); ?></label>
+                <label><?php _e( 'Limits', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />

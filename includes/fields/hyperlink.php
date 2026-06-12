@@ -6,7 +6,7 @@ class cfs_hyperlink extends cfs_field
 
     function __construct() {
         $this->name = 'hyperlink';
-        $this->label = __( 'Hyperlink', 'cfs' );
+        $this->label = __( 'Hyperlink', 'at-shift-cfs' );
     }
 
 
@@ -20,15 +20,15 @@ class cfs_hyperlink extends cfs_field
     ?>
         <div class="cfs-hyperlink" style="overflow:hidden;">
             <div class="cfs-hyperlink-url" style="width:39%;float:left;">
-                <div><?php _e( 'URL', 'cfs' ); ?></div>
-                <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>[url]" class="link-url" value="<?php echo esc_url( $field->value['url'] ); ?>" placeholder="http://" />
+                <div><?php _e( 'URL', 'at-shift-cfs' ); ?></div>
+                <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>[url]" class="link-url" value="<?php echo esc_url( $field->value['url'] ); ?>" placeholder="<?php echo esc_attr( $this->get_input_placeholder( $field, 'http://' ) ); ?>" />
             </div>
             <div class="cfs-hyperlink-text" style="width:39%;float:left;margin-left:1%;">
-                <div><?php _e( 'Link Text', 'cfs' ); ?></div>
+                <div><?php _e( 'Link Text', 'at-shift-cfs' ); ?></div>
                 <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>[text]" class="link-text" value="<?php echo esc_attr( $field->value['text'] ); ?>" />
             </div>
             <div class="cfs-hyperlink-target" style="width:19%;float:left;margin-left:1%;">
-                <div><?php _e( 'Link Target', 'cfs' ); ?></div>
+                <div><?php _e( 'Link Target', 'at-shift-cfs' ); ?></div>
                 <select class="link-target widefat" name="<?php echo esc_attr( $field->input_name ); ?>[target]">
                     <option value="none" <?php selected( 'none', esc_attr( $field->value['target'] ) ); ?>>None</option>
                     <option value="_blank" <?php selected( '_blank', esc_attr( $field->value['target'] ) ); ?>>_blank</option>
@@ -42,10 +42,11 @@ class cfs_hyperlink extends cfs_field
 
 
     function options_html( $key, $field = null ) {
+        $this->text_option_html( $key, $field, 'placeholder', __( 'Placeholder', 'at-shift-cfs' ), __( 'An input example or other helpful hint.', 'at-shift-cfs' ) );
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e('Output format', 'cfs'); ?></label>
+                <label><?php _e('Output format', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -54,8 +55,8 @@ class cfs_hyperlink extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][format]',
                         'options' => [
                             'choices' => [
-                                'html' => __( 'HTML', 'cfs' ),
-                                'php' => __( 'PHP Array', 'cfs' )
+                                'html' => __( 'HTML', 'at-shift-cfs' ),
+                                'php' => __( 'PHP Array', 'at-shift-cfs' )
                             ],
                             'force_single' => true,
                         ],

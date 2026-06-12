@@ -75,12 +75,12 @@ $results = $wpdb->get_results($sql);
 </script>
 
 <div class="wrap">
-    <h1><?php _e( 'Tools', 'cfs' ); ?></h1>
+    <h1><?php _e( 'Tools', 'at-shift-cfs' ); ?></h1>
 
     <h3 class="nav-tab-wrapper">
-        <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'cfs'); ?></a>
-        <a class="nav-tab" rel="import"><?php _e('Import', 'cfs'); ?></a>
-        <a class="nav-tab" rel="reset"><?php _e('Reset', 'cfs'); ?></a>
+        <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'at-shift-cfs' ); ?></a>
+        <a class="nav-tab" rel="import"><?php _e('Import', 'at-shift-cfs' ); ?></a>
+        <a class="nav-tab" rel="reset"><?php _e('Reset', 'at-shift-cfs' ); ?></a>
     </h3>
 
     <div class="content-container">
@@ -99,7 +99,7 @@ $results = $wpdb->get_results($sql);
                             </select>
                         </div>
                         <div>
-                            <input type="button" id="button-export" class="button" value="<?php _e('Export', 'cfs'); ?>" />
+                            <input type="button" id="button-export" class="button" value="<?php _e('Export', 'at-shift-cfs' ); ?>" />
                         </div>
                     </td>
                     <td style="width:300px; vertical-align:top">
@@ -117,16 +117,16 @@ $results = $wpdb->get_results($sql);
 
         <div class="tab-content import">
             <textarea id="import-code" style="width:100%; height:120px" placeholder="Paste the import code here"></textarea>
-            <div><input type="button" id="button-import" class="button" value="<?php _e('Import', 'cfs'); ?>" /></div>
+            <div><input type="button" id="button-import" class="button" value="<?php _e('Import', 'at-shift-cfs' ); ?>" /></div>
             <div id="import-message"></div>
         </div>
 
         <!-- Reset -->
 
         <div class="tab-content reset">
-            <h2><?php _e('Reset and deactivate.', 'cfs'); ?></h2>
-            <p><?php _e('This will delete all CFS data and deactivate the plugin.', 'cfs'); ?></p>
-            <input type="button" id="button-reset" class="button" value="<?php _e('Delete everything', 'cfs'); ?>" />
+            <h2><?php _e('Reset and deactivate.', 'at-shift-cfs' ); ?></h2>
+            <p><?php _e('This will delete all CFS data and deactivate the plugin.', 'at-shift-cfs' ); ?></p>
+            <input type="button" id="button-reset" class="button" value="<?php _e('Delete everything', 'at-shift-cfs' ); ?>" />
         </div>
     </div>
 </div>

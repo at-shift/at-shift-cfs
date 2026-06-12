@@ -5,7 +5,7 @@ class cfs_checkbox extends cfs_field
 
     function __construct() {
         $this->name = 'checkbox';
-        $this->label = __( 'Checkbox', 'cfs' );
+        $this->label = __( 'Checkbox', 'at-shift-cfs' );
     }
 
 
@@ -48,8 +48,8 @@ class cfs_checkbox extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Choices', 'cfs' ); ?></label>
-                <p class="description"><?php _e( 'Enter one choice per line', 'cfs' ); ?></p>
+                <label><?php _e( 'Choices', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php _e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -63,7 +63,7 @@ class cfs_checkbox extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'cfs' ); ?></label>
+                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -72,7 +72,7 @@ class cfs_checkbox extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

@@ -6,7 +6,7 @@ class cfs_loop extends cfs_field
 
     function __construct() {
         $this->name = 'loop';
-        $this->label = __( 'Loop', 'cfs' );
+        $this->label = __( 'Loop', 'at-shift-cfs' );
         $this->values = [];
     }
 
@@ -34,7 +34,7 @@ class cfs_loop extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Row Display', 'cfs' ); ?></label>
+                <label><?php _e( 'Row Display', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -43,35 +43,35 @@ class cfs_loop extends cfs_field
                         'input_name' => "cfs[fields][$key][options][row_display]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'row_display' ),
-                        'options' => [ 'message' => __( 'Show the values by default', 'cfs' ) ],
+                        'options' => [ 'message' => __( 'Show the values by default', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Row Label', 'cfs' ); ?></label>
+                <label><?php _e( 'Row Label', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
                     CFS()->create_field( [
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][row_label]",
-                        'value' => $this->get_option( $field, 'row_label', __( 'Loop Row', 'cfs' ) ),
+                        'value' => $this->get_option( $field, 'row_label', __( 'Loop Row', 'at-shift-cfs' ) ),
                     ] );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Button Label', 'cfs' ); ?></label>
+                <label><?php _e( 'Button Label', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
                     CFS()->create_field( [
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][button_label]",
-                        'value' => $this->get_option( $field, 'button_label', __( 'Add Row', 'cfs' ) ),
+                        'value' => $this->get_option( $field, 'button_label', __( 'Add Row', 'at-shift-cfs' ) ),
                     ] );
                 ?>
             </td>
@@ -79,7 +79,7 @@ class cfs_loop extends cfs_field
 
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Limits', 'cfs' ); ?></label>
+                <label><?php _e( 'Limits', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />
@@ -111,7 +111,7 @@ class cfs_loop extends cfs_field
         ] );
 
         $row_label = $this->dynamic_label(
-            $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'cfs' ) )
+            $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'at-shift-cfs' ) )
         );
 
         ob_start();
@@ -169,8 +169,8 @@ class cfs_loop extends cfs_field
 
         // Row options
         $row_display = $this->get_option( $loop_field[ $field_id ], 'row_display', 0 );
-        $row_label = $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'cfs' ) );
-        $button_label = $this->get_option( $loop_field[ $field_id ], 'button_label', __( 'Add Row', 'cfs' ) );
+        $row_label = $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'at-shift-cfs' ) );
+        $button_label = $this->get_option( $loop_field[ $field_id ], 'button_label', __( 'Add Row', 'at-shift-cfs' ) );
         $css_class = ( 0 < (int) $row_display ) ? ' open' : '';
         $label_fields = $this->get_label_fields( $group_id, $results );
 
@@ -295,7 +295,7 @@ class cfs_loop extends cfs_field
             $loop_field_ids[] = $field->id;
         ?>
             <div class="table_footer">
-                <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $this->get_option( $field, 'button_label', __( 'Add Row', 'cfs' ) ) ); ?>" data-loop-tag="[clone][<?php echo absint( $field->id ); ?>]" data-rows="0" />
+                <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $this->get_option( $field, 'button_label', __( 'Add Row', 'at-shift-cfs' ) ) ); ?>" data-loop-tag="[clone][<?php echo absint( $field->id ); ?>]" data-rows="0" />
             </div>
         <?php elseif ( in_array( $field->type, [ 'group', 'accordion' ], true ) ) : ?>
         <?php

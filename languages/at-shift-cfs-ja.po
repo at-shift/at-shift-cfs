@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Karin Suzakura\n"
+"Project-Id-Version: at-shift CFS\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
 "POT-Creation-Date: 2015-10-20 22:30-0400\n"
 "PO-Revision-Date: 2015-10-20 22:30-0400\n"
@@ -197,6 +197,22 @@ msgstr "タブ"
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
 msgstr "デフォルト値"
+
+msgid "Placeholder"
+msgstr "プレースホルダー"
+
+msgid "The value specified from the beginning."
+msgstr "最初から指定しておく値"
+
+msgid "An input example or other helpful hint."
+msgstr "入力の例など"
+
+msgid "at-shift CFS"
+msgstr "at-shift CFS"
+
+msgctxt "date picker"
+msgid "Clear"
+msgstr "消去"
 
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"

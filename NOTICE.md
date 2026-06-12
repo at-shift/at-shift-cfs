@@ -1,6 +1,6 @@
 # Notice
 
-This repository is a maintenance build of Custom Field Suite.
+at-shift CFS is an unofficial maintenance and extension build compatible with Custom Field Suite.
 
 ## Original Project
 
@@ -12,10 +12,14 @@ This repository is a maintenance build of Custom Field Suite.
 
 ## Maintenance Build
 
+- Name: at-shift CFS
+- WordPress.org slug: at-shift-cfs
 - Maintainer: @shift Yoshiya Tsuchisaka
 - GitHub account: https://github.com/at-shift
+- Project website: https://cfs.at-shift.net/
+- GitHub repository: https://github.com/at-shift/at-shift-cfs
 - Base version: Custom Field Suite 2.6.7
-- Maintenance version: 2.6.7.11
+- Maintenance version: 2.6.7.41.22
 
 This maintenance build preserves the original GPLv2 licensing and author
 attribution. It adds local security and compatibility hardening for continued
@@ -34,4 +38,3 @@ use where a maintained build is required.
 
 This maintenance build is provided without warranty, to the extent permitted by
 law.
-

@@ -5,7 +5,7 @@ class cfs_relationship extends cfs_field
 
     function __construct() {
         $this->name = 'relationship';
-        $this->label = __( 'Relationship', 'cfs' );
+        $this->label = __( 'Relationship', 'at-shift-cfs' );
     }
 
 
@@ -67,7 +67,7 @@ class cfs_relationship extends cfs_field
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php _e( 'Search posts', 'cfs' ); ?>" />
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php _e( 'Search posts', 'at-shift-cfs' ); ?>" />
         </div>
 
         <div class="available_posts post_list">
@@ -95,8 +95,8 @@ class cfs_relationship extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e('Post Types', 'cfs'); ?></label>
-                <p class="description"><?php _e('Limit posts to the following types', 'cfs'); ?></p>
+                <label><?php _e('Post Types', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php _e('Limit posts to the following types', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -111,7 +111,7 @@ class cfs_relationship extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Limits', 'cfs' ); ?></label>
+                <label><?php _e( 'Limits', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />

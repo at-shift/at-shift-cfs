@@ -1,12 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Field Suite\n"
-"Report-Msgid-Bugs-To: http://deckerweb.de/kontakt/\n"
-"POT-Creation-Date: 2015-10-20 22:31-0400\n"
-"PO-Revision-Date: 2015-10-20 22:31-0400\n"
+"Project-Id-Version: at-shift CFS\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2015-10-20 22:30-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
-"Language-Team: DECKERWEB -- http://deckerweb.de/kontakt/\n"
-"Language: de_DE\n"
+"Language-Team: Glebcha <glebcha@gmail.com>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,88 +14,73 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
-"X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#  @ cfs
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
-msgstr "Eingabefeld"
+msgstr "Текст"
 
-#  @ cfs
 #: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
-msgstr "Erforderlich?"
+msgstr "Валидация"
 
-#  @ cfs
 #: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
-msgstr "Dies ist ein Pflichtfeld"
+msgstr "Обязательное поле"
 
-#  @ cfs
 #: ../includes/field_group.php:112
 msgid "Imported"
-msgstr "Importiert"
+msgstr "Импорт"
 
-#  @ cfs
 #: ../includes/field_group.php:115
 msgid "Skipped"
-msgstr "Übersprungen"
+msgstr "Пропущено"
 
-#  @ cfs
 #: ../includes/field_group.php:120
 msgid "Nothing to import"
-msgstr "Nichts zum importieren"
+msgstr "Нет объектов для импорта"
 
-#  @ cfs
 #: ../includes/fields/color/color.php:8
 msgid "Color"
-msgstr "Farbauswahl"
+msgstr "Цвет"
 
-#  @ cfs
 #: ../includes/fields/date/date.php:8
 msgid "Date"
-msgstr "Datumsfeld"
+msgstr "Дата"
 
-#  @ cfs
 #: ../includes/fields/file.php:8
 msgid "File Upload"
-msgstr "Datei hochladen"
+msgstr "Загрузить файл"
 
-#  @ cfs
 #: ../includes/fields/file.php:32
 msgid "Add File"
-msgstr "Datei hinzufügen"
+msgstr "Добавить файл"
 
-#  @ cfs
 #: ../includes/fields/file.php:33
 msgid "Remove"
-msgstr "Entfernen"
+msgstr "Удалить"
 
-#  @ cfs
 #: ../includes/fields/file.php:43
 msgid "Return Value"
-msgstr "Rückgabewert"
+msgstr "Возвращаемое значение"
 
-#  @ cfs
 #: ../includes/fields/file.php:52
 msgid "File URL"
-msgstr "Datei-URL"
+msgstr "Путь к файлу"
 
-#  @ cfs
 #: ../includes/fields/file.php:53
 msgid "Attachment ID"
-msgstr "Anhang-ID"
+msgstr "Идентификатор вложения"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr "Hyperlink"
+msgstr "Гиперссылка"
 
 #: ../includes/fields/hyperlink.php:23
 msgid "URL"
@@ -104,15 +88,15 @@ msgstr "URL"
 
 #: ../includes/fields/hyperlink.php:27
 msgid "Link Text"
-msgstr "Link-Text"
+msgstr "Текст ссылки"
 
 #: ../includes/fields/hyperlink.php:31
 msgid "Link Target"
-msgstr "Linkziel"
+msgstr "Цель ссылки"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr "Ausgabeformat"
+msgstr "Выходной формат"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
@@ -120,516 +104,434 @@ msgstr "HTML"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr "PHP-Array"
+msgstr "Массив PHP"
 
-#  @ cfs
 #: ../includes/fields/loop.php:8
 msgid "Loop"
-msgstr "Loop"
+msgstr "Цикл"
 
-#  @ cfs
 #: ../includes/fields/loop.php:36
 msgid "Row Display"
-msgstr "Zeilenwerte anzeigen"
+msgstr "Отображение блока"
 
-#  @ cfs
 #: ../includes/fields/loop.php:45
 msgid "Show the values by default"
-msgstr "Die Werte standardmäßig anzeigen"
+msgstr "Значения по-умолчанию"
 
-#  @ cfs
 #: ../includes/fields/loop.php:52
 msgid "Row Label"
-msgstr "Zeilenbeschriftung"
+msgstr "Название блока"
 
-#  @ cfs
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
 #: ../includes/fields/loop.php:194
 msgid "Loop Row"
-msgstr "Loop-Zeile"
+msgstr "Цикл блока"
 
-#  @ cfs
 #: ../includes/fields/loop.php:66
 msgid "Button Label"
-msgstr "Button-Beschriftung"
+msgstr "Название кнопки"
 
-#  @ cfs
 #: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
 #: ../includes/fields/loop.php:195
 msgid "Add Row"
-msgstr "Zeile hinzufügen"
+msgstr "Добавить блок"
 
-#  @ cfs
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
-msgstr "Begrenzungen"
+msgstr "Ограничения"
 
-#  @ cfs
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
-msgstr "Beziehung"
+msgstr "Связь"
 
 #: ../includes/fields/relationship.php:60
 msgid "Search posts"
-msgstr "Beiträge duchsuchen"
+msgstr "Поиск сообщений…"
 
-#  @ cfs
 #: ../includes/fields/relationship.php:88 ../includes/init.php:282
 #: ../templates/meta_box_rules.php:136
 msgid "Post Types"
-msgstr "Inhaltstyp"
+msgstr "Типы записей"
 
-#  @ cfs
 #: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
-msgstr "Beiträge auf folgende Inhaltstypen eingrenzen"
+msgstr "Ограничить записи следующим типом"
 
-#  @ cfs
 #: ../includes/fields/select.php:8
 msgid "Select"
-msgstr "Auswahlfeld"
+msgstr "Выбрать"
 
-#  @ cfs
 #: ../includes/fields/select.php:86
 msgid "Choices"
-msgstr "Auswahlmöglichkeiten"
+msgstr "Предпочтения"
 
-#  @ cfs
 #: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
-msgstr "Eine Auswahlmöglichkeit pro Zeile"
+msgstr "Одно предпочтение в строке"
 
-#  @ cfs
 #: ../includes/fields/select.php:101
 msgid "Multi-select?"
-msgstr "Mehrere Werte auswählen?"
+msgstr "Множественный выбор?"
 
-#  @ cfs
 #: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
-msgstr "Dieses Feld erlaubt es, mehrere Werte auszuwählen"
+msgstr "Поле множественного выбора"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr "Registerkarten"
+msgstr "Вкладка"
 
-#  @ cfs
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
-msgstr "Standardwert"
+msgstr "Значение по-умолчанию"
 
-#  @ cfs
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
-msgstr "Mehrzeiliges-Eingabefeld"
+msgstr "Текстовое поле"
 
-#  @ cfs
 #: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
-msgstr "Formatierung"
+msgstr "Форматирование"
 
-#  @ cfs
 #: ../includes/fields/textarea.php:46
 msgid "None"
-msgstr "Keine"
+msgstr "Нет"
 
-#  @ cfs
 #: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
-msgstr "Konvertiert Zeilenumbrüche zu <br />"
+msgstr "Преобразовать разрыв строки в <br />"
 
-#  @ cfs
 #: ../includes/fields/true_false.php:8
 msgid "True / False"
-msgstr "Ja / Nein"
+msgstr "True / False"
 
-#  @ cfs
 #: ../includes/fields/true_false.php:30
 msgid "Message"
-msgstr "Nachricht"
+msgstr "Сообщение"
 
-#  @ cfs
 #: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
-msgstr "Der Text neben dem Kontrollkästchen"
+msgstr "Текст рядом с чекбоксом"
 
-#  @ cfs
 #: ../includes/fields/user.php:8
 msgid "User"
-msgstr "Benutzer"
+msgstr "Пользователь"
 
 #: ../includes/fields/user.php:31
 msgid "Search users"
-msgstr "Nutzer suchen"
+msgstr "Поиск пользователей…"
 
-#  @ cfs
 #: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
-msgstr "WYSIWYG-Editor"
+msgstr "Визуальный редактор"
 
-#  @ cfs
 #: ../includes/fields/wysiwyg.php:42
 msgid "Default"
-msgstr "Standard"
+msgstr "По-умолчанию"
 
-#  @ cfs
 #: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
-msgstr "Keine (Bypass-Filter)"
+msgstr "Нет (игнорировать фильтры)"
 
-#  @ cfs
 #: ../includes/form.php:194
 msgid "Submit"
-msgstr "Absenden"
+msgstr "Отправить"
 
-#  @ cfs
 #: ../includes/init.php:58
 msgid "Field Groups"
-msgstr "Feld-Gruppen"
+msgstr "Группа полей"
 
-#  @ cfs
 #: ../includes/init.php:59
 msgid "Field Group"
-msgstr "Feld-Gruppe"
+msgstr "Группа полей"
 
 #: ../includes/init.php:60
 msgid "All Field Groups"
-msgstr "Alle Feldgruppen"
+msgstr "Группы полей"
 
-#  @ cfs
 #: ../includes/init.php:61
 msgid "Add New Field Group"
-msgstr "Neue Feld-Gruppe erstellen"
+msgstr "Добавить группу полей"
 
-#  @ cfs
 #: ../includes/init.php:62
 msgid "Edit Field Group"
-msgstr "Feld-Gruppe bearbeiten"
+msgstr "Редактировать группу полей"
 
-#  @ cfs
 #: ../includes/init.php:63
 msgid "New Field Group"
-msgstr "Neue Feld-Gruppe"
+msgstr "Новая"
 
-#  @ cfs
 #: ../includes/init.php:64
 msgid "View Field Group"
-msgstr "Feld-Gruppe anzeigen"
+msgstr "Показать"
 
-#  @ cfs
 #: ../includes/init.php:65
 msgid "Search Field Groups"
-msgstr "Feld-Gruppen suchen"
+msgstr "Поиск"
 
-#  @ cfs
 #: ../includes/init.php:66
 msgid "No Field Groups found"
-msgstr "Es wurden keine Feldgruppen gefunden."
+msgstr "Ничего не найдено"
 
-#  @ cfs
 #: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
-msgstr "Es befinden sich keine Feldgruppen im Papierkorb."
+msgstr "В корзине ничего не найдено"
 
-#  @ cfs
 #: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
-msgstr "Werkzeuge"
+msgstr "Инструменты"
 
-#  @ cfs
 #: ../includes/init.php:153
 msgid "Fields"
-msgstr "Felder"
+msgstr "Поля"
 
-#  @ cfs
 #: ../includes/init.php:154
 msgid "Placement Rules"
-msgstr "Regeln"
+msgstr "Правила размещения"
 
-#  @ cfs
 #: ../includes/init.php:155
 msgid "Extras"
-msgstr "Extras"
+msgstr "Дополнительно"
 
-#  @ cfs
 #: ../includes/init.php:268
 msgid "Title"
-msgstr "Titel"
+msgstr "Заголовок"
 
-#  @ cfs
 #: ../includes/init.php:269
 msgid "Placement"
-msgstr "Platzierung"
+msgstr "Расположение"
 
-#  @ cfs
 #: ../includes/init.php:283 ../templates/meta_box_rules.php:202
 msgid "User Roles"
-msgstr "Benutzerrolle"
+msgstr "Роли пользователей"
 
-#  @ cfs
 #: ../includes/init.php:284 ../templates/meta_box_rules.php:234
 msgid "Posts"
-msgstr "Beiträge"
+msgstr "Записи"
 
-#  @ cfs
 #: ../includes/init.php:285
 msgid "Term IDs"
-msgstr "Term-IDs"
+msgstr "Термин идентификаторы"
 
-#  @ cfs
 #: ../includes/init.php:286 ../templates/meta_box_rules.php:290
 msgid "Page Templates"
-msgstr "Seitenvorlagen (Templates)"
+msgstr "Шаблоны страниц"
 
-#  @ cfs
 #: ../includes/init.php:287 ../templates/meta_box_rules.php:169
 msgid "Post Formats"
-msgstr "Post Formats"
+msgstr "Форматы записей"
 
-#  @ cfs
 #: ../includes/revision.php:26
 msgid "Post Meta"
-msgstr "Meta-Daten des Beitrags"
+msgstr "Публикация мета"
 
-#  @ cfs
 #: ../templates/admin_head.php:24
 msgid "New Field"
-msgstr "Neues Feld"
+msgstr "Новое поле"
 
-#  @ cfs
 #: ../templates/field_html.php:30
 msgid "Label"
-msgstr "Beschriftung"
+msgstr "Название"
 
-#  @ cfs
 #: ../templates/field_html.php:32
 msgid "The field label that editors will see."
-msgstr "Die Beschriftung des Feldes, welche die Redakteure sehen."
+msgstr "Название поля, отображаемое редактору"
 
-#  @ cfs
 #: ../templates/field_html.php:39
 msgid "Name"
-msgstr "Name"
+msgstr "Имя"
 
-#  @ cfs
 #: ../templates/field_html.php:42
 msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "Der Feldname wird in <code>get()</code> übergeben, um Werte abzurufen. Verwenden Sie nur Kleinbuchstaben, Zahlen und Unterstriche."
+msgstr "Название поля передается в функцию get() для получения значения. Используйте только буквы, числа и нижнее подчеркивание."
 
-#  @ cfs
 #: ../templates/field_html.php:49
 msgid "Field Type"
-msgstr "Feldtyp"
+msgstr "Тип поля"
 
-#  @ cfs
 #: ../templates/field_html.php:67
 msgid "Notes"
-msgstr "Anweisungen"
+msgstr "Примечание"
 
-#  @ cfs
 #: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
-msgstr "Hinweise für die Dateneingabe"
+msgstr "Примечание для редактора во время ввода данных"
 
-#  @ cfs
 #: ../templates/field_html.php:82
 msgid "Close"
-msgstr "Schliessen"
+msgstr "Закрыть"
 
-#  @ cfs
 #: ../templates/field_html.php:83
 msgid "or"
-msgstr "oder"
+msgstr "или"
 
-#  @ cfs
 #: ../templates/field_html.php:83
 msgid "delete"
-msgstr "löschen"
+msgstr "удалить"
 
-#  @ cfs
 #: ../templates/meta_box_extras.php:33
 msgid "Order"
-msgstr "Reihenfolge"
+msgstr "Порядок"
 
-#  @ cfs
 #: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
-msgstr "Die Feldgruppe mit der niedrigsten Reihenfolge (Ziffer) wird zuerst erscheinen."
+msgstr "Группа полей с низшим порядковым номером отобразится первой."
 
-#  @ cfs
 #: ../templates/meta_box_extras.php:45
 msgid "Position"
-msgstr "Position"
+msgstr "Расположение"
 
-#  @ cfs
 #: ../templates/meta_box_extras.php:48
 msgid "Normal"
-msgstr "Normal (Hauptposition)"
+msgstr "Обычно"
 
-#  @ cfs
 #: ../templates/meta_box_extras.php:49
 msgid "Side"
-msgstr "Seitenleiste (Links)"
+msgstr "Сбоку"
 
-#  @ cfs
 #: ../templates/meta_box_extras.php:54
 msgid "Display Settings"
-msgstr "Anzeigeeinstellungen"
+msgstr "Настройки отображения"
 
-#  @ cfs
 #: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor"
-msgstr "Den Inhalte-Editor ausblenden"
+msgstr "Спрятать редактор"
 
-#  @ cfs
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
-msgstr "Neues Feld hinzufügen"
+msgstr "Добавить поле"
 
-#  @ cfs
 #: ../templates/meta_box_rules.php:5
 msgid "equals"
-msgstr "ist gleich"
+msgstr "равно"
 
-#  @ cfs
 #: ../templates/meta_box_rules.php:6
 msgid "is not"
-msgstr "ist nicht gleich"
+msgstr "не является"
 
-#  @ cfs
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
-msgstr "Leer lassen, um diese Regel zu überspringen"
+msgstr "Оставьте пустым, чтобы пропустить условие"
 
-#  @ cfs
 #: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
-msgstr "Taxonomie-Termini"
+msgstr "Правила таксономии"
 
-#  @ cfs
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
-msgstr "Exportieren"
+msgstr "Экспорт"
 
-#  @ cfs
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
-msgstr "Importieren"
+msgstr "Импорт"
 
-#  @ cfs
 #: ../templates/page_tools.php:78
 msgid "Reset"
-msgstr "Zurücksetzen"
+msgstr "Сбросить"
 
-#  @ cfs
 #: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
-msgstr "Zurücksetzen und deaktivieren."
+msgstr "Сбросить и деактивировать."
 
-#  @ cfs
 #: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
-msgstr "Dies wird alle Daten von CFS löschen und das Plugin deaktivieren."
+msgstr "Это действие удалит все данные форм и деактивирует плагин."
 
-#  @ cfs
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
-msgstr "Alles löschen"
+msgstr "Удалить все"
 
-#  @ cfs
 #  msgid "Use This File"
-#  msgstr "Diese Datei verwenden"
-#  @ cfs
+#  msgstr "Использовать файл"
 #  msgid "Add New"
-#  msgstr "Neu hinzufügen"
-#  @ cfs
+#  msgstr "Добавить"
 #  msgid "Add-ons"
-#  msgstr "Zusatzmodule"
-#  @ cfs
+#  msgstr "Дополнения"
 #  msgid "Post IDs"
-#  msgstr "Beitrags-IDs"
-#  @ cfs
+#  msgstr "Идентификаторы записей"
 #  msgid "Gravity Forms"
-#  msgstr "Gravity Forms Formulare"
-#  @ cfs
+#  msgstr "Gravity Forms"
 #  msgid "Your Gravity Form and CFS field labels must match exactly"
-#  msgstr ""
-#  "Ihre Beschriftungen (Labels) des Gravity Forms Formulars und der Felder von
-#  Custom "
-#  "Field Suite (CFS) müssen exakt übereinstimmen."
-#  @ cfs
+#  msgstr "Ваши формы тяжести и CFS меток полей
+#  должны точно совпадать"
 #  msgid "Learn more"
-#  msgstr "Mehr erfahren"
-#  @ cfs
+#  msgstr "Узнать больше"
 #  msgid "Which field groups would you like to export?"
-#  msgstr "Welche Feldgruppen wollen Sie exportieren?"
-#  @ cfs
+#  msgstr "Какие группы полей импортировать?"
 #  msgid "Paste the import code below."
-#  msgstr "Fügen Sie den Import-Code unten ein."
-#  @ cfs
-#  msgid "Please install %s to use this feature."
-#  msgstr "Bitte installieren Sie zuerst %s, um diese Funktion verwenden zu
-#  können."
-#  @ cfs
+#  msgstr "Вставьте код импорта"
 #  msgid "Debug"
-#  msgstr "Debugging"
-#  @ cfs
+#  msgstr "Отладка"
 #  msgid "Debug information"
-#  msgstr "Debugging-Informationen"
+#  msgstr "Отладочная информация"
+#  msgid "Custom Field Suite"
+#  msgstr "Кастомные поля"
+#  msgid "Homepage"
+#  msgstr "Домашняя страница"
+#  msgid "Attach file"
+#  msgstr "Прикрепить файл"
+#  msgid "Post Title"
+#  msgstr "Заголовок записи"
+#  msgid "Documentation"
+#  msgstr "Документация"
+#  msgid "Forums"
+#  msgstr "Фоурм"
+#  msgid "Write a review"
+#  msgstr "Написать отзыв"
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "Den Inhaltseditor ausblenden (gilt nicht für den Inhaltsbereich von Gutenberg / Block-Editor)"
+msgstr "Скрыть редактор содержимого (не применяется к области содержимого Gutenberg / редактора блоков)"
 
 msgid "Checkbox"
-msgstr "Kontrollkästchen"
+msgstr "Флажок"
 
 msgid "File Type"
-msgstr "Dateityp"
+msgstr "Тип файла"
 
 msgid "Any"
-msgstr "Beliebig"
+msgstr "Любой"
 
 msgid "Image"
-msgstr "Bild"
+msgstr "Изображение"
 
 msgid "Audio"
-msgstr "Audio"
+msgstr "Аудио"
 
 msgid "Video"
-msgstr "Video"
+msgstr "Видео"
 
 msgid "Radio Button"
-msgstr "Optionsfeld"
+msgstr "Переключатель"
 
 msgid "Select2"
 msgstr "Select2"
 
 msgid "Render this field with Select2"
-msgstr "Dieses Feld mit Select2 anzeigen"
+msgstr "Отображать это поле с помощью Select2"
 
 msgid "Term"
-msgstr "Begriff"
+msgstr "Термин"
 
 msgid "Search terms"
-msgstr "Begriffe suchen"
+msgstr "Искать термины"
 
 msgid "Taxonomies"
-msgstr "Taxonomien"
+msgstr "Таксономии"
 
 msgid "Limit terms to the following taxonomies"
-msgstr "Begriffe auf die folgenden Taxonomien beschränken"
+msgstr "Ограничить термины следующими таксономиями"
 
 msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "Eines oder mehrere deiner Felder enthalten Validierungsfehler. Weitere Informationen findest du unten."
+msgstr "Одно или несколько полей содержат ошибки проверки. Дополнительная информация доступна ниже."
 
 msgid "Toggle row visibility"
-msgstr "Zeilensichtbarkeit umschalten"
+msgstr "Переключить видимость строки"
 
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
 msgid "CFS Tools"
-msgstr "CFS-Werkzeuge"
+msgstr "Инструменты CFS"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -649,172 +551,175 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Uhrzeit"
+msgstr "Время"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minutenintervall"
+msgstr "Интервал в минутах"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 Minute"
+msgstr "1 минута"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 Minuten"
+msgstr "5 минут"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 Minuten"
+msgstr "10 минут"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 Minuten"
+msgstr "15 минут"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 Minuten"
+msgstr "30 минут"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontale Gruppe"
+msgstr "Горизонтальная группа"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Spalten"
+msgstr "Колонки"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Automatisch"
+msgstr "Авто"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 Spalten"
+msgstr "2 колонки"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 Spalten"
+msgstr "3 колонки"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 Spalten"
+msgstr "4 колонки"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Neues Feld darunter hinzufuegen"
+msgstr "Добавить новое поле ниже"
 
 msgid "Add field inside"
-msgstr "Feld innen hinzufuegen"
+msgstr "Добавить поле внутрь"
 
 msgid "CFS Field Groups"
-msgstr "CFS-Feldgruppen"
+msgstr "Группы полей CFS"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS-Feldgruppe: %s"
+msgstr "Группа полей CFS: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Zeigt eine CFS-Feldgruppe an."
+msgstr "Отображает группу полей CFS."
 
 msgid "No fields in this group."
-msgstr "Keine Felder in dieser Gruppe."
+msgstr "В этой группе нет полей."
 
 msgid "Post Categories"
-msgstr "Beitragskategorien"
+msgstr "Рубрики записи"
 
 msgid "Post Tags"
-msgstr "Beitragsschlagwoerter"
+msgstr "Метки записи"
 
 msgid "Featured Image"
-msgstr "Beitragsbild"
+msgstr "Изображение записи"
 
 msgid "No categories found"
-msgstr "Keine Kategorien gefunden"
+msgstr "Рубрики не найдены"
 
 msgid "Separate tags with commas"
-msgstr "Schlagwoerter durch Kommas trennen"
+msgstr "Разделяйте метки запятыми"
 
 msgid "Select Image"
-msgstr "Bild auswaehlen"
+msgstr "Выбрать изображение"
 
 msgid "Remove Image"
-msgstr "Bild entfernen"
+msgstr "Удалить изображение"
 
 msgid "Search categories"
-msgstr "Kategorien suchen"
+msgstr "Искать рубрики"
 
 msgid "Show selected only"
-msgstr "Nur ausgewaehlte anzeigen"
+msgstr "Показывать только выбранные"
 
 msgid "Category Selection"
-msgstr "Kategorieauswahl"
+msgstr "Выбор рубрик"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Beim Auswaehlen einer uebergeordneten Kategorie werden auch alle untergeordneten Kategorien ausgewaehlt"
+msgstr "При выборе родительской рубрики также выбираются все дочерние рубрики"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Beim Auswaehlen einer untergeordneten Kategorie werden auch die uebergeordneten Kategorien ausgewaehlt"
+msgstr "При выборе дочерней рубрики также выбираются ее родительские рубрики"
 
 msgid "A newer version %s is available on GitHub."
-msgstr "Eine neuere Version %s ist auf GitHub verfügbar."
+msgstr "Более новая версия %s доступна на GitHub."
 
 msgid "Required"
-msgstr "Erforderlich"
+msgstr "Обязательно"
 
 msgid "Please select..."
-msgstr "Bitte auswaehlen..."
+msgstr "Пожалуйста, выберите..."
 
 msgid "Please select a language..."
-msgstr "Sprache auswaehlen..."
+msgstr "Выберите язык..."
 
 msgid "Alignment"
-msgstr "Ausrichtung"
+msgstr "Выравнивание"
 
 msgid "Evenly distributed"
-msgstr "Gleichmaessig verteilt"
+msgstr "Равномерно распределено"
 
 msgid "Left aligned"
-msgstr "Linksbuendig"
+msgstr "По левому краю"
 
 msgid "CFS placement warning:"
-msgstr "CFS-Platzierungswarnung:"
+msgstr "Предупреждение о размещении CFS:"
 
 msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Diese Feldgruppe hat keine Platzierungsregeln. Sie kann auf jede bearbeitbare Beitragsansicht zutreffen. Legen Sie daher einen Beitragstyp oder eine andere Platzierungsregel fest, sofern dies nicht beabsichtigt ist."
+msgstr "У этой группы полей нет правил размещения. Она может отображаться на любом экране редактирования записей, поэтому задайте тип записи или другое правило размещения, если это не было задумано."
 
 msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Gespeichert, aber diese Feldgruppe hat keine Platzierungsregeln. Sie kann auf jede bearbeitbare Beitragsansicht zutreffen. Legen Sie daher einen Beitragstyp oder eine andere Platzierungsregel fest, sofern dies nicht beabsichtigt ist."
+msgstr "Сохранено, но у этой группы полей нет правил размещения. Она может отображаться на любом экране редактирования записей, поэтому задайте тип записи или другое правило размещения, если это не было задумано."
 
 msgid "No placement rules"
-msgstr "Keine Platzierungsregeln"
+msgstr "Нет правил размещения"
 
 msgid "This field group will appear on all editable post screens."
-msgstr "Diese Feldgruppe kann auf jede bearbeitbare Beitragsansicht zutreffen."
+msgstr "Эта группа полей может отображаться на любом экране редактирования записей."
 
 msgid "Add two or more fields to this horizontal group."
-msgstr "Fuegen Sie dieser horizontalen Gruppe mindestens zwei Felder hinzu."
+msgstr "Добавьте два или более поля в эту горизонтальную группу."
 
 msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "Tabs, Schleifen und horizontale Gruppen koennen nicht innerhalb einer horizontalen Gruppe platziert werden."
+msgstr "Вкладки, циклы и горизонтальные группы нельзя помещать внутрь горизонтальной группы."
 
 msgid "Code View"
-msgstr "Code-Ansicht"
+msgstr "Просмотр кода"
 
 msgid "Plain text"
-msgstr "Klartext"
+msgstr "Обычный текст"
 
 msgid "Copy Button"
-msgstr "Kopierbutton"
+msgstr "Кнопка копирования"
 
 msgid "Show copy button"
-msgstr "Kopierbutton anzeigen"
+msgstr "Показать кнопку копирования"
 
 msgid "Copy"
-msgstr "Kopieren"
+msgstr "Копировать"
 
 msgid "Copied"
-msgstr "Kopiert"
+msgstr "Скопировано"
 
 msgid "Language"
-msgstr "Sprache"
+msgstr "Язык"
 msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
-msgstr "Dieses Plugin ist eine Wartungsversion von Custom Field Suite, mit der du benutzerdefinierte Felder visuell zu den WordPress-Bearbeitungsseiten hinzufügen kannst."
+msgstr "Этот плагин является поддерживаемой версией Custom Field Suite и позволяет визуально добавлять пользовательские поля на экраны редактирования WordPress."
+msgctxt "date picker"
+msgid "Clear"
+msgstr "Очистить"

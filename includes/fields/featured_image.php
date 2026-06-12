@@ -5,7 +5,7 @@ class cfs_featured_image extends cfs_field
 
     function __construct() {
         $this->name = 'featured_image';
-        $this->label = __( 'Featured Image', 'cfs' );
+        $this->label = __( 'Featured Image', 'at-shift-cfs' );
     }
 
 
@@ -23,8 +23,8 @@ class cfs_featured_image extends cfs_field
         $css = empty( $attachment_id ) ? [ '', ' hidden' ] : [ ' hidden', '' ];
     ?>
         <span class="featured_image_preview"><?php echo wp_kses_post( $preview ); ?></span>
-        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Select Image', 'cfs' ); ?>" />
-        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove Image', 'cfs' ); ?>" />
+        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Select Image', 'at-shift-cfs' ); ?>" />
+        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove Image', 'at-shift-cfs' ); ?>" />
         <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="featured_image_value" value="<?php echo esc_attr( $attachment_id ); ?>" />
     <?php
     }
@@ -42,9 +42,9 @@ class cfs_featured_image extends cfs_field
                     var $button = $(this);
 
                     cfsFeaturedImageFrame = wp.media({
-                        title: <?php echo wp_json_encode( __( 'Featured Image', 'cfs' ) ); ?>,
+                        title: <?php echo wp_json_encode( __( 'Featured Image', 'at-shift-cfs' ) ); ?>,
                         button: {
-                            text: <?php echo wp_json_encode( __( 'Select Image', 'cfs' ) ); ?>
+                            text: <?php echo wp_json_encode( __( 'Select Image', 'at-shift-cfs' ) ); ?>
                         },
                         multiple: false,
                         library: {

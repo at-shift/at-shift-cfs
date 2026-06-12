@@ -1,101 +1,102 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Field Suite\n"
+"Project-Id-Version: at-shift CFS\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
 "POT-Creation-Date: 2015-10-20 22:30-0400\n"
 "PO-Revision-Date: 2015-10-20 22:30-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
-"Language-Team: \n"
-"Language: nl\n"
+"Language-Team: www.ZooZ.ir <masoomi.vahid@gmail.com>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
-msgstr "Tekst"
+msgstr "متن"
 
 #: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
-msgstr "Validatie"
+msgstr "مجوز"
 
 #: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
-msgstr "Dit is een verplicht veld"
+msgstr "تکمیل این فیلد اجباری است"
 
 #: ../includes/field_group.php:112
 msgid "Imported"
-msgstr "Geïmporteerd"
+msgstr "وارد شد"
 
 #: ../includes/field_group.php:115
 msgid "Skipped"
-msgstr "Overgeslagen"
+msgstr "رد شده"
 
 #: ../includes/field_group.php:120
 msgid "Nothing to import"
-msgstr "Niets te importeren"
+msgstr "چیزی برای وارد کردن وجود ندارد"
 
 #: ../includes/fields/color/color.php:8
 msgid "Color"
-msgstr "Kleur"
+msgstr "رنگ"
 
 #: ../includes/fields/date/date.php:8
 msgid "Date"
-msgstr "Datum"
+msgstr "تاریخ"
 
 #: ../includes/fields/file.php:8
 msgid "File Upload"
-msgstr "Bestandsupload"
+msgstr "آپلود فایل"
 
 #: ../includes/fields/file.php:32
 msgid "Add File"
-msgstr "Voeg bestand toe"
+msgstr "افزودن فایل"
 
 #: ../includes/fields/file.php:33
 msgid "Remove"
-msgstr "Verwijder"
+msgstr "حذف"
 
 #: ../includes/fields/file.php:43
 msgid "Return Value"
-msgstr "Retourwaarde"
+msgstr "مقدار برگشت"
 
 #: ../includes/fields/file.php:52
 msgid "File URL"
-msgstr "Bestand URL"
+msgstr "آدرس فایل"
 
 #: ../includes/fields/file.php:53
 msgid "Attachment ID"
-msgstr "Attachment ID"
+msgstr "آی دی فایل پیوستی"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr "Hyperlink"
+msgstr "ابرپیوند"
 
 #: ../includes/fields/hyperlink.php:23
 msgid "URL"
-msgstr "URL"
+msgstr "لینک"
 
 #: ../includes/fields/hyperlink.php:27
 msgid "Link Text"
-msgstr "Tekst linken"
+msgstr "متن لینک"
 
 #: ../includes/fields/hyperlink.php:31
 msgid "Link Target"
-msgstr "Link doel"
+msgstr "هدف پیوند"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr "Uitvoerbestandsformaat"
+msgstr "قالب خروجی"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
@@ -103,411 +104,443 @@ msgstr "HTML"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr "PHP Array"
+msgstr "آرایه پی اچ پی"
 
 #: ../includes/fields/loop.php:8
 msgid "Loop"
-msgstr "Lus"
+msgstr "حلقه"
 
 #: ../includes/fields/loop.php:36
 msgid "Row Display"
-msgstr "Rij weergave"
+msgstr "نمایش ردیف"
 
 #: ../includes/fields/loop.php:45
 msgid "Show the values by default"
-msgstr "Toon de waarden bij verstek"
+msgstr "نمایش مقادیر پیشفرض"
 
 #: ../includes/fields/loop.php:52
 msgid "Row Label"
-msgstr "Rij label"
+msgstr "برچسب ردیف"
 
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
 #: ../includes/fields/loop.php:194
 msgid "Loop Row"
-msgstr "Lusrij"
+msgstr "ردیف حلقه"
 
 #: ../includes/fields/loop.php:66
 msgid "Button Label"
-msgstr "Knop label"
+msgstr "برچسب دکمه"
 
 #: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
 #: ../includes/fields/loop.php:195
 msgid "Add Row"
-msgstr "Voeg rij toe"
+msgstr "افزودن ردیف"
 
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
-msgstr "Limieten"
+msgstr "محدودیت ها"
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
-msgstr "Relatie"
+msgstr "ارتباط"
 
 #: ../includes/fields/relationship.php:60
 msgid "Search posts"
-msgstr "Berichten"
+msgstr "جستجو پست ها"
 
 #: ../includes/fields/relationship.php:88 ../includes/init.php:282
 #: ../templates/meta_box_rules.php:136
 msgid "Post Types"
-msgstr "Post typen"
+msgstr "نوع نوشته"
 
 #: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
-msgstr "Beperk posts tot de volgende typen"
+msgstr "محدودسازی نوشته ها به این نوع"
 
 #: ../includes/fields/select.php:8
 msgid "Select"
-msgstr "Selecteer"
+msgstr "انتخاب"
 
 #: ../includes/fields/select.php:86
 msgid "Choices"
-msgstr "Keuzes"
+msgstr "انتخاب"
 
 #: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
-msgstr "Voer één keuze per regel in"
+msgstr "هر انتخاب در هر سطر"
 
 #: ../includes/fields/select.php:101
 msgid "Multi-select?"
-msgstr "Meervoudig selecteerbaar?"
+msgstr "چند انتخابی؟"
 
 #: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
-msgstr "Dit is een meervoudig selecteerbaar veld"
+msgstr "این یک فیلت چند انتخابی است"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr "Tab"
+msgstr "زبانه"
 
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
-msgstr "Verstekwaarde"
+msgstr "مقدار پیشفرض"
 
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
-msgstr "Tekst gebied"
+msgstr "جعبه متن"
 
 #: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
-msgstr "Formattering"
+msgstr "فرمت"
 
 #: ../includes/fields/textarea.php:46
 msgid "None"
-msgstr "Geen"
+msgstr "هیچ"
 
 #: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
-msgstr "Verander regeleindes naar <br />"
+msgstr "تبدیل نیوزلاین به <br />"
 
 #: ../includes/fields/true_false.php:8
 msgid "True / False"
-msgstr "Waar / Onwaar"
+msgstr "صحیح/غلط"
 
 #: ../includes/fields/true_false.php:30
 msgid "Message"
-msgstr "Bericht"
+msgstr "پیغام"
 
 #: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
-msgstr "De tekst naast de checkbox"
+msgstr "متن کنار جعبه علامت زن"
 
 #: ../includes/fields/user.php:8
 msgid "User"
-msgstr "Gebruiker"
+msgstr "کاربر"
 
 #: ../includes/fields/user.php:31
 msgid "Search users"
-msgstr "Zoek gebruikers"
+msgstr "جستجوی کاربران…"
 
 #: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
-msgstr "Wysiwyg Editor"
+msgstr "ویرایشگر Wysiwyg"
 
 #: ../includes/fields/wysiwyg.php:42
 msgid "Default"
-msgstr "Verstek"
+msgstr "پیشفرض"
 
 #: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
-msgstr "Geen (sla filters over)"
+msgstr "هیچ (bypass filters)"
 
 #: ../includes/form.php:194
 msgid "Submit"
-msgstr "Dien in"
+msgstr "ارسال"
 
 #: ../includes/init.php:58
 msgid "Field Groups"
-msgstr "Veldgroepen"
+msgstr "گروه های فلید"
 
 #: ../includes/init.php:59
 msgid "Field Group"
-msgstr "Veldgroep"
+msgstr "ویرایش گروه فیلد"
 
 #: ../includes/init.php:60
 msgid "All Field Groups"
-msgstr "Alle veldgroepen"
+msgstr "همه گروه های زمینه"
 
 #: ../includes/init.php:61
 msgid "Add New Field Group"
-msgstr "Voeg nieuwe veldgroep toe "
+msgstr "افزودن گروه رشته تازه"
 
 #: ../includes/init.php:62
 msgid "Edit Field Group"
-msgstr "Wijzig veldgroep"
+msgstr "ویرایش گروه فیلد"
 
 #: ../includes/init.php:63
 msgid "New Field Group"
-msgstr "Nieuwe veldgroep"
+msgstr "فیلد گروه جدید"
 
 #: ../includes/init.php:64
 msgid "View Field Group"
-msgstr "Bekijk veldgroep"
+msgstr "مشاهده  گروه فیلد"
 
 #: ../includes/init.php:65
 msgid "Search Field Groups"
-msgstr "Zoek veldgroepen"
+msgstr "جستجوی گروه فیلد"
 
 #: ../includes/init.php:66
 msgid "No Field Groups found"
-msgstr "Geen veldgroepen gevonden"
+msgstr "هیچ گروه فیلدی یافت نشد"
 
 #: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
-msgstr "Geen veldgroepen gevonden in prullenbak"
+msgstr "هیچ گروه فیلدی در سطل بازیافت یافت نشد"
 
 #: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
-msgstr "Gereedschappen"
+msgstr "ابزارها"
 
 #: ../includes/init.php:153
 msgid "Fields"
-msgstr "Velden"
+msgstr "فیلدها"
 
 #: ../includes/init.php:154
 msgid "Placement Rules"
-msgstr "Plaatsingsregels"
+msgstr "شروط جاگذاری"
 
 #: ../includes/init.php:155
 msgid "Extras"
-msgstr "Extra's"
+msgstr "اضافات"
 
 #: ../includes/init.php:268
 msgid "Title"
-msgstr "Titel"
+msgstr "عنوان"
 
 #: ../includes/init.php:269
 msgid "Placement"
-msgstr "Plaatsing"
+msgstr "محل قرارگیری"
 
 #: ../includes/init.php:283 ../templates/meta_box_rules.php:202
 msgid "User Roles"
-msgstr "Gebruikersrollen"
+msgstr "مجوز کاربری"
 
 #: ../includes/init.php:284 ../templates/meta_box_rules.php:234
 msgid "Posts"
-msgstr "Posts"
+msgstr "نوشته ها"
 
 #: ../includes/init.php:285
 msgid "Term IDs"
-msgstr "Term ID's"
+msgstr "شناسه مدت"
 
 #: ../includes/init.php:286 ../templates/meta_box_rules.php:290
 msgid "Page Templates"
-msgstr "Page sjablonen"
+msgstr "قالب های برگه"
 
 #: ../includes/init.php:287 ../templates/meta_box_rules.php:169
 msgid "Post Formats"
-msgstr "Post formaten"
+msgstr "نوع نوشته"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
-msgstr "Bericht Meta"
+msgstr "اطلاعات نوشته"
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
-msgstr "Nieuw veld"
+msgstr "رشته (فیلد) جدید"
 
 #: ../templates/field_html.php:30
 msgid "Label"
-msgstr "Label"
+msgstr "برچسب"
 
 #: ../templates/field_html.php:32
 msgid "The field label that editors will see."
-msgstr "Het veldlabel dat editors zullen zien."
+msgstr "برچسبی که نویسنده آن را می بیند"
 
 #: ../templates/field_html.php:39
 msgid "Name"
-msgstr "Naam"
+msgstr "نام"
 
 #: ../templates/field_html.php:42
 msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "De veldnaam wordt doorgegeven naar get() om waarden op te halen. Gebruik alleen kleinte letters, en liggende streepjes."
+msgstr "نام فیلد توسط فرمان get() جهت بازیابی مقادیر ارسال می شود. لطفا فقط از حروف کوچک، اعداد و علائم تاکیدی استفاده کنید."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
-msgstr "Veldtype"
+msgstr "نوع فیلد"
 
 #: ../templates/field_html.php:67
 msgid "Notes"
-msgstr "Notities"
+msgstr "تذکر"
 
 #: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
-msgstr "Notities voor editors tijdens gegevensinvoer"
+msgstr "تذکری برای نویسنده"
 
 #: ../templates/field_html.php:82
 msgid "Close"
-msgstr "Sluit"
+msgstr "بستن"
 
 #: ../templates/field_html.php:83
 msgid "or"
-msgstr "of"
+msgstr "یا"
 
 #: ../templates/field_html.php:83
 msgid "delete"
-msgstr "Verwijder"
+msgstr "حذف"
 
 #: ../templates/meta_box_extras.php:33
 msgid "Order"
-msgstr "Volgorde"
+msgstr "سفارش"
 
 #: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
-msgstr "De veldgroep met de laagste volgorde zal als eerste verschijnen."
+msgstr "گروه میدان با پایین ترین مرتبه اول ظاهر خواهد شد."
 
 #: ../templates/meta_box_extras.php:45
 msgid "Position"
-msgstr "Positie"
+msgstr "موقعیت"
 
 #: ../templates/meta_box_extras.php:48
 msgid "Normal"
-msgstr "Normaal"
+msgstr "معمولی"
 
 #: ../templates/meta_box_extras.php:49
 msgid "Side"
-msgstr "Zijde"
+msgstr "سیده"
 
 #: ../templates/meta_box_extras.php:54
 msgid "Display Settings"
-msgstr "Weergave instellingen"
+msgstr "نمایش تنظیمات"
 
 #: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor"
-msgstr "Verberg de inhoudseditor"
+msgstr "مخفی سازی محتوای ویرایشگر"
 
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
-msgstr "Voeg nieuw veld toe"
+msgstr "افزودن فیلد جدید"
 
 #: ../templates/meta_box_rules.php:5
 msgid "equals"
-msgstr "is gelijk aan"
+msgstr "برابر با"
 
 #: ../templates/meta_box_rules.php:6
 msgid "is not"
-msgstr "is niet"
+msgstr "نباشد"
 
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
-msgstr "Laat leeg om deze regel over te slaan"
+msgstr "درصورتی که مایل به انتخاب این شرط نیستید، خالی رها کنید."
 
 #: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
-msgstr "Taxonomie termen"
+msgstr "قوانین طبقه بندی"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
-msgstr "Export"
+msgstr "دریافت خروجی"
 
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
-msgstr "Import"
+msgstr "وارد کردن"
 
 #: ../templates/page_tools.php:78
 msgid "Reset"
-msgstr "Herstel"
+msgstr "بازنشانی"
 
 #: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
-msgstr "Herstel en deactiveer"
+msgstr "بازنشانی و غیرفعال سازی."
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
-msgstr "Dit zal alle CFS gegevens verwijderen en de plug-in deactiveren."
+msgstr "با انتخاب گزینه زیر، تمام اطلاعات افزونه گروه فیلد حذف و افزونه غیرفعال می شود."
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
-msgstr "Verwijder alles"
+msgstr "حذف و غیرفعال سازی"
 
 #  msgid "Use This File"
-#  msgstr "Gebruik dit bestand"
+#  msgstr "استفاده از این فایل"
 #  msgid "Add New"
-#  msgstr "Voeg nieuwe toe"
+#  msgstr "اضافه کنید"
 #  msgid "Add-ons"
-#  msgstr "Add-ons"
+#  msgstr "اضافات"
 #  msgid "Post IDs"
-#  msgstr "Post IDs"
+#  msgstr "شناسه نوشته ها"
 #  msgid "Gravity Forms"
-#  msgstr "Gravity Forms"
+#  msgstr "فرم Gravity"
 #  msgid "Your Gravity Form and CFS field labels must match exactly"
-#  msgstr "Uw Gravity Forms en CFS veldlabels moeten precies overeenkomen"
+#  msgstr ""
+#  "برچسبهای Gravity Form و گروه فیلدهای شما باید
+#  دقیقا با یکدیگر مطابقت "
+#  "داشته باشند."
 #  msgid "Learn more"
-#  msgstr "Lees er meer over"
+#  msgstr "توضیحات بیشتر"
+#  msgid "Which field groups would you like to export?"
+#  msgstr "مایلید از کدام گروه فیلد خروجی تهیه
+#  کنید؟"
+#  msgid "Paste the import code below."
+#  msgstr "کد خروجی را اینجا وارد کنید."
+#  msgid "Please install %s to use this feature."
+#  msgstr "را نصب کنید تا بتوانید از این قابلیت
+#  استفاده کنید"
+#  msgid "Debug"
+#  msgstr "اشکال زدایی"
+#  msgid "Debug information"
+#  msgstr "اطلاعات اشکال زدایی"
+#  msgid "Custom Field Suite"
+#  msgstr "فیلد سفارشی"
+#  msgid "Documentation"
+#  msgstr "اسناد"
+#  msgid "Donate"
+#  msgstr "کمک مالی"
+#  msgid "Changelog"
+#  msgstr "تغییرات"
+#  msgid "Review CFS on WordPress.org"
+#  msgstr "صفحه افزونه در وردپرس"
+#  msgid "Please install"
+#  msgstr "لطفا"
+#  msgid "Post Title"
+#  msgstr "عنوان نوشته"
+#  msgid "Attach file"
+#  msgstr "پیوست فایل"
+#, fuzzy
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "Verberg de inhoudseditor (geldt niet voor het inhoudsgebied van Gutenberg / blok-editor)"
+msgstr "پنهان کردن ویرایشگر محتوا (برای ناحیه محتوای گوتنبرگ / ویرایشگر بلوک اعمال نمی‌شود)"
 
 msgid "Checkbox"
-msgstr "Selectievakje"
+msgstr "چک‌باکس"
 
 msgid "File Type"
-msgstr "Bestandstype"
+msgstr "نوع فایل"
 
 msgid "Any"
-msgstr "Alle"
+msgstr "هرکدام"
 
 msgid "Image"
-msgstr "Afbeelding"
+msgstr "تصویر"
 
 msgid "Audio"
-msgstr "Audio"
+msgstr "صدا"
 
 msgid "Video"
-msgstr "Video"
+msgstr "ویدئو"
 
 msgid "Radio Button"
-msgstr "Keuzerondje"
+msgstr "دکمه رادیویی"
 
 msgid "Select2"
 msgstr "Select2"
 
 msgid "Render this field with Select2"
-msgstr "Dit veld weergeven met Select2"
+msgstr "نمایش این فیلد با Select2"
 
 msgid "Term"
-msgstr "Term"
+msgstr "ترم"
 
 msgid "Search terms"
-msgstr "Termen zoeken"
+msgstr "جستجوی ترم‌ها"
 
 msgid "Taxonomies"
-msgstr "Taxonomieën"
+msgstr "طبقه‌بندی‌ها"
 
 msgid "Limit terms to the following taxonomies"
-msgstr "Beperk termen tot de volgende taxonomieën"
+msgstr "محدود کردن ترم‌ها به طبقه‌بندی‌های زیر"
 
 msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "Een of meer velden bevatten validatiefouten. Meer informatie is hieronder beschikbaar."
+msgstr "یک یا چند فیلد دارای خطای اعتبارسنجی است. اطلاعات بیشتر در ادامه موجود است."
 
 msgid "Toggle row visibility"
-msgstr "Rijzichtbaarheid wisselen"
+msgstr "تغییر نمایش ردیف"
 
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
 msgid "CFS Tools"
-msgstr "CFS-gereedschappen"
+msgstr "ابزارهای CFS"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -527,172 +560,175 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Tijd"
+msgstr "زمان"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Minuteninterval"
+msgstr "بازه دقیقه"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minuut"
+msgstr "۱ دقیقه"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minuten"
+msgstr "۵ دقیقه"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minuten"
+msgstr "۱۰ دقیقه"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minuten"
+msgstr "۱۵ دقیقه"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minuten"
+msgstr "۳۰ دقیقه"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Horizontale groep"
+msgstr "گروه افقی"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Kolommen"
+msgstr "ستون‌ها"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Automatisch"
+msgstr "خودکار"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 kolommen"
+msgstr "۲ ستون"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 kolommen"
+msgstr "۳ ستون"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 kolommen"
+msgstr "۴ ستون"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Nieuw veld hieronder toevoegen"
+msgstr "افزودن فیلد جدید در پایین"
 
 msgid "Add field inside"
-msgstr "Veld binnenin toevoegen"
+msgstr "افزودن فیلد در داخل"
 
 msgid "CFS Field Groups"
-msgstr "CFS-veldgroepen"
+msgstr "گروه‌های فیلد CFS"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS-veldgroep: %s"
+msgstr "گروه فیلد CFS: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Toont een CFS-veldgroep."
+msgstr "یک گروه فیلد CFS را نمایش می‌دهد."
 
 msgid "No fields in this group."
-msgstr "Geen velden in deze groep."
+msgstr "هیچ فیلدی در این گروه وجود ندارد."
 
 msgid "Post Categories"
-msgstr "Berichtcategorieen"
+msgstr "دسته‌های نوشته"
 
 msgid "Post Tags"
-msgstr "Berichttags"
+msgstr "برچسب‌های نوشته"
 
 msgid "Featured Image"
-msgstr "Uitgelichte afbeelding"
+msgstr "تصویر شاخص"
 
 msgid "No categories found"
-msgstr "Geen categorieen gevonden"
+msgstr "دسته‌ای پیدا نشد"
 
 msgid "Separate tags with commas"
-msgstr "Scheid tags met kommas"
+msgstr "برچسب‌ها را با ویرگول جدا کنید"
 
 msgid "Select Image"
-msgstr "Afbeelding selecteren"
+msgstr "انتخاب تصویر"
 
 msgid "Remove Image"
-msgstr "Afbeelding verwijderen"
+msgstr "حذف تصویر"
 
 msgid "Search categories"
-msgstr "Categorieen zoeken"
+msgstr "جستجوی دسته‌ها"
 
 msgid "Show selected only"
-msgstr "Alleen geselecteerde tonen"
+msgstr "فقط انتخاب‌شده‌ها را نمایش بده"
 
 msgid "Category Selection"
-msgstr "Categorieselectie"
+msgstr "انتخاب دسته"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Als je een bovenliggende categorie selecteert, worden ook alle onderliggende categorieen geselecteerd"
+msgstr "با انتخاب دسته والد، همه دسته‌های فرزند نیز انتخاب می‌شوند"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Als je een onderliggende categorie selecteert, worden ook de bovenliggende categorieen geselecteerd"
+msgstr "با انتخاب دسته فرزند، دسته‌های والد آن نیز انتخاب می‌شوند"
 
 msgid "A newer version %s is available on GitHub."
-msgstr "Er is een nieuwere versie %s beschikbaar op GitHub."
+msgstr "نسخه جدیدتر %s در GitHub در دسترس است."
 
 msgid "Required"
-msgstr "Vereist"
+msgstr "ضروری"
 
 msgid "Please select..."
-msgstr "Selecteer..."
+msgstr "لطفاً انتخاب کنید..."
 
 msgid "Please select a language..."
-msgstr "Selecteer een taal..."
+msgstr "یک زبان را انتخاب کنید..."
 
 msgid "Alignment"
-msgstr "Uitlijning"
+msgstr "تراز"
 
 msgid "Evenly distributed"
-msgstr "Gelijkmatig verdeeld"
+msgstr "توزیع یکنواخت"
 
 msgid "Left aligned"
-msgstr "Links uitgelijnd"
+msgstr "تراز چپ"
 
 msgid "CFS placement warning:"
-msgstr "CFS-plaatsingswaarschuwing:"
+msgstr "هشدار جای‌گذاری CFS:"
 
 msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Deze veldgroep heeft geen plaatsingsregels. Daardoor kan deze op elk bewerkbaar berichtscherm verschijnen. Stel daarom een berichttype of een andere plaatsingsregel in, tenzij dit de bedoeling is."
+msgstr "این گروه فیلد هیچ قانون جای‌گذاری ندارد. ممکن است با همه صفحه‌های قابل ویرایش نوشته مطابقت پیدا کند؛ بنابراین اگر عمدی نیست، یک نوع نوشته یا قانون جای‌گذاری دیگر تعیین کنید."
 
 msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Opgeslagen, maar deze veldgroep heeft geen plaatsingsregels. Daardoor kan deze op elk bewerkbaar berichtscherm verschijnen. Stel daarom een berichttype of een andere plaatsingsregel in, tenzij dit de bedoeling is."
+msgstr "ذخیره شد، اما این گروه فیلد هیچ قانون جای‌گذاری ندارد. ممکن است با همه صفحه‌های قابل ویرایش نوشته مطابقت پیدا کند؛ بنابراین اگر عمدی نیست، یک نوع نوشته یا قانون جای‌گذاری دیگر تعیین کنید."
 
 msgid "No placement rules"
-msgstr "Geen plaatsingsregels"
+msgstr "بدون قانون جای‌گذاری"
 
 msgid "This field group will appear on all editable post screens."
-msgstr "Deze veldgroep kan op elk bewerkbaar berichtscherm verschijnen."
+msgstr "این گروه فیلد می‌تواند با همه صفحه‌های قابل ویرایش نوشته مطابقت پیدا کند."
 
 msgid "Add two or more fields to this horizontal group."
-msgstr "Voeg twee of meer velden toe aan deze horizontale groep."
+msgstr "دو یا چند فیلد به این گروه افقی اضافه کنید."
 
 msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "Tabs, loops en horizontale groepen kunnen niet in een horizontale groep worden geplaatst."
+msgstr "زبانه‌ها، حلقه‌ها و گروه‌های افقی را نمی‌توان داخل یک گروه افقی قرار داد."
 
 msgid "Code View"
-msgstr "Codeweergave"
+msgstr "نمایش کد"
 
 msgid "Plain text"
-msgstr "Platte tekst"
+msgstr "متن ساده"
 
 msgid "Copy Button"
-msgstr "Kopieerknop"
+msgstr "دکمه کپی"
 
 msgid "Show copy button"
-msgstr "Kopieerknop tonen"
+msgstr "نمایش دکمه کپی"
 
 msgid "Copy"
-msgstr "Kopieren"
+msgstr "کپی"
 
 msgid "Copied"
-msgstr "Gekopieerd"
+msgstr "کپی شد"
 
 msgid "Language"
-msgstr "Taal"
+msgstr "زبان"
 msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
-msgstr "Deze plugin is een onderhoudsversie van Custom Field Suite waarmee je visueel aangepaste velden aan de WordPress-bewerkingsschermen kunt toevoegen."
+msgstr "این افزونه نسخه نگهداری Custom Field Suite است که به شما امکان می‌دهد فیلدهای سفارشی را به‌صورت بصری به صفحات ویرایش وردپرس اضافه کنید."
+msgctxt "date picker"
+msgid "Clear"
+msgstr "پاک کردن"

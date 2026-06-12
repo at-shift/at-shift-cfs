@@ -109,15 +109,15 @@ class cfs_field_group
 
             $return = '';
             if ( ! empty( $stats['imported'] ) ) {
-                $return .= '<div>' . esc_html__( 'Imported', 'cfs' ) . ': ' . esc_html( implode( ', ', $stats['imported'] ) ) . '</div>';
+                $return .= '<div>' . esc_html__( 'Imported', 'at-shift-cfs' ) . ': ' . esc_html( implode( ', ', $stats['imported'] ) ) . '</div>';
             }
             if ( ! empty( $stats['skipped'] ) ) {
-                $return .= '<div>' . esc_html__( 'Skipped', 'cfs' ) . ': ' . esc_html( implode( ', ', $stats['skipped'] ) ) . '</div>';
+                $return .= '<div>' . esc_html__( 'Skipped', 'at-shift-cfs' ) . ': ' . esc_html( implode( ', ', $stats['skipped'] ) ) . '</div>';
             }
             return $return;
         }
         else {
-            return '<div>' . esc_html__( 'Nothing to import', 'cfs' ) . '</div>';
+            return '<div>' . esc_html__( 'Nothing to import', 'at-shift-cfs' ) . '</div>';
         }
     }
 

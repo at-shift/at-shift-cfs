@@ -5,7 +5,7 @@ class cfs_file extends cfs_field
 
     function __construct() {
         $this->name = 'file';
-        $this->label = __( 'File Upload', 'cfs' );
+        $this->label = __( 'File Upload', 'at-shift-cfs' );
     }
 
 
@@ -30,8 +30,8 @@ class cfs_file extends cfs_field
         $css = empty( $field->value ) ? [ '', ' hidden' ] : [ ' hidden', '' ];
     ?>
         <span class="file_url"><?php echo wp_kses_post( $file_url ); ?></span>
-        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php _e( 'Add File', 'cfs' ); ?>" />
-        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php _e( 'Remove', 'cfs' ); ?>" />
+        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php _e( 'Add File', 'at-shift-cfs' ); ?>" />
+        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php _e( 'Remove', 'at-shift-cfs' ); ?>" />
         <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="file_value" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
     }
@@ -41,7 +41,7 @@ class cfs_file extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'File Type', 'cfs' ); ?></label>
+                <label><?php _e( 'File Type', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -50,10 +50,10 @@ class cfs_file extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][file_type]',
                         'options' => [
                             'choices' => [
-                                'file'  => __( 'Any', 'cfs' ),
-                                'image' => __( 'Image', 'cfs' ),
-                                'audio' => __( 'Audio', 'cfs' ),
-                                'video' => __( 'Video', 'cfs' )
+                                'file'  => __( 'Any', 'at-shift-cfs' ),
+                                'image' => __( 'Image', 'at-shift-cfs' ),
+                                'audio' => __( 'Audio', 'at-shift-cfs' ),
+                                'video' => __( 'Video', 'at-shift-cfs' )
                             ],
                             'force_single' => true,
                         ],
@@ -64,7 +64,7 @@ class cfs_file extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Return Value', 'cfs' ); ?></label>
+                <label><?php _e( 'Return Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -73,8 +73,8 @@ class cfs_file extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][return_value]',
                         'options' => [
                             'choices' => [
-                                'url' => __( 'File URL', 'cfs' ),
-                                'id' => __( 'Attachment ID', 'cfs' )
+                                'url' => __( 'File URL', 'at-shift-cfs' ),
+                                'id' => __( 'Attachment ID', 'at-shift-cfs' )
                             ],
                             'force_single' => true,
                         ],
@@ -85,7 +85,7 @@ class cfs_file extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'cfs' ); ?></label>
+                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -94,7 +94,7 @@ class cfs_file extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

@@ -2,8 +2,8 @@
 
 global $post, $wpdb, $wp_roles;
 
-$equals_text = __( 'equals', 'cfs' );
-$not_equals_text = __( 'is not', 'cfs' );
+$equals_text = __( 'equals', 'at-shift-cfs' );
+$not_equals_text = __( 'is not', 'at-shift-cfs' );
 $rules = (array) get_post_meta( $post->ID, 'cfs_rules', true );
 
 // Populate rules if empty
@@ -110,12 +110,12 @@ foreach ( $templates as $template_name => $filename ) {
         var cfs_nonce = '<?php echo wp_create_nonce( 'cfs_admin_nonce' ); ?>';
 
         $('.select2').select2({
-            placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>'
+            placeholder: '<?php _e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>'
         });
 
         $('.select2-ajax').select2({
             multiple: true,
-            placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>',
+            placeholder: '<?php _e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>',
             minimumInputLength: 2,
             ajax: {
                 url: ajaxurl,
@@ -149,7 +149,7 @@ foreach ( $templates as $template_name => $filename ) {
 <table>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e( 'Post Types', 'cfs' ); ?></label>
+            <label><?php _e( 'Post Types', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -182,7 +182,7 @@ foreach ( $templates as $template_name => $filename ) {
     <?php if ( current_theme_supports( 'post-formats' ) && count( $post_formats ) ) : ?>
         <tr>
             <td class="label cfs-rule-label">
-                <label><?php _e( 'Post Formats', 'cfs' ); ?></label>
+                <label><?php _e( 'Post Formats', 'at-shift-cfs' ); ?></label>
             </td>
             <td class="cfs-rule-operator">
                 <?php
@@ -215,7 +215,7 @@ foreach ( $templates as $template_name => $filename ) {
     <?php endif; ?>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e( 'User Roles', 'cfs' ); ?></label>
+            <label><?php _e( 'User Roles', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -247,7 +247,7 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e('Posts', 'cfs'); ?></label>
+            <label><?php _e('Posts', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -271,7 +271,7 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e( 'Taxonomy Terms', 'cfs' ); ?></label>
+            <label><?php _e( 'Taxonomy Terms', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -303,7 +303,7 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e( 'Page Templates', 'cfs' ); ?></label>
+            <label><?php _e( 'Page Templates', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php

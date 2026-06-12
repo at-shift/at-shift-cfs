@@ -1,12 +1,11 @@
 <?php
 /*
-Plugin Name: Custom Field Suite
+Plugin Name: at-shift CFS
 Description: This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages.
-Version: 2.6.7.41.20
+Version: 2.6.7.41.22
 Author: Matt Gibbs / Maintenance: @shift Yoshiya Tsuchisaka
-Author URI: https://github.com/at-shift/custom-field-suite-maintenance
-Maintenance Build: @shift Yoshiya Tsuchisaka
-Text Domain: cfs
+Author URI: https://github.com/at-shift/at-shift-cfs
+Text Domain: at-shift-cfs
 Domain Path: /languages/
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -27,7 +26,7 @@ class Custom_Field_Suite
     function __construct() {
 
         // setup variables
-        define( 'CFS_VERSION', '2.6.7.41.20' );
+        define( 'CFS_VERSION', '2.6.7.41.22' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( '', __FILE__ ) );
 

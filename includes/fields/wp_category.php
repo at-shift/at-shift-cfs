@@ -5,7 +5,7 @@ class cfs_wp_category extends cfs_field
 
     function __construct() {
         $this->name = 'wp_category';
-        $this->label = __( 'Post Categories', 'cfs' );
+        $this->label = __( 'Post Categories', 'at-shift-cfs' );
     }
 
 
@@ -33,7 +33,7 @@ class cfs_wp_category extends cfs_field
         ] );
 
         if ( is_wp_error( $terms ) || empty( $terms ) ) {
-            echo '<p class="notes">' . esc_html__( 'No categories found', 'cfs' ) . '</p>';
+            echo '<p class="notes">' . esc_html__( 'No categories found', 'at-shift-cfs' ) . '</p>';
             return;
         }
 
@@ -46,10 +46,10 @@ class cfs_wp_category extends cfs_field
         $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents', 1 );
     ?>
         <div class="cfs-wp-category-tools">
-            <input type="search" class="cfs-wp-category-search" autocomplete="off" placeholder="<?php esc_attr_e( 'Search categories', 'cfs' ); ?>" />
+            <input type="search" class="cfs-wp-category-search" autocomplete="off" placeholder="<?php esc_attr_e( 'Search categories', 'at-shift-cfs' ); ?>" />
             <label class="cfs-wp-category-selected-only">
                 <input type="checkbox" class="cfs-wp-category-selected-only-toggle" />
-                <?php esc_html_e( 'Show selected only', 'cfs' ); ?>
+                <?php esc_html_e( 'Show selected only', 'at-shift-cfs' ); ?>
             </label>
         </div>
     <?php
@@ -96,7 +96,7 @@ class cfs_wp_category extends cfs_field
 
     private function get_term_name( $term ) {
         if ( 'Uncategorized' === $term->name ) {
-            return __( 'Uncategorized', 'cfs' );
+            return __( 'Uncategorized', 'at-shift-cfs' );
         }
 
         return $term->name;
@@ -135,7 +135,7 @@ class cfs_wp_category extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Category Selection', 'cfs' ); ?></label>
+                <label><?php esc_html_e( 'Category Selection', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -144,7 +144,7 @@ class cfs_wp_category extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][auto_select_children]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'auto_select_children' ),
-                        'options' => [ 'message' => __( 'Selecting a parent also selects all child categories', 'cfs' ) ],
+                        'options' => [ 'message' => __( 'Selecting a parent also selects all child categories', 'at-shift-cfs' ) ],
                     ] );
                 ?>
                 <br />
@@ -154,7 +154,7 @@ class cfs_wp_category extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][auto_select_parents]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'auto_select_parents', 1 ),
-                        'options' => [ 'message' => __( 'Selecting a child also selects its parent categories', 'cfs' ) ],
+                        'options' => [ 'message' => __( 'Selecting a child also selects its parent categories', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

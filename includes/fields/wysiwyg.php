@@ -5,7 +5,7 @@ class cfs_wysiwyg extends cfs_field
 
     function __construct() {
         $this->name = 'wysiwyg';
-        $this->label = __( 'Wysiwyg Editor', 'cfs' );
+        $this->label = __( 'Wysiwyg Editor', 'at-shift-cfs' );
 
         // add the "code" button
         add_filter( 'mce_external_plugins', [ $this, 'mce_external_plugins' ], 20 );
@@ -31,7 +31,7 @@ class cfs_wysiwyg extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Formatting', 'cfs' ); ?></label>
+                <label><?php _e( 'Formatting', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -40,8 +40,8 @@ class cfs_wysiwyg extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][formatting]',
                         'options' => [
                             'choices' => [
-                                'default' => __( 'Default', 'cfs' ),
-                                'none' => __( 'None (bypass filters)', 'cfs' )
+                                'default' => __( 'Default', 'at-shift-cfs' ),
+                                'none' => __( 'None (bypass filters)', 'at-shift-cfs' )
                             ],
                             'force_single' => true,
                         ],
@@ -52,7 +52,7 @@ class cfs_wysiwyg extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'cfs' ); ?></label>
+                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -61,7 +61,7 @@ class cfs_wysiwyg extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

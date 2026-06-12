@@ -30,9 +30,9 @@ if ( ! isset( $extras['context'] ) ) {
     <tr>
         <td class="label">
             <label>
-                <?php _e( 'Order', 'cfs' ); ?>
+                <?php _e( 'Order', 'at-shift-cfs' ); ?>
                 <div class="cfs_tooltip">?
-                    <div class="tooltip_inner"><?php _e( 'The field group with the lowest order will appear first.', 'cfs' ); ?></div>
+                    <div class="tooltip_inner"><?php _e( 'The field group with the lowest order will appear first.', 'at-shift-cfs' ); ?></div>
                 </div>
             </label>
         </td>
@@ -42,16 +42,16 @@ if ( ! isset( $extras['context'] ) ) {
     </tr>
     <tr>
         <td class="label">
-            <label><?php _e( 'Position', 'cfs' ); ?></label>
+            <label><?php _e( 'Position', 'at-shift-cfs' ); ?></label>
         </td>
         <td style="vertical-align:top">
-            <input type="radio" name="cfs[extras][context]" value="normal"<?php echo ( $extras['context'] == 'normal' ) ? ' checked' : ''; ?> /> <?php _e( 'Normal', 'cfs' ); ?> &nbsp; &nbsp;
-            <input type="radio" name="cfs[extras][context]" value="side"<?php echo ( $extras['context'] == 'side' ) ? ' checked' : ''; ?> /> <?php _e( 'Side', 'cfs' ); ?>
+            <input type="radio" name="cfs[extras][context]" value="normal"<?php echo ( $extras['context'] == 'normal' ) ? ' checked' : ''; ?> /> <?php _e( 'Normal', 'at-shift-cfs' ); ?> &nbsp; &nbsp;
+            <input type="radio" name="cfs[extras][context]" value="side"<?php echo ( $extras['context'] == 'side' ) ? ' checked' : ''; ?> /> <?php _e( 'Side', 'at-shift-cfs' ); ?>
         </td>
     </tr>
     <tr>
         <td class="label">
-            <label><?php _e( 'Display Settings', 'cfs' ); ?></label>
+            <label><?php _e( 'Display Settings', 'at-shift-cfs' ); ?></label>
         </td>
         <td style="vertical-align:top">
             <div>
@@ -61,7 +61,7 @@ if ( ! isset( $extras['context'] ) ) {
                         'input_name'    => "cfs[extras][hide_editor]",
                         'input_class'   => 'true_false',
                         'value'         => $extras['hide_editor'],
-                        'options'       => [ 'message' => __( 'Hide the content editor (does not apply to the Gutenberg / block editor content area)', 'cfs' ) ],
+                        'options'       => [ 'message' => __( 'Hide the content editor (does not apply to the Gutenberg / block editor content area)', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </div>

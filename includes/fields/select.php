@@ -6,7 +6,7 @@ class cfs_select extends cfs_field
 
     function __construct() {
         $this->name = 'select';
-        $this->label = __( 'Select', 'cfs' );
+        $this->label = __( 'Select', 'at-shift-cfs' );
         $this->select2_inserted = false;
     }
 
@@ -38,7 +38,7 @@ class cfs_select extends cfs_field
     ?>
         <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php echo $multiple; ?>>
         <?php if ( $show_placeholder ) : ?>
-            <option value=""<?php echo in_array( '', (array) $field->value, true ) ? ' selected' : ''; ?>><?php esc_html_e( 'Please select...', 'cfs' ); ?></option>
+            <option value=""<?php echo in_array( '', (array) $field->value, true ) ? ' selected' : ''; ?>><?php esc_html_e( 'Please select...', 'at-shift-cfs' ); ?></option>
         <?php endif; ?>
         <?php foreach ( $choices as $val => $label ) : ?>
             <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
@@ -107,8 +107,8 @@ class cfs_select extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Choices', 'cfs' ); ?></label>
-                <p class="description"><?php _e( 'Enter one choice per line', 'cfs' ); ?></p>
+                <label><?php _e( 'Choices', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php _e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -122,7 +122,7 @@ class cfs_select extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Multi-select?', 'cfs' ); ?></label>
+                <label><?php _e( 'Multi-select?', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -131,14 +131,14 @@ class cfs_select extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][multiple]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'multiple' ),
-                        'options' => [ 'message' => __( 'This is a multi-select field', 'cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a multi-select field', 'at-shift-cfs' ) ],
                      ] );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e('Select2', 'cfs'); ?></label>
+                <label><?php _e('Select2', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -147,14 +147,14 @@ class cfs_select extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][select2]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option($field, 'select2'),
-                        'options' => [ 'message' => __('Render this field with Select2', 'cfs' ) ],
+                        'options' => [ 'message' => __('Render this field with Select2', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'cfs' ); ?></label>
+                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -163,7 +163,7 @@ class cfs_select extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

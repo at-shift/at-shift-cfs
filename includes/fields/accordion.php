@@ -5,7 +5,7 @@ class cfs_accordion extends cfs_field
 
     function __construct() {
         $this->name = 'accordion';
-        $this->label = __( 'Accordion Group', 'cfs' );
+        $this->label = __( 'Accordion Group', 'at-shift-cfs' );
     }
 
 
@@ -80,7 +80,7 @@ class cfs_accordion extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Initial State', 'cfs' ); ?></label>
+                <label><?php _e( 'Initial State', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -89,7 +89,7 @@ class cfs_accordion extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][open]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'open', 0 ),
-                        'options' => [ 'message' => __( 'Open by default', 'cfs' ) ],
+                        'options' => [ 'message' => __( 'Open by default', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

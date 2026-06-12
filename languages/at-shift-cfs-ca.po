@@ -1,87 +1,86 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Field Suite\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2015-10-20 22:30-0400\n"
-"PO-Revision-Date: 2015-10-20 22:30-0400\n"
+"Project-Id-Version: at-shift CFS\n"
+"POT-Creation-Date: 2015-10-20 22:31-0400\n"
+"PO-Revision-Date: 2015-10-20 22:31-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
-"Language-Team: Jean-Christophe BREBION <pro@jcbrebion.com>\n"
-"Language: fr\n"
+"Language-Team: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.5\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
-msgstr "Texte"
+msgstr "Text"
 
 #: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
-msgstr "Validation"
+msgstr "Validació"
 
 #: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
-msgstr "Ce champ est obligatoire"
+msgstr "Aquest és un camp requerit"
 
 #: ../includes/field_group.php:112
 msgid "Imported"
-msgstr "Importé"
+msgstr "Importat"
 
 #: ../includes/field_group.php:115
 msgid "Skipped"
-msgstr "Ignoré"
+msgstr "Omitides"
 
 #: ../includes/field_group.php:120
 msgid "Nothing to import"
-msgstr "Rien à importer"
+msgstr "Res per importar"
 
 #: ../includes/fields/color/color.php:8
 msgid "Color"
-msgstr "Couleur"
+msgstr "Color"
 
 #: ../includes/fields/date/date.php:8
 msgid "Date"
-msgstr "Date"
+msgstr "Data"
 
 #: ../includes/fields/file.php:8
 msgid "File Upload"
-msgstr "Fichier"
+msgstr "Pujar Arxiu"
 
 #: ../includes/fields/file.php:32
 msgid "Add File"
-msgstr "Ajouter un fichier"
+msgstr "Afegir Arxiu"
 
 #: ../includes/fields/file.php:33
 msgid "Remove"
-msgstr "Retirer"
+msgstr "Treure"
 
 #: ../includes/fields/file.php:43
 msgid "Return Value"
-msgstr "Valeur de retour"
+msgstr "Valor de Retorn"
 
 #: ../includes/fields/file.php:52
 msgid "File URL"
-msgstr "URL du fichier"
+msgstr "URL de l'arxiu"
 
 #: ../includes/fields/file.php:53
 msgid "Attachment ID"
-msgstr "ID du fichier attaché"
+msgstr "ID del Adjunt"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr "Lien hypertexte"
+msgstr "Hiperenllaç"
 
 #: ../includes/fields/hyperlink.php:23
 msgid "URL"
@@ -89,15 +88,15 @@ msgstr "URL"
 
 #: ../includes/fields/hyperlink.php:27
 msgid "Link Text"
-msgstr "Texte du lien"
+msgstr "Text de l’enllaç"
 
 #: ../includes/fields/hyperlink.php:31
 msgid "Link Target"
-msgstr "Cible du lien"
+msgstr "Destinació de vincle"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr "Format de sortie"
+msgstr "Format de sortida"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
@@ -105,191 +104,191 @@ msgstr "HTML"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr "Tableau PHP"
+msgstr "Array de PHP"
 
 #: ../includes/fields/loop.php:8
 msgid "Loop"
-msgstr "Boucle"
+msgstr "Bucle (Loop)"
 
 #: ../includes/fields/loop.php:36
 msgid "Row Display"
-msgstr "Affichage de la rangée"
+msgstr "Pantalla per files"
 
 #: ../includes/fields/loop.php:45
 msgid "Show the values by default"
-msgstr "Afficher les valeurs par défaut"
+msgstr "Mostrar valors per defecte"
 
 #: ../includes/fields/loop.php:52
 msgid "Row Label"
-msgstr "Intitulé de la rangée"
+msgstr "Etiqueta de Fila"
 
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
 #: ../includes/fields/loop.php:194
 msgid "Loop Row"
-msgstr "Rangée sans nom"
+msgstr "Fila de Bucle (Loop)"
 
 #: ../includes/fields/loop.php:66
 msgid "Button Label"
-msgstr "Intitulé du bouton"
+msgstr "Etiqueta de Botó"
 
 #: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
 #: ../includes/fields/loop.php:195
 msgid "Add Row"
-msgstr "Ajouter une rangée"
+msgstr "AfegirFila"
 
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
-msgstr "Limites"
+msgstr "Límits"
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
-msgstr "Relation"
+msgstr "Relació"
 
 #: ../includes/fields/relationship.php:60
 msgid "Search posts"
-msgstr "Recherche Articles"
+msgstr "Cercar entrades"
 
 #: ../includes/fields/relationship.php:88 ../includes/init.php:282
 #: ../templates/meta_box_rules.php:136
 msgid "Post Types"
-msgstr "Types de contenu"
+msgstr "Tipus de Post"
 
 #: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
-msgstr "Limiter les articles aux types suivants"
+msgstr "Limitar posts als següents tipus"
 
 #: ../includes/fields/select.php:8
 msgid "Select"
-msgstr "Liste déroulante"
+msgstr "Seleccionar"
 
 #: ../includes/fields/select.php:86
 msgid "Choices"
-msgstr "Choix"
+msgstr "Opcions"
 
 #: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
-msgstr "Veuillez entrer un choix par ligne"
+msgstr "Introduïu una opció per línia"
 
 #: ../includes/fields/select.php:101
 msgid "Multi-select?"
-msgstr "Sélection multiple?"
+msgstr "Selecció múltiple?"
 
 #: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
-msgstr "Ceci est un champ de sélection multiple."
+msgstr "Aquest és un camp de selecció múltiple"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr "Onglet"
+msgstr "Pestanya"
 
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
-msgstr "Valeur par défaut"
+msgstr "Valor per Defecte"
 
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
-msgstr "Zone de texte"
+msgstr "Textarea"
 
 #: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
-msgstr "Formatage"
+msgstr "Formateig"
 
 #: ../includes/fields/textarea.php:46
 msgid "None"
-msgstr "Aucun"
+msgstr "Cap"
 
 #: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
-msgstr "Convertir les sauts de ligne en <br />"
+msgstr "Convertir salts de línia a <br />"
 
 #: ../includes/fields/true_false.php:8
 msgid "True / False"
-msgstr "Vrai / Faux"
+msgstr "Verdader / Fals"
 
 #: ../includes/fields/true_false.php:30
 msgid "Message"
-msgstr "Message"
+msgstr "Missatge"
 
 #: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
-msgstr "Texte associé à la case à cocher"
+msgstr "El text al costat de la casella"
 
 #: ../includes/fields/user.php:8
 msgid "User"
-msgstr "Utilisateur"
+msgstr "Usuari"
 
 #: ../includes/fields/user.php:31
 msgid "Search users"
-msgstr "Rechercher les utilisateurs"
+msgstr "Usuaris de cerca"
 
 #: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
-msgstr "Éditeur WYSIWYG"
+msgstr "Editor Wysiwyg"
 
 #: ../includes/fields/wysiwyg.php:42
 msgid "Default"
-msgstr "Défault"
+msgstr "Per defecte"
 
 #: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
-msgstr "Aucun (ignorer les filtres)"
+msgstr "Cap (bypass els filtres)"
 
 #: ../includes/form.php:194
 msgid "Submit"
-msgstr "Soumettre"
+msgstr "Enviar"
 
 #: ../includes/init.php:58
 msgid "Field Groups"
-msgstr "CFS"
+msgstr "Grups de Camps"
 
 #: ../includes/init.php:59
 msgid "Field Group"
-msgstr "Groupe de champs"
+msgstr "Grup de Camps"
 
 #: ../includes/init.php:60
 msgid "All Field Groups"
-msgstr "Tous les groupes de champs"
+msgstr "Tots els grups d’àmbit"
 
 #: ../includes/init.php:61
 msgid "Add New Field Group"
-msgstr "Ajouter un nouveau groupe de champs"
+msgstr "Afegeix nou Grup de Camps"
 
 #: ../includes/init.php:62
 msgid "Edit Field Group"
-msgstr "Modifier le groupe de champs"
+msgstr "Editar Grup de Camps"
 
 #: ../includes/init.php:63
 msgid "New Field Group"
-msgstr "Nouveau groupe de champs"
+msgstr "Nou Grup de Camps"
 
 #: ../includes/init.php:64
 msgid "View Field Group"
-msgstr "Voir le groupe de champs"
+msgstr "Veure Grup de Camps"
 
 #: ../includes/init.php:65
 msgid "Search Field Groups"
-msgstr "Recherche d'un groupe de champs"
+msgstr "Cercar Grups de Camps"
 
 #: ../includes/init.php:66
 msgid "No Field Groups found"
-msgstr "Aucun groupe de champs trouvé"
+msgstr "No s'han trobat Grups de Camps"
 
 #: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
-msgstr "Aucun groupe de champs trouvé dans la corbeille"
+msgstr "No s'han trobat Grups a la Paperera"
 
 #: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
-msgstr "Outils"
+msgstr "Eines"
 
 #: ../includes/init.php:153
 msgid "Fields"
-msgstr "Champs"
+msgstr "Camps"
 
 #: ../includes/init.php:154
 msgid "Placement Rules"
-msgstr "Règles d'affichage"
+msgstr "Regles de col·locació"
 
 #: ../includes/init.php:155
 msgid "Extras"
@@ -297,47 +296,47 @@ msgstr "Extras"
 
 #: ../includes/init.php:268
 msgid "Title"
-msgstr "Titre"
+msgstr "Títol"
 
 #: ../includes/init.php:269
 msgid "Placement"
-msgstr "Affichage"
+msgstr "Col·locació"
 
 #: ../includes/init.php:283 ../templates/meta_box_rules.php:202
 msgid "User Roles"
-msgstr "Rôles utilisateur"
+msgstr "Rols d'usuari"
 
 #: ../includes/init.php:284 ../templates/meta_box_rules.php:234
 msgid "Posts"
-msgstr "Articles"
+msgstr "Posts"
 
 #: ../includes/init.php:285
 msgid "Term IDs"
-msgstr "IDs des termes"
+msgstr "ID's de Termes"
 
 #: ../includes/init.php:286 ../templates/meta_box_rules.php:290
 msgid "Page Templates"
-msgstr "Modèles de page"
+msgstr "Plantilles de Pàgina"
 
 #: ../includes/init.php:287 ../templates/meta_box_rules.php:169
 msgid "Post Formats"
-msgstr "Formats d'article"
+msgstr "Formats de Post"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
-msgstr "Champs personnalisés"
+msgstr "Meta del Post"
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
-msgstr "Nouveau champ"
+msgstr "Nou Camp"
 
 #: ../templates/field_html.php:30
 msgid "Label"
-msgstr "Intitulé"
+msgstr "Etiqueta"
 
 #: ../templates/field_html.php:32
 msgid "The field label that editors will see."
-msgstr "L'intitulé du champ, visible par les utilisateurs."
+msgstr "L'etiqueta de camp que veuran els editors."
 
 #: ../templates/field_html.php:39
 msgid "Name"
@@ -345,31 +344,31 @@ msgstr "Nom"
 
 #: ../templates/field_html.php:42
 msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "Le nom du champ qui sera passé dans get() afin de récupérer ses valeurs. Seules les lettres minuscules, les chiffres ou le caractère de soulignement sont autorisés."
+msgstr "El nom del camp es passa a get() per recuperar els valors. Utilitzeu només lletres minúscules, nombres i guions baixos."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
-msgstr "Type de champ"
+msgstr "Tipus de Camp"
 
 #: ../templates/field_html.php:67
 msgid "Notes"
-msgstr "Instructions"
+msgstr "Notes"
 
 #: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
-msgstr "Instructions destinées aux utilisateurs lors du remplissage du champ."
+msgstr "Notes per als editors durant l'entrada de dades"
 
 #: ../templates/field_html.php:82
 msgid "Close"
-msgstr "Fermer"
+msgstr "Tancar"
 
 #: ../templates/field_html.php:83
 msgid "or"
-msgstr "ou"
+msgstr "o"
 
 #: ../templates/field_html.php:83
 msgid "delete"
-msgstr "supprimer"
+msgstr "esborrar"
 
 #: ../templates/meta_box_extras.php:33
 msgid "Order"
@@ -377,11 +376,11 @@ msgstr "Ordre"
 
 #: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
-msgstr "Le groupe de champ possédant l'ordre le plus faible sera affiché en premier."
+msgstr "El grup de camps amb l'ordre més baix apareixerà primer."
 
 #: ../templates/meta_box_extras.php:45
 msgid "Position"
-msgstr "Position"
+msgstr "Posició"
 
 #: ../templates/meta_box_extras.php:48
 msgid "Normal"
@@ -389,157 +388,128 @@ msgstr "Normal"
 
 #: ../templates/meta_box_extras.php:49
 msgid "Side"
-msgstr "Sur le côté"
+msgstr "Costat"
 
 #: ../templates/meta_box_extras.php:54
 msgid "Display Settings"
-msgstr "Paramètres d'affichage"
+msgstr "Configuració de Visualització"
 
 #: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor"
-msgstr "Masquer l'éditeur visuel (WYSIWYG)"
+msgstr "Amagar l'editor de continguts"
 
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
-msgstr "Ajouter un nouveau champ"
+msgstr "Afegir Nou Camp"
 
 #: ../templates/meta_box_rules.php:5
 msgid "equals"
-msgstr "est"
+msgstr "és igual a"
 
 #: ../templates/meta_box_rules.php:6
 msgid "is not"
-msgstr "n'est pas"
+msgstr "no és"
 
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
-msgstr "Laisser vide pour ignorer cette règle"
+msgstr "Deixar en blanc per saltar-se aquesta regla"
 
 #: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
-msgstr "Termes de taxonomie"
+msgstr "Termes de Taxonomía"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
-msgstr "Exporter"
+msgstr "Exportar"
 
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
-msgstr "Importer"
+msgstr "Importar"
 
 #: ../templates/page_tools.php:78
 msgid "Reset"
-msgstr "Remettre à zéro"
+msgstr "Restablir"
 
 #: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
-msgstr "Remettre à zéro et désactiver."
+msgstr "Restablir y desactivar."
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
-msgstr "Toutes les données de CFS seront supprimées et le plugin sera désactivé."
+msgstr "Això eliminarà totes les dades de CFS i desactivarà el plugin."
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
-msgstr "Supprimer tout"
+msgstr "Eliminar tot"
 
 #  msgid "Use This File"
-#  msgstr "Utiliser ce fichier"
+#  msgstr "Utilitzeu aquest fitxer"
 #  msgid "Add New"
-#  msgstr "Ajouter un nouveau"
+#  msgstr "Afegir nou"
 #  msgid "Add-ons"
 #  msgstr "Add-ons"
 #  msgid "Post IDs"
-#  msgstr "IDs des articles"
+#  msgstr "IDs de Posts"
 #  msgid "Gravity Forms"
 #  msgstr "Gravity Forms"
 #  msgid "Your Gravity Form and CFS field labels must match exactly"
 #  msgstr ""
-#  "Les champs de Gravity Forms et Custom Field Suite doivent correspondre "
-#  "parfaitement"
+#  "Gravity Form i etiquetes de camps de CFS han de coincidir exactament"
 #  msgid "Learn more"
-#  msgstr "En savoir plus"
-#  msgid "Which field groups would you like to export?"
-#  msgstr "Quels groupes de champs souhaitez-vous exporter?"
-#  msgid "Paste the import code below."
-#  msgstr "Veuillez coller le code d'import ci-dessous."
-#  msgid "Please install %s to use this feature."
-#  msgstr "Veuillez installer %s pour utiliser cette fonctionnalité"
-#  msgid "Debug"
-#  msgstr "Débuggage"
-#  msgid "Debug information"
-#  msgstr "Informations de débuggage"
-#  msgid "Custom Field Suite"
-#  msgstr "Custom Field Suite"
-#  msgid "Homepage"
-#  msgstr "Page d'accueil"
-#  msgid "User Guide"
-#  msgstr "Guide utilisateur"
-#  msgid "Changelog"
-#  msgstr "Notes de version"
-#  msgid "Donate"
-#  msgstr "Faire un don"
-#  msgid "Rate the plugin"
-#  msgstr "Noter le plugin"
-#  msgid "Content Editor"
-#  msgstr "Éditeur visuel (WYSIWYG)"
-#  msgid "Please install"
-#  msgstr "Veuillez installer"
-#  msgid "Attach file"
-#  msgstr "Attacher le fichier"
+#  msgstr "Saber més"
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "Masquer l’éditeur de contenu (ne s’applique pas à la zone de contenu Gutenberg / éditeur de blocs)"
+msgstr "Amaga l'editor de contingut (no s'aplica a l'àrea de contingut de Gutenberg / editor de blocs)"
 
 msgid "Checkbox"
-msgstr "Case à cocher"
+msgstr "Casella de selecció"
 
 msgid "File Type"
-msgstr "Type de fichier"
+msgstr "Tipus de fitxer"
 
 msgid "Any"
-msgstr "Tous"
+msgstr "Qualsevol"
 
 msgid "Image"
-msgstr "Image"
+msgstr "Imatge"
 
 msgid "Audio"
-msgstr "Audio"
+msgstr "Àudio"
 
 msgid "Video"
-msgstr "Vidéo"
+msgstr "Vídeo"
 
 msgid "Radio Button"
-msgstr "Bouton radio"
+msgstr "Botó d'opció"
 
 msgid "Select2"
 msgstr "Select2"
 
 msgid "Render this field with Select2"
-msgstr "Afficher ce champ avec Select2"
+msgstr "Mostra aquest camp amb Select2"
 
 msgid "Term"
 msgstr "Terme"
 
 msgid "Search terms"
-msgstr "Rechercher des termes"
+msgstr "Cerca termes"
 
 msgid "Taxonomies"
 msgstr "Taxonomies"
 
 msgid "Limit terms to the following taxonomies"
-msgstr "Limiter les termes aux taxonomies suivantes"
+msgstr "Limita els termes a les taxonomies següents"
 
 msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "Un ou plusieurs champs comportent des erreurs de validation. Des informations supplémentaires sont disponibles ci-dessous."
+msgstr "Un o més camps tenen errors de validació. Hi ha més informació a continuació."
 
 msgid "Toggle row visibility"
-msgstr "Basculer la visibilité de la ligne"
+msgstr "Commuta la visibilitat de la fila"
 
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
 msgid "CFS Tools"
-msgstr "Outils CFS"
+msgstr "Eines CFS"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -559,187 +529,175 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Heure"
+msgstr "Hora"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Intervalle en minutes"
+msgstr "Interval de minuts"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 minut"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 minuts"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 minuts"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 minuts"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 minuts"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Groupe horizontal"
+msgstr "Grup horitzontal"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Colonnes"
+msgstr "Columnes"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Automatique"
+msgstr "Automatic"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 colonnes"
+msgstr "2 columnes"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 colonnes"
+msgstr "3 columnes"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 colonnes"
+msgstr "4 columnes"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Ajouter un nouveau champ en dessous"
+msgstr "Afegeix un camp nou a sota"
 
 msgid "Add field inside"
-msgstr "Ajouter un champ a l interieur"
+msgstr "Afegeix un camp a dins"
 
 msgid "CFS Field Groups"
-msgstr "Groupes de champs CFS"
+msgstr "Grups de camps CFS"
 
 msgid "CFS Field Group: %s"
-msgstr "Groupe de champs CFS : %s"
+msgstr "Grup de camps CFS: %s"
 
 msgid "Displays a CFS field group."
-msgstr "Affiche un groupe de champs CFS."
+msgstr "Mostra un grup de camps CFS."
 
 msgid "No fields in this group."
-msgstr "Aucun champ dans ce groupe."
+msgstr "No hi ha camps en aquest grup."
 
 msgid "Post Categories"
-msgstr "Categories de l article"
+msgstr "Categories de l entrada"
 
 msgid "Post Tags"
-msgstr "Etiquettes de l article"
+msgstr "Etiquetes de l entrada"
 
 msgid "Featured Image"
-msgstr "Image mise en avant"
+msgstr "Imatge destacada"
 
 msgid "No categories found"
-msgstr "Aucune categorie trouvee"
+msgstr "No s han trobat categories"
 
 msgid "Separate tags with commas"
-msgstr "Separez les etiquettes par des virgules"
+msgstr "Separeu les etiquetes amb comes"
 
 msgid "Select Image"
-msgstr "Selectionner une image"
+msgstr "Selecciona una imatge"
 
 msgid "Remove Image"
-msgstr "Retirer l image"
+msgstr "Elimina la imatge"
 
 msgid "Search categories"
-msgstr "Rechercher des categories"
+msgstr "Cerca categories"
 
 msgid "Show selected only"
-msgstr "Afficher uniquement la selection"
+msgstr "Mostra nomes les seleccionades"
 
 msgid "Category Selection"
-msgstr "Selection de categories"
+msgstr "Seleccio de categories"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Selectionner une categorie parente selectionne aussi toutes ses categories enfants"
+msgstr "En seleccionar una categoria pare tambe se seleccionen totes les categories filles"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Selectionner une categorie enfant selectionne aussi ses categories parentes"
+msgstr "En seleccionar una categoria filla tambe se seleccionen les categories pare"
 
 msgid "A newer version %s is available on GitHub."
-msgstr "Une version plus récente %s est disponible sur GitHub."
+msgstr "Hi ha una versió més recent %s disponible a GitHub."
 
 msgid "Required"
-msgstr "Obligatoire"
+msgstr "Obligatori"
 
 msgid "Please select..."
-msgstr "Veuillez selectionner..."
+msgstr "Seleccioneu..."
 
 msgid "Please select a language..."
-msgstr "Selectionnez une langue..."
-
-msgid "1 minute"
-msgstr "1 minute"
-
-msgid "5 minutes"
-msgstr "5 minutes"
-
-msgid "10 minutes"
-msgstr "10 minutes"
-
-msgid "15 minutes"
-msgstr "15 minutes"
-
-msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "Seleccioneu un idioma..."
 
 msgid "Alignment"
-msgstr "Alignement"
+msgstr "Alineacio"
 
 msgid "Evenly distributed"
-msgstr "Repartition uniforme"
+msgstr "Distribuit uniformement"
 
 msgid "Left aligned"
-msgstr "Aligne a gauche"
+msgstr "Alineat a l esquerra"
 
 msgid "CFS placement warning:"
-msgstr "Avertissement de placement CFS :"
+msgstr "Avis d ubicacio de CFS:"
 
 msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Ce groupe de champs n a aucune regle de placement. Il peut correspondre a tous les ecrans de modification d articles. Definissez donc un type de contenu ou une autre regle de placement, sauf si cela est intentionnel."
+msgstr "Aquest grup de camps no te regles d ubicacio. Pot coincidir amb qualsevol pantalla d edicio d entrades, aixi que definiu un tipus d entrada o una altra regla d ubicacio tret que sigui intencionat."
 
 msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Enregistre, mais ce groupe de champs n a aucune regle de placement. Il peut correspondre a tous les ecrans de modification d articles. Definissez donc un type de contenu ou une autre regle de placement, sauf si cela est intentionnel."
+msgstr "S ha desat, pero aquest grup de camps no te regles d ubicacio. Pot coincidir amb qualsevol pantalla d edicio d entrades, aixi que definiu un tipus d entrada o una altra regla d ubicacio tret que sigui intencionat."
 
 msgid "No placement rules"
-msgstr "Aucune regle de placement"
+msgstr "Sense regles d ubicacio"
 
 msgid "This field group will appear on all editable post screens."
-msgstr "Ce groupe de champs peut correspondre a tous les ecrans de modification d articles."
+msgstr "Aquest grup de camps pot coincidir amb qualsevol pantalla d edicio d entrades."
 
 msgid "Add two or more fields to this horizontal group."
-msgstr "Ajoutez au moins deux champs a ce groupe horizontal."
+msgstr "Afegiu dos o mes camps a aquest grup horitzontal."
 
 msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "Les onglets, les boucles et les groupes horizontaux ne peuvent pas etre places dans un groupe horizontal."
+msgstr "Les pestanyes, els bucles i els grups horitzontals no es poden col locar dins d un grup horitzontal."
 
 msgid "Code View"
-msgstr "Affichage du code"
+msgstr "Vista de codi"
 
 msgid "Plain text"
-msgstr "Texte brut"
+msgstr "Text pla"
 
 msgid "Copy Button"
-msgstr "Bouton de copie"
+msgstr "Boto de copia"
 
 msgid "Show copy button"
-msgstr "Afficher le bouton de copie"
+msgstr "Mostra el boto de copia"
 
 msgid "Copy"
-msgstr "Copier"
+msgstr "Copia"
 
 msgid "Copied"
-msgstr "Copie"
+msgstr "Copiat"
 
 msgid "Language"
-msgstr "Langue"
+msgstr "Idioma"
 msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
-msgstr "Cette extension est une version de maintenance de Custom Field Suite qui permet d'ajouter visuellement des champs personnalisés aux écrans d'édition de WordPress."
+msgstr "Aquest connector és una versió de manteniment de Custom Field Suite que permet afegir visualment camps personalitzats a les pantalles d'edició de WordPress."
+msgctxt "date picker"
+msgid "Clear"
+msgstr "Neteja"

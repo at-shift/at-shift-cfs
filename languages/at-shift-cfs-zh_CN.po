@@ -1,101 +1,101 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Field Suite\n"
+"Project-Id-Version: at-shift CFS\n"
 "POT-Creation-Date: 2015-10-20 22:30-0400\n"
-"PO-Revision-Date: 2016-02-07 10:40+0100\n"
+"PO-Revision-Date: 2015-10-20 22:30-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
-"Language: hu_HU\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
-msgstr "Szöveg"
+msgstr "文本"
 
 #: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
-msgstr "Ellenőrzés"
+msgstr "验证"
 
 #: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
-msgstr "Mező kitöltése kötelező"
+msgstr "必选"
 
 #: ../includes/field_group.php:112
 msgid "Imported"
-msgstr "Importálás"
+msgstr "导入"
 
 #: ../includes/field_group.php:115
 msgid "Skipped"
-msgstr "Kihagyott"
+msgstr "跳过"
 
 #: ../includes/field_group.php:120
 msgid "Nothing to import"
-msgstr "Nincs mit importálni"
+msgstr "无法导入"
 
 #: ../includes/fields/color/color.php:8
 msgid "Color"
-msgstr "Szín"
+msgstr "颜色"
 
 #: ../includes/fields/date/date.php:8
 msgid "Date"
-msgstr "Dátum"
+msgstr "日期"
 
 #: ../includes/fields/file.php:8
 msgid "File Upload"
-msgstr "Fájl feltöltés"
+msgstr "上传文件"
 
 #: ../includes/fields/file.php:32
 msgid "Add File"
-msgstr "Fájl hozzáadása"
+msgstr "添加文件"
 
 #: ../includes/fields/file.php:33
 msgid "Remove"
-msgstr "Eltávolítás"
+msgstr "删除"
 
 #: ../includes/fields/file.php:43
 msgid "Return Value"
-msgstr "Visszatérési érték"
+msgstr "返回值"
 
 #: ../includes/fields/file.php:52
 msgid "File URL"
-msgstr "Fájl URL"
+msgstr "文件链接"
 
 #: ../includes/fields/file.php:53
 msgid "Attachment ID"
-msgstr "Csatolmány ID"
+msgstr "附件 ID"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr "Hivatkozás"
+msgstr "超链接"
 
 #: ../includes/fields/hyperlink.php:23
 msgid "URL"
-msgstr "URL"
+msgstr "链接"
 
 #: ../includes/fields/hyperlink.php:27
 msgid "Link Text"
-msgstr "Link szövege"
+msgstr "链接文字"
 
 #: ../includes/fields/hyperlink.php:31
 msgid "Link Target"
-msgstr "Link címe"
+msgstr "链路目标"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr "Kimeneti formátum"
+msgstr "输出格式"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
@@ -103,397 +103,411 @@ msgstr "HTML"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr "PHP tömb"
+msgstr "PHP Array"
 
 #: ../includes/fields/loop.php:8
 msgid "Loop"
-msgstr "Ismétlő"
+msgstr "循环"
 
 #: ../includes/fields/loop.php:36
 msgid "Row Display"
-msgstr "Sorok megjelenítése"
+msgstr "Row Display"
 
 #: ../includes/fields/loop.php:45
 msgid "Show the values by default"
-msgstr "Tartalmak megjelenítése alapértelmezetten"
+msgstr "默认显示值"
 
 #: ../includes/fields/loop.php:52
 msgid "Row Label"
-msgstr "Sor felirat"
+msgstr "Row Label"
 
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
 #: ../includes/fields/loop.php:194
 msgid "Loop Row"
-msgstr "Ismétlő sor"
+msgstr "Loop Row"
 
 #: ../includes/fields/loop.php:66
 msgid "Button Label"
-msgstr "Gomb felirat"
+msgstr "按钮标签"
 
 #: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
 #: ../includes/fields/loop.php:195
 msgid "Add Row"
-msgstr "Sor hozzáadása"
+msgstr "Add Row"
 
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
-msgstr "Korlátok"
+msgstr "限制"
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
-msgstr "Kapcsolat"
+msgstr "关联"
 
 #: ../includes/fields/relationship.php:60
 msgid "Search posts"
-msgstr "Bejegyzések keresése"
+msgstr "搜索文章..."
 
 #: ../includes/fields/relationship.php:88 ../includes/init.php:282
 #: ../templates/meta_box_rules.php:136
 msgid "Post Types"
-msgstr "Bejegyzés típusok"
+msgstr "文章类型"
 
 #: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
-msgstr "Bejegyzések korlátozása a következő típusokra"
+msgstr "限制帖子类型"
 
 #: ../includes/fields/select.php:8
 msgid "Select"
-msgstr "Kiválasztás"
+msgstr "选项"
 
 #: ../includes/fields/select.php:86
 msgid "Choices"
-msgstr "Lehetőségek"
+msgstr "选项"
 
 #: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
-msgstr "Egy lehetőség soronként"
+msgstr "每行输入一个选项"
 
 #: ../includes/fields/select.php:101
 msgid "Multi-select?"
-msgstr "Többszörös kiválasztás?"
+msgstr "多重选择吗?"
 
 #: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
-msgstr "Több lehetőség is kiválasztható egyszerre"
+msgstr "这是一个多项选择的字段"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr "Fül"
+msgstr "选项卡"
 
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
-msgstr "Alapértelmezett érték"
+msgstr "默认值"
 
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
-msgstr "Többsoros szöveg"
+msgstr "文本输入区"
 
 #: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
-msgstr "Formázás"
+msgstr "格式化"
 
 #: ../includes/fields/textarea.php:46
 msgid "None"
-msgstr "Nincs"
+msgstr "无"
 
 #: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
-msgstr "Sortörések átalakítása <br />-re"
+msgstr "转换换行符 <br />"
 
 #: ../includes/fields/true_false.php:8
 msgid "True / False"
-msgstr "Igaz / Hamis"
+msgstr "真 / 假"
 
 #: ../includes/fields/true_false.php:30
 msgid "Message"
-msgstr "Üzenet"
+msgstr "消息"
 
 #: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
-msgstr "A jelölőnégyzet melletti szöveg."
+msgstr "复选框描述文字"
 
 #: ../includes/fields/user.php:8
 msgid "User"
-msgstr "Felhasználó"
+msgstr "用户"
 
 #: ../includes/fields/user.php:31
 msgid "Search users"
-msgstr "Felhasználók keresése"
+msgstr "搜索用户..."
 
 #: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
-msgstr "Formázott szöveg (WYSIWYG)"
+msgstr "所见即所得编辑器"
 
 #: ../includes/fields/wysiwyg.php:42
 msgid "Default"
-msgstr "Alapértelmezett"
+msgstr "默认"
 
 #: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
-msgstr "Nincs (filterek megkerülése)"
+msgstr "无 (绕过过滤器)"
 
 #: ../includes/form.php:194
 msgid "Submit"
-msgstr "Elküldés"
+msgstr "提交"
 
 #: ../includes/init.php:58
 msgid "Field Groups"
-msgstr "Mező csoportok"
+msgstr "字段组"
 
 #: ../includes/init.php:59
 msgid "Field Group"
-msgstr "Mező csoport"
+msgstr "字段组"
 
 #: ../includes/init.php:60
 msgid "All Field Groups"
-msgstr "Összes mező csoport"
+msgstr "字段组"
 
 #: ../includes/init.php:61
 msgid "Add New Field Group"
-msgstr "Új mező csoport hozzáadása"
+msgstr "添加新字段组"
 
 #: ../includes/init.php:62
 msgid "Edit Field Group"
-msgstr "Mező csoport szerkesztése"
+msgstr "编辑字段组"
 
 #: ../includes/init.php:63
 msgid "New Field Group"
-msgstr "Új mező csoport"
+msgstr "新字段组"
 
 #: ../includes/init.php:64
 msgid "View Field Group"
-msgstr "Mező csoport megtekintése"
+msgstr "查看字段组"
 
 #: ../includes/init.php:65
 msgid "Search Field Groups"
-msgstr "Mező csoportok keresése"
+msgstr "搜索字段组"
 
 #: ../includes/init.php:66
 msgid "No Field Groups found"
-msgstr "Nem található mező csoport"
+msgstr "暂无字段组"
 
 #: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
-msgstr "Nem található mező csoport a lomtárban"
+msgstr "回收站内没有字段组"
 
 #: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
-msgstr "Eszközök"
+msgstr "工具"
 
 #: ../includes/init.php:153
 msgid "Fields"
-msgstr "Mezők"
+msgstr "字段"
 
 #: ../includes/init.php:154
 msgid "Placement Rules"
-msgstr "Elhelyezési szabályok"
+msgstr "布局规则"
 
 #: ../includes/init.php:155
 msgid "Extras"
-msgstr "Extrák"
+msgstr "额外选项"
 
 #: ../includes/init.php:268
 msgid "Title"
-msgstr "Cím"
+msgstr "标题"
 
 #: ../includes/init.php:269
 msgid "Placement"
-msgstr "Elhelyezés"
+msgstr "放置"
 
 #: ../includes/init.php:283 ../templates/meta_box_rules.php:202
 msgid "User Roles"
-msgstr "Felhasználói szerepek"
+msgstr "用户角色"
 
 #: ../includes/init.php:284 ../templates/meta_box_rules.php:234
 msgid "Posts"
-msgstr "Bejegyzések"
+msgstr "文章"
 
 #: ../includes/init.php:285
 msgid "Term IDs"
-msgstr "Kifejezés ID-k"
+msgstr "Term IDs"
 
 #: ../includes/init.php:286 ../templates/meta_box_rules.php:290
 msgid "Page Templates"
-msgstr "Oldal sablonok"
+msgstr "页面模版"
 
 #: ../includes/init.php:287 ../templates/meta_box_rules.php:169
 msgid "Post Formats"
-msgstr "Bejegyzés formátumok"
+msgstr "文章格式"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
-msgstr "Bejegyzés meta"
+msgstr "Post Meta"
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
-msgstr "Új mező"
+msgstr "新建字段"
 
 #: ../templates/field_html.php:30
 msgid "Label"
-msgstr "Felirat"
+msgstr "标签"
 
 #: ../templates/field_html.php:32
 msgid "The field label that editors will see."
-msgstr "A mező címkéje, a szerkesztő fogja látni."
+msgstr "编辑后即可显示字段标签."
 
 #: ../templates/field_html.php:39
 msgid "Name"
-msgstr "Név"
+msgstr "名称"
 
 #: ../templates/field_html.php:42
 msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "A mező neve amit a get() függvénynek kell átadni az értékek eléréséhez. Csak kisbetűk, számok és aláhúzás használható."
+msgstr "使用 get() 获取字段值.字段名称只能使用小写字母,数字和下划线."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
-msgstr "Mező típusa"
+msgstr "字段类型"
 
 #: ../templates/field_html.php:67
 msgid "Notes"
-msgstr "Jegyzet"
+msgstr "注释"
 
 #: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
-msgstr "Jegyzet a szerkesztőknek adatbevitel közben."
+msgstr "描述字段用途"
 
 #: ../templates/field_html.php:82
 msgid "Close"
-msgstr "Bezárás"
+msgstr "关闭"
 
 #: ../templates/field_html.php:83
 msgid "or"
-msgstr "vagy"
+msgstr "或"
 
 #: ../templates/field_html.php:83
 msgid "delete"
-msgstr "törlés"
+msgstr "删除"
 
 #: ../templates/meta_box_extras.php:33
 msgid "Order"
-msgstr "Sorrend"
+msgstr "排序"
 
 #: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
-msgstr "A legalacsonyabb sorrendű mező csoport jelenik meg először."
+msgstr "数字最小的字段组将出现在第一位."
 
 #: ../templates/meta_box_extras.php:45
 msgid "Position"
-msgstr "Pozíció"
+msgstr "位置"
 
 #: ../templates/meta_box_extras.php:48
 msgid "Normal"
-msgstr "Normál"
+msgstr "正常"
 
 #: ../templates/meta_box_extras.php:49
 msgid "Side"
-msgstr "Oldalsáv"
+msgstr "边侧栏"
 
 #: ../templates/meta_box_extras.php:54
 msgid "Display Settings"
-msgstr "Megjelenítési beállítás"
+msgstr "显示设置"
 
 #: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor"
-msgstr "Tartalom szerkesztő elrejtése"
+msgstr "隐藏内容编辑器"
 
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
-msgstr "Új mező hozzáadása"
+msgstr "添加新字段"
 
 #: ../templates/meta_box_rules.php:5
 msgid "equals"
-msgstr "egyenlő"
+msgstr "等于"
 
 #: ../templates/meta_box_rules.php:6
 msgid "is not"
-msgstr "nem egyenlő"
+msgstr "不等于"
 
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
-msgstr "Hagyd üresen a szabály kihagyásához"
+msgstr "留空则跳过规则"
 
 #: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
-msgstr "Rendszerezési kifejezések"
+msgstr "菜单类型"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
-msgstr "Exportálás"
+msgstr "导出"
 
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
-msgstr "Importálás"
+msgstr "导入"
 
 #: ../templates/page_tools.php:78
 msgid "Reset"
-msgstr "Visszaállítás"
+msgstr "重设"
 
 #: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
-msgstr "Visszaállítás és kikapcsolás"
+msgstr "复位和停用"
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
-msgstr "Összes CFS adat törlése és a bővítmény kikapcsolása."
+msgstr "删除CFS所有数据,并停用插件."
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
-msgstr "Minden törlése"
+msgstr "删除一切"
 
+#  msgid "Use This File"
+#  msgstr "使用此文件"
+#  msgid "Add New"
+#  msgstr "新建"
+#  msgid "Add-ons"
+#  msgstr "附加组件"
+#  msgid "Post IDs"
+#  msgstr "文章 ID"
+#  msgid "Gravity Forms"
+#  msgstr "重力形态"
+#  msgid "Your Gravity Form and CFS field labels must match exactly"
+#  msgstr "Your Gravity Form and CFS field labels must match exactly"
+#  msgid "Learn more"
+#  msgstr "了解更多"
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "A tartalomszerkesztő elrejtése (nem vonatkozik a Gutenberg / blokkszerkesztő tartalmi területére)"
+msgstr "隐藏内容编辑器（不适用于 Gutenberg / 区块编辑器的内容区域）"
 
 msgid "Checkbox"
-msgstr "Jelölőnégyzet"
+msgstr "复选框"
 
 msgid "File Type"
-msgstr "Fájltípus"
+msgstr "文件类型"
 
 msgid "Any"
-msgstr "Bármely"
+msgstr "任意"
 
 msgid "Image"
-msgstr "Kép"
+msgstr "图片"
 
 msgid "Audio"
-msgstr "Hang"
+msgstr "音频"
 
 msgid "Video"
-msgstr "Videó"
+msgstr "视频"
 
 msgid "Radio Button"
-msgstr "Választógomb"
+msgstr "单选按钮"
 
 msgid "Select2"
 msgstr "Select2"
 
 msgid "Render this field with Select2"
-msgstr "A mező megjelenítése Select2-vel"
+msgstr "使用 Select2 渲染此字段"
 
 msgid "Term"
-msgstr "Kifejezés"
+msgstr "项目"
 
 msgid "Search terms"
-msgstr "Kifejezések keresése"
+msgstr "搜索项目"
 
 msgid "Taxonomies"
-msgstr "Taxonómiák"
+msgstr "分类法"
 
 msgid "Limit terms to the following taxonomies"
-msgstr "Kifejezések korlátozása a következő taxonómiákra"
+msgstr "将项目限制为以下分类法"
 
 msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "Egy vagy több mező érvényesítési hibát tartalmaz. További információ alább található."
+msgstr "一个或多个字段存在验证错误。更多信息如下。"
 
 msgid "Toggle row visibility"
-msgstr "Sor láthatóságának váltása"
+msgstr "切换行可见性"
 
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
 msgid "CFS Tools"
-msgstr "CFS eszközök"
+msgstr "CFS 工具"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -513,172 +527,175 @@ msgstr "Number Settings"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr "Ido"
+msgstr "时间"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr "Percenkenti lepeskoz"
+msgstr "分钟间隔"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr "1 perc"
+msgstr "1 分钟"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr "5 perc"
+msgstr "5 分钟"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr "10 perc"
+msgstr "10 分钟"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr "15 perc"
+msgstr "15 分钟"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr "30 perc"
+msgstr "30 分钟"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr "Vizszintes csoport"
+msgstr "横向分组"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr "Oszlopok"
+msgstr "列"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr "Automatikus"
+msgstr "自动"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr "2 oszlop"
+msgstr "2 列"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr "3 oszlop"
+msgstr "3 列"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr "4 oszlop"
+msgstr "4 列"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr "Uj mezo hozzaadasa ala"
+msgstr "在下方添加新字段"
 
 msgid "Add field inside"
-msgstr "Mezo hozzaadasa belulre"
+msgstr "在内部添加字段"
 
 msgid "CFS Field Groups"
-msgstr "CFS mezocsoportok"
+msgstr "CFS 字段组"
 
 msgid "CFS Field Group: %s"
-msgstr "CFS mezocsoport: %s"
+msgstr "CFS 字段组：%s"
 
 msgid "Displays a CFS field group."
-msgstr "Megjelenit egy CFS mezocsoportot."
+msgstr "显示一个 CFS 字段组。"
 
 msgid "No fields in this group."
-msgstr "Ebben a csoportban nincsenek mezok."
+msgstr "此组中没有字段。"
 
 msgid "Post Categories"
-msgstr "Bejegyzes kategoriai"
+msgstr "文章分类"
 
 msgid "Post Tags"
-msgstr "Bejegyzes cimkei"
+msgstr "文章标签"
 
 msgid "Featured Image"
-msgstr "Kiemelt kep"
+msgstr "特色图片"
 
 msgid "No categories found"
-msgstr "Nem talalhatok kategoriak"
+msgstr "未找到分类"
 
 msgid "Separate tags with commas"
-msgstr "A cimkeket vesszovel valassza el"
+msgstr "用逗号分隔标签"
 
 msgid "Select Image"
-msgstr "Kep kivalasztasa"
+msgstr "选择图片"
 
 msgid "Remove Image"
-msgstr "Kep eltavolitasa"
+msgstr "移除图片"
 
 msgid "Search categories"
-msgstr "Kategoriak keresese"
+msgstr "搜索分类"
 
 msgid "Show selected only"
-msgstr "Csak a kijeloltek megjelenitese"
+msgstr "仅显示已选择"
 
 msgid "Category Selection"
-msgstr "Kategoriavalasztas"
+msgstr "分类选择"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Szulokategoria kivalasztasakor az osszes gyermekkategoria is kijelolesre kerul"
+msgstr "选择父分类时也会选择所有子分类"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Gyermekkategoria kivalasztasakor a szulokategoriak is kijelolesre kerulnek"
+msgstr "选择子分类时也会选择其父分类"
 
 msgid "A newer version %s is available on GitHub."
-msgstr "Elérhető egy újabb verzió (%s) a GitHubon."
+msgstr "GitHub 上有较新的版本 %s 可用。"
 
 msgid "Required"
-msgstr "Kotelezo"
+msgstr "必填"
 
 msgid "Please select..."
-msgstr "Valasszon..."
+msgstr "请选择..."
 
 msgid "Please select a language..."
-msgstr "Valasszon nyelvet..."
+msgstr "请选择一种语言..."
 
 msgid "Alignment"
-msgstr "Igazitas"
+msgstr "对齐方式"
 
 msgid "Evenly distributed"
-msgstr "Egyenletesen elosztva"
+msgstr "均匀分布"
 
 msgid "Left aligned"
-msgstr "Balra igazitva"
+msgstr "左对齐"
 
 msgid "CFS placement warning:"
-msgstr "CFS elhelyezesi figyelmeztetes:"
+msgstr "CFS 位置规则警告："
 
 msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Ennek a mezocsoportnak nincsenek elhelyezesi szabalyai. Minden szerkesztheto bejegyzeskepernyore illeszkedhet, ezert allitson be bejegyzestipust vagy mas elhelyezesi szabalyt, hacsak ez nem szandekos."
+msgstr "此字段组没有位置规则。它可能匹配所有可编辑的文章页面，因此除非这是有意设置，请指定文章类型或其他位置规则。"
 
 msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Mentve, de ennek a mezocsoportnak nincsenek elhelyezesi szabalyai. Minden szerkesztheto bejegyzeskepernyore illeszkedhet, ezert allitson be bejegyzestipust vagy mas elhelyezesi szabalyt, hacsak ez nem szandekos."
+msgstr "已保存，但此字段组没有位置规则。它可能匹配所有可编辑的文章页面，因此除非这是有意设置，请指定文章类型或其他位置规则。"
 
 msgid "No placement rules"
-msgstr "Nincsenek elhelyezesi szabalyok"
+msgstr "没有位置规则"
 
 msgid "This field group will appear on all editable post screens."
-msgstr "Ez a mezocsoport minden szerkesztheto bejegyzeskepernyore illeszkedhet."
+msgstr "此字段组可能匹配所有可编辑的文章页面。"
 
 msgid "Add two or more fields to this horizontal group."
-msgstr "Adjon hozza legalabb ket mezot ehhez a vizszintes csoporthoz."
+msgstr "请向此横向分组添加两个或更多字段。"
 
 msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "Lapok, ismetlok es vizszintes csoportok nem helyezhetok vizszintes csoportba."
+msgstr "选项卡、循环和横向分组不能放在横向分组内。"
 
 msgid "Code View"
-msgstr "Kod nezet"
+msgstr "代码视图"
 
 msgid "Plain text"
-msgstr "Egyszeru szoveg"
+msgstr "纯文本"
 
 msgid "Copy Button"
-msgstr "Masolas gomb"
+msgstr "复制按钮"
 
 msgid "Show copy button"
-msgstr "Masolas gomb megjelenitese"
+msgstr "显示复制按钮"
 
 msgid "Copy"
-msgstr "Masolas"
+msgstr "复制"
 
 msgid "Copied"
-msgstr "Masolva"
+msgstr "已复制"
 
 msgid "Language"
-msgstr "Nyelv"
+msgstr "语言"
 msgid "This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages."
-msgstr "Ez a bővítmény a Custom Field Suite karbantartott változata, amellyel vizuálisan adhatsz egyéni mezőket a WordPress szerkesztőoldalaihoz."
+msgstr "此插件是 Custom Field Suite 的维护版本，可让您在 WordPress 编辑页面中以可视化方式添加自定义字段。"
+msgctxt "date picker"
+msgid "Clear"
+msgstr "清除"

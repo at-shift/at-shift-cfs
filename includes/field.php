@@ -13,7 +13,7 @@ class cfs_field
      */
     function __construct() {
         $this->name = 'text';
-        $this->label = __( 'Text', 'cfs' );
+        $this->label = __( 'Text', 'at-shift-cfs' );
     }
 
 
@@ -24,7 +24,7 @@ class cfs_field
      */
     function html( $field ) {
     ?>
-        <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $field->value ); ?>" />
+        <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $field->value ); ?>" placeholder="<?php echo esc_attr( $this->get_input_placeholder( $field ) ); ?>" />
     <?php
     }
 
@@ -39,7 +39,7 @@ class cfs_field
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'cfs' ); ?></label>
+                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -48,7 +48,7 @@ class cfs_field
                         'input_name'    => "cfs[fields][$key][options][required]",
                         'input_class'   => 'true_false',
                         'value'         => $this->get_option( $field, 'required' ),
-                        'options'       => [ 'message' => __( 'This is a required field', 'cfs' ) ],
+                        'options'       => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>
@@ -150,6 +150,55 @@ class cfs_field
     }
 
 
+    /**
+     * Retrieve a placeholder from a field being rendered for data entry.
+     *
+     * @param object $field
+     * @param string $default_value
+     * @return string
+     */
+    function get_input_placeholder( $field, $default_value = '' ) {
+        if ( isset( $field->options['placeholder'] ) && is_string( $field->options['placeholder'] ) ) {
+            return $field->options['placeholder'];
+        }
+        return $default_value;
+    }
+
+
+    /**
+     * Render a text setting with an explanatory tooltip.
+     *
+     * @param int    $key
+     * @param object $field
+     * @param string $option_name
+     * @param string $label
+     * @param string $tooltip
+     */
+    function text_option_html( $key, $field, $option_name, $label, $tooltip ) {
+    ?>
+        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
+            <td class="label">
+                <label>
+                    <?php echo esc_html( $label ); ?>
+                    <div class="cfs_tooltip">?
+                        <div class="tooltip_inner"><?php echo esc_html( $tooltip ); ?></div>
+                    </div>
+                </label>
+            </td>
+            <td>
+                <?php
+                    CFS()->create_field( [
+                        'type' => 'text',
+                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][' . $option_name . ']',
+                        'value' => $this->get_option( $field, $option_name ),
+                    ] );
+                ?>
+            </td>
+        </tr>
+    <?php
+    }
+
+
     public static function is_required_field( $field ) {
         if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
             return true;
@@ -164,6 +213,6 @@ class cfs_field
 
 
     public static function required_badge() {
-        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'cfs' ) . '</span>';
+        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'at-shift-cfs' ) . '</span>';
     }
 }

@@ -5,7 +5,7 @@ class cfs_tab extends cfs_field
 
     function __construct() {
         $this->name = 'tab';
-        $this->label = __( 'Tab', 'cfs' );
+        $this->label = __( 'Tab', 'at-shift-cfs' );
     }
 
 

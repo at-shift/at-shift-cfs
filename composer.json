@@ -1,19 +1,23 @@
 {
-  "name": "mgibbs189/custom-field-suite",
-  "description": "Lightweight Custom Fields Plugin for WordPress",
+  "name": "at-shift/at-shift-cfs",
+  "description": "Unofficial maintained and extended build compatible with Custom Field Suite",
   "keywords": ["wordpress", "plugin"],
-  "homepage": "https://wordpress.org/plugins/custom-field-suite/",
+  "homepage": "https://cfs.at-shift.net/",
   "license": "GPL-2.0",
   "authors": [
     {
       "name": "Matt Gibbs",
-      "homepage": "https://twitter.com/mgibbs189"
+      "homepage": "https://github.com/mgibbs189"
+    },
+    {
+      "name": "Yoshiya Tsuchisaka",
+      "homepage": "https://github.com/at-shift"
     }
   ],
   "type": "wordpress-plugin",
   "support": {
-    "issues": "https://github.com/mgibbs189/custom-field-suite/issues",
-    "source": "https://github.com/mgibbs189/custom-field-suite"
+    "issues": "https://github.com/at-shift/at-shift-cfs/issues",
+    "source": "https://github.com/at-shift/at-shift-cfs"
   },
   "require": {
     "composer/installers": "~1.0"

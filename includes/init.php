@@ -65,30 +65,34 @@ class cfs_init
             'supports'          => [ 'title' ],
             'query_var'         => false,
             'labels'            => [
-                'name'                  => __( 'Field Groups', 'cfs' ),
-                'singular_name'         => __( 'Field Group', 'cfs' ),
-                'all_items'             => __( 'Custom Field Suite', 'cfs' ),
-                'add_new_item'          => __( 'Add New Field Group', 'cfs' ),
-                'edit_item'             => __( 'Edit Field Group', 'cfs' ),
-                'new_item'              => __( 'New Field Group', 'cfs' ),
-                'view_item'             => __( 'View Field Group', 'cfs' ),
-                'search_items'          => __( 'Search Field Groups', 'cfs' ),
-                'not_found'             => __( 'No Field Groups found', 'cfs' ),
-                'not_found_in_trash'    => __( 'No Field Groups found in Trash', 'cfs' ),
+                'name'                  => __( 'Field Groups', 'at-shift-cfs' ),
+                'singular_name'         => __( 'Field Group', 'at-shift-cfs' ),
+                'all_items'             => __( 'at-shift CFS', 'at-shift-cfs' ),
+                'add_new_item'          => __( 'Add New Field Group', 'at-shift-cfs' ),
+                'edit_item'             => __( 'Edit Field Group', 'at-shift-cfs' ),
+                'new_item'              => __( 'New Field Group', 'at-shift-cfs' ),
+                'view_item'             => __( 'View Field Group', 'at-shift-cfs' ),
+                'search_items'          => __( 'Search Field Groups', 'at-shift-cfs' ),
+                'not_found'             => __( 'No Field Groups found', 'at-shift-cfs' ),
+                'not_found_in_trash'    => __( 'No Field Groups found in Trash', 'at-shift-cfs' ),
             ],
         ] );
     }
 
 
     function load_textdomain() {
-        $locale = apply_filters( 'plugin_locale', get_locale(), 'cfs' );
-        $mofile = WP_LANG_DIR . '/custom-field-suite/cfs-' . $locale . '.mo';
+        $locale = apply_filters( 'plugin_locale', get_locale(), 'at-shift-cfs' );
+        $mofile = WP_LANG_DIR . '/plugins/at-shift-cfs-' . $locale . '.mo';
 
         if ( file_exists( $mofile ) ) {
-            load_textdomain( 'cfs', $mofile );
+            load_textdomain( 'at-shift-cfs', $mofile );
         }
         else {
-            load_plugin_textdomain( 'cfs', false, 'custom-field-suite/languages' );
+            load_plugin_textdomain(
+                'at-shift-cfs',
+                false,
+                dirname( plugin_basename( CFS_DIR . '/cfs.php' ) ) . '/languages'
+            );
         }
     }
 
@@ -183,7 +187,7 @@ class cfs_init
 
         array_unshift( $categories, [
             'slug'  => 'cfs',
-            'title' => __( 'CFS Field Groups', 'cfs' ),
+            'title' => __( 'CFS Field Groups', 'at-shift-cfs' ),
             'icon'  => null,
         ] );
 
@@ -266,7 +270,7 @@ class cfs_init
                 'id'         => absint( $group_id ),
                 'name'       => 'cfs/field-group-' . absint( $group_id ),
                 'title'      => $group['title'],
-                'blockTitle' => sprintf( __( 'CFS Field Group: %s', 'cfs' ), $group['title'] ),
+                'blockTitle' => sprintf( __( 'CFS Field Group: %s', 'at-shift-cfs' ), $group['title'] ),
                 'fieldCount' => count( $fields ),
             ];
         }
@@ -284,10 +288,10 @@ class cfs_init
             'cfs-block-editor',
             'window.CFSBlockEditor = ' . wp_json_encode( [
                 'groups'       => $groups,
-                'description'  => __( 'Displays a CFS field group.', 'cfs' ),
-                'fieldGroup'   => __( 'Field Group', 'cfs' ),
-                'fieldCount'   => __( 'Fields', 'cfs' ),
-                'noFields'     => __( 'No fields in this group.', 'cfs' ),
+                'description'  => __( 'Displays a CFS field group.', 'at-shift-cfs' ),
+                'fieldGroup'   => __( 'Field Group', 'at-shift-cfs' ),
+                'fieldCount'   => __( 'Fields', 'at-shift-cfs' ),
+                'noFields'     => __( 'No fields in this group.', 'at-shift-cfs' ),
                 'hidePanels'   => array_values( array_unique( $hide_panels ) ),
             ] ) . ';',
             'before'
@@ -434,7 +438,7 @@ class cfs_init
     */
     function admin_menu() {
         if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
-            add_submenu_page( 'tools.php', __( 'CFS Tools', 'cfs' ), __( 'CFS Tools', 'cfs' ), 'manage_options', 'cfs-tools', [ $this, 'page_tools' ] );
+            add_submenu_page( 'tools.php', __( 'CFS Tools', 'at-shift-cfs' ), __( 'CFS Tools', 'at-shift-cfs' ), 'manage_options', 'cfs-tools', [ $this, 'page_tools' ] );
         }
     }
 
@@ -442,9 +446,9 @@ class cfs_init
      * add_meta_boxes
      */
     function add_meta_boxes() {
-        add_meta_box( 'cfs_fields', __('Fields', 'cfs'), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'fields' ] );
-        add_meta_box( 'cfs_rules', __('Placement Rules', 'cfs'), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'rules' ] );
-        add_meta_box( 'cfs_extras', __('Extras', 'cfs'), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'extras' ] );
+        add_meta_box( 'cfs_fields', __('Fields', 'at-shift-cfs' ), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'fields' ] );
+        add_meta_box( 'cfs_rules', __('Placement Rules', 'at-shift-cfs' ), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'rules' ] );
+        add_meta_box( 'cfs_extras', __('Extras', 'at-shift-cfs' ), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'extras' ] );
     }
 
 
@@ -537,15 +541,15 @@ class cfs_init
         $just_saved = (bool) get_transient( 'cfs_empty_rules_notice_' . $post_id );
         delete_transient( 'cfs_empty_rules_notice_' . $post_id );
 
-        $message = __( 'This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'cfs' );
+        $message = __( 'This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'at-shift-cfs' );
 
         if ( $just_saved ) {
-            $message = __( 'Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'cfs' );
+            $message = __( 'Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'at-shift-cfs' );
         }
 
         printf(
             '<div class="notice notice-warning"><p><strong>%s</strong> %s</p></div>',
-            esc_html__( 'CFS placement warning:', 'cfs' ),
+            esc_html__( 'CFS placement warning:', 'at-shift-cfs' ),
             esc_html( $message )
         );
     }
@@ -617,7 +621,7 @@ class cfs_init
      * Show GitHub update status on the Plugins screen.
      */
     function plugin_row_meta( $links, $file ) {
-        if ( 'custom-field-suite/cfs.php' !== $file ) {
+        if ( plugin_basename( CFS_DIR . '/cfs.php' ) !== $file ) {
             return $links;
         }
 
@@ -627,7 +631,7 @@ class cfs_init
             $links[] = sprintf(
                 '<a class="cfs-github-update-link" style="color:#d63638;font-weight:600;" href="%1$s" target="_blank" rel="noopener">%2$s</a>',
                 esc_url( $status['url'] ),
-                esc_html( sprintf( __( 'A newer version %s is available on GitHub.', 'cfs' ), $status['version'] ) )
+                esc_html( sprintf( __( 'A newer version %s is available on GitHub.', 'at-shift-cfs' ), $status['version'] ) )
             );
         }
 
@@ -639,7 +643,7 @@ class cfs_init
      * Fetch and cache the latest GitHub tag for this maintenance build.
      */
     private function get_github_update_status() {
-        $repo_url = 'https://github.com/at-shift/custom-field-suite-maintenance';
+        $repo_url = 'https://github.com/at-shift/at-shift-cfs';
         $fallback = [
             'state'                   => 'unknown',
             'version'                 => '',
@@ -657,10 +661,10 @@ class cfs_init
             return $cached;
         }
 
-        $response = wp_remote_get( 'https://api.github.com/repos/at-shift/custom-field-suite-maintenance/tags', [
+        $response = wp_remote_get( 'https://api.github.com/repos/at-shift/at-shift-cfs/tags', [
             'timeout' => 5,
             'headers' => [
-                'User-Agent' => 'Custom Field Suite/' . CFS_VERSION . '; ' . home_url( '/' ),
+                'User-Agent' => 'at-shift CFS/' . CFS_VERSION . '; ' . home_url( '/' ),
             ],
         ] );
 
@@ -730,8 +734,8 @@ class cfs_init
     function cfs_columns() {
         return [
             'cb'            => '<input type="checkbox" />',
-            'title'         => __( 'Title', 'cfs' ),
-            'placement'     => __( 'Placement', 'cfs' ),
+            'title'         => __( 'Title', 'at-shift-cfs' ),
+            'placement'     => __( 'Placement', 'at-shift-cfs' ),
         ];
     }
 
@@ -744,12 +748,12 @@ class cfs_init
             global $wpdb;
 
             $labels = [
-                'post_types'        => __( 'Post Types', 'cfs' ),
-                'user_roles'        => __( 'User Roles', 'cfs' ),
-                'post_ids'          => __( 'Posts', 'cfs' ),
-                'term_ids'          => __( 'Term IDs', 'cfs' ),
-                'page_templates'    => __( 'Page Templates', 'cfs' ),
-                'post_formats'      => __( 'Post Formats', 'cfs' )
+                'post_types'        => __( 'Post Types', 'at-shift-cfs' ),
+                'user_roles'        => __( 'User Roles', 'at-shift-cfs' ),
+                'post_ids'          => __( 'Posts', 'at-shift-cfs' ),
+                'term_ids'          => __( 'Term IDs', 'at-shift-cfs' ),
+                'page_templates'    => __( 'Page Templates', 'at-shift-cfs' ),
+                'post_formats'      => __( 'Post Formats', 'at-shift-cfs' )
             ];
 
             $field_groups = CFS()->field_group->load_field_groups();
@@ -761,7 +765,7 @@ class cfs_init
             }
 
             if ( ! $this->has_placement_rules( $rules ) ) {
-                echo '<div class="cfs-placement-warning"><strong>' . esc_html__( 'No placement rules', 'cfs' ) . '</strong><br />' . esc_html__( 'This field group will appear on all editable post screens.', 'cfs' ) . '</div>';
+                echo '<div class="cfs-placement-warning"><strong>' . esc_html__( 'No placement rules', 'at-shift-cfs' ) . '</strong><br />' . esc_html__( 'This field group will appear on all editable post screens.', 'at-shift-cfs' ) . '</div>';
                 return;
             }
 
