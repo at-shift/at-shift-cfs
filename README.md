@@ -7,6 +7,16 @@ types.
 
 Project documentation: https://cfs.at-shift.net/
 
+## Plugin Rename
+
+The plugin previously released as **Custom Field Suite Maintenance** has been
+renamed to **at-shift CFS**. This gives the unofficial maintenance and extension
+build a distinct identity while preserving its relationship with the original
+Custom Field Suite project.
+
+The original data structure and API compatibility are preserved, so existing
+Custom Field Suite data can continue to be used.
+
 ### Custom Field Suite (CFS) supports the following WordPress custom fields:
 
 - Single-line text
@@ -42,6 +52,15 @@ version number.
 at-shift CFS は、WordPress の投稿編集画面にカスタムフィールドを視覚的に追加できるプラグイン Custom Field Suite のデータ構造と API 互換性を保ちながら、セキュリティ対応、PHP 8 対応、新しいフィールドを追加した非公式メンテナンス・拡張版です。
 
 プロジェクトドキュメント: https://cfs.at-shift.net/
+
+## プラグイン名称の変更
+
+これまで **Custom Field Suite Maintenance** として公開していたプラグインを、
+**at-shift CFS** に名称変更しました。元版 Custom Field Suite との関係を保ちながら、
+非公式のメンテナンス・拡張版として独立した名称にするための変更です。
+
+元版のデータ構造と API 互換性を維持しているため、既存の Custom Field Suite の
+データを引き続き利用できます。
 
 ### Custom Field Suite (CFS) はwordpressで以下のカスタムフィールドが利用できます:
 
@@ -475,8 +494,12 @@ add_action( 'init', function() {
 
 ### 2.6.7.41.22
 
+- Documented the rename from Custom Field Suite Maintenance to at-shift CFS.
+- Clarified that existing Custom Field Suite data and API compatibility are preserved.
 - Localized the Date field calendar using the WordPress user language.
 - Displayed calendar year and month headings in each locale's standard order.
+- Custom Field Suite Maintenance から at-shift CFS への名称変更を明記。
+- 既存の Custom Field Suite データと API 互換性を維持することを明記。
 - 日付フィールドのカレンダーをWordPressのユーザー言語に合わせて翻訳。
 - カレンダーの年月見出しを各言語・地域の標準的な順序で表示。
 
