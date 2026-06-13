@@ -168,7 +168,7 @@ the value is rendered for better protection against code injection.
 テーマテンプレート内では、CFS の値をエスケープせず直接出力することは避けてください。このメンテナンスビルド版ではプラグイン側の処理を強化していますが、`single.php` などのテーマファイルでのフロントエンド出力は、コードインジェクション対策として、表示する場所に応じてエスケープする方がより安全です。
 
 For field-specific output examples and context-appropriate escaping, see the
-at-shift CFS output guide: https://cfs.at-shift.net/output/
+at-shift CFS output guide: https://cfs.at-shift.net/en/output/
 
 各フィールドの出力例と、出力先に応じた適切なエスケープ方法については、at-shift CFS の出力ガイドをご覧ください: https://cfs.at-shift.net/output/
 
