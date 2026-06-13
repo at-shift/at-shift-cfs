@@ -46,6 +46,7 @@ Custom Field Suite data can continue to be used.
 - Featured Image
 - Horizontal Group
 - Accordion Group
+- Conditional Group
 
 For setup instructions and field output examples, see the at-shift CFS
 documentation: https://cfs.at-shift.net/en/
@@ -103,6 +104,7 @@ at-shift CFS は、WordPress の投稿編集画面にカスタムフィールド
 - アイキャッチ画像・WordPress 標準
 - 横並びグループ
 - アコーディオン・開閉グループ
+- 条件分岐グループ
 
 設定方法と各フィールドの出力例は、at-shift CFS のドキュメントをご覧ください: https://cfs.at-shift.net/
 
@@ -165,173 +167,10 @@ the value is rendered for better protection against code injection.
 
 テーマテンプレート内では、CFS の値をエスケープせず直接出力することは避けてください。このメンテナンスビルド版ではプラグイン側の処理を強化していますが、`single.php` などのテーマファイルでのフロントエンド出力は、コードインジェクション対策として、表示する場所に応じてエスケープする方がより安全です。
 
-Existing template code that directly echoes CFS values will continue to display
-values in the same way as before:
+For field-specific output examples and context-appropriate escaping, see the
+at-shift CFS output guide: https://cfs.at-shift.net/output/
 
-既存のテンプレートで CFS の値を直接 `echo` しているコードは、これまでと同様に表示できます。
-
-```php
-echo CFS()->get( 'text_field' );
-```
-
-This is kept for compatibility with existing Custom Field Suite sites. However,
-direct output also means that any HTML saved in that field may be rendered by
-the browser. If an attacker or low-privileged editor can save malicious content
-into a field, direct output can lead to stored XSS, unexpected HTML injection,
-layout breakage, malicious links, or JavaScript execution in a visitor's
-browser.
-
-これは既存の Custom Field Suite サイトとの互換性を維持するためです。ただし、直接出力するということは、そのフィールドに保存された HTML がブラウザでそのまま解釈される可能性があるということでもあります。攻撃者や低権限の編集者が悪意ある内容をフィールドに保存できる場合、直接出力は保存型 XSS、意図しない HTML 挿入、レイアウト崩れ、不正リンク、訪問者のブラウザ上での JavaScript 実行につながる可能性があります。
-
-It is safer to avoid direct output like this when possible (以下のような直接出力はできれば避ける方が安全です):
-
-```php
-echo CFS()->get( 'text_field' );
-```
-
-For new templates, and when maintaining existing templates, use
-context-appropriate escaping instead:
-
-新規テンプレートを作成する場合や既存テンプレートを保守する場合は、代わりに、出力先に応じたエスケープを行ってください。
-
-```php
-// Plain text. (単一行テキスト)
-echo esc_html( CFS()->get( 'text_field' ) );
-
-// Multi-line plain text. (テキストエリア)
-echo nl2br( esc_html( CFS()->get( 'textarea_field' ) ) );
-
-// WYSIWYG or other content where limited post HTML should be allowed. (リッチエディタ)
-echo wp_kses_post( CFS()->get( 'wysiwyg_field' ) );
-
-// Hyperlink output when the field is configured to return a PHP array. (ハイパーリンク)
-$link = (array) CFS()->get( 'hyperlink_field' );
-if ( ! empty( $link['url'] ) ) {
-    printf(
-        '<a href="%s" target="%s">%s</a>',
-        esc_url( $link['url'] ),
-        esc_attr( $link['target'] ?? '_self' ),
-        esc_html( $link['text'] ?? $link['url'] )
-    );
-}
-
-// Select output. CFS returns an array even for single-select fields. (セレクト - ドロップダウン選択メニュー)
-$select_values = (array) CFS()->get( 'select_field' );
-foreach ( $select_values as $select_value ) {
-    echo esc_html( $select_value );
-}
-
-// True / False output. (真/偽 - 簡易チェックボックス)
-if ( CFS()->get( 'true_false_field' ) ) {
-    echo esc_html__( 'Yes', 'your-theme-textdomain' );
-}
-
-// Date output. (日付フォーマット)
-echo esc_html( CFS()->get( 'date_field' ) );
-
-// File URL output. (ファイルのアップロード)
-$file_id  = (int) CFS()->get( 'file_field', false, [ 'format' => 'raw' ] );
-$file_url = wp_get_attachment_url( $file_id );
-if ( $file_url ) {
-    echo esc_url( $file_url );
-}
-
-// Color value used in an HTML attribute. (カラーピッカー)
-$color = sanitize_hex_color( CFS()->get( 'color_field' ) );
-if ( $color ) {
-    echo '<div style="background-color: ' . esc_attr( $color ) . ';"></div>';
-}
-
-// Term IDs. (ターム)
-$term_ids = array_map( 'intval', (array) CFS()->get( 'term_field', false, [ 'format' => 'raw' ] ) );
-
-// Relationship IDs. (関連ポスト選択)
-$relationship_ids = array_map( 'intval', (array) CFS()->get( 'relationship_field', false, [ 'format' => 'raw' ] ) );
-
-// User IDs. (ユーザ)
-$user_ids = array_map( 'intval', (array) CFS()->get( 'user_field', false, [ 'format' => 'raw' ] ) );
-
-// Loop output. Escape each sub-field according to its own output context. (ループ - 複製フィールド)
-$rows = (array) CFS()->get( 'loop_field' );
-foreach ( $rows as $row ) {
-    echo esc_html( $row['text_sub_field'] ?? '' );
-}
-
-// Tab fields are layout-only fields in the admin screen and do not need
-// front-end output escaping.
-// (タブは管理画面用の表示整理フィールドのため、フロントエンド出力は不要です)
-```
-
-### メンテナンスビルド版で追加したフィールドの出力方法
-
-Maintenance-build added fields output examples:
-
-```php
-// Phone output. (電話番号)
-echo esc_html( CFS()->get( 'phone_field' ) );
-
-// Email output. (メールアドレス)
-$email = sanitize_email( CFS()->get( 'email_field' ) );
-if ( '' !== $email ) {
-    echo '<a href="mailto:' . esc_attr( $email ) . '">' . esc_html( $email ) . '</a>';
-}
-
-// URL output. (URL)
-$url = CFS()->get( 'url_field' );
-if ( '' !== $url ) {
-    echo '<a href="' . esc_url( $url ) . '">' . esc_html( $url ) . '</a>';
-}
-
-// Number output. (数字)
-echo esc_html( CFS()->get( 'number_field' ) );
-
-// Checkbox output. (チェックボックス)
-$checkbox_values = (array) CFS()->get( 'checkbox_field' );
-foreach ( $checkbox_values as $checkbox_value ) {
-    echo esc_html( $checkbox_value );
-}
-
-// Radio Button output. (ラジオボタン)
-echo esc_html( CFS()->get( 'radio_field' ) );
-
-// Time output. (時間)
-echo esc_html( CFS()->get( 'time_field' ) );
-
-// Code View output. The field returns escaped display markup with a language
-// label and optional copy button. (コード)
-$code_view = CFS()->get( 'code_view_field' );
-echo wp_kses( $code_view, [
-    'div'    => [ 'class' => true ],
-    'span'   => [ 'class' => true ],
-    'pre'    => [],
-    'code'   => [ 'class' => true ],
-    'button' => [
-        'type'        => true,
-        'class'       => true,
-        'data-label'  => true,
-        'data-copied' => true,
-    ],
-] );
-
-// Native WordPress category IDs. (投稿カテゴリー - WordPress 標準)
-$category_ids = array_map( 'intval', (array) CFS()->get( 'wp_category_field', false, [ 'format' => 'raw' ] ) );
-
-// Native WordPress tag IDs. (投稿タグ - WordPress 標準)
-$tag_ids = array_map( 'intval', (array) CFS()->get( 'wp_tag_field', false, [ 'format' => 'raw' ] ) );
-
-// Native featured image ID. (アイキャッチ画像 - WordPress 標準)
-$thumbnail_id = (int) CFS()->get( 'featured_image_field', false, [ 'format' => 'raw' ] );
-
-// Horizontal Group and Accordion Group fields are layout-only fields in the
-// admin screen and do not need front-end output escaping.
-// (横並びグループとアコーディオン（開閉グループ）は管理画面用の表示整理フィールドのため、フロントエンド出力は不要です)
-```
-
-The correct escaping function depends on the output context: use `esc_html()`
-for visible text, `wp_kses_post()` for trusted rich text, `esc_url()` for URLs,
-`esc_attr()` for HTML attributes, and integer casting for IDs.
-
-適切なエスケープ関数は出力先によって異なります。画面上の文字には `esc_html()`、信頼できるリッチテキストには `wp_kses_post()`、URL には `esc_url()`、HTML 属性には `esc_attr()`、ID には整数化を使用してください。
+各フィールドの出力例と、出力先に応じた適切なエスケープ方法については、at-shift CFS の出力ガイドをご覧ください: https://cfs.at-shift.net/output/
 
 ## Gutenberg / Block Editor Compatibility (Gutenberg（ブロックエディタ）対応について)
 
