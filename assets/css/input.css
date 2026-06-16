@@ -820,7 +820,7 @@
     margin: 0;
     padding: 12px;
     border-left: 3px solid #0f766e;
-    background: #f4fbfa;
+    background: #fff;
 }
 
 .cfs-conditional-branch + .cfs-conditional-branch > .field {

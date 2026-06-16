@@ -125,6 +125,10 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.41.22.1 =
+* Kept the Conditional Group selected-branch indicator line while using a white field background.
+* 条件分岐グループの選択中ブランチで、左ラインは残しつつフィールド背景を白にしました。
+
 = 2.6.7.41.22 =
 * Localized the Date field calendar using the WordPress user language.
 * Displayed calendar year and month headings in each locale's standard order.
