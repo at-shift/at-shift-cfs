@@ -5,7 +5,7 @@ plugin Custom Field Suite. It preserves the original data structure and API
 compatibility while adding security hardening, PHP 8 support, and new field
 types.
 
-Project documentation: https://cfs.at-shift.net/
+Project documentation: https://cfs.at-shift.net/en/
 
 ## Plugin Rename
 
