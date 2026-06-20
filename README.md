@@ -5,7 +5,7 @@ plugin Custom Field Suite. It preserves the original data structure and API
 compatibility while adding security hardening, PHP 8 support, and new field
 types.
 
-Project documentation: https://cfs.at-shift.net/en/
+[Guides and reference](https://cfs.at-shift.net/en/)
 
 ## Plugin Rename
 
@@ -48,8 +48,8 @@ Custom Field Suite data can continue to be used.
 - Accordion Group
 - Conditional Group
 
-For setup instructions and field output examples, see the at-shift CFS
-documentation: https://cfs.at-shift.net/en/
+For setup instructions, see the [field group setup guide](https://cfs.at-shift.net/en/guide/).
+For return values and output examples, see the [field output reference](https://cfs.at-shift.net/en/output/).
 
 Development of Custom Field Suite (CFS) by the original author has been
 inactive since August 2024. at-shift CFS is
@@ -64,7 +64,7 @@ version number.
 
 at-shift CFS は、WordPress の投稿編集画面にカスタムフィールドを視覚的に追加できるプラグイン Custom Field Suite のデータ構造と API 互換性を保ちながら、セキュリティ対応、PHP 8 対応、新しいフィールドを追加した非公式メンテナンス・拡張版です。
 
-プロジェクトドキュメント: https://cfs.at-shift.net/
+[ガイド・リファレンス](https://cfs.at-shift.net/)
 
 ## プラグイン名称の変更
 
@@ -106,7 +106,8 @@ at-shift CFS は、WordPress の投稿編集画面にカスタムフィールド
 - アコーディオン・開閉グループ
 - 条件分岐グループ
 
-設定方法と各フィールドの出力例は、at-shift CFS のドキュメントをご覧ください: https://cfs.at-shift.net/
+設定方法は[フィールドグループ設定ガイド](https://cfs.at-shift.net/guide/)を、
+返り値と出力例は[フィールド別の出力リファレンス](https://cfs.at-shift.net/output/)をご覧ください。
 
 Custom Field Suite (CFS) は、作者による開発が 2024年8月以降停止しており、at-shift CFS は、未修正のセキュリティ上の問題へ対応するため、GPLv2 ライセンスに基づいて公開しています。
 
