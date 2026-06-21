@@ -19,7 +19,7 @@ at-shift CFS is an unofficial maintenance and extension build compatible with Cu
 - Project website: https://cfs.at-shift.net/
 - GitHub repository: https://github.com/at-shift/at-shift-cfs
 - Base version: Custom Field Suite 2.6.7
-- Maintenance version: 2.6.7.41.22.1
+- Maintenance version: 2.6.7.41.22.2
 
 This maintenance build preserves the original GPLv2 licensing and author
 attribution. It adds local security and compatibility hardening for continued

@@ -33,16 +33,17 @@ class cfs_select extends cfs_field
         }
 
         $choices = isset( $field->options['choices'] ) && is_array( $field->options['choices'] ) ? $field->options['choices'] : [];
+        $selected_values = array_map( 'strval', (array) $field->value );
         $has_empty_choice = isset( $choices[''] ) || isset( $choices['{empty}'] );
         $show_placeholder = '' === $multiple && empty( $field->options['force_single'] ) && ! $has_empty_choice;
     ?>
         <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php echo $multiple; ?>>
         <?php if ( $show_placeholder ) : ?>
-            <option value=""<?php echo in_array( '', (array) $field->value, true ) ? ' selected' : ''; ?>><?php esc_html_e( 'Please select...', 'at-shift-cfs' ); ?></option>
+            <option value=""<?php echo in_array( '', $selected_values, true ) ? ' selected' : ''; ?>><?php esc_html_e( 'Please select...', 'at-shift-cfs' ); ?></option>
         <?php endif; ?>
         <?php foreach ( $choices as $val => $label ) : ?>
             <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
-            <?php $selected = in_array( $val, (array) $field->value, true ) ? ' selected' : ''; ?>
+            <?php $selected = in_array( (string) $val, $selected_values, true ) ? ' selected' : ''; ?>
             <option value="<?php echo esc_attr( $val ); ?>"<?php echo $selected; ?>><?php echo esc_attr( $label ); ?></option>
         <?php endforeach; ?>
         </select>
