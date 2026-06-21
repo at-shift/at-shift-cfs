@@ -127,9 +127,9 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 = 2.6.7.41.22.3 =
 * Updated taxonomy placement rules immediately when categories are selected or cleared in the post editor.
-* Prevented inactive taxonomy field groups from hiding the content editor or native WordPress fields.
+* Resolved an issue where inactive taxonomy field groups hid the content editor or native WordPress fields.
 * 投稿編集画面でカテゴリーを選択・解除した直後に、分類の配置ルールを反映するようにしました。
-* 未選択の分類フィールドグループが、コンテンツエディターやWordPress標準フィールドを非表示にする問題を防止しました。
+* 未選択の分類フィールドグループが、コンテンツエディターやWordPress標準フィールドを非表示にする問題を解決しました。
 
 = 2.6.7.41.22.2 =
 * Fixed numeric Select values, including taxonomy placement rules, not being restored as selected after saving.

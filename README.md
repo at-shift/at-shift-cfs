@@ -253,34 +253,14 @@ add_action( 'init', function() {
 ### 2.6.7.41.22.3
 
 - Updated taxonomy placement rules immediately when categories are selected or cleared in the post editor.
-- Prevented inactive taxonomy field groups from hiding the content editor or native WordPress fields.
+- Resolved an issue where inactive taxonomy field groups hid the content editor or native WordPress fields.
 - 投稿編集画面でカテゴリーを選択・解除した直後に、分類の配置ルールを反映するようにしました。
-- 未選択の分類フィールドグループが、コンテンツエディターやWordPress標準フィールドを非表示にする問題を防止しました。
+- 未選択の分類フィールドグループが、コンテンツエディターやWordPress標準フィールドを非表示にする問題を解決しました。
 
 ### 2.6.7.41.22.2
 
 - Fixed numeric Select values, including taxonomy placement rules, not being restored as selected after saving.
 - 数値のSelect選択値（分類の配置ルールを含む）が保存後に選択状態へ復元されない問題を修正しました。
-
-### 2.6.7.41.22.1
-
-- Kept the Conditional Group selected-branch indicator line while using a white field background.
-- 条件分岐グループの選択中ブランチで、左ラインは残しつつフィールド背景を白にしました。
-
-### 2.6.7.41.22
-
-- Documented the rename from Custom Field Suite Maintenance to at-shift CFS.
-- Clarified that existing Custom Field Suite data and API compatibility are preserved.
-- Localized the Date field calendar using the WordPress user language.
-- Displayed calendar year and month headings in each locale's standard order.
-- Added the Conditional Group field for showing child fields based on a Radio Button or Dropdown selection.
-- Applied other minor fixes and documentation updates.
-- Custom Field Suite Maintenance から at-shift CFS への名称変更を明記。
-- 既存の Custom Field Suite データと API 互換性を維持することを明記。
-- 日付フィールドのカレンダーをWordPressのユーザー言語に合わせて翻訳。
-- カレンダーの年月見出しを各言語・地域の標準的な順序で表示。
-- ラジオボタンまたはドロップダウンの選択に応じて子フィールドを表示する条件分岐グループを追加。
-- その他の細かな修正とドキュメント更新。
 
 Past release notes are available on the [Releases page](https://github.com/at-shift/at-shift-cfs/releases).
 
