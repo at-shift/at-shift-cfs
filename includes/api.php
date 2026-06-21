@@ -673,6 +673,8 @@ class cfs_api
     public function get_matching_groups( $params, $skip_roles = false ) {
         global $wpdb, $current_user;
 
+        $ignored_rule_types = [];
+
         // Set post ID
         if ( ! is_array( $params ) ) {
             $post_id = (int) $params;
@@ -687,11 +689,16 @@ class cfs_api
         }
         else {
             $rule_types = $params;
+            if ( isset( $rule_types['_ignore_rule_types'] ) ) {
+                $ignored_rule_types = array_map( 'sanitize_key', (array) $rule_types['_ignore_rule_types'] );
+                unset( $rule_types['_ignore_rule_types'] );
+            }
         }
 
         // Detect post_types / page_templates if they weren't sent
         if ( ! empty( $rule_types[ 'post_ids' ] ) ) {
             $rule_types['post_ids'] = array_map( 'absint', (array) $rule_types['post_ids'] );
+            $post_id = reset( $rule_types['post_ids'] );
 
             if ( ! isset( $rule_types['post_types'] ) ) {
                 $rule_types['post_types'] = [];
@@ -760,6 +767,10 @@ class cfs_api
             $extras = $result['extras'];
 
             foreach ( $rule_types as $rule_type => $value ) {
+                if ( in_array( $rule_type, $ignored_rule_types, true ) ) {
+                    continue;
+                }
+
                 if ( ! empty( $rules[ $rule_type ] ) ) {
 
                     // Only lookup a post's term IDs if the rule exists
