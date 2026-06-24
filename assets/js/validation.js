@@ -468,5 +468,15 @@
                 }
             }
         });
+
+        if (CFS.server_validation_errors) {
+            CFS.validation_notice_active = true;
+            CFS.validate_all_fields();
+
+            var $firstInvalidField = $('.cfs_input .field.cfs-field-invalid').first();
+            if ($firstInvalidField.length) {
+                CFS.reveal_validation_field($firstInvalidField);
+            }
+        }
     });
 })(jQuery);

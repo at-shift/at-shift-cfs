@@ -19,7 +19,12 @@ class cfs_loop extends cfs_field
     function html( $field ) {
         global $post;
 
-        $this->values = CFS()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
+        if ( CFS()->form->has_submission_errors() ) {
+            $this->values = CFS()->form->get_submitted_values();
+        }
+        else {
+            $this->values = CFS()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
+        }
         $this->recursive_clone( $field->group_id, $field->id );
         $this->recursive_html( $field->group_id, $field->id );
     }

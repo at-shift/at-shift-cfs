@@ -125,15 +125,17 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.41.22.4 =
+* Kept submitted front-end form values and displayed validation errors in the same form when server-side validation fails.
+* Added server-side format validation for phone, email, URL, number, date, time, and color fields.
+* サーバー側バリデーションに失敗した場合、フロントエンドフォームの入力値を保持し、同じフォーム内へエラーを表示するようにしました。
+* 電話番号、メール、URL、数値、日付、時刻、カラーの形式をサーバー側でも検証するようにしました。
+
 = 2.6.7.41.22.3 =
 * Updated taxonomy placement rules immediately when categories are selected or cleared in the post editor.
 * Resolved an issue where inactive taxonomy field groups hid the content editor or native WordPress fields.
 * 投稿編集画面でカテゴリーを選択・解除した直後に、分類の配置ルールを反映するようにしました。
 * 未選択の分類フィールドグループが、コンテンツエディターやWordPress標準フィールドを非表示にする問題を解決しました。
-
-= 2.6.7.41.22.2 =
-* Fixed numeric Select values, including taxonomy placement rules, not being restored as selected after saving.
-* 数値のSelect選択値（分類の配置ルールを含む）が保存後に選択状態へ復元されない問題を修正しました。
 
 = 2.6.7.41.22.1 =
 * Kept the Conditional Group selected-branch indicator line while using a white field background.

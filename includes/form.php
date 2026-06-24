@@ -6,11 +6,17 @@ class cfs_form
     public $used_types;
     public $assets_loaded;
     public $session;
+    public $submission_errors;
+    private $submitted_values;
+    private $submitted_post_data;
 
 
     public function __construct() {
         $this->used_types = [];
         $this->assets_loaded = false;
+        $this->submission_errors = [];
+        $this->submitted_values = [];
+        $this->submitted_post_data = [];
 
         add_action( 'init', [ $this, 'init' ], 100 );
         add_action( 'admin_head', [ $this, 'head_scripts' ] );
@@ -95,6 +101,15 @@ class cfs_form
                     $validation_errors = $this->validate_submission( $field_data, $field_groups );
 
                     if ( ! empty( $validation_errors ) ) {
+                        if ( true === $is_front_end ) {
+                            $this->submission_errors = array_values( array_unique( $validation_errors ) );
+                            $this->submitted_values = $this->normalize_submitted_values( $field_data, $field_groups );
+                            $this->submitted_post_data = $post_data;
+
+                            add_filter( 'cfs_get_input_fields', [ $this, 'restore_submitted_values' ], 20, 2 );
+                            return;
+                        }
+
                         wp_die(
                             esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' ),
                             esc_html__( 'Validation', 'at-shift-cfs' ),
@@ -278,6 +293,11 @@ class cfs_form
 
             if ( ! empty( $field->options['required'] ) && $this->is_empty_submission_value( $value, $field->type ) ) {
                 $errors[] = $field->name;
+                continue;
+            }
+
+            if ( ! $this->is_empty_submission_value( $value, $field->type ) && ! $this->is_valid_submission_format( $value, $field->type ) ) {
+                $errors[] = $field->name;
             }
         }
     }
@@ -324,6 +344,177 @@ class cfs_form
         }
 
         return ! is_scalar( $value ) || '' === trim( (string) $value );
+    }
+
+
+    private function is_valid_submission_format( $value, $field_type ) {
+        if ( 'time' === $field_type && is_array( $value ) ) {
+            $hour = isset( $value['hour'] ) && is_scalar( $value['hour'] ) ? (string) $value['hour'] : '';
+            $minute = isset( $value['minute'] ) && is_scalar( $value['minute'] ) ? (string) $value['minute'] : '';
+            $value = $hour . ':' . $minute;
+        }
+
+        if ( is_array( $value ) && in_array( $field_type, [ 'phone', 'email', 'url', 'number', 'date', 'color' ], true ) ) {
+            $value = $this->first_scalar_submission_value( $value );
+        }
+
+        if ( ! is_scalar( $value ) ) {
+            return true;
+        }
+
+        $value = trim( (string) $value );
+
+        switch ( $field_type ) {
+            case 'phone':
+                return (bool) preg_match( '/^[0-9+\-().\s]+$/', $value );
+
+            case 'email':
+                return (bool) is_email( $value );
+
+            case 'url':
+                return (bool) preg_match( '/^(https?:\/\/|mailto:|tel:)/i', $value );
+
+            case 'number':
+                return (bool) preg_match( '/^-?(?:\d+|\d*\.\d+)$/', $value );
+
+            case 'time':
+                return (bool) preg_match( '/^([01]\d|2[0-3]):[0-5]\d$/', $value );
+
+            case 'date':
+                return (bool) preg_match( '/^\d{4}-\d{2}-\d{2}/', $value );
+
+            case 'color':
+                return (bool) preg_match( '/^#[0-9a-zA-Z]{3,}$/', $value );
+        }
+
+        return true;
+    }
+
+
+    private function first_scalar_submission_value( $value ) {
+        foreach ( (array) $value as $item ) {
+            if ( is_scalar( $item ) || null === $item ) {
+                return null === $item ? '' : $item;
+            }
+        }
+
+        return '';
+    }
+
+
+    /**
+     * Restore submitted values when a front-end form fails server-side validation.
+     *
+     * @param array $fields
+     * @param array $params
+     * @return array
+     */
+    public function restore_submitted_values( $fields, $params ) {
+        if ( empty( $this->submission_errors ) ) {
+            return $fields;
+        }
+
+        foreach ( $fields as $field_id => $field ) {
+            if ( array_key_exists( $field_id, $this->submitted_values ) ) {
+                $field->value = $this->submitted_values[ $field_id ];
+            }
+
+            if ( in_array( $field->type, [ 'group', 'accordion', 'conditional' ], true ) ) {
+                $field->values = $this->submitted_values;
+            }
+        }
+
+        return $fields;
+    }
+
+
+    /**
+     * Whether the current front-end request contains validation errors.
+     *
+     * @return bool
+     */
+    public function has_submission_errors() {
+        return ! empty( $this->submission_errors );
+    }
+
+
+    /**
+     * Get submitted values normalized to the CFS input format.
+     *
+     * @return array
+     */
+    public function get_submitted_values() {
+        return $this->submitted_values;
+    }
+
+
+    private function normalize_submitted_values( $data, $field_groups ) {
+        $field_types = [];
+        $fields = CFS()->api->find_input_fields( [ 'group_id' => $field_groups ] );
+
+        foreach ( $fields as $field ) {
+            $field_types[ (int) $field['id'] ] = $field['type'];
+        }
+
+        return $this->normalize_submitted_container( $data, $field_types );
+    }
+
+
+    private function normalize_submitted_container( $data, $field_types ) {
+        $values = [];
+
+        foreach ( (array) $data as $key => $value ) {
+            $field_type = isset( $field_types[ (int) $key ] ) ? $field_types[ (int) $key ] : '';
+
+            if ( is_array( $value ) && array_key_exists( 'value', $value ) ) {
+                $values[ $key ] = $this->normalize_submitted_value( $value['value'], $field_types, $field_type );
+            }
+            else {
+                $values[ $key ] = $this->normalize_submitted_value( $value, $field_types, $field_type );
+            }
+        }
+
+        return $values;
+    }
+
+
+    private function normalize_submitted_value( $value, $field_types, $field_type = '' ) {
+        if ( ! is_array( $value ) ) {
+            return $value;
+        }
+
+        if ( $this->is_scalar_input_type( $field_type ) ) {
+            foreach ( $value as $item ) {
+                if ( is_scalar( $item ) || null === $item ) {
+                    return null === $item ? '' : $item;
+                }
+            }
+
+            return '';
+        }
+
+        $normalized = [];
+        foreach ( $value as $key => $item ) {
+            $child_type = isset( $field_types[ (int) $key ] ) ? $field_types[ (int) $key ] : '';
+
+            if ( is_array( $item ) && array_key_exists( 'value', $item ) ) {
+                $normalized[ $key ] = $this->normalize_submitted_value( $item['value'], $field_types, $child_type );
+            }
+            else {
+                $normalized[ $key ] = $this->normalize_submitted_value( $item, $field_types, $child_type );
+            }
+        }
+
+        return $normalized;
+    }
+
+
+    private function is_scalar_input_type( $field_type ) {
+        return in_array( $field_type, [
+            'text', 'textarea', 'wysiwyg', 'phone', 'email', 'url', 'number',
+            'radio', 'date', 'file', 'color', 'true_false', 'wp_tag',
+            'featured_image', 'conditional',
+        ], true );
     }
 
 
@@ -491,23 +682,52 @@ CFS['validation_messages'] = <?php echo wp_json_encode( [
     <?php
         }
 
+        if ( false !== $params['front_end'] && $this->has_submission_errors() ) {
+            $error_labels = [];
+            foreach ( $input_fields as $field ) {
+                if ( in_array( $field->name, $this->submission_errors, true ) ) {
+                    $error_labels[ $field->name ] = empty( $field->label ) ? $field->name : $field->label;
+                }
+            }
+    ?>
+
+        <div class="cfs-validation-notice" id="cfs-validation-admin-notice" role="alert" aria-live="assertive">
+            <p><strong><?php esc_html_e( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' ); ?></strong></p>
+            <ul id="cfs-validation-error-list">
+                <?php foreach ( $this->submission_errors as $field_name ) : ?>
+                <li><?php echo esc_html( isset( $error_labels[ $field_name ] ) ? $error_labels[ $field_name ] : $field_name ); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+    <?php
+        }
+
         if ( false !== $params['post_title'] ) {
+            $post_title = empty( $post_id ) ? '' : $post->post_title;
+            if ( $this->has_submission_errors() && isset( $this->submitted_post_data['post_title'] ) ) {
+                $post_title = $this->submitted_post_data['post_title'];
+            }
     ?>
 
         <div class="field" data-validator="required">
             <label><?php echo esc_html( $params['post_title'] ); ?></label>
-            <input type="text" name="cfs[post_title]" value="<?php echo empty( $post_id ) ? '' : esc_attr( $post->post_title ); ?>" />
+            <input type="text" name="cfs[post_title]" value="<?php echo esc_attr( $post_title ); ?>" />
         </div>
 
     <?php
         }
 
         if ( false !== $params['post_content'] ) {
+            $post_content = empty( $post_id ) ? '' : $post->post_content;
+            if ( $this->has_submission_errors() && isset( $this->submitted_post_data['post_content'] ) ) {
+                $post_content = $this->submitted_post_data['post_content'];
+            }
     ?>
 
         <div class="field">
             <label><?php echo esc_html( $params['post_content'] ); ?></label>
-            <textarea name="cfs[post_content]"><?php echo empty( $post_id ) ? '' : esc_textarea( $post->post_content ); ?></textarea>
+            <textarea name="cfs[post_content]"><?php echo esc_textarea( $post_content ); ?></textarea>
         </div>
 
     <?php
@@ -682,6 +902,9 @@ CFS['validation_messages'] = <?php echo wp_json_encode( [
         (function($) {
             CFS.field_rules = CFS.field_rules || {};
             $.extend( CFS.field_rules, <?php echo wp_json_encode( CFS()->validators ); ?> );
+            <?php if ( $this->has_submission_errors() ) : ?>
+            CFS.server_validation_errors = true;
+            <?php endif; ?>
         })(jQuery);
         </script>
         <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce( 'cfs_save_input' ); ?>" />
