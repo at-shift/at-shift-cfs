@@ -286,10 +286,10 @@ class cfs_field_group
                 if ( 'group' === $parent_type && in_array( $field['type'], [ 'tab', 'group', 'loop', 'accordion', 'conditional' ], true ) ) {
                     $field['parent_id'] = 0;
                 }
-                elseif ( 'accordion' === $parent_type && in_array( $field['type'], [ 'tab', 'loop' ], true ) ) {
+                elseif ( 'accordion' === $parent_type && in_array( $field['type'], [ 'tab' ], true ) ) {
                     $field['parent_id'] = 0;
                 }
-                elseif ( 'conditional' === $parent_type && in_array( $field['type'], [ 'tab', 'loop', 'conditional' ], true ) ) {
+                elseif ( 'conditional' === $parent_type && in_array( $field['type'], [ 'tab', 'conditional' ], true ) ) {
                     $field['parent_id'] = 0;
                 }
             }

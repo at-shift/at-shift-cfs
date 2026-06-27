@@ -492,7 +492,7 @@ msgstr "Sor láthatóságának váltása"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr "CFS eszközök"
 
 #: ../includes/fields/phone.php:8

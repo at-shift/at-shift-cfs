@@ -62,6 +62,34 @@
                 '1' == $item.children('.field').find('.outside_tabs').first().val();
         }
 
+        function has_following_top_level_tab($item) {
+            if (0 < get_parent_item($item).length) {
+                return false;
+            }
+
+            return 0 < $item.nextAll('li').filter(function() {
+                return 'tab' == get_item_type($(this));
+            }).length;
+        }
+
+        function should_break_tab_range($item, inTab) {
+            if (!is_outside_tabs($item)) {
+                return false;
+            }
+
+            if (0 < get_parent_item($item).length) {
+                set_outside_tabs($item, false);
+                return false;
+            }
+
+            if (inTab && has_following_top_level_tab($item)) {
+                set_outside_tabs($item, false);
+                return false;
+            }
+
+            return true;
+        }
+
         function move_outside_tabs($item) {
             var $root = $('ul.fields').first();
             var $first_tab = $root.children('li').filter(function() {
@@ -99,24 +127,46 @@
                 }
             });
 
-            $context.find('ul').addBack('ul').each(function() {
-                var inTab = false;
-
-                $(this).children('li').each(function() {
+            function mark_tab_ranges($list, inTab) {
+                $list.children('li').each(function() {
                     var $item = $(this);
+                    var childInTab = inTab;
 
-                    if (is_outside_tabs($item)) {
-                        inTab = false;
+                    if (should_break_tab_range($item, childInTab)) {
+                        childInTab = false;
                     }
 
                     if ($item.hasClass('cfs-structure-tab')) {
-                        inTab = true;
-                        return;
+                        childInTab = true;
                     }
-
-                    if (inTab) {
+                    else if (childInTab) {
                         $item.addClass('cfs-tab-range');
                     }
+
+                    $item.children('ul').each(function() {
+                        mark_tab_ranges($(this), childInTab);
+                    });
+
+                    inTab = childInTab;
+                });
+            }
+
+            $('#cfs_fields > .inside > ul.fields').each(function() {
+                mark_tab_ranges($(this), false);
+            });
+        }
+
+        function normalize_field_names() {
+            $('ul.fields li').each(function() {
+                var $field = $(this).children('.field');
+                var key = $field.find('.field_key').first().val();
+
+                if ('' === String(key || '')) {
+                    return;
+                }
+
+                $field.find('[name^="cfs[fields]"]').each(function() {
+                    this.name = this.name.replace(/^cfs\[fields\]\[[^\]]+\]/, 'cfs[fields][' + key + ']');
                 });
             });
         }
@@ -128,16 +178,16 @@
                     'Tabs, loops, and horizontal groups cannot be placed inside a horizontal group.';
             }
 
-            if ('accordion' == parent_type && ('tab' == child_type || 'loop' == child_type)) {
+            if ('accordion' == parent_type && 'tab' == child_type) {
                 return CFS.messages && CFS.messages.disallowed_accordion_child ?
                     CFS.messages.disallowed_accordion_child :
-                    'Tabs and loops cannot be placed inside an accordion.';
+                    'Tabs cannot be placed inside an accordion.';
             }
 
-            if ('conditional' == parent_type && ('tab' == child_type || 'loop' == child_type || 'conditional' == child_type)) {
+            if ('conditional' == parent_type && ('tab' == child_type || 'conditional' == child_type)) {
                 return CFS.messages && CFS.messages.disallowed_conditional_child ?
                     CFS.messages.disallowed_conditional_child :
-                    'Tabs, loops, and conditional groups cannot be placed inside a Conditional Group.';
+                    'Tabs and conditional groups cannot be placed inside a Conditional Group.';
             }
 
             return '';
@@ -210,11 +260,19 @@
 
                 var selected = String($select.val() || '');
                 var choices = parse_conditional_choices($parent.children('.field').find('.cfs-conditional-choices').first().val());
+                var selected_exists = '' === selected;
 
                 $select.empty().append($('<option>', { value: '', text: '' }));
                 $.each(choices, function(index, choice) {
                     $select.append($('<option>', { value: choice.value, text: choice.label + ' (' + choice.value + ')' }));
+                    if (String(choice.value) === selected) {
+                        selected_exists = true;
+                    }
                 });
+
+                if (!selected_exists) {
+                    $select.append($('<option>', { value: selected, text: selected + ' (' + selected + ')' }));
+                }
                 $select.val(selected);
                 $row.add($separator).show();
             });
@@ -426,6 +484,7 @@
                 set_outside_tabs($item, is_outside_tabs($item));
             });
             sync_parent_ids();
+            normalize_field_names();
         });
 
         $(document).on('change', '.cfs-time-minute-interval', function() {

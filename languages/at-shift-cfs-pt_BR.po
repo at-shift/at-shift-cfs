@@ -635,7 +635,7 @@ msgstr "Um ou mais campos tiveram erros de validação. Mais informações estã
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr "Ferramentas CFS"
 
 #: ../includes/fields/phone.php:8

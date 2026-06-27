@@ -247,7 +247,8 @@ class cfs_loop extends cfs_field
         echo '<div class="cfs-tabbed-fields">';
         echo '<div class="cfs-tabs">';
         foreach ( $tabs as $tab ) {
-            echo '<div class="cfs-tab" rel="' . esc_attr( $tab->name ) . '">' . esc_html( $tab->label ) . '</div>';
+            $tab_key = 'field-' . $tab->id;
+            echo '<div class="cfs-tab" rel="' . esc_attr( $tab_key ) . '" data-tab-key="' . esc_attr( $tab_key ) . '">' . esc_html( $tab->label ) . '</div>';
         }
         echo '</div>';
 
@@ -262,7 +263,8 @@ class cfs_loop extends cfs_field
                     echo '</div>';
                 }
 
-                echo '<div class="cfs-tab-content cfs-tab-content-' . esc_attr( $field->name ) . '">';
+                $tab_key = 'field-' . $field->id;
+                echo '<div class="cfs-tab-content cfs-tab-content-' . esc_attr( $tab_key ) . '" data-tab-key="' . esc_attr( $tab_key ) . '">';
 
                 if ( ! empty( $field->notes ) ) {
                     echo '<div class="cfs-tab-notes">' . esc_html( $field->notes ) . '</div>';
@@ -302,7 +304,7 @@ class cfs_loop extends cfs_field
             <div class="table_footer">
                 <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $this->get_option( $field, 'button_label', __( 'Add Row', 'at-shift-cfs' ) ) ); ?>" data-loop-tag="[clone][<?php echo absint( $field->id ); ?>]" data-rows="0" />
             </div>
-        <?php elseif ( in_array( $field->type, [ 'group', 'accordion' ], true ) ) : ?>
+        <?php elseif ( in_array( $field->type, [ 'group', 'accordion', 'conditional' ], true ) ) : ?>
         <?php
             CFS()->create_field( [
                 'id' => $field->id,
@@ -345,7 +347,7 @@ class cfs_loop extends cfs_field
             <div class="cfs_<?php echo esc_attr( $field->type ); ?>">
         <?php if ( 'loop' == $field->type ) : ?>
             <?php $this->recursive_html( $group_id, $field->id, "{$parent_tag}[$row_index][$field->id]", $row_index ); ?>
-        <?php elseif ( in_array( $field->type, [ 'group', 'accordion' ], true ) ) : ?>
+        <?php elseif ( in_array( $field->type, [ 'group', 'accordion', 'conditional' ], true ) ) : ?>
         <?php
             CFS()->create_field( [
                 'id' => $field->id,

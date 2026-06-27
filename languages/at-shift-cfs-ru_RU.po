@@ -530,7 +530,7 @@ msgstr "Переключить видимость строки"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr "Инструменты CFS"
 
 #: ../includes/fields/phone.php:8

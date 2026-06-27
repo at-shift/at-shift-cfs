@@ -253,7 +253,11 @@ class cfs_form
 
             if ( 'conditional' === $field->type ) {
                 $field_data = isset( $data[ $field->id ] ) ? $data[ $field->id ] : [];
-                $selected = is_array( $field_data ) && array_key_exists( 'value', $field_data ) ? (string) $field_data['value'] : '';
+                $selected = '';
+                if ( is_array( $field_data ) && array_key_exists( 'value', $field_data ) ) {
+                    $selected_value = $field_data['value'];
+                    $selected = is_array( $selected_value ) ? $this->first_scalar_submission_value( $selected_value ) : ( is_scalar( $selected_value ) ? (string) $selected_value : '' );
+                }
                 $choices = isset( $field->options['choices'] ) && is_array( $field->options['choices'] ) ? $field->options['choices'] : [];
                 $display_type = isset( $field->options['display_type'] ) ? $field->options['display_type'] : 'radio';
 
@@ -534,10 +538,12 @@ class cfs_form
 
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-ui-sortable' );
-        wp_enqueue_script( 'cfs-validation', CFS_URL . '/assets/js/validation.js', [ 'jquery' ], CFS_VERSION );
+        $validation_js_version = file_exists( CFS_DIR . '/assets/js/validation.js' ) ? CFS_VERSION . '.' . filemtime( CFS_DIR . '/assets/js/validation.js' ) : CFS_VERSION;
+        $input_css_version = file_exists( CFS_DIR . '/assets/css/input.css' ) ? CFS_VERSION . '.' . filemtime( CFS_DIR . '/assets/css/input.css' ) : CFS_VERSION;
+        wp_enqueue_script( 'cfs-validation', CFS_URL . '/assets/js/validation.js', [ 'jquery' ], $validation_js_version );
         wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', [ 'jquery' ], CFS_VERSION );
         wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', [], CFS_VERSION );
-        wp_enqueue_style( 'cfs-input', CFS_URL . '/assets/css/input.css', [], CFS_VERSION );
+        wp_enqueue_style( 'cfs-input', CFS_URL . '/assets/css/input.css', [], $input_css_version );
     }
 
 
@@ -737,12 +743,27 @@ CFS['validation_messages'] = <?php echo wp_json_encode( [
         $tabs = [];
         $is_first_tab = true;
         $tab_content_open = false;
+        $has_later_top_level_tab = [];
+        $top_level_fields = [];
         foreach ( $input_fields as $key => $field ) {
-            if ( 'tab' == $field->type && 1 > (int) $field->parent_id ) {
-                $tabs[] = $field;
+            if ( 1 > (int) $field->parent_id ) {
+                $top_level_fields[] = $field;
+
+                if ( 'tab' == $field->type ) {
+                    $tabs[] = $field;
+                }
             }
         }
         $has_tabs = 1 < count( $tabs );
+
+        $found_later_tab = false;
+        foreach ( array_reverse( $top_level_fields ) as $field ) {
+            $has_later_top_level_tab[ (int) $field->id ] = $found_later_tab;
+
+            if ( 'tab' == $field->type ) {
+                $found_later_tab = true;
+            }
+        }
 
         do_action( 'cfs_form_before_fields', $params, [
             'group_ids'     => $all_group_ids,
@@ -766,7 +787,8 @@ CFS['validation_messages'] = <?php echo wp_json_encode( [
             if ( $has_tabs && 'tab' == $field->type && 1 > (int) $field->parent_id && $is_first_tab ) {
                 echo '<div class="cfs-tabs">';
                 foreach ( $tabs as $key => $tab ) {
-                    echo '<div class="cfs-tab" rel="' . esc_attr( $tab->name ) . '">' . esc_html( $tab->label ) . '</div>';
+                    $tab_key = 'field-' . $tab->id;
+                    echo '<div class="cfs-tab" rel="' . esc_attr( $tab_key ) . '" data-tab-key="' . esc_attr( $tab_key ) . '">' . esc_html( $tab->label ) . '</div>';
                 }
                 echo '</div>';
                 $is_first_tab = false;
@@ -826,7 +848,9 @@ CFS['validation_messages'] = <?php echo wp_json_encode( [
             // Ignore sub-fields
             if ( 1 > (int) $field->parent_id ) {
 
-                if ( $has_tabs && $tab_content_open && ! empty( $field->options['outside_tabs'] ) ) {
+                $outside_tabs = ! empty( $field->options['outside_tabs'] ) && empty( $has_later_top_level_tab[ (int) $field->id ] );
+
+                if ( $has_tabs && $tab_content_open && $outside_tabs ) {
                     echo '</div>';
                     $tab_content_open = false;
                 }
@@ -839,7 +863,8 @@ CFS['validation_messages'] = <?php echo wp_json_encode( [
                         if ( $tab_content_open ) {
                             echo '</div>';
                         }
-                        echo '<div class="cfs-tab-content cfs-tab-content-' . esc_attr( $field->name ) . '">';
+                        $tab_key = 'field-' . $field->id;
+                        echo '<div class="cfs-tab-content cfs-tab-content-' . esc_attr( $tab_key ) . '" data-tab-key="' . esc_attr( $tab_key ) . '">';
                         $tab_content_open = true;
 
                         if ( ! empty( $field->notes ) ) {

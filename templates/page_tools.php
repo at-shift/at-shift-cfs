@@ -75,7 +75,7 @@ $results = $wpdb->get_results($sql);
 </script>
 
 <div class="wrap">
-    <h1><?php _e( 'Tools', 'at-shift-cfs' ); ?></h1>
+    <h1><?php _e( 'at-shift CFS Tools', 'at-shift-cfs' ); ?></h1>
 
     <h3 class="nav-tab-wrapper">
         <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'at-shift-cfs' ); ?></a>

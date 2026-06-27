@@ -523,7 +523,7 @@ msgstr "Satır görünürlüğünü değiştir"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr "CFS Araçları"
 
 #: ../includes/fields/phone.php:8

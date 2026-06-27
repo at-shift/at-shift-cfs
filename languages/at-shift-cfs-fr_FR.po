@@ -538,7 +538,7 @@ msgstr "Basculer la visibilité de la ligne"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr "Outils CFS"
 
 #: ../includes/fields/phone.php:8

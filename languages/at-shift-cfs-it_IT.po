@@ -626,7 +626,7 @@ msgstr "Attiva/disattiva visibilità della riga"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr "Strumenti CFS"
 
 #: ../includes/fields/phone.php:8

@@ -626,7 +626,7 @@ msgstr "Alternar visibilidad de la fila"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr "Herramientas CFS"
 
 #: ../includes/fields/phone.php:8

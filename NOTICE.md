@@ -19,7 +19,7 @@ at-shift CFS is an unofficial maintenance and extension build compatible with Cu
 - Project website: https://cfs.at-shift.net/
 - GitHub repository: https://github.com/at-shift/at-shift-cfs
 - Base version: Custom Field Suite 2.6.7
-- Maintenance version: 2.6.7.41.22.4
+- Maintenance version: 2.6.7.42
 
 This maintenance build preserves the original GPLv2 licensing and author
 attribution. It adds local security and compatibility hardening for continued
@@ -35,6 +35,10 @@ use where a maintained build is required.
   handling.
 - PHP 8.2+ compatibility fixes for the WordPress admin post edit screen.
 - TinyMCE code plugin loading fix for CFS WYSIWYG fields.
+- Field Group editor and post edit screen fixes for nested Tabs, Loops,
+  Horizontal Groups, Accordion Groups, and Conditional Groups.
+- Front-end and admin validation improvements for required and formatted
+  fields.
 
 This maintenance build is provided without warranty, to the extent permitted by
 law.

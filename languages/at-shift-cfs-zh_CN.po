@@ -506,7 +506,7 @@ msgstr "切换行可见性"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr "CFS 工具"
 
 #: ../includes/fields/phone.php:8

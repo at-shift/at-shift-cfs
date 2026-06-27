@@ -577,7 +577,7 @@ msgstr "Przełącz widoczność wiersza"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr "Narzędzia CFS"
 
 #: ../includes/fields/phone.php:8

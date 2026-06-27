@@ -143,6 +143,11 @@
     border-top: 1px solid #dcdcde;
 }
 
+#cfs_fields li.cfs-tab-range > ul {
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
 #cfs_fields li.cfs-tab-range {
     margin-left: 10px;
     border-left: 3px solid #2271b1;

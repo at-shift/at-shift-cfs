@@ -348,18 +348,20 @@
 
             $('.cfs-tab-content').each(function() {
                 var $content = $(this);
-                var tabName = null;
+                var tabName = $content.attr('data-tab-key') || null;
 
-                $.each(($content.attr('class') || '').split(/\s+/), function(index, className) {
-                    if (0 === className.indexOf('cfs-tab-content-')) {
-                        tabName = className.substring('cfs-tab-content-'.length);
-                        return false;
-                    }
-                });
+                if (!tabName) {
+                    $.each(($content.attr('class') || '').split(/\s+/), function(index, className) {
+                        if (0 === className.indexOf('cfs-tab-content-')) {
+                            tabName = className.substring('cfs-tab-content-'.length);
+                            return false;
+                        }
+                    });
+                }
 
                 if (tabName) {
                     $content.parent().children('.cfs-tabs').children('.cfs-tab').filter(function() {
-                        return $(this).attr('rel') === tabName;
+                        return ($(this).attr('data-tab-key') || $(this).attr('rel')) === tabName;
                     }).toggleClass('cfs-has-error', 0 < $content.find('.field.cfs-field-invalid').length);
                 }
             });
@@ -381,18 +383,20 @@
 
             $($field.parents('.cfs-tab-content').get().reverse()).each(function() {
                 var $content = $(this);
-                var tabName = null;
+                var tabName = $content.attr('data-tab-key') || null;
 
-                $.each(($content.attr('class') || '').split(/\s+/), function(index, className) {
-                    if (0 === className.indexOf('cfs-tab-content-')) {
-                        tabName = className.substring('cfs-tab-content-'.length);
-                        return false;
-                    }
-                });
+                if (!tabName) {
+                    $.each(($content.attr('class') || '').split(/\s+/), function(index, className) {
+                        if (0 === className.indexOf('cfs-tab-content-')) {
+                            tabName = className.substring('cfs-tab-content-'.length);
+                            return false;
+                        }
+                    });
+                }
 
                 if (tabName) {
                     $content.parent().children('.cfs-tabs').children('.cfs-tab').filter(function() {
-                        return $(this).attr('rel') === tabName;
+                        return ($(this).attr('data-tab-key') || $(this).attr('rel')) === tabName;
                     }).trigger('click');
                 }
             });

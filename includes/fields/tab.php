@@ -36,14 +36,20 @@ class cfs_tab extends cfs_field
                 });
             }
 
+            function get_tab_key($element) {
+                return $element.attr('data-tab-key') || $element.attr('rel');
+            }
+
             $(document).on('click', '.cfs-tab', function() {
-                var tab = $(this).attr('rel'),
+                var tab = get_tab_key($(this)),
                     $tabs = $(this).closest('.cfs-tabs'),
                     $context = $tabs.parent();
                 $tabs.children('.cfs-tab').removeClass('active');
                 $context.children('.cfs-tab-content').removeClass('active');
                 $(this).addClass('active');
-                $context.children('.cfs-tab-content-' + tab).addClass('active');
+                $context.children('.cfs-tab-content').filter(function() {
+                    return get_tab_key($(this)) === tab;
+                }).addClass('active');
             });
 
             $(function() {

@@ -162,15 +162,17 @@ class cfs_init
         wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'cfs-select2', CFS_URL . '/assets/js/select2/select2.min.js', [ 'jquery' ], CFS_VERSION, true );
         wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', [ 'jquery' ], CFS_VERSION, true );
+        $fields_js_version = file_exists( CFS_DIR . '/assets/js/fields.js' ) ? CFS_VERSION . '.' . filemtime( CFS_DIR . '/assets/js/fields.js' ) : CFS_VERSION;
+        $fields_css_version = file_exists( CFS_DIR . '/assets/css/fields.css' ) ? CFS_VERSION . '.' . filemtime( CFS_DIR . '/assets/css/fields.css' ) : CFS_VERSION;
         wp_enqueue_script(
             'cfs-fields',
             CFS_URL . '/assets/js/fields.js',
             [ 'jquery', 'jquery-ui-sortable', 'cfs-select2', 'jquery-powertip' ],
-            CFS_VERSION,
+            $fields_js_version,
             true
         );
 
-        wp_enqueue_style( 'cfs-fields', CFS_URL . '/assets/css/fields.css', [], CFS_VERSION );
+        wp_enqueue_style( 'cfs-fields', CFS_URL . '/assets/css/fields.css', [], $fields_css_version );
         wp_enqueue_style( 'cfs-select2', CFS_URL . '/assets/js/select2/select2.css', [], CFS_VERSION );
         wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', [], CFS_VERSION );
     }
@@ -439,7 +441,7 @@ class cfs_init
     */
     function admin_menu() {
         if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
-            add_submenu_page( 'tools.php', __( 'CFS Tools', 'at-shift-cfs' ), __( 'CFS Tools', 'at-shift-cfs' ), 'manage_options', 'cfs-tools', [ $this, 'page_tools' ] );
+            add_submenu_page( 'tools.php', __( 'at-shift CFS Tools', 'at-shift-cfs' ), __( 'at-shift CFS Tools', 'at-shift-cfs' ), 'manage_options', 'cfs-tools', [ $this, 'page_tools' ] );
         }
     }
 

@@ -40,7 +40,7 @@ msgid "Choose the parent Conditional Group value that displays this field."
 msgstr ""
 
 #: ../templates/admin_head.php:50
-msgid "Tabs, loops, and conditional groups cannot be placed inside a Conditional Group."
+msgid "Tabs and conditional groups cannot be placed inside a Conditional Group."
 msgstr ""
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
@@ -562,7 +562,7 @@ msgid "Custom Field Suite"
 msgstr ""
 
 #: ../includes/init.php:154
-msgid "CFS Tools"
+msgid "at-shift CFS Tools"
 msgstr ""
 
 #: ../includes/fields/phone.php:8
@@ -759,7 +759,7 @@ msgstr ""
 msgid "Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group."
 msgstr ""
 
-msgid "Tabs and loops cannot be placed inside an accordion."
+msgid "Tabs cannot be placed inside an accordion."
 msgstr ""
 
 msgid "Please enter a value"

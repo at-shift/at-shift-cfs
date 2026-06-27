@@ -89,13 +89,13 @@ For rich text fields, use an appropriate HTML sanitizer such as `wp_kses_post()`
 
 Horizontal Group is a layout field for placing multiple child fields side by side on the post edit screen. On narrow screens, the fields stack vertically.
 
-Horizontal Groups are intended to contain multiple normal fields. Tabs, Loops, and other Horizontal Groups cannot be placed inside a Horizontal Group.
+Horizontal Groups are intended to contain multiple normal fields. Tabs, Loops, Accordions, Conditional Groups, and other Horizontal Groups cannot be placed inside a Horizontal Group.
 
 = Accordion Group notes =
 
 Accordion Group is a layout field for placing child fields inside a collapsible section on the post edit screen. It can be configured to open by default.
 
-Tabs and Loops cannot be placed inside an Accordion Group.
+Tabs cannot be placed inside an Accordion Group.
 
 = WordPress native field notes =
 
@@ -125,11 +125,29 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
-= 2.6.7.41.22.4 =
+= 2.6.7.42 =
 * Kept submitted front-end form values and displayed validation errors in the same form when server-side validation fails.
 * Added server-side format validation for phone, email, URL, number, date, time, and color fields.
+* Renamed the field group export/import tools to "at-shift CFS Tools".
+* Fixed Field Group editor hierarchy indicators for Horizontal Group, Conditional Group, and Accordion Group fields inside Tabs.
+* Allowed Loop (repeatable group) fields inside Conditional Group and Accordion Group fields.
+* Fixed post edit screen tab switching when multiple tabs share the same field name.
+* Treated stale outside-tab settings on fields between Tabs as part of the preceding Tab.
+* Fixed Conditional Group fields inside Loop rows so they render correctly on the post edit screen.
+* Fixed post edit screen validation for Conditional Group fields inside Loop rows.
+* Preserved child field display conditions when editing Conditional Group choices.
+* Improved admin asset cache busting so updates are reflected when replacing files within the same plugin version.
 * サーバー側バリデーションに失敗した場合、フロントエンドフォームの入力値を保持し、同じフォーム内へエラーを表示するようにしました。
 * 電話番号、メール、URL、数値、日付、時刻、カラーの形式をサーバー側でも検証するようにしました。
+* フィールドグループの書き出し／読み込みのためのツールの名称を「at-shift CFSツール」に修正しました。
+* フィールドグループ編集画面で、タブ内の横並び・条件分岐・アコーディオンの各グループの階層表現を修正しました。
+* 条件分岐・アコーディオンのグループにLoop（複製グループ）を入れられるように修正しました。
+* 投稿編集画面で、同じフィールド名のタブがある場合に別タブの内容が表示される問題を修正しました。
+* タブ間のフィールドに古い外部タブ設定が残っている場合でも、前のタブ内として表示するように修正しました。
+* Loop（複製グループ）内の条件分岐グループが投稿編集画面で正しく表示されるように修正しました。
+* Loop（複製グループ）内の条件分岐グループでも、投稿画面のバリデーションが正しく動作するように修正しました。
+* 条件分岐グループの選択肢を編集しても、子フィールドに設定した表示条件値が空に戻らないように修正しました。
+* 同一バージョンの差し替え時にも、管理画面用のCFSアセット更新が反映されやすいように修正しました。
 
 = 2.6.7.41.22.3 =
 * Updated taxonomy placement rules immediately when categories are selected or cleared in the post editor.
