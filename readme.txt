@@ -125,6 +125,14 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.42.0.1 =
+* Improved Field Group editor drag-and-drop when moving fields into or out of groups inside Tabs.
+* Fixed issues related to Tab range handling.
+* Optimized the Field Label and Field Type display.
+* フィールドグループ編集画面で、タブ内グループへフィールドを入れる／外へ出す際のドラッグ＆ドロップを改善しました。
+* タブ範囲に関連する不具合を修正しました。
+* フィールドラベル、フィールド種の表示を最適化しました。
+
 = 2.6.7.42 =
 * Kept submitted front-end form values and displayed validation errors in the same form when server-side validation fails.
 * Added server-side format validation for phone, email, URL, number, date, time, and color fields.

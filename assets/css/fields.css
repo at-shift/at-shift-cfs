@@ -99,7 +99,8 @@
 #cfs_fields li.cfs-structure-group > ul,
 #cfs_fields li.cfs-structure-accordion > ul {
     margin-left: 10px;
-    padding: 0 8px 8px;
+    min-height: 44px;
+    padding: 8px 8px 14px;
     border-width: 0 2px 2px;
     border-style: solid;
 }
@@ -121,7 +122,8 @@
 
 #cfs_fields li.cfs-structure-conditional > ul {
     margin-left: 10px;
-    padding: 0 8px 8px;
+    min-height: 44px;
+    padding: 8px 8px 14px;
     border-width: 0 2px 2px;
     border-style: solid;
     border-color: #0f766e;
@@ -149,9 +151,23 @@
 }
 
 #cfs_fields li.cfs-tab-range {
-    margin-left: 10px;
-    border-left: 3px solid #2271b1;
+    margin-left: 5px;
+    border-left: 2px solid #2271b1;
     background: #edf5fb;
+}
+
+#cfs_fields li.cfs-tab-range.cfs-structure-loop > .field > .field_meta table,
+#cfs_fields li.cfs-tab-range.cfs-structure-group > .field > .field_meta table,
+#cfs_fields li.cfs-tab-range.cfs-structure-accordion > .field > .field_meta table,
+#cfs_fields li.cfs-tab-range.cfs-structure-conditional > .field > .field_meta table {
+    width: calc(100% - 5px);
+}
+
+#cfs_fields li.cfs-tab-range.cfs-structure-loop > .field > .field_meta td.field_type,
+#cfs_fields li.cfs-tab-range.cfs-structure-group > .field > .field_meta td.field_type,
+#cfs_fields li.cfs-tab-range.cfs-structure-accordion > .field > .field_meta td.field_type,
+#cfs_fields li.cfs-tab-range.cfs-structure-conditional > .field > .field_meta td.field_type {
+    width: 95px;
 }
 
 #cfs_fields li.cfs-structure-tab[data-outside-tabs="1"] {
@@ -159,19 +175,24 @@
     border-top: 10px solid #fff;
 }
 
-#cfs_fields .fields li.loop ul {
-    min-height: 28px;
-    padding-bottom: 8px;
+#cfs_fields .fields li.loop > ul {
+    min-height: 44px;
 }
 
+#cfs_fields .fields.cfs-drop-target,
 #cfs_fields .fields li.loop > ul.cfs-drop-target {
-    outline: 1px dashed rgba(255, 255, 255, 0.7);
-    outline-offset: -4px;
-    background: rgba(255, 255, 255, 0.12);
+    outline: 2px dashed rgba(34, 113, 177, 0.45);
+    outline-offset: -5px;
 }
 
+#cfs_fields > .inside > ul.fields.cfs-drop-target {
+    padding-bottom: 56px;
+}
+
+#cfs_fields .fields.cfs-drop-target-active,
 #cfs_fields .fields li.loop > ul.cfs-drop-target-active {
-    background: rgba(255, 255, 255, 0.22);
+    outline-color: #2271b1;
+    background-image: linear-gradient(rgba(34, 113, 177, 0.08), rgba(34, 113, 177, 0.08));
 }
 
 #cfs_fields .field.form_open {
@@ -220,6 +241,8 @@
     border: 0;
     border-radius: 0;
     border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
 }
 
 .field_meta td {
@@ -234,6 +257,11 @@
     position: relative;
 }
 
+.field_meta td.field_label {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
 .field_meta td.field_order:after {
     content: '\f333';
 }
@@ -243,12 +271,33 @@
 }
 
 .field_meta td.field_name {
-    width: 180px;
+    width: 136px;
+    box-sizing: border-box;
+    padding-right: 12px;
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .field_meta td.field_type {
     width: 100px;
+    overflow: hidden;
     padding-left: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#cfs_fields .fields li li .field_meta td.field_type {
+    width: 80px;
+}
+
+#cfs_fields .fields li li li .field_meta td.field_type {
+    width: 60px;
+}
+
+#cfs_fields .fields li li li li .field_meta td.field_type {
+    width: 48px;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -328,8 +377,10 @@
 }
 
 .ui-sortable-placeholder {
-    height: 5px;
-    background-color: orange;
+    box-sizing: border-box;
+    height: 34px;
+    border: 2px dashed #d97706;
+    background-color: #fff7ed;
 }
 
 /*---------------------------------------------------------------------------------------------

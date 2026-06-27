@@ -104,6 +104,15 @@
             }
         }
 
+        function move_after_parent($item, $parent) {
+            if (0 < $parent.length) {
+                $parent.after($item);
+            }
+            else {
+                move_outside_tabs($item);
+            }
+        }
+
         function refresh_structure_markers($context) {
             var structureTypes = ['tab', 'loop', 'group', 'accordion', 'conditional'];
             var structureClasses = 'cfs-structure-tab cfs-structure-loop cfs-structure-group cfs-structure-accordion cfs-structure-conditional';
@@ -207,7 +216,7 @@
                 return false;
             }
 
-            move_outside_tabs($item);
+            move_after_parent($item, $parent);
             sync_parent_ids();
 
             window.alert(message);
@@ -308,12 +317,13 @@
                     placeholder: 'ui-sortable-placeholder',
                     handle: '.field_order',
                     tolerance: 'pointer',
+                    dropOnEmpty: true,
                     forcePlaceholderSize: true,
                     start: function(event, ui) {
                         var $children = ui.item.children('ul').detach();
 
                         ui.item.data('cfs-drag-children', $children);
-                        $('ul.fields li.loop > ul').addClass('cfs-drop-target');
+                        $('ul.fields, ul.fields li.loop > ul').addClass('cfs-drop-target');
                     },
                     beforeStop: function(event, ui) {
                         var $children = ui.item.data('cfs-drag-children');
@@ -323,16 +333,8 @@
                         }
                     },
                     stop: function(event, ui) {
-                        ui.item.removeData('cfs-drag-children');
-                        $('ul.fields li.loop > ul').removeClass('cfs-drop-target cfs-drop-target-active');
-                    },
-                    over: function() {
-                        $(this).addClass('cfs-drop-target-active');
-                    },
-                    out: function() {
-                        $(this).removeClass('cfs-drop-target-active');
-                    },
-                    update: function(event, ui) {
+                        ui.item.removeData('cfs-drag-children').removeClass('cfs-dragging-field');
+                        $('ul.fields, ul.fields li.loop > ul').removeClass('cfs-drop-target cfs-drop-target-active');
                         zebra_stripes();
                         enforce_group_child_rules(ui.item);
 
@@ -346,6 +348,17 @@
                         update_add_field_button_labels($('ul.fields'));
                         refresh_structure_markers($('ul.fields'));
                         refresh_conditional_assignments($('ul.fields'));
+                    },
+                    over: function(event, ui) {
+                        ui.item.addClass('cfs-dragging-field');
+                        $(this).addClass('cfs-drop-target-active');
+                    },
+                    out: function(event, ui) {
+                        ui.item.removeClass('cfs-dragging-field');
+                        $(this).removeClass('cfs-drop-target-active');
+                    },
+                    update: function(event, ui) {
+                        ui.item.removeClass('cfs-dragging-field');
                     }
                 });
             });
@@ -374,7 +387,7 @@
             $new_field.find('.field_key').first().val(CFS.field_index);
             $new_field.find('.field_label a').click();
             $new_field.find('.field_type select').change();
-            set_outside_tabs($new_field, true);
+            set_outside_tabs($new_field, false);
             CFS.field_index = CFS.field_index + 1;
             init_tooltip();
             sync_parent_ids();
