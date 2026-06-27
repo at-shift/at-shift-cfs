@@ -125,7 +125,7 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
-= 2.6.7.42.0.1 =
+= 2.6.7.42.0.3 =
 * Improved Field Group editor drag-and-drop when moving fields into or out of groups inside Tabs.
 * Fixed issues related to Tab range handling.
 * Optimized the Field Label and Field Type display.

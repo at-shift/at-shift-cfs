@@ -2,7 +2,7 @@
 /*
 Plugin Name: at-shift CFS
 Description: This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages.
-Version: 2.6.7.42.0.1
+Version: 2.6.7.42.0.3
 Author: Matt Gibbs / Maintenance: @shift Yoshiya Tsuchisaka
 Author URI: https://github.com/at-shift/at-shift-cfs
 Text Domain: at-shift-cfs
@@ -26,7 +26,7 @@ class Custom_Field_Suite
     function __construct() {
 
         // setup variables
-        define( 'CFS_VERSION', '2.6.7.42.0.1' );
+        define( 'CFS_VERSION', '2.6.7.42.0.3' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( '', __FILE__ ) );
 
