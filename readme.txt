@@ -126,6 +126,7 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 == Changelog ==
 
 = 2.6.7.42.0.5 =
+* Fixed issues and improved field drag-and-drop movement in the Field Group editor.
 * フィールドグループ設定でのフィールドのドラッグによる移動に関連する不具合と改善を行いました。
 
 = 2.6.7.42.0.4 =

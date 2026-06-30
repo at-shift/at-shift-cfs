@@ -252,6 +252,7 @@ add_action( 'init', function() {
 
 ### 2.6.7.42.0.5
 
+- Fixed issues and improved field drag-and-drop movement in the Field Group editor.
 - フィールドグループ設定でのフィールドのドラッグによる移動に関連する不具合と改善を行いました。
 
 ### 2.6.7.42.0.4
@@ -264,47 +265,6 @@ add_action( 'init', function() {
 - 投稿編集画面の説明文の文字色を調整し、視認性を改善しました。
 - at-shift CFSデータのリセット確認とLoop行削除確認のJavaScript確認メッセージを翻訳対応しました。
 - フィールドグループ編集画面でフィールド名が重複している場合に警告を表示し、重複解消まで保存を止めるようにしました。
-
-### 2.6.7.42.0.3
-
-- Improved Field Group editor drag-and-drop when moving fields into or out of groups inside Tabs.
-- Fixed issues related to Tab range handling.
-- Optimized the Field Label and Field Type display.
-- フィールドグループ編集画面で、タブ内グループへフィールドを入れる／外へ出す際のドラッグ＆ドロップを改善しました。
-- タブ範囲に関連する不具合を修正しました。
-- フィールドラベル、フィールド種の表示を最適化しました。
-
-### 2.6.7.42
-
-- Kept submitted front-end form values and displayed validation errors in the same form when server-side validation fails.
-- Added server-side format validation for phone, email, URL, number, date, time, and color fields.
-- Renamed the field group export/import tools to "at-shift CFS Tools".
-- Fixed Field Group editor hierarchy indicators for Horizontal Group, Conditional Group, and Accordion Group fields inside Tabs.
-- Allowed Loop (repeatable group) fields inside Conditional Group and Accordion Group fields.
-- Fixed post edit screen tab switching when multiple tabs share the same field name.
-- Treated stale outside-tab settings on fields between Tabs as part of the preceding Tab.
-- Fixed Conditional Group fields inside Loop rows so they render correctly on the post edit screen.
-- Fixed post edit screen validation for Conditional Group fields inside Loop rows.
-- Preserved child field display conditions when editing Conditional Group choices.
-- Improved admin asset cache busting so updates are reflected when replacing files within the same plugin version.
-- サーバー側バリデーションに失敗した場合、フロントエンドフォームの入力値を保持し、同じフォーム内へエラーを表示するようにしました。
-- 電話番号、メール、URL、数値、日付、時刻、カラーの形式をサーバー側でも検証するようにしました。
-- フィールドグループの書き出し／読み込みのためのツールの名称を「at-shift CFSツール」に修正しました。
-- フィールドグループ編集画面で、タブ内の横並び・条件分岐・アコーディオンの各グループの階層表現を修正しました。
-- 条件分岐・アコーディオンのグループにLoop（複製グループ）を入れられるように修正しました。
-- 投稿編集画面で、同じフィールド名のタブがある場合に別タブの内容が表示される問題を修正しました。
-- タブ間のフィールドに古い外部タブ設定が残っている場合でも、前のタブ内として表示するように修正しました。
-- Loop（複製グループ）内の条件分岐グループが投稿編集画面で正しく表示されるように修正しました。
-- Loop（複製グループ）内の条件分岐グループでも、投稿画面のバリデーションが正しく動作するように修正しました。
-- 条件分岐グループの選択肢を編集しても、子フィールドに設定した表示条件値が空に戻らないように修正しました。
-- 同一バージョンの差し替え時にも、管理画面用のCFSアセット更新が反映されやすいように修正しました。
-
-### 2.6.7.41.22.3
-
-- Updated taxonomy placement rules immediately when categories are selected or cleared in the post editor.
-- Resolved an issue where inactive taxonomy field groups hid the content editor or native WordPress fields.
-- 投稿編集画面でカテゴリーを選択・解除した直後に、分類の配置ルールを反映するようにしました。
-- 未選択の分類フィールドグループが、コンテンツエディターやWordPress標準フィールドを非表示にする問題を解決しました。
 
 Past release notes are available on the [Releases page](https://github.com/at-shift/at-shift-cfs/releases).
 
