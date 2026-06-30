@@ -125,6 +125,9 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.42.0.5 =
+* フィールドグループ設定でのフィールドのドラッグによる移動に関連する不具合と改善を行いました。
+
 = 2.6.7.42.0.4 =
 * Adjusted post edit screen typography for Tabs, field headings, descriptions, group headings, and Loop rows.
 * Improved description text contrast on post edit screens.

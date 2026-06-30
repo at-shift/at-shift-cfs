@@ -838,3 +838,12 @@ msgstr ""
 
 msgid "Duplicate field names found: %s. Field names must be unique before saving."
 msgstr ""
+
+msgid "Move here"
+msgstr ""
+
+msgid "Move here: inside %s"
+msgstr ""
+
+msgid "Move here: inside the current Tab"
+msgstr ""

@@ -842,3 +842,12 @@ msgstr "このフィールド名は重複しています。一意のフィール
 
 msgid "Duplicate field names found: %s. Field names must be unique before saving."
 msgstr "重複しているフィールド名があります: %s。保存前にフィールド名を一意にしてください。"
+
+msgid "Move here"
+msgstr "ここへ移動"
+
+msgid "Move here: inside %s"
+msgstr "ここへ移動: %sグループ内"
+
+msgid "Move here: inside the current Tab"
+msgstr "ここへ移動: タブ内"

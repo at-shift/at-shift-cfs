@@ -275,6 +275,100 @@
             $input.trigger('focus');
         }
 
+        function maybe_outdent_dragged_item($item, event) {
+            var outdented = false;
+            var guard = 0;
+            var outdent_threshold = 34;
+
+            if (!event || 'number' !== typeof event.pageX) {
+                return false;
+            }
+
+            while (5 > guard) {
+                var $list = $item.parent('ul');
+                var $parent = $list.closest('li');
+                var list_offset = $list.offset();
+
+                if (!$parent.length || !list_offset) {
+                    break;
+                }
+
+                if (-1 === $.inArray(get_item_type($parent), ['loop', 'group', 'accordion', 'conditional'])) {
+                    break;
+                }
+
+                if (event.pageX >= list_offset.left + outdent_threshold) {
+                    break;
+                }
+
+                $parent.after($item);
+                outdented = true;
+                guard++;
+            }
+
+            return outdented;
+        }
+
+        function get_structure_label(type) {
+            if (CFS.messages && CFS.messages.structure_badges && CFS.messages.structure_badges[type]) {
+                return CFS.messages.structure_badges[type];
+            }
+
+            return 'conditional' == type ? 'CONDITION' : String(type || '').toUpperCase();
+        }
+
+        function clear_outdent_targets() {
+            $('#cfs_fields .cfs-outdent-target')
+                .removeClass('cfs-outdent-target')
+                .removeAttr('data-cfs-drop-label');
+            $('#cfs_fields .cfs-outdent-tab-target')
+                .removeClass('cfs-outdent-tab-target')
+                .removeAttr('data-cfs-drop-label');
+        }
+
+        function mark_outdent_targets($item) {
+            var $root = $('ul.fields').first();
+            var $current_list = $item.parent('ul');
+            var $current_parent = $current_list.closest('li');
+            var guard = 0;
+
+            clear_outdent_targets();
+
+            while ($current_parent.length && 5 > guard) {
+                var $target_list = $current_parent.parent('ul');
+                var $target_container = $target_list.closest('li');
+
+                if ($target_container.length && -1 !== $.inArray(get_item_type($target_container), ['loop', 'group', 'accordion', 'conditional'])) {
+                    $target_list
+                        .addClass('cfs-outdent-target')
+                        .attr('data-cfs-drop-label', message(
+                            'outdent_to_container',
+                            'Move here: inside %s'
+                        ).replace('%s', get_structure_label(get_item_type($target_container))));
+                }
+                else if ($target_list.is($root) && $current_parent.hasClass('cfs-tab-range')) {
+                    $current_parent
+                        .addClass('cfs-outdent-tab-target')
+                        .attr('data-cfs-drop-label', message(
+                            'outdent_to_tab',
+                            'Move here: inside the current Tab'
+                        ));
+                }
+
+                $current_list = $target_list;
+                $current_parent = $current_list.closest('li');
+                guard++;
+            }
+        }
+
+        function update_sortable_placeholder(ui) {
+            if (!ui || !ui.placeholder || !ui.placeholder.length) {
+                return;
+            }
+
+            ui.placeholder.attr('data-cfs-drop-label', message('move_here', 'Move here'));
+        }
+
         function get_disallowed_parent_child_message(parent_type, child_type) {
             if ('group' == parent_type && ('tab' == child_type || 'group' == child_type || 'loop' == child_type || 'accordion' == child_type || 'conditional' == child_type)) {
                 return CFS.messages && CFS.messages.disallowed_group_child ?
@@ -419,6 +513,14 @@
 
                         ui.item.data('cfs-drag-children', $children);
                         $('ul.fields, ul.fields li.loop > ul').addClass('cfs-drop-target');
+                        update_sortable_placeholder(ui);
+                        mark_outdent_targets(ui.item);
+                    },
+                    sort: function(event, ui) {
+                        update_sortable_placeholder(ui);
+                    },
+                    change: function(event, ui) {
+                        update_sortable_placeholder(ui);
                     },
                     beforeStop: function(event, ui) {
                         var $children = ui.item.data('cfs-drag-children');
@@ -430,7 +532,9 @@
                     stop: function(event, ui) {
                         ui.item.removeData('cfs-drag-children').removeClass('cfs-dragging-field');
                         $('ul.fields, ul.fields li.loop > ul').removeClass('cfs-drop-target cfs-drop-target-active');
+                        clear_outdent_targets();
                         zebra_stripes();
+                        maybe_outdent_dragged_item(ui.item, event);
                         enforce_group_child_rules(ui.item);
 
                         if (1 > get_parent_item(ui.item).length && 'tab' != get_item_type(ui.item)) {

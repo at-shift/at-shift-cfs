@@ -52,6 +52,9 @@ if ( 'cfs' == $screen->post_type ) {
             'add_field_inside'       => __( 'Add field inside', 'at-shift-cfs' ),
             'duplicate_field_name_inline' => __( 'This field name is duplicated. Use a unique field name.', 'at-shift-cfs' ),
             'duplicate_field_names_alert' => __( 'Duplicate field names found: %s. Field names must be unique before saving.', 'at-shift-cfs' ),
+            'move_here'         => __( 'Move here', 'at-shift-cfs' ),
+            'outdent_to_container' => __( 'Move here: inside %s', 'at-shift-cfs' ),
+            'outdent_to_tab'       => __( 'Move here: inside the current Tab', 'at-shift-cfs' ),
             'structure_badges'       => [
                 'tab'         => __( 'TAB', 'at-shift-cfs' ),
                 'loop'        => __( 'LOOP', 'at-shift-cfs' ),
