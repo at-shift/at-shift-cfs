@@ -434,7 +434,7 @@ msgid "Reset and deactivate."
 msgstr "Visszaállítás és kikapcsolás"
 
 #: ../templates/page_tools.php:123
-msgid "This will delete all CFS data and deactivate the plugin."
+msgid "This will delete all at-shift CFS data and deactivate the plugin."
 msgstr "Összes CFS adat törlése és a bővítmény kikapcsolása."
 
 #: ../templates/page_tools.php:124

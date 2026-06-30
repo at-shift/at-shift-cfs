@@ -434,7 +434,7 @@ msgid "Reset and deactivate."
 msgstr "复位和停用"
 
 #: ../templates/page_tools.php:123
-msgid "This will delete all CFS data and deactivate the plugin."
+msgid "This will delete all at-shift CFS data and deactivate the plugin."
 msgstr "删除CFS所有数据,并停用插件."
 
 #: ../templates/page_tools.php:124

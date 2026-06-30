@@ -431,6 +431,8 @@ class cfs_loop extends cfs_field
         <script>
         (function($) {
             $(function() {
+                var remove_loop_row_message = <?php echo wp_json_encode( __( 'Remove this row?', 'at-shift-cfs' ) ); ?>;
+
                 $(document).on('click', '.cfs_add_field', function() {
                     var num_rows = $(this).attr('data-rows');
                     var loop_tag = $(this).attr('data-loop-tag');
@@ -454,7 +456,7 @@ class cfs_loop extends cfs_field
                 });
 
                 $(document).on('click', '.cfs_delete_field', function(event) {
-                    if (confirm('Remove this row?')) {
+                    if (confirm(remove_loop_row_message)) {
                         $(this).closest('.loop_wrapper').remove();
                     }
                     event.stopPropagation();

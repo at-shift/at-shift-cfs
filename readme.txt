@@ -125,6 +125,16 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.42.0.4 =
+* Adjusted post edit screen typography for Tabs, field headings, descriptions, group headings, and Loop rows.
+* Improved description text contrast on post edit screens.
+* Localized JavaScript confirmation messages for resetting at-shift CFS data and removing Loop rows.
+* Added duplicate field name warnings in the Field Group editor and blocked saving until duplicate field names are resolved.
+* 投稿編集画面のタブ、フィールド見出し、説明文、グループ見出し、Loop行などの文字サイズを調整しました。
+* 投稿編集画面の説明文の文字色を調整し、視認性を改善しました。
+* at-shift CFSデータのリセット確認とLoop行削除確認のJavaScript確認メッセージを翻訳対応しました。
+* フィールドグループ編集画面でフィールド名が重複している場合に警告を表示し、重複解消まで保存を止めるようにしました。
+
 = 2.6.7.42.0.3 =
 * Improved Field Group editor drag-and-drop when moving fields into or out of groups inside Tabs.
 * Fixed issues related to Tab range handling.

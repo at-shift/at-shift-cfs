@@ -435,7 +435,7 @@ msgid "Reset and deactivate."
 msgstr "بازنشانی و غیرفعال سازی."
 
 #: ../templates/page_tools.php:123
-msgid "This will delete all CFS data and deactivate the plugin."
+msgid "This will delete all at-shift CFS data and deactivate the plugin."
 msgstr "با انتخاب گزینه زیر، تمام اطلاعات افزونه گروه فیلد حذف و افزونه غیرفعال می شود."
 
 #: ../templates/page_tools.php:124

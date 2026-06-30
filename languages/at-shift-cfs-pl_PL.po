@@ -435,7 +435,7 @@ msgid "Reset and deactivate."
 msgstr "Badanie i wyłączyć."
 
 #: ../templates/page_tools.php:123
-msgid "This will delete all CFS data and deactivate the plugin."
+msgid "This will delete all at-shift CFS data and deactivate the plugin."
 msgstr "To usunie wszystkie dane CFS i wyłączyć plugin."
 
 #: ../templates/page_tools.php:124

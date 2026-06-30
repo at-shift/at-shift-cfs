@@ -27,8 +27,16 @@
     width: 99.8%;
 }
 
-.cfs_input .field label {
+.cfs_input .field input::placeholder,
+.cfs_input .field textarea::placeholder {
+    color: #8c8f94;
+    opacity: 1;
+}
+
+.cfs_input .field > label {
+    font-size: 15px;
     font-weight: bold;
+    line-height: 1.45;
     padding: 0 0 0.4em 0;
     cursor: default;
     display: block;
@@ -48,8 +56,9 @@
 
 .cfs_input .field p.notes {
     margin: 0 0 1em 0;
-    color: #999;
-    font-size:0.9em;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.55;
 }
 
 .cfs_input.no_box {
@@ -76,7 +85,9 @@
     border: 1px solid #d63638;
     border-radius: 3px;
     color: #8a2424;
+    font-size: 14px;
     font-weight: bold;
+    line-height: 1.5;
 }
 
 .cfs_input .error:before,
@@ -108,6 +119,8 @@
 
 #cfs-validation-error-list {
     margin: 0 0 8px 1.2em;
+    font-size: 14px;
+    line-height: 1.5;
     list-style: disc;
 }
 
@@ -127,6 +140,8 @@
     border-radius: 3px;
     background: #fff1f1;
     color: #8a2424;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .cfs-validation-notice p {
@@ -152,7 +167,9 @@
     background: #f6f7f7;
     color: #1d2327;
     cursor: pointer;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.45;
     text-align: left;
 }
 
@@ -183,6 +200,8 @@
     margin: 0;
     padding: 10px 12px;
     color: #646970;
+    font-size: 14px;
+    line-height: 1.55;
     border-top: 1px solid #dcdcde;
 }
 
@@ -242,8 +261,24 @@
 }
 
 .cfs_input .field[data-type="group"] > label {
-    font-size: 1.18em;
-    line-height: 1.35;
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.cfs_input .field .cfs_group .cfs-group-fields > .field > label,
+.cfs_input .cfs_loop .field > label,
+.cfs-accordion-body > .field > label,
+.cfs-conditional-branch > .field > label {
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.cfs_input .field .cfs_group .cfs-group-fields > .field p.notes,
+.cfs_input .cfs_loop .field p.notes,
+.cfs-accordion-body > .field p.notes,
+.cfs-conditional-branch > .field p.notes {
+    font-size: 13px;
+    line-height: 1.5;
 }
 
 .cfs_input .field .cfs_group .cfs-group-fields > .field {
@@ -287,6 +322,8 @@
 .cfs_input .field .cfs_group .cfs-group-warning {
     border-left: 4px solid #d63638;
     color: #1d2327;
+    font-size: 14px;
+    line-height: 1.5;
     padding: 8px 10px;
     background: #fff8e5;
 }
@@ -302,7 +339,9 @@
 ---------------------------------------------------------------------------------------------*/
 
 .cfs_input .field .cfs_true_false label {
+    font-size: 14px;
     font-weight: normal;
+    line-height: 1.5;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -327,6 +366,7 @@
     max-width: 100%;
     min-width: 0;
     padding: 0;
+    font-size: 14px;
     font-weight: normal;
     line-height: 1.5;
     cursor: pointer;
@@ -431,6 +471,8 @@
     padding: 4px 6px;
     border-bottom: 1px solid #eee;
     cursor: pointer;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .cfs_relationship .post_list.available_posts > div,
@@ -605,6 +647,12 @@
     background: #f5f5f5;
 }
 
+.cfs_loop .cfs_loop_head .label {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
 .cfs_loop .cfs_loop_head:before {
     padding: 4px 0;
     display: block;
@@ -623,9 +671,10 @@
 }
 
 .cfs_loop .notes {
-    font-size: 11px;
+    font-size: 13px;
     font-style: italic;
-    color: #999;
+    line-height: 1.5;
+    color: #777;
     margin-bottom: 1.4em;
 }
 
@@ -670,11 +719,17 @@
     border: 1px solid #ccc;
     background-color: #f3f3f3;
     cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #646970;
     border-radius: 2px 1px 0 0;
 }
 
 .cfs-tab.active {
     background-color: #fff;
+    color: #1d2327;
+    font-weight: 700;
 }
 
 .cfs-tab.active:after {
@@ -696,6 +751,9 @@
 
 .cfs-tab-notes {
     padding: 10px 12px;
+    color: #646970;
+    font-size: 14px;
+    line-height: 1.55;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -769,6 +827,8 @@
 }
 
 .cfs-wp-category-selected-only {
+    font-size: 14px;
+    line-height: 1.5;
     white-space: nowrap;
 }
 
@@ -787,6 +847,8 @@
 
 .cfs-wp-category-item > label {
     display: inline-block;
+    font-size: 14px;
+    line-height: 1.5;
     padding: 2px 6px 2px 2px;
     border-radius: 3px;
 }
@@ -823,6 +885,8 @@
 }
 
 .cfs-conditional-control-select select {
+    font-size: 14px;
+    line-height: 1.45;
     min-width: 220px;
 }
 

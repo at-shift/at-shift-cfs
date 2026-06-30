@@ -180,6 +180,101 @@
             });
         }
 
+        function message(key, fallback) {
+            return CFS.messages && CFS.messages[key] ? CFS.messages[key] : fallback;
+        }
+
+        function get_field_name_input($item) {
+            return $item.children('.field').find('.field_form .field_name input').first();
+        }
+
+        function clear_duplicate_field_name_warnings() {
+            $('#cfs_fields .cfs-duplicate-field-name').removeClass('cfs-duplicate-field-name');
+            $('#cfs_fields .cfs-duplicate-field-name-input')
+                .removeClass('cfs-duplicate-field-name-input')
+                .removeAttr('aria-invalid');
+            $('#cfs_fields .cfs-duplicate-field-name-warning').remove();
+        }
+
+        function collect_duplicate_field_names() {
+            var names = {};
+            var duplicates = {};
+
+            $('ul.fields li').each(function() {
+                var $item = $(this);
+                var $input = get_field_name_input($item);
+                var name = $.trim($input.val() || '');
+                var key = name.toLowerCase();
+
+                if (!key) {
+                    return;
+                }
+
+                if (!names[key]) {
+                    names[key] = [];
+                }
+
+                names[key].push({
+                    item: $item,
+                    input: $input,
+                    name: name
+                });
+            });
+
+            $.each(names, function(key, fields) {
+                if (1 < fields.length) {
+                    duplicates[key] = fields;
+                }
+            });
+
+            return duplicates;
+        }
+
+        function render_duplicate_field_name_warnings() {
+            var duplicates = collect_duplicate_field_names();
+            var duplicate_names = [];
+            var inline_message = message('duplicate_field_name_inline', 'This field name is duplicated. Use a unique field name.');
+
+            clear_duplicate_field_name_warnings();
+
+            $.each(duplicates, function(key, fields) {
+                duplicate_names.push(fields[0].name);
+
+                $.each(fields, function(index, field) {
+                    field.item.children('.field').addClass('cfs-duplicate-field-name');
+                    field.item.children('.field').find('.field_meta .field_name').first().addClass('cfs-duplicate-field-name');
+                    field.input
+                        .addClass('cfs-duplicate-field-name-input')
+                        .attr('aria-invalid', 'true')
+                        .after($('<p></p>', {
+                            'class': 'description cfs-duplicate-field-name-warning',
+                            text: inline_message
+                        }));
+                });
+            });
+
+            return duplicate_names;
+        }
+
+        function reveal_duplicate_field_name() {
+            var $input = $('#cfs_fields .cfs-duplicate-field-name-input').first();
+            var $field = $input.closest('.field');
+
+            if (!$input.length) {
+                return;
+            }
+
+            if (!$field.hasClass('form_open')) {
+                $field.addClass('form_open');
+                $field.find('.field_form').show();
+            }
+
+            $('html, body').animate({
+                scrollTop: Math.max(0, $field.offset().top - 80)
+            }, 200);
+            $input.trigger('focus');
+        }
+
         function get_disallowed_parent_child_message(parent_type, child_type) {
             if ('group' == parent_type && ('tab' == child_type || 'group' == child_type || 'loop' == child_type || 'accordion' == child_type || 'conditional' == child_type)) {
                 return CFS.messages && CFS.messages.disallowed_group_child ?
@@ -372,6 +467,7 @@
         update_add_field_button_labels($('ul.fields'));
         refresh_structure_markers($('ul.fields'));
         refresh_conditional_assignments($('ul.fields'));
+        render_duplicate_field_name_warnings();
 
         // Setup checkboxes
         $(document).on('change click', 'input[type="checkbox"]', function() {
@@ -394,6 +490,7 @@
             update_add_field_button_labels($('ul.fields'));
             refresh_structure_markers($('ul.fields'));
             refresh_conditional_assignments($('ul.fields'));
+            render_duplicate_field_name_warnings();
         });
 
         // Add a new field immediately below the current field
@@ -426,6 +523,7 @@
             update_add_field_button_labels($('ul.fields'));
             refresh_structure_markers($('ul.fields'));
             refresh_conditional_assignments($('ul.fields'));
+            render_duplicate_field_name_warnings();
         });
 
         // Delete a field
@@ -433,6 +531,7 @@
             $(this).closest('li').remove();
             refresh_structure_markers($('ul.fields'));
             refresh_conditional_assignments($('ul.fields'));
+            render_duplicate_field_name_warnings();
         });
 
         // Pop open the edit fields
@@ -491,7 +590,19 @@
             $(this).closest('.field').find('.cfs-conditional-default-row').toggle('radio' == $(this).val());
         });
 
-        $(document).on('submit', '#post', function() {
+        $(document).on('submit', '#post', function(event) {
+            var duplicate_names = render_duplicate_field_name_warnings();
+
+            if (0 < duplicate_names.length) {
+                event.preventDefault();
+                window.alert(message(
+                    'duplicate_field_names_alert',
+                    'Duplicate field names found: %s. Field names must be unique before saving.'
+                ).replace('%s', duplicate_names.join(', ')));
+                reveal_duplicate_field_name();
+                return false;
+            }
+
             $('ul.fields li').each(function() {
                 var $item = $(this);
                 set_outside_tabs($item, is_outside_tabs($item));
@@ -550,9 +661,13 @@
             }, 1);
         });
 
-        $(document).on('keyup', '.field_form .field_name input', function() {
-            var val = jQuery(this).val();
-            $(this).closest('.field').find('.field_meta .field_name').text(val);
+        $(document).on('keyup input change paste', '.field_form .field_name input', function() {
+            var $this = $(this);
+            setTimeout(function() {
+                var val = $this.val();
+                $this.closest('.field').find('.field_meta .field_name').text(val);
+                render_duplicate_field_name_warnings();
+            }, 1);
         });
     });
 })(jQuery);

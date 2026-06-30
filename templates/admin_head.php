@@ -50,6 +50,8 @@ if ( 'cfs' == $screen->post_type ) {
             'disallowed_conditional_child' => __( 'Tabs and conditional groups cannot be placed inside a Conditional Group.', 'at-shift-cfs' ),
             'add_field_below'        => __( 'Add new field below', 'at-shift-cfs' ),
             'add_field_inside'       => __( 'Add field inside', 'at-shift-cfs' ),
+            'duplicate_field_name_inline' => __( 'This field name is duplicated. Use a unique field name.', 'at-shift-cfs' ),
+            'duplicate_field_names_alert' => __( 'Duplicate field names found: %s. Field names must be unique before saving.', 'at-shift-cfs' ),
             'structure_badges'       => [
                 'tab'         => __( 'TAB', 'at-shift-cfs' ),
                 'loop'        => __( 'LOOP', 'at-shift-cfs' ),

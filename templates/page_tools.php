@@ -22,6 +22,7 @@ $results = $wpdb->get_results($sql);
 (function($) {
     $(function() {
         var cfs_nonce = '<?php echo wp_create_nonce( 'cfs_admin_nonce' ); ?>';
+        var reset_confirm_message = <?php echo wp_json_encode( __( 'This will delete all at-shift CFS data. Are you sure?', 'at-shift-cfs' ) ); ?>;
 
         $('.nav-tab').click(function() {
             $('.tab-content').removeClass('active');
@@ -59,7 +60,7 @@ $results = $wpdb->get_results($sql);
         });
 
         $('#button-reset').click(function() {
-            if (confirm('This will delete all CFS data. Are you sure?')) {
+            if (confirm(reset_confirm_message)) {
                 $.post(ajaxurl, {
                     action: 'cfs_ajax_handler',
                     action_type: 'reset',
@@ -125,7 +126,7 @@ $results = $wpdb->get_results($sql);
 
         <div class="tab-content reset">
             <h2><?php _e('Reset and deactivate.', 'at-shift-cfs' ); ?></h2>
-            <p><?php _e('This will delete all CFS data and deactivate the plugin.', 'at-shift-cfs' ); ?></p>
+            <p><?php _e('This will delete all at-shift CFS data and deactivate the plugin.', 'at-shift-cfs' ); ?></p>
             <input type="button" id="button-reset" class="button" value="<?php _e('Delete everything', 'at-shift-cfs' ); ?>" />
         </div>
     </div>

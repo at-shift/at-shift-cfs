@@ -490,7 +490,11 @@ msgid "Reset and deactivate."
 msgstr ""
 
 #: ../templates/page_tools.php:123
-msgid "This will delete all CFS data and deactivate the plugin."
+msgid "This will delete all at-shift CFS data and deactivate the plugin."
+msgstr ""
+
+#: ../templates/page_tools.php:24
+msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr ""
 
 #: ../templates/page_tools.php:124
@@ -555,6 +559,10 @@ msgstr ""
 
 #: ../includes/form.php:444
 msgid "Toggle row visibility"
+msgstr ""
+
+#: ../includes/fields/loop.php:444
+msgid "Remove this row?"
 msgstr ""
 
 #: ../includes/init.php:60
@@ -823,4 +831,10 @@ msgid "ACCORDION"
 msgstr ""
 
 msgid "CONDITION"
+msgstr ""
+
+msgid "This field name is duplicated. Use a unique field name."
+msgstr ""
+
+msgid "Duplicate field names found: %s. Field names must be unique before saving."
 msgstr ""
