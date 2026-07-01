@@ -3,7 +3,7 @@ Contributors: mgibbs189, at-shift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: trunk
+Stable tag: 2.6.7.42.1.2
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
