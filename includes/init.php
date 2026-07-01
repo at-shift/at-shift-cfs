@@ -23,7 +23,6 @@ class cfs_init
         add_action( 'delete_post',                      [ $this, 'delete_post' ] );
         add_action( 'add_meta_boxes',                   [ $this, 'add_meta_boxes' ] );
         add_action( 'wp_ajax_cfs_ajax_handler',         [ $this, 'ajax_handler' ] );
-        add_filter( 'plugin_row_meta',                  [ $this, 'plugin_row_meta' ], 10, 2 );
         add_filter( 'manage_cfs_posts_columns',         [ $this, 'cfs_columns' ] );
         add_action( 'manage_cfs_posts_custom_column',   [ $this, 'cfs_column_content' ], 10, 2 );
         add_action( 'enqueue_block_editor_assets',      [ $this, 'enqueue_block_editor_assets' ] );
@@ -617,117 +616,6 @@ class cfs_init
         }
 
         exit;
-    }
-
-
-    /**
-     * Show GitHub update status on the Plugins screen.
-     */
-    function plugin_row_meta( $links, $file ) {
-        if ( plugin_basename( CFS_DIR . '/cfs.php' ) !== $file ) {
-            return $links;
-        }
-
-        $status = $this->get_github_update_status();
-
-        if ( 'update' === $status['state'] ) {
-            $links[] = sprintf(
-                '<a class="cfs-github-update-link" style="color:#d63638;font-weight:600;" href="%1$s" target="_blank" rel="noopener">%2$s</a>',
-                esc_url( $status['url'] ),
-                esc_html( sprintf( __( 'A newer version %s is available on GitHub.', 'at-shift-cfs' ), $status['version'] ) )
-            );
-        }
-
-        return $links;
-    }
-
-
-    /**
-     * Fetch and cache the latest GitHub tag for this maintenance build.
-     */
-    private function get_github_update_status() {
-        $repo_url = 'https://github.com/at-shift/at-shift-cfs';
-        $fallback = [
-            'state'                   => 'unknown',
-            'version'                 => '',
-            'url'                     => $repo_url,
-            'checked_current_version' => CFS_VERSION,
-        ];
-
-        $cached = get_transient( 'cfs_github_update_status' );
-
-        if (
-            is_array( $cached ) &&
-            isset( $cached['state'], $cached['url'], $cached['checked_current_version'] ) &&
-            CFS_VERSION === $cached['checked_current_version']
-        ) {
-            return $cached;
-        }
-
-        $response = wp_remote_get( 'https://api.github.com/repos/at-shift/at-shift-cfs/tags', [
-            'timeout' => 5,
-            'headers' => [
-                'User-Agent' => 'at-shift CFS/' . CFS_VERSION . '; ' . home_url( '/' ),
-            ],
-        ] );
-
-        if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
-            set_transient( 'cfs_github_update_status', $fallback, HOUR_IN_SECONDS );
-            return $fallback;
-        }
-
-        $tags = json_decode( wp_remote_retrieve_body( $response ), true );
-        $latest_version = '';
-        $latest_tag = '';
-
-        if ( is_array( $tags ) ) {
-            foreach ( $tags as $tag ) {
-                if ( empty( $tag['name'] ) ) {
-                    continue;
-                }
-
-                $version = $this->normalize_github_version( $tag['name'] );
-
-                if ( '' === $version ) {
-                    continue;
-                }
-
-                if ( '' === $latest_version || version_compare( $latest_version, $version, '<' ) ) {
-                    $latest_version = $version;
-                    $latest_tag = $tag['name'];
-                }
-            }
-        }
-
-        if ( '' === $latest_version ) {
-            set_transient( 'cfs_github_update_status', $fallback, HOUR_IN_SECONDS );
-            return $fallback;
-        }
-
-        $status = [
-            'state'                   => version_compare( CFS_VERSION, $latest_version, '<' ) ? 'update' : 'current',
-            'version'                 => $latest_tag,
-            'url'                     => $repo_url . '/releases',
-            'checked_current_version' => CFS_VERSION,
-        ];
-
-        set_transient( 'cfs_github_update_status', $status, 12 * HOUR_IN_SECONDS );
-
-        return $status;
-    }
-
-
-    /**
-     * Normalize tags like v2.6.7.39 to values version_compare can read.
-     */
-    private function normalize_github_version( $tag ) {
-        $version = ltrim( (string) $tag, "vV \t\n\r\0\x0B" );
-
-        if ( ! preg_match( '/^\d+(?:\.\d+)+(?:[-+][0-9A-Za-z.-]+)?$/', $version ) ) {
-            return '';
-        }
-
-        return $version;
     }
 
 

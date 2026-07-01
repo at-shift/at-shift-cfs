@@ -69,7 +69,6 @@ This package is a maintenance build based on the upstream Custom Field Suite 2.6
 * Field type list ordering grouped by common editing workflows.
 * Field Group parent / child synchronization to reduce cases where nested fields disappear from the post edit screen.
 * Placement rule warnings for field groups that have no placement rules.
-* GitHub release notice on the WordPress Plugins screen when a newer release is available.
 * Configurable placeholders for Text, Phone, Email Address, Hyperlink, and URL fields.
 
 = Usage =
@@ -264,7 +263,6 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * Fixed a case where fields could appear nested in the Field Group editor but disappear from the post edit screen because their stored parent ID pointed to an old or missing field.
 * Added the "Add new field below" button in the Field Group editor.
 * Added placement rule warnings for Field Groups with no placement rules.
-* Added a GitHub release notice on the WordPress Plugins screen when a newer release is available.
 
 = 2.6.7.23 =
 * Hardened Field Group type switching JavaScript so field type labels are written as text and generated option controls are updated through DOM attributes instead of string-rewritten HTML.
