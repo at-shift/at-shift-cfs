@@ -125,6 +125,12 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.42.1.2 =
+* Improved file upload previews and remove button alignment on post edit screens.
+* Adjusted spacing inside Loop fields.
+* 投稿編集画面のファイルアップロードプレビューと削除ボタン位置を調整しました。
+* Loop内フィールドの余白を調整しました。
+
 = 2.6.7.42.1.1 =
 * Adjusted post edit screen spacing and typography.
 * Improved the at-shift CFS Tools UI and multilingual text.

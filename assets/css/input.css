@@ -430,13 +430,50 @@
     File
 ---------------------------------------------------------------------------------------------*/
 
+.cfs_file,
+.cfs_featured_image {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+}
+
+.cfs_file .file_url,
+.cfs_featured_image .featured_image_preview {
+    display: block;
+    flex: 0 1 auto;
+    max-width: 100%;
+    margin: 0;
+}
+
+.cfs_file .file_url:empty,
+.cfs_featured_image .featured_image_preview:empty {
+    display: none;
+}
+
+.cfs_file .file_url a {
+    display: inline-block;
+    max-width: 720px;
+    max-width: min(100%, 720px);
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
+
 .cfs_file .file_url img {
+    display: block;
     padding: 5px;
     background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAIUlEQVQYV2NkYGCQBGJ08BxdgHGIKMTiF0wPgjwz2BUCADTeBYguWvyCAAAAAElFTkSuQmCC);
-    vertical-align: bottom;
     box-shadow: 0 1px 2px #ddd;
-    max-width: 50%;
+    max-width: 360px;
+    max-width: min(100%, 360px);
+    max-height: 260px;
     height: auto;
+}
+
+.cfs_file .media.button,
+.cfs_featured_image .media.button {
+    flex: 0 0 auto;
+    margin: 0;
 }
 
 .cfs_file .media.button.hidden {
@@ -601,12 +638,12 @@
 }
 
 .cfs_input .cfs_loop label {
-    padding: 6px 0 0 0;
+    padding: 0;
 }
 
 .cfs_input .cfs_loop .field {
     border: none;
-    padding: 6px 0;
+    padding: 16px 0 20px;
 }
 
 .cfs_input .cfs_loop_toggle {
@@ -680,14 +717,13 @@
 
 .cfs_loop .notes {
     font-size: 14px;
-    font-style: italic;
     line-height: 1.5;
     color: #777;
-    margin-bottom: 1.4em;
+    margin: 0 0 12px;
 }
 
 .cfs_loop .cfs_loop_body {
-    padding: 10px 12px;
+    padding: 16px 16px 20px;
     background: #f8f8f8;
     display: none;
 }
@@ -703,7 +739,15 @@
 }
 
 .cfs_loop .cfs_loop_body > .field {
-    padding: 0 0 10px;
+    padding: 16px 0 20px;
+}
+
+.cfs_loop .cfs_loop_body > .field:first-child {
+    padding-top: 0;
+}
+
+.cfs_loop .cfs_loop_body > .field:last-child {
+    padding-bottom: 0;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -874,13 +918,10 @@
     display: none;
 }
 
-.cfs_featured_image .featured_image_preview {
-    display: block;
-    margin-bottom: 8px;
-}
-
 .cfs_featured_image .featured_image_preview img {
+    display: block;
     max-width: 150px;
+    max-height: 150px;
     height: auto;
 }
 

@@ -15,8 +15,11 @@ class cfs_file extends cfs_field
 
         if ( ctype_digit( (string) $field->value ) ) {
             if ( wp_attachment_is_image( $field->value ) ) {
-                $file_url = wp_get_attachment_image_src( $field->value );
-                $file_url = '<img src="' . esc_url( $file_url[0] ) . '" />';
+                $file_url = wp_get_attachment_image( $field->value, 'medium', false, [ 'class' => 'cfs-file-preview-image' ] );
+                if ( empty( $file_url ) ) {
+                    $image_src = wp_get_attachment_image_src( $field->value, 'full' );
+                    $file_url = empty( $image_src[0] ) ? '' : '<img src="' . esc_url( $image_src[0] ) . '" class="cfs-file-preview-image" alt="" />';
+                }
             }
             else
             {
@@ -124,9 +127,26 @@ class cfs_file extends cfs_field
             $(function() {
 
                 var cfs_frame;
+                var $activeButton;
 
-                $(document).on('click', '.cfs_input .media.button.add', function(e) {
-                    $this = $(this);
+                function getImagePreviewUrl(attachment) {
+                    if (attachment.sizes) {
+                        if (attachment.sizes.medium) {
+                            return attachment.sizes.medium.url;
+                        }
+                        if (attachment.sizes.thumbnail) {
+                            return attachment.sizes.thumbnail.url;
+                        }
+                        if (attachment.sizes.full) {
+                            return attachment.sizes.full.url;
+                        }
+                    }
+
+                    return attachment.url;
+                }
+
+                $(document).on('click', '.cfs_file .media.button.add', function(e) {
+                    $activeButton = $(this);
 
                     if (cfs_frame) {
                         cfs_frame.open();
@@ -144,27 +164,33 @@ class cfs_file extends cfs_field
 
                     cfs_frame.on('insert', function() {
                         var attachment = cfs_frame.state().get('selection').first().toJSON();
-                        if ('image' == attachment.type && 'undefined' != typeof attachment.sizes) {
-                            file_url = attachment.sizes.full.url;
-                            if ('undefined' != typeof attachment.sizes.thumbnail) {
-                                file_url = attachment.sizes.thumbnail.url;
-                            }
-                            file_url = '<img src="' + file_url + '" />';
+                        var $button = $activeButton;
+                        var $preview = $button.siblings('.file_url').empty();
+
+                        if ('image' == attachment.type) {
+                            $preview.append($('<img>', {
+                                src: getImagePreviewUrl(attachment),
+                                alt: '',
+                                class: 'cfs-file-preview-image'
+                            }));
                         }
                         else {
-                            file_url = '<a href="' + attachment.url + '" target="_blank">' + attachment.filename + '</a>';
+                            $preview.append($('<a>', {
+                                href: attachment.url,
+                                target: '_blank',
+                                text: attachment.filename || attachment.url
+                            }));
                         }
-                        $this.hide();
-                        $this.siblings('.media.button.remove').show();
-                        $this.siblings('.file_value').val(attachment.id);
-                        $this.siblings('.file_url').html(file_url);
+                        $button.hide();
+                        $button.siblings('.media.button.remove').show();
+                        $button.siblings('.file_value').val(attachment.id);
                     });
 
                     cfs_frame.open();
                     cfs_frame.content.mode('upload');
                 });
 
-                $(document).on('click', '.cfs_input .media.button.remove', function() {
+                $(document).on('click', '.cfs_file .media.button.remove', function() {
                     $(this).siblings('.file_url').html('');
                     $(this).siblings('.file_value').val('');
                     $(this).siblings('.media.button.add').show();
