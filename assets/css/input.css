@@ -8,7 +8,7 @@
 }
 
 .cfs_input .field {
-    padding: 10px 12px;
+    padding: 16px 12px 20px;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #dfdfdf;
 }
@@ -24,6 +24,8 @@
 .cfs_input .field input[type="tel"],
 .cfs_input .field textarea,
 .cfs_input .field select {
+    display: block;
+    box-sizing: border-box;
     width: 99.8%;
 }
 
@@ -34,10 +36,11 @@
 }
 
 .cfs_input .field > label {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     line-height: 1.45;
-    padding: 0 0 0.4em 0;
+    margin: 0 0 8px;
+    padding: 0;
     cursor: default;
     display: block;
 }
@@ -55,7 +58,7 @@
 }
 
 .cfs_input .field p.notes {
-    margin: 0 0 1em 0;
+    margin: 0 0 12px 0;
     color: #777;
     font-size: 14px;
     line-height: 1.55;
@@ -167,7 +170,7 @@
     background: #f6f7f7;
     color: #1d2327;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 1.45;
     text-align: left;
@@ -261,7 +264,7 @@
 }
 
 .cfs_input .field[data-type="group"] > label {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.45;
 }
 
@@ -269,7 +272,7 @@
 .cfs_input .cfs_loop .field > label,
 .cfs-accordion-body > .field > label,
 .cfs-conditional-branch > .field > label {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.45;
 }
 
@@ -277,7 +280,7 @@
 .cfs_input .cfs_loop .field p.notes,
 .cfs-accordion-body > .field p.notes,
 .cfs-conditional-branch > .field p.notes {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.5;
 }
 
@@ -640,6 +643,11 @@
     animation: highlight 1.5s ease-in-out;
 }
 
+.cfs_loop .table_footer {
+    margin-top: 14px;
+    text-align: right;
+}
+
 .cfs_loop .cfs_loop_head {
     cursor: pointer;
     padding: 5px 5px 5px 30px;
@@ -648,7 +656,7 @@
 }
 
 .cfs_loop .cfs_loop_head .label {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 1.45;
 }
@@ -671,7 +679,7 @@
 }
 
 .cfs_loop .notes {
-    font-size: 13px;
+    font-size: 14px;
     font-style: italic;
     line-height: 1.5;
     color: #777;
@@ -719,7 +727,7 @@
     border: 1px solid #ccc;
     background-color: #f3f3f3;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 1.45;
     color: #646970;

@@ -125,6 +125,12 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.42.1.1 =
+* Adjusted post edit screen spacing and typography.
+* Improved the at-shift CFS Tools UI and multilingual text.
+* 投稿編集画面の余白と文字サイズを調整しました。
+* at-shift CFS ツールのUIと多言語テキストを改善しました。
+
 = 2.6.7.42.1.0 =
 * Fixed issues and improved field drag-and-drop movement in the Field Group editor.
 * フィールドグループ設定でのフィールドのドラッグによる移動に関連する不具合と改善を行いました。

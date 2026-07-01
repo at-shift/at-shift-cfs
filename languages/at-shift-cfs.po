@@ -477,8 +477,28 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
+#: ../templates/page_tools.php:96
+msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
+msgstr ""
+
+#: ../templates/page_tools.php:112
+msgid "Export Code"
+msgstr ""
+
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
+msgstr ""
+
+#: ../templates/page_tools.php:122
+msgid "Paste the exported field group code into the input field below, then press the button."
+msgstr ""
+
+#: ../templates/page_tools.php:125
+msgid "Import Code"
+msgstr ""
+
+#: ../templates/page_tools.php:120
+msgid "Paste the import code here"
 msgstr ""
 
 #: ../templates/page_tools.php:78

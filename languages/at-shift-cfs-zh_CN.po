@@ -435,7 +435,7 @@ msgstr "复位和停用"
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all at-shift CFS data and deactivate the plugin."
-msgstr "删除CFS所有数据,并停用插件."
+msgstr "这将完全删除所有 at-shift CFS 数据，并停用和重置该插件。"
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
@@ -714,3 +714,27 @@ msgstr "折叠"
 
 msgid "CONDITION"
 msgstr "条件"
+
+#: ../templates/page_tools.php:206
+msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
+msgstr "选择要导出的字段组，点击按钮，然后保存显示的代码。可以选择多个项目。"
+
+#: ../templates/page_tools.php:222
+msgid "Export Code"
+msgstr "导出代码"
+
+#: ../templates/page_tools.php:231
+msgid "Paste the exported field group code into the input field below, then press the button."
+msgstr "将已导出的字段组代码粘贴到下面的输入框中，然后点击按钮。"
+
+#: ../templates/page_tools.php:234
+msgid "Import Code"
+msgstr "导入代码"
+
+#: ../templates/page_tools.php:235
+msgid "Paste the import code here"
+msgstr "在此粘贴导入代码"
+
+#: ../templates/page_tools.php:150
+msgid "This will delete all at-shift CFS data. Are you sure?"
+msgstr "这将完全删除所有 at-shift CFS 数据。确定吗？"

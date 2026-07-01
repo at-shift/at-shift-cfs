@@ -530,7 +530,7 @@ msgstr "Resetta e disattiva."
 #  @ cfs
 #: ../templates/page_tools.php:123
 msgid "This will delete all at-shift CFS data and deactivate the plugin."
-msgstr "Questo cancellerà tutti i dati CFS e disattiverà il plugin."
+msgstr "Questa operazione eliminerà completamente tutti i dati di at-shift CFS, disattiverà e reimposterà il plugin."
 
 #  @ cfs
 #: ../templates/page_tools.php:124
@@ -834,3 +834,27 @@ msgstr "Espandibile"
 
 msgid "CONDITION"
 msgstr "Condizione"
+
+#: ../templates/page_tools.php:206
+msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
+msgstr "Seleziona i gruppi di campi da esportare, premi il pulsante e salva il codice visualizzato. Puoi selezionare più elementi."
+
+#: ../templates/page_tools.php:222
+msgid "Export Code"
+msgstr "Codice di esportazione"
+
+#: ../templates/page_tools.php:231
+msgid "Paste the exported field group code into the input field below, then press the button."
+msgstr "Incolla il codice del gruppo di campi esportato nel campo di input qui sotto, quindi premi il pulsante."
+
+#: ../templates/page_tools.php:234
+msgid "Import Code"
+msgstr "Codice di importazione"
+
+#: ../templates/page_tools.php:235
+msgid "Paste the import code here"
+msgstr "Incolla qui il codice di importazione"
+
+#: ../templates/page_tools.php:150
+msgid "This will delete all at-shift CFS data. Are you sure?"
+msgstr "Questa operazione eliminerà completamente tutti i dati di at-shift CFS. Sei sicuro?"

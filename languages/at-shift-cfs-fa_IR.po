@@ -436,7 +436,7 @@ msgstr "بازنشانی و غیرفعال سازی."
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all at-shift CFS data and deactivate the plugin."
-msgstr "با انتخاب گزینه زیر، تمام اطلاعات افزونه گروه فیلد حذف و افزونه غیرفعال می شود."
+msgstr "با این کار همهٔ داده‌های at-shift CFS به‌طور کامل حذف می‌شود و افزونه غیرفعال و بازنشانی می‌شود."
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
@@ -747,3 +747,27 @@ msgstr "بازشو"
 
 msgid "CONDITION"
 msgstr "شرط"
+
+#: ../templates/page_tools.php:206
+msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
+msgstr "گروه‌های فیلدی را که می‌خواهید برون‌بری کنید انتخاب کنید، دکمه را فشار دهید و کد نمایش‌داده‌شده را ذخیره کنید. می‌توانید چند مورد را هم‌زمان انتخاب کنید."
+
+#: ../templates/page_tools.php:222
+msgid "Export Code"
+msgstr "کد برون‌بری"
+
+#: ../templates/page_tools.php:231
+msgid "Paste the exported field group code into the input field below, then press the button."
+msgstr "کد گروه فیلد برون‌بری‌شده را در فیلد ورودی زیر جای‌گذاری کنید و سپس دکمه را فشار دهید."
+
+#: ../templates/page_tools.php:234
+msgid "Import Code"
+msgstr "کد درون‌ریزی"
+
+#: ../templates/page_tools.php:235
+msgid "Paste the import code here"
+msgstr "کد درون‌ریزی را اینجا جای‌گذاری کنید"
+
+#: ../templates/page_tools.php:150
+msgid "This will delete all at-shift CFS data. Are you sure?"
+msgstr "با این کار همهٔ داده‌های at-shift CFS به‌طور کامل حذف می‌شود. مطمئن هستید؟"

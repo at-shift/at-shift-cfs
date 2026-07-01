@@ -11,23 +11,137 @@ $results = $wpdb->get_results($sql);
 ?>
 
 <style type="text/css">
-.nav-tab { cursor: pointer; }
-.nav-tab:first-child { margin-left: 15px; }
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-#button-export, #button-sync { margin-top: 4px; }
+.cfs-tools {
+    max-width: 980px;
+}
+
+.cfs-tools .nav-tab-wrapper {
+    border-bottom: 0;
+    margin-top: 18px;
+    padding: 0;
+}
+
+.cfs-tools .nav-tab {
+    cursor: pointer;
+    margin: 0 6px 0 0;
+    padding: 9px 18px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px 4px 0 0;
+    background: #f6f7f7;
+    color: #50575e;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cfs-tools .nav-tab.nav-tab-active {
+    background: #fff;
+    border-bottom-color: #fff;
+    color: #1d2327;
+}
+
+.cfs-tools .content-container {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 0 4px 4px 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    margin-top: -1px;
+    padding: 24px;
+}
+
+.cfs-tools .tab-content {
+    display: none;
+}
+
+.cfs-tools .tab-content.active {
+    display: block;
+}
+
+.cfs-tools-description {
+    max-width: 760px;
+    margin: 0 0 18px;
+    color: #50575e;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.cfs-tools-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 320px) minmax(320px, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.cfs-tools-field label {
+    display: block;
+    margin: 0 0 7px;
+    color: #1d2327;
+    font-weight: 600;
+}
+
+.cfs-tools-field select,
+.cfs-tools-field textarea {
+    width: 100%;
+    min-height: 150px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.cfs-tools-field textarea {
+    font-family: Menlo, Consolas, Monaco, monospace;
+}
+
+.cfs-tools-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.cfs-tools-reset {
+    max-width: 760px;
+}
+
+.cfs-tools-reset h2 {
+    margin-top: 0;
+}
+
+.cfs-tools-warning {
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    border-left: 4px solid #d63638;
+    background: #fcf0f1;
+    color: #1d2327;
+    line-height: 1.7;
+}
+
+.cfs-tools-danger-button {
+    border-color: #d63638 !important;
+    color: #b32d2e !important;
+}
+
+@media screen and (max-width: 782px) {
+    .cfs-tools .content-container {
+        padding: 18px;
+    }
+
+    .cfs-tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
 <script>
 (function($) {
     $(function() {
+        var $tools = $('.cfs-tools');
         var cfs_nonce = '<?php echo wp_create_nonce( 'cfs_admin_nonce' ); ?>';
         var reset_confirm_message = <?php echo wp_json_encode( __( 'This will delete all at-shift CFS data. Are you sure?', 'at-shift-cfs' ) ); ?>;
 
-        $('.nav-tab').click(function() {
-            $('.tab-content').removeClass('active');
-            $('.nav-tab').removeClass('nav-tab-active');
-            $('.tab-content.' + $(this).attr('rel')).addClass('active');
+        $tools.find('.nav-tab').click(function(e) {
+            e.preventDefault();
+            $tools.find('.tab-content').removeClass('active');
+            $tools.find('.nav-tab').removeClass('nav-tab-active');
+            $tools.find('.tab-content.' + $(this).attr('rel')).addClass('active');
             $(this).addClass('nav-tab-active');
         });
 
@@ -75,59 +189,63 @@ $results = $wpdb->get_results($sql);
 })(jQuery);
 </script>
 
-<div class="wrap">
-    <h1><?php _e( 'at-shift CFS Tools', 'at-shift-cfs' ); ?></h1>
+<div class="wrap cfs-tools">
+    <h1><?php esc_html_e( 'at-shift CFS Tools', 'at-shift-cfs' ); ?></h1>
 
-    <h3 class="nav-tab-wrapper">
-        <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'at-shift-cfs' ); ?></a>
-        <a class="nav-tab" rel="import"><?php _e('Import', 'at-shift-cfs' ); ?></a>
-        <a class="nav-tab" rel="reset"><?php _e('Reset', 'at-shift-cfs' ); ?></a>
-    </h3>
+    <h2 class="nav-tab-wrapper">
+        <a class="nav-tab nav-tab-active" rel="export"><?php esc_html_e( 'Export', 'at-shift-cfs' ); ?></a>
+        <a class="nav-tab" rel="import"><?php esc_html_e( 'Import', 'at-shift-cfs' ); ?></a>
+        <a class="nav-tab" rel="reset"><?php esc_html_e( 'Reset', 'at-shift-cfs' ); ?></a>
+    </h2>
 
     <div class="content-container">
 
         <!-- Export -->
 
         <div class="tab-content export active">
-            <table>
-                <tr>
-                    <td style="width:300px; vertical-align:top">
-                        <div>
-                            <select id="export-field-groups" style="width:300px; height:120px" multiple="multiple">
-                                <?php foreach ($results as $result) : ?>
-                                <option value="<?php echo absint( $result->ID ); ?>"><?php echo esc_html( $result->post_title ); ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <div>
-                            <input type="button" id="button-export" class="button" value="<?php _e('Export', 'at-shift-cfs' ); ?>" />
-                        </div>
-                    </td>
-                    <td style="width:300px; vertical-align:top">
-                        <div id="export-area" style="display:none">
-                            <div>
-                                <textarea id="export-output" style="width:98%; height:120px"></textarea>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <p class="cfs-tools-description"><?php esc_html_e( 'Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items.', 'at-shift-cfs' ); ?></p>
+
+            <div class="cfs-tools-grid">
+                <div class="cfs-tools-field">
+                    <label for="export-field-groups"><?php esc_html_e( 'Field Groups', 'at-shift-cfs' ); ?></label>
+                    <select id="export-field-groups" multiple="multiple">
+                        <?php foreach ($results as $result) : ?>
+                        <option value="<?php echo absint( $result->ID ); ?>"><?php echo esc_html( $result->post_title ); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <div class="cfs-tools-actions">
+                        <input type="button" id="button-export" class="button button-primary" value="<?php esc_attr_e( 'Export', 'at-shift-cfs' ); ?>" />
+                    </div>
+                </div>
+
+                <div id="export-area" class="cfs-tools-field" style="display:none">
+                    <label for="export-output"><?php esc_html_e( 'Export Code', 'at-shift-cfs' ); ?></label>
+                    <textarea id="export-output" readonly="readonly"></textarea>
+                </div>
+            </div>
         </div>
 
         <!-- Import -->
 
         <div class="tab-content import">
-            <textarea id="import-code" style="width:100%; height:120px" placeholder="Paste the import code here"></textarea>
-            <div><input type="button" id="button-import" class="button" value="<?php _e('Import', 'at-shift-cfs' ); ?>" /></div>
+            <p class="cfs-tools-description"><?php esc_html_e( 'Paste the exported field group code into the input field below, then press the button.', 'at-shift-cfs' ); ?></p>
+
+            <div class="cfs-tools-field">
+                <label for="import-code"><?php esc_html_e( 'Import Code', 'at-shift-cfs' ); ?></label>
+                <textarea id="import-code" placeholder="<?php esc_attr_e( 'Paste the import code here', 'at-shift-cfs' ); ?>"></textarea>
+                <div class="cfs-tools-actions">
+                    <input type="button" id="button-import" class="button button-primary" value="<?php esc_attr_e( 'Import', 'at-shift-cfs' ); ?>" />
+                </div>
+            </div>
             <div id="import-message"></div>
         </div>
 
         <!-- Reset -->
 
-        <div class="tab-content reset">
-            <h2><?php _e('Reset and deactivate.', 'at-shift-cfs' ); ?></h2>
-            <p><?php _e('This will delete all at-shift CFS data and deactivate the plugin.', 'at-shift-cfs' ); ?></p>
-            <input type="button" id="button-reset" class="button" value="<?php _e('Delete everything', 'at-shift-cfs' ); ?>" />
+        <div class="tab-content reset cfs-tools-reset">
+            <h2><?php esc_html_e( 'Reset and deactivate.', 'at-shift-cfs' ); ?></h2>
+            <p class="cfs-tools-warning"><?php esc_html_e( 'This will delete all at-shift CFS data and deactivate the plugin.', 'at-shift-cfs' ); ?></p>
+            <input type="button" id="button-reset" class="button cfs-tools-danger-button" value="<?php esc_attr_e( 'Delete everything', 'at-shift-cfs' ); ?>" />
         </div>
     </div>
 </div>

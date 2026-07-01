@@ -435,7 +435,7 @@ msgstr "Visszaállítás és kikapcsolás"
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all at-shift CFS data and deactivate the plugin."
-msgstr "Összes CFS adat törlése és a bővítmény kikapcsolása."
+msgstr "Ez teljesen törli az összes at-shift CFS-adatot, majd deaktiválja és alaphelyzetbe állítja a bővítményt."
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
@@ -700,3 +700,27 @@ msgstr "Lenyitható"
 
 msgid "CONDITION"
 msgstr "Feltétel"
+
+#: ../templates/page_tools.php:206
+msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
+msgstr "Válassza ki az exportálni kívánt mezőcsoportokat, nyomja meg a gombot, majd mentse el a megjelenő kódot. Több elem is kijelölhető."
+
+#: ../templates/page_tools.php:222
+msgid "Export Code"
+msgstr "Exportkód"
+
+#: ../templates/page_tools.php:231
+msgid "Paste the exported field group code into the input field below, then press the button."
+msgstr "Illessze be az exportált mezőcsoport kódját az alábbi beviteli mezőbe, majd nyomja meg a gombot."
+
+#: ../templates/page_tools.php:234
+msgid "Import Code"
+msgstr "Importkód"
+
+#: ../templates/page_tools.php:235
+msgid "Paste the import code here"
+msgstr "Illessze be ide az importkódot"
+
+#: ../templates/page_tools.php:150
+msgid "This will delete all at-shift CFS data. Are you sure?"
+msgstr "Ez teljesen törli az összes at-shift CFS-adatot. Biztos benne?"
