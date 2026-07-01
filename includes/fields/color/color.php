@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_color extends cfs_field
 {
@@ -13,7 +17,7 @@ class cfs_color extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Default Value', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -30,10 +34,10 @@ class cfs_color extends cfs_field
 
 
     function input_head( $field = null ) {
-        wp_register_script( 'miniColors', esc_url( CFS_URL . '/includes/fields/color/jquery.miniColors.min.js' ) );
+        wp_register_script( 'miniColors', esc_url( CFS_URL . '/includes/fields/color/jquery.miniColors.min.js' ), [ 'jquery' ], CFS_VERSION, true );
         wp_enqueue_script( 'miniColors' );
+        wp_enqueue_style( 'miniColors', esc_url( CFS_URL . '/includes/fields/color/color.css' ), [], CFS_VERSION );
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo esc_url( CFS_URL . '/includes/fields/color/color.css' ); ?>" />
         <script>
         (function($) {
             $(document).on('focus', '.cfs_color input.color', function() {

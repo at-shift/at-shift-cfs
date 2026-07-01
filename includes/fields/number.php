@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_number extends cfs_field
 {
@@ -23,7 +27,7 @@ class cfs_number extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Default Value', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -37,7 +41,7 @@ class cfs_number extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Number Settings', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Number Settings', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][min]" value="<?php echo esc_attr( $this->get_option( $field, 'min' ) ); ?>" placeholder="min" style="width:80px" />
@@ -47,7 +51,7 @@ class cfs_number extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php

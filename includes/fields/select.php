@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_select extends cfs_field
 {
@@ -37,14 +41,13 @@ class cfs_select extends cfs_field
         $has_empty_choice = isset( $choices[''] ) || isset( $choices['{empty}'] );
         $show_placeholder = '' === $multiple && empty( $field->options['force_single'] ) && ! $has_empty_choice;
     ?>
-        <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php echo $multiple; ?>>
+        <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php if ( $multiple ) : ?> multiple="multiple"<?php endif; ?>>
         <?php if ( $show_placeholder ) : ?>
-            <option value=""<?php echo in_array( '', $selected_values, true ) ? ' selected' : ''; ?>><?php esc_html_e( 'Please select...', 'at-shift-cfs' ); ?></option>
+            <option value=""<?php selected( in_array( '', $selected_values, true ) ); ?>><?php esc_html_e( 'Please select...', 'at-shift-cfs' ); ?></option>
         <?php endif; ?>
         <?php foreach ( $choices as $val => $label ) : ?>
             <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
-            <?php $selected = in_array( (string) $val, $selected_values, true ) ? ' selected' : ''; ?>
-            <option value="<?php echo esc_attr( $val ); ?>"<?php echo $selected; ?>><?php echo esc_attr( $label ); ?></option>
+            <option value="<?php echo esc_attr( $val ); ?>"<?php selected( in_array( (string) $val, $selected_values, true ) ); ?>><?php echo esc_html( $label ); ?></option>
         <?php endforeach; ?>
         </select>
     <?php
@@ -57,8 +60,8 @@ class cfs_select extends cfs_field
             return;
         }
 
-        echo '<script src="' . esc_url( CFS_URL . '/assets/js/select2/select2.min.js' ) . '"></script>';
-        echo '<link rel="stylesheet" type="text/css" href="' . esc_url( CFS_URL . '/assets/js/select2/select2.css' ) . '" />';
+        wp_enqueue_script( 'cfs-select2', esc_url( CFS_URL . '/assets/js/select2/select2.min.js' ), [ 'jquery' ], CFS_VERSION, true );
+        wp_enqueue_style( 'cfs-select2', esc_url( CFS_URL . '/assets/js/select2/select2.css' ), [], CFS_VERSION );
 
         // Don't insert select2 code twice
         $this->select2_inserted = true;
@@ -108,8 +111,8 @@ class cfs_select extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Choices', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php _e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e( 'Choices', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -123,7 +126,7 @@ class cfs_select extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Multi-select?', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Multi-select?', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -139,7 +142,7 @@ class cfs_select extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e('Select2', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e('Select2', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -155,7 +158,7 @@ class cfs_select extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php

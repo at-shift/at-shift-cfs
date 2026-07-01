@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_wysiwyg extends cfs_field
 {
@@ -31,7 +35,7 @@ class cfs_wysiwyg extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Formatting', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Formatting', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -52,7 +56,7 @@ class cfs_wysiwyg extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -197,12 +201,7 @@ class cfs_wysiwyg extends cfs_field
 
 
     function format_value_for_input( $value, $field = null ) {
-        if ( version_compare( get_bloginfo( 'version' ), '4.3', '>=' ) ) {
-            return format_for_editor( $value );
-        }
-        else {
-            return wp_richedit_pre( $value );
-        }
+        return format_for_editor( $value );
     }
 
 

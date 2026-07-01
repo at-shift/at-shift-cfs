@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_term extends cfs_field
 {
@@ -35,15 +39,7 @@ class cfs_term extends cfs_field
 
         $args = apply_filters( 'cfs_field_term_query_args', $args, [ 'field' => $field ] );
 
-        // Use older `get_terms` function signature for older versions of WP
-        if ( version_compare( get_bloginfo('version'), '4.5', '<' ) ) {
-            $taxonomy = $args['taxonomy'];
-            unset( $args['taxonomy'] );
-
-            $query = get_terms( $taxonomy, $args );
-        } else {
-            $query = get_terms( $args );
-        }
+        $query = get_terms( $args );
 
         foreach ( $query as $term_id ) {
             $term = get_term( $term_id );
@@ -58,21 +54,26 @@ class cfs_term extends cfs_field
         $field->value = implode( ',', $field_value );
 
         if ( ! empty( $field_value ) ) {
-            $field_value = implode( ',', $field_value );
-            $results = $wpdb->get_results( "SELECT term_id, name FROM $wpdb->terms WHERE term_id IN ($field_value) ORDER BY FIELD(term_id,$field_value)" );
+            $field_value_placeholders = implode( ',', array_fill( 0, count( $field_value ), '%d' ) );
+            $results = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT term_id, name FROM $wpdb->terms WHERE term_id IN ($field_value_placeholders) ORDER BY FIELD(term_id,$field_value_placeholders)",
+                    array_merge( $field_value, $field_value )
+                )
+            );
             foreach ( $results as $result ) {
                 $selected_posts[ $result->term_id ] = $result;
             }
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php _e( 'Search terms', 'at-shift-cfs' ); ?>" />
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php esc_attr_e( 'Search terms', 'at-shift-cfs' ); ?>" />
         </div>
 
         <div class="available_posts post_list">
         <?php foreach ( $available_posts as $term ) : ?>
-            <?php $class = ( isset( $selected_posts[ $term->term_id ] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo absint( $term->term_id ); ?>"<?php echo $class; ?> title="<?php echo esc_attr( $term->name ); ?>"><?php echo wp_kses_post( apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
+            <?php $class = ( isset( $selected_posts[ $term->term_id ] ) ) ? 'used' : ''; ?>
+            <div rel="<?php echo absint( $term->term_id ); ?>" class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $term->name ); ?>"><?php echo wp_kses_post( apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
@@ -94,8 +95,8 @@ class cfs_term extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e('Taxonomies', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php _e('Limit terms to the following taxonomies', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e('Taxonomies', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e('Limit terms to the following taxonomies', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -110,7 +111,7 @@ class cfs_term extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Limits', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Limits', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />

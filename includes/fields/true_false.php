@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_true_false extends cfs_field
 {
@@ -30,8 +34,8 @@ class cfs_true_false extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Message', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php _e( 'The text beside the checkbox', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e( 'Message', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e( 'The text beside the checkbox', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -45,7 +49,7 @@ class cfs_true_false extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php

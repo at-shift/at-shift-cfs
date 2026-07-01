@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_textarea extends cfs_field
 {
@@ -21,7 +25,7 @@ class cfs_textarea extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Default Value', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -35,7 +39,7 @@ class cfs_textarea extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Formatting', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Formatting', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -56,7 +60,7 @@ class cfs_textarea extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php

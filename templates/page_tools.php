@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 global $wpdb;
 
@@ -7,7 +11,8 @@ SELECT ID, post_title
 FROM $wpdb->posts
 WHERE post_type = 'cfs' AND post_status = 'publish'
 ORDER BY post_title";
-$results = $wpdb->get_results($sql);
+// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query contains only WordPress table names and fixed post status/type values.
+$results = $wpdb->get_results( $sql );
 ?>
 
 <style type="text/css">
@@ -134,7 +139,7 @@ $results = $wpdb->get_results($sql);
 (function($) {
     $(function() {
         var $tools = $('.cfs-tools');
-        var cfs_nonce = '<?php echo wp_create_nonce( 'cfs_admin_nonce' ); ?>';
+        var cfs_nonce = '<?php echo esc_js( wp_create_nonce( 'cfs_admin_nonce' ) ); ?>';
         var reset_confirm_message = <?php echo wp_json_encode( __( 'This will delete all at-shift CFS data. Are you sure?', 'at-shift-cfs' ) ); ?>;
 
         $tools.find('.nav-tab').click(function(e) {

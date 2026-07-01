@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_file extends cfs_field
 {
@@ -33,8 +37,8 @@ class cfs_file extends cfs_field
         $css = empty( $field->value ) ? [ '', ' hidden' ] : [ ' hidden', '' ];
     ?>
         <span class="file_url"><?php echo wp_kses_post( $file_url ); ?></span>
-        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php _e( 'Add File', 'at-shift-cfs' ); ?>" />
-        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php _e( 'Remove', 'at-shift-cfs' ); ?>" />
+        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Add File', 'at-shift-cfs' ); ?>" />
+        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove', 'at-shift-cfs' ); ?>" />
         <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="file_value" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
     }
@@ -44,7 +48,7 @@ class cfs_file extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'File Type', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'File Type', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -67,7 +71,7 @@ class cfs_file extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Return Value', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Return Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -88,7 +92,7 @@ class cfs_file extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php

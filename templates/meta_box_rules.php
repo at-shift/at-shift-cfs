@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 global $post, $wpdb, $wp_roles;
 
@@ -54,15 +58,20 @@ $post_ids = [];
 $json_posts = [];
 
 if ( ! empty( $rules['post_ids']['values'] ) ) {
-    $post_in = implode( ',', array_filter( array_map( 'absint', (array) $rules['post_ids']['values'] ) ) );
+    $post_in = array_values( array_filter( array_map( 'absint', (array) $rules['post_ids']['values'] ) ) );
 
     $results = [];
     if ( ! empty( $post_in ) ) {
-        $sql = "
+        $post_in_placeholders = implode( ',', array_fill( 0, count( $post_in ), '%d' ) );
+        $sql = $wpdb->prepare(
+            "
         SELECT ID, post_type, post_title, post_parent
         FROM $wpdb->posts
-        WHERE ID IN ($post_in)
-        ORDER BY post_type, post_title";
+        WHERE ID IN ($post_in_placeholders)
+        ORDER BY post_type, post_title",
+            $post_in
+        );
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $sql is prepared above with sanitized post IDs.
         $results = $wpdb->get_results( $sql );
     }
 
@@ -88,6 +97,7 @@ SELECT t.term_id, t.name, tt.taxonomy
 FROM $wpdb->terms t
 INNER JOIN $wpdb->term_taxonomy tt ON tt.term_id = t.term_id AND tt.taxonomy != 'post_tag'
 ORDER BY tt.parent, tt.taxonomy, t.name";
+// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query contains only WordPress table names and fixed taxonomy filtering.
 $results = $wpdb->get_results( $sql );
 
 foreach ( $results as $result ) {
@@ -107,15 +117,15 @@ foreach ( $templates as $template_name => $filename ) {
 <script>
 (function($) {
     $(function() {
-        var cfs_nonce = '<?php echo wp_create_nonce( 'cfs_admin_nonce' ); ?>';
+        var cfs_nonce = '<?php echo esc_js( wp_create_nonce( 'cfs_admin_nonce' ) ); ?>';
 
         $('.select2').select2({
-            placeholder: '<?php _e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>'
+            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>'
         });
 
         $('.select2-ajax').select2({
             multiple: true,
-            placeholder: '<?php _e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>',
+            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>',
             minimumInputLength: 2,
             ajax: {
                 url: ajaxurl,
@@ -149,7 +159,7 @@ foreach ( $templates as $template_name => $filename ) {
 <table>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e( 'Post Types', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Post Types', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -182,7 +192,7 @@ foreach ( $templates as $template_name => $filename ) {
     <?php if ( current_theme_supports( 'post-formats' ) && count( $post_formats ) ) : ?>
         <tr>
             <td class="label cfs-rule-label">
-                <label><?php _e( 'Post Formats', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Post Formats', 'at-shift-cfs' ); ?></label>
             </td>
             <td class="cfs-rule-operator">
                 <?php
@@ -215,7 +225,7 @@ foreach ( $templates as $template_name => $filename ) {
     <?php endif; ?>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e( 'User Roles', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'User Roles', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -247,7 +257,7 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e('Posts', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e('Posts', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -271,7 +281,7 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e( 'Taxonomy Terms', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Taxonomy Terms', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -303,7 +313,7 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php _e( 'Page Templates', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Page Templates', 'at-shift-cfs' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php

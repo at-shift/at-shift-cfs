@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_user extends cfs_field
 {
@@ -26,8 +30,13 @@ class cfs_user extends cfs_field
         $field->value = implode( ',', $field_value );
 
         if ( ! empty( $field_value ) ) {
-            $field_value = implode( ',', $field_value );
-            $results = $wpdb->get_results( "SELECT ID, user_login, display_name FROM $wpdb->users WHERE ID IN ($field_value) ORDER BY FIELD(ID,$field_value)" );
+            $field_value_placeholders = implode( ',', array_fill( 0, count( $field_value ), '%d' ) );
+            $results = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT ID, user_login, display_name FROM $wpdb->users WHERE ID IN ($field_value_placeholders) ORDER BY FIELD(ID,$field_value_placeholders)",
+                    array_merge( $field_value, $field_value )
+                )
+            );
             foreach ( $results as $result ) {
                 $result->cfs_label = $can_list_users ? $result->user_login : $result->display_name;
                 $selected_users[ $result->ID ] = $result;
@@ -35,13 +44,13 @@ class cfs_user extends cfs_field
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php _e( 'Search users', 'at-shift-cfs' ); ?>" />
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php esc_attr_e( 'Search users', 'at-shift-cfs' ); ?>" />
         </div>
 
         <div class="available_posts post_list">
         <?php foreach ( $available_users as $user ) : ?>
-            <?php $class = ( isset( $selected_users[ $user->ID ] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo absint( $user->ID ); ?>"<?php echo $class; ?>><?php echo wp_kses_post( apply_filters( 'cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
+            <?php $class = ( isset( $selected_users[ $user->ID ] ) ) ? 'used' : ''; ?>
+            <div rel="<?php echo absint( $user->ID ); ?>" class="<?php echo esc_attr( $class ); ?>"><?php echo wp_kses_post( apply_filters( 'cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
@@ -60,7 +69,7 @@ class cfs_user extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Limits', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Limits', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />

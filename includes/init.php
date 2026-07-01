@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_init
 {
@@ -272,6 +276,7 @@ class cfs_init
                 'id'         => absint( $group_id ),
                 'name'       => 'cfs/field-group-' . absint( $group_id ),
                 'title'      => $group['title'],
+                /* translators: %s: field group title. */
                 'blockTitle' => sprintf( __( 'CFS Field Group: %s', 'at-shift-cfs' ), $group['title'] ),
                 'fieldCount' => count( $fields ),
             ];
@@ -600,7 +605,7 @@ class cfs_init
                 $options = [
                     'import_code' => json_decode( stripslashes( $_POST['import_code'] ), true ),
                 ];
-                echo CFS()->field_group->import( $options );
+                echo wp_kses_post( CFS()->field_group->import( $options ) );
             }
             elseif ('export' == $ajax_method) {
                 echo wp_json_encode( CFS()->field_group->export( $_POST ) );
@@ -611,7 +616,7 @@ class cfs_init
                 echo esc_url_raw( admin_url( 'plugins.php' ) );
             }
             elseif ( in_array( $ajax_method, [ 'search_posts' ], true ) && method_exists( $ajax, $ajax_method ) ) {
-                echo $ajax->$ajax_method( $_POST );
+                echo wp_json_encode( json_decode( $ajax->$ajax_method( $_POST ), true ) );
             }
         }
 
@@ -678,7 +683,7 @@ class cfs_init
                     $values = $temp;
                 }
 
-                echo "<div><strong>$label</strong> " . $operator . ' ' . esc_html( implode( ', ', $values ) ) . '</div>';
+                echo '<div><strong>' . esc_html( $label ) . '</strong> ' . esc_html( $operator ) . ' ' . esc_html( implode( ', ', $values ) ) . '</div>';
             }
         }
     }

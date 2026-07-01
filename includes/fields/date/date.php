@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_date extends cfs_field
 {
@@ -39,11 +43,10 @@ class cfs_date extends cfs_field
             'daysMin'     => $weekdays_min,
             'months'      => $months,
             'monthsShort' => $months_short,
-            'today'       => __( 'Today' ),
+            'today'       => __( 'Today', 'at-shift-cfs' ),
             'clear'       => _x( 'Clear', 'date picker', 'at-shift-cfs' ),
         ];
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo esc_url( CFS_URL . '/includes/fields/date/datepicker.css' ); ?>" />
         <script>
         (function($) {
             var dateLocale = <?php echo wp_json_encode( $date_locale ); ?>;
@@ -96,7 +99,8 @@ class cfs_date extends cfs_field
 
 
     function load_assets() {
-        wp_register_script( 'bootstrap-datepicker', esc_url( CFS_URL . '/includes/fields/date/bootstrap-datepicker.js' ), [ 'jquery' ] );
+        wp_enqueue_style( 'bootstrap-datepicker', esc_url( CFS_URL . '/includes/fields/date/datepicker.css' ), [], CFS_VERSION );
+        wp_register_script( 'bootstrap-datepicker', esc_url( CFS_URL . '/includes/fields/date/bootstrap-datepicker.js' ), [ 'jquery' ], CFS_VERSION, true );
         wp_enqueue_script( 'bootstrap-datepicker' );
     }
 }

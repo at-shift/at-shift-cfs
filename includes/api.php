@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_api
 {
@@ -80,17 +84,22 @@ class cfs_api
 
             if ( ! empty( $fields ) ) {
                 // Make sure we're using active field groups
-                    $field_ids = implode( ',', array_filter( array_map( 'absint', array_keys( $fields ) ) ) );
+                    $field_ids = array_values( array_filter( array_map( 'absint', array_keys( $fields ) ) ) );
                     $post_id = absint( $post_id );
+                    $field_id_placeholders = implode( ',', array_fill( 0, count( $field_ids ), '%d' ) );
 
                 // Get all the field data
-                $sql = "
+                $sql = $wpdb->prepare(
+                    "
                 SELECT m.meta_value, v.field_id, v.hierarchy, v.weight
                 FROM {$wpdb->prefix}cfs_values v
                 INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-                WHERE v.field_id IN ($field_ids) AND v.post_id IN ($post_id)
-                ORDER BY v.depth, FIELD(v.field_id, $field_ids), v.weight, v.sub_weight";
+                WHERE v.field_id IN ($field_id_placeholders) AND v.post_id = %d
+                ORDER BY v.depth, FIELD(v.field_id, $field_id_placeholders), v.weight, v.sub_weight",
+                    array_merge( $field_ids, [ $post_id ], $field_ids )
+                );
 
+                // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $sql is prepared above with sanitized field and post IDs.
                 $results = $wpdb->get_results( $sql );
                 $num_rows = $wpdb->num_rows;
 
@@ -245,6 +254,7 @@ class cfs_api
         INNER JOIN $wpdb->postmeta m ON m.meta_id = v.meta_id
         WHERE " . implode( ' AND ', $where );
 
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,PluginCheck.Security.DirectDB.UnescapedDBParameter -- WHERE fragments are prepared by prepare_in_clause().
         $results = $wpdb->get_results( $sql );
         $output = [];
 
@@ -373,16 +383,21 @@ class cfs_api
                 }
             }
 
-            $field_ids = implode( ',', array_filter( array_map( 'absint', $field_ids ) ) );
+            $field_ids = array_values( array_filter( array_map( 'absint', $field_ids ) ) );
 
-            $sql = "
+            if ( ! empty( $field_ids ) ) {
+                $field_id_placeholders = implode( ',', array_fill( 0, count( $field_ids ), '%d' ) );
+
+                $sql = $wpdb->prepare(
+                    "
             DELETE v, m
             FROM {$wpdb->prefix}cfs_values v
             LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-            WHERE v.post_id = %d AND (v.field_id IN ($field_ids) OR v.base_field_id IN ($field_ids))";
-
-            if ( ! empty( $field_ids ) ) {
-                $wpdb->query( $wpdb->prepare( $sql, absint( $post_id ) ) );
+            WHERE v.post_id = %d AND (v.field_id IN ($field_id_placeholders) OR v.base_field_id IN ($field_id_placeholders))",
+                    array_merge( [ absint( $post_id ) ], $field_ids, $field_ids )
+                );
+                // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $sql is prepared above with sanitized field and post IDs.
+                $wpdb->query( $sql );
             }
         }
         elseif ( 'input' == $options['format'] ) {
@@ -394,16 +409,21 @@ class cfs_api
                 foreach ( $results as $result ) {
                     $field_ids[] = $result['id'];
                 }
-                $field_ids = implode( ',', array_filter( array_map( 'absint', $field_ids ) ) );
+                $field_ids = array_values( array_filter( array_map( 'absint', $field_ids ) ) );
 
-                $sql = "
+                if ( ! empty( $field_ids ) ) {
+                    $field_id_placeholders = implode( ',', array_fill( 0, count( $field_ids ), '%d' ) );
+
+                    $sql = $wpdb->prepare(
+                        "
                 DELETE v, m
                 FROM {$wpdb->prefix}cfs_values v
                 LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-                WHERE v.post_id = %d AND v.field_id IN ($field_ids)";
-
-                if ( ! empty( $field_ids ) ) {
-                    $wpdb->query( $wpdb->prepare( $sql, absint( $post_id ) ) );
+                WHERE v.post_id = %d AND v.field_id IN ($field_id_placeholders)",
+                        array_merge( [ absint( $post_id ) ], $field_ids )
+                    );
+                    // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $sql is prepared above with sanitized field and post IDs.
+                    $wpdb->query( $sql );
                 }
             }
         }
@@ -779,6 +799,7 @@ class cfs_api
                         SELECT tt.term_id
                         FROM $wpdb->term_taxonomy tt
                         INNER JOIN $wpdb->term_relationships tr ON tr.term_taxonomy_id = tt.term_taxonomy_id AND tr.object_id = %d";
+                        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $sql is prepared on this line with a sanitized post ID.
                         $value = $wpdb->get_col( $wpdb->prepare( $sql, $post_id ) );
                     }
 

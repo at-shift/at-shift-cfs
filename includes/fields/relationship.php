@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_relationship extends cfs_field
 {
@@ -54,8 +58,13 @@ class cfs_relationship extends cfs_field
         $field->value = implode( ',', $field_value );
 
         if ( ! empty( $field_value ) ) {
-            $field_value = implode( ',', $field_value );
-            $results = $wpdb->get_results( "SELECT ID, post_status, post_title FROM $wpdb->posts WHERE ID IN ($field_value) ORDER BY FIELD(ID,$field_value)" );
+            $field_value_placeholders = implode( ',', array_fill( 0, count( $field_value ), '%d' ) );
+            $results = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT ID, post_status, post_title FROM $wpdb->posts WHERE ID IN ($field_value_placeholders) ORDER BY FIELD(ID,$field_value_placeholders)",
+                    array_merge( $field_value, $field_value )
+                )
+            );
             foreach ( $results as $result ) {
                 if ( 'private' === $result->post_status && ! current_user_can( 'read_post', $result->ID ) ) {
                     continue;
@@ -67,13 +76,13 @@ class cfs_relationship extends cfs_field
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php _e( 'Search posts', 'at-shift-cfs' ); ?>" />
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php esc_attr_e( 'Search posts', 'at-shift-cfs' ); ?>" />
         </div>
 
         <div class="available_posts post_list">
         <?php foreach ( $available_posts as $post ) : ?>
-            <?php $class = ( isset( $selected_posts[ $post->ID ] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo absint( $post->ID ); ?>"<?php echo $class; ?> title="<?php echo esc_attr( $post->post_type ); ?>"><?php echo wp_kses_post( apply_filters( 'cfs_relationship_display', $post->post_title, $post->ID, $field ) ); ?></div>
+            <?php $class = ( isset( $selected_posts[ $post->ID ] ) ) ? 'used' : ''; ?>
+            <div rel="<?php echo absint( $post->ID ); ?>" class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $post->post_type ); ?>"><?php echo wp_kses_post( apply_filters( 'cfs_relationship_display', $post->post_title, $post->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
@@ -95,8 +104,8 @@ class cfs_relationship extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e('Post Types', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php _e('Limit posts to the following types', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e('Post Types', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e('Limit posts to the following types', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -111,7 +120,7 @@ class cfs_relationship extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Limits', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Limits', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />

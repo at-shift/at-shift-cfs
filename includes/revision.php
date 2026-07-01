@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 if ( defined( 'CFS_REVISIONS' ) && CFS_REVISIONS ) {
     new cfs_revision();
@@ -23,7 +27,7 @@ class cfs_revision
      * @see wp-includes/revision.php - wp_save_post_revision()
      */
     function _wp_post_revision_fields( $fields ) {
-        $fields[ 'cfs_postmeta' ] = __( 'Post Meta' );
+        $fields[ 'cfs_postmeta' ] = __( 'Post Meta', 'at-shift-cfs' );
         return $fields;
     }
 

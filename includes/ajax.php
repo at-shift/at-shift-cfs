@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_ajax
 {
@@ -10,18 +14,22 @@ class cfs_ajax
     public function search_posts( $options ) {
         global $wpdb;
 
-        $sql = $wpdb->prepare("
+        $search = isset( $options['q'] ) ? sanitize_text_field( wp_unslash( $options['q'] ) ) : '';
+
+        $results = $wpdb->get_results(
+            $wpdb->prepare(
+                "
         SELECT ID, post_type, post_title, post_parent
         FROM $wpdb->posts
         WHERE
             post_status IN ('publish', 'private') AND
             post_type NOT IN ('cfs', 'attachment', 'revision', 'nav_menu_item') AND
-            post_title LIKE '%s'
+            post_title LIKE %s
         ORDER BY post_type, post_title
         LIMIT 10",
-        '%' . $wpdb->esc_like( sanitize_text_field( $options['q'] ) ) . '%' );
-
-        $results = $wpdb->get_results( $sql );
+                '%' . $wpdb->esc_like( $search ) . '%'
+            )
+        );
 
         $output = [];
         foreach ( $results as $result ) {
@@ -55,12 +63,14 @@ class cfs_ajax
         DELETE p, m FROM {$wpdb->posts} p
         LEFT JOIN {$wpdb->postmeta} m ON m.post_id = p.ID
         WHERE p.post_type = 'cfs'";
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table names are WordPress-generated and the query has no user input.
         $wpdb->query( $sql );
 
         // Drop custom field values
         $sql = "
         DELETE v, m FROM {$wpdb->prefix}cfs_values v
         LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id";
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table names are WordPress-generated and the query has no user input.
         $wpdb->query( $sql );
 
         // Drop tables

@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_radio extends cfs_field
 {
@@ -17,9 +21,8 @@ class cfs_radio extends cfs_field
         <div class="cfs_choice_list cfs_radio_choices">
         <?php foreach ( $choices as $val => $label ) : ?>
             <?php $val = ( '{empty}' == $val ) ? '' : (string) $val; ?>
-            <?php $checked = ( $val === $value ) ? ' checked' : ''; ?>
             <label class="cfs_choice">
-                <input type="radio" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $val ); ?>"<?php echo $checked; ?> />
+                <input type="radio" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $val ); ?>"<?php checked( $val, $value ); ?> />
                 <span><?php echo esc_html( $label ); ?></span>
             </label>
         <?php endforeach; ?>
@@ -44,8 +47,8 @@ class cfs_radio extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Choices', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php _e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e( 'Choices', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -59,7 +62,7 @@ class cfs_radio extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php

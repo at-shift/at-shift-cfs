@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_code_view extends cfs_field
 {
@@ -15,7 +19,7 @@ class cfs_code_view extends cfs_field
         $field->value = $this->normalize_value_with_default( $field->value, '' );
     ?>
         <div class="cfs-code-view-language-control" style="margin-bottom:10px;">
-            <label style="display:block;margin-bottom:3px;"><?php esc_html_e( 'Language', 'at-shift-cfs' ); ?><?php echo cfs_field::is_required_field( $field ) ? cfs_field::required_badge() : ''; ?></label>
+            <label style="display:block;margin-bottom:3px;"><?php esc_html_e( 'Language', 'at-shift-cfs' ); ?><?php echo cfs_field::is_required_field( $field ) ? wp_kses_post( cfs_field::required_badge() ) : ''; ?></label>
             <select name="<?php echo esc_attr( $field->input_name ); ?>[language]" class="cfs-code-view-language">
                 <?php foreach ( $this->get_input_languages() as $language => $label ) : ?>
                     <option value="<?php echo esc_attr( $language ); ?>"<?php selected( $field->value['language'], $language ); ?>><?php echo esc_html( $label ); ?></option>
@@ -31,7 +35,7 @@ class cfs_code_view extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Default Value', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -45,7 +49,7 @@ class cfs_code_view extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Copy Button', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Copy Button', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -61,7 +65,7 @@ class cfs_code_view extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php

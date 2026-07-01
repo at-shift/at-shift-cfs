@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 global $wpdb;
 
@@ -30,9 +34,9 @@ if ( ! isset( $extras['context'] ) ) {
     <tr>
         <td class="label">
             <label>
-                <?php _e( 'Order', 'at-shift-cfs' ); ?>
+                <?php esc_html_e( 'Order', 'at-shift-cfs' ); ?>
                 <div class="cfs_tooltip">?
-                    <div class="tooltip_inner"><?php _e( 'The field group with the lowest order will appear first.', 'at-shift-cfs' ); ?></div>
+                    <div class="tooltip_inner"><?php esc_html_e( 'The field group with the lowest order will appear first.', 'at-shift-cfs' ); ?></div>
                 </div>
             </label>
         </td>
@@ -42,16 +46,16 @@ if ( ! isset( $extras['context'] ) ) {
     </tr>
     <tr>
         <td class="label">
-            <label><?php _e( 'Position', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Position', 'at-shift-cfs' ); ?></label>
         </td>
         <td style="vertical-align:top">
-            <input type="radio" name="cfs[extras][context]" value="normal"<?php echo ( $extras['context'] == 'normal' ) ? ' checked' : ''; ?> /> <?php _e( 'Normal', 'at-shift-cfs' ); ?> &nbsp; &nbsp;
-            <input type="radio" name="cfs[extras][context]" value="side"<?php echo ( $extras['context'] == 'side' ) ? ' checked' : ''; ?> /> <?php _e( 'Side', 'at-shift-cfs' ); ?>
+            <input type="radio" name="cfs[extras][context]" value="normal"<?php echo ( $extras['context'] == 'normal' ) ? ' checked' : ''; ?> /> <?php esc_html_e( 'Normal', 'at-shift-cfs' ); ?> &nbsp; &nbsp;
+            <input type="radio" name="cfs[extras][context]" value="side"<?php echo ( $extras['context'] == 'side' ) ? ' checked' : ''; ?> /> <?php esc_html_e( 'Side', 'at-shift-cfs' ); ?>
         </td>
     </tr>
     <tr>
         <td class="label">
-            <label><?php _e( 'Display Settings', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Display Settings', 'at-shift-cfs' ); ?></label>
         </td>
         <td style="vertical-align:top">
             <div>

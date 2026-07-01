@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_field_group
 {
@@ -27,6 +31,7 @@ class cfs_field_group
         INNER JOIN $wpdb->postmeta m2 ON m2.post_id = p.ID AND m2.meta_key = 'cfs_rules'
         INNER JOIN $wpdb->postmeta m3 ON m3.post_id = p.ID AND m3.meta_key = 'cfs_extras'
         WHERE p.post_status = 'publish'";
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query contains only WordPress table names and fixed meta keys.
         $results = $wpdb->get_results( $sql );
 
         $output = [];
@@ -136,12 +141,19 @@ class cfs_field_group
             $post_ids[] = absint( $post_id );
         }
 
-        $post_ids = implode( ',', array_filter( $post_ids ) );
+        $post_ids = array_values( array_filter( $post_ids ) );
         if ( empty( $post_ids ) ) {
             return [];
         }
 
-        $post_data = $wpdb->get_results( "SELECT ID, post_title, post_name FROM {$wpdb->posts} WHERE post_type = 'cfs' AND ID IN ($post_ids)" );
+        $post_id_placeholders = implode( ',', array_fill( 0, count( $post_ids ), '%d' ) );
+
+        $post_data = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT ID, post_title, post_name FROM {$wpdb->posts} WHERE post_type = %s AND ID IN ($post_id_placeholders)",
+                array_merge( [ 'cfs' ], $post_ids )
+            )
+        );
 
         foreach ( $post_data as $row ) {
             $field_groups[ $row->ID ] = [
@@ -150,7 +162,12 @@ class cfs_field_group
             ];
         }
 
-        $meta_data = $wpdb->get_results( "SELECT * FROM {$wpdb->postmeta} WHERE meta_key LIKE 'cfs_%' AND post_id IN ($post_ids)" );
+        $meta_data = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT * FROM {$wpdb->postmeta} WHERE meta_key LIKE %s AND post_id IN ($post_id_placeholders)",
+                array_merge( [ $wpdb->esc_like( 'cfs_' ) . '%' ], $post_ids )
+            )
+        );
         foreach ( $meta_data as $row ) {
             $value = $this->safe_unserialize( $row->meta_value, [] );
             $field_groups[ $row->post_id ][ $row->meta_key ] = $value;
@@ -325,13 +342,18 @@ class cfs_field_group
         $deleted_field_ids = apply_filters( 'cfs_deleted_field_ids', $deleted_field_ids );
 
         if ( 0 < count( $deleted_field_ids ) ) {
-            $deleted_field_ids = implode( ',', array_filter( array_map( 'absint', $deleted_field_ids ) ) );
+            $deleted_field_ids = array_values( array_filter( array_map( 'absint', $deleted_field_ids ) ) );
             if ( ! empty( $deleted_field_ids ) ) {
-                $wpdb->query("
+                $deleted_field_placeholders = implode( ',', array_fill( 0, count( $deleted_field_ids ), '%d' ) );
+                $wpdb->query(
+                    $wpdb->prepare(
+                        "
                     DELETE v, m
                     FROM {$wpdb->prefix}cfs_values v
                     INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-                    WHERE v.field_id IN ($deleted_field_ids)"
+                    WHERE v.field_id IN ($deleted_field_placeholders)",
+                        $deleted_field_ids
+                    )
                 );
             }
         }
@@ -412,6 +434,7 @@ class cfs_field_group
 
         foreach ( $field_id_map as $old_field_id => $new_field_id ) {
             $params = array_merge( [ (int) $new_field_id, (int) $old_field_id ], $field_names );
+            // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber,WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Dynamic IN placeholders are generated from sanitized field names.
             $wpdb->query(
                 $wpdb->prepare(
                     "UPDATE {$wpdb->prefix}cfs_values v
@@ -423,6 +446,7 @@ class cfs_field_group
             );
 
             $params = array_merge( [ (int) $new_field_id, (int) $old_field_id ], $field_names );
+            // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber,WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Dynamic IN placeholders are generated from sanitized field names.
             $wpdb->query(
                 $wpdb->prepare(
                     "UPDATE {$wpdb->prefix}cfs_values v
@@ -434,6 +458,7 @@ class cfs_field_group
             );
         }
 
+        // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare,WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Dynamic IN placeholders are generated from sanitized field names.
         $rows = $wpdb->get_results(
             $wpdb->prepare(
                 "SELECT v.meta_id, v.hierarchy

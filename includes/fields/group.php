@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_group extends cfs_field
 {
@@ -56,7 +60,7 @@ class cfs_group extends cfs_field
                 ?>
                 <div class="field field-<?php echo esc_attr( $child->name ); ?>" data-type="<?php echo esc_attr( $child->type ); ?>" data-name="<?php echo esc_attr( $child->name ); ?>">
                     <?php if ( ! empty( $child->label ) ) : ?>
-                    <label><?php echo esc_html( $child->label ); ?><?php echo cfs_field::is_required_field( $child ) ? cfs_field::required_badge() : ''; ?></label>
+                    <label><?php echo esc_html( $child->label ); ?><?php echo cfs_field::is_required_field( $child ) ? wp_kses_post( cfs_field::required_badge() ) : ''; ?></label>
                     <?php endif; ?>
 
                     <?php if ( ! empty( $child->notes ) ) : ?>
@@ -77,7 +81,7 @@ class cfs_group extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Columns', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Columns', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -100,7 +104,7 @@ class cfs_group extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Alignment', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Alignment', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php

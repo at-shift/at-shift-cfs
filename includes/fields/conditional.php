@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_conditional extends cfs_field
 {
@@ -81,7 +85,7 @@ class cfs_conditional extends cfs_field
                     <div class="cfs-conditional-branch" data-conditional-value="<?php echo esc_attr( $conditional_value ); ?>"<?php echo $is_visible ? '' : ' hidden'; ?>>
                         <div class="field field-<?php echo esc_attr( $child->name ); ?>" data-type="<?php echo esc_attr( $child->type ); ?>" data-name="<?php echo esc_attr( $child->name ); ?>">
                             <?php if ( ! in_array( $child->type, [ 'accordion', 'tab' ], true ) && ! empty( $child->label ) ) : ?>
-                            <label><?php echo esc_html( $child->label ); ?><?php echo cfs_field::is_required_field( $child ) ? cfs_field::required_badge() : ''; ?></label>
+                            <label><?php echo esc_html( $child->label ); ?><?php echo cfs_field::is_required_field( $child ) ? wp_kses_post( cfs_field::required_badge() ) : ''; ?></label>
                             <?php endif; ?>
 
                             <?php if ( 'accordion' !== $child->type && ! empty( $child->notes ) ) : ?>
@@ -110,7 +114,7 @@ class cfs_conditional extends cfs_field
         ?>
         <tr class="field_option field_option_conditional">
             <td class="label">
-                <label><?php _e( 'Display Type', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Display Type', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php CFS()->create_field( [
@@ -130,8 +134,8 @@ class cfs_conditional extends cfs_field
         </tr>
         <tr class="field_option field_option_conditional">
             <td class="label">
-                <label><?php _e( 'Choices', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php _e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e( 'Choices', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php CFS()->create_field( [
@@ -144,8 +148,8 @@ class cfs_conditional extends cfs_field
         </tr>
         <tr class="field_option field_option_conditional cfs-conditional-default-row">
             <td class="label">
-                <label><?php _e( 'Default Value', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php _e( 'Used for radio buttons. The first choice is used when left blank.', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Used for radio buttons. The first choice is used when left blank.', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][default_value]" value="<?php echo esc_attr( $this->get_option( $field, 'default_value' ) ); ?>" />

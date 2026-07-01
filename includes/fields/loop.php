@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
 class cfs_loop extends cfs_field
 {
@@ -39,7 +43,7 @@ class cfs_loop extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Row Display', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Row Display', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -55,7 +59,7 @@ class cfs_loop extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Row Label', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Row Label', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -69,7 +73,7 @@ class cfs_loop extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Button Label', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Button Label', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -84,7 +88,7 @@ class cfs_loop extends cfs_field
 
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php _e( 'Limits', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Limits', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />
@@ -187,13 +191,13 @@ class cfs_loop extends cfs_field
                 $row_offset = max( $i, $row_offset );
     ?>
         <div class="loop_wrapper">
-            <div class="cfs_loop_head<?php echo $css_class; ?>">
+            <div class="cfs_loop_head<?php echo esc_attr( $css_class ); ?>">
                 <a class="cfs_delete_field" href="javascript:;"></a>
                 <a class="cfs_toggle_field" href="javascript:;"></a>
                 <a class="cfs_insert_field" href="javascript:;"></a>
                 <span class="label"><?php echo esc_attr( $this->dynamic_label( $row_label, $label_fields, $values[ $i ] ) ); ?>&nbsp;</span>
             </div>
-            <div class="cfs_loop_body<?php echo $css_class; ?>">
+            <div class="cfs_loop_body<?php echo esc_attr( $css_class ); ?>">
             <?php
                 $this->render_loop_fields( $results, function( $field ) use ( $group_id, $parent_tag, $i, $values ) {
                     $this->render_value_field( $field, $group_id, $parent_tag, $i, $values );
@@ -205,7 +209,7 @@ class cfs_loop extends cfs_field
         <?php endforeach; endif; ?>
 
         <div class="table_footer">
-            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $button_label ); ?>" data-loop-tag="<?php echo esc_attr( $parent_tag ); ?>" data-rows="<?php echo ( $row_offset + 1 ); ?>" />
+            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $button_label ); ?>" data-loop-tag="<?php echo esc_attr( $parent_tag ); ?>" data-rows="<?php echo absint( $row_offset + 1 ); ?>" />
         </div>
     <?php
 	    }
@@ -289,7 +293,7 @@ class cfs_loop extends cfs_field
     ?>
         <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
         <?php if ( 'accordion' !== $field->type && ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?><?php echo cfs_field::is_required_field( $field ) ? cfs_field::required_badge() : ''; ?></label>
+            <label><?php echo esc_html( $field->label ); ?><?php echo cfs_field::is_required_field( $field ) ? wp_kses_post( cfs_field::required_badge() ) : ''; ?></label>
         <?php endif; ?>
 
         <?php if ( 'accordion' !== $field->type && ! empty( $field->notes ) ) : ?>
@@ -337,7 +341,7 @@ class cfs_loop extends cfs_field
     ?>
         <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
         <?php if ( 'accordion' !== $field->type && ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?><?php echo cfs_field::is_required_field( $field ) ? cfs_field::required_badge() : ''; ?></label>
+            <label><?php echo esc_html( $field->label ); ?><?php echo cfs_field::is_required_field( $field ) ? wp_kses_post( cfs_field::required_badge() ) : ''; ?></label>
         <?php endif; ?>
 
         <?php if ( 'accordion' !== $field->type && ! empty( $field->notes ) ) : ?>
