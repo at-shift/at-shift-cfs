@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.6.7.42.1.4
+Stable tag: 2.6.7.42.1.5
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -123,6 +123,9 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * Original Github: https://github.com/mgibbs189/custom-field-suite
 
 == Changelog ==
+
+= 2.6.7.42.1.5 =
+* Removed the Domain Path header from the WordPress.org submission build because no language directory is bundled in the review package.
 
 = 2.6.7.42.1.4 =
 * Matched the text domain to the current WordPress.org assigned slug, at-shift-cfs, so Plugin Check can validate the review build.

@@ -6,11 +6,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 Plugin Name: atshift Fields Maintenance for Custom Field Suite
 Description: This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages.
-Version: 2.6.7.42.1.4
+Version: 2.6.7.42.1.5
 Author: Matt Gibbs / Maintenance: @shift Yoshiya Tsuchisaka
 Author URI: https://at-shift.net
 Text Domain: at-shift-cfs
-Domain Path: /languages/
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
@@ -37,7 +36,7 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
         self::$instance = $this;
 
         // setup variables
-        define( 'CFS_VERSION', '2.6.7.42.1.4' );
+        define( 'CFS_VERSION', '2.6.7.42.1.5' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( '', __FILE__ ) );
 
