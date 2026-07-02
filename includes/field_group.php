@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_field_group
+class Atshift_CFS_field_group
 {
     public $cache;
 
@@ -64,7 +64,12 @@ class cfs_field_group
             $stats = [];
 
             // Get all existing field group names
-            $existing_groups = $wpdb->get_col( "SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'cfs'" );
+            $existing_groups = $wpdb->get_col(
+                $wpdb->prepare(
+                    "SELECT post_name FROM {$wpdb->posts} WHERE post_type = %s",
+                    ATSHIFT_CFS_FIELD_GROUP_POST_TYPE
+                )
+            );
 
             // Loop through field groups
             foreach ( $options['import_code'] as $group ) {
@@ -76,7 +81,7 @@ class cfs_field_group
                     $post_id = wp_insert_post( [
                         'post_title' => $group['post_title'],
                         'post_name' => $group['post_name'],
-                        'post_type' => 'cfs',
+                        'post_type' => ATSHIFT_CFS_FIELD_GROUP_POST_TYPE,
                         'post_status' => 'publish',
                         'post_content' => '',
                         'post_content_filtered' => '',
@@ -87,7 +92,7 @@ class cfs_field_group
 
                     // Generate new field IDs
                     $field_id_mapping = [];
-                    $next_field_id = (int) get_option( 'cfs_next_field_id' );
+                    $next_field_id = (int) get_option( ATSHIFT_CFS_NEXT_FIELD_ID_OPTION );
                     foreach ( $group['cfs_fields'] as $key => $data ) {
 
                         $id = $group['cfs_fields'][ $key ]['id'];
@@ -100,7 +105,7 @@ class cfs_field_group
                         $next_field_id++;
                     }
 
-                    update_option( 'cfs_next_field_id', $next_field_id );
+                    update_option( ATSHIFT_CFS_NEXT_FIELD_ID_OPTION, $next_field_id );
                     update_post_meta( $post_id, 'cfs_fields', $group['cfs_fields'] );
                     update_post_meta( $post_id, 'cfs_rules', $group['cfs_rules'] );
                     update_post_meta( $post_id, 'cfs_extras', $group['cfs_extras'] );
@@ -114,15 +119,15 @@ class cfs_field_group
 
             $return = '';
             if ( ! empty( $stats['imported'] ) ) {
-                $return .= '<div>' . esc_html__( 'Imported', 'at-shift-cfs' ) . ': ' . esc_html( implode( ', ', $stats['imported'] ) ) . '</div>';
+                $return .= '<div>' . esc_html__( 'Imported', 'atshift-fields-maintenance-for-custom-field-suite' ) . ': ' . esc_html( implode( ', ', $stats['imported'] ) ) . '</div>';
             }
             if ( ! empty( $stats['skipped'] ) ) {
-                $return .= '<div>' . esc_html__( 'Skipped', 'at-shift-cfs' ) . ': ' . esc_html( implode( ', ', $stats['skipped'] ) ) . '</div>';
+                $return .= '<div>' . esc_html__( 'Skipped', 'atshift-fields-maintenance-for-custom-field-suite' ) . ': ' . esc_html( implode( ', ', $stats['skipped'] ) ) . '</div>';
             }
             return $return;
         }
         else {
-            return '<div>' . esc_html__( 'Nothing to import', 'at-shift-cfs' ) . '</div>';
+            return '<div>' . esc_html__( 'Nothing to import', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</div>';
         }
     }
 
@@ -151,7 +156,7 @@ class cfs_field_group
         $post_data = $wpdb->get_results(
             $wpdb->prepare(
                 "SELECT ID, post_title, post_name FROM {$wpdb->posts} WHERE post_type = %s AND ID IN ($post_id_placeholders)",
-                array_merge( [ 'cfs' ], $post_ids )
+                array_merge( [ ATSHIFT_CFS_FIELD_GROUP_POST_TYPE ], $post_ids )
             )
         );
 
@@ -204,7 +209,7 @@ class cfs_field_group
         $prev_fields = [];
         $current_field_ids = [];
         $remapped_field_ids = [];
-        $next_field_id = (int) get_option( 'cfs_next_field_id' );
+        $next_field_id = (int) get_option( ATSHIFT_CFS_NEXT_FIELD_ID_OPTION );
         $existing_fields = get_post_meta( $post_id, 'cfs_fields', true );
         $other_field_ids = $this->get_field_ids_for_other_groups( $post_id );
 
@@ -332,14 +337,14 @@ class cfs_field_group
         $this->migrate_remapped_field_values( $new_fields, $remapped_field_ids );
 
         // Update the field ID counter
-        update_option( 'cfs_next_field_id', $next_field_id );
+        update_option( ATSHIFT_CFS_NEXT_FIELD_ID_OPTION, $next_field_id );
 
         // Remove values for deleted fields
         $deleted_field_ids = array_diff( array_keys( $prev_fields ), $current_field_ids );
         $deleted_field_ids = array_diff( $deleted_field_ids, array_keys( $remapped_field_ids ) );
 
         // Filter deleted field IDs before deleting meta
-        $deleted_field_ids = apply_filters( 'cfs_deleted_field_ids', $deleted_field_ids );
+        $deleted_field_ids = apply_filters( 'atshift_cfs_deleted_field_ids', $deleted_field_ids );
 
         if ( 0 < count( $deleted_field_ids ) ) {
             $deleted_field_ids = array_values( array_filter( array_map( 'absint', $deleted_field_ids ) ) );
@@ -368,9 +373,10 @@ class cfs_field_group
         foreach ( $rule_types as $type ) {
             if ( ! empty( $params['rules'][ $type ] ) ) {
 
-                // Break apart the autocomplete string
                 if ( 'post_ids' == $type ) {
-                    $params['rules'][ $type ] = explode( ',', $params['rules'][ $type ] );
+                    $params['rules'][ $type ] = is_array( $params['rules'][ $type ] )
+                        ? array_values( array_filter( array_map( 'absint', $params['rules'][ $type ] ) ) )
+                        : array_values( array_filter( array_map( 'absint', explode( ',', (string) $params['rules'][ $type ] ) ) ) );
                 }
 
                 $data[ $type ] = [
@@ -380,7 +386,7 @@ class cfs_field_group
             }
         }
 
-        $data = apply_filters( 'cfs_save_field_group_rules', $data, $post_id );
+        $data = apply_filters( 'atshift_cfs_save_field_group_rules', $data, $post_id );
         update_post_meta( $post_id, 'cfs_rules', $data );
 
         /*---------------------------------------------------------------------------------------------
@@ -501,4 +507,4 @@ class cfs_field_group
     }
 }
 
-atshift_fields_maintenance_for_custom_field_suite()->field_group = new cfs_field_group();
+atshift_fields_maintenance_for_custom_field_suite()->field_group = new Atshift_CFS_field_group();

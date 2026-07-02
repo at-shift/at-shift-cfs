@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_upgrade
+class Atshift_CFS_upgrade
 {
 
     public $version;
@@ -12,8 +12,8 @@ class cfs_upgrade
 
 
     public function __construct() {
-        $this->version = CFS_VERSION;
-        $this->last_version = get_option('cfs_version');
+        $this->version = ATSHIFT_CFS_VERSION;
+        $this->last_version = get_option( ATSHIFT_CFS_VERSION_OPTION, get_option( ATSHIFT_CFS_LEGACY_VERSION_OPTION, '0' ) );
 
         if ( version_compare( $this->last_version, $this->version, '<' ) ) {
             if ( version_compare( $this->last_version, '1.0.0', '<' ) ) {
@@ -24,7 +24,8 @@ class cfs_upgrade
                 $this->run_upgrade();
             }
 
-            update_option( 'cfs_version', $this->version );
+            $this->migrate_legacy_identifiers();
+            update_option( ATSHIFT_CFS_VERSION_OPTION, $this->version );
         }
     }
 
@@ -58,11 +59,32 @@ class cfs_upgrade
         dbDelta( $sql );
 
         // Set the field counter
-        update_option( 'cfs_next_field_id', 1 );
+        update_option( ATSHIFT_CFS_NEXT_FIELD_ID_OPTION, 1 );
     }
 
     private function run_upgrade() {
+        $this->migrate_legacy_identifiers();
+    }
+
+    private function migrate_legacy_identifiers() {
+        global $wpdb;
+
+        $next_field_id = get_option( ATSHIFT_CFS_NEXT_FIELD_ID_OPTION, null );
+        if ( null === $next_field_id ) {
+            $legacy_next_field_id = get_option( ATSHIFT_CFS_LEGACY_NEXT_FIELD_ID_OPTION, null );
+            if ( null !== $legacy_next_field_id ) {
+                update_option( ATSHIFT_CFS_NEXT_FIELD_ID_OPTION, (int) $legacy_next_field_id );
+            }
+        }
+
+        $wpdb->update(
+            $wpdb->posts,
+            [ 'post_type' => ATSHIFT_CFS_FIELD_GROUP_POST_TYPE ],
+            [ 'post_type' => ATSHIFT_CFS_LEGACY_FIELD_GROUP_POST_TYPE ],
+            [ '%s' ],
+            [ '%s' ]
+        );
     }
 }
 
-new cfs_upgrade();
+new Atshift_CFS_upgrade();

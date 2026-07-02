@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_tab extends cfs_field
+class Atshift_CFS_tab extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'tab';
-        $this->label = __( 'Tab', 'at-shift-cfs' );
+        $this->label = __( 'Tab', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -28,7 +28,7 @@ class cfs_tab extends cfs_field
     // Tab handling javascript
     function input_head( $field = null ) {
     ?>
-        <?php ob_start(); ?>
+        <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() { ?>
         (function($) {
             function activate_first_tabs($context) {
                 $context.find('.cfs-tabs').each(function(){
@@ -64,7 +64,7 @@ class cfs_tab extends cfs_field
                 activate_first_tabs($(event.target).closest('.cfs_input'));
             });
         })(jQuery);
-        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
+        <?php } ) ); ?>
     <?php
     }
 }

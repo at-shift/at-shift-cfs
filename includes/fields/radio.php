@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_radio extends cfs_field
+class Atshift_CFS_radio extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'radio';
-        $this->label = __( 'Radio Button', 'at-shift-cfs' );
+        $this->label = __( 'Radio Button', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -47,8 +47,8 @@ class cfs_radio extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Choices', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e( 'Choices', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
             </td>
             <td>
                 <?php
@@ -62,7 +62,7 @@ class cfs_radio extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -71,7 +71,7 @@ class cfs_radio extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>

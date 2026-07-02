@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 ?>
-<input type="hidden" name="cfs[save]" value="<?php echo esc_attr( wp_create_nonce( 'cfs_save_fields' ) ); ?>" />
+<input type="hidden" name="cfs[save]" value="<?php echo esc_attr( wp_create_nonce( 'atshift_cfs_save_fields' ) ); ?>" />
 
 <ul class="fields">
 <?php
@@ -65,5 +65,5 @@ $render_fields( 0 );
 </ul>
 
 <div class="table_footer">
-    <input type="button" class="button-primary cfs_add_field" value="<?php esc_attr_e( 'Add New Field', 'at-shift-cfs' ); ?>" />
+    <input type="button" class="button-primary cfs_add_field" value="<?php esc_attr_e( 'Add New Field', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
 </div>

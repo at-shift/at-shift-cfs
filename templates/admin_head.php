@@ -10,11 +10,13 @@ global $post;
     Field management screen
 ---------------------------------------------------------------------------------------------*/
 
-if ( 'cfs' == $screen->post_type ) {
+if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
+    $options_html = [];
+
     foreach ( atshift_fields_maintenance_for_custom_field_suite()->fields as $field_name => $field_data ) {
-        ob_start();
-        atshift_fields_maintenance_for_custom_field_suite()->fields[ $field_name ]->options_html( 'clone', $field_data );
-        $options_html[ $field_name ] = ob_get_clean();
+        $options_html[ $field_name ] = atshift_cfs_capture_output( function() use ( $field_name, $field_data ) {
+            atshift_fields_maintenance_for_custom_field_suite()->fields[ $field_name ]->options_html( 'clone', $field_data );
+        } );
     }
 
     $field_count = get_post_meta( $post->ID, 'cfs_fields', true );
@@ -25,18 +27,18 @@ if ( 'cfs' == $screen->post_type ) {
         'id'            => 0,
         'parent_id'     => 0,
         'name'          => 'new_field',
-        'label'         => __( 'New Field', 'at-shift-cfs' ),
+        'label'         => __( 'New Field', 'atshift-fields-maintenance-for-custom-field-suite' ),
         'type'          => 'text',
         'notes'         => '',
         'weight'        => 'clone',
     ];
 
-    ob_start();
-    atshift_fields_maintenance_for_custom_field_suite()->field_html( $field );
-    $field_clone = ob_get_clean();
+    $field_clone = atshift_cfs_capture_output( function() use ( $field ) {
+        atshift_fields_maintenance_for_custom_field_suite()->field_html( $field );
+    } );
 
     wp_add_inline_script(
-        'cfs-fields',
+        'atshift-cfs-fields',
         sprintf(
             "var CFS = CFS || {};\nCFS['field_index'] = %d;\nCFS['field_clone'] = %s;\nCFS['options_html'] = %s;",
             (int) $field_count,
@@ -47,26 +49,26 @@ if ( 'cfs' == $screen->post_type ) {
     );
 
     wp_add_inline_script(
-        'cfs-fields',
+        'atshift-cfs-fields',
         'CFS.messages = ' . wp_json_encode( [
-            'disallowed_group_child' => __( 'Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group.', 'at-shift-cfs' ),
-            'disallowed_accordion_child' => __( 'Tabs cannot be placed inside an accordion.', 'at-shift-cfs' ),
-            'disallowed_conditional_child' => __( 'Tabs and conditional groups cannot be placed inside a Conditional Group.', 'at-shift-cfs' ),
-            'add_field_below'        => __( 'Add new field below', 'at-shift-cfs' ),
-            'add_field_inside'       => __( 'Add field inside', 'at-shift-cfs' ),
-            'duplicate_field_name_inline' => __( 'This field name is duplicated. Use a unique field name.', 'at-shift-cfs' ),
+            'disallowed_group_child' => __( 'Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'disallowed_accordion_child' => __( 'Tabs cannot be placed inside an accordion.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'disallowed_conditional_child' => __( 'Tabs and conditional groups cannot be placed inside a Conditional Group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'add_field_below'        => __( 'Add new field below', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'add_field_inside'       => __( 'Add field inside', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'duplicate_field_name_inline' => __( 'This field name is duplicated. Use a unique field name.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: comma-separated duplicate field names. */
-            'duplicate_field_names_alert' => __( 'Duplicate field names found: %s. Field names must be unique before saving.', 'at-shift-cfs' ),
-            'move_here'         => __( 'Move here', 'at-shift-cfs' ),
+            'duplicate_field_names_alert' => __( 'Duplicate field names found: %s. Field names must be unique before saving.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'move_here'         => __( 'Move here', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: destination field label. */
-            'outdent_to_container' => __( 'Move here: inside %s', 'at-shift-cfs' ),
-            'outdent_to_tab'       => __( 'Move here: inside the current Tab', 'at-shift-cfs' ),
+            'outdent_to_container' => __( 'Move here: inside %s', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'outdent_to_tab'       => __( 'Move here: inside the current Tab', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'structure_badges'       => [
-                'tab'         => __( 'TAB', 'at-shift-cfs' ),
-                'loop'        => __( 'LOOP', 'at-shift-cfs' ),
-                'group'       => __( 'GROUP', 'at-shift-cfs' ),
-                'accordion'   => __( 'ACCORDION', 'at-shift-cfs' ),
-                'conditional' => __( 'CONDITION', 'at-shift-cfs' ),
+                'tab'         => __( 'TAB', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'loop'        => __( 'LOOP', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'group'       => __( 'GROUP', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'accordion'   => __( 'ACCORDION', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'conditional' => __( 'CONDITION', 'atshift-fields-maintenance-for-custom-field-suite' ),
             ],
         ] ) . ';',
         'before'
@@ -149,14 +151,14 @@ else {
             }
 
             if ( ! empty( $selectors ) ) {
-                wp_add_inline_style( 'cfs-fields', implode( ',', $selectors ) . '{display:none!important;}' );
+                wp_add_inline_style( 'atshift-cfs-fields', implode( ',', $selectors ) . '{display:none!important;}' );
             }
         }
 
         if (
             function_exists( 'use_block_editor_for_post' ) &&
             use_block_editor_for_post( $post ) &&
-            apply_filters( 'cfs_hide_metaboxes_in_block_editor', false, $post, $field_groups )
+            apply_filters( 'atshift_cfs_hide_metaboxes_in_block_editor', false, $post, $field_groups )
         ) {
             return;
         }
@@ -179,12 +181,12 @@ else {
 
             $args = [ 'box' => 'input', 'group_id' => $group_id ];
             add_meta_box( "cfs_input_$group_id", $title, [ $this, 'meta_box' ], $post->post_type, $context, $priority, $args );
-            add_filter( "postbox_classes_{$post->post_type}_cfs_input_{$group_id}", 'cfs_postbox_classes' );
+            add_filter( "postbox_classes_{$post->post_type}_cfs_input_{$group_id}", 'atshift_cfs_postbox_classes' );
         }
 
         if ( ! empty( $term_placement_groups ) ) {
             wp_add_inline_script(
-                'cfs-fields',
+                'atshift-cfs-fields',
                 'jQuery(function($) {
                     var groups = ' . wp_json_encode( $term_placement_groups ) . ';
 
@@ -228,12 +230,12 @@ else {
         add_post_type_support( $post->post_type, 'editor' );
 
         if ( ! $has_editor || $hide_editor ) {
-            wp_add_inline_style( 'cfs-fields', '#poststuff .postarea { display: none; }' );
+            wp_add_inline_style( 'atshift-cfs-fields', '#poststuff .postarea { display: none; }' );
         }
     }
 }
 
-function cfs_postbox_classes( $classes ) {
+function atshift_cfs_postbox_classes( $classes ) {
     $classes[] = 'cfs_input';
     return $classes;
 }

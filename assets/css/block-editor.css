@@ -1,23 +1,23 @@
-.cfs-block-editor-placeholder {
+.atshift-cfs-block-editor-placeholder {
     border: 1px solid #ccd0d4;
     border-left: 4px solid #2271b1;
     background: #fff;
     padding: 16px;
 }
 
-.cfs-block-editor-placeholder strong,
-.cfs-block-editor-placeholder span,
-.cfs-block-editor-placeholder em {
+.atshift-cfs-block-editor-placeholder strong,
+.atshift-cfs-block-editor-placeholder span,
+.atshift-cfs-block-editor-placeholder em {
     display: block;
 }
 
-.cfs-block-editor-placeholder strong {
+.atshift-cfs-block-editor-placeholder strong {
     margin-bottom: 4px;
     font-size: 14px;
 }
 
-.cfs-block-editor-placeholder span,
-.cfs-block-editor-placeholder em {
+.atshift-cfs-block-editor-placeholder span,
+.atshift-cfs-block-editor-placeholder em {
     color: #646970;
     font-size: 13px;
 }

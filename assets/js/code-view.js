@@ -27,12 +27,12 @@
     }
 
     document.addEventListener('click', function(event) {
-        var button = event.target.closest ? event.target.closest('.cfs-code-view-copy') : null;
+        var button = event.target.closest ? event.target.closest('.atshift-cfs-code-view-copy') : null;
         if (!button) {
             return;
         }
 
-        var wrapper = button.closest('.cfs-code-view');
+        var wrapper = button.closest('.atshift-cfs-code-view');
         var code = wrapper ? wrapper.querySelector('code') : null;
         if (!code) {
             return;

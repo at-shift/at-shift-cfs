@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_ajax
+class Atshift_CFS_ajax
 {
     /**
      * Search posts (in the Placement Rules area)
@@ -23,10 +23,12 @@ class cfs_ajax
         FROM $wpdb->posts
         WHERE
             post_status IN ('publish', 'private') AND
-            post_type NOT IN ('cfs', 'attachment', 'revision', 'nav_menu_item') AND
+            post_type NOT IN (%s, %s, 'attachment', 'revision', 'nav_menu_item') AND
             post_title LIKE %s
         ORDER BY post_type, post_title
         LIMIT 10",
+                ATSHIFT_CFS_FIELD_GROUP_POST_TYPE,
+                ATSHIFT_CFS_LEGACY_FIELD_GROUP_POST_TYPE,
                 '%' . $wpdb->esc_like( $search ) . '%'
             )
         );
@@ -59,12 +61,16 @@ class cfs_ajax
         global $wpdb;
 
         // Drop field groups
-        $sql = "
+        $wpdb->query(
+            $wpdb->prepare(
+                "
         DELETE p, m FROM {$wpdb->posts} p
         LEFT JOIN {$wpdb->postmeta} m ON m.post_id = p.ID
-        WHERE p.post_type = 'cfs'";
-        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table names are WordPress-generated and the query has no user input.
-        $wpdb->query( $sql );
+        WHERE p.post_type IN (%s, %s)",
+                ATSHIFT_CFS_FIELD_GROUP_POST_TYPE,
+                ATSHIFT_CFS_LEGACY_FIELD_GROUP_POST_TYPE
+            )
+        );
 
         // Drop custom field values
         $sql = "
@@ -76,7 +82,9 @@ class cfs_ajax
         // Drop tables
         $wpdb->query( "DROP TABLE {$wpdb->prefix}cfs_values" );
         $wpdb->query( "DROP TABLE {$wpdb->prefix}cfs_sessions" );
-        delete_option( 'cfs_version' );
-        delete_option( 'cfs_next_field_id' );
+        delete_option( ATSHIFT_CFS_VERSION_OPTION );
+        delete_option( ATSHIFT_CFS_LEGACY_VERSION_OPTION );
+        delete_option( ATSHIFT_CFS_NEXT_FIELD_ID_OPTION );
+        delete_option( ATSHIFT_CFS_LEGACY_NEXT_FIELD_ID_OPTION );
     }
 }

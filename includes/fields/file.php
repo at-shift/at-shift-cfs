@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_file extends cfs_field
+class Atshift_CFS_file extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'file';
-        $this->label = __( 'File Upload', 'at-shift-cfs' );
+        $this->label = __( 'File Upload', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -37,8 +37,8 @@ class cfs_file extends cfs_field
         $css = empty( $field->value ) ? [ '', ' hidden' ] : [ ' hidden', '' ];
     ?>
         <span class="file_url"><?php echo wp_kses_post( $file_url ); ?></span>
-        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Add File', 'at-shift-cfs' ); ?>" />
-        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove', 'at-shift-cfs' ); ?>" />
+        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Add File', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
         <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="file_value" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
     }
@@ -48,7 +48,7 @@ class cfs_file extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'File Type', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'File Type', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -57,10 +57,10 @@ class cfs_file extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][file_type]',
                         'options' => [
                             'choices' => [
-                                'file'  => __( 'Any', 'at-shift-cfs' ),
-                                'image' => __( 'Image', 'at-shift-cfs' ),
-                                'audio' => __( 'Audio', 'at-shift-cfs' ),
-                                'video' => __( 'Video', 'at-shift-cfs' )
+                                'file'  => __( 'Any', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'image' => __( 'Image', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'audio' => __( 'Audio', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'video' => __( 'Video', 'atshift-fields-maintenance-for-custom-field-suite' )
                             ],
                             'force_single' => true,
                         ],
@@ -71,7 +71,7 @@ class cfs_file extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Return Value', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Return Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -80,8 +80,8 @@ class cfs_file extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][return_value]',
                         'options' => [
                             'choices' => [
-                                'url' => __( 'File URL', 'at-shift-cfs' ),
-                                'id' => __( 'Attachment ID', 'at-shift-cfs' )
+                                'url' => __( 'File URL', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'id' => __( 'Attachment ID', 'atshift-fields-maintenance-for-custom-field-suite' )
                             ],
                             'force_single' => true,
                         ],
@@ -92,7 +92,7 @@ class cfs_file extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -101,7 +101,7 @@ class cfs_file extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
@@ -113,7 +113,7 @@ class cfs_file extends cfs_field
     function input_head( $field = null ) {
         wp_enqueue_media();
     ?>
-        <?php ob_start(); ?>
+        <?php wp_add_inline_style( 'atshift-cfs-input', atshift_cfs_capture_output( function() { ?>
         .cfs_frame .media-frame-menu {
             display: none;
         }
@@ -124,9 +124,9 @@ class cfs_file extends cfs_field
         .cfs_frame .media-frame-toolbar {
             left: 0;
         }
-        <?php wp_add_inline_style( 'cfs-input', ob_get_clean() ); ?>
+        <?php } ) ); ?>
 
-        <?php ob_start(); ?>
+        <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() { ?>
         (function($) {
             $(function() {
 
@@ -202,7 +202,7 @@ class cfs_file extends cfs_field
                 });
             });
         })(jQuery);
-        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
+        <?php } ) ); ?>
     <?php
     }
 

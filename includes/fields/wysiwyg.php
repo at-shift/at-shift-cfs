@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_wysiwyg extends cfs_field
+class Atshift_CFS_wysiwyg extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'wysiwyg';
-        $this->label = __( 'Wysiwyg Editor', 'at-shift-cfs' );
+        $this->label = __( 'Wysiwyg Editor', 'atshift-fields-maintenance-for-custom-field-suite' );
 
         // add the "code" button
         add_filter( 'mce_external_plugins', [ $this, 'mce_external_plugins' ], 20 );
@@ -35,7 +35,7 @@ class cfs_wysiwyg extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Formatting', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Formatting', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -44,8 +44,8 @@ class cfs_wysiwyg extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][formatting]',
                         'options' => [
                             'choices' => [
-                                'default' => __( 'Default', 'at-shift-cfs' ),
-                                'none' => __( 'None (bypass filters)', 'at-shift-cfs' )
+                                'default' => __( 'Default', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'none' => __( 'None (bypass filters)', 'atshift-fields-maintenance-for-custom-field-suite' )
                             ],
                             'force_single' => true,
                         ],
@@ -56,7 +56,7 @@ class cfs_wysiwyg extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -65,7 +65,7 @@ class cfs_wysiwyg extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
@@ -84,13 +84,13 @@ class cfs_wysiwyg extends cfs_field
     <?php
             }
     ?>
-        <?php ob_start(); ?>
+        <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() { ?>
         (function($) {
 
             var wpautop;
             var resize;
             var wysiwyg_count = 0;
-            var cfsCodePluginUrl = '<?php echo esc_js( CFS_URL . '/assets/js/tinymce/code.min.js' ); ?>';
+            var cfsCodePluginUrl = '<?php echo esc_js( ATSHIFT_CFS_URL . '/assets/js/tinymce/code.min.js' ); ?>';
 
             function ensurePlugin(settings, plugin, url) {
                 var plugins = settings.plugins ? settings.plugins.split(',') : [];
@@ -186,7 +186,7 @@ class cfs_wysiwyg extends cfs_field
                 tinyMCE.settings.resize = resize;
             });
         })(jQuery);
-        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
+        <?php } ) ); ?>
     <?php
         }
     }
@@ -194,7 +194,7 @@ class cfs_wysiwyg extends cfs_field
 
     function mce_external_plugins( $plugins ) {
         if ( version_compare( get_bloginfo( 'version' ), '3.9', '>=' ) ) {
-            $plugins['code'] = CFS_URL . '/assets/js/tinymce/code.min.js';
+            $plugins['code'] = ATSHIFT_CFS_URL . '/assets/js/tinymce/code.min.js';
         }
         return $plugins;
     }

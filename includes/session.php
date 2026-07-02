@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_session
+class Atshift_CFS_session
 {
     public $session_id;
     public $session_data;

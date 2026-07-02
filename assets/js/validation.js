@@ -124,7 +124,7 @@
             'required_code_view': {
                 'error': validationMessage('enter_code', 'Please select a language and enter code'),
                 'validate': function(val, el) {
-                    var language = $.trim(el.find('.cfs-code-view-language').val() || '');
+                    var language = $.trim(el.find('.atshift-cfs-code-view-language').val() || '');
                     var code = $.trim(el.find('textarea').val() || '');
                     return '' != language && '' != code;
                 }
@@ -282,7 +282,7 @@
                         var label = $.trim($this.find('> label').first().text());
 
                         if (!field_id) {
-                            field_id = 'cfs-validation-field-' + field_name.replace(/[^a-zA-Z0-9_-]/g, '-') + '-' + CFS.validation_errors.length;
+                            field_id = 'atshift-cfs-validation-field-' + field_name.replace(/[^a-zA-Z0-9_-]/g, '-') + '-' + CFS.validation_errors.length;
                             $this.attr('id', field_id);
                         }
 
@@ -300,8 +300,8 @@
         };
 
         CFS.render_validation_notice = function() {
-            var $notice = $('#cfs-validation-admin-notice');
-            var $list = $('#cfs-validation-error-list');
+            var $notice = $('#atshift-cfs-validation-admin-notice');
+            var $list = $('#atshift-cfs-validation-error-list');
             var errorCount = 0;
 
             $list.empty();
@@ -315,7 +315,7 @@
                 var $row = $field.closest('.loop_wrapper').children('.cfs_loop_head').first().find('.label').first();
 
                 if (!fieldId) {
-                    fieldId = 'cfs-validation-field-' + fieldName.replace(/[^a-zA-Z0-9_-]/g, '-') + '-' + index;
+                    fieldId = 'atshift-cfs-validation-field-' + fieldName.replace(/[^a-zA-Z0-9_-]/g, '-') + '-' + index;
                     $field.attr('id', fieldId);
                 }
 
@@ -411,8 +411,8 @@
         CFS.validate_all_fields = function() {
             var passthru = true;
             CFS.validation_errors = [];
-            $('#cfs-validation-admin-notice').hide();
-            $('#cfs-validation-error-list').empty();
+            $('#atshift-cfs-validation-admin-notice').hide();
+            $('#atshift-cfs-validation-error-list').empty();
 
             $.each(CFS.field_rules, function(field_name, obj) {
                 if (!CFS.validate_field(field_name, obj, {
@@ -446,7 +446,7 @@
             CFS.render_validation_notice();
         });
 
-        $(document).on('click', '#cfs-validation-error-list a', function(event) {
+        $(document).on('click', '#atshift-cfs-validation-error-list a', function(event) {
             var targetId = ($(this).attr('href') || '').substring(1);
             var $field = $('#' + targetId);
 

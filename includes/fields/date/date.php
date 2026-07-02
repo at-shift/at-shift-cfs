@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_date extends cfs_field
+class Atshift_CFS_date extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'date';
-        $this->label = __( 'Date', 'at-shift-cfs' );
+        $this->label = __( 'Date', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -43,11 +43,11 @@ class cfs_date extends cfs_field
             'daysMin'     => $weekdays_min,
             'months'      => $months,
             'monthsShort' => $months_short,
-            'today'       => __( 'Today', 'at-shift-cfs' ),
-            'clear'       => _x( 'Clear', 'date picker', 'at-shift-cfs' ),
+            'today'       => __( 'Today', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'clear'       => _x( 'Clear', 'date picker', 'atshift-fields-maintenance-for-custom-field-suite' ),
         ];
     ?>
-        <?php ob_start(); ?>
+        <?php wp_add_inline_script( 'bootstrap-datepicker', atshift_cfs_capture_output( function() { ?>
         (function($) {
             var dateLocale = <?php echo wp_json_encode( $date_locale ); ?>;
             var userLocale = <?php echo wp_json_encode( $locale ); ?>;
@@ -93,14 +93,14 @@ class cfs_date extends cfs_field
                 });
             };
         })(jQuery);
-        <?php wp_add_inline_script( 'bootstrap-datepicker', ob_get_clean() ); ?>
+        <?php } ) ); ?>
     <?php
     }
 
 
     function load_assets() {
-        wp_enqueue_style( 'bootstrap-datepicker', esc_url( CFS_URL . '/includes/fields/date/datepicker.css' ), [], CFS_VERSION );
-        wp_register_script( 'bootstrap-datepicker', esc_url( CFS_URL . '/includes/fields/date/bootstrap-datepicker.js' ), [ 'jquery' ], CFS_VERSION, true );
+        wp_enqueue_style( 'bootstrap-datepicker', esc_url( ATSHIFT_CFS_URL . '/includes/fields/date/datepicker.css' ), [], ATSHIFT_CFS_VERSION );
+        wp_register_script( 'bootstrap-datepicker', esc_url( ATSHIFT_CFS_URL . '/includes/fields/date/bootstrap-datepicker.js' ), [ 'jquery' ], ATSHIFT_CFS_VERSION, true );
         wp_enqueue_script( 'bootstrap-datepicker' );
     }
 }

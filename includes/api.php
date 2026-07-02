@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_api
+class Atshift_CFS_api
 {
     public $cache;
     public $saved_fields;
@@ -681,7 +681,7 @@ class cfs_api
             $output[ $field->id ] = $field;
         }
 
-        return apply_filters( 'cfs_get_input_fields', $output, $params );
+        return apply_filters( 'atshift_cfs_get_input_fields', $output, $params );
     }
 
 
@@ -834,7 +834,7 @@ class cfs_api
         }
 
         // Allow for overrides
-        return apply_filters( 'cfs_matching_groups', $matches, $params, $rule_types );
+        return apply_filters( 'atshift_cfs_matching_groups', $matches, $params, $rule_types );
     }
 
 
@@ -903,4 +903,4 @@ class cfs_api
     }
 }
 
-atshift_fields_maintenance_for_custom_field_suite()->api = new cfs_api();
+atshift_fields_maintenance_for_custom_field_suite()->api = new Atshift_CFS_api();

@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_form
+class Atshift_CFS_form
 {
 
     public $used_types;
@@ -47,13 +47,13 @@ class cfs_form
             return;
         }
 
-        $this->session = new cfs_session();
+        $this->session = new Atshift_CFS_session();
         $cfs_post = isset( $_POST['cfs'] ) && is_array( $_POST['cfs'] ) ? wp_unslash( $_POST['cfs'] ) : [];
 
         // Save the form
         if ( isset( $cfs_post['save'] ) ) {
             $nonce = sanitize_text_field( $cfs_post['save'] );
-            if ( wp_verify_nonce( $nonce, 'cfs_save_input' ) ) {
+            if ( wp_verify_nonce( $nonce, 'atshift_cfs_save_input' ) ) {
                 $session = $this->session->get();
 
                 if ( empty( $session ) ) {
@@ -113,13 +113,13 @@ class cfs_form
                             $this->submitted_values = $this->normalize_submitted_values( $field_data, $field_groups );
                             $this->submitted_post_data = $post_data;
 
-                            add_filter( 'cfs_get_input_fields', [ $this, 'restore_submitted_values' ], 20, 2 );
+                            add_filter( 'atshift_cfs_get_input_fields', [ $this, 'restore_submitted_values' ], 20, 2 );
                             return;
                         }
 
                         wp_die(
-                            esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' ),
-                            esc_html__( 'Validation', 'at-shift-cfs' ),
+                            esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                            esc_html__( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ),
                             [ 'response' => 400 ]
                         );
                     }
@@ -138,7 +138,7 @@ class cfs_form
                 ];
 
                 // Pre-save hook
-                do_action( 'cfs_pre_save_input', $hook_params );
+                do_action( 'atshift_cfs_pre_save_input', $hook_params );
 
                 // Save the input values
                 $hook_params['post_data']['ID'] = atshift_fields_maintenance_for_custom_field_suite()->save(
@@ -148,7 +148,7 @@ class cfs_form
                 );
 
                 // After-save hook
-                do_action( 'cfs_after_save_input', $hook_params );
+                do_action( 'atshift_cfs_after_save_input', $hook_params );
 
                 // Delete expired sessions
                 $this->session->cleanup();
@@ -173,7 +173,7 @@ class cfs_form
      *
      * Public forms may still create new posts by default for backwards compatibility.
      * Updating an existing post requires the normal WordPress edit_post capability
-     * unless a site explicitly overrides the decision with cfs_form_can_save.
+     * unless a site explicitly overrides the decision with atshift_cfs_form_can_save.
      *
      * @param int $post_id
      * @param array $post_data
@@ -212,7 +212,7 @@ class cfs_form
          * @param array $session
          * @param array $field_groups
          */
-        return (bool) apply_filters( 'cfs_form_can_save', $can_save, $post_id, $post_data, $session, $field_groups );
+        return (bool) apply_filters( 'atshift_cfs_form_can_save', $can_save, $post_id, $post_data, $session, $field_groups );
     }
 
 
@@ -564,12 +564,12 @@ class cfs_form
 
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-ui-sortable' );
-        $validation_js_version = file_exists( CFS_DIR . '/assets/js/validation.js' ) ? CFS_VERSION . '.' . filemtime( CFS_DIR . '/assets/js/validation.js' ) : CFS_VERSION;
-        $input_css_version = file_exists( CFS_DIR . '/assets/css/input.css' ) ? CFS_VERSION . '.' . filemtime( CFS_DIR . '/assets/css/input.css' ) : CFS_VERSION;
-        wp_enqueue_script( 'cfs-validation', CFS_URL . '/assets/js/validation.js', [ 'jquery' ], $validation_js_version );
-        wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', [ 'jquery' ], CFS_VERSION );
-        wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', [], CFS_VERSION );
-        wp_enqueue_style( 'cfs-input', CFS_URL . '/assets/css/input.css', [], $input_css_version );
+        $validation_js_version = file_exists( ATSHIFT_CFS_DIR . '/assets/js/validation.js' ) ? ATSHIFT_CFS_VERSION . '.' . filemtime( ATSHIFT_CFS_DIR . '/assets/js/validation.js' ) : ATSHIFT_CFS_VERSION;
+        $input_css_version = file_exists( ATSHIFT_CFS_DIR . '/assets/css/input.css' ) ? ATSHIFT_CFS_VERSION . '.' . filemtime( ATSHIFT_CFS_DIR . '/assets/css/input.css' ) : ATSHIFT_CFS_VERSION;
+        wp_enqueue_script( 'atshift-cfs-validation', ATSHIFT_CFS_URL . '/assets/js/validation.js', [ 'jquery' ], $validation_js_version );
+        wp_enqueue_script( 'jquery-powertip', ATSHIFT_CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', [ 'jquery' ], ATSHIFT_CFS_VERSION );
+        wp_enqueue_style( 'jquery-powertip', ATSHIFT_CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', [], ATSHIFT_CFS_VERSION );
+        wp_enqueue_style( 'atshift-cfs-input', ATSHIFT_CFS_URL . '/assets/css/input.css', [], $input_css_version );
     }
 
 
@@ -579,29 +579,29 @@ class cfs_form
      */
     function head_scripts() {
         wp_add_inline_script(
-            'cfs-validation',
+            'atshift-cfs-validation',
             'var CFS = CFS || {};
 CFS["get_field_value"] = {};
 CFS["loop_buffer"] = [];
 CFS["validation_messages"] = ' . wp_json_encode( [
-                'enter_value'       => __( 'Please enter a value', 'at-shift-cfs' ),
-                'valid_date'        => __( 'Please enter a valid date (YYYY-MM-DD HH:MM)', 'at-shift-cfs' ),
-                'valid_color'       => __( 'Please enter a valid color HEX (#ff0000)', 'at-shift-cfs' ),
-                'enter_phone'       => __( 'Please enter a phone number', 'at-shift-cfs' ),
-                'valid_phone'       => __( 'Please enter a valid phone number', 'at-shift-cfs' ),
-                'enter_email'       => __( 'Please enter an email address', 'at-shift-cfs' ),
-                'valid_email'       => __( 'Please enter a valid email address', 'at-shift-cfs' ),
-                'enter_number'      => __( 'Please enter a number', 'at-shift-cfs' ),
-                'valid_number'      => __( 'Please enter a valid number', 'at-shift-cfs' ),
-                'enter_url'         => __( 'Please enter a URL', 'at-shift-cfs' ),
-                'valid_url'         => __( 'Please enter a valid URL', 'at-shift-cfs' ),
-                'select_time'       => __( 'Please select a time', 'at-shift-cfs' ),
-                'valid_time'        => __( 'Please select a valid time', 'at-shift-cfs' ),
-                'enter_code'        => __( 'Please select a language and enter code', 'at-shift-cfs' ),
+                'enter_value'       => __( 'Please enter a value', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'valid_date'        => __( 'Please enter a valid date (YYYY-MM-DD HH:MM)', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'valid_color'       => __( 'Please enter a valid color HEX (#ff0000)', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'enter_phone'       => __( 'Please enter a phone number', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'valid_phone'       => __( 'Please enter a valid phone number', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'enter_email'       => __( 'Please enter an email address', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'valid_email'       => __( 'Please enter a valid email address', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'enter_number'      => __( 'Please enter a number', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'valid_number'      => __( 'Please enter a valid number', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'enter_url'         => __( 'Please enter a URL', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'valid_url'         => __( 'Please enter a valid URL', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'select_time'       => __( 'Please select a time', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'valid_time'        => __( 'Please select a valid time', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'enter_code'        => __( 'Please select a language and enter code', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 /* translators: %s: required item count. */
-                'select_items'      => __( 'Please select %s item(s)', 'at-shift-cfs' ),
+                'select_items'      => __( 'Please select %s item(s)', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 /* translators: 1: minimum item count, 2: maximum item count. */
-                'select_item_range' => __( 'Please select between %1$s and %2$s items', 'at-shift-cfs' ),
+                'select_item_range' => __( 'Please select between %1$s and %2$s items', 'atshift-fields-maintenance-for-custom-field-suite' ),
             ] ) . ';',
             'before'
         );
@@ -613,7 +613,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
      * @since 1.9.5
      */
     function footer_scripts() {
-        do_action( 'cfs_custom_validation' );
+        do_action( 'atshift_cfs_custom_validation' );
     }
 
 
@@ -629,9 +629,9 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             return;
         }
 
-        echo '<div class="notice notice-error" id="cfs-validation-admin-notice" style="display: none;"><p><strong>';
-        echo esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' );
-        echo '</strong></p><ul id="cfs-validation-error-list"></ul></div>';
+        echo '<div class="notice notice-error" id="atshift-cfs-validation-admin-notice" style="display: none;"><p><strong>';
+        echo esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'atshift-fields-maintenance-for-custom-field-suite' );
+        echo '</strong></p><ul id="atshift-cfs-validation-error-list"></ul></div>';
     }
 
 
@@ -654,11 +654,12 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             'excluded_fields'       => [],
             'confirmation_message'  => '',
             'confirmation_url'      => '',
-            'submit_label'          => __( 'Submit', 'at-shift-cfs' ),
+            'submit_label'          => __( 'Submit', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'front_end'             => true,
         ];
 
         $params = array_merge( $defaults, $params );
+        $this->load_assets();
         $input_fields = [];
 
         // Keep track of field validators
@@ -685,7 +686,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
         }
 
         // Hook to allow for overridden field settings
-        $input_fields = apply_filters( 'cfs_pre_render_fields', $input_fields, $params );
+        $input_fields = apply_filters( 'atshift_cfs_pre_render_fields', $input_fields, $params );
 
         // The SESSION should contain all applicable field group IDs. Since add_meta_box only
         // passes 1 field group at a time, we use atshift_fields_maintenance_for_custom_field_suite()->group_ids from admin_head.php
@@ -723,9 +724,9 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             }
     ?>
 
-        <div class="cfs-validation-notice" id="cfs-validation-admin-notice" role="alert" aria-live="assertive">
-            <p><strong><?php esc_html_e( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' ); ?></strong></p>
-            <ul id="cfs-validation-error-list">
+        <div class="atshift-cfs-validation-notice" id="atshift-cfs-validation-admin-notice" role="alert" aria-live="assertive">
+            <p><strong><?php esc_html_e( 'One (or more) of your fields had validation errors. More information is available below.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></strong></p>
+            <ul id="atshift-cfs-validation-error-list">
                 <?php foreach ( $this->submission_errors as $field_name ) : ?>
                 <li><?php echo esc_html( isset( $error_labels[ $field_name ] ) ? $error_labels[ $field_name ] : $field_name ); ?></li>
                 <?php endforeach; ?>
@@ -791,7 +792,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             }
         }
 
-        do_action( 'cfs_form_before_fields', $params, [
+        do_action( 'atshift_cfs_form_before_fields', $params, [
             'group_ids'     => $all_group_ids,
             'input_fields'  => $input_fields
         ] );
@@ -903,11 +904,11 @@ CFS["validation_messages"] = ' . wp_json_encode( [
 
         <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
             <?php if ( 'loop' == $field->type ) : ?>
-            <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_attr_e( 'Toggle row visibility', 'at-shift-cfs' ); ?>"></a>
+            <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_attr_e( 'Toggle row visibility', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"></a>
             <?php endif; ?>
 
             <?php if ( 'accordion' !== $field->type && ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?><?php echo cfs_field::is_required_field( $field ) ? wp_kses_post( cfs_field::required_badge() ) : ''; ?></label>
+            <label><?php echo esc_html( $field->label ); ?><?php echo Atshift_CFS_field::is_required_field( $field ) ? wp_kses_post( Atshift_CFS_field::required_badge() ) : ''; ?></label>
             <?php endif; ?>
 
             <?php if ( 'accordion' !== $field->type && ! empty( $field->notes ) ) : ?>
@@ -943,7 +944,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             echo '</div>';
         }
 
-        do_action( 'cfs_form_after_fields', $params, [
+        do_action( 'atshift_cfs_form_after_fields', $params, [
             'group_ids'     => $all_group_ids,
             'input_fields'  => $input_fields
         ] );
@@ -951,7 +952,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
 
         <?php
         wp_add_inline_script(
-            'cfs-validation',
+            'atshift-cfs-validation',
             '(function($) {
                 CFS.field_rules = CFS.field_rules || {};
                 $.extend( CFS.field_rules, ' . wp_json_encode( atshift_fields_maintenance_for_custom_field_suite()->validators ) . ' );
@@ -959,7 +960,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             })(jQuery);'
         );
         ?>
-        <input type="hidden" name="cfs[save]" value="<?php echo esc_attr( wp_create_nonce( 'cfs_save_input' ) ); ?>" />
+        <input type="hidden" name="cfs[save]" value="<?php echo esc_attr( wp_create_nonce( 'atshift_cfs_save_input' ) ); ?>" />
         <input type="hidden" name="cfs[session_id]" value="<?php echo esc_attr( $this->session->session_id ); ?>" />
 
         <?php if ( false !== $params['front_end'] ) : ?>
@@ -973,4 +974,4 @@ CFS["validation_messages"] = ' . wp_json_encode( [
     }
 }
 
-atshift_fields_maintenance_for_custom_field_suite()->form = new cfs_form();
+atshift_fields_maintenance_for_custom_field_suite()->form = new Atshift_CFS_form();

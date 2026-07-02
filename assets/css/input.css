@@ -120,22 +120,22 @@
     box-shadow: inset 4px 0 0 #dc3232;
 }
 
-#cfs-validation-error-list {
+#atshift-cfs-validation-error-list {
     margin: 0 0 8px 1.2em;
     font-size: 14px;
     line-height: 1.5;
     list-style: disc;
 }
 
-#cfs-validation-error-list li {
+#atshift-cfs-validation-error-list li {
     margin: 2px 0;
 }
 
-#cfs-validation-error-list a {
+#atshift-cfs-validation-error-list a {
     font-weight: 600;
 }
 
-.cfs-validation-notice {
+.atshift-cfs-validation-notice {
     margin: 0 0 18px;
     padding: 12px 16px;
     border: 1px solid #d63638;
@@ -147,7 +147,7 @@
     line-height: 1.5;
 }
 
-.cfs-validation-notice p {
+.atshift-cfs-validation-notice p {
     margin: 0 0 6px;
 }
 

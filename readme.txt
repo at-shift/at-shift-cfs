@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.6.7.42.1.5
+Stable tag: 2.6.7.42.1.6
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -123,6 +123,13 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * Original Github: https://github.com/mgibbs189/custom-field-suite
 
 == Changelog ==
+
+= 2.6.7.42.1.6 =
+* Matched the text domain to the updated WordPress.org slug, atshift-fields-maintenance-for-custom-field-suite.
+* Updated bundled PowerTip to 1.3.2 and Select2 to 4.1.0.
+* Renamed internal classes, hooks, options, AJAX action, and the field group post type with atshift-prefixed identifiers while migrating existing CFS field groups and counters.
+* Replaced inline asset output buffers with a closed capture helper.
+* Fixed the submission build bootstrap guard and Select2 4 post rule saving.
 
 = 2.6.7.42.1.5 =
 * Removed the Domain Path header from the WordPress.org submission build because no language directory is bundled in the review package.

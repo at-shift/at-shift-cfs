@@ -1,19 +1,19 @@
-.cfs-code-view {
+.atshift-cfs-code-view {
     margin: 1em 0;
 }
 
-.cfs-code-view-language-control label {
+.atshift-cfs-code-view-language-control label {
     font-size: 14px;
     font-weight: 700;
     line-height: 1.45;
 }
 
-.cfs-code-view-language-control select {
+.atshift-cfs-code-view-language-control select {
     font-size: 14px;
     line-height: 1.45;
 }
 
-.cfs-code-view-header {
+.atshift-cfs-code-view-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,14 +26,14 @@
     background: #fff;
 }
 
-.cfs-code-view-language-label {
+.atshift-cfs-code-view-language-label {
     color: #50575e;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4;
 }
 
-.cfs-code-view pre {
+.atshift-cfs-code-view pre {
     margin: 0;
     padding: 14px 16px;
     overflow: auto;
@@ -46,11 +46,11 @@
     white-space: pre;
 }
 
-.cfs-code-view code {
+.atshift-cfs-code-view code {
     font-family: Consolas, Monaco, monospace;
 }
 
-.cfs-code-view-copy {
+.atshift-cfs-code-view-copy {
     min-height: 28px;
     padding: 3px 10px;
     border: 1px solid #8c8f94;
@@ -62,8 +62,8 @@
     line-height: 1.4;
 }
 
-.cfs-code-view-copy:hover,
-.cfs-code-view-copy:focus {
+.atshift-cfs-code-view-copy:hover,
+.atshift-cfs-code-view-copy:focus {
     border-color: #2271b1;
     color: #0a4b78;
 }

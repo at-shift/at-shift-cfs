@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_code_view extends cfs_field
+class Atshift_CFS_code_view extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'code_view';
-        $this->label = __( 'Code View', 'at-shift-cfs' );
+        $this->label = __( 'Code View', 'atshift-fields-maintenance-for-custom-field-suite' );
 
         add_action( 'wp_enqueue_scripts', [ $this, 'maybe_enqueue_assets' ] );
     }
@@ -18,9 +18,9 @@ class cfs_code_view extends cfs_field
     function html( $field ) {
         $field->value = $this->normalize_value_with_default( $field->value, '' );
     ?>
-        <div class="cfs-code-view-language-control" style="margin-bottom:10px;">
-            <label style="display:block;margin-bottom:3px;"><?php esc_html_e( 'Language', 'at-shift-cfs' ); ?><?php echo cfs_field::is_required_field( $field ) ? wp_kses_post( cfs_field::required_badge() ) : ''; ?></label>
-            <select name="<?php echo esc_attr( $field->input_name ); ?>[language]" class="cfs-code-view-language">
+        <div class="atshift-cfs-code-view-language-control" style="margin-bottom:10px;">
+            <label style="display:block;margin-bottom:3px;"><?php esc_html_e( 'Language', 'atshift-fields-maintenance-for-custom-field-suite' ); ?><?php echo Atshift_CFS_field::is_required_field( $field ) ? wp_kses_post( Atshift_CFS_field::required_badge() ) : ''; ?></label>
+            <select name="<?php echo esc_attr( $field->input_name ); ?>[language]" class="atshift-cfs-code-view-language">
                 <?php foreach ( $this->get_input_languages() as $language => $label ) : ?>
                     <option value="<?php echo esc_attr( $language ); ?>"<?php selected( $field->value['language'], $language ); ?>><?php echo esc_html( $label ); ?></option>
                 <?php endforeach; ?>
@@ -35,7 +35,7 @@ class cfs_code_view extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -49,7 +49,7 @@ class cfs_code_view extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Copy Button', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Copy Button', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -58,14 +58,14 @@ class cfs_code_view extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][copy_button]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'copy_button', 1 ),
-                        'options' => [ 'message' => __( 'Show copy button', 'at-shift-cfs' ) ],
+                        'options' => [ 'message' => __( 'Show copy button', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -74,7 +74,7 @@ class cfs_code_view extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
@@ -84,8 +84,8 @@ class cfs_code_view extends cfs_field
 
 
     function enqueue_assets() {
-        wp_enqueue_style( 'cfs-code-view', CFS_URL . '/assets/css/code-view.css', [], CFS_VERSION );
-        wp_enqueue_script( 'cfs-code-view', CFS_URL . '/assets/js/code-view.js', [], CFS_VERSION, true );
+        wp_enqueue_style( 'atshift-cfs-code-view', ATSHIFT_CFS_URL . '/assets/css/code-view.css', [], ATSHIFT_CFS_VERSION );
+        wp_enqueue_script( 'atshift-cfs-code-view', ATSHIFT_CFS_URL . '/assets/js/code-view.js', [], ATSHIFT_CFS_VERSION, true );
     }
 
 
@@ -147,14 +147,14 @@ class cfs_code_view extends cfs_field
         $button = '';
         if ( $copy_button ) {
             $button = sprintf(
-                '<button type="button" class="cfs-code-view-copy" data-label="%1$s" data-copied="%2$s">%1$s</button>',
-                esc_attr__( 'Copy', 'at-shift-cfs' ),
-                esc_attr__( 'Copied', 'at-shift-cfs' )
+                '<button type="button" class="atshift-cfs-code-view-copy" data-label="%1$s" data-copied="%2$s">%1$s</button>',
+                esc_attr__( 'Copy', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                esc_attr__( 'Copied', 'atshift-fields-maintenance-for-custom-field-suite' )
             );
         }
 
         return sprintf(
-            '<div class="cfs-code-view"><div class="cfs-code-view-header"><span class="cfs-code-view-language-label">%1$s</span>%2$s</div><pre><code class="%3$s">%4$s</code></pre></div>',
+            '<div class="atshift-cfs-code-view"><div class="atshift-cfs-code-view-header"><span class="atshift-cfs-code-view-language-label">%1$s</span>%2$s</div><pre><code class="%3$s">%4$s</code></pre></div>',
             esc_html( $language_label ),
             $button,
             esc_attr( $language_class ),
@@ -238,7 +238,7 @@ class cfs_code_view extends cfs_field
 
     private function get_languages() {
         return [
-            'plain_text' => __( 'Plain text', 'at-shift-cfs' ),
+            'plain_text' => __( 'Plain text', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'html'       => 'HTML',
             'css'        => 'CSS',
             'javascript' => 'JavaScript',
@@ -250,6 +250,6 @@ class cfs_code_view extends cfs_field
 
 
     private function get_input_languages() {
-        return [ '' => __( 'Please select a language...', 'at-shift-cfs' ) ] + $this->get_languages();
+        return [ '' => __( 'Please select a language...', 'atshift-fields-maintenance-for-custom-field-suite' ) ] + $this->get_languages();
     }
 }

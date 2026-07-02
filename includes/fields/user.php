@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_user extends cfs_field
+class Atshift_CFS_user extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'user';
-        $this->label = __( 'User', 'at-shift-cfs' );
+        $this->label = __( 'User', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -44,19 +44,19 @@ class cfs_user extends cfs_field
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php esc_attr_e( 'Search users', 'at-shift-cfs' ); ?>" />
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php esc_attr_e( 'Search users', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
         </div>
 
         <div class="available_posts post_list">
         <?php foreach ( $available_users as $user ) : ?>
             <?php $class = ( isset( $selected_users[ $user->ID ] ) ) ? 'used' : ''; ?>
-            <div rel="<?php echo absint( $user->ID ); ?>" class="<?php echo esc_attr( $class ); ?>"><?php echo wp_kses_post( apply_filters( 'cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
+            <div rel="<?php echo absint( $user->ID ); ?>" class="<?php echo esc_attr( $class ); ?>"><?php echo wp_kses_post( apply_filters( 'atshift_cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_users as $user ) : ?>
-            <div rel="<?php echo absint( $user->ID ); ?>"><span class="remove"></span><?php echo wp_kses_post( apply_filters( 'cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
+            <div rel="<?php echo absint( $user->ID ); ?>"><span class="remove"></span><?php echo wp_kses_post( apply_filters( 'atshift_cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>
@@ -69,7 +69,7 @@ class cfs_user extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Limits', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Limits', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />
@@ -82,7 +82,7 @@ class cfs_user extends cfs_field
 
     function input_head( $field = null ) {
     ?>
-        <?php ob_start(); ?>
+        <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() { ?>
         (function($) {
             update_user_values = function(field) {
                 var post_ids = [];
@@ -150,7 +150,7 @@ class cfs_user extends cfs_field
                 });
             }
         })(jQuery);
-        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
+        <?php } ) ); ?>
     <?php
     }
 

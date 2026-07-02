@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_term extends cfs_field
+class Atshift_CFS_term extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'term';
-        $this->label = __( 'Term', 'at-shift-cfs' );
+        $this->label = __( 'Term', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -37,7 +37,7 @@ class cfs_term extends cfs_field
             'order'      => 'ASC'
         ];
 
-        $args = apply_filters( 'cfs_field_term_query_args', $args, [ 'field' => $field ] );
+        $args = apply_filters( 'atshift_cfs_field_term_query_args', $args, [ 'field' => $field ] );
 
         $query = get_terms( $args );
 
@@ -67,19 +67,19 @@ class cfs_term extends cfs_field
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php esc_attr_e( 'Search terms', 'at-shift-cfs' ); ?>" />
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php esc_attr_e( 'Search terms', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
         </div>
 
         <div class="available_posts post_list">
         <?php foreach ( $available_posts as $term ) : ?>
             <?php $class = ( isset( $selected_posts[ $term->term_id ] ) ) ? 'used' : ''; ?>
-            <div rel="<?php echo absint( $term->term_id ); ?>" class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $term->name ); ?>"><?php echo wp_kses_post( apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
+            <div rel="<?php echo absint( $term->term_id ); ?>" class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $term->name ); ?>"><?php echo wp_kses_post( apply_filters( 'atshift_cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_posts as $term ) : ?>
-            <div rel="<?php echo absint( $term->term_id ); ?>"><span class="remove"></span><?php echo wp_kses_post( apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
+            <div rel="<?php echo absint( $term->term_id ); ?>"><span class="remove"></span><?php echo wp_kses_post( apply_filters( 'atshift_cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>
@@ -90,13 +90,13 @@ class cfs_term extends cfs_field
 
     function options_html( $key, $field ) {
         $args = [ 'public' => true ];
-        $choices = apply_filters( 'cfs_field_term_taxonomies', get_taxonomies( $args ) );
+        $choices = apply_filters( 'atshift_cfs_field_term_taxonomies', get_taxonomies( $args ) );
 
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e('Taxonomies', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php esc_html_e('Limit terms to the following taxonomies', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e('Taxonomies', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <p class="description"><?php esc_html_e('Limit terms to the following taxonomies', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
             </td>
             <td>
                 <?php
@@ -111,7 +111,7 @@ class cfs_term extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Limits', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Limits', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />
@@ -124,7 +124,7 @@ class cfs_term extends cfs_field
 
     function input_head( $field = null ) {
     ?>
-        <?php ob_start(); ?>
+        <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() { ?>
         (function($) {
             update_term_values = function(field) {
                 var term_ids = [];
@@ -192,7 +192,7 @@ class cfs_term extends cfs_field
                 });
             }
         })(jQuery);
-        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
+        <?php } ) ); ?>
     <?php
     }
 

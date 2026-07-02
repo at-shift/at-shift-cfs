@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_third_party
+class Atshift_CFS_third_party
 {
 
     public function __construct() {
@@ -51,7 +51,7 @@ class cfs_third_party
         if ( function_exists( 'get_current_screen' ) ) {
             $screen = get_current_screen();
 
-            if ( isset( $current_screen->id ) && 'cfs' == $current_screen->id ) {
+            if ( isset( $current_screen->id ) && ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $current_screen->id ) {
                 $args = [ 'public' => false, 'show_ui' => true ];
             }
         }
@@ -82,4 +82,4 @@ class cfs_third_party
     }
 }
 
-new cfs_third_party();
+new Atshift_CFS_third_party();

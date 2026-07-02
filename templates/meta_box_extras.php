@@ -11,7 +11,7 @@ $post_types = [];
 $types = get_post_types( [ 'public' => true ] );
 
 foreach ( $types as $post_type ) {
-    if ( ! in_array( $post_type, [ 'cfs', 'attachment' ] ) ) {
+    if ( ! in_array( $post_type, [ ATSHIFT_CFS_FIELD_GROUP_POST_TYPE, ATSHIFT_CFS_LEGACY_FIELD_GROUP_POST_TYPE, 'attachment' ], true ) ) {
         $post_types[] = $post_type;
     }
 }
@@ -34,9 +34,9 @@ if ( ! isset( $extras['context'] ) ) {
     <tr>
         <td class="label">
             <label>
-                <?php esc_html_e( 'Order', 'at-shift-cfs' ); ?>
+                <?php esc_html_e( 'Order', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
                 <div class="cfs_tooltip">?
-                    <div class="tooltip_inner"><?php esc_html_e( 'The field group with the lowest order will appear first.', 'at-shift-cfs' ); ?></div>
+                    <div class="tooltip_inner"><?php esc_html_e( 'The field group with the lowest order will appear first.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
                 </div>
             </label>
         </td>
@@ -46,16 +46,16 @@ if ( ! isset( $extras['context'] ) ) {
     </tr>
     <tr>
         <td class="label">
-            <label><?php esc_html_e( 'Position', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Position', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td style="vertical-align:top">
-            <input type="radio" name="cfs[extras][context]" value="normal"<?php echo ( $extras['context'] == 'normal' ) ? ' checked' : ''; ?> /> <?php esc_html_e( 'Normal', 'at-shift-cfs' ); ?> &nbsp; &nbsp;
-            <input type="radio" name="cfs[extras][context]" value="side"<?php echo ( $extras['context'] == 'side' ) ? ' checked' : ''; ?> /> <?php esc_html_e( 'Side', 'at-shift-cfs' ); ?>
+            <input type="radio" name="cfs[extras][context]" value="normal"<?php echo ( $extras['context'] == 'normal' ) ? ' checked' : ''; ?> /> <?php esc_html_e( 'Normal', 'atshift-fields-maintenance-for-custom-field-suite' ); ?> &nbsp; &nbsp;
+            <input type="radio" name="cfs[extras][context]" value="side"<?php echo ( $extras['context'] == 'side' ) ? ' checked' : ''; ?> /> <?php esc_html_e( 'Side', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
         </td>
     </tr>
     <tr>
         <td class="label">
-            <label><?php esc_html_e( 'Display Settings', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Display Settings', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td style="vertical-align:top">
             <div>
@@ -65,7 +65,7 @@ if ( ! isset( $extras['context'] ) ) {
                         'input_name'    => "cfs[extras][hide_editor]",
                         'input_class'   => 'true_false',
                         'value'         => $extras['hide_editor'],
-                        'options'       => [ 'message' => __( 'Hide the content editor (does not apply to the Gutenberg / block editor content area)', 'at-shift-cfs' ) ],
+                        'options'       => [ 'message' => __( 'Hide the content editor (does not apply to the Gutenberg / block editor content area)', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </div>

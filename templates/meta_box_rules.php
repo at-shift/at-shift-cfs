@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post, $wpdb, $wp_roles;
 
-$equals_text = __( 'equals', 'at-shift-cfs' );
-$not_equals_text = __( 'is not', 'at-shift-cfs' );
+$equals_text = __( 'equals', 'atshift-fields-maintenance-for-custom-field-suite' );
+$not_equals_text = __( 'is not', 'atshift-fields-maintenance-for-custom-field-suite' );
 $rules = (array) get_post_meta( $post->ID, 'cfs_rules', true );
 
 // Populate rules if empty
@@ -30,7 +30,7 @@ foreach ( $rule_types as $type ) {
 $post_types = [];
 $types = get_post_types();
 foreach ( $types as $post_type ) {
-    if ( ! in_array( $post_type, [ 'cfs', 'attachment', 'revision', 'nav_menu_item' ] ) ) {
+    if ( ! in_array( $post_type, [ ATSHIFT_CFS_FIELD_GROUP_POST_TYPE, ATSHIFT_CFS_LEGACY_FIELD_GROUP_POST_TYPE, 'attachment', 'revision', 'nav_menu_item' ], true ) ) {
         $post_types[ $post_type ] = $post_type;
     }
 }
@@ -114,52 +114,46 @@ foreach ( $templates as $template_name => $filename ) {
 
 ?>
 
-<?php ob_start(); ?>
+<?php wp_add_inline_script( 'atshift-cfs-fields', atshift_cfs_capture_output( function() use ( $json_posts ) { ?>
 (function($) {
     $(function() {
-        var cfs_nonce = '<?php echo esc_js( wp_create_nonce( 'cfs_admin_nonce' ) ); ?>';
+        var cfs_nonce = '<?php echo esc_js( wp_create_nonce( 'atshift_cfs_admin_nonce' ) ); ?>';
 
         $('.select2').select2({
-            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>'
+            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>',
+            width: 'resolve'
         });
 
         $('.select2-ajax').select2({
-            multiple: true,
-            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>',
+            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>',
             minimumInputLength: 2,
+            width: '99.95%',
             ajax: {
                 url: ajaxurl,
                 type: 'POST',
                 dataType: 'json',
-                data: function(term, page) {
+                delay: 250,
+                data: function(params) {
                     return {
-                        q: term,
-                        action: 'cfs_ajax_handler',
+                        q: params.term,
+                        action: 'atshift_cfs_ajax_handler',
                         action_type: 'search_posts',
                         nonce: cfs_nonce
                     }
                 },
-                results: function(data, page) {
+                processResults: function(data) {
                     return { results: data };
                 }
-            },
-            initSelection: function(element, callback) {
-                var data = [];
-                var post_ids = <?php echo wp_json_encode( $json_posts ); ?>;
-                $(post_ids).each(function(idx, val) {
-                    data.push({ id: val.id, text: val.text });
-                });
-                callback(data);
             }
         });
     });
 })(jQuery);
-<?php wp_add_inline_script( 'cfs-fields', ob_get_clean() ); ?>
+<?php } ) ); ?>
 
 <table>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e( 'Post Types', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Post Types', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -192,7 +186,7 @@ foreach ( $templates as $template_name => $filename ) {
     <?php if ( current_theme_supports( 'post-formats' ) && count( $post_formats ) ) : ?>
         <tr>
             <td class="label cfs-rule-label">
-                <label><?php esc_html_e( 'Post Formats', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Post Formats', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td class="cfs-rule-operator">
                 <?php
@@ -225,7 +219,7 @@ foreach ( $templates as $template_name => $filename ) {
     <?php endif; ?>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e( 'User Roles', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'User Roles', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -257,7 +251,7 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e('Posts', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e('Posts', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -276,12 +270,16 @@ foreach ( $templates as $template_name => $filename ) {
             ?>
         </td>
         <td class="cfs-rule-value">
-            <input type="hidden" name="cfs[rules][post_ids]" class="select2-ajax" value="<?php echo esc_attr( implode( ',', array_map( 'absint', $post_ids ) ) ); ?>" style="width:99.95%" />
+            <select name="cfs[rules][post_ids][]" class="select2-ajax" multiple="multiple" style="width:99.95%">
+                <?php foreach ( $json_posts as $json_post ) : ?>
+                    <option value="<?php echo esc_attr( absint( $json_post['id'] ) ); ?>" selected="selected"><?php echo esc_html( $json_post['text'] ); ?></option>
+                <?php endforeach; ?>
+            </select>
         </td>
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e( 'Taxonomy Terms', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Taxonomy Terms', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
@@ -313,7 +311,7 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e( 'Page Templates', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Page Templates', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php

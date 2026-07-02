@@ -5,10 +5,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 if ( defined( 'CFS_REVISIONS' ) && CFS_REVISIONS ) {
-    new cfs_revision();
+    new Atshift_CFS_revision();
 }
 
-class cfs_revision
+class Atshift_CFS_revision
 {
 
     function __construct() {
@@ -27,7 +27,7 @@ class cfs_revision
      * @see wp-includes/revision.php - wp_save_post_revision()
      */
     function _wp_post_revision_fields( $fields ) {
-        $fields[ 'cfs_postmeta' ] = __( 'Post Meta', 'at-shift-cfs' );
+        $fields[ 'cfs_postmeta' ] = __( 'Post Meta', 'atshift-fields-maintenance-for-custom-field-suite' );
         return $fields;
     }
 

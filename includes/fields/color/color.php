@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_color extends cfs_field
+class Atshift_CFS_color extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'color';
-        $this->label = __( 'Color', 'at-shift-cfs' );
+        $this->label = __( 'Color', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -17,7 +17,7 @@ class cfs_color extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
@@ -34,11 +34,11 @@ class cfs_color extends cfs_field
 
 
     function input_head( $field = null ) {
-        wp_register_script( 'miniColors', esc_url( CFS_URL . '/includes/fields/color/jquery.miniColors.min.js' ), [ 'jquery' ], CFS_VERSION, true );
+        wp_register_script( 'miniColors', esc_url( ATSHIFT_CFS_URL . '/includes/fields/color/jquery.miniColors.min.js' ), [ 'jquery' ], ATSHIFT_CFS_VERSION, true );
         wp_enqueue_script( 'miniColors' );
-        wp_enqueue_style( 'miniColors', esc_url( CFS_URL . '/includes/fields/color/color.css' ), [], CFS_VERSION );
+        wp_enqueue_style( 'miniColors', esc_url( ATSHIFT_CFS_URL . '/includes/fields/color/color.css' ), [], ATSHIFT_CFS_VERSION );
     ?>
-        <?php ob_start(); ?>
+        <?php wp_add_inline_script( 'miniColors', atshift_cfs_capture_output( function() { ?>
         (function($) {
             $(document).on('focus', '.cfs_color input.color', function() {
                 if (!$(this).hasClass('ready')) {
@@ -50,7 +50,7 @@ class cfs_color extends cfs_field
                 $('.cfs_color input.color').addClass('ready').minicolors();
             });
         })(jQuery);
-        <?php wp_add_inline_script( 'miniColors', ob_get_clean() ); ?>
+        <?php } ) ); ?>
     <?php
     }
 }

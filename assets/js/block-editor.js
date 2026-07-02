@@ -8,8 +8,8 @@
         blocks.registerBlockType(group.name, {
             apiVersion: 3,
             title: group.blockTitle,
-            description: config.description || __('Displays a CFS field group.', 'at-shift-cfs' ),
-            category: 'cfs',
+            description: config.description || __('Displays a CFS field group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            category: config.category || 'atshift-cfs',
             icon: 'feedback',
             attributes: {
                 groupId: {
@@ -24,15 +24,15 @@
             edit: function () {
                 return createElement(
                     'div',
-                    { className: 'cfs-block-editor-placeholder' },
+                    { className: 'atshift-cfs-block-editor-placeholder' },
                     createElement('strong', {}, group.title),
                     createElement(
                         'span',
                         {},
-                        (config.fieldGroup || __('Field Group', 'at-shift-cfs' )) + ' / ' +
-                            (config.fieldCount || __('Fields', 'at-shift-cfs' )) + ': ' + group.fieldCount
+                        (config.fieldGroup || __('Field Group', 'atshift-fields-maintenance-for-custom-field-suite' )) + ' / ' +
+                            (config.fieldCount || __('Fields', 'atshift-fields-maintenance-for-custom-field-suite' )) + ': ' + group.fieldCount
                     ),
-                    0 === group.fieldCount ? createElement('em', {}, config.noFields || __('No fields in this group.', 'at-shift-cfs' )) : null
+                    0 === group.fieldCount ? createElement('em', {}, config.noFields || __('No fields in this group.', 'atshift-fields-maintenance-for-custom-field-suite' )) : null
                 );
             },
             save: function () {

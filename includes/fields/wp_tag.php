@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class cfs_wp_tag extends cfs_field
+class Atshift_CFS_wp_tag extends Atshift_CFS_field
 {
 
     function __construct() {
         $this->name = 'wp_tag';
-        $this->label = __( 'Post Tags', 'at-shift-cfs' );
+        $this->label = __( 'Post Tags', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -21,7 +21,7 @@ class cfs_wp_tag extends cfs_field
         $tags = is_array( $tags ) ? $tags : [];
     ?>
         <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( implode( ', ', $tags ) ); ?>" />
-        <p class="notes"><?php esc_html_e( 'Separate tags with commas', 'at-shift-cfs' ); ?></p>
+        <p class="notes"><?php esc_html_e( 'Separate tags with commas', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
     <?php
     }
 
