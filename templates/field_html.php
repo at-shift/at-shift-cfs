@@ -8,11 +8,11 @@ global $post;
 $child_count = 0;
 $structure_types = [ 'tab', 'loop', 'group', 'accordion', 'conditional' ];
 $structure_badges = [
-    'tab'         => __( 'TAB', 'atshift-fields-maintenance-for-custom-field-suite' ),
-    'loop'        => __( 'LOOP', 'atshift-fields-maintenance-for-custom-field-suite' ),
-    'group'       => __( 'GROUP', 'atshift-fields-maintenance-for-custom-field-suite' ),
-    'accordion'   => __( 'ACCORDION', 'atshift-fields-maintenance-for-custom-field-suite' ),
-    'conditional' => __( 'CONDITION', 'atshift-fields-maintenance-for-custom-field-suite' ),
+    'tab'         => __( 'TAB', 'at-shift-cfs' ),
+    'loop'        => __( 'LOOP', 'at-shift-cfs' ),
+    'group'       => __( 'GROUP', 'at-shift-cfs' ),
+    'accordion'   => __( 'ACCORDION', 'at-shift-cfs' ),
+    'conditional' => __( 'CONDITION', 'at-shift-cfs' ),
 ];
 $structure_badge = isset( $structure_badges[ $field->type ] ) ? $structure_badges[ $field->type ] : strtoupper( $field->type );
 
@@ -50,7 +50,7 @@ if ( 'group' === $field->type && ! empty( $field->id ) ) {
             <tr class="field_warning">
                 <td></td>
                 <td colspan="3">
-                    <?php esc_html_e( 'Add two or more fields to this horizontal group.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                    <?php esc_html_e( 'Add two or more fields to this horizontal group.', 'at-shift-cfs' ); ?>
                 </td>
             </tr>
             <?php endif; ?>
@@ -66,26 +66,26 @@ if ( 'group' === $field->type && ! empty( $field->id ) ) {
                             <tr>
                                 <td class="field_label">
                                     <label>
-                                        <?php esc_html_e( 'Label', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                                        <?php esc_html_e( 'Label', 'at-shift-cfs' ); ?>
                                         <div class="cfs_tooltip">?
-                                            <div class="tooltip_inner"><?php esc_html_e( 'The field label that editors will see.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                                            <div class="tooltip_inner"><?php esc_html_e( 'The field label that editors will see.', 'at-shift-cfs' ); ?></div>
                                         </div>
                                     </label>
                                     <input type="text" name="cfs[fields][<?php echo absint( $field->weight ); ?>][label]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->label ); ?>" />
                                 </td>
                                 <td class="field_name">
                                     <label>
-                                        <?php esc_html_e( 'Name', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                                        <?php esc_html_e( 'Name', 'at-shift-cfs' ); ?>
                                         <div class="cfs_tooltip">?
                                             <div class="tooltip_inner">
-                                                <?php esc_html_e( 'The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                                                <?php esc_html_e( 'The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores.', 'at-shift-cfs' ); ?>
                                             </div>
                                         </div>
                                     </label>
                                     <input type="text" name="cfs[fields][<?php echo absint( $field->weight ); ?>][name]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->name ); ?>" />
                                 </td>
                                 <td class="field_type">
-                                    <label><?php esc_html_e( 'Field Type', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                                    <label><?php esc_html_e( 'Field Type', 'at-shift-cfs' ); ?></label>
                                     <select name="cfs[fields][<?php echo absint( $field->weight ); ?>][type]">
                                         <?php foreach ( atshift_fields_maintenance_for_custom_field_suite()->fields as $type ) : ?>
                                         <option value="<?php echo esc_attr( $type->name ); ?>"<?php selected( $type->name, $field->type ); ?>><?php echo esc_html( $type->label ); ?></option>
@@ -101,8 +101,8 @@ if ( 'group' === $field->type && ! empty( $field->id ) ) {
 
                 <tr class="field_conditional_value">
                     <td class="label">
-                        <label><?php esc_html_e( 'Display for choice', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                        <p class="description"><?php esc_html_e( 'Choose the parent Conditional Group value that displays this field.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                        <label><?php esc_html_e( 'Display for choice', 'at-shift-cfs' ); ?></label>
+                        <p class="description"><?php esc_html_e( 'Choose the parent Conditional Group value that displays this field.', 'at-shift-cfs' ); ?></p>
                     </td>
                     <td>
                         <select name="cfs[fields][<?php echo esc_attr( $field->weight ); ?>][options][conditional_value]" class="cfs-conditional-value">
@@ -119,9 +119,9 @@ if ( 'group' === $field->type && ! empty( $field->id ) ) {
                 <tr class="field_notes">
                     <td class="label">
                         <label>
-                            <?php esc_html_e( 'Notes', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                            <?php esc_html_e( 'Notes', 'at-shift-cfs' ); ?>
                             <div class="cfs_tooltip">?
-                                <div class="tooltip_inner"><?php esc_html_e( 'Notes for editors during data entry', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                                <div class="tooltip_inner"><?php esc_html_e( 'Notes for editors during data entry', 'at-shift-cfs' ); ?></div>
                             </div>
                         </label>
                     </td>
@@ -137,9 +137,9 @@ if ( 'group' === $field->type && ! empty( $field->id ) ) {
                         <input type="hidden" name="cfs[fields][<?php echo esc_attr( $field->weight ); ?>][parent_id]" class="parent_id" value="<?php echo absint( $field->parent_id ); ?>" />
                         <input type="hidden" name="cfs[fields][<?php echo esc_attr( $field->weight ); ?>][parent_key]" class="parent_key" value="" />
                         <input type="hidden" name="cfs[fields][<?php echo esc_attr( $field->weight ); ?>][options][outside_tabs]" class="outside_tabs" value="<?php echo empty( $field->options['outside_tabs'] ) ? 0 : 1; ?>" />
-                        <input type="button" value="<?php esc_attr_e( 'Close', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" class="button-secondary cfs_edit_field" />
-                        &nbsp; -<?php esc_html_e( 'or', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>- &nbsp; <span class="cfs_delete_field"><?php esc_html_e( 'delete', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></span>
-                        &nbsp; -<?php esc_html_e( 'or', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>- &nbsp; <input type="button" value="<?php esc_attr_e( 'Add new field below', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" class="button-primary cfs_add_field_below" />
+                        <input type="button" value="<?php esc_attr_e( 'Close', 'at-shift-cfs' ); ?>" class="button-secondary cfs_edit_field" />
+                        &nbsp; -<?php esc_html_e( 'or', 'at-shift-cfs' ); ?>- &nbsp; <span class="cfs_delete_field"><?php esc_html_e( 'delete', 'at-shift-cfs' ); ?></span>
+                        &nbsp; -<?php esc_html_e( 'or', 'at-shift-cfs' ); ?>- &nbsp; <input type="button" value="<?php esc_attr_e( 'Add new field below', 'at-shift-cfs' ); ?>" class="button-primary cfs_add_field_below" />
                     </td>
                 </tr>
             </tbody>

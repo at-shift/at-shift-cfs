@@ -9,7 +9,7 @@ class cfs_color extends cfs_field
 
     function __construct() {
         $this->name = 'color';
-        $this->label = __( 'Color', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Color', 'at-shift-cfs' );
     }
 
 
@@ -17,7 +17,7 @@ class cfs_color extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php

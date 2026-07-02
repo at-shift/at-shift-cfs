@@ -9,7 +9,7 @@ class cfs_accordion extends cfs_field
 
     function __construct() {
         $this->name = 'accordion';
-        $this->label = __( 'Accordion Group', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Accordion Group', 'at-shift-cfs' );
     }
 
 
@@ -84,7 +84,7 @@ class cfs_accordion extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Initial State', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Initial State', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -93,7 +93,7 @@ class cfs_accordion extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][open]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'open', 0 ),
-                        'options' => [ 'message' => __( 'Open by default', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options' => [ 'message' => __( 'Open by default', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

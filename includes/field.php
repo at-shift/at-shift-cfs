@@ -17,7 +17,7 @@ class cfs_field
      */
     function __construct() {
         $this->name = 'text';
-        $this->label = __( 'Text', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Text', 'at-shift-cfs' );
     }
 
 
@@ -43,7 +43,7 @@ class cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -52,7 +52,7 @@ class cfs_field
                         'input_name'    => "cfs[fields][$key][options][required]",
                         'input_class'   => 'true_false',
                         'value'         => $this->get_option( $field, 'required' ),
-                        'options'       => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options'       => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>
@@ -217,6 +217,6 @@ class cfs_field
 
 
     public static function required_badge() {
-        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</span>';
+        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'at-shift-cfs' ) . '</span>';
     }
 }

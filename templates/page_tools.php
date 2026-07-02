@@ -140,7 +140,7 @@ $results = $wpdb->get_results( $sql );
     $(function() {
         var $tools = $('.cfs-tools');
         var cfs_nonce = '<?php echo esc_js( wp_create_nonce( 'cfs_admin_nonce' ) ); ?>';
-        var reset_confirm_message = <?php echo wp_json_encode( __( 'This will delete all atshift Fields Maintenance for Custom Field Suite data. Are you sure?', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>;
+        var reset_confirm_message = <?php echo wp_json_encode( __( 'This will delete all atshift Fields Maintenance for Custom Field Suite data. Are you sure?', 'at-shift-cfs' ) ); ?>;
 
         $tools.find('.nav-tab').click(function(e) {
             e.preventDefault();
@@ -195,12 +195,12 @@ $results = $wpdb->get_results( $sql );
 <?php wp_add_inline_script( 'cfs-fields', ob_get_clean() ); ?>
 
 <div class="wrap cfs-tools">
-    <h1><?php esc_html_e( 'atshift Fields Maintenance for Custom Field Suite Tools', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></h1>
+    <h1><?php esc_html_e( 'atshift Fields Maintenance for Custom Field Suite Tools', 'at-shift-cfs' ); ?></h1>
 
     <h2 class="nav-tab-wrapper">
-        <a class="nav-tab nav-tab-active" rel="export"><?php esc_html_e( 'Export', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></a>
-        <a class="nav-tab" rel="import"><?php esc_html_e( 'Import', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></a>
-        <a class="nav-tab" rel="reset"><?php esc_html_e( 'Reset', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></a>
+        <a class="nav-tab nav-tab-active" rel="export"><?php esc_html_e( 'Export', 'at-shift-cfs' ); ?></a>
+        <a class="nav-tab" rel="import"><?php esc_html_e( 'Import', 'at-shift-cfs' ); ?></a>
+        <a class="nav-tab" rel="reset"><?php esc_html_e( 'Reset', 'at-shift-cfs' ); ?></a>
     </h2>
 
     <div class="content-container">
@@ -208,23 +208,23 @@ $results = $wpdb->get_results( $sql );
         <!-- Export -->
 
         <div class="tab-content export active">
-            <p class="cfs-tools-description"><?php esc_html_e( 'Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+            <p class="cfs-tools-description"><?php esc_html_e( 'Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items.', 'at-shift-cfs' ); ?></p>
 
             <div class="cfs-tools-grid">
                 <div class="cfs-tools-field">
-                    <label for="export-field-groups"><?php esc_html_e( 'Field Groups', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                    <label for="export-field-groups"><?php esc_html_e( 'Field Groups', 'at-shift-cfs' ); ?></label>
                     <select id="export-field-groups" multiple="multiple">
                         <?php foreach ($results as $result) : ?>
                         <option value="<?php echo absint( $result->ID ); ?>"><?php echo esc_html( $result->post_title ); ?></option>
                         <?php endforeach; ?>
                     </select>
                     <div class="cfs-tools-actions">
-                        <input type="button" id="button-export" class="button button-primary" value="<?php esc_attr_e( 'Export', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+                        <input type="button" id="button-export" class="button button-primary" value="<?php esc_attr_e( 'Export', 'at-shift-cfs' ); ?>" />
                     </div>
                 </div>
 
                 <div id="export-area" class="cfs-tools-field" style="display:none">
-                    <label for="export-output"><?php esc_html_e( 'Export Code', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                    <label for="export-output"><?php esc_html_e( 'Export Code', 'at-shift-cfs' ); ?></label>
                     <textarea id="export-output" readonly="readonly"></textarea>
                 </div>
             </div>
@@ -233,13 +233,13 @@ $results = $wpdb->get_results( $sql );
         <!-- Import -->
 
         <div class="tab-content import">
-            <p class="cfs-tools-description"><?php esc_html_e( 'Paste the exported field group code into the input field below, then press the button.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+            <p class="cfs-tools-description"><?php esc_html_e( 'Paste the exported field group code into the input field below, then press the button.', 'at-shift-cfs' ); ?></p>
 
             <div class="cfs-tools-field">
-                <label for="import-code"><?php esc_html_e( 'Import Code', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <textarea id="import-code" placeholder="<?php esc_attr_e( 'Paste the import code here', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"></textarea>
+                <label for="import-code"><?php esc_html_e( 'Import Code', 'at-shift-cfs' ); ?></label>
+                <textarea id="import-code" placeholder="<?php esc_attr_e( 'Paste the import code here', 'at-shift-cfs' ); ?>"></textarea>
                 <div class="cfs-tools-actions">
-                    <input type="button" id="button-import" class="button button-primary" value="<?php esc_attr_e( 'Import', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+                    <input type="button" id="button-import" class="button button-primary" value="<?php esc_attr_e( 'Import', 'at-shift-cfs' ); ?>" />
                 </div>
             </div>
             <div id="import-message"></div>
@@ -248,9 +248,9 @@ $results = $wpdb->get_results( $sql );
         <!-- Reset -->
 
         <div class="tab-content reset cfs-tools-reset">
-            <h2><?php esc_html_e( 'Reset and deactivate.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></h2>
-            <p class="cfs-tools-warning"><?php esc_html_e( 'This will delete all atshift Fields Maintenance for Custom Field Suite data and deactivate the plugin.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
-            <input type="button" id="button-reset" class="button cfs-tools-danger-button" value="<?php esc_attr_e( 'Delete everything', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+            <h2><?php esc_html_e( 'Reset and deactivate.', 'at-shift-cfs' ); ?></h2>
+            <p class="cfs-tools-warning"><?php esc_html_e( 'This will delete all atshift Fields Maintenance for Custom Field Suite data and deactivate the plugin.', 'at-shift-cfs' ); ?></p>
+            <input type="button" id="button-reset" class="button cfs-tools-danger-button" value="<?php esc_attr_e( 'Delete everything', 'at-shift-cfs' ); ?>" />
         </div>
     </div>
 </div>

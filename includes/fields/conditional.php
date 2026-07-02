@@ -8,7 +8,7 @@ class cfs_conditional extends cfs_field
 {
     function __construct() {
         $this->name = 'conditional';
-        $this->label = __( 'Conditional Group', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Conditional Group', 'at-shift-cfs' );
     }
 
 
@@ -41,7 +41,7 @@ class cfs_conditional extends cfs_field
             <div class="cfs-conditional-control cfs-conditional-control-<?php echo esc_attr( $display_type ); ?>">
                 <?php if ( 'select' === $display_type ) : ?>
                     <select name="<?php echo esc_attr( $field->input_name ); ?>" class="cfs-conditional-selector">
-                        <option value=""><?php esc_html_e( 'Please select...', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
+                        <option value=""><?php esc_html_e( 'Please select...', 'at-shift-cfs' ); ?></option>
                         <?php foreach ( $choices as $value => $label ) : ?>
                         <option value="<?php echo esc_attr( $value ); ?>"<?php selected( $selected, (string) $value ); ?>><?php echo esc_html( $label ); ?></option>
                         <?php endforeach; ?>
@@ -114,7 +114,7 @@ class cfs_conditional extends cfs_field
         ?>
         <tr class="field_option field_option_conditional">
             <td class="label">
-                <label><?php esc_html_e( 'Display Type', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Display Type', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( [
@@ -123,8 +123,8 @@ class cfs_conditional extends cfs_field
                     'input_class' => 'cfs-conditional-display-type',
                     'options' => [
                         'choices' => [
-                            'radio' => __( 'Radio Button', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'select' => __( 'Dropdown', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                            'radio' => __( 'Radio Button', 'at-shift-cfs' ),
+                            'select' => __( 'Dropdown', 'at-shift-cfs' ),
                         ],
                         'force_single' => true,
                     ],
@@ -134,8 +134,8 @@ class cfs_conditional extends cfs_field
         </tr>
         <tr class="field_option field_option_conditional">
             <td class="label">
-                <label><?php esc_html_e( 'Choices', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <label><?php esc_html_e( 'Choices', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( [
@@ -148,8 +148,8 @@ class cfs_conditional extends cfs_field
         </tr>
         <tr class="field_option field_option_conditional cfs-conditional-default-row">
             <td class="label">
-                <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <p class="description"><?php esc_html_e( 'Used for radio buttons. The first choice is used when left blank.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Used for radio buttons. The first choice is used when left blank.', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][default_value]" value="<?php echo esc_attr( $this->get_option( $field, 'default_value' ) ); ?>" />

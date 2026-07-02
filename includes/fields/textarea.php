@@ -9,7 +9,7 @@ class cfs_textarea extends cfs_field
 
     function __construct() {
         $this->name = 'textarea';
-        $this->label = __( 'Textarea', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Textarea', 'at-shift-cfs' );
     }
 
 
@@ -25,7 +25,7 @@ class cfs_textarea extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -39,7 +39,7 @@ class cfs_textarea extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Formatting', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Formatting', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -48,8 +48,8 @@ class cfs_textarea extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][formatting]',
                         'options' => [
                             'choices' => [
-                                'none' => __( 'None', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'auto_br' => __( 'Convert newlines to <br />', 'atshift-fields-maintenance-for-custom-field-suite' )
+                                'none' => __( 'None', 'at-shift-cfs' ),
+                                'auto_br' => __( 'Convert newlines to <br />', 'at-shift-cfs' )
                             ],
                             'force_single' => true,
                         ],
@@ -60,7 +60,7 @@ class cfs_textarea extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -69,7 +69,7 @@ class cfs_textarea extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

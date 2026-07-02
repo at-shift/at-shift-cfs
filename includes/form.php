@@ -118,8 +118,8 @@ class cfs_form
                         }
 
                         wp_die(
-                            esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            esc_html__( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                            esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' ),
+                            esc_html__( 'Validation', 'at-shift-cfs' ),
                             [ 'response' => 400 ]
                         );
                     }
@@ -584,24 +584,24 @@ class cfs_form
 CFS["get_field_value"] = {};
 CFS["loop_buffer"] = [];
 CFS["validation_messages"] = ' . wp_json_encode( [
-                'enter_value'       => __( 'Please enter a value', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'valid_date'        => __( 'Please enter a valid date (YYYY-MM-DD HH:MM)', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'valid_color'       => __( 'Please enter a valid color HEX (#ff0000)', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'enter_phone'       => __( 'Please enter a phone number', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'valid_phone'       => __( 'Please enter a valid phone number', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'enter_email'       => __( 'Please enter an email address', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'valid_email'       => __( 'Please enter a valid email address', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'enter_number'      => __( 'Please enter a number', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'valid_number'      => __( 'Please enter a valid number', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'enter_url'         => __( 'Please enter a URL', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'valid_url'         => __( 'Please enter a valid URL', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'select_time'       => __( 'Please select a time', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'valid_time'        => __( 'Please select a valid time', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'enter_code'        => __( 'Please select a language and enter code', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'enter_value'       => __( 'Please enter a value', 'at-shift-cfs' ),
+                'valid_date'        => __( 'Please enter a valid date (YYYY-MM-DD HH:MM)', 'at-shift-cfs' ),
+                'valid_color'       => __( 'Please enter a valid color HEX (#ff0000)', 'at-shift-cfs' ),
+                'enter_phone'       => __( 'Please enter a phone number', 'at-shift-cfs' ),
+                'valid_phone'       => __( 'Please enter a valid phone number', 'at-shift-cfs' ),
+                'enter_email'       => __( 'Please enter an email address', 'at-shift-cfs' ),
+                'valid_email'       => __( 'Please enter a valid email address', 'at-shift-cfs' ),
+                'enter_number'      => __( 'Please enter a number', 'at-shift-cfs' ),
+                'valid_number'      => __( 'Please enter a valid number', 'at-shift-cfs' ),
+                'enter_url'         => __( 'Please enter a URL', 'at-shift-cfs' ),
+                'valid_url'         => __( 'Please enter a valid URL', 'at-shift-cfs' ),
+                'select_time'       => __( 'Please select a time', 'at-shift-cfs' ),
+                'valid_time'        => __( 'Please select a valid time', 'at-shift-cfs' ),
+                'enter_code'        => __( 'Please select a language and enter code', 'at-shift-cfs' ),
                 /* translators: %s: required item count. */
-                'select_items'      => __( 'Please select %s item(s)', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'select_items'      => __( 'Please select %s item(s)', 'at-shift-cfs' ),
                 /* translators: 1: minimum item count, 2: maximum item count. */
-                'select_item_range' => __( 'Please select between %1$s and %2$s items', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'select_item_range' => __( 'Please select between %1$s and %2$s items', 'at-shift-cfs' ),
             ] ) . ';',
             'before'
         );
@@ -630,7 +630,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
         }
 
         echo '<div class="notice notice-error" id="cfs-validation-admin-notice" style="display: none;"><p><strong>';
-        echo esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'atshift-fields-maintenance-for-custom-field-suite' );
+        echo esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' );
         echo '</strong></p><ul id="cfs-validation-error-list"></ul></div>';
     }
 
@@ -654,7 +654,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             'excluded_fields'       => [],
             'confirmation_message'  => '',
             'confirmation_url'      => '',
-            'submit_label'          => __( 'Submit', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'submit_label'          => __( 'Submit', 'at-shift-cfs' ),
             'front_end'             => true,
         ];
 
@@ -724,7 +724,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
     ?>
 
         <div class="cfs-validation-notice" id="cfs-validation-admin-notice" role="alert" aria-live="assertive">
-            <p><strong><?php esc_html_e( 'One (or more) of your fields had validation errors. More information is available below.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></strong></p>
+            <p><strong><?php esc_html_e( 'One (or more) of your fields had validation errors. More information is available below.', 'at-shift-cfs' ); ?></strong></p>
             <ul id="cfs-validation-error-list">
                 <?php foreach ( $this->submission_errors as $field_name ) : ?>
                 <li><?php echo esc_html( isset( $error_labels[ $field_name ] ) ? $error_labels[ $field_name ] : $field_name ); ?></li>
@@ -903,7 +903,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
 
         <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
             <?php if ( 'loop' == $field->type ) : ?>
-            <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_attr_e( 'Toggle row visibility', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"></a>
+            <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_attr_e( 'Toggle row visibility', 'at-shift-cfs' ); ?>"></a>
             <?php endif; ?>
 
             <?php if ( 'accordion' !== $field->type && ! empty( $field->label ) ) : ?>

@@ -9,7 +9,7 @@ class cfs_file extends cfs_field
 
     function __construct() {
         $this->name = 'file';
-        $this->label = __( 'File Upload', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'File Upload', 'at-shift-cfs' );
     }
 
 
@@ -37,8 +37,8 @@ class cfs_file extends cfs_field
         $css = empty( $field->value ) ? [ '', ' hidden' ] : [ ' hidden', '' ];
     ?>
         <span class="file_url"><?php echo wp_kses_post( $file_url ); ?></span>
-        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Add File', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
-        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Add File', 'at-shift-cfs' ); ?>" />
+        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove', 'at-shift-cfs' ); ?>" />
         <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="file_value" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
     }
@@ -48,7 +48,7 @@ class cfs_file extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'File Type', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'File Type', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -57,10 +57,10 @@ class cfs_file extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][file_type]',
                         'options' => [
                             'choices' => [
-                                'file'  => __( 'Any', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'image' => __( 'Image', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'audio' => __( 'Audio', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'video' => __( 'Video', 'atshift-fields-maintenance-for-custom-field-suite' )
+                                'file'  => __( 'Any', 'at-shift-cfs' ),
+                                'image' => __( 'Image', 'at-shift-cfs' ),
+                                'audio' => __( 'Audio', 'at-shift-cfs' ),
+                                'video' => __( 'Video', 'at-shift-cfs' )
                             ],
                             'force_single' => true,
                         ],
@@ -71,7 +71,7 @@ class cfs_file extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Return Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Return Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -80,8 +80,8 @@ class cfs_file extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][return_value]',
                         'options' => [
                             'choices' => [
-                                'url' => __( 'File URL', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'id' => __( 'Attachment ID', 'atshift-fields-maintenance-for-custom-field-suite' )
+                                'url' => __( 'File URL', 'at-shift-cfs' ),
+                                'id' => __( 'Attachment ID', 'at-shift-cfs' )
                             ],
                             'force_single' => true,
                         ],
@@ -92,7 +92,7 @@ class cfs_file extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -101,7 +101,7 @@ class cfs_file extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

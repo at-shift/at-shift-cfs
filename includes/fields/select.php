@@ -10,7 +10,7 @@ class cfs_select extends cfs_field
 
     function __construct() {
         $this->name = 'select';
-        $this->label = __( 'Select', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Select', 'at-shift-cfs' );
         $this->select2_inserted = false;
     }
 
@@ -43,7 +43,7 @@ class cfs_select extends cfs_field
     ?>
         <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php if ( $multiple ) : ?> multiple="multiple"<?php endif; ?>>
         <?php if ( $show_placeholder ) : ?>
-            <option value=""<?php selected( in_array( '', $selected_values, true ) ); ?>><?php esc_html_e( 'Please select...', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
+            <option value=""<?php selected( in_array( '', $selected_values, true ) ); ?>><?php esc_html_e( 'Please select...', 'at-shift-cfs' ); ?></option>
         <?php endif; ?>
         <?php foreach ( $choices as $val => $label ) : ?>
             <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
@@ -111,8 +111,8 @@ class cfs_select extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Choices', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <label><?php esc_html_e( 'Choices', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -126,7 +126,7 @@ class cfs_select extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Multi-select?', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Multi-select?', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -135,14 +135,14 @@ class cfs_select extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][multiple]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'multiple' ),
-                        'options' => [ 'message' => __( 'This is a multi-select field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options' => [ 'message' => __( 'This is a multi-select field', 'at-shift-cfs' ) ],
                      ] );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e('Select2', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e('Select2', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -151,14 +151,14 @@ class cfs_select extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][select2]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option($field, 'select2'),
-                        'options' => [ 'message' => __('Render this field with Select2', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options' => [ 'message' => __('Render this field with Select2', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -167,7 +167,7 @@ class cfs_select extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

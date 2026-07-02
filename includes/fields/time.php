@@ -9,7 +9,7 @@ class cfs_time extends cfs_field
 
     function __construct() {
         $this->name = 'time';
-        $this->label = __( 'Time', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Time', 'at-shift-cfs' );
     }
 
 
@@ -55,7 +55,7 @@ class cfs_time extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Minute Interval', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Minute Interval', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -65,11 +65,11 @@ class cfs_time extends cfs_field
                         'input_class' => 'cfs-time-minute-interval',
                         'options' => [
                             'choices' => [
-                                '1' => __( '1 minute', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                '5' => __( '5 minutes', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                '10' => __( '10 minutes', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                '15' => __( '15 minutes', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                '30' => __( '30 minutes', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                '1' => __( '1 minute', 'at-shift-cfs' ),
+                                '5' => __( '5 minutes', 'at-shift-cfs' ),
+                                '10' => __( '10 minutes', 'at-shift-cfs' ),
+                                '15' => __( '15 minutes', 'at-shift-cfs' ),
+                                '30' => __( '30 minutes', 'at-shift-cfs' ),
                             ],
                             'force_single' => true,
                         ],
@@ -80,7 +80,7 @@ class cfs_time extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <select name="cfs[fields][<?php echo absint( $key ); ?>][options][default_hour]" style="width:70px">
@@ -102,7 +102,7 @@ class cfs_time extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -111,7 +111,7 @@ class cfs_time extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

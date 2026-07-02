@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.6.7.42.1.3
+Stable tag: 2.6.7.42.1.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -124,7 +124,8 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
-= 2.6.7.42.1.3 =
+= 2.6.7.42.1.4 =
+* Matched the text domain to the current WordPress.org assigned slug, at-shift-cfs, so Plugin Check can validate the review build.
 * Renamed the WordPress.org submission build to clarify that it is a third-party maintenance build for Custom Field Suite.
 * Reworked inline admin scripts and styles to use WordPress enqueue APIs.
 * Added additional server-side sanitization for field group, import, and form submission data.

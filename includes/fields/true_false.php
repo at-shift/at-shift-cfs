@@ -9,7 +9,7 @@ class cfs_true_false extends cfs_field
 
     function __construct() {
         $this->name = 'true_false';
-        $this->label = __('True / False', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __('True / False', 'at-shift-cfs' );
     }
 
 
@@ -34,8 +34,8 @@ class cfs_true_false extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Message', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <p class="description"><?php esc_html_e( 'The text beside the checkbox', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <label><?php esc_html_e( 'Message', 'at-shift-cfs' ); ?></label>
+                <p class="description"><?php esc_html_e( 'The text beside the checkbox', 'at-shift-cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -49,7 +49,7 @@ class cfs_true_false extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -58,7 +58,7 @@ class cfs_true_false extends cfs_field
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
                     ] );
                 ?>
             </td>

@@ -9,7 +9,7 @@ class cfs_date extends cfs_field
 
     function __construct() {
         $this->name = 'date';
-        $this->label = __( 'Date', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Date', 'at-shift-cfs' );
     }
 
 
@@ -43,8 +43,8 @@ class cfs_date extends cfs_field
             'daysMin'     => $weekdays_min,
             'months'      => $months,
             'monthsShort' => $months_short,
-            'today'       => __( 'Today', 'atshift-fields-maintenance-for-custom-field-suite' ),
-            'clear'       => _x( 'Clear', 'date picker', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'today'       => __( 'Today', 'at-shift-cfs' ),
+            'clear'       => _x( 'Clear', 'date picker', 'at-shift-cfs' ),
         ];
     ?>
         <?php ob_start(); ?>
