@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 
-$results = CFS()->api->get_input_fields( [ 'group_id' => $post->ID ] );
+$results = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [ 'group_id' => $post->ID ] );
 
 /*---------------------------------------------------------------------------------------------
     Create <ul> based on field structure
@@ -19,7 +19,7 @@ $results = CFS()->api->get_input_fields( [ 'group_id' => $post->ID ] );
 $fields_by_parent = [];
 
 foreach ( $results as $field ) {
-    if ( ! isset( CFS()->fields[ $field->type ] ) ) {
+    if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ] ) ) {
         continue;
     }
 
@@ -47,7 +47,7 @@ $render_fields = function( $parent_id ) use ( &$render_fields, $fields_by_parent
 
         echo '<li' . ( empty( $classes ) ? '' : ' class="' . esc_attr( implode( ' ', $classes ) ) . '"' ) . '>';
 
-        CFS()->field_html( $field );
+        atshift_fields_maintenance_for_custom_field_suite()->field_html( $field );
 
         if ( ! empty( $fields_by_parent[ (int) $field->id ] ) ) {
             echo '<ul>';
@@ -65,5 +65,5 @@ $render_fields( 0 );
 </ul>
 
 <div class="table_footer">
-    <input type="button" class="button-primary cfs_add_field" value="<?php esc_attr_e( 'Add New Field', 'at-shift-cfs' ); ?>" />
+    <input type="button" class="button-primary cfs_add_field" value="<?php esc_attr_e( 'Add New Field', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
 </div>

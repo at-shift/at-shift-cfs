@@ -9,7 +9,7 @@ class cfs_term extends cfs_field
 
     function __construct() {
         $this->name = 'term';
-        $this->label = __( 'Term', 'at-shift-cfs' );
+        $this->label = __( 'Term', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -67,7 +67,7 @@ class cfs_term extends cfs_field
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php esc_attr_e( 'Search terms', 'at-shift-cfs' ); ?>" />
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php esc_attr_e( 'Search terms', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
         </div>
 
         <div class="available_posts post_list">
@@ -95,12 +95,12 @@ class cfs_term extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e('Taxonomies', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php esc_html_e('Limit terms to the following taxonomies', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e('Taxonomies', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <p class="description"><?php esc_html_e('Limit terms to the following taxonomies', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type'          => 'select',
                         'input_name'    => "cfs[fields][$key][options][taxonomies]",
                         'options'       => [ 'multiple' => '1', 'choices' => $choices ],
@@ -111,7 +111,7 @@ class cfs_term extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Limits', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Limits', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />
@@ -124,7 +124,7 @@ class cfs_term extends cfs_field
 
     function input_head( $field = null ) {
     ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
             update_term_values = function(field) {
                 var term_ids = [];
@@ -192,7 +192,7 @@ class cfs_term extends cfs_field
                 });
             }
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
     <?php
     }
 

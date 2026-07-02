@@ -9,7 +9,7 @@ class cfs_true_false extends cfs_field
 
     function __construct() {
         $this->name = 'true_false';
-        $this->label = __('True / False', 'at-shift-cfs' );
+        $this->label = __('True / False', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -34,12 +34,12 @@ class cfs_true_false extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Message', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php esc_html_e( 'The text beside the checkbox', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e( 'Message', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <p class="description"><?php esc_html_e( 'The text beside the checkbox', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'text',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][message]',
                         'value' => $this->get_option( $field, 'message' ),
@@ -49,16 +49,16 @@ class cfs_true_false extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
@@ -71,7 +71,7 @@ class cfs_true_false extends cfs_field
 
     function input_head( $field = null ) {
     ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
             $(function() {
                 $(document).on('cfs/ready', '.cfs_add_field', function() {
@@ -93,7 +93,7 @@ class cfs_true_false extends cfs_field
                 });
             }
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
     <?php
     }
 

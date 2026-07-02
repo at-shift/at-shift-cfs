@@ -9,7 +9,7 @@ class cfs_wysiwyg extends cfs_field
 
     function __construct() {
         $this->name = 'wysiwyg';
-        $this->label = __( 'Wysiwyg Editor', 'at-shift-cfs' );
+        $this->label = __( 'Wysiwyg Editor', 'atshift-fields-maintenance-for-custom-field-suite' );
 
         // add the "code" button
         add_filter( 'mce_external_plugins', [ $this, 'mce_external_plugins' ], 20 );
@@ -35,17 +35,17 @@ class cfs_wysiwyg extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Formatting', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Formatting', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][formatting]',
                         'options' => [
                             'choices' => [
-                                'default' => __( 'Default', 'at-shift-cfs' ),
-                                'none' => __( 'None (bypass filters)', 'at-shift-cfs' )
+                                'default' => __( 'Default', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'none' => __( 'None (bypass filters)', 'atshift-fields-maintenance-for-custom-field-suite' )
                             ],
                             'force_single' => true,
                         ],
@@ -56,16 +56,16 @@ class cfs_wysiwyg extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Validation', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'at-shift-cfs' ) ],
+                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
@@ -84,7 +84,7 @@ class cfs_wysiwyg extends cfs_field
     <?php
             }
     ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
 
             var wpautop;
@@ -186,7 +186,7 @@ class cfs_wysiwyg extends cfs_field
                 tinyMCE.settings.resize = resize;
             });
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
     <?php
         }
     }

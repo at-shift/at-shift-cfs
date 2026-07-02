@@ -10,7 +10,7 @@ class cfs_loop extends cfs_field
 
     function __construct() {
         $this->name = 'loop';
-        $this->label = __( 'Loop', 'at-shift-cfs' );
+        $this->label = __( 'Loop', 'atshift-fields-maintenance-for-custom-field-suite' );
         $this->values = [];
     }
 
@@ -23,11 +23,11 @@ class cfs_loop extends cfs_field
     function html( $field ) {
         global $post;
 
-        if ( CFS()->form->has_submission_errors() ) {
-            $this->values = CFS()->form->get_submitted_values();
+        if ( atshift_fields_maintenance_for_custom_field_suite()->form->has_submission_errors() ) {
+            $this->values = atshift_fields_maintenance_for_custom_field_suite()->form->get_submitted_values();
         }
         else {
-            $this->values = CFS()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
+            $this->values = atshift_fields_maintenance_for_custom_field_suite()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
         }
         $this->recursive_clone( $field->group_id, $field->id );
         $this->recursive_html( $field->group_id, $field->id );
@@ -43,44 +43,44 @@ class cfs_loop extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Row Display', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Row Display', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][row_display]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'row_display' ),
-                        'options' => [ 'message' => __( 'Show the values by default', 'at-shift-cfs' ) ],
+                        'options' => [ 'message' => __( 'Show the values by default', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Row Label', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Row Label', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][row_label]",
-                        'value' => $this->get_option( $field, 'row_label', __( 'Loop Row', 'at-shift-cfs' ) ),
+                        'value' => $this->get_option( $field, 'row_label', __( 'Loop Row', 'atshift-fields-maintenance-for-custom-field-suite' ) ),
                     ] );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Button Label', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Button Label', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][button_label]",
-                        'value' => $this->get_option( $field, 'button_label', __( 'Add Row', 'at-shift-cfs' ) ),
+                        'value' => $this->get_option( $field, 'button_label', __( 'Add Row', 'atshift-fields-maintenance-for-custom-field-suite' ) ),
                     ] );
                 ?>
             </td>
@@ -88,7 +88,7 @@ class cfs_loop extends cfs_field
 
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Limits', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Limits', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />
@@ -109,18 +109,18 @@ class cfs_loop extends cfs_field
         $loop_field_ids = [];
 
         // Get loop field
-        $loop_field = CFS()->api->get_input_fields( [
+        $loop_field = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
             'field_id' => $field_id
         ] );
 
         // Get sub-fields
-        $results = CFS()->api->get_input_fields( [
+        $results = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
             'group_id' => $group_id,
             'parent_id' => $field_id
         ] );
 
         $row_label = $this->dynamic_label(
-            $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'at-shift-cfs' ) )
+            $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'atshift-fields-maintenance-for-custom-field-suite' ) )
         );
 
         ob_start();
@@ -144,9 +144,9 @@ class cfs_loop extends cfs_field
         $buffer = ob_get_clean();
     ?>
 
-        <script>
+        <?php ob_start(); ?>
         CFS.loop_buffer[<?php echo absint( $field_id ); ?>] = <?php echo wp_json_encode( $buffer ); ?>;
-        </script>
+        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
 
     <?php
         foreach ( $loop_field_ids as $loop_field_id ) {
@@ -163,12 +163,12 @@ class cfs_loop extends cfs_field
     function recursive_html( $group_id, $field_id, $parent_tag = '', $parent_weight = 0 ) {
 
         // Get loop field
-        $loop_field = CFS()->api->get_input_fields( [
+        $loop_field = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
             'field_id' => $field_id
         ] );
 
         // Get sub-fields
-        $results = CFS()->api->get_input_fields( [
+        $results = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
             'group_id' => $group_id,
             'parent_id' => $field_id
         ] );
@@ -178,8 +178,8 @@ class cfs_loop extends cfs_field
 
         // Row options
         $row_display = $this->get_option( $loop_field[ $field_id ], 'row_display', 0 );
-        $row_label = $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'at-shift-cfs' ) );
-        $button_label = $this->get_option( $loop_field[ $field_id ], 'button_label', __( 'Add Row', 'at-shift-cfs' ) );
+        $row_label = $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'atshift-fields-maintenance-for-custom-field-suite' ) );
+        $button_label = $this->get_option( $loop_field[ $field_id ], 'button_label', __( 'Add Row', 'atshift-fields-maintenance-for-custom-field-suite' ) );
         $css_class = ( 0 < (int) $row_display ) ? ' open' : '';
         $label_fields = $this->get_label_fields( $group_id, $results );
 
@@ -306,11 +306,11 @@ class cfs_loop extends cfs_field
             $loop_field_ids[] = $field->id;
         ?>
             <div class="table_footer">
-                <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $this->get_option( $field, 'button_label', __( 'Add Row', 'at-shift-cfs' ) ) ); ?>" data-loop-tag="[clone][<?php echo absint( $field->id ); ?>]" data-rows="0" />
+                <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $this->get_option( $field, 'button_label', __( 'Add Row', 'atshift-fields-maintenance-for-custom-field-suite' ) ) ); ?>" data-loop-tag="[clone][<?php echo absint( $field->id ); ?>]" data-rows="0" />
             </div>
         <?php elseif ( in_array( $field->type, [ 'group', 'accordion', 'conditional' ], true ) ) : ?>
         <?php
-            CFS()->create_field( [
+            atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                 'id' => $field->id,
                 'group_id' => $field->group_id,
                 'type' => $field->type,
@@ -322,7 +322,7 @@ class cfs_loop extends cfs_field
         ?>
         <?php else : ?>
         <?php
-            CFS()->create_field( [
+            atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                 'type' => $field->type,
                 'input_name' => "cfs[input][clone][$field->id][value][]",
                 'input_class' => $field->type,
@@ -353,7 +353,7 @@ class cfs_loop extends cfs_field
             <?php $this->recursive_html( $group_id, $field->id, "{$parent_tag}[$row_index][$field->id]", $row_index ); ?>
         <?php elseif ( in_array( $field->type, [ 'group', 'accordion', 'conditional' ], true ) ) : ?>
         <?php
-            CFS()->create_field( [
+            atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                 'id' => $field->id,
                 'group_id' => $field->group_id,
                 'type' => $field->type,
@@ -380,7 +380,7 @@ class cfs_loop extends cfs_field
                 $args['value'] = $field->options['default_value'];
             }
 
-            CFS()->create_field( $args );
+            atshift_fields_maintenance_for_custom_field_suite()->create_field( $args );
         ?>
         <?php endif; ?>
             </div>
@@ -412,7 +412,7 @@ class cfs_loop extends cfs_field
                 continue;
             }
 
-            $children = CFS()->api->get_input_fields( [
+            $children = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
                 'group_id' => $group_id,
                 'parent_id' => $field->id,
             ] );
@@ -432,10 +432,10 @@ class cfs_loop extends cfs_field
 
     function input_head( $field = null ) {
     ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
             $(function() {
-                var remove_loop_row_message = <?php echo wp_json_encode( __( 'Remove this row?', 'at-shift-cfs' ) ); ?>;
+                var remove_loop_row_message = <?php echo wp_json_encode( __( 'Remove this row?', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>;
 
                 $(document).on('click', '.cfs_add_field', function() {
                     var num_rows = $(this).attr('data-rows');
@@ -509,7 +509,7 @@ class cfs_loop extends cfs_field
                 });
             });
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
     <?php
     }
 

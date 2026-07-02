@@ -27,7 +27,7 @@ class cfs_revision
      * @see wp-includes/revision.php - wp_save_post_revision()
      */
     function _wp_post_revision_fields( $fields ) {
-        $fields[ 'cfs_postmeta' ] = __( 'Post Meta', 'at-shift-cfs' );
+        $fields[ 'cfs_postmeta' ] = __( 'Post Meta', 'atshift-fields-maintenance-for-custom-field-suite' );
         return $fields;
     }
 
@@ -38,8 +38,8 @@ class cfs_revision
      */
     function _wp_post_revision_field_postmeta( $value, $column, $post ) {
         $output = '';
-        $fields = CFS()->get( false, $post->ID );
-        $field_info = CFS()->get_field_info( false, $post->ID );
+        $fields = atshift_fields_maintenance_for_custom_field_suite()->get( false, $post->ID );
+        $field_info = atshift_fields_maintenance_for_custom_field_suite()->get_field_info( false, $post->ID );
 
         foreach ( $fields as $field_name => $field_data ) {
             $output .= '[' . $field_name . "]\n";
@@ -72,8 +72,8 @@ class cfs_revision
      * @see wp-includes/revision.php -> wp_save_post_revision()
      */
     function check_for_changes( $default, $last_revision, $post ) {
-        $revision_data = CFS()->get( false, $last_revision->ID );
-        $post_data = CFS()->get( false, $post->ID );
+        $revision_data = atshift_fields_maintenance_for_custom_field_suite()->get( false, $last_revision->ID );
+        $post_data = atshift_fields_maintenance_for_custom_field_suite()->get( false, $post->ID );
 
         if ( serialize( $revision_data ) != serialize( $post_data ) ) {
             return false;
@@ -94,8 +94,8 @@ class cfs_revision
         $original_post_id = wp_is_post_revision( $post_id );
 
         if ( $original_post_id ) {
-            $field_data = CFS()->get( false, $original_post_id, [ 'format' => 'raw' ] );
-            CFS()->save( $field_data, [ 'ID' => $post_id ] );
+            $field_data = atshift_fields_maintenance_for_custom_field_suite()->get( false, $original_post_id, [ 'format' => 'raw' ] );
+            atshift_fields_maintenance_for_custom_field_suite()->save( $field_data, [ 'ID' => $post_id ] );
         }
     }
 
@@ -105,8 +105,8 @@ class cfs_revision
      * @see wp-includes/revision.php -> wp_restore_post_revision()
      */
     function wp_restore_post_revision( $post_id, $revision_id ) {
-        $field_data = CFS()->get( false, $revision_id, [ 'format' => 'raw' ] );
-        CFS()->save( $field_data, [ 'ID' => $post_id ] );
+        $field_data = atshift_fields_maintenance_for_custom_field_suite()->get( false, $revision_id, [ 'format' => 'raw' ] );
+        atshift_fields_maintenance_for_custom_field_suite()->save( $field_data, [ 'ID' => $post_id ] );
     }
 
 

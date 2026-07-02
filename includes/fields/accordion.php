@@ -9,14 +9,14 @@ class cfs_accordion extends cfs_field
 
     function __construct() {
         $this->name = 'accordion';
-        $this->label = __( 'Accordion Group', 'at-shift-cfs' );
+        $this->label = __( 'Accordion Group', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
     function html( $field ) {
         global $post;
 
-        $children = CFS()->api->get_input_fields( [
+        $children = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
             'group_id' => $field->group_id,
             'parent_id' => $field->id,
         ] );
@@ -24,7 +24,7 @@ class cfs_accordion extends cfs_field
         $values = $has_values ? $field->values : [];
 
         if ( ! $has_values && ! empty( $post->ID ) ) {
-            $values = CFS()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
+            $values = atshift_fields_maintenance_for_custom_field_suite()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
         }
 
         $input_name_template = isset( $field->input_name_template ) ? (string) $field->input_name_template : 'cfs[input][%d][value]';
@@ -42,7 +42,7 @@ class cfs_accordion extends cfs_field
 
                 <?php foreach ( $children as $child ) : ?>
                     <?php
-                    if ( ! isset( CFS()->fields[ $child->type ] ) ) {
+                    if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $child->type ] ) ) {
                         continue;
                     }
 
@@ -70,7 +70,7 @@ class cfs_accordion extends cfs_field
                         <?php endif; ?>
 
                         <div class="cfs_<?php echo esc_attr( $child->type ); ?>">
-                            <?php CFS()->create_field( $args ); ?>
+                            <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( $args ); ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -84,16 +84,16 @@ class cfs_accordion extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Initial State', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Initial State', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][open]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'open', 0 ),
-                        'options' => [ 'message' => __( 'Open by default', 'at-shift-cfs' ) ],
+                        'options' => [ 'message' => __( 'Open by default', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
@@ -104,7 +104,7 @@ class cfs_accordion extends cfs_field
 
     function input_head( $field = null ) {
     ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
             $(document).on('click', '.cfs-accordion-toggle', function() {
                 var $accordion = $(this).closest('.cfs-accordion');
@@ -114,7 +114,7 @@ class cfs_accordion extends cfs_field
                 $(this).attr('aria-expanded', isOpen ? 'true' : 'false');
             });
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
     <?php
     }
 }

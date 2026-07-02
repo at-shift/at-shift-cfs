@@ -8,14 +8,14 @@ class cfs_conditional extends cfs_field
 {
     function __construct() {
         $this->name = 'conditional';
-        $this->label = __( 'Conditional Group', 'at-shift-cfs' );
+        $this->label = __( 'Conditional Group', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
     function html( $field ) {
         global $post;
 
-        $children = CFS()->api->get_input_fields( [
+        $children = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
             'group_id' => $field->group_id,
             'parent_id' => $field->id,
         ] );
@@ -23,7 +23,7 @@ class cfs_conditional extends cfs_field
         $values = $has_values ? $field->values : [];
 
         if ( ! $has_values && ! empty( $post->ID ) ) {
-            $values = CFS()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
+            $values = atshift_fields_maintenance_for_custom_field_suite()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
         }
 
         $choices = $this->get_choices( $field );
@@ -41,7 +41,7 @@ class cfs_conditional extends cfs_field
             <div class="cfs-conditional-control cfs-conditional-control-<?php echo esc_attr( $display_type ); ?>">
                 <?php if ( 'select' === $display_type ) : ?>
                     <select name="<?php echo esc_attr( $field->input_name ); ?>" class="cfs-conditional-selector">
-                        <option value=""><?php esc_html_e( 'Please select...', 'at-shift-cfs' ); ?></option>
+                        <option value=""><?php esc_html_e( 'Please select...', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
                         <?php foreach ( $choices as $value => $label ) : ?>
                         <option value="<?php echo esc_attr( $value ); ?>"<?php selected( $selected, (string) $value ); ?>><?php echo esc_html( $label ); ?></option>
                         <?php endforeach; ?>
@@ -62,7 +62,7 @@ class cfs_conditional extends cfs_field
             <div class="cfs-conditional-fields">
                 <?php foreach ( $children as $child ) : ?>
                     <?php
-                    if ( ! isset( CFS()->fields[ $child->type ] ) ) {
+                    if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $child->type ] ) ) {
                         continue;
                     }
 
@@ -93,7 +93,7 @@ class cfs_conditional extends cfs_field
                             <?php endif; ?>
 
                             <div class="cfs_<?php echo esc_attr( $child->type ); ?>">
-                                <?php CFS()->create_field( $args ); ?>
+                                <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( $args ); ?>
                             </div>
                         </div>
                     </div>
@@ -114,17 +114,17 @@ class cfs_conditional extends cfs_field
         ?>
         <tr class="field_option field_option_conditional">
             <td class="label">
-                <label><?php esc_html_e( 'Display Type', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Display Type', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
-                <?php CFS()->create_field( [
+                <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_name' => 'cfs[fields][' . absint( $key ) . '][options][display_type]',
                     'input_class' => 'cfs-conditional-display-type',
                     'options' => [
                         'choices' => [
-                            'radio' => __( 'Radio Button', 'at-shift-cfs' ),
-                            'select' => __( 'Dropdown', 'at-shift-cfs' ),
+                            'radio' => __( 'Radio Button', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                            'select' => __( 'Dropdown', 'atshift-fields-maintenance-for-custom-field-suite' ),
                         ],
                         'force_single' => true,
                     ],
@@ -134,11 +134,11 @@ class cfs_conditional extends cfs_field
         </tr>
         <tr class="field_option field_option_conditional">
             <td class="label">
-                <label><?php esc_html_e( 'Choices', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e( 'Choices', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Enter one choice per line', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
             </td>
             <td>
-                <?php CFS()->create_field( [
+                <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'textarea',
                     'input_name' => 'cfs[fields][' . absint( $key ) . '][options][choices]',
                     'input_class' => 'cfs-conditional-choices',
@@ -148,8 +148,8 @@ class cfs_conditional extends cfs_field
         </tr>
         <tr class="field_option field_option_conditional cfs-conditional-default-row">
             <td class="label">
-                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
-                <p class="description"><?php esc_html_e( 'Used for radio buttons. The first choice is used when left blank.', 'at-shift-cfs' ); ?></p>
+                <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <p class="description"><?php esc_html_e( 'Used for radio buttons. The first choice is used when left blank.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][default_value]" value="<?php echo esc_attr( $this->get_option( $field, 'default_value' ) ); ?>" />
@@ -161,7 +161,7 @@ class cfs_conditional extends cfs_field
 
     function input_head( $field = null ) {
         ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
             function refreshConditional($conditional) {
                 var value = $conditional.find('.cfs-conditional-selector:checked').val();
@@ -186,7 +186,7 @@ class cfs_conditional extends cfs_field
                 });
             });
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
         <?php
     }
 

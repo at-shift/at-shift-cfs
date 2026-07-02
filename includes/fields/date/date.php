@@ -9,7 +9,7 @@ class cfs_date extends cfs_field
 
     function __construct() {
         $this->name = 'date';
-        $this->label = __( 'Date', 'at-shift-cfs' );
+        $this->label = __( 'Date', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -43,11 +43,11 @@ class cfs_date extends cfs_field
             'daysMin'     => $weekdays_min,
             'months'      => $months,
             'monthsShort' => $months_short,
-            'today'       => __( 'Today', 'at-shift-cfs' ),
-            'clear'       => _x( 'Clear', 'date picker', 'at-shift-cfs' ),
+            'today'       => __( 'Today', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'clear'       => _x( 'Clear', 'date picker', 'atshift-fields-maintenance-for-custom-field-suite' ),
         ];
     ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
             var dateLocale = <?php echo wp_json_encode( $date_locale ); ?>;
             var userLocale = <?php echo wp_json_encode( $locale ); ?>;
@@ -93,7 +93,7 @@ class cfs_date extends cfs_field
                 });
             };
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'bootstrap-datepicker', ob_get_clean() ); ?>
     <?php
     }
 

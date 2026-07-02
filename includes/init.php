@@ -14,10 +14,6 @@ class cfs_init
 
     function init() {
 
-        if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
-            $this->load_textdomain();
-        }
-
         add_action( 'admin_head',                       [ $this, 'admin_head' ] );
         add_action( 'admin_enqueue_scripts',            [ $this, 'admin_enqueue_scripts' ] );
         add_action( 'admin_notices',                    [ $this, 'admin_notices' ] );
@@ -47,7 +43,7 @@ class cfs_init
 
 
         $this->register_post_type();
-        CFS()->fields = $this->get_field_types();
+        atshift_fields_maintenance_for_custom_field_suite()->fields = $this->get_field_types();
         $this->register_blocks();
 
         // CFS is ready
@@ -68,35 +64,18 @@ class cfs_init
             'supports'          => [ 'title' ],
             'query_var'         => false,
             'labels'            => [
-                'name'                  => __( 'Field Groups', 'at-shift-cfs' ),
-                'singular_name'         => __( 'Field Group', 'at-shift-cfs' ),
-                'all_items'             => __( 'at-shift CFS', 'at-shift-cfs' ),
-                'add_new_item'          => __( 'Add New Field Group', 'at-shift-cfs' ),
-                'edit_item'             => __( 'Edit Field Group', 'at-shift-cfs' ),
-                'new_item'              => __( 'New Field Group', 'at-shift-cfs' ),
-                'view_item'             => __( 'View Field Group', 'at-shift-cfs' ),
-                'search_items'          => __( 'Search Field Groups', 'at-shift-cfs' ),
-                'not_found'             => __( 'No Field Groups found', 'at-shift-cfs' ),
-                'not_found_in_trash'    => __( 'No Field Groups found in Trash', 'at-shift-cfs' ),
+                'name'                  => __( 'Field Groups', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'singular_name'         => __( 'Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'all_items'             => __( 'atshift Fields Maintenance for Custom Field Suite', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'add_new_item'          => __( 'Add New Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'edit_item'             => __( 'Edit Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'new_item'              => __( 'New Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'view_item'             => __( 'View Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'search_items'          => __( 'Search Field Groups', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'not_found'             => __( 'No Field Groups found', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'not_found_in_trash'    => __( 'No Field Groups found in Trash', 'atshift-fields-maintenance-for-custom-field-suite' ),
             ],
         ] );
-    }
-
-
-    function load_textdomain() {
-        $locale = apply_filters( 'plugin_locale', get_locale(), 'at-shift-cfs' );
-        $mofile = WP_LANG_DIR . '/plugins/at-shift-cfs-' . $locale . '.mo';
-
-        if ( file_exists( $mofile ) ) {
-            load_textdomain( 'at-shift-cfs', $mofile );
-        }
-        else {
-            load_plugin_textdomain(
-                'at-shift-cfs',
-                false,
-                dirname( plugin_basename( CFS_DIR . '/cfs.php' ) ) . '/languages'
-            );
-        }
     }
 
 
@@ -193,7 +172,7 @@ class cfs_init
 
         array_unshift( $categories, [
             'slug'  => 'cfs',
-            'title' => __( 'CFS Field Groups', 'at-shift-cfs' ),
+            'title' => __( 'CFS Field Groups', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'icon'  => null,
         ] );
 
@@ -209,7 +188,7 @@ class cfs_init
             return;
         }
 
-        $field_groups = CFS()->field_group->load_field_groups();
+        $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
 
         foreach ( $field_groups as $group_id => $group ) {
             $block_name = 'cfs/field-group-' . absint( $group_id );
@@ -238,13 +217,13 @@ class cfs_init
     function enqueue_block_editor_assets() {
         global $post;
 
-        $field_groups = CFS()->field_group->load_field_groups();
+        $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
         $group_ids = array_keys( $field_groups );
         $groups = [];
         $hide_panels = [];
 
         if ( $post instanceof WP_Post && 'cfs' !== $post->post_type ) {
-            $matching_groups = CFS()->api->get_matching_groups( $post->ID );
+            $matching_groups = atshift_fields_maintenance_for_custom_field_suite()->api->get_matching_groups( $post->ID );
             $group_ids = array_keys( $matching_groups );
         }
 
@@ -277,7 +256,7 @@ class cfs_init
                 'name'       => 'cfs/field-group-' . absint( $group_id ),
                 'title'      => $group['title'],
                 /* translators: %s: field group title. */
-                'blockTitle' => sprintf( __( 'CFS Field Group: %s', 'at-shift-cfs' ), $group['title'] ),
+                'blockTitle' => sprintf( __( 'CFS Field Group: %s', 'atshift-fields-maintenance-for-custom-field-suite' ), $group['title'] ),
                 'fieldCount' => count( $fields ),
             ];
         }
@@ -295,10 +274,10 @@ class cfs_init
             'cfs-block-editor',
             'window.CFSBlockEditor = ' . wp_json_encode( [
                 'groups'       => $groups,
-                'description'  => __( 'Displays a CFS field group.', 'at-shift-cfs' ),
-                'fieldGroup'   => __( 'Field Group', 'at-shift-cfs' ),
-                'fieldCount'   => __( 'Fields', 'at-shift-cfs' ),
-                'noFields'     => __( 'No fields in this group.', 'at-shift-cfs' ),
+                'description'  => __( 'Displays a CFS field group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'fieldGroup'   => __( 'Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'fieldCount'   => __( 'Fields', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'noFields'     => __( 'No fields in this group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'hidePanels'   => array_values( array_unique( $hide_panels ) ),
             ] ) . ';',
             'before'
@@ -320,7 +299,7 @@ class cfs_init
             return '';
         }
 
-        $field_groups = CFS()->field_group->load_field_groups();
+        $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
 
         if ( ! isset( $field_groups[ $group_id ] ) ) {
             return '';
@@ -332,14 +311,14 @@ class cfs_init
             return '';
         }
 
-        $matching_groups = CFS()->api->get_matching_groups( $post_id, true );
+        $matching_groups = atshift_fields_maintenance_for_custom_field_suite()->api->get_matching_groups( $post_id, true );
 
         if ( ! isset( $matching_groups[ $group_id ] ) ) {
             return '';
         }
 
-        $values = CFS()->api->get_fields( $post_id, [ 'format' => 'api' ] );
-        $fields = CFS()->api->find_input_fields( [ 'group_id' => $group_id ] );
+        $values = atshift_fields_maintenance_for_custom_field_suite()->api->get_fields( $post_id, [ 'format' => 'api' ] );
+        $fields = atshift_fields_maintenance_for_custom_field_suite()->api->find_input_fields( [ 'group_id' => $group_id ] );
         $items = [];
 
         foreach ( $fields as $field ) {
@@ -445,7 +424,7 @@ class cfs_init
     */
     function admin_menu() {
         if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
-            add_submenu_page( 'tools.php', __( 'at-shift CFS Tools', 'at-shift-cfs' ), __( 'at-shift CFS Tools', 'at-shift-cfs' ), 'manage_options', 'cfs-tools', [ $this, 'page_tools' ] );
+            add_submenu_page( 'tools.php', __( 'atshift Fields Maintenance for Custom Field Suite Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), __( 'atshift Fields Maintenance for Custom Field Suite Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), 'manage_options', 'cfs-tools', [ $this, 'page_tools' ] );
         }
     }
 
@@ -453,9 +432,9 @@ class cfs_init
      * add_meta_boxes
      */
     function add_meta_boxes() {
-        add_meta_box( 'cfs_fields', __('Fields', 'at-shift-cfs' ), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'fields' ] );
-        add_meta_box( 'cfs_rules', __('Placement Rules', 'at-shift-cfs' ), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'rules' ] );
-        add_meta_box( 'cfs_extras', __('Extras', 'at-shift-cfs' ), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'extras' ] );
+        add_meta_box( 'cfs_fields', __('Fields', 'atshift-fields-maintenance-for-custom-field-suite' ), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'fields' ] );
+        add_meta_box( 'cfs_rules', __('Placement Rules', 'atshift-fields-maintenance-for-custom-field-suite' ), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'rules' ] );
+        add_meta_box( 'cfs_extras', __('Extras', 'atshift-fields-maintenance-for-custom-field-suite' ), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'extras' ] );
     }
 
 
@@ -486,7 +465,9 @@ class cfs_init
             return;
         }
 
-        if ( ! isset( $_POST['cfs']['save'] ) ) {
+        $cfs_post = isset( $_POST['cfs'] ) && is_array( $_POST['cfs'] ) ? wp_unslash( $_POST['cfs'] ) : [];
+
+        if ( ! isset( $cfs_post['save'] ) ) {
             return;
         }
 
@@ -502,14 +483,14 @@ class cfs_init
             return;
         }
 
-        $nonce = sanitize_text_field( wp_unslash( $_POST['cfs']['save'] ) );
+        $nonce = sanitize_text_field( $cfs_post['save'] );
 
         if ( wp_verify_nonce( $nonce, 'cfs_save_fields' ) ) {
-            $fields = isset( $_POST['cfs']['fields'] ) ? $_POST['cfs']['fields'] : [];
-            $rules = isset( $_POST['cfs']['rules'] ) ? $_POST['cfs']['rules'] : [];
-            $extras = isset( $_POST['cfs']['extras'] ) ? $_POST['cfs']['extras'] : [];
+            $fields = isset( $cfs_post['fields'] ) ? $this->sanitize_recursive_textarea( $cfs_post['fields'] ) : [];
+            $rules = isset( $cfs_post['rules'] ) ? $this->sanitize_recursive_textarea( $cfs_post['rules'] ) : [];
+            $extras = isset( $cfs_post['extras'] ) ? $this->sanitize_recursive_textarea( $cfs_post['extras'] ) : [];
 
-            CFS()->field_group->save( [
+            atshift_fields_maintenance_for_custom_field_suite()->field_group->save( [
                 'post_id'   => $post_id,
                 'fields'    => $fields,
                 'rules'     => $rules,
@@ -548,15 +529,15 @@ class cfs_init
         $just_saved = (bool) get_transient( 'cfs_empty_rules_notice_' . $post_id );
         delete_transient( 'cfs_empty_rules_notice_' . $post_id );
 
-        $message = __( 'This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'at-shift-cfs' );
+        $message = __( 'This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'atshift-fields-maintenance-for-custom-field-suite' );
 
         if ( $just_saved ) {
-            $message = __( 'Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'at-shift-cfs' );
+            $message = __( 'Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'atshift-fields-maintenance-for-custom-field-suite' );
         }
 
         printf(
             '<div class="notice notice-warning"><p><strong>%s</strong> %s</p></div>',
-            esc_html__( 'CFS placement warning:', 'at-shift-cfs' ),
+            esc_html__( 'CFS placement warning:', 'atshift-fields-maintenance-for-custom-field-suite' ),
             esc_html( $message )
         );
     }
@@ -595,32 +576,53 @@ class cfs_init
             exit;
         }
 
-        $ajax_method = isset( $_POST['action_type'] ) ? sanitize_key( $_POST['action_type'] ) : false;
+        $ajax_method = isset( $_POST['action_type'] ) ? sanitize_key( wp_unslash( $_POST['action_type'] ) ) : false;
 
         if ( $ajax_method && is_admin() ) {
             include( CFS_DIR . '/includes/ajax.php' );
             $ajax = new cfs_ajax();
+            $post_data = is_array( $_POST ) ? $this->sanitize_recursive_textarea( wp_unslash( $_POST ) ) : [];
 
             if ( 'import' == $ajax_method ) {
+                $import_code = isset( $_POST['import_code'] ) ? sanitize_textarea_field( wp_unslash( $_POST['import_code'] ) ) : '';
+                $decoded_import = json_decode( $import_code, true );
                 $options = [
-                    'import_code' => json_decode( stripslashes( $_POST['import_code'] ), true ),
+                    'import_code' => is_array( $decoded_import ) ? $this->sanitize_recursive_textarea( $decoded_import ) : [],
                 ];
-                echo wp_kses_post( CFS()->field_group->import( $options ) );
+                echo wp_kses_post( atshift_fields_maintenance_for_custom_field_suite()->field_group->import( $options ) );
             }
             elseif ('export' == $ajax_method) {
-                echo wp_json_encode( CFS()->field_group->export( $_POST ) );
+                echo wp_json_encode( atshift_fields_maintenance_for_custom_field_suite()->field_group->export( $post_data ) );
             }
             elseif ('reset' == $ajax_method) {
                 $ajax->reset();
                 deactivate_plugins( plugin_basename( __FILE__ ) );
-                echo esc_url_raw( admin_url( 'plugins.php' ) );
+                echo esc_url( admin_url( 'plugins.php' ) );
             }
             elseif ( in_array( $ajax_method, [ 'search_posts' ], true ) && method_exists( $ajax, $ajax_method ) ) {
-                echo wp_json_encode( json_decode( $ajax->$ajax_method( $_POST ), true ) );
+                echo wp_json_encode( json_decode( $ajax->$ajax_method( $post_data ), true ) );
             }
         }
 
         exit;
+    }
+
+
+    private function sanitize_recursive_textarea( $value ) {
+        if ( is_array( $value ) ) {
+            $sanitized = [];
+            foreach ( $value as $key => $item ) {
+                $sanitized_key = is_int( $key ) ? $key : sanitize_text_field( (string) $key );
+                $sanitized[ $sanitized_key ] = $this->sanitize_recursive_textarea( $item );
+            }
+            return $sanitized;
+        }
+
+        if ( is_scalar( $value ) || null === $value ) {
+            return sanitize_textarea_field( (string) $value );
+        }
+
+        return '';
     }
 
 
@@ -630,8 +632,8 @@ class cfs_init
     function cfs_columns() {
         return [
             'cb'            => '<input type="checkbox" />',
-            'title'         => __( 'Title', 'at-shift-cfs' ),
-            'placement'     => __( 'Placement', 'at-shift-cfs' ),
+            'title'         => __( 'Title', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'placement'     => __( 'Placement', 'atshift-fields-maintenance-for-custom-field-suite' ),
         ];
     }
 
@@ -644,15 +646,15 @@ class cfs_init
             global $wpdb;
 
             $labels = [
-                'post_types'        => __( 'Post Types', 'at-shift-cfs' ),
-                'user_roles'        => __( 'User Roles', 'at-shift-cfs' ),
-                'post_ids'          => __( 'Posts', 'at-shift-cfs' ),
-                'term_ids'          => __( 'Term IDs', 'at-shift-cfs' ),
-                'page_templates'    => __( 'Page Templates', 'at-shift-cfs' ),
-                'post_formats'      => __( 'Post Formats', 'at-shift-cfs' )
+                'post_types'        => __( 'Post Types', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'user_roles'        => __( 'User Roles', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'post_ids'          => __( 'Posts', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'term_ids'          => __( 'Term IDs', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'page_templates'    => __( 'Page Templates', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'post_formats'      => __( 'Post Formats', 'atshift-fields-maintenance-for-custom-field-suite' )
             ];
 
-            $field_groups = CFS()->field_group->load_field_groups();
+            $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
 
             // Make sure the field group exists
             $rules = [];
@@ -661,7 +663,7 @@ class cfs_init
             }
 
             if ( ! $this->has_placement_rules( $rules ) ) {
-                echo '<div class="cfs-placement-warning"><strong>' . esc_html__( 'No placement rules', 'at-shift-cfs' ) . '</strong><br />' . esc_html__( 'This field group will appear on all editable post screens.', 'at-shift-cfs' ) . '</div>';
+                echo '<div class="cfs-placement-warning"><strong>' . esc_html__( 'No placement rules', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</strong><br />' . esc_html__( 'This field group will appear on all editable post screens.', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</div>';
                 return;
             }
 
@@ -721,4 +723,8 @@ class cfs_init
     }
 }
 
-new cfs_init();
+$cfs_init = new cfs_init();
+
+if ( did_action( 'init' ) ) {
+    $cfs_init->init();
+}

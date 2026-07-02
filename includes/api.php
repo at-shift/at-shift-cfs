@@ -497,7 +497,7 @@ class cfs_api
             // Trigger the pre_save hook
             $field = $params['all_fields'][ $field_id ];
             $field->post_id = $params['post_id'];
-            $values = CFS()->fields[ $field_type ]->pre_save( $values, $field );
+            $values = atshift_fields_maintenance_for_custom_field_suite()->fields[ $field_type ]->pre_save( $values, $field );
 
             $sub_weight = 0;
 
@@ -607,7 +607,7 @@ class cfs_api
 
         $params = array_merge( $defaults, $params );
 
-        $field_groups = CFS()->field_group->load_field_groups();
+        $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
 
         $output = [];
 
@@ -773,7 +773,7 @@ class cfs_api
         );
 
         // Get all field groups
-        $field_groups = CFS()->field_group->load_field_groups();
+        $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
 
         // Ignore user_roles if used within get_fields
         if ( false !== $skip_roles ) {
@@ -855,17 +855,17 @@ class cfs_api
             $value[] = $field_value;
         }
         else {
-            if ( ! isset( CFS()->fields[ $field->type ] ) ) {
+            if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ] ) ) {
                 return;
             }
 
-            $value = CFS()->fields[ $field->type ]->prepare_value( $value, $field );
+            $value = atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ]->prepare_value( $value, $field );
 
             if ( 'api' == $options['format'] ) {
-                $value = CFS()->fields[ $field->type ]->format_value_for_api( $value, $field );
+                $value = atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ]->format_value_for_api( $value, $field );
             }
             elseif ( 'input' == $options['format'] ) {
-                $value = CFS()->fields[ $field->type ]->format_value_for_input( $value, $field );
+                $value = atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ]->format_value_for_input( $value, $field );
             }
         }
     }
@@ -903,4 +903,4 @@ class cfs_api
     }
 }
 
-CFS()->api = new cfs_api();
+atshift_fields_maintenance_for_custom_field_suite()->api = new cfs_api();

@@ -114,15 +114,15 @@ class cfs_field_group
 
             $return = '';
             if ( ! empty( $stats['imported'] ) ) {
-                $return .= '<div>' . esc_html__( 'Imported', 'at-shift-cfs' ) . ': ' . esc_html( implode( ', ', $stats['imported'] ) ) . '</div>';
+                $return .= '<div>' . esc_html__( 'Imported', 'atshift-fields-maintenance-for-custom-field-suite' ) . ': ' . esc_html( implode( ', ', $stats['imported'] ) ) . '</div>';
             }
             if ( ! empty( $stats['skipped'] ) ) {
-                $return .= '<div>' . esc_html__( 'Skipped', 'at-shift-cfs' ) . ': ' . esc_html( implode( ', ', $stats['skipped'] ) ) . '</div>';
+                $return .= '<div>' . esc_html__( 'Skipped', 'atshift-fields-maintenance-for-custom-field-suite' ) . ': ' . esc_html( implode( ', ', $stats['skipped'] ) ) . '</div>';
             }
             return $return;
         }
         else {
-            return '<div>' . esc_html__( 'Nothing to import', 'at-shift-cfs' ) . '</div>';
+            return '<div>' . esc_html__( 'Nothing to import', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</div>';
         }
     }
 
@@ -222,13 +222,13 @@ class cfs_field_group
             // Sanitize the field
             $field = stripslashes_deep( $field );
             $field['id'] = isset( $field['id'] ) ? (int) $field['id'] : 0;
-            $field['type'] = isset( $field['type'] ) && isset( CFS()->fields[ $field['type'] ] ) ? $field['type'] : 'text';
+            $field['type'] = isset( $field['type'] ) && isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field['type'] ] ) ? $field['type'] : 'text';
             $field['name'] = isset( $field['name'] ) ? $field['name'] : '';
             $field['label'] = isset( $field['label'] ) ? $field['label'] : '';
             $field['notes'] = isset( $field['notes'] ) ? $field['notes'] : '';
 
             // Allow for field customizations
-            $field = CFS()->fields[ $field['type'] ]->pre_save_field( $field );
+            $field = atshift_fields_maintenance_for_custom_field_suite()->fields[ $field['type'] ]->pre_save_field( $field );
             $field['id'] = isset( $field['id'] ) ? (int) $field['id'] : 0;
 
             // Set the parent ID
@@ -501,4 +501,4 @@ class cfs_field_group
     }
 }
 
-CFS()->field_group = new cfs_field_group();
+atshift_fields_maintenance_for_custom_field_suite()->field_group = new cfs_field_group();

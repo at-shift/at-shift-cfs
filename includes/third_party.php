@@ -33,10 +33,10 @@ class cfs_third_party
      * @since 1.6.8
      */
     function wpml_handler( $master_id, $lang, $post_data, $duplicate_id ) {
-        $field_data = CFS()->get( false, $master_id, [ 'format' => 'raw' ] );
+        $field_data = atshift_fields_maintenance_for_custom_field_suite()->get( false, $master_id, [ 'format' => 'raw' ] );
 
         if ( ! empty( $field_data ) ) {
-            CFS()->save( $field_data, [ 'ID' => $duplicate_id ] );
+            atshift_fields_maintenance_for_custom_field_suite()->save( $field_data, [ 'ID' => $duplicate_id ] );
         }
     }
 
@@ -67,7 +67,7 @@ class cfs_third_party
      * @since 2.0.0
      */
     function duplicate_post($new_post_id, $post) {
-        $field_data = CFS()->get( false, $post->ID, [ 'format' => 'raw' ] );
+        $field_data = atshift_fields_maintenance_for_custom_field_suite()->get( false, $post->ID, [ 'format' => 'raw' ] );
 
         if ( is_array( $field_data ) ) {
             foreach ( $field_data as $key => $value ) {
@@ -78,7 +78,7 @@ class cfs_third_party
         }
 
         $post_data = [ 'ID' => $new_post_id ];
-        CFS()->save( $field_data, $post_data );
+        atshift_fields_maintenance_for_custom_field_suite()->save( $field_data, $post_data );
     }
 }
 

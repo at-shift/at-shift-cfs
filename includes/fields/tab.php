@@ -9,7 +9,7 @@ class cfs_tab extends cfs_field
 
     function __construct() {
         $this->name = 'tab';
-        $this->label = __( 'Tab', 'at-shift-cfs' );
+        $this->label = __( 'Tab', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -28,7 +28,7 @@ class cfs_tab extends cfs_field
     // Tab handling javascript
     function input_head( $field = null ) {
     ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
             function activate_first_tabs($context) {
                 $context.find('.cfs-tabs').each(function(){
@@ -64,7 +64,7 @@ class cfs_tab extends cfs_field
                 activate_first_tabs($(event.target).closest('.cfs_input'));
             });
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
     <?php
     }
 }

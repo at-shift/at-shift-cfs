@@ -1,9 +1,9 @@
-=== at-shift CFS ===
-Contributors: mgibbs189, at-shift
+=== atshift Fields Maintenance for Custom Field Suite ===
+Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.6.7.42.1.2
+Stable tag: 2.6.7.42.1.3
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -19,6 +19,7 @@ This package is a maintenance build based on the upstream Custom Field Suite 2.6
 
 * This is a maintenance build, not an official upstream release.
 * Always back up your files and database before replacing an existing CFS installation.
+* Deactivate the original Custom Field Suite plugin before activating this maintenance build.
 * Test on a local or staging site before using it on a production site.
 * CFS returns stored values; theme templates should still escape output with WordPress escaping functions.
 * Added field types are not available in the original upstream CFS 2.6.7 release.
@@ -120,9 +121,13 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 * Documentation: https://cfs.at-shift.net/
 * Original Github: https://github.com/mgibbs189/custom-field-suite
-* Maintenance Github: https://github.com/at-shift/at-shift-cfs
 
 == Changelog ==
+
+= 2.6.7.42.1.3 =
+* Renamed the WordPress.org submission build to clarify that it is a third-party maintenance build for Custom Field Suite.
+* Reworked inline admin scripts and styles to use WordPress enqueue APIs.
+* Added additional server-side sanitization for field group, import, and form submission data.
 
 = 2.6.7.42.1.2 =
 * Improved file upload previews and remove button alignment on post edit screens.
@@ -132,9 +137,9 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 = 2.6.7.42.1.1 =
 * Adjusted post edit screen spacing and typography.
-* Improved the at-shift CFS Tools UI and multilingual text.
+* Improved the atshift Fields Maintenance for Custom Field Suite Tools UI and multilingual text.
 * 投稿編集画面の余白と文字サイズを調整しました。
-* at-shift CFS ツールのUIと多言語テキストを改善しました。
+* atshift Fields Maintenance for Custom Field Suite ツールのUIと多言語テキストを改善しました。
 
 = 2.6.7.42.1.0 =
 * Fixed issues and improved field drag-and-drop movement in the Field Group editor.
@@ -143,11 +148,11 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 = 2.6.7.42.0.4 =
 * Adjusted post edit screen typography for Tabs, field headings, descriptions, group headings, and Loop rows.
 * Improved description text contrast on post edit screens.
-* Localized JavaScript confirmation messages for resetting at-shift CFS data and removing Loop rows.
+* Localized JavaScript confirmation messages for resetting atshift Fields Maintenance for Custom Field Suite data and removing Loop rows.
 * Added duplicate field name warnings in the Field Group editor and blocked saving until duplicate field names are resolved.
 * 投稿編集画面のタブ、フィールド見出し、説明文、グループ見出し、Loop行などの文字サイズを調整しました。
 * 投稿編集画面の説明文の文字色を調整し、視認性を改善しました。
-* at-shift CFSデータのリセット確認とLoop行削除確認のJavaScript確認メッセージを翻訳対応しました。
+* atshift Fields Maintenance for Custom Field Suiteデータのリセット確認とLoop行削除確認のJavaScript確認メッセージを翻訳対応しました。
 * フィールドグループ編集画面でフィールド名が重複している場合に警告を表示し、重複解消まで保存を止めるようにしました。
 
 = 2.6.7.42.0.3 =
@@ -161,7 +166,7 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 = 2.6.7.42 =
 * Kept submitted front-end form values and displayed validation errors in the same form when server-side validation fails.
 * Added server-side format validation for phone, email, URL, number, date, time, and color fields.
-* Renamed the field group export/import tools to "at-shift CFS Tools".
+* Renamed the field group export/import tools to "atshift Fields Maintenance for Custom Field Suite Tools".
 * Fixed Field Group editor hierarchy indicators for Horizontal Group, Conditional Group, and Accordion Group fields inside Tabs.
 * Allowed Loop (repeatable group) fields inside Conditional Group and Accordion Group fields.
 * Fixed post edit screen tab switching when multiple tabs share the same field name.
@@ -172,7 +177,7 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * Improved admin asset cache busting so updates are reflected when replacing files within the same plugin version.
 * サーバー側バリデーションに失敗した場合、フロントエンドフォームの入力値を保持し、同じフォーム内へエラーを表示するようにしました。
 * 電話番号、メール、URL、数値、日付、時刻、カラーの形式をサーバー側でも検証するようにしました。
-* フィールドグループの書き出し／読み込みのためのツールの名称を「at-shift CFSツール」に修正しました。
+* フィールドグループの書き出し／読み込みのためのツールの名称を「atshift Fields Maintenance for Custom Field Suiteツール」に修正しました。
 * フィールドグループ編集画面で、タブ内の横並び・条件分岐・アコーディオンの各グループの階層表現を修正しました。
 * 条件分岐・アコーディオンのグループにLoop（複製グループ）を入れられるように修正しました。
 * 投稿編集画面で、同じフィールド名のタブがある場合に別タブの内容が表示される問題を修正しました。
@@ -199,10 +204,10 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * カレンダーの年月見出しを各言語・地域の標準的な順序で表示するようにしました。
 
 = 2.6.7.41.21 =
-* Renamed the plugin to at-shift CFS.
+* Renamed the plugin to atshift Fields Maintenance for Custom Field Suite.
 * Added configurable placeholders for Text, Phone, Email Address, Hyperlink, and URL fields.
 * Added tooltips explaining Default Value and Placeholder settings.
-* プラグイン名を at-shift CFS に変更しました。
+* プラグイン名を atshift Fields Maintenance for Custom Field Suite に変更しました。
 * 単一行テキスト、電話番号、メールアドレス、ハイパーリンク、URLにプレースホルダー設定を追加しました。
 * デフォルト値とプレースホルダー設定に説明ツールチップを追加しました。
 

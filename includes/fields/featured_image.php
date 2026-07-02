@@ -9,7 +9,7 @@ class cfs_featured_image extends cfs_field
 
     function __construct() {
         $this->name = 'featured_image';
-        $this->label = __( 'Featured Image', 'at-shift-cfs' );
+        $this->label = __( 'Featured Image', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -27,8 +27,8 @@ class cfs_featured_image extends cfs_field
         $css = empty( $attachment_id ) ? [ '', ' hidden' ] : [ ' hidden', '' ];
     ?>
         <span class="featured_image_preview"><?php echo wp_kses_post( $preview ); ?></span>
-        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Select Image', 'at-shift-cfs' ); ?>" />
-        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove Image', 'at-shift-cfs' ); ?>" />
+        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Select Image', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+        <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove Image', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
         <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="featured_image_value" value="<?php echo esc_attr( $attachment_id ); ?>" />
     <?php
     }
@@ -37,7 +37,7 @@ class cfs_featured_image extends cfs_field
     function input_head( $field = null ) {
         wp_enqueue_media();
     ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
             $(function() {
                 var cfsFeaturedImageFrame;
@@ -46,9 +46,9 @@ class cfs_featured_image extends cfs_field
                     var $button = $(this);
 
                     cfsFeaturedImageFrame = wp.media({
-                        title: <?php echo wp_json_encode( __( 'Featured Image', 'at-shift-cfs' ) ); ?>,
+                        title: <?php echo wp_json_encode( __( 'Featured Image', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>,
                         button: {
-                            text: <?php echo wp_json_encode( __( 'Select Image', 'at-shift-cfs' ) ); ?>
+                            text: <?php echo wp_json_encode( __( 'Select Image', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>
                         },
                         multiple: false,
                         library: {
@@ -84,7 +84,7 @@ class cfs_featured_image extends cfs_field
                 });
             });
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'cfs-validation', ob_get_clean() ); ?>
     <?php
     }
 

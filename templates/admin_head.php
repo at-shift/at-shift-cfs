@@ -11,9 +11,9 @@ global $post;
 ---------------------------------------------------------------------------------------------*/
 
 if ( 'cfs' == $screen->post_type ) {
-    foreach ( CFS()->fields as $field_name => $field_data ) {
+    foreach ( atshift_fields_maintenance_for_custom_field_suite()->fields as $field_name => $field_data ) {
         ob_start();
-        CFS()->fields[ $field_name ]->options_html( 'clone', $field_data );
+        atshift_fields_maintenance_for_custom_field_suite()->fields[ $field_name ]->options_html( 'clone', $field_data );
         $options_html[ $field_name ] = ob_get_clean();
     }
 
@@ -25,14 +25,14 @@ if ( 'cfs' == $screen->post_type ) {
         'id'            => 0,
         'parent_id'     => 0,
         'name'          => 'new_field',
-        'label'         => __( 'New Field', 'at-shift-cfs' ),
+        'label'         => __( 'New Field', 'atshift-fields-maintenance-for-custom-field-suite' ),
         'type'          => 'text',
         'notes'         => '',
         'weight'        => 'clone',
     ];
 
     ob_start();
-    CFS()->field_html( $field );
+    atshift_fields_maintenance_for_custom_field_suite()->field_html( $field );
     $field_clone = ob_get_clean();
 
     wp_add_inline_script(
@@ -49,24 +49,24 @@ if ( 'cfs' == $screen->post_type ) {
     wp_add_inline_script(
         'cfs-fields',
         'CFS.messages = ' . wp_json_encode( [
-            'disallowed_group_child' => __( 'Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group.', 'at-shift-cfs' ),
-            'disallowed_accordion_child' => __( 'Tabs cannot be placed inside an accordion.', 'at-shift-cfs' ),
-            'disallowed_conditional_child' => __( 'Tabs and conditional groups cannot be placed inside a Conditional Group.', 'at-shift-cfs' ),
-            'add_field_below'        => __( 'Add new field below', 'at-shift-cfs' ),
-            'add_field_inside'       => __( 'Add field inside', 'at-shift-cfs' ),
-            'duplicate_field_name_inline' => __( 'This field name is duplicated. Use a unique field name.', 'at-shift-cfs' ),
+            'disallowed_group_child' => __( 'Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'disallowed_accordion_child' => __( 'Tabs cannot be placed inside an accordion.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'disallowed_conditional_child' => __( 'Tabs and conditional groups cannot be placed inside a Conditional Group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'add_field_below'        => __( 'Add new field below', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'add_field_inside'       => __( 'Add field inside', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'duplicate_field_name_inline' => __( 'This field name is duplicated. Use a unique field name.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: comma-separated duplicate field names. */
-            'duplicate_field_names_alert' => __( 'Duplicate field names found: %s. Field names must be unique before saving.', 'at-shift-cfs' ),
-            'move_here'         => __( 'Move here', 'at-shift-cfs' ),
+            'duplicate_field_names_alert' => __( 'Duplicate field names found: %s. Field names must be unique before saving.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'move_here'         => __( 'Move here', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: destination field label. */
-            'outdent_to_container' => __( 'Move here: inside %s', 'at-shift-cfs' ),
-            'outdent_to_tab'       => __( 'Move here: inside the current Tab', 'at-shift-cfs' ),
+            'outdent_to_container' => __( 'Move here: inside %s', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'outdent_to_tab'       => __( 'Move here: inside the current Tab', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'structure_badges'       => [
-                'tab'         => __( 'TAB', 'at-shift-cfs' ),
-                'loop'        => __( 'LOOP', 'at-shift-cfs' ),
-                'group'       => __( 'GROUP', 'at-shift-cfs' ),
-                'accordion'   => __( 'ACCORDION', 'at-shift-cfs' ),
-                'conditional' => __( 'CONDITION', 'at-shift-cfs' ),
+                'tab'         => __( 'TAB', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'loop'        => __( 'LOOP', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'group'       => __( 'GROUP', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'accordion'   => __( 'ACCORDION', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'conditional' => __( 'CONDITION', 'atshift-fields-maintenance-for-custom-field-suite' ),
             ],
         ] ) . ';',
         'before'
@@ -80,17 +80,17 @@ if ( 'cfs' == $screen->post_type ) {
 
 else {
     $hide_editor = false;
-    $field_groups = CFS()->api->get_matching_groups( $post->ID );
+    $field_groups = atshift_fields_maintenance_for_custom_field_suite()->api->get_matching_groups( $post->ID );
     $initial_field_group_ids = array_map( 'intval', array_keys( $field_groups ) );
     $term_placement_groups = [];
 
     // Taxonomy placement needs to react before the post is saved. Include groups
     // that match every other rule, then show/hide them as terms are selected.
-    $candidate_groups = CFS()->api->get_matching_groups( [
+    $candidate_groups = atshift_fields_maintenance_for_custom_field_suite()->api->get_matching_groups( [
         'post_ids' => [ $post->ID ],
         '_ignore_rule_types' => [ 'term_ids' ],
     ] );
-    $all_field_groups = CFS()->field_group->load_field_groups();
+    $all_field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
 
     foreach ( $candidate_groups as $group_id => $group_title ) {
         $rules = isset( $all_field_groups[ $group_id ]['rules'] ) ? $all_field_groups[ $group_id ]['rules'] : [];
@@ -115,8 +115,8 @@ else {
     if ( ! empty( $field_groups ) ) {
 
         // Store field group IDs as an array for front-end forms
-        CFS()->group_ids = array_keys( $field_groups );
-        $native_fields = empty( $initial_field_group_ids ) ? [] : CFS()->api->find_input_fields( [
+        atshift_fields_maintenance_for_custom_field_suite()->group_ids = array_keys( $field_groups );
+        $native_fields = empty( $initial_field_group_ids ) ? [] : atshift_fields_maintenance_for_custom_field_suite()->api->find_input_fields( [
             'group_id' => $initial_field_group_ids,
             'field_type' => [ 'wp_category', 'wp_tag', 'featured_image' ],
         ] );
@@ -149,7 +149,7 @@ else {
             }
 
             if ( ! empty( $selectors ) ) {
-                echo '<style type="text/css">' . esc_html( implode( ',', $selectors ) ) . '{display:none!important;}</style>';
+                wp_add_inline_style( 'cfs-fields', implode( ',', $selectors ) . '{display:none!important;}' );
             }
         }
 
@@ -183,45 +183,44 @@ else {
         }
 
         if ( ! empty( $term_placement_groups ) ) {
-            ?>
-            <script>
-            jQuery(function($) {
-                var groups = <?php echo wp_json_encode( $term_placement_groups ); ?>;
+            wp_add_inline_script(
+                'cfs-fields',
+                'jQuery(function($) {
+                    var groups = ' . wp_json_encode( $term_placement_groups ) . ';
 
-                function selectedTermIds() {
-                    var selected = [];
-                    $('ul.categorychecklist input[type="checkbox"]:checked').each(function() {
-                        var value = parseInt(this.value, 10);
-                        if (!isNaN(value)) {
-                            selected.push(value);
-                        }
-                    });
-                    return selected;
-                }
-
-                function refreshTermPlacementGroups() {
-                    var selected = selectedTermIds();
-                    var hideEditor = false;
-                    $.each(groups, function(groupId, rule) {
-                        var matched = rule.values.some(function(termId) {
-                            return selected.indexOf(parseInt(termId, 10)) !== -1;
+                    function selectedTermIds() {
+                        var selected = [];
+                        $(\'ul.categorychecklist input[type="checkbox"]:checked\').each(function() {
+                            var value = parseInt(this.value, 10);
+                            if (!isNaN(value)) {
+                                selected.push(value);
+                            }
                         });
-                        var visible = rule.operator === '!=' ? !matched : matched;
-                        var $box = $('#cfs_input_' + groupId);
-                        $box.toggle(visible);
-                        $box.find(':input').prop('disabled', !visible);
-                        if (visible && rule.hideEditor) {
-                            hideEditor = true;
-                        }
-                    });
-                    $('#poststuff .postarea').toggle(!hideEditor);
-                }
+                        return selected;
+                    }
 
-                $(document).on('change', 'ul.categorychecklist input[type="checkbox"]', refreshTermPlacementGroups);
-                refreshTermPlacementGroups();
-            });
-            </script>
-            <?php
+                    function refreshTermPlacementGroups() {
+                        var selected = selectedTermIds();
+                        var hideEditor = false;
+                        $.each(groups, function(groupId, rule) {
+                            var matched = rule.values.some(function(termId) {
+                                return selected.indexOf(parseInt(termId, 10)) !== -1;
+                            });
+                            var visible = rule.operator === "!=" ? !matched : matched;
+                            var $box = $("#cfs_input_" + groupId);
+                            $box.toggle(visible);
+                            $box.find(":input").prop("disabled", !visible);
+                            if (visible && rule.hideEditor) {
+                                hideEditor = true;
+                            }
+                        });
+                        $("#poststuff .postarea").toggle(!hideEditor);
+                    }
+
+                    $(document).on("change", "ul.categorychecklist input[type=\"checkbox\"]", refreshTermPlacementGroups);
+                    refreshTermPlacementGroups();
+                });'
+            );
         }
 
         // Force editor support
@@ -229,7 +228,7 @@ else {
         add_post_type_support( $post->post_type, 'editor' );
 
         if ( ! $has_editor || $hide_editor ) {
-            echo '<style type="text/css">#poststuff .postarea { display: none; }</style>';
+            wp_add_inline_style( 'cfs-fields', '#poststuff .postarea { display: none; }' );
         }
     }
 }

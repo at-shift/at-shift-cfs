@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post, $wpdb, $wp_roles;
 
-$equals_text = __( 'equals', 'at-shift-cfs' );
-$not_equals_text = __( 'is not', 'at-shift-cfs' );
+$equals_text = __( 'equals', 'atshift-fields-maintenance-for-custom-field-suite' );
+$not_equals_text = __( 'is not', 'atshift-fields-maintenance-for-custom-field-suite' );
 $rules = (array) get_post_meta( $post->ID, 'cfs_rules', true );
 
 // Populate rules if empty
@@ -114,18 +114,18 @@ foreach ( $templates as $template_name => $filename ) {
 
 ?>
 
-<script>
+<?php ob_start(); ?>
 (function($) {
     $(function() {
         var cfs_nonce = '<?php echo esc_js( wp_create_nonce( 'cfs_admin_nonce' ) ); ?>';
 
         $('.select2').select2({
-            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>'
+            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>'
         });
 
         $('.select2-ajax').select2({
             multiple: true,
-            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'at-shift-cfs' ); ?>',
+            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>',
             minimumInputLength: 2,
             ajax: {
                 url: ajaxurl,
@@ -154,16 +154,16 @@ foreach ( $templates as $template_name => $filename ) {
         });
     });
 })(jQuery);
-</script>
+<?php wp_add_inline_script( 'cfs-fields', ob_get_clean() ); ?>
 
 <table>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e( 'Post Types', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Post Types', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][post_types]",
                     'options' => [
@@ -179,7 +179,7 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td class="cfs-rule-value">
             <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][post_types]",
@@ -192,11 +192,11 @@ foreach ( $templates as $template_name => $filename ) {
     <?php if ( current_theme_supports( 'post-formats' ) && count( $post_formats ) ) : ?>
         <tr>
             <td class="label cfs-rule-label">
-                <label><?php esc_html_e( 'Post Formats', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Post Formats', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td class="cfs-rule-operator">
                 <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][post_formats]",
                     'options' => [
@@ -212,7 +212,7 @@ foreach ( $templates as $template_name => $filename ) {
             </td>
             <td class="cfs-rule-value">
                 <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][post_formats]",
@@ -225,11 +225,11 @@ foreach ( $templates as $template_name => $filename ) {
     <?php endif; ?>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e( 'User Roles', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'User Roles', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][user_roles]",
                     'options' => [
@@ -245,7 +245,7 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td class="cfs-rule-value">
             <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][user_roles]",
@@ -257,11 +257,11 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e('Posts', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e('Posts', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][post_ids]",
                     'options' => [
@@ -281,11 +281,11 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e( 'Taxonomy Terms', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Taxonomy Terms', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][term_ids]",
                     'options' => [
@@ -301,7 +301,7 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td class="cfs-rule-value">
             <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][term_ids]",
@@ -313,11 +313,11 @@ foreach ( $templates as $template_name => $filename ) {
     </tr>
     <tr>
         <td class="label cfs-rule-label">
-            <label><?php esc_html_e( 'Page Templates', 'at-shift-cfs' ); ?></label>
+            <label><?php esc_html_e( 'Page Templates', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td class="cfs-rule-operator">
             <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][page_templates]",
                     'options' => [
@@ -333,7 +333,7 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td class="cfs-rule-value">
             <?php
-                CFS()->create_field( [
+                atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][page_templates]",

@@ -15,8 +15,13 @@ class cfs_session
      * Constructor
      */
     public function __construct() {
-        if ( isset( $_POST['cfs']['session_id'] ) && $this->is_valid( $_POST['cfs']['session_id'] ) ) {
-            $this->session_id = $_POST['cfs']['session_id'];
+        $session_id = '';
+        if ( isset( $_POST['cfs']['session_id'] ) ) {
+            $session_id = sanitize_text_field( wp_unslash( $_POST['cfs']['session_id'] ) );
+        }
+
+        if ( $this->is_valid( $session_id ) ) {
+            $this->session_id = $session_id;
         }
         else {
             $this->session_id = $this->generate_session_id();

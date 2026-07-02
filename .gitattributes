@@ -3,3 +3,5 @@
 .gitattributes export-ignore
 README.md export-ignore
 NOTICE.md export-ignore
+composer.json export-ignore
+languages/ export-ignore

@@ -9,7 +9,7 @@ class cfs_color extends cfs_field
 
     function __construct() {
         $this->name = 'color';
-        $this->label = __( 'Color', 'at-shift-cfs' );
+        $this->label = __( 'Color', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
@@ -17,11 +17,11 @@ class cfs_color extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Default Value', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'text',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][default_value]',
                         'value' => $this->get_option( $field, 'default_value' ),
@@ -38,7 +38,7 @@ class cfs_color extends cfs_field
         wp_enqueue_script( 'miniColors' );
         wp_enqueue_style( 'miniColors', esc_url( CFS_URL . '/includes/fields/color/color.css' ), [], CFS_VERSION );
     ?>
-        <script>
+        <?php ob_start(); ?>
         (function($) {
             $(document).on('focus', '.cfs_color input.color', function() {
                 if (!$(this).hasClass('ready')) {
@@ -50,7 +50,7 @@ class cfs_color extends cfs_field
                 $('.cfs_color input.color').addClass('ready').minicolors();
             });
         })(jQuery);
-        </script>
+        <?php wp_add_inline_script( 'miniColors', ob_get_clean() ); ?>
     <?php
     }
 }

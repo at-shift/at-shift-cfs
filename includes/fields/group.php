@@ -9,14 +9,14 @@ class cfs_group extends cfs_field
 
     function __construct() {
         $this->name = 'group';
-        $this->label = __( 'Horizontal Group', 'at-shift-cfs' );
+        $this->label = __( 'Horizontal Group', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 
     function html( $field ) {
         global $post;
 
-        $children = CFS()->api->get_input_fields( [
+        $children = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
             'group_id' => $field->group_id,
             'parent_id' => $field->id,
         ] );
@@ -24,7 +24,7 @@ class cfs_group extends cfs_field
         if ( 2 > count( $children ) ) {
             ?>
             <div class="cfs-group-warning">
-                <?php esc_html_e( 'Add two or more fields to this horizontal group.', 'at-shift-cfs' ); ?>
+                <?php esc_html_e( 'Add two or more fields to this horizontal group.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
             </div>
             <?php
         }
@@ -33,7 +33,7 @@ class cfs_group extends cfs_field
         $values = $has_values ? $field->values : [];
 
         if ( ! $has_values && ! empty( $post->ID ) ) {
-            $values = CFS()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
+            $values = atshift_fields_maintenance_for_custom_field_suite()->api->get_fields( $post->ID, [ 'format' => 'input' ] );
         }
 
         $input_name_template = isset( $field->input_name_template ) ? (string) $field->input_name_template : 'cfs[input][%d][value]';
@@ -43,7 +43,7 @@ class cfs_group extends cfs_field
         <div class="cfs-group-fields cfs-group-columns-<?php echo esc_attr( $columns ); ?> cfs-group-align-<?php echo esc_attr( $alignment ); ?>">
             <?php foreach ( $children as $child ) : ?>
                 <?php
-                if ( ! isset( CFS()->fields[ $child->type ] ) ) {
+                if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $child->type ] ) ) {
                     continue;
                 }
 
@@ -68,7 +68,7 @@ class cfs_group extends cfs_field
                     <?php endif; ?>
 
                     <div class="cfs_<?php echo esc_attr( $child->type ); ?>">
-                        <?php CFS()->create_field( $args ); ?>
+                        <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( $args ); ?>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -81,19 +81,19 @@ class cfs_group extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Columns', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Columns', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][columns]',
                         'options' => [
                             'choices' => [
-                                'auto' => __( 'Auto', 'at-shift-cfs' ),
-                                '2' => __( '2 columns', 'at-shift-cfs' ),
-                                '3' => __( '3 columns', 'at-shift-cfs' ),
-                                '4' => __( '4 columns', 'at-shift-cfs' ),
+                                'auto' => __( 'Auto', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                '2' => __( '2 columns', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                '3' => __( '3 columns', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                '4' => __( '4 columns', 'atshift-fields-maintenance-for-custom-field-suite' ),
                             ],
                             'force_single' => true,
                         ],
@@ -104,17 +104,17 @@ class cfs_group extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Alignment', 'at-shift-cfs' ); ?></label>
+                <label><?php esc_html_e( 'Alignment', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field( [
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][alignment]',
                         'options' => [
                             'choices' => [
-                                'stretch' => __( 'Evenly distributed', 'at-shift-cfs' ),
-                                'left' => __( 'Left aligned', 'at-shift-cfs' ),
+                                'stretch' => __( 'Evenly distributed', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'left' => __( 'Left aligned', 'atshift-fields-maintenance-for-custom-field-suite' ),
                             ],
                             'force_single' => true,
                         ],
