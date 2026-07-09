@@ -43,8 +43,9 @@ For setup instructions, field value output examples, migration notes, and implem
 * Date
 * Time
 * File Upload
+* Photo Gallery
 * Color
-* Post Categories (native WordPress categories)
+* Post Categories (Standard / Global)
 * Post Tags (native WordPress tags)
 * Featured Image (native WordPress featured image)
 * Term
@@ -62,7 +63,8 @@ For setup instructions, field value output examples, migration notes, and implem
 * Checkbox and Radio Button fields.
 * Phone, Email Address, Number, URL, and Time fields with format validation.
 * Time field with hour and minute select menus.
-* Native WordPress Post Categories, Post Tags, and Featured Image fields inside CFS field groups.
+* Photo Gallery field with sortable media selection and gallery-friendly output data.
+* Standard and Shared Taxonomy Post Categories, Post Tags, and Featured Image fields inside CFS field groups.
 * Horizontal Group field for arranging multiple fields side by side, with evenly distributed and left-aligned layout options.
 * Accordion Group field for organizing child fields into collapsible sections on post edit screens.
 * Field Group editor buttons to add a new field directly below an existing field or inside a Loop, Horizontal Group, or Accordion Group.
