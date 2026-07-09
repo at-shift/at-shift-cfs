@@ -32,6 +32,7 @@ Custom Field Suite data can continue to be used.
 - True / False (Checkbox)
 - Select
 - File Upload
+- Photo Gallery
 - Relationship
 - Term
 - User
@@ -45,7 +46,7 @@ Custom Field Suite data can continue to be used.
 - Code View
 - Checkbox
 - Radio Button
-- Post Categories
+- Post Categories (Standard / Global)
 - Post Tags
 - Featured Image
 - Horizontal Group
