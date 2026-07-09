@@ -27,8 +27,13 @@ class Atshift_CFS_tab extends Atshift_CFS_field
 
     // Tab handling javascript
     function input_head( $field = null ) {
+        if ( ! wp_script_is( 'atshift-cfs-tabs', 'registered' ) ) {
+            wp_register_script( 'atshift-cfs-tabs', false, [ 'jquery' ], ATSHIFT_CFS_VERSION, true );
+        }
+
+        wp_enqueue_script( 'atshift-cfs-tabs' );
     ?>
-        <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() { ?>
+        <?php wp_add_inline_script( 'atshift-cfs-tabs', atshift_cfs_capture_output( function() { ?>
         (function($) {
             function activate_first_tabs($context) {
                 $context.find('.cfs-tabs').each(function(){
