@@ -194,8 +194,13 @@ else {
         }
 
         if ( ! empty( $term_placement_groups ) ) {
+            if ( ! wp_script_is( 'atshift-cfs-term-placement', 'registered' ) ) {
+                wp_register_script( 'atshift-cfs-term-placement', false, [ 'jquery' ], ATSHIFT_CFS_VERSION, true );
+            }
+
+            wp_enqueue_script( 'atshift-cfs-term-placement' );
             wp_add_inline_script(
-                'atshift-cfs-fields',
+                'atshift-cfs-term-placement',
                 'jQuery(function($) {
                     var groups = ' . wp_json_encode( $term_placement_groups ) . ';
 
