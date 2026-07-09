@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.6.7.42.1.6
+Stable tag: 2.6.7.42.1.7
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -129,6 +129,10 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * [Original Custom Field Suite source](https://github.com/mgibbs189/custom-field-suite)
 
 == Changelog ==
+
+= 2.6.7.42.1.7 =
+* Fixed the Classic Editor "Hide the content editor" setting so the classic content editor is hidden reliably on post edit screens.
+* Renamed bundled translation files to the WordPress.org text domain and loaded them as a fallback until language packs are available.
 
 = 2.6.7.42.1.6 =
 * Matched the text domain to the updated WordPress.org slug, atshift-fields-maintenance-for-custom-field-suite.

@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 Plugin Name: atshift Fields (Maintenance for Custom Field Suite)
 Description: This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages.
-Version: 2.6.7.42.1.6
+Version: 2.6.7.42.1.7
 Author: Matt Gibbs / Maintenance: @shift Yoshiya Tsuchisaka
 Author URI: https://at-shift.net
 Text Domain: atshift-fields-maintenance-for-custom-field-suite
@@ -37,7 +37,7 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
         self::$instance = $this;
 
         // setup variables
-        define( 'ATSHIFT_CFS_VERSION', '2.6.7.42.1.6' );
+        define( 'ATSHIFT_CFS_VERSION', '2.6.7.42.1.7' );
         define( 'ATSHIFT_CFS_DIR', dirname( __FILE__ ) );
         define( 'ATSHIFT_CFS_URL', plugins_url( '', __FILE__ ) );
         define( 'ATSHIFT_CFS_FIELD_GROUP_POST_TYPE', 'atshift_cfs' );
@@ -49,8 +49,22 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
         define( 'ATSHIFT_CFS_BLOCK_CATEGORY', 'atshift-cfs' );
         define( 'ATSHIFT_CFS_BLOCK_NAMESPACE', 'atshift-cfs' );
 
+        add_action( 'init', [ $this, 'load_textdomain' ], 0 );
+
         // get the gears turning
         include( ATSHIFT_CFS_DIR . '/includes/init.php' );
+    }
+
+
+    /**
+     * Load bundled translations as a fallback until WordPress.org language packs are available.
+     */
+    function load_textdomain() {
+        load_plugin_textdomain(
+            'atshift-fields-maintenance-for-custom-field-suite',
+            false,
+            dirname( plugin_basename( __FILE__ ) ) . '/languages'
+        );
     }
 
 

@@ -82,6 +82,14 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
 
 else {
     $hide_editor = false;
+    $admin_styles = [];
+    $print_admin_styles = static function( $styles ) {
+        if ( empty( $styles ) ) {
+            return;
+        }
+
+        echo '<style id="atshift-cfs-admin-inline-css">' . esc_html( implode( "\n", $styles ) ) . '</style>';
+    };
     $field_groups = atshift_fields_maintenance_for_custom_field_suite()->api->get_matching_groups( $post->ID );
     $initial_field_group_ids = array_map( 'intval', array_keys( $field_groups ) );
     $term_placement_groups = [];
@@ -151,7 +159,7 @@ else {
             }
 
             if ( ! empty( $selectors ) ) {
-                wp_add_inline_style( 'atshift-cfs-fields', implode( ',', $selectors ) . '{display:none!important;}' );
+                $admin_styles[] = implode( ',', $selectors ) . '{display:none!important;}';
             }
         }
 
@@ -160,6 +168,7 @@ else {
             use_block_editor_for_post( $post ) &&
             apply_filters( 'atshift_cfs_hide_metaboxes_in_block_editor', false, $post, $field_groups )
         ) {
+            $print_admin_styles( $admin_styles );
             return;
         }
 
@@ -216,7 +225,7 @@ else {
                                 hideEditor = true;
                             }
                         });
-                        $("#poststuff .postarea").toggle(!hideEditor);
+                        $("#postdivrich, #poststuff .postarea").toggle(!hideEditor);
                     }
 
                     $(document).on("change", "ul.categorychecklist input[type=\"checkbox\"]", refreshTermPlacementGroups);
@@ -230,8 +239,10 @@ else {
         add_post_type_support( $post->post_type, 'editor' );
 
         if ( ! $has_editor || $hide_editor ) {
-            wp_add_inline_style( 'atshift-cfs-fields', '#poststuff .postarea { display: none; }' );
+            $admin_styles[] = '#postdivrich,#poststuff .postarea{display:none!important;}';
         }
+
+        $print_admin_styles( $admin_styles );
     }
 }
 
