@@ -94,6 +94,7 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 - 真/偽・簡易チェックボックス
 - セレクト・ドロップダウンメニュー
 - ファイルのアップロード
+- 写真ギャラリー
 - 関連ポスト選択
 - ターム
 - ユーザー
@@ -107,7 +108,7 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 - コード
 - チェックボックス
 - ラジオボタン
-- 投稿カテゴリー・WordPress 標準
+- 投稿カテゴリー (標準 / グローバル)
 - 投稿タグ・WordPress 標準
 - アイキャッチ画像・WordPress 標準
 - 横並びグループ
