@@ -66,7 +66,7 @@ class Atshift_CFS_init
             'labels'            => [
                 'name'                  => __( 'Field Groups', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'singular_name'         => __( 'Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                'all_items'             => __( 'atshift Fields Maintenance for Custom Field Suite', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'all_items'             => __( 'atshift Fields', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'add_new_item'          => __( 'Add New Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'edit_item'             => __( 'Edit Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'new_item'              => __( 'New Field Group', 'atshift-fields-maintenance-for-custom-field-suite' ),
@@ -426,7 +426,7 @@ class Atshift_CFS_init
     */
     function admin_menu() {
         if ( false === apply_filters( 'atshift_cfs_disable_admin', false ) ) {
-            add_submenu_page( 'tools.php', __( 'atshift Fields Maintenance for Custom Field Suite Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), __( 'atshift Fields Maintenance for Custom Field Suite Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), 'manage_options', 'atshift-cfs-tools', [ $this, 'page_tools' ] );
+            add_submenu_page( 'tools.php', __( 'atshift Fields Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), __( 'atshift Fields Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), 'manage_options', 'atshift-cfs-tools', [ $this, 'page_tools' ] );
         }
     }
 

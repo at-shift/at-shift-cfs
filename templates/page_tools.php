@@ -143,7 +143,7 @@ ORDER BY post_title",
     $(function() {
         var $tools = $('.atshift-cfs-tools');
         var cfs_nonce = '<?php echo esc_js( wp_create_nonce( 'atshift_cfs_admin_nonce' ) ); ?>';
-        var reset_confirm_message = <?php echo wp_json_encode( __( 'This will delete all atshift Fields Maintenance for Custom Field Suite data. Are you sure?', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>;
+        var reset_confirm_message = <?php echo wp_json_encode( __( 'This will delete all atshift Fields data. Are you sure?', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>;
 
         $tools.find('.nav-tab').click(function(e) {
             e.preventDefault();
@@ -198,7 +198,7 @@ ORDER BY post_title",
 <?php } ) ); ?>
 
 <div class="wrap atshift-cfs-tools">
-    <h1><?php esc_html_e( 'atshift Fields Maintenance for Custom Field Suite Tools', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></h1>
+    <h1><?php esc_html_e( 'atshift Fields Tools', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></h1>
 
     <h2 class="nav-tab-wrapper">
         <a class="nav-tab nav-tab-active" rel="export"><?php esc_html_e( 'Export', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></a>
@@ -252,7 +252,7 @@ ORDER BY post_title",
 
         <div class="tab-content reset atshift-cfs-tools-reset">
             <h2><?php esc_html_e( 'Reset and deactivate.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></h2>
-            <p class="atshift-cfs-tools-warning"><?php esc_html_e( 'This will delete all atshift Fields Maintenance for Custom Field Suite data and deactivate the plugin.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+            <p class="atshift-cfs-tools-warning"><?php esc_html_e( 'This will delete all atshift Fields data and deactivate the plugin.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
             <input type="button" id="button-reset" class="button atshift-cfs-tools-danger-button" value="<?php esc_attr_e( 'Delete everything', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
         </div>
     </div>

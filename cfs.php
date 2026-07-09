@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /*
-Plugin Name: atshift Fields Maintenance for Custom Field Suite
+Plugin Name: atshift Fields (Maintenance for Custom Field Suite)
 Description: This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages.
 Version: 2.6.7.42.1.6
 Author: Matt Gibbs / Maintenance: @shift Yoshiya Tsuchisaka
@@ -157,7 +157,7 @@ if ( function_exists( 'CFS' ) ) {
         }
 
         echo '<div class="notice notice-error"><p>';
-        echo esc_html__( 'atshift Fields Maintenance for Custom Field Suite was not loaded because another Custom Field Suite plugin is already active. Deactivate the other Custom Field Suite plugin before activating this maintenance build.', 'atshift-fields-maintenance-for-custom-field-suite' );
+        echo esc_html__( 'atshift Fields (Maintenance for Custom Field Suite) was not loaded because another Custom Field Suite plugin is already active. Deactivate the other Custom Field Suite plugin before activating this maintenance build.', 'atshift-fields-maintenance-for-custom-field-suite' );
         echo '</p></div>';
     }
 
