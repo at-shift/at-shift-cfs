@@ -37,7 +37,7 @@ class Atshift_CFS_term extends Atshift_CFS_field
             'order'      => 'ASC'
         ];
 
-        $args = apply_filters( 'atshift_cfs_field_term_query_args', $args, [ 'field' => $field ] );
+        $args = atshift_cfs_apply_filters_compat( 'cfs_field_term_query_args', 'atshift_cfs_field_term_query_args', $args, [ 'field' => $field ] );
 
         $query = get_terms( $args );
 
@@ -90,7 +90,7 @@ class Atshift_CFS_term extends Atshift_CFS_field
 
     function options_html( $key, $field ) {
         $args = [ 'public' => true ];
-        $choices = apply_filters( 'atshift_cfs_field_term_taxonomies', get_taxonomies( $args ) );
+        $choices = atshift_cfs_apply_filters_compat( 'cfs_field_term_taxonomies', 'atshift_cfs_field_term_taxonomies', get_taxonomies( $args ) );
 
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">

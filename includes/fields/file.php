@@ -29,15 +29,16 @@ class Atshift_CFS_file extends Atshift_CFS_field
             {
                 $file_url = wp_get_attachment_url( $field->value );
                 $filename = substr( $file_url, strrpos( $file_url, '/' ) + 1 );
-                $file_url = '<a href="' . esc_url( $file_url ) . '" target="_blank">' . esc_html( $filename ) . '</a>';
+                $file_url = '<a href="' . esc_url( $file_url ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $filename ) . '</a>';
             }
         }
 
         // CSS logic for "Add" / "Remove" buttons
         $css = empty( $field->value ) ? [ '', ' hidden' ] : [ ' hidden', '' ];
+        $file_type = $this->get_option( $field, 'file_type', 'file' );
     ?>
         <span class="file_url"><?php echo wp_kses_post( $file_url ); ?></span>
-        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" value="<?php esc_attr_e( 'Add File', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+        <input type="button" class="media button add<?php echo esc_attr( $css[0] ); ?>" data-file-type="<?php echo esc_attr( $file_type ); ?>" value="<?php esc_attr_e( 'Add File', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
         <input type="button" class="media button remove<?php echo esc_attr( $css[1] ); ?>" value="<?php esc_attr_e( 'Remove', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
         <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="file_value" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
@@ -111,99 +112,35 @@ class Atshift_CFS_file extends Atshift_CFS_field
 
 
     function input_head( $field = null ) {
+        static $inserted = false;
+
+        if ( $inserted ) {
+            return;
+        }
+
+        $inserted = true;
         wp_enqueue_media();
-    ?>
-        <?php wp_add_inline_style( 'atshift-cfs-input', atshift_cfs_capture_output( function() { ?>
-        .cfs_frame .media-frame-menu {
-            display: none;
-        }
 
-        .cfs_frame .media-frame-title,
-        .cfs_frame .media-frame-router,
-        .cfs_frame .media-frame-content,
-        .cfs_frame .media-frame-toolbar {
-            left: 0;
-        }
-        <?php } ) ); ?>
+        $script_path = ATSHIFT_CFS_DIR . '/assets/js/file.js';
+        $script_url  = ATSHIFT_CFS_URL . '/assets/js/file.js';
+        $version     = file_exists( $script_path ) ? ATSHIFT_CFS_VERSION . '.' . filemtime( $script_path ) : ATSHIFT_CFS_VERSION;
 
-        <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() { ?>
-        (function($) {
-            $(function() {
+        wp_enqueue_script(
+            'atshift-cfs-file',
+            $script_url,
+            [ 'jquery', 'media-views' ],
+            $version,
+            true
+        );
 
-                var cfs_frame;
-                var $activeButton;
-
-                function getImagePreviewUrl(attachment) {
-                    if (attachment.sizes) {
-                        if (attachment.sizes.medium) {
-                            return attachment.sizes.medium.url;
-                        }
-                        if (attachment.sizes.thumbnail) {
-                            return attachment.sizes.thumbnail.url;
-                        }
-                        if (attachment.sizes.full) {
-                            return attachment.sizes.full.url;
-                        }
-                    }
-
-                    return attachment.url;
-                }
-
-                $(document).on('click', '.cfs_file .media.button.add', function(e) {
-                    $activeButton = $(this);
-
-                    if (cfs_frame) {
-                        cfs_frame.open();
-                        return;
-                    }
-
-                    cfs_frame = wp.media.frames.cfs_frame = wp.media({
-                        className: 'media-frame cfs_frame',
-                        frame: 'post',
-                        multiple: false,
-                        library: {
-                            type: 'image'
-                        }
-                    });
-
-                    cfs_frame.on('insert', function() {
-                        var attachment = cfs_frame.state().get('selection').first().toJSON();
-                        var $button = $activeButton;
-                        var $preview = $button.siblings('.file_url').empty();
-
-                        if ('image' == attachment.type) {
-                            $preview.append($('<img>', {
-                                src: getImagePreviewUrl(attachment),
-                                alt: '',
-                                class: 'cfs-file-preview-image'
-                            }));
-                        }
-                        else {
-                            $preview.append($('<a>', {
-                                href: attachment.url,
-                                target: '_blank',
-                                text: attachment.filename || attachment.url
-                            }));
-                        }
-                        $button.hide();
-                        $button.siblings('.media.button.remove').show();
-                        $button.siblings('.file_value').val(attachment.id);
-                    });
-
-                    cfs_frame.open();
-                    cfs_frame.content.mode('upload');
-                });
-
-                $(document).on('click', '.cfs_file .media.button.remove', function() {
-                    $(this).siblings('.file_url').html('');
-                    $(this).siblings('.file_value').val('');
-                    $(this).siblings('.media.button.add').show();
-                    $(this).hide();
-                });
-            });
-        })(jQuery);
-        <?php } ) ); ?>
-    <?php
+        wp_add_inline_script(
+            'atshift-cfs-file',
+            'window.ATSHIFT_CFS_FILE = ' . wp_json_encode( [
+                'title'  => __( 'Add File', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'button' => __( 'Add File', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            ] ) . ';',
+            'before'
+        );
     }
 
 

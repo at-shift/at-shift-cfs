@@ -738,3 +738,64 @@ msgstr "在此粘贴导入代码"
 #: ../templates/page_tools.php:150
 msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr "这将完全删除所有 at-shift CFS 数据。确定吗？"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "文章分类（标准 / 全局）"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "在 %s 中未找到分类"
+
+msgid "Standard Category"
+msgstr "标准分类"
+
+msgid "Category Source"
+msgstr "分类来源"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "选择标准分类或已注册的 Shared Taxonomy，用于通过此字段显示和保存。"
+
+msgid "Photo Gallery"
+msgstr "照片图库"
+
+msgid "Add Images"
+msgstr "添加图片"
+
+msgid "Clear Gallery"
+msgstr "清空图库"
+
+msgid "Remove image"
+msgstr "移除图片"
+
+msgid "Attachment IDs"
+msgstr "附件 ID"
+
+msgid "Image URLs"
+msgstr "图片 URL"
+
+msgid "Image Data"
+msgstr "图片数据"
+
+msgid "Gallery HTML"
+msgstr "图库 HTML"
+
+msgid "Gallery Display"
+msgstr "图库显示"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "当返回值为图库 HTML 时使用。图片文件链接包含适合模态窗口使用的数据属性。"
+
+msgid "CSS class"
+msgstr "CSS 类"
+
+msgid "Link To"
+msgstr "链接到"
+
+msgid "Image File"
+msgstr "图片文件"
+
+msgid "Attachment Page"
+msgstr "附件页面"
+
+msgid "Select Gallery Images"
+msgstr "选择图库图片"

@@ -138,7 +138,7 @@ class Atshift_CFS_form
                 ];
 
                 // Pre-save hook
-                do_action( 'atshift_cfs_pre_save_input', $hook_params );
+                atshift_cfs_do_action_compat( 'cfs_pre_save_input', 'atshift_cfs_pre_save_input', $hook_params );
 
                 // Save the input values
                 $hook_params['post_data']['ID'] = atshift_fields_maintenance_for_custom_field_suite()->save(
@@ -148,7 +148,7 @@ class Atshift_CFS_form
                 );
 
                 // After-save hook
-                do_action( 'atshift_cfs_after_save_input', $hook_params );
+                atshift_cfs_do_action_compat( 'cfs_after_save_input', 'atshift_cfs_after_save_input', $hook_params );
 
                 // Delete expired sessions
                 $this->session->cleanup();
@@ -212,7 +212,7 @@ class Atshift_CFS_form
          * @param array $session
          * @param array $field_groups
          */
-        return (bool) apply_filters( 'atshift_cfs_form_can_save', $can_save, $post_id, $post_data, $session, $field_groups );
+        return (bool) atshift_cfs_apply_filters_compat( 'cfs_form_can_save', 'atshift_cfs_form_can_save', $can_save, $post_id, $post_data, $session, $field_groups );
     }
 
 
@@ -317,7 +317,7 @@ class Atshift_CFS_form
 
             $value = is_array( $field_data ) && array_key_exists( 'value', $field_data ) ? $field_data['value'] : '';
 
-            if ( in_array( $field->type, [ 'relationship', 'term', 'user' ], true ) ) {
+            if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'gallery' ], true ) ) {
                 $this->validate_count_limits( $field, count( $this->normalize_submitted_ids( $value ) ), $errors );
             }
 
@@ -543,7 +543,7 @@ class Atshift_CFS_form
         return in_array( $field_type, [
             'text', 'textarea', 'wysiwyg', 'phone', 'email', 'url', 'number',
             'radio', 'date', 'file', 'color', 'true_false', 'wp_tag',
-            'featured_image', 'conditional',
+            'featured_image', 'gallery', 'conditional',
         ], true );
     }
 
@@ -559,14 +559,15 @@ class Atshift_CFS_form
 
         $this->assets_loaded = true;
 
-        add_action( 'wp_head', [ $this, 'head_scripts' ] );
         add_action( 'wp_footer', [ $this, 'footer_scripts' ], 25 );
+        add_action( 'admin_footer', [ $this, 'footer_scripts' ], 25 );
 
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-ui-sortable' );
         $validation_js_version = file_exists( ATSHIFT_CFS_DIR . '/assets/js/validation.js' ) ? ATSHIFT_CFS_VERSION . '.' . filemtime( ATSHIFT_CFS_DIR . '/assets/js/validation.js' ) : ATSHIFT_CFS_VERSION;
         $input_css_version = file_exists( ATSHIFT_CFS_DIR . '/assets/css/input.css' ) ? ATSHIFT_CFS_VERSION . '.' . filemtime( ATSHIFT_CFS_DIR . '/assets/css/input.css' ) : ATSHIFT_CFS_VERSION;
-        wp_enqueue_script( 'atshift-cfs-validation', ATSHIFT_CFS_URL . '/assets/js/validation.js', [ 'jquery' ], $validation_js_version );
+        wp_enqueue_script( 'atshift-cfs-validation', ATSHIFT_CFS_URL . '/assets/js/validation.js', [ 'jquery', 'jquery-ui-sortable' ], $validation_js_version );
+        $this->head_scripts();
         wp_enqueue_script( 'jquery-powertip', ATSHIFT_CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', [ 'jquery' ], ATSHIFT_CFS_VERSION );
         wp_enqueue_style( 'jquery-powertip', ATSHIFT_CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', [], ATSHIFT_CFS_VERSION );
         wp_enqueue_style( 'atshift-cfs-input', ATSHIFT_CFS_URL . '/assets/css/input.css', [], $input_css_version );
@@ -580,7 +581,8 @@ class Atshift_CFS_form
     function head_scripts() {
         wp_add_inline_script(
             'atshift-cfs-validation',
-            'var CFS = CFS || {};
+            'window.CFS = window.CFS || {};
+var CFS = window.CFS;
 CFS["get_field_value"] = {};
 CFS["loop_buffer"] = [];
 CFS["validation_messages"] = ' . wp_json_encode( [
@@ -613,7 +615,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
      * @since 1.9.5
      */
     function footer_scripts() {
-        do_action( 'atshift_cfs_custom_validation' );
+        atshift_cfs_do_action_compat( 'cfs_custom_validation', 'atshift_cfs_custom_validation' );
     }
 
 
@@ -686,7 +688,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
         }
 
         // Hook to allow for overridden field settings
-        $input_fields = apply_filters( 'atshift_cfs_pre_render_fields', $input_fields, $params );
+        $input_fields = atshift_cfs_apply_filters_compat( 'cfs_pre_render_fields', 'atshift_cfs_pre_render_fields', $input_fields, $params );
 
         // The SESSION should contain all applicable field group IDs. Since add_meta_box only
         // passes 1 field group at a time, we use atshift_fields_maintenance_for_custom_field_suite()->group_ids from admin_head.php
@@ -792,7 +794,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             }
         }
 
-        do_action( 'atshift_cfs_form_before_fields', $params, [
+        atshift_cfs_do_action_compat( 'cfs_form_before_fields', 'atshift_cfs_form_before_fields', $params, [
             'group_ids'     => $all_group_ids,
             'input_fields'  => $input_fields
         ] );
@@ -829,7 +831,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
 
             $validator = '';
 
-            if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop' ] ) ) {
+            if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop', 'gallery' ], true ) ) {
                 $min = empty( $field->options['limit_min'] ) ? 0 : (int) $field->options['limit_min'];
                 $max = empty( $field->options['limit_max'] ) ? 0 : (int) $field->options['limit_max'];
                 $validator = "limit|$min,$max";
@@ -944,7 +946,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             echo '</div>';
         }
 
-        do_action( 'atshift_cfs_form_after_fields', $params, [
+        atshift_cfs_do_action_compat( 'cfs_form_after_fields', 'atshift_cfs_form_after_fields', $params, [
             'group_ids'     => $all_group_ids,
             'input_fields'  => $input_fields
         ] );

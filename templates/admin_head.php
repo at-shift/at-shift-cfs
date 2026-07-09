@@ -137,42 +137,94 @@ else {
             'field_type' => [ 'wp_category', 'wp_tag', 'featured_image' ],
         ] );
         $hide_native = [];
+        $native_panel_rules = [];
+        $taxonomy_meta_box_id = static function( $taxonomy_name ) {
+            $taxonomy = get_taxonomy( $taxonomy_name );
+
+            if ( ! $taxonomy ) {
+                return '';
+            }
+
+            return $taxonomy->hierarchical ? $taxonomy_name . 'div' : 'tagsdiv-' . $taxonomy_name;
+        };
+        $taxonomy_meta_box_selector = static function( $taxonomy_name ) use ( $taxonomy_meta_box_id ) {
+            $meta_box_id = $taxonomy_meta_box_id( $taxonomy_name );
+            return '' === $meta_box_id ? '' : '#' . $meta_box_id;
+        };
+        $category_taxonomy_name = static function( $field ) {
+            $field_object = (object) $field;
+
+            if ( isset( atshift_fields_maintenance_for_custom_field_suite()->fields['wp_category'] ) ) {
+                return atshift_fields_maintenance_for_custom_field_suite()->fields['wp_category']->get_taxonomy_name( $field_object );
+            }
+
+            if ( isset( $field['options']['taxonomy'] ) ) {
+                $taxonomy_name = sanitize_key( $field['options']['taxonomy'] );
+                return taxonomy_exists( $taxonomy_name ) ? $taxonomy_name : '';
+            }
+
+            return taxonomy_exists( 'category' ) ? 'category' : '';
+        };
+        $add_native_panel_rule = static function( $type, $selector ) use ( &$native_panel_rules ) {
+            if ( '' === $selector ) {
+                return;
+            }
+
+            if ( ! isset( $native_panel_rules[ $selector ] ) ) {
+                $native_panel_rules[ $selector ] = [
+                    'selector' => $selector,
+                    'types'    => [],
+                ];
+            }
+
+            $native_panel_rules[ $selector ]['types'][] = $type;
+            $native_panel_rules[ $selector ]['types'] = array_values( array_unique( $native_panel_rules[ $selector ]['types'] ) );
+        };
 
         foreach ( $native_fields as $native_field ) {
             $hide_native[ $native_field['type'] ] = true;
+
+            if ( 'wp_category' === $native_field['type'] ) {
+                $add_native_panel_rule( 'wp_category', $taxonomy_meta_box_selector( $category_taxonomy_name( $native_field ) ) );
+            }
+            elseif ( 'wp_tag' === $native_field['type'] ) {
+                $add_native_panel_rule( 'wp_tag', $taxonomy_meta_box_selector( 'post_tag' ) );
+            }
+            elseif ( 'featured_image' === $native_field['type'] ) {
+                $add_native_panel_rule( 'featured_image', '#postimagediv' );
+            }
         }
+        $native_panel_rules = array_values( $native_panel_rules );
 
         if ( ! empty( $hide_native ) ) {
-            if ( isset( $hide_native['wp_category'] ) && empty( $term_placement_groups ) ) {
-                remove_meta_box( 'categorydiv', $post->post_type, 'side' );
-            }
-            if ( isset( $hide_native['wp_tag'] ) && empty( $term_placement_groups ) ) {
-                remove_meta_box( 'tagsdiv-post_tag', $post->post_type, 'side' );
-            }
-            if ( isset( $hide_native['featured_image'] ) && empty( $term_placement_groups ) ) {
-                remove_meta_box( 'postimagediv', $post->post_type, 'side' );
-            }
-
             $selectors = [];
-            if ( isset( $hide_native['wp_category'] ) && empty( $term_placement_groups ) ) {
-                $selectors[] = '#categorydiv';
-            }
-            if ( isset( $hide_native['wp_tag'] ) && empty( $term_placement_groups ) ) {
-                $selectors[] = '#tagsdiv-post_tag';
-            }
-            if ( isset( $hide_native['featured_image'] ) && empty( $term_placement_groups ) ) {
-                $selectors[] = '#postimagediv';
+
+            if ( empty( $term_placement_groups ) ) {
+                foreach ( $native_panel_rules as $native_panel_rule ) {
+                    $selectors[] = $native_panel_rule['selector'];
+
+                    foreach ( (array) $native_panel_rule['types'] as $type ) {
+                        if ( 'featured_image' === $type ) {
+                            remove_meta_box( 'postimagediv', $post->post_type, 'side' );
+                        }
+                    }
+
+                    $selector = $native_panel_rule['selector'];
+                    if ( 0 === strpos( $selector, '#' ) && '#postimagediv' !== $selector ) {
+                        remove_meta_box( substr( $selector, 1 ), $post->post_type, 'side' );
+                    }
+                }
             }
 
             if ( ! empty( $selectors ) ) {
-                $admin_styles[] = implode( ',', $selectors ) . '{display:none!important;}';
+                $admin_styles[] = implode( ',', array_unique( $selectors ) ) . '{display:none!important;}';
             }
         }
 
         if (
             function_exists( 'use_block_editor_for_post' ) &&
             use_block_editor_for_post( $post ) &&
-            apply_filters( 'atshift_cfs_hide_metaboxes_in_block_editor', false, $post, $field_groups )
+            atshift_cfs_apply_filters_compat( 'cfs_hide_metaboxes_in_block_editor', 'atshift_cfs_hide_metaboxes_in_block_editor', false, $post, $field_groups )
         ) {
             $print_admin_styles( $admin_styles );
             return;
@@ -209,11 +261,7 @@ else {
                 'atshift-cfs-term-placement',
                 'jQuery(function($) {
                     var groups = ' . wp_json_encode( $term_placement_groups ) . ';
-                    var nativeSelectors = ' . wp_json_encode( [
-                        'wp_category'    => '#categorydiv',
-                        'wp_tag'         => '#tagsdiv-post_tag',
-                        'featured_image' => '#postimagediv',
-                    ] ) . ';
+                    var nativePanelRules = ' . wp_json_encode( $native_panel_rules ) . ';
 
                     function selectedTermIds() {
                         var selected = [];
@@ -226,15 +274,22 @@ else {
                         return selected;
                     }
 
-                    function visibleReplacementField(type) {
-                        return $(\'.cfs_input:visible .field[data-type="\' + type + \'"]\').length > 0;
+                    function visibleReplacementField(types) {
+                        var visible = false;
+                        $.each(types || [], function(index, type) {
+                            if ($(\'.cfs_input:visible .field[data-type="\' + type + \'"]\').length > 0) {
+                                visible = true;
+                                return false;
+                            }
+                        });
+                        return visible;
                     }
 
                     function refreshNativePanels() {
-                        $.each(nativeSelectors, function(type, selector) {
-                            var $panel = $(selector);
+                        $.each(nativePanelRules, function(index, rule) {
+                            var $panel = $(rule.selector);
                             if ($panel.length) {
-                                $panel.toggle(!visibleReplacementField(type));
+                                $panel.toggle(!visibleReplacementField(rule.types));
                             }
                         });
                     }

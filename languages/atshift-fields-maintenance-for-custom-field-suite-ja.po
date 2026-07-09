@@ -871,3 +871,64 @@ msgstr "ここへ移動: %sグループ内"
 
 msgid "Move here: inside the current Tab"
 msgstr "ここへ移動: タブ内"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "投稿カテゴリー (標準 / グローバル)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "%s にカテゴリーが見つかりません"
+
+msgid "Standard Category"
+msgstr "標準カテゴリー"
+
+msgid "Category Source"
+msgstr "カテゴリーの参照元"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "標準カテゴリーまたは登録済みのグローバルカテゴリー（Shared Taxonomy）を選択し、このフィールドで表示・保存します。"
+
+msgid "Photo Gallery"
+msgstr "写真ギャラリー"
+
+msgid "Add Images"
+msgstr "画像を追加"
+
+msgid "Clear Gallery"
+msgstr "ギャラリーをクリア"
+
+msgid "Remove image"
+msgstr "画像を削除"
+
+msgid "Attachment IDs"
+msgstr "添付ファイルID"
+
+msgid "Image URLs"
+msgstr "画像URL"
+
+msgid "Image Data"
+msgstr "画像データ"
+
+msgid "Gallery HTML"
+msgstr "ギャラリーHTML"
+
+msgid "Gallery Display"
+msgstr "ギャラリー表示"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "戻り値がギャラリーHTMLの場合に使用します。画像ファイルへのリンクにはモーダルで使いやすいデータ属性が含まれます。"
+
+msgid "CSS class"
+msgstr "CSSクラス"
+
+msgid "Link To"
+msgstr "リンク先"
+
+msgid "Image File"
+msgstr "画像ファイル"
+
+msgid "Attachment Page"
+msgstr "添付ファイルページ"
+
+msgid "Select Gallery Images"
+msgstr "ギャラリー画像を選択"

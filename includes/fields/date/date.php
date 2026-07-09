@@ -47,7 +47,7 @@ class Atshift_CFS_date extends Atshift_CFS_field
             'clear'       => _x( 'Clear', 'date picker', 'atshift-fields-maintenance-for-custom-field-suite' ),
         ];
     ?>
-        <?php wp_add_inline_script( 'bootstrap-datepicker', atshift_cfs_capture_output( function() { ?>
+        <?php wp_add_inline_script( 'bootstrap-datepicker', atshift_cfs_capture_output( function() use ( $date_locale, $locale ) { ?>
         (function($) {
             var dateLocale = <?php echo wp_json_encode( $date_locale ); ?>;
             var userLocale = <?php echo wp_json_encode( $locale ); ?>;

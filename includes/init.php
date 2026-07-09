@@ -47,7 +47,7 @@ class Atshift_CFS_init
         $this->register_blocks();
 
         // CFS is ready
-        do_action( 'atshift_cfs_init' );
+        atshift_cfs_do_action_compat( 'cfs_init', 'atshift_cfs_init' );
     }
 
 
@@ -85,7 +85,7 @@ class Atshift_CFS_init
     function get_field_types() {
 
         // support custom field types
-        $field_types = apply_filters( 'atshift_cfs_field_types', [
+        $field_types = atshift_cfs_apply_filters_compat( 'cfs_field_types', 'atshift_cfs_field_types', [
             'text'          => ATSHIFT_CFS_DIR . '/includes/fields/text.php',
             'textarea'      => ATSHIFT_CFS_DIR . '/includes/fields/textarea.php',
             'wysiwyg'       => ATSHIFT_CFS_DIR . '/includes/fields/wysiwyg.php',
@@ -101,6 +101,7 @@ class Atshift_CFS_init
             'date'          => ATSHIFT_CFS_DIR . '/includes/fields/date/date.php',
             'time'          => ATSHIFT_CFS_DIR . '/includes/fields/time.php',
             'file'          => ATSHIFT_CFS_DIR . '/includes/fields/file.php',
+            'gallery'       => ATSHIFT_CFS_DIR . '/includes/fields/gallery.php',
             'color'         => ATSHIFT_CFS_DIR . '/includes/fields/color/color.php',
             'code_view'     => ATSHIFT_CFS_DIR . '/includes/fields/code_view.php',
             'wp_category'   => ATSHIFT_CFS_DIR . '/includes/fields/wp_category.php',
@@ -118,13 +119,25 @@ class Atshift_CFS_init
 
         foreach ( $field_types as $type => $path ) {
             $class_name = 'Atshift_CFS_' . $type;
+            $legacy_class_name = 'cfs_' . $type;
 
             // allow for multiple classes per file
-            if ( ! class_exists( $class_name ) ) {
+            if ( ! class_exists( $class_name ) && ! class_exists( $legacy_class_name ) ) {
                 include_once( $path );
             }
 
-            $field_types[ $type ] = new $class_name();
+            if ( class_exists( $class_name ) ) {
+                if ( ! class_exists( $legacy_class_name, false ) ) {
+                    class_alias( $class_name, $legacy_class_name );
+                }
+                $field_types[ $type ] = new $class_name();
+            }
+            elseif ( class_exists( $legacy_class_name ) ) {
+                $field_types[ $type ] = new $legacy_class_name();
+            }
+            else {
+                unset( $field_types[ $type ] );
+            }
         }
 
         return $field_types;
@@ -241,7 +254,11 @@ class Atshift_CFS_init
                 }
 
                 if ( 'wp_category' === $field['type'] ) {
-                    $hide_panels[] = 'taxonomy-panel-category';
+                    $taxonomy_name = $this->get_category_taxonomy_name( $field );
+
+                    if ( '' !== $taxonomy_name ) {
+                        $hide_panels[] = 'taxonomy-panel-' . $taxonomy_name;
+                    }
                 }
                 elseif ( 'wp_tag' === $field['type'] ) {
                     $hide_panels[] = 'taxonomy-panel-post_tag';
@@ -283,6 +300,22 @@ class Atshift_CFS_init
             ] ) . ';',
             'before'
         );
+    }
+
+
+    private function get_category_taxonomy_name( $field ) {
+        $field_object = (object) $field;
+
+        if ( isset( atshift_fields_maintenance_for_custom_field_suite()->fields['wp_category'] ) ) {
+            return atshift_fields_maintenance_for_custom_field_suite()->fields['wp_category']->get_taxonomy_name( $field_object );
+        }
+
+        if ( isset( $field['options']['taxonomy'] ) ) {
+            $taxonomy_name = sanitize_key( $field['options']['taxonomy'] );
+            return taxonomy_exists( $taxonomy_name ) ? $taxonomy_name : '';
+        }
+
+        return taxonomy_exists( 'category' ) ? 'category' : '';
     }
 
 
@@ -425,7 +458,7 @@ class Atshift_CFS_init
     * admin_menu
     */
     function admin_menu() {
-        if ( false === apply_filters( 'atshift_cfs_disable_admin', false ) ) {
+        if ( false === atshift_cfs_apply_filters_compat( 'cfs_disable_admin', 'atshift_cfs_disable_admin', false ) ) {
             add_submenu_page( 'tools.php', __( 'atshift Fields Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), __( 'atshift Fields Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), 'manage_options', 'atshift-cfs-tools', [ $this, 'page_tools' ] );
         }
     }

@@ -487,7 +487,6 @@ msgstr "حذف و غیرفعال سازی"
 #  msgstr "عنوان نوشته"
 #  msgid "Attach file"
 #  msgstr "پیوست فایل"
-#, fuzzy
 msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
 msgstr "پنهان کردن ویرایشگر محتوا (برای ناحیه محتوای گوتنبرگ / ویرایشگر بلوک اعمال نمی‌شود)"
 
@@ -771,3 +770,64 @@ msgstr "کد درون‌ریزی را اینجا جای‌گذاری کنید"
 #: ../templates/page_tools.php:150
 msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr "با این کار همهٔ داده‌های at-shift CFS به‌طور کامل حذف می‌شود. مطمئن هستید؟"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "دسته‌های نوشته (استاندارد / جهانی)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "هیچ دسته‌ای در %s یافت نشد"
+
+msgid "Standard Category"
+msgstr "دسته استاندارد"
+
+msgid "Category Source"
+msgstr "منبع دسته"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "دسته استاندارد یا یک Shared Taxonomy ثبت‌شده را برای نمایش و ذخیره با این فیلد انتخاب کنید."
+
+msgid "Photo Gallery"
+msgstr "گالری عکس"
+
+msgid "Add Images"
+msgstr "افزودن تصاویر"
+
+msgid "Clear Gallery"
+msgstr "پاک کردن گالری"
+
+msgid "Remove image"
+msgstr "حذف تصویر"
+
+msgid "Attachment IDs"
+msgstr "شناسه‌های پیوست"
+
+msgid "Image URLs"
+msgstr "نشانی‌های تصویر"
+
+msgid "Image Data"
+msgstr "داده‌های تصویر"
+
+msgid "Gallery HTML"
+msgstr "HTML گالری"
+
+msgid "Gallery Display"
+msgstr "نمایش گالری"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "زمانی استفاده می‌شود که مقدار بازگشتی HTML گالری باشد. لینک‌های فایل تصویر دارای ویژگی‌های داده مناسب برای مودال هستند."
+
+msgid "CSS class"
+msgstr "کلاس CSS"
+
+msgid "Link To"
+msgstr "پیوند به"
+
+msgid "Image File"
+msgstr "فایل تصویر"
+
+msgid "Attachment Page"
+msgstr "صفحه پیوست"
+
+msgid "Select Gallery Images"
+msgstr "انتخاب تصاویر گالری"

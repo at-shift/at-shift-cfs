@@ -858,3 +858,64 @@ msgstr "Pega aquí el código de importación"
 #: ../templates/page_tools.php:150
 msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr "Esto eliminará por completo todos los datos de at-shift CFS. ¿Estás seguro?"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "Categorias de entradas (estandar / global)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "No se encontraron categorias en %s"
+
+msgid "Standard Category"
+msgstr "Categoria estandar"
+
+msgid "Category Source"
+msgstr "Origen de categoria"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "Elige la categoria estandar o una Shared Taxonomy registrada para mostrar y guardar con este campo."
+
+msgid "Photo Gallery"
+msgstr "Galeria de fotos"
+
+msgid "Add Images"
+msgstr "Anadir imagenes"
+
+msgid "Clear Gallery"
+msgstr "Vaciar galeria"
+
+msgid "Remove image"
+msgstr "Eliminar imagen"
+
+msgid "Attachment IDs"
+msgstr "IDs de adjuntos"
+
+msgid "Image URLs"
+msgstr "URLs de imagenes"
+
+msgid "Image Data"
+msgstr "Datos de imagen"
+
+msgid "Gallery HTML"
+msgstr "HTML de galeria"
+
+msgid "Gallery Display"
+msgstr "Visualizacion de galeria"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Se usa cuando el valor devuelto es HTML de galeria. Los enlaces a archivos de imagen incluyen atributos de datos adecuados para modales."
+
+msgid "CSS class"
+msgstr "Clase CSS"
+
+msgid "Link To"
+msgstr "Enlazar a"
+
+msgid "Image File"
+msgstr "Archivo de imagen"
+
+msgid "Attachment Page"
+msgstr "Pagina de adjunto"
+
+msgid "Select Gallery Images"
+msgstr "Seleccionar imagenes de la galeria"

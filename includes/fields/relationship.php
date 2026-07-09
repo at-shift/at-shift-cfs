@@ -37,7 +37,7 @@ class Atshift_CFS_relationship extends Atshift_CFS_field
             'order'             => 'ASC'
         ];
 
-        $args = apply_filters( 'atshift_cfs_field_relationship_query_args', $args, [ 'field' => $field ] );
+        $args = atshift_cfs_apply_filters_compat( 'cfs_field_relationship_query_args', 'atshift_cfs_field_relationship_query_args', $args, [ 'field' => $field ] );
         $query = new WP_Query( $args );
 
         foreach ( $query->posts as $post_obj ) {
@@ -99,7 +99,7 @@ class Atshift_CFS_relationship extends Atshift_CFS_field
 
     function options_html( $key, $field ) {
         $args = [ 'exclude_from_search' => false ];
-        $choices = apply_filters( 'atshift_cfs_field_relationship_post_types', get_post_types( $args ) );
+        $choices = atshift_cfs_apply_filters_compat( 'cfs_field_relationship_post_types', 'atshift_cfs_field_relationship_post_types', get_post_types( $args ) );
 
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">

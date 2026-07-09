@@ -724,3 +724,64 @@ msgstr "Illessze be ide az importkódot"
 #: ../templates/page_tools.php:150
 msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr "Ez teljesen törli az összes at-shift CFS-adatot. Biztos benne?"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "Bejegyzes kategoriak (alapertelmezett / globalis)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "Nem talalhatok kategoriak itt: %s"
+
+msgid "Standard Category"
+msgstr "Alapertelmezett kategoria"
+
+msgid "Category Source"
+msgstr "Kategoria forrasa"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "Valaszd az alapertelmezett kategoriat vagy egy regisztralt Shared Taxonomy elemet, amelyet ez a mezo megjelenit es ment."
+
+msgid "Photo Gallery"
+msgstr "Fotogaleria"
+
+msgid "Add Images"
+msgstr "Kepek hozzaadasa"
+
+msgid "Clear Gallery"
+msgstr "Galeria torlese"
+
+msgid "Remove image"
+msgstr "Kep eltavolitasa"
+
+msgid "Attachment IDs"
+msgstr "Csatolmany-azonositok"
+
+msgid "Image URLs"
+msgstr "Kep URL-ek"
+
+msgid "Image Data"
+msgstr "Kepadatok"
+
+msgid "Gallery HTML"
+msgstr "Galeria HTML"
+
+msgid "Gallery Display"
+msgstr "Galeria megjelenitese"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Akkor hasznalatos, ha a visszateresi ertek Galeria HTML. A kepfajl-hivatkozasok modalis ablakhoz hasznalhato data attributumokat tartalmaznak."
+
+msgid "CSS class"
+msgstr "CSS osztaly"
+
+msgid "Link To"
+msgstr "Hivatkozas ide"
+
+msgid "Image File"
+msgstr "Kepfajl"
+
+msgid "Attachment Page"
+msgstr "Csatolmany oldal"
+
+msgid "Select Gallery Images"
+msgstr "Galeriakepek kivalasztasa"

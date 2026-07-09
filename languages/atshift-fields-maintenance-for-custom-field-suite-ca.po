@@ -740,3 +740,64 @@ msgstr "Enganxeu aquí el codi d’importació"
 #: ../templates/page_tools.php:150
 msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr "Això suprimirà completament totes les dades d’at-shift CFS. N’esteu segur?"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "Categories d'entrades (estandard / global)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "No s'han trobat categories a %s"
+
+msgid "Standard Category"
+msgstr "Categoria estandard"
+
+msgid "Category Source"
+msgstr "Origen de categoria"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "Tria la categoria estandard o una Shared Taxonomy registrada per mostrar i desar amb aquest camp."
+
+msgid "Photo Gallery"
+msgstr "Galeria de fotos"
+
+msgid "Add Images"
+msgstr "Afegeix imatges"
+
+msgid "Clear Gallery"
+msgstr "Neteja la galeria"
+
+msgid "Remove image"
+msgstr "Elimina la imatge"
+
+msgid "Attachment IDs"
+msgstr "IDs dels adjunts"
+
+msgid "Image URLs"
+msgstr "URL de les imatges"
+
+msgid "Image Data"
+msgstr "Dades de la imatge"
+
+msgid "Gallery HTML"
+msgstr "HTML de la galeria"
+
+msgid "Gallery Display"
+msgstr "Visualitzacio de la galeria"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "S'utilitza quan el valor de retorn es HTML de galeria. Els enllacos als fitxers d'imatge inclouen atributs de dades utils per a modals."
+
+msgid "CSS class"
+msgstr "Classe CSS"
+
+msgid "Link To"
+msgstr "Enllaca a"
+
+msgid "Image File"
+msgstr "Fitxer d'imatge"
+
+msgid "Attachment Page"
+msgstr "Pagina de l'adjunt"
+
+msgid "Select Gallery Images"
+msgstr "Selecciona imatges de la galeria"

@@ -344,7 +344,7 @@ class Atshift_CFS_field_group
         $deleted_field_ids = array_diff( $deleted_field_ids, array_keys( $remapped_field_ids ) );
 
         // Filter deleted field IDs before deleting meta
-        $deleted_field_ids = apply_filters( 'atshift_cfs_deleted_field_ids', $deleted_field_ids );
+        $deleted_field_ids = atshift_cfs_apply_filters_compat( 'cfs_deleted_field_ids', 'atshift_cfs_deleted_field_ids', $deleted_field_ids );
 
         if ( 0 < count( $deleted_field_ids ) ) {
             $deleted_field_ids = array_values( array_filter( array_map( 'absint', $deleted_field_ids ) ) );
@@ -386,7 +386,7 @@ class Atshift_CFS_field_group
             }
         }
 
-        $data = apply_filters( 'atshift_cfs_save_field_group_rules', $data, $post_id );
+        $data = atshift_cfs_apply_filters_compat( 'cfs_save_field_group_rules', 'atshift_cfs_save_field_group_rules', $data, $post_id );
         update_post_meta( $post_id, 'cfs_rules', $data );
 
         /*---------------------------------------------------------------------------------------------

@@ -738,3 +738,64 @@ msgstr "Plak de importcode hier"
 #: ../templates/page_tools.php:150
 msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr "Hiermee worden alle at-shift CFS-gegevens volledig verwijderd. Weet je het zeker?"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "Berichtcategorieen (standaard / globaal)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "Geen categorieen gevonden in %s"
+
+msgid "Standard Category"
+msgstr "Standaardcategorie"
+
+msgid "Category Source"
+msgstr "Categoriebron"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "Kies de standaardcategorie of een geregistreerde Shared Taxonomy om met dit veld te tonen en op te slaan."
+
+msgid "Photo Gallery"
+msgstr "Fotogalerij"
+
+msgid "Add Images"
+msgstr "Afbeeldingen toevoegen"
+
+msgid "Clear Gallery"
+msgstr "Galerij wissen"
+
+msgid "Remove image"
+msgstr "Afbeelding verwijderen"
+
+msgid "Attachment IDs"
+msgstr "Bijlage-ID's"
+
+msgid "Image URLs"
+msgstr "Afbeeldings-URL's"
+
+msgid "Image Data"
+msgstr "Afbeeldingsgegevens"
+
+msgid "Gallery HTML"
+msgstr "Galerij-HTML"
+
+msgid "Gallery Display"
+msgstr "Galerijweergave"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Gebruikt wanneer de retourwaarde Galerij-HTML is. Links naar afbeeldingsbestanden bevatten data-attributen die geschikt zijn voor modals."
+
+msgid "CSS class"
+msgstr "CSS-klasse"
+
+msgid "Link To"
+msgstr "Link naar"
+
+msgid "Image File"
+msgstr "Afbeeldingsbestand"
+
+msgid "Attachment Page"
+msgstr "Bijlagepagina"
+
+msgid "Select Gallery Images"
+msgstr "Galerijafbeeldingen selecteren"

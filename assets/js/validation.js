@@ -175,6 +175,13 @@
                 });
                 return values.join(',');
             },
+            'wp_category': function(el) {
+                var values = [];
+                el.find('.cfs-wp-category-list input[type="checkbox"]:checked').each(function() {
+                    values.push($(this).val());
+                });
+                return values.join(',');
+            },
             'radio': function(el) {
                 return el.find('input[type="radio"]:checked').val();
             },
@@ -186,6 +193,9 @@
             },
             'user': function(el) {
                 return el.find('input.user').val();
+            },
+            'gallery': function(el) {
+                return el.find('input.gallery_value').val();
             },
             'time': function(el) {
                 var hour = el.find('.cfs-time-hour').val();

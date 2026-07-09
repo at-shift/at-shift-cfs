@@ -867,3 +867,64 @@ msgstr ""
 
 msgid "Move here: inside the current Tab"
 msgstr ""
+
+msgid "Post Categories (Standard / Global)"
+msgstr ""
+
+#, php-format
+msgid "No categories found in %s"
+msgstr ""
+
+msgid "Standard Category"
+msgstr ""
+
+msgid "Category Source"
+msgstr ""
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr ""
+
+msgid "Photo Gallery"
+msgstr ""
+
+msgid "Add Images"
+msgstr ""
+
+msgid "Clear Gallery"
+msgstr ""
+
+msgid "Remove image"
+msgstr ""
+
+msgid "Attachment IDs"
+msgstr ""
+
+msgid "Image URLs"
+msgstr ""
+
+msgid "Image Data"
+msgstr ""
+
+msgid "Gallery HTML"
+msgstr ""
+
+msgid "Gallery Display"
+msgstr ""
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr ""
+
+msgid "CSS class"
+msgstr ""
+
+msgid "Link To"
+msgstr ""
+
+msgid "Image File"
+msgstr ""
+
+msgid "Attachment Page"
+msgstr ""
+
+msgid "Select Gallery Images"
+msgstr ""

@@ -676,21 +676,6 @@ msgstr "Veuillez selectionner..."
 msgid "Please select a language..."
 msgstr "Selectionnez une langue..."
 
-msgid "1 minute"
-msgstr "1 minute"
-
-msgid "5 minutes"
-msgstr "5 minutes"
-
-msgid "10 minutes"
-msgstr "10 minutes"
-
-msgid "15 minutes"
-msgstr "15 minutes"
-
-msgid "30 minutes"
-msgstr "30 minutes"
-
 msgid "Alignment"
 msgstr "Alignement"
 
@@ -785,3 +770,64 @@ msgstr "Collez le code d’importation ici"
 #: ../templates/page_tools.php:150
 msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr "Cette action supprimera définitivement toutes les données d’at-shift CFS. Êtes-vous sûr ?"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "Categories d'articles (standard / global)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "Aucune categorie trouvee dans %s"
+
+msgid "Standard Category"
+msgstr "Categorie standard"
+
+msgid "Category Source"
+msgstr "Source de categorie"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "Choisissez la categorie standard ou une Shared Taxonomy enregistree a afficher et enregistrer avec ce champ."
+
+msgid "Photo Gallery"
+msgstr "Galerie photo"
+
+msgid "Add Images"
+msgstr "Ajouter des images"
+
+msgid "Clear Gallery"
+msgstr "Vider la galerie"
+
+msgid "Remove image"
+msgstr "Supprimer l'image"
+
+msgid "Attachment IDs"
+msgstr "ID des pieces jointes"
+
+msgid "Image URLs"
+msgstr "URL des images"
+
+msgid "Image Data"
+msgstr "Donnees de l'image"
+
+msgid "Gallery HTML"
+msgstr "HTML de galerie"
+
+msgid "Gallery Display"
+msgstr "Affichage de la galerie"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Utilise lorsque la valeur de retour est HTML de galerie. Les liens vers les fichiers image incluent des attributs de donnees adaptes aux modales."
+
+msgid "CSS class"
+msgstr "Classe CSS"
+
+msgid "Link To"
+msgstr "Lien vers"
+
+msgid "Image File"
+msgstr "Fichier image"
+
+msgid "Attachment Page"
+msgstr "Page du fichier joint"
+
+msgid "Select Gallery Images"
+msgstr "Selectionner les images de la galerie"

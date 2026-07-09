@@ -135,6 +135,16 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
         define( 'ATSHIFT_CFS_BLOCK_CATEGORY', 'atshift-cfs' );
         define( 'ATSHIFT_CFS_BLOCK_NAMESPACE', 'atshift-cfs' );
 
+        if ( ! defined( 'CFS_VERSION' ) ) {
+            define( 'CFS_VERSION', ATSHIFT_CFS_VERSION );
+        }
+        if ( ! defined( 'CFS_DIR' ) ) {
+            define( 'CFS_DIR', ATSHIFT_CFS_DIR );
+        }
+        if ( ! defined( 'CFS_URL' ) ) {
+            define( 'CFS_URL', ATSHIFT_CFS_URL );
+        }
+
         add_action( 'init', [ $this, 'load_textdomain' ], 0 );
 
         // get the gears turning
@@ -247,6 +257,27 @@ function atshift_cfs_capture_output( $callback ) {
         ob_end_clean();
         throw $e;
     }
+}
+
+
+function atshift_cfs_apply_filters_compat( $legacy_hook, $current_hook, $value ) {
+    $args = func_get_args();
+    $args = array_slice( $args, 3 );
+
+    $legacy_args = array_merge( [ $value ], $args );
+    $value = apply_filters_ref_array( $legacy_hook, $legacy_args );
+
+    $current_args = array_merge( [ $value ], $args );
+    return apply_filters_ref_array( $current_hook, $current_args );
+}
+
+
+function atshift_cfs_do_action_compat( $legacy_hook, $current_hook ) {
+    $args = func_get_args();
+    $args = array_slice( $args, 2 );
+
+    do_action_ref_array( $legacy_hook, $args );
+    do_action_ref_array( $current_hook, $args );
 }
 
 

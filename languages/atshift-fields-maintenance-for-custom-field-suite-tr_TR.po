@@ -755,3 +755,64 @@ msgstr "İçe aktarma kodunu buraya yapıştırın"
 #: ../templates/page_tools.php:150
 msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr "Bu işlem tüm at-shift CFS verilerini tamamen siler. Emin misiniz?"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "Yazi kategorileri (standart / global)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "%s icinde kategori bulunamadi"
+
+msgid "Standard Category"
+msgstr "Standart Kategori"
+
+msgid "Category Source"
+msgstr "Kategori kaynagi"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "Bu alanla gosterilip kaydedilecek standart kategoriyi veya kayitli bir Shared Taxonomy secin."
+
+msgid "Photo Gallery"
+msgstr "Fotograf Galerisi"
+
+msgid "Add Images"
+msgstr "Gorseller Ekle"
+
+msgid "Clear Gallery"
+msgstr "Galeriyi Temizle"
+
+msgid "Remove image"
+msgstr "Gorseli kaldir"
+
+msgid "Attachment IDs"
+msgstr "Ek ID'leri"
+
+msgid "Image URLs"
+msgstr "Gorsel URL'leri"
+
+msgid "Image Data"
+msgstr "Gorsel Verileri"
+
+msgid "Gallery HTML"
+msgstr "Galeri HTML'i"
+
+msgid "Gallery Display"
+msgstr "Galeri Gorunumu"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Donus degeri Galeri HTML'i oldugunda kullanilir. Gorsel dosyasi baglantilari modal uyumlu data oznitelikleri icerir."
+
+msgid "CSS class"
+msgstr "CSS sinifi"
+
+msgid "Link To"
+msgstr "Baglanti hedefi"
+
+msgid "Image File"
+msgstr "Gorsel Dosyasi"
+
+msgid "Attachment Page"
+msgstr "Ek Sayfasi"
+
+msgid "Select Gallery Images"
+msgstr "Galeri gorsellerini sec"

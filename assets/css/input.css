@@ -481,6 +481,87 @@
 }
 
 /*---------------------------------------------------------------------------------------------
+    Gallery
+---------------------------------------------------------------------------------------------*/
+
+.cfs_gallery .cfs-gallery-control {
+    display: grid;
+    gap: 12px;
+}
+
+.cfs_gallery .cfs-gallery-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cfs_gallery .cfs-gallery-item {
+    position: relative;
+    width: 120px;
+    min-height: 120px;
+    padding: 6px;
+    border: 1px solid #dcdcde;
+    background: #fff;
+    box-sizing: border-box;
+    cursor: move;
+}
+
+.cfs_gallery .cfs-gallery-preview-image {
+    display: block;
+    width: 100%;
+    height: 106px;
+    object-fit: cover;
+    background: #f6f7f7;
+}
+
+.cfs_gallery .cfs-gallery-drag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+}
+
+.cfs_gallery .cfs-gallery-drag:before {
+    content: '\f333';
+    display: block;
+    color: #646970;
+    font-family: dashicons;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.cfs_gallery .cfs-gallery-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid #8c8f94;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.94);
+    color: #1d2327;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.cfs_gallery .cfs-gallery-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.cfs_gallery .cfs-gallery-actions .hidden {
+    display: none;
+}
+
+/*---------------------------------------------------------------------------------------------
     Relationship, User
 ---------------------------------------------------------------------------------------------*/
 

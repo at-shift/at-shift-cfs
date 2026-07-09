@@ -208,7 +208,7 @@ class Atshift_CFS_field
             return true;
         }
 
-        if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop' ], true ) ) {
+        if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop', 'gallery' ], true ) ) {
             return ! empty( $field->options['limit_min'] ) && 0 < (int) $field->options['limit_min'];
         }
 
@@ -219,4 +219,8 @@ class Atshift_CFS_field
     public static function required_badge() {
         return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</span>';
     }
+}
+
+if ( ! class_exists( 'cfs_field', false ) ) {
+    class_alias( 'Atshift_CFS_field', 'cfs_field' );
 }

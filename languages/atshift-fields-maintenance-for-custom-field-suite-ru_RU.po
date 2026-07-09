@@ -762,3 +762,64 @@ msgstr "Вставьте код импорта здесь"
 #: ../templates/page_tools.php:150
 msgid "This will delete all at-shift CFS data. Are you sure?"
 msgstr "Это полностью удалит все данные at-shift CFS. Вы уверены?"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "Рубрики записей (стандартные / глобальные)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "В %s рубрики не найдены"
+
+msgid "Standard Category"
+msgstr "Стандартная рубрика"
+
+msgid "Category Source"
+msgstr "Источник рубрик"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "Выберите стандартную рубрику или зарегистрированную Shared Taxonomy для отображения и сохранения этим полем."
+
+msgid "Photo Gallery"
+msgstr "Фотогалерея"
+
+msgid "Add Images"
+msgstr "Добавить изображения"
+
+msgid "Clear Gallery"
+msgstr "Очистить галерею"
+
+msgid "Remove image"
+msgstr "Удалить изображение"
+
+msgid "Attachment IDs"
+msgstr "ID вложений"
+
+msgid "Image URLs"
+msgstr "URL изображений"
+
+msgid "Image Data"
+msgstr "Данные изображения"
+
+msgid "Gallery HTML"
+msgstr "HTML галереи"
+
+msgid "Gallery Display"
+msgstr "Отображение галереи"
+
+msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Используется, когда возвращаемое значение — HTML галереи. Ссылки на файлы изображений содержат data-атрибуты, удобные для модальных окон."
+
+msgid "CSS class"
+msgstr "CSS-класс"
+
+msgid "Link To"
+msgstr "Ссылка на"
+
+msgid "Image File"
+msgstr "Файл изображения"
+
+msgid "Attachment Page"
+msgstr "Страница вложения"
+
+msgid "Select Gallery Images"
+msgstr "Выбрать изображения галереи"

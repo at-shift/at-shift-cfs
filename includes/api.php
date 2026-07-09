@@ -681,7 +681,7 @@ class Atshift_CFS_api
             $output[ $field->id ] = $field;
         }
 
-        return apply_filters( 'atshift_cfs_get_input_fields', $output, $params );
+        return atshift_cfs_apply_filters_compat( 'cfs_get_input_fields', 'atshift_cfs_get_input_fields', $output, $params );
     }
 
 
@@ -834,7 +834,7 @@ class Atshift_CFS_api
         }
 
         // Allow for overrides
-        return apply_filters( 'atshift_cfs_matching_groups', $matches, $params, $rule_types );
+        return atshift_cfs_apply_filters_compat( 'cfs_matching_groups', 'atshift_cfs_matching_groups', $matches, $params, $rule_types );
     }
 
 
