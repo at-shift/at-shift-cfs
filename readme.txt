@@ -15,7 +15,7 @@ Custom Field Suite (CFS) is a lightweight WordPress plugin for adding custom fie
 
 This package is a maintenance build based on the upstream Custom Field Suite 2.6.7 release. It keeps the basic CFS data structure and API compatibility while adding security hardening, admin compatibility fixes, and practical field types for existing CFS sites.
 
-For setup instructions, field value output examples, migration notes, and implementation examples, see the [atshift Fields documentation site](https://cfs.at-shift.net/).
+For setup instructions, field value output examples, migration notes, and implementation examples, see the [atshift Fields documentation site](https://cfs.at-shift.net/en/).
 
 = Things to know =
 
@@ -121,10 +121,10 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 = Documentation and support =
 
-* [Documentation site](https://cfs.at-shift.net/)
-* [Field group setup guide](https://cfs.at-shift.net/guide/)
-* [Field value output reference](https://cfs.at-shift.net/output/)
-* [Implementation examples](https://cfs.at-shift.net/examples/)
+* [Documentation site](https://cfs.at-shift.net/en/)
+* [Field group setup guide](https://cfs.at-shift.net/en/guide/)
+* [Field value output reference](https://cfs.at-shift.net/en/output/)
+* [Implementation examples](https://cfs.at-shift.net/en/examples/)
 * [Development repository](https://github.com/at-shift/at-shift-cfs)
 * [Original Custom Field Suite source](https://github.com/mgibbs189/custom-field-suite)
 
