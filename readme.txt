@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.6.7.43
+Stable tag: 2.6.7.44
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -129,6 +129,10 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * [Original Custom Field Suite source](https://github.com/mgibbs189/custom-field-suite)
 
 == Changelog ==
+
+= 2.6.7.44 =
+* Added the Photo Gallery field with sortable media selection and gallery-friendly output data.
+* Added Post Categories (Standard / Global) field support for standard categories and Shared Taxonomy selection.
 
 = 2.6.7.43 =
 * Fixed native category, tag, and featured image sidebar hiding for category-based field group switching.
