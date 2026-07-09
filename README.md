@@ -13,7 +13,7 @@ Short name: **atshift Fields**.
 
 ## Plugin Rename
 
-The plugin previously released as **Custom Field Suite Maintenance** has been
+The plugin previously released as **Custom Field Suite Maintenance / at-shift CFS** has been
 renamed to **atshift Fields**. This gives the unofficial maintenance build a
 distinct identity while preserving its relationship with the original Custom
 Field Suite project.
@@ -76,7 +76,7 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 
 ## プラグイン名称の変更
 
-これまで **Custom Field Suite Maintenance** として公開していたプラグインを、
+これまで **Custom Field Suite Maintenance / at-shift CFS** として公開していたプラグインを、
 **atshift Fields** に名称変更しました。元版 Custom Field Suite との関係を保ちながら、
 非公式のメンテナンス版として独立した名称にするための変更です。
 
