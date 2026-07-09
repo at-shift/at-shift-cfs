@@ -50,13 +50,13 @@ class Atshift_CFS_user extends Atshift_CFS_field
         <div class="available_posts post_list">
         <?php foreach ( $available_users as $user ) : ?>
             <?php $class = ( isset( $selected_users[ $user->ID ] ) ) ? 'used' : ''; ?>
-            <div rel="<?php echo absint( $user->ID ); ?>" class="<?php echo esc_attr( $class ); ?>"><?php echo wp_kses_post( apply_filters( 'atshift_cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
+            <div rel="<?php echo absint( $user->ID ); ?>" class="<?php echo esc_attr( $class ); ?>"><?php echo wp_kses_post( $this->display_label( $user->cfs_label, $user->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_users as $user ) : ?>
-            <div rel="<?php echo absint( $user->ID ); ?>"><span class="remove"></span><?php echo wp_kses_post( apply_filters( 'atshift_cfs_user_display', $user->cfs_label, $user->ID, $field ) ); ?></div>
+            <div rel="<?php echo absint( $user->ID ); ?>"><span class="remove"></span><?php echo wp_kses_post( $this->display_label( $user->cfs_label, $user->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>
@@ -152,6 +152,12 @@ class Atshift_CFS_user extends Atshift_CFS_field
         })(jQuery);
         <?php } ) ); ?>
     <?php
+    }
+
+
+    function display_label( $label, $user_id, $field ) {
+        $label = apply_filters( 'cfs_user_display', $label, $user_id, $field );
+        return apply_filters( 'atshift_cfs_user_display', $label, $user_id, $field );
     }
 
 

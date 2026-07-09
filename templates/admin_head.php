@@ -126,8 +126,14 @@ else {
 
         // Store field group IDs as an array for front-end forms
         atshift_fields_maintenance_for_custom_field_suite()->group_ids = array_keys( $field_groups );
-        $native_fields = empty( $initial_field_group_ids ) ? [] : atshift_fields_maintenance_for_custom_field_suite()->api->find_input_fields( [
-            'group_id' => $initial_field_group_ids,
+        $native_field_group_ids = $initial_field_group_ids;
+        if ( ! empty( $term_placement_groups ) ) {
+            $native_field_group_ids = array_merge( $native_field_group_ids, array_map( 'intval', array_keys( $term_placement_groups ) ) );
+        }
+        $native_field_group_ids = array_values( array_unique( $native_field_group_ids ) );
+
+        $native_fields = empty( $native_field_group_ids ) ? [] : atshift_fields_maintenance_for_custom_field_suite()->api->find_input_fields( [
+            'group_id' => $native_field_group_ids,
             'field_type' => [ 'wp_category', 'wp_tag', 'featured_image' ],
         ] );
         $hide_native = [];
@@ -137,24 +143,24 @@ else {
         }
 
         if ( ! empty( $hide_native ) ) {
-            if ( isset( $hide_native['wp_category'] ) ) {
+            if ( isset( $hide_native['wp_category'] ) && empty( $term_placement_groups ) ) {
                 remove_meta_box( 'categorydiv', $post->post_type, 'side' );
             }
-            if ( isset( $hide_native['wp_tag'] ) ) {
+            if ( isset( $hide_native['wp_tag'] ) && empty( $term_placement_groups ) ) {
                 remove_meta_box( 'tagsdiv-post_tag', $post->post_type, 'side' );
             }
-            if ( isset( $hide_native['featured_image'] ) ) {
+            if ( isset( $hide_native['featured_image'] ) && empty( $term_placement_groups ) ) {
                 remove_meta_box( 'postimagediv', $post->post_type, 'side' );
             }
 
             $selectors = [];
-            if ( isset( $hide_native['wp_category'] ) ) {
+            if ( isset( $hide_native['wp_category'] ) && empty( $term_placement_groups ) ) {
                 $selectors[] = '#categorydiv';
             }
-            if ( isset( $hide_native['wp_tag'] ) ) {
+            if ( isset( $hide_native['wp_tag'] ) && empty( $term_placement_groups ) ) {
                 $selectors[] = '#tagsdiv-post_tag';
             }
-            if ( isset( $hide_native['featured_image'] ) ) {
+            if ( isset( $hide_native['featured_image'] ) && empty( $term_placement_groups ) ) {
                 $selectors[] = '#postimagediv';
             }
 
@@ -203,16 +209,34 @@ else {
                 'atshift-cfs-term-placement',
                 'jQuery(function($) {
                     var groups = ' . wp_json_encode( $term_placement_groups ) . ';
+                    var nativeSelectors = ' . wp_json_encode( [
+                        'wp_category'    => '#categorydiv',
+                        'wp_tag'         => '#tagsdiv-post_tag',
+                        'featured_image' => '#postimagediv',
+                    ] ) . ';
 
                     function selectedTermIds() {
                         var selected = [];
-                        $(\'ul.categorychecklist input[type="checkbox"]:checked\').each(function() {
+                        $(\'ul.categorychecklist input[type="checkbox"]:checked, .cfs-wp-category-list input[type="checkbox"]:checked\').each(function() {
                             var value = parseInt(this.value, 10);
                             if (!isNaN(value)) {
                                 selected.push(value);
                             }
                         });
                         return selected;
+                    }
+
+                    function visibleReplacementField(type) {
+                        return $(\'.cfs_input:visible .field[data-type="\' + type + \'"]\').length > 0;
+                    }
+
+                    function refreshNativePanels() {
+                        $.each(nativeSelectors, function(type, selector) {
+                            var $panel = $(selector);
+                            if ($panel.length) {
+                                $panel.toggle(!visibleReplacementField(type));
+                            }
+                        });
                     }
 
                     function refreshTermPlacementGroups() {
@@ -231,9 +255,10 @@ else {
                             }
                         });
                         $("#postdivrich, #poststuff .postarea").toggle(!hideEditor);
+                        refreshNativePanels();
                     }
 
-                    $(document).on("change", "ul.categorychecklist input[type=\"checkbox\"]", refreshTermPlacementGroups);
+                    $(document).on("change", "ul.categorychecklist input[type=\"checkbox\"], .cfs-wp-category-list input[type=\"checkbox\"]", refreshTermPlacementGroups);
                     refreshTermPlacementGroups();
                 });'
             );

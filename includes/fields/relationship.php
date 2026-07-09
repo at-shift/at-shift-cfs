@@ -82,13 +82,13 @@ class Atshift_CFS_relationship extends Atshift_CFS_field
         <div class="available_posts post_list">
         <?php foreach ( $available_posts as $post ) : ?>
             <?php $class = ( isset( $selected_posts[ $post->ID ] ) ) ? 'used' : ''; ?>
-            <div rel="<?php echo absint( $post->ID ); ?>" class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $post->post_type ); ?>"><?php echo wp_kses_post( apply_filters( 'atshift_cfs_relationship_display', $post->post_title, $post->ID, $field ) ); ?></div>
+            <div rel="<?php echo absint( $post->ID ); ?>" class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $post->post_type ); ?>"><?php echo wp_kses_post( $this->display_label( $post->post_title, $post->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_posts as $post ) : ?>
-            <div rel="<?php echo absint( $post->ID ); ?>"><span class="remove"></span><?php echo wp_kses_post( apply_filters( 'atshift_cfs_relationship_display', $post->post_title, $post->ID, $field ) ); ?></div>
+            <div rel="<?php echo absint( $post->ID ); ?>"><span class="remove"></span><?php echo wp_kses_post( $this->display_label( $post->post_title, $post->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>
@@ -203,6 +203,12 @@ class Atshift_CFS_relationship extends Atshift_CFS_field
         })(jQuery);
         <?php } ) ); ?>
     <?php
+    }
+
+
+    function display_label( $label, $post_id, $field ) {
+        $label = apply_filters( 'cfs_relationship_display', $label, $post_id, $field );
+        return apply_filters( 'atshift_cfs_relationship_display', $label, $post_id, $field );
     }
 
 

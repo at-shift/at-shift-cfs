@@ -73,13 +73,13 @@ class Atshift_CFS_term extends Atshift_CFS_field
         <div class="available_posts post_list">
         <?php foreach ( $available_posts as $term ) : ?>
             <?php $class = ( isset( $selected_posts[ $term->term_id ] ) ) ? 'used' : ''; ?>
-            <div rel="<?php echo absint( $term->term_id ); ?>" class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $term->name ); ?>"><?php echo wp_kses_post( apply_filters( 'atshift_cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
+            <div rel="<?php echo absint( $term->term_id ); ?>" class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $term->name ); ?>"><?php echo wp_kses_post( $this->display_label( $term->name, $term->term_id, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_posts as $term ) : ?>
-            <div rel="<?php echo absint( $term->term_id ); ?>"><span class="remove"></span><?php echo wp_kses_post( apply_filters( 'atshift_cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
+            <div rel="<?php echo absint( $term->term_id ); ?>"><span class="remove"></span><?php echo wp_kses_post( $this->display_label( $term->name, $term->term_id, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>
@@ -194,6 +194,12 @@ class Atshift_CFS_term extends Atshift_CFS_field
         })(jQuery);
         <?php } ) ); ?>
     <?php
+    }
+
+
+    function display_label( $label, $term_id, $field ) {
+        $label = apply_filters( 'cfs_term_display', $label, $term_id, $field );
+        return apply_filters( 'atshift_cfs_term_display', $label, $term_id, $field );
     }
 
 
