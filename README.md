@@ -262,6 +262,15 @@ add_action( 'init', function() {
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
 
+### 2.6.7.44.0.1
+
+- Added an after-input helper text setting for supported fields.
+- Improved field setting labels, tooltips, placeholders, and multilingual translations.
+- Removed default value settings from Email Address, Phone, and URL fields.
+- 対応フィールドに「入力欄の後に表示」設定を追加しました。
+- フィールド設定のラベル、ツールチップ、プレースホルダー、多言語翻訳を改善しました。
+- メールアドレス、電話番号、URLフィールドからデフォルト値設定を削除しました。
+
 ### 2.6.7.44
 
 - Added the Photo Gallery field with sortable media selection and gallery-friendly output data.

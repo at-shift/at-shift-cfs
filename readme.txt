@@ -132,6 +132,11 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.44.0.1 =
+* Added an after-input helper text setting for supported fields.
+* Improved field setting labels, tooltips, placeholders, and multilingual translations.
+* Removed default value settings from Email Address, Phone, and URL fields.
+
 = 2.6.7.44 =
 * Added the Photo Gallery field with sortable media selection and gallery-friendly output data.
 * Added Post Categories (Standard / Global) field support for standard categories and Shared Taxonomy selection.
