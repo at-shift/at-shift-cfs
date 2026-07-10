@@ -41,6 +41,7 @@ class Atshift_CFS_select extends Atshift_CFS_field
         $has_empty_choice = isset( $choices[''] ) || isset( $choices['{empty}'] );
         $show_placeholder = '' === $multiple && empty( $field->options['force_single'] ) && ! $has_empty_choice;
     ?>
+        <?php $this->input_suffix_open( $field ); ?>
         <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php if ( $multiple ) : ?> multiple="multiple"<?php endif; ?>>
         <?php if ( $show_placeholder ) : ?>
             <option value=""<?php selected( in_array( '', $selected_values, true ) ); ?>><?php esc_html_e( 'Please select...', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
@@ -50,6 +51,7 @@ class Atshift_CFS_select extends Atshift_CFS_field
             <option value="<?php echo esc_attr( $val ); ?>"<?php selected( in_array( (string) $val, $selected_values, true ) ); ?>><?php echo esc_html( $label ); ?></option>
         <?php endforeach; ?>
         </select>
+        <?php $this->input_suffix_close( $field ); ?>
     <?php
     }
 
@@ -142,7 +144,10 @@ class Atshift_CFS_select extends Atshift_CFS_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e('Select2', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <label><?php esc_html_e( 'Select2', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <div class="cfs_tooltip">?
+                    <div class="tooltip_inner"><?php esc_html_e( 'Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                </div>
             </td>
             <td>
                 <?php
@@ -150,12 +155,13 @@ class Atshift_CFS_select extends Atshift_CFS_field
                         'type' => 'true_false',
                         'input_name' => 'cfs[fields][' . absint( $key ) . '][options][select2]',
                         'input_class' => 'true_false',
-                        'value' => $this->get_option($field, 'select2'),
-                        'options' => [ 'message' => __('Render this field with Select2', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'value' => $this->get_option( $field, 'select2' ),
+                        'options' => [ 'message' => __( 'Render this field with Select2', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
         </tr>
+        <?php $this->input_suffix_option_html( $key, $field ); ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>

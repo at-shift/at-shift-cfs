@@ -189,7 +189,9 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label><?php esc_html_e( 'Category Source', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <p class="description"><?php esc_html_e( 'Choose the standard category or a registered Shared Taxonomy to show and save with this field.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <div class="cfs_tooltip">?
+                    <div class="tooltip_inner"><?php esc_html_e( 'Choose the standard category or a registered Shared Taxonomy to show and save with this field.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                </div>
             </td>
             <td>
                 <?php

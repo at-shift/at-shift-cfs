@@ -149,7 +149,9 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
         <tr class="field_option field_option_conditional cfs-conditional-default-row">
             <td class="label">
                 <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <p class="description"><?php esc_html_e( 'Used for radio buttons. The first choice is used when left blank.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <div class="cfs_tooltip">?
+                    <div class="tooltip_inner"><?php esc_html_e( 'Used for radio buttons. The first choice is used when left blank.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                </div>
             </td>
             <td>
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][default_value]" value="<?php echo esc_attr( $this->get_option( $field, 'default_value' ) ); ?>" />

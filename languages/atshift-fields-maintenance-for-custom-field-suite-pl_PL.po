@@ -141,6 +141,9 @@ msgstr "Dodaj rząd"
 msgid "Limits"
 msgstr "Limity"
 
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr "Minimum ustawia najmniejszą liczbę terminów, które można wybrać. Maksimum ustawia największą liczbę terminów, które można wybrać."
+
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "Relacja"
@@ -553,6 +556,9 @@ msgstr "Przycisk opcji"
 msgid "Select2"
 msgstr "Select2"
 
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr "Wyświetla pole wyboru za pomocą Select2. Ułatwia to wyszukiwanie i wybieranie z długich list opcji na ekranach edycji."
+
 msgid "Render this field with Select2"
 msgstr "Wyświetl to pole za pomocą Select2"
 
@@ -596,6 +602,18 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr "Minimum ustawia najniższą dozwoloną wartość. Maksimum ustawia najwyższą dozwoloną wartość. Krok ustawia dozwolony odstęp między wartościami, np. 1, 0.1 lub 5."
+
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Maximum"
+msgstr "Maksimum"
+
+msgid "Step"
+msgstr "Krok"
+
 #: ../includes/fields/time.php:8
 msgid "Time"
 msgstr "Godzina"
@@ -631,6 +649,9 @@ msgstr "Grupa pozioma"
 #: ../includes/fields/group.php:68
 msgid "Columns"
 msgstr "Kolumny"
+
+msgid "Columns (default: 3)"
+msgstr "Kolumny (domyślnie: 3)"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
@@ -853,8 +874,8 @@ msgstr "HTML galerii"
 msgid "Gallery Display"
 msgstr "Wyswietlanie galerii"
 
-msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "Uzywane, gdy wartoscia zwracana jest HTML galerii. Linki do plikow obrazow zawieraja atrybuty danych przyjazne dla modali."
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Używane, gdy zwracana wartość to Gallery HTML. Kolumny ustawiają liczbę kolumn w wygenerowanym HTML galerii. Linki do plików obrazów zawierają atrybuty danych przydatne dla modali."
 
 msgid "CSS class"
 msgstr "Klasa CSS"
@@ -870,3 +891,57 @@ msgstr "Strona zalacznika"
 
 msgid "Select Gallery Images"
 msgstr "Wybierz obrazy galerii"
+
+msgid "After input"
+msgstr "Po polu wejściowym"
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr "Wyświetlane po polu na ekranach edycji. Użyj tego do krótkich jednostek lub separatorów, takich jak kg, %, albo ~. Ten tekst nie jest zapisywany w wartościach ani uwzględniany w wyniku front-endu."
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr "Rozmiar obrazu"
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr "Średni"
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr "Średnio duży"
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr "Duży"
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr "Pełny rozmiar"
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr "Minimum ustawia najmniejszą liczbę obrazów, które można wybrać. Maksimum ustawia największą liczbę obrazów, które można wybrać."
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr "Minimum ustawia najmniejszą liczbę wierszy, które można dodać. Maksimum ustawia największą liczbę wierszy, które można dodać."
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr "Minimum ustawia najmniejszą liczbę powiązanych elementów, które można wybrać. Maksimum ustawia największą liczbę powiązanych elementów, które można wybrać."
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr "Minimum ustawia najmniejszą liczbę użytkowników, których można wybrać. Maksimum ustawia największą liczbę użytkowników, których można wybrać."
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr "Etykieta pola wyboru"
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
+msgstr "Wyświetlana obok pola wyboru na ekranie edycji."

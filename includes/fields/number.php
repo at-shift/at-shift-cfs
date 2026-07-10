@@ -18,7 +18,9 @@ class Atshift_CFS_number extends Atshift_CFS_field
         $max = $this->get_option( $field, 'max' );
         $step = $this->get_option( $field, 'step' );
     ?>
+        <?php $this->input_suffix_open( $field ); ?>
         <input type="number" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $field->value ); ?>"<?php echo '' !== $min ? ' min="' . esc_attr( $min ) . '"' : ''; ?><?php echo '' !== $max ? ' max="' . esc_attr( $max ) . '"' : ''; ?><?php echo '' !== $step ? ' step="' . esc_attr( $step ) . '"' : ''; ?> />
+        <?php $this->input_suffix_close( $field ); ?>
     <?php
     }
 
@@ -42,13 +44,17 @@ class Atshift_CFS_number extends Atshift_CFS_field
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label><?php esc_html_e( 'Number Settings', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <div class="cfs_tooltip">?
+                    <div class="tooltip_inner"><?php esc_html_e( 'Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][min]" value="<?php echo esc_attr( $this->get_option( $field, 'min' ) ); ?>" placeholder="min" style="width:80px" />
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][max]" value="<?php echo esc_attr( $this->get_option( $field, 'max' ) ); ?>" placeholder="max" style="width:80px" />
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][step]" value="<?php echo esc_attr( $this->get_option( $field, 'step' ) ); ?>" placeholder="step" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][min]" value="<?php echo esc_attr( $this->get_option( $field, 'min' ) ); ?>" placeholder="<?php esc_attr_e( 'Minimum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][max]" value="<?php echo esc_attr( $this->get_option( $field, 'max' ) ); ?>" placeholder="<?php esc_attr_e( 'Maximum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][step]" value="<?php echo esc_attr( $this->get_option( $field, 'step' ) ); ?>" placeholder="<?php esc_attr_e( 'Step', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
             </td>
         </tr>
+        <?php $this->input_suffix_option_html( $key, $field ); ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>

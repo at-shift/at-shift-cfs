@@ -173,6 +173,9 @@ msgstr "追加"
 msgid "Limits"
 msgstr "指値"
 
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr "最小値は選択できるターム数の下限、最大値は上限です。"
+
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "関連ポスト選択"
@@ -554,6 +557,9 @@ msgstr "ラジオボタン"
 msgid "Select2"
 msgstr "Select2"
 
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr "選択フィールドを Select2 で表示します。選択肢が多い場合に、編集画面で検索や選択がしやすくなります。"
+
 #: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
 msgstr "このフィールドを Select2 で表示"
@@ -610,6 +616,18 @@ msgstr "数字"
 msgid "Number Settings"
 msgstr "数字設定"
 
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr "最小値は入力できる下限、最大値は上限です。間隔は 1、0.1、5 など、入力できる値の刻み幅を指定します。"
+
+msgid "Minimum"
+msgstr "最小値"
+
+msgid "Maximum"
+msgstr "最大値"
+
+msgid "Step"
+msgstr "間隔"
+
 #: ../includes/fields/time.php:8
 msgid "Time"
 msgstr "時間"
@@ -645,6 +663,9 @@ msgstr "横並びグループ"
 #: ../includes/fields/group.php:68
 msgid "Columns"
 msgstr "カラム数"
+
+msgid "Columns (default: 3)"
+msgstr "カラム数（初期値: 3）"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
@@ -915,8 +936,8 @@ msgstr "ギャラリーHTML"
 msgid "Gallery Display"
 msgstr "ギャラリー表示"
 
-msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "戻り値がギャラリーHTMLの場合に使用します。画像ファイルへのリンクにはモーダルで使いやすいデータ属性が含まれます。"
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "戻り値がギャラリーHTMLの場合に使用します。カラム数は生成されるギャラリーHTMLの列数です。画像ファイルへのリンクにはモーダルで使いやすいデータ属性が含まれます。"
 
 msgid "CSS class"
 msgstr "CSSクラス"
@@ -932,3 +953,57 @@ msgstr "添付ファイルページ"
 
 msgid "Select Gallery Images"
 msgstr "ギャラリー画像を選択"
+
+msgid "After input"
+msgstr "入力欄の後に表示"
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr "編集画面の入力欄の後ろに表示する補助テキストです。kg、%、~ などの単位や区切り記号に使えます。保存値やフロント出力には含まれません。"
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr "画像サイズ"
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr "サムネイル"
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr "中サイズ"
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr "中サイズ（大）"
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr "大サイズ"
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr "フルサイズ"
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr "最小値は選択できる画像数の下限、最大値は上限です。"
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr "最小値は追加できる行数の下限、最大値は上限です。"
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr "最小値は選択できる関連項目数の下限、最大値は上限です。"
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr "最小値は選択できるユーザー数の下限、最大値は上限です。"
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr "チェックボックスのラベル"
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
+msgstr "編集画面でチェックボックスの横に表示されます。"

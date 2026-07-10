@@ -19,6 +19,14 @@
     display: none;
 }
 
+body #powerTip {
+    box-sizing: border-box;
+    max-width: min(480px, calc(100vw - 48px));
+    line-height: 1.5;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
 /*---------------------------------------------------------------------------------------------
     #cfs_fields (container)
 ---------------------------------------------------------------------------------------------*/
@@ -378,6 +386,10 @@
 
 .field_form td.label {
     width: 24%;
+    vertical-align: middle;
+}
+
+.field_form tr.field_notes td.label {
     vertical-align: top;
 }
 

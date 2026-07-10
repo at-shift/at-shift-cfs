@@ -28,7 +28,9 @@ class Atshift_CFS_field
      */
     function html( $field ) {
     ?>
+        <?php $this->input_suffix_open( $field ); ?>
         <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $field->value ); ?>" placeholder="<?php echo esc_attr( $this->get_input_placeholder( $field ) ); ?>" />
+        <?php $this->input_suffix_close( $field ); ?>
     <?php
     }
 
@@ -166,6 +168,75 @@ class Atshift_CFS_field
             return $field->options['placeholder'];
         }
         return $default_value;
+    }
+
+
+    /**
+     * Retrieve text displayed after the input on data entry screens.
+     *
+     * @param object $field
+     * @return string
+     */
+    function get_input_suffix( $field ) {
+        if ( isset( $field->options['input_suffix'] ) && is_string( $field->options['input_suffix'] ) ) {
+            return trim( $field->options['input_suffix'] );
+        }
+        return '';
+    }
+
+
+    /**
+     * Open a wrapper for fields that show helper text after the input.
+     *
+     * @param object $field
+     */
+    function input_suffix_open( $field ) {
+        if ( '' === $this->get_input_suffix( $field ) ) {
+            return;
+        }
+    ?>
+        <span class="cfs-input-with-suffix">
+    <?php
+    }
+
+
+    /**
+     * Close a helper-text wrapper and render the configured suffix.
+     *
+     * @param object $field
+     */
+    function input_suffix_close( $field ) {
+        $suffix = $this->get_input_suffix( $field );
+        if ( '' === $suffix ) {
+            return;
+        }
+    ?>
+            <span class="cfs-input-suffix"><?php echo esc_html( $suffix ); ?></span>
+        </span>
+    <?php
+    }
+
+
+    /**
+     * Render the field setting for helper text shown after the input.
+     *
+     * @param int    $key
+     * @param object $field
+     */
+    function input_suffix_option_html( $key, $field ) {
+    ?>
+        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
+            <td class="label">
+                <label><?php esc_html_e( 'After input', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <div class="cfs_tooltip">?
+                    <div class="tooltip_inner"><?php esc_html_e( 'Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                </div>
+            </td>
+            <td>
+                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][input_suffix]" value="<?php echo esc_attr( $this->get_input_suffix( $field ) ); ?>" />
+            </td>
+        </tr>
+    <?php
     }
 
 

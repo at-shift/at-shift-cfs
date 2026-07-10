@@ -140,6 +140,9 @@ msgstr "Yeni Ekle"
 msgid "Limits"
 msgstr "Limitler"
 
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr "Minimum, seçilebilecek en az terim sayısını belirler. Maksimum, seçilebilecek en fazla terim sayısını belirler."
+
 #: includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "İlişkilendirme"
@@ -499,6 +502,9 @@ msgstr "Radyo düğmesi"
 msgid "Select2"
 msgstr "Select2"
 
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr "Seçim alanını Select2 ile gösterir. Bu, düzenleme ekranlarında uzun seçenek listelerinde arama ve seçim yapmayı kolaylaştırır."
+
 msgid "Render this field with Select2"
 msgstr "Bu alanı Select2 ile göster"
 
@@ -542,6 +548,18 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr "Minimum, izin verilen en düşük değeri belirler. Maksimum, izin verilen en yüksek değeri belirler. Adım, değerler arasındaki izin verilen aralığı belirler; örneğin 1, 0.1 veya 5."
+
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Maximum"
+msgstr "Maksimum"
+
+msgid "Step"
+msgstr "Adım"
+
 #: ../includes/fields/time.php:8
 msgid "Time"
 msgstr "Saat"
@@ -577,6 +595,9 @@ msgstr "Yatay grup"
 #: ../includes/fields/group.php:68
 msgid "Columns"
 msgstr "Sutunlar"
+
+msgid "Columns (default: 3)"
+msgstr "Sütunlar (varsayılan: 3)"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
@@ -799,8 +820,8 @@ msgstr "Galeri HTML'i"
 msgid "Gallery Display"
 msgstr "Galeri Gorunumu"
 
-msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "Donus degeri Galeri HTML'i oldugunda kullanilir. Gorsel dosyasi baglantilari modal uyumlu data oznitelikleri icerir."
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Dönüş değeri Gallery HTML olduğunda kullanılır. Sütunlar, oluşturulan galeri HTML’indeki sütun sayısını belirler. Görsel dosyası bağlantıları, modal kullanımı için uygun veri öznitelikleri içerir."
 
 msgid "CSS class"
 msgstr "CSS sinifi"
@@ -816,3 +837,57 @@ msgstr "Ek Sayfasi"
 
 msgid "Select Gallery Images"
 msgstr "Galeri gorsellerini sec"
+
+msgid "After input"
+msgstr "Giriş alanından sonra"
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr "Düzenleme ekranlarında giriş alanından sonra gösterilir. kg, %, veya ~ gibi kısa birimler ya da ayırıcılar için kullanın. Bu metin kaydedilen değerlere veya ön uç çıktısına dahil edilmez."
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr "Görsel boyutu"
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr "Küçük resim"
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr "Orta"
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr "Orta büyük"
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr "Büyük"
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr "Tam boyut"
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr "Minimum, seçilebilecek en az görsel sayısını belirler. Maksimum, seçilebilecek en fazla görsel sayısını belirler."
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr "Minimum, eklenebilecek en az satır sayısını belirler. Maksimum, eklenebilecek en fazla satır sayısını belirler."
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr "Minimum, seçilebilecek en az ilişkili öğe sayısını belirler. Maksimum, seçilebilecek en fazla ilişkili öğe sayısını belirler."
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr "Minimum, seçilebilecek en az kullanıcı sayısını belirler. Maksimum, seçilebilecek en fazla kullanıcı sayısını belirler."
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr "Onay kutusu etiketi"
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
+msgstr "Düzenleme ekranında onay kutusunun yanında gösterilir."

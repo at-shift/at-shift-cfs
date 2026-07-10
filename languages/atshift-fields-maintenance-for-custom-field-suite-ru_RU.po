@@ -141,6 +141,9 @@ msgstr "Добавить блок"
 msgid "Limits"
 msgstr "Ограничения"
 
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr "Минимум задаёт наименьшее количество терминов, которое можно выбрать. Максимум задаёт наибольшее количество терминов, которое можно выбрать."
+
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "Связь"
@@ -506,6 +509,9 @@ msgstr "Переключатель"
 msgid "Select2"
 msgstr "Select2"
 
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr "Отображает поле выбора с помощью Select2. Это упрощает поиск и выбор в длинных списках вариантов на экранах редактирования."
+
 msgid "Render this field with Select2"
 msgstr "Отображать это поле с помощью Select2"
 
@@ -549,6 +555,18 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr "Минимум задаёт наименьшее допустимое значение. Максимум задаёт наибольшее допустимое значение. Шаг задаёт допустимый интервал между значениями, например 1, 0.1 или 5."
+
+msgid "Minimum"
+msgstr "Минимум"
+
+msgid "Maximum"
+msgstr "Максимум"
+
+msgid "Step"
+msgstr "Шаг"
+
 #: ../includes/fields/time.php:8
 msgid "Time"
 msgstr "Время"
@@ -584,6 +602,9 @@ msgstr "Горизонтальная группа"
 #: ../includes/fields/group.php:68
 msgid "Columns"
 msgstr "Колонки"
+
+msgid "Columns (default: 3)"
+msgstr "Колонки (по умолчанию: 3)"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
@@ -806,8 +827,8 @@ msgstr "HTML галереи"
 msgid "Gallery Display"
 msgstr "Отображение галереи"
 
-msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "Используется, когда возвращаемое значение — HTML галереи. Ссылки на файлы изображений содержат data-атрибуты, удобные для модальных окон."
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Используется, когда возвращаемое значение — Gallery HTML. Колонки задают количество колонок в сгенерированном HTML галереи. Ссылки на файлы изображений содержат data-атрибуты, удобные для модальных окон."
 
 msgid "CSS class"
 msgstr "CSS-класс"
@@ -823,3 +844,57 @@ msgstr "Страница вложения"
 
 msgid "Select Gallery Images"
 msgstr "Выбрать изображения галереи"
+
+msgid "After input"
+msgstr "После поля ввода"
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr "Показывается после поля ввода на экранах редактирования. Используйте для коротких единиц или разделителей, например kg, %, или ~. Этот текст не включается в сохранённые значения или вывод на фронтенде."
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr "Размер изображения"
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr "Миниатюра"
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr "Средний"
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr "Средне-большой"
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr "Большой"
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr "Полный размер"
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr "Минимум задаёт наименьшее количество изображений, которое можно выбрать. Максимум задаёт наибольшее количество изображений, которое можно выбрать."
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr "Минимум задаёт наименьшее количество строк, которое можно добавить. Максимум задаёт наибольшее количество строк, которое можно добавить."
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr "Минимум задаёт наименьшее количество связанных элементов, которое можно выбрать. Максимум задаёт наибольшее количество связанных элементов, которое можно выбрать."
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr "Минимум задаёт наименьшее количество пользователей, которое можно выбрать. Максимум задаёт наибольшее количество пользователей, которое можно выбрать."
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr "Подпись флажка"
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
+msgstr "Отображается рядом с флажком на экране редактирования."

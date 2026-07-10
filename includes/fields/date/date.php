@@ -13,6 +13,29 @@ class Atshift_CFS_date extends Atshift_CFS_field
     }
 
 
+    function options_html( $key, $field ) {
+        $this->input_suffix_option_html( $key, $field );
+    ?>
+        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
+            <td class="label">
+                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+            </td>
+            <td>
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type' => 'true_false',
+                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option( $field, 'required' ),
+                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                    ] );
+                ?>
+            </td>
+        </tr>
+    <?php
+    }
+
+
     function input_head( $field = null ) {
         global $wp_locale;
 

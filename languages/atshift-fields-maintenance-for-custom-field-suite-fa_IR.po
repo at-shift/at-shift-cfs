@@ -141,6 +141,9 @@ msgstr "افزودن ردیف"
 msgid "Limits"
 msgstr "محدودیت ها"
 
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr "حداقل کمترین تعداد واژه‌هایی را تعیین می‌کند که می‌توان انتخاب کرد. حداکثر بیشترین تعداد واژه‌هایی را تعیین می‌کند که می‌توان انتخاب کرد."
+
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "ارتباط"
@@ -514,6 +517,9 @@ msgstr "دکمه رادیویی"
 msgid "Select2"
 msgstr "Select2"
 
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr "فیلد انتخاب را با Select2 نمایش می‌دهد. این کار جست‌وجو و انتخاب در فهرست‌های طولانی گزینه‌ها را در صفحه‌های ویرایش آسان‌تر می‌کند."
+
 msgid "Render this field with Select2"
 msgstr "نمایش این فیلد با Select2"
 
@@ -557,6 +563,18 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr "حداقل پایین‌ترین مقدار مجاز را تعیین می‌کند. حداکثر بالاترین مقدار مجاز را تعیین می‌کند. گام فاصلهٔ مجاز بین مقدارها را تعیین می‌کند، مانند 1، 0.1 یا 5."
+
+msgid "Minimum"
+msgstr "حداقل"
+
+msgid "Maximum"
+msgstr "حداکثر"
+
+msgid "Step"
+msgstr "گام"
+
 #: ../includes/fields/time.php:8
 msgid "Time"
 msgstr "زمان"
@@ -592,6 +610,9 @@ msgstr "گروه افقی"
 #: ../includes/fields/group.php:68
 msgid "Columns"
 msgstr "ستون‌ها"
+
+msgid "Columns (default: 3)"
+msgstr "ستون‌ها (پیش‌فرض: 3)"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
@@ -814,8 +835,8 @@ msgstr "HTML گالری"
 msgid "Gallery Display"
 msgstr "نمایش گالری"
 
-msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "زمانی استفاده می‌شود که مقدار بازگشتی HTML گالری باشد. لینک‌های فایل تصویر دارای ویژگی‌های داده مناسب برای مودال هستند."
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "زمانی استفاده می‌شود که مقدار بازگشتی Gallery HTML باشد. ستون‌ها تعداد ستون‌ها را در HTML گالری تولیدشده تعیین می‌کند. پیوندهای فایل تصویر شامل ویژگی‌های داده مناسب برای مودال هستند."
 
 msgid "CSS class"
 msgstr "کلاس CSS"
@@ -831,3 +852,57 @@ msgstr "صفحه پیوست"
 
 msgid "Select Gallery Images"
 msgstr "انتخاب تصاویر گالری"
+
+msgid "After input"
+msgstr "پس از فیلد ورودی"
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr "در صفحه‌های ویرایش پس از فیلد ورودی نمایش داده می‌شود. برای واحدها یا جداکننده‌های کوتاه مانند kg، % یا ~ استفاده کنید. این متن در مقادیر ذخیره‌شده یا خروجی فرانت‌اند قرار نمی‌گیرد."
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr "اندازه تصویر"
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr "بندانگشتی"
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr "متوسط"
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr "متوسط بزرگ"
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr "بزرگ"
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr "اندازه کامل"
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr "حداقل کمترین تعداد تصویرهایی را تعیین می‌کند که می‌توان انتخاب کرد. حداکثر بیشترین تعداد تصویرهایی را تعیین می‌کند که می‌توان انتخاب کرد."
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr "حداقل کمترین تعداد ردیف‌هایی را تعیین می‌کند که می‌توان اضافه کرد. حداکثر بیشترین تعداد ردیف‌هایی را تعیین می‌کند که می‌توان اضافه کرد."
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr "حداقل کمترین تعداد آیتم‌های مرتبط را تعیین می‌کند که می‌توان انتخاب کرد. حداکثر بیشترین تعداد آیتم‌های مرتبط را تعیین می‌کند که می‌توان انتخاب کرد."
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr "حداقل کمترین تعداد کاربرانی را تعیین می‌کند که می‌توان انتخاب کرد. حداکثر بیشترین تعداد کاربرانی را تعیین می‌کند که می‌توان انتخاب کرد."
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr "برچسب چک‌باکس"
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
+msgstr "در صفحه ویرایش کنار چک‌باکس نمایش داده می‌شود."

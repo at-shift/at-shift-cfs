@@ -24,6 +24,7 @@ class Atshift_CFS_time extends Atshift_CFS_field
 
         $minute_interval = $this->get_minute_interval( $this->get_option( $field, 'minute_interval', 1 ) );
     ?>
+        <?php $this->input_suffix_open( $field ); ?>
         <select name="<?php echo esc_attr( $field->input_name ); ?>[hour]" class="<?php echo esc_attr( $field->input_class ); ?> cfs-time-hour">
             <option value=""></option>
             <?php for ( $i = 0; $i < 24; $i++ ) : ?>
@@ -39,6 +40,7 @@ class Atshift_CFS_time extends Atshift_CFS_field
             <option value="<?php echo esc_attr( $option ); ?>"<?php selected( $minute, $option ); ?>><?php echo esc_html( $option ); ?></option>
             <?php endfor; ?>
         </select>
+        <?php $this->input_suffix_close( $field ); ?>
     <?php
     }
 
@@ -100,6 +102,7 @@ class Atshift_CFS_time extends Atshift_CFS_field
                 </select>
             </td>
         </tr>
+        <?php $this->input_suffix_option_html( $key, $field ); ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>

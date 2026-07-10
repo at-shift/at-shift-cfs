@@ -140,6 +140,9 @@ msgstr "Sor hozzáadása"
 msgid "Limits"
 msgstr "Korlátok"
 
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr "A minimum a kiválasztható kifejezések legkisebb számát állítja be. A maximum a kiválasztható kifejezések legnagyobb számát állítja be."
+
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "Kapcsolat"
@@ -468,6 +471,9 @@ msgstr "Választógomb"
 msgid "Select2"
 msgstr "Select2"
 
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr "A kiválasztó mezőt Select2-vel jeleníti meg. Ez megkönnyíti a hosszú választéklisták keresését és kiválasztását a szerkesztőképernyőkön."
+
 msgid "Render this field with Select2"
 msgstr "A mező megjelenítése Select2-vel"
 
@@ -511,6 +517,18 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr "A minimum a legalacsonyabb megengedett értéket állítja be. A maximum a legmagasabb megengedett értéket állítja be. A lépésköz az értékek közötti megengedett intervallumot adja meg, például 1, 0.1 vagy 5."
+
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Maximum"
+msgstr "Maximum"
+
+msgid "Step"
+msgstr "Lépésköz"
+
 #: ../includes/fields/time.php:8
 msgid "Time"
 msgstr "Ido"
@@ -546,6 +564,9 @@ msgstr "Vizszintes csoport"
 #: ../includes/fields/group.php:68
 msgid "Columns"
 msgstr "Oszlopok"
+
+msgid "Columns (default: 3)"
+msgstr "Oszlopok (alapértelmezett: 3)"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
@@ -768,8 +789,8 @@ msgstr "Galeria HTML"
 msgid "Gallery Display"
 msgstr "Galeria megjelenitese"
 
-msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "Akkor hasznalatos, ha a visszateresi ertek Galeria HTML. A kepfajl-hivatkozasok modalis ablakhoz hasznalhato data attributumokat tartalmaznak."
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Akkor használatos, ha a visszatérési érték Gallery HTML. Az oszlopok száma a generált galéria HTML oszlopszámát állítja be. A képfájlokra mutató hivatkozások modálokhoz hasznos adatattribútumokat tartalmaznak."
 
 msgid "CSS class"
 msgstr "CSS osztaly"
@@ -785,3 +806,57 @@ msgstr "Csatolmany oldal"
 
 msgid "Select Gallery Images"
 msgstr "Galeriakepek kivalasztasa"
+
+msgid "After input"
+msgstr "A beviteli mező után"
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr "A szerkesztőképernyőkön a beviteli mező után jelenik meg. Rövid mértékegységekhez vagy elválasztókhoz használható, például kg, %, vagy ~. Ez a szöveg nem kerül bele a mentett értékekbe vagy a frontend kimenetbe."
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr "Képméret"
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr "Bélyegkép"
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr "Közepes"
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr "Közepesen nagy"
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr "Nagy"
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr "Teljes méret"
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr "A minimum a kiválasztható képek legkisebb számát állítja be. A maximum a kiválasztható képek legnagyobb számát állítja be."
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr "A minimum a hozzáadható sorok legkisebb számát állítja be. A maximum a hozzáadható sorok legnagyobb számát állítja be."
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr "A minimum a kiválasztható kapcsolódó elemek legkisebb számát állítja be. A maximum a kiválasztható kapcsolódó elemek legnagyobb számát állítja be."
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr "A minimum a kiválasztható felhasználók legkisebb számát állítja be. A maximum a kiválasztható felhasználók legnagyobb számát állítja be."
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr "Jelölőnégyzet címkéje"
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
+msgstr "A szerkesztési képernyőn a jelölőnégyzet mellett jelenik meg."

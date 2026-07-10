@@ -172,6 +172,9 @@ msgstr ""
 msgid "Limits"
 msgstr ""
 
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr ""
+
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr ""
@@ -553,6 +556,9 @@ msgstr ""
 msgid "Select2"
 msgstr ""
 
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr ""
+
 #: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
 msgstr ""
@@ -609,6 +615,18 @@ msgstr ""
 msgid "Number Settings"
 msgstr ""
 
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr ""
+
+msgid "Minimum"
+msgstr ""
+
+msgid "Maximum"
+msgstr ""
+
+msgid "Step"
+msgstr ""
+
 #: ../includes/fields/time.php:8
 msgid "Time"
 msgstr ""
@@ -643,6 +661,9 @@ msgstr ""
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
+msgstr ""
+
+msgid "Columns (default: 3)"
 msgstr ""
 
 #: ../includes/fields/group.php:77
@@ -911,7 +932,7 @@ msgstr ""
 msgid "Gallery Display"
 msgstr ""
 
-msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
 msgstr ""
 
 msgid "CSS class"
@@ -927,4 +948,58 @@ msgid "Attachment Page"
 msgstr ""
 
 msgid "Select Gallery Images"
+msgstr ""
+
+msgid "After input"
+msgstr ""
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr ""
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr ""
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr ""
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr ""
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr ""
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr ""
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr ""
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr ""
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr ""
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr ""
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr ""
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr ""
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
 msgstr ""

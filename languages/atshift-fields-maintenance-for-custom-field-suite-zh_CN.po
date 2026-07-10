@@ -140,6 +140,9 @@ msgstr "Add Row"
 msgid "Limits"
 msgstr "限制"
 
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr "最小值设置可选择的最少术语数。最大值设置可选择的最多术语数。"
+
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "关联"
@@ -482,6 +485,9 @@ msgstr "单选按钮"
 msgid "Select2"
 msgstr "Select2"
 
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr "使用 Select2 显示选择字段。在编辑页面中，长选项列表会更容易搜索和选择。"
+
 msgid "Render this field with Select2"
 msgstr "使用 Select2 渲染此字段"
 
@@ -525,6 +531,18 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr "最小值设置允许输入的最低值。最大值设置允许输入的最高值。间隔设置数值之间允许的步进，例如 1、0.1 或 5。"
+
+msgid "Minimum"
+msgstr "最小值"
+
+msgid "Maximum"
+msgstr "最大值"
+
+msgid "Step"
+msgstr "间隔"
+
 #: ../includes/fields/time.php:8
 msgid "Time"
 msgstr "时间"
@@ -560,6 +578,9 @@ msgstr "横向分组"
 #: ../includes/fields/group.php:68
 msgid "Columns"
 msgstr "列"
+
+msgid "Columns (default: 3)"
+msgstr "列数（默认值：3）"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
@@ -782,8 +803,8 @@ msgstr "图库 HTML"
 msgid "Gallery Display"
 msgstr "图库显示"
 
-msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "当返回值为图库 HTML 时使用。图片文件链接包含适合模态窗口使用的数据属性。"
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "当返回值为 Gallery HTML 时使用。列数设置生成的画廊 HTML 中的列数。图片文件链接包含便于模态窗口使用的数据属性。"
 
 msgid "CSS class"
 msgstr "CSS 类"
@@ -799,3 +820,57 @@ msgstr "附件页面"
 
 msgid "Select Gallery Images"
 msgstr "选择图库图片"
+
+msgid "After input"
+msgstr "显示在输入框后"
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr "在编辑页面的输入框后显示。可用于 kg、%、~ 等简短单位或分隔符。此文本不会包含在保存值或前端输出中。"
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr "图片尺寸"
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr "缩略图"
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr "中等"
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr "中等偏大"
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr "大"
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr "完整尺寸"
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr "最小值设置可选择的最少图片数。最大值设置可选择的最多图片数。"
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr "最小值设置可添加的最少行数。最大值设置可添加的最多行数。"
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr "最小值设置可选择的最少关联项目数。最大值设置可选择的最多关联项目数。"
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr "最小值设置可选择的最少用户数。最大值设置可选择的最多用户数。"
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr "复选框标签"
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
+msgstr "显示在编辑画面的复选框旁边。"

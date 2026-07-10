@@ -141,6 +141,9 @@ msgstr "AfegirFila"
 msgid "Limits"
 msgstr "Límits"
 
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr "Mínim defineix el menor nombre de termes que es poden seleccionar. Màxim defineix el major nombre de termes que es poden seleccionar."
+
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "Relació"
@@ -484,6 +487,9 @@ msgstr "Botó d'opció"
 msgid "Select2"
 msgstr "Select2"
 
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr "Mostra el camp de selecció amb Select2. Això facilita cercar i seleccionar en llistes d’opcions llargues a les pantalles d’edició."
+
 msgid "Render this field with Select2"
 msgstr "Mostra aquest camp amb Select2"
 
@@ -527,6 +533,18 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr "El valor mínim defineix el valor permès més baix. El valor màxim defineix el valor permès més alt. L’interval defineix l’espai permès entre valors, com ara 1, 0.1, o 5."
+
+msgid "Minimum"
+msgstr "Mínim"
+
+msgid "Maximum"
+msgstr "Màxim"
+
+msgid "Step"
+msgstr "Interval"
+
 #: ../includes/fields/time.php:8
 msgid "Time"
 msgstr "Hora"
@@ -562,6 +580,9 @@ msgstr "Grup horitzontal"
 #: ../includes/fields/group.php:68
 msgid "Columns"
 msgstr "Columnes"
+
+msgid "Columns (default: 3)"
+msgstr "Columnes (per defecte: 3)"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
@@ -784,8 +805,8 @@ msgstr "HTML de la galeria"
 msgid "Gallery Display"
 msgstr "Visualitzacio de la galeria"
 
-msgid "Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "S'utilitza quan el valor de retorn es HTML de galeria. Els enllacos als fitxers d'imatge inclouen atributs de dades utils per a modals."
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "S’utilitza quan el valor de retorn és Gallery HTML. Columnes defineix el nombre de columnes a l’HTML de galeria generat. Els enllaços als fitxers d’imatge inclouen atributs de dades útils per a modals."
 
 msgid "CSS class"
 msgstr "Classe CSS"
@@ -801,3 +822,57 @@ msgstr "Pagina de l'adjunt"
 
 msgid "Select Gallery Images"
 msgstr "Selecciona imatges de la galeria"
+
+msgid "After input"
+msgstr "Després del camp"
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr "Es mostra després del camp a les pantalles d’edició. Feu-ho servir per a unitats o separadors breus, com ara kg, %, o ~. Aquest text no s’inclou en els valors desats ni en la sortida del front-end."
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr "Mida de la imatge"
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr "Mitjana"
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr "Mitjana gran"
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr "Gran"
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr "Mida completa"
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr "Mínim defineix el menor nombre d’imatges que es poden seleccionar. Màxim defineix el major nombre d’imatges que es poden seleccionar."
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr "Mínim defineix el menor nombre de files que es poden afegir. Màxim defineix el major nombre de files que es poden afegir."
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr "Mínim defineix el menor nombre d’elements relacionats que es poden seleccionar. Màxim defineix el major nombre d’elements relacionats que es poden seleccionar."
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr "Mínim defineix el menor nombre d’usuaris que es poden seleccionar. Màxim defineix el major nombre d’usuaris que es poden seleccionar."
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr "Etiqueta de la casella"
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
+msgstr "Es mostra al costat de la casella de selecció a la pantalla d’edició."

@@ -34,8 +34,10 @@ class Atshift_CFS_true_false extends Atshift_CFS_field
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
-                <label><?php esc_html_e( 'Message', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <p class="description"><?php esc_html_e( 'The text beside the checkbox', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <label><?php esc_html_e( 'Checkbox Label', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <div class="cfs_tooltip">?
+                    <div class="tooltip_inner"><?php esc_html_e( 'Displayed beside the checkbox on the edit screen.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                </div>
             </td>
             <td>
                 <?php

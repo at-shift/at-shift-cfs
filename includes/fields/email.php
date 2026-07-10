@@ -21,7 +21,6 @@ class Atshift_CFS_email extends Atshift_CFS_field
 
 
     function options_html( $key, $field ) {
-        $this->text_option_html( $key, $field, 'default_value', __( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ), __( 'The value specified from the beginning.', 'atshift-fields-maintenance-for-custom-field-suite' ) );
         $this->text_option_html( $key, $field, 'placeholder', __( 'Placeholder', 'atshift-fields-maintenance-for-custom-field-suite' ), __( 'An input example or other helpful hint.', 'atshift-fields-maintenance-for-custom-field-suite' ) );
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">

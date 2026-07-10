@@ -246,6 +246,12 @@ class Atshift_CFS_field_group
             if ( isset( $field['options']['conditional_value'] ) ) {
                 $field['options']['conditional_value'] = sanitize_text_field( $field['options']['conditional_value'] );
             }
+            if ( isset( $field['options']['input_suffix'] ) ) {
+                $field['options']['input_suffix'] = trim( sanitize_text_field( $field['options']['input_suffix'] ) );
+                if ( '' === $field['options']['input_suffix'] ) {
+                    unset( $field['options']['input_suffix'] );
+                }
+            }
 
             if ( 0 < (int) $field['id'] && isset( $other_field_ids[ (int) $field['id'] ] ) ) {
                 $field['remapped_from'] = (int) $field['id'];

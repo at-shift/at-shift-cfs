@@ -104,10 +104,12 @@ class Atshift_CFS_gallery extends Atshift_CFS_field
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label><?php esc_html_e( 'Gallery Display', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <p class="description"><?php esc_html_e( 'Used when the return value is Gallery HTML. Image file links include modal-friendly data attributes.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <div class="cfs_tooltip">?
+                    <div class="tooltip_inner"><?php esc_html_e( 'Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][columns]" value="<?php echo esc_attr( $this->get_option( $field, 'columns', 3 ) ); ?>" placeholder="<?php esc_attr_e( 'Columns', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][columns]" value="<?php echo esc_attr( $this->get_option( $field, 'columns', 3 ) ); ?>" placeholder="<?php esc_attr_e( 'Columns (default: 3)', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:140px" />
                 <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][css_class]" value="<?php echo esc_attr( $this->get_option( $field, 'css_class' ) ); ?>" placeholder="<?php esc_attr_e( 'CSS class', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
             </td>
         </tr>
@@ -136,10 +138,13 @@ class Atshift_CFS_gallery extends Atshift_CFS_field
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label><?php esc_html_e( 'Limits', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <div class="cfs_tooltip">?
+                    <div class="tooltip_inner"><?php esc_html_e( 'Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="min" style="width:60px" />
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_max]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_max' ) ); ?>" placeholder="max" style="width:60px" />
+                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="<?php esc_attr_e( 'Minimum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][limit_max]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_max' ) ); ?>" placeholder="<?php esc_attr_e( 'Maximum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
@@ -165,11 +170,24 @@ class Atshift_CFS_gallery extends Atshift_CFS_field
     private function get_image_size_choices() {
         $choices = [];
         foreach ( get_intermediate_image_sizes() as $size ) {
-            $choices[ $size ] = $size;
+            $choices[ $size ] = $this->get_image_size_label( $size );
         }
-        $choices['full'] = 'full';
+        $choices['full'] = $this->get_image_size_label( 'full' );
 
         return $choices;
+    }
+
+
+    private function get_image_size_label( $size ) {
+        $labels = [
+            'thumbnail'    => __( 'Thumbnail', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'medium'       => __( 'Medium', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'medium_large' => __( 'Medium Large', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'large'        => __( 'Large', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'full'         => __( 'Full Size', 'atshift-fields-maintenance-for-custom-field-suite' ),
+        ];
+
+        return isset( $labels[ $size ] ) ? $labels[ $size ] : $size;
     }
 
 
