@@ -271,72 +271,6 @@ add_action( 'init', function() {
 - フィールド設定のラベル、ツールチップ、プレースホルダー、多言語翻訳を改善しました。
 - メールアドレス、電話番号、URLフィールドからデフォルト値設定を削除しました。
 
-### 2.6.7.44
-
-- Added the Photo Gallery field with sortable media selection and gallery-friendly output data.
-- Added Post Categories (Standard / Global) field support for standard categories and Shared Taxonomy selection.
-- 写真ギャラリーフィールドを追加し、画像の複数選択・並び替え・出力しやすいデータ形式に対応しました。
-- 投稿カテゴリー (標準 / グローバル) フィールドを追加し、標準カテゴリーとグローバルカテゴリー（Shared Taxonomy）の選択に対応しました。
-
-### 2.6.7.43
-
-- Fixed native category, tag, and featured image sidebar hiding for category-based field group switching.
-- Restored legacy CFS display filter compatibility for Relationship, Term, and User fields.
-- カテゴリー条件で切り替わるフィールドグループ内に Post Categories / Post Tags / Featured Image フィールドがある場合、対応する標準サイドバー UI が残る問題を修正しました。
-- Relationship / Term / User フィールドの旧 CFS 表示フィルタ互換を復元しました。
-
-### 2.6.7.42.1.10
-
-- Fixed tab field initialization on post edit screens in the WordPress.org build.
-- WordPress.org 版で、投稿編集画面のタブフィールドが初期化されず、タブ内の入力欄が表示されない問題を修正しました。
-
-### 2.6.7.42.1.9
-
-- Fixed category-based field group switching on post edit screens in the WordPress.org build.
-- WordPress.org 版で、投稿編集画面のカテゴリー変更に応じたフィールドグループ切り替えが動作しない問題を修正しました。
-
-### 2.6.7.42.1.8
-
-- Prevented fatal errors during plugin replacement by detecting the original Custom Field Suite plugin before declaring the CFS compatibility API.
-- プラグイン置き換え時に旧 Custom Field Suite が残っている場合でも、CFS 互換 API を宣言する前に検出し、fatal error を防ぐようにしました。
-
-### 2.6.7.42.1.7
-
-- Fixed the Classic Editor "Hide the content editor" setting so the classic content editor is hidden reliably on post edit screens.
-- Renamed bundled translation files to the WordPress.org text domain and loaded them as a fallback until language packs are available.
-- Classic Editor の「コンテンツエディターを隠す」設定が投稿編集画面で確実に反映されるように修正しました。
-- 同梱翻訳ファイルを WordPress.org の Text Domain に合わせてリネームし、language pack が利用可能になるまでのフォールバックとして読み込むようにしました。
-
-### 2.6.7.42.1.6
-
-- Published the WordPress.org-compatible maintenance build.
-- Removed the previous GitHub release notice / custom update-check behavior from
-  the WordPress.org build.
-- Matched the text domain to the assigned WordPress.org slug.
-- Updated bundled PowerTip and Select2 assets.
-- Renamed internal classes, hooks, options, AJAX actions, and the field group
-  post type with atshift-prefixed identifiers while preserving the public CFS
-  API and existing field data compatibility.
-- WordPress.org 互換のメンテナンスビルドを公開しました。
-- WordPress.org 版から、従来の GitHub リリース通知および独自更新確認の挙動を削除しました。
-- Text Domain を WordPress.org の割り当てスラッグに合わせました。
-- 同梱の PowerTip と Select2 を更新しました。
-- 公開 CFS API と既存フィールドデータ互換性を維持しながら、内部クラス、フック、オプション、AJAX アクション、フィールドグループ投稿タイプを atshift 接頭辞付き識別子へ変更しました。
-
-### 2.6.7.42.1.2
-
-- Improved file upload previews and remove button alignment on post edit screens.
-- Adjusted spacing inside Loop fields.
-- 投稿編集画面のファイルアップロードプレビューと削除ボタン位置を調整しました。
-- Loop内フィールドの余白を調整しました。
-
-### 2.6.7.42.1.1
-
-- Adjusted post edit screen spacing and typography.
-- Improved the atshift Fields Tools UI and multilingual text.
-- 投稿編集画面の余白と文字サイズを調整しました。
-- atshift Fields ツールのUIと多言語テキストを改善しました。
-
 Past release notes are available on the [Releases page](https://github.com/at-shift/at-shift-cfs/releases).
 
 過去の履歴は[リリースページ](https://github.com/at-shift/at-shift-cfs/releases)をご覧ください。
@@ -407,9 +341,18 @@ The maintenance build was locally verified against:
 
 After A.I.-assisted or manual local verification, replacement from Custom Field
 Suite 2.6.7, compatibility, and feature preservation have been confirmed on
-several sites. However, this is not a third-party security audit.
+several sites. This maintenance build has also been adjusted for the
+WordPress.org plugin directory and published through the official WordPress.org
+SVN release flow.
 
-A.I.または手動によるローカル検証後に、数サイトでの Custom Field Suite 2.6.7 からの置き換え、互換性の確認、機能維持確認を実証済み。ただし、第三者によるセキュリティ監査はおこなっていません。
+WordPress.org publication confirms that the package has been prepared for the
+plugin directory distribution flow, but it is not a substitute for an
+independent third-party security audit. For high-risk environments, separate
+security review is still recommended.
+
+A.I.または手動によるローカル検証後に、数サイトでの Custom Field Suite 2.6.7 からの置き換え、互換性の確認、機能維持確認を実証済みです。また、このメンテナンスビルド版は WordPress.org プラグインディレクトリ向けに調整し、公式の WordPress.org SVN リリースフローで公開しています。
+
+WordPress.org での公開は、プラグインディレクトリ配布フローに対応していることを示すものですが、独立した第三者によるセキュリティ監査の代替ではありません。高リスクな利用環境では、別途セキュリティレビューを行うことを推奨します。
 
 ## Attribution (帰属表示)
 
