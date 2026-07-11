@@ -8,7 +8,7 @@ and practical field improvements for existing CFS sites.
 Formal WordPress.org name: **atshift Fields (Maintenance for Custom Field Suite)**.
 Short name: **atshift Fields**.
 
-[Guides and reference](https://cfs.at-shift.net/en/)
+[Guides and reference](https://cfs.at-shift.net/en/) | 
 [WordPress.org plugin page](https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/)
 
 ## Plugin Rename
@@ -72,7 +72,7 @@ atshift Fields は、WordPress の投稿編集画面にカスタムフィール�
 WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Suite)**。
 短縮名: **atshift Fields**。
 
-[ガイド・リファレンス](https://cfs.at-shift.net/)
+[ガイド・リファレンス](https://cfs.at-shift.net/) | 
 [WordPress.org プラグインページ](https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/)
 
 ## プラグイン名称の変更
