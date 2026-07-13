@@ -49,8 +49,8 @@ Custom Field Suite data can continue to be used.
 - Post Title (Native)
 - Save / Publish (Native)
 - Post Categories (Standard / Global)
-- Post Tags
-- Featured Image
+- Post Tags (Native)
+- Featured Image (Native)
 - Horizontal Group
 - Accordion Group
 - Conditional Group
