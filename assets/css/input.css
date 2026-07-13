@@ -164,6 +164,24 @@
     box-shadow: inset 4px 0 0 #dc3232;
 }
 
+.cfs_input .field.cfs-field-invalid-visual {
+    background: #fff8f8;
+}
+
+.cfs_input .field.cfs-field-invalid-visual > label {
+    color: #8a2424;
+}
+
+.cfs_input .field.cfs-field-invalid-visual input[type="text"],
+.cfs_input .field.cfs-field-invalid-visual input[type="email"],
+.cfs_input .field.cfs-field-invalid-visual input[type="number"],
+.cfs_input .field.cfs-field-invalid-visual input[type="url"],
+.cfs_input .field.cfs-field-invalid-visual input[type="tel"],
+.cfs_input .field.cfs-field-invalid-visual textarea,
+.cfs_input .field.cfs-field-invalid-visual select {
+    border-color: #d63638;
+}
+
 #atshift-cfs-validation-error-list {
     margin: 0 0 8px 1.2em;
     font-size: 14px;
@@ -259,7 +277,6 @@
 }
 
 .cfs-accordion.cfs-has-error > .cfs-accordion-toggle:after,
-.cfs-tab.cfs-has-error:before,
 .cfs_loop_head.cfs-has-error .label:after {
     margin-left: 8px;
     color: #d63638;
@@ -909,6 +926,28 @@
     font-weight: 700;
 }
 
+.cfs-tab.cfs-has-error {
+    border-color: #d63638;
+    color: #8a2424;
+}
+
+.cfs-tab-error-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: #d63638;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    vertical-align: 1px;
+}
+
 .cfs-tab.active:after {
     content: '';
     position: absolute;
@@ -1048,6 +1087,67 @@
     max-width: 150px;
     max-height: 150px;
     height: auto;
+}
+
+.cfs-post-publish-control {
+    display: grid;
+    gap: 14px;
+    max-width: 620px;
+}
+
+.cfs-post-publish-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 160px) minmax(0, 1fr);
+    gap: 12px;
+    align-items: center;
+}
+
+.cfs-post-publish-row > label {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.cfs_input .field .cfs-post-publish-row input[type="text"],
+.cfs_input .field .cfs-post-publish-row input[type="datetime-local"],
+.cfs_input .field .cfs-post-publish-row select {
+    width: 100%;
+}
+
+.cfs-post-publish-visibility .post_publish_password {
+    margin-top: 8px;
+}
+
+.cfs-post-publish-date-control {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.cfs_input .field .cfs-post-publish-date-control input[type="datetime-local"] {
+    flex: 1 1 220px;
+    width: auto;
+}
+
+.cfs-post-publish-date-control .button {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 782px) {
+    .cfs-post-publish-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .cfs-post-publish-date-control {
+        align-items: stretch;
+    }
+
+    .cfs_input .field .cfs-post-publish-date-control input[type="datetime-local"],
+    .cfs-post-publish-date-control .button {
+        width: 100%;
+    }
 }
 
 /*---------------------------------------------------------------------------------------------

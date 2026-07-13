@@ -543,7 +543,7 @@ class Atshift_CFS_form
         return in_array( $field_type, [
             'text', 'textarea', 'wysiwyg', 'phone', 'email', 'url', 'number',
             'radio', 'date', 'file', 'color', 'true_false', 'wp_tag',
-            'featured_image', 'gallery', 'conditional',
+            'post_title', 'featured_image', 'gallery', 'conditional',
         ], true );
     }
 

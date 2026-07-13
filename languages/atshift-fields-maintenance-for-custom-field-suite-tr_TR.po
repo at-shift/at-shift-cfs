@@ -475,8 +475,8 @@ msgstr "Her şeyi sil"
 #  msgstr "Yazı İçeriği"
 #  msgid "Post Title"
 #  msgstr "Yazı Başlığı"
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "İçerik düzenleyiciyi gizle (Gutenberg / blok düzenleyici içerik alanı için geçerli değildir)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "İçerik düzenleyiciyi gizle (eşleşen yazılarda Gutenberg / blok düzenleyiciyi de gizler)"
 
 msgid "Checkbox"
 msgstr "Onay kutusu"
@@ -891,3 +891,94 @@ msgstr "Onay kutusu etiketi"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "Düzenleme ekranında onay kutusunun yanında gösterilir."
+
+msgid "Post Title (Native)"
+msgstr "Yazı başlığı (yerel)"
+
+msgid "You do not have permission to change the native title."
+msgstr "Yerel başlığı değiştirme izniniz yok."
+
+msgid "Allowed User Role Groups"
+msgstr "İzin verilen kullanıcı rol grupları"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "Yerel başlığı değiştirebilecek rolleri seçin. Yazıyı düzenleyebilen herhangi bir kullanıcı rolüne izin vermek için boş bırakın."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "Bu yazıyı düzenleyebilen herhangi bir role izin vermek için boş bırakın"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "Kaydet / Yayımla (Yerel)"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "Kaydetme / yayımlama ayarlarını değiştirme izniniz yok."
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "Durum"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "Görünürlük"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "Herkese açık"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "Parola korumalı"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "Özel"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "Parola"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "Yayın tarihi"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "Geçerli tarih ve saati kullan"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "Kaydetme / yayımlama ayarları"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "Bu alanda hangi yerel WordPress kaydetme ve yayımlama kontrollerinin gösterileceğini seçin."
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "Durum değişikliklerine izin ver"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "Görünürlük değişikliklerine izin ver"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "Yayın tarihi değişikliklerine izin ver"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "Taslak"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "İnceleme bekliyor"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "Yayımlandı"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "Zamanlandı"

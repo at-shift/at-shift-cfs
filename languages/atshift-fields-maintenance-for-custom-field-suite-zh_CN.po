@@ -458,8 +458,8 @@ msgstr "删除一切"
 #  msgstr "Your Gravity Form and CFS field labels must match exactly"
 #  msgid "Learn more"
 #  msgstr "了解更多"
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "隐藏内容编辑器（不适用于 Gutenberg / 区块编辑器的内容区域）"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "隐藏内容编辑器（也会在匹配的文章中隐藏 Gutenberg / 区块编辑器）"
 
 msgid "Checkbox"
 msgstr "复选框"
@@ -874,3 +874,94 @@ msgstr "复选框标签"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "显示在编辑画面的复选框旁边。"
+
+msgid "Post Title (Native)"
+msgstr "文章标题（原生）"
+
+msgid "You do not have permission to change the native title."
+msgstr "您没有权限更改原生标题。"
+
+msgid "Allowed User Role Groups"
+msgstr "允许的用户角色组"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "选择可以更改原生标题的角色。留空则允许任何可以编辑该文章的用户角色。"
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "留空则允许任何可以编辑这篇文章的角色"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "保存 / 发布（原生）"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "您无权更改保存 / 发布设置。"
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "状态"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "可见性"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "公开"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "密码保护"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "私密"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "密码"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "发布日期"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "设为当前日期和时间"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "保存 / 发布设置"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "选择在此字段中显示哪些 WordPress 原生保存和发布控件。"
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "允许更改状态"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "允许更改可见性"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "允许更改发布日期"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "草稿"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "待审核"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "已发布"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "已计划"

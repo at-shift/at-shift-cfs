@@ -529,8 +529,8 @@ msgstr "Usuń wszystko"
 #  msgstr "Wspomóż"
 #  msgid "Attach File"
 #  msgstr "Załącz plik"
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "Ukryj edytor treści (nie dotyczy obszaru treści Gutenberga / edytora blokowego)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "Ukryj edytor treści (ukrywa także Gutenberga / edytor blokowy dla pasujących wpisów)"
 
 msgid "Checkbox"
 msgstr "Pole wyboru"
@@ -945,3 +945,94 @@ msgstr "Etykieta pola wyboru"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "Wyświetlana obok pola wyboru na ekranie edycji."
+
+msgid "Post Title (Native)"
+msgstr "Tytuł wpisu (natywny)"
+
+msgid "You do not have permission to change the native title."
+msgstr "Nie masz uprawnień do zmiany natywnego tytułu."
+
+msgid "Allowed User Role Groups"
+msgstr "Dozwolone grupy ról użytkowników"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "Wybierz role, które mogą zmieniać natywny tytuł. Pozostaw puste, aby zezwolić każdej roli użytkownika, która może edytować wpis."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "Pozostaw puste, aby zezwolić każdej roli, która może edytować ten wpis"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "Zapisz / Opublikuj (natywne)"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "Nie masz uprawnień do zmiany ustawień zapisu / publikacji."
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "Status"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "Widoczność"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "Publiczne"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "Zabezpieczone hasłem"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "Prywatne"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "Hasło"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "Data publikacji"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "Ustaw bieżącą datę i godzinę"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "Ustawienia zapisu / publikacji"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "Wybierz, które natywne kontrolki WordPressa zapisu i publikacji mają być wyświetlane w tym polu."
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "Zezwól na zmianę statusu"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "Zezwól na zmianę widoczności"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "Zezwól na zmianę daty publikacji"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "Szkic"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "Oczekuje na przegląd"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "Opublikowane"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "Zaplanowane"

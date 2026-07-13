@@ -460,8 +460,8 @@ msgstr "Eliminar tot"
 #  "Gravity Form i etiquetes de camps de CFS han de coincidir exactament"
 #  msgid "Learn more"
 #  msgstr "Saber més"
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "Amaga l'editor de contingut (no s'aplica a l'àrea de contingut de Gutenberg / editor de blocs)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "Amaga l'editor de contingut (també amaga Gutenberg / l'editor de blocs per a les entrades coincidents)"
 
 msgid "Checkbox"
 msgstr "Casella de selecció"
@@ -876,3 +876,94 @@ msgstr "Etiqueta de la casella"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "Es mostra al costat de la casella de selecció a la pantalla d’edició."
+
+msgid "Post Title (Native)"
+msgstr "Títol de l'entrada (natiu)"
+
+msgid "You do not have permission to change the native title."
+msgstr "No tens permís per canviar el títol natiu."
+
+msgid "Allowed User Role Groups"
+msgstr "Grups de rols d'usuari permesos"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "Selecciona els rols que poden canviar el títol natiu. Deixa-ho en blanc per permetre qualsevol rol d'usuari que pugui editar l'entrada."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "Deixa-ho en blanc per permetre qualsevol rol que pugui editar aquesta entrada"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "Desa / Publica (natiu)"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "No teniu permís per canviar la configuració de desar / publicar."
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "Estat"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "Visibilitat"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "Públic"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "Protegit amb contrasenya"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "Privat"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "Contrasenya"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "Data de publicació"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "Estableix la data i hora actuals"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "Configuració de desar / publicar"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "Trieu quins controls natius de WordPress per desar i publicar es mostren en aquest camp."
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "Permet canvis d’estat"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "Permet canvis de visibilitat"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "Permet canvis de data de publicació"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "Esborrany"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "Pendent de revisió"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "Publicat"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "Programat"

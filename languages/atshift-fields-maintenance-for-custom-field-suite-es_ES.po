@@ -578,8 +578,8 @@ msgstr "Eliminar todo"
 #  @ cfs
 #  msgid "Debug information"
 #  msgstr "Información de depuración"
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "Ocultar el editor de contenido (no se aplica al área de contenido de Gutenberg / editor de bloques)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "Ocultar el editor de contenido (también oculta Gutenberg / el editor de bloques en las entradas coincidentes)"
 
 msgid "Checkbox"
 msgstr "Casilla de verificación"
@@ -994,3 +994,94 @@ msgstr "Etiqueta de la casilla"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "Se muestra junto a la casilla de verificación en la pantalla de edición."
+
+msgid "Post Title (Native)"
+msgstr "Título de la entrada (nativo)"
+
+msgid "You do not have permission to change the native title."
+msgstr "No tienes permiso para cambiar el título nativo."
+
+msgid "Allowed User Role Groups"
+msgstr "Grupos de roles de usuario permitidos"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "Selecciona los roles que pueden cambiar el título nativo. Déjalo en blanco para permitir cualquier rol de usuario que pueda editar la entrada."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "Déjalo en blanco para permitir cualquier rol que pueda editar esta entrada"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "Guardar / Publicar (nativo)"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "No tienes permisos para cambiar los ajustes de guardado / publicación."
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "Estado"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "Público"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "Protegido con contraseña"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "Privado"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "Contraseña"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "Fecha de publicación"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "Usar fecha y hora actuales"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "Ajustes de guardar / publicar"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "Elige qué controles nativos de WordPress para guardar y publicar se muestran en este campo."
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "Permitir cambios de estado"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "Permitir cambios de visibilidad"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "Permitir cambios de fecha de publicación"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "Borrador"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "Pendiente de revisión"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "Publicado"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "Programado"

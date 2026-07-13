@@ -458,8 +458,8 @@ msgstr "Verwijder alles"
 #  msgstr "Uw Gravity Forms en CFS veldlabels moeten precies overeenkomen"
 #  msgid "Learn more"
 #  msgstr "Lees er meer over"
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "Verberg de inhoudseditor (geldt niet voor het inhoudsgebied van Gutenberg / blok-editor)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "Verberg de inhoudseditor (verbergt ook Gutenberg / de blok-editor voor overeenkomende berichten)"
 
 msgid "Checkbox"
 msgstr "Selectievakje"
@@ -874,3 +874,94 @@ msgstr "Label van selectievakje"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "Wordt op het bewerkingsscherm naast het selectievakje weergegeven."
+
+msgid "Post Title (Native)"
+msgstr "Berichttitel (native)"
+
+msgid "You do not have permission to change the native title."
+msgstr "Je hebt geen toestemming om de native titel te wijzigen."
+
+msgid "Allowed User Role Groups"
+msgstr "Toegestane gebruikersrolgroepen"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "Selecteer de rollen die de native titel mogen wijzigen. Laat leeg om elke gebruikersrol toe te staan die het bericht kan bewerken."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "Laat leeg om elke rol toe te staan die dit bericht kan bewerken"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "Opslaan / Publiceren (native)"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "Je hebt geen toestemming om instellingen voor opslaan / publiceren te wijzigen."
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "Status"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "Zichtbaarheid"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "Openbaar"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "Beveiligd met wachtwoord"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "Privé"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "Publicatiedatum"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "Huidige datum en tijd gebruiken"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "Instellingen voor opslaan / publiceren"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "Kies welke native WordPress-bediening voor opslaan en publiceren in dit veld wordt getoond."
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "Statuswijzigingen toestaan"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "Wijzigingen in zichtbaarheid toestaan"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "Wijzigingen in publicatiedatum toestaan"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "Concept"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "Wacht op beoordeling"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "Gepubliceerd"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "Gepland"

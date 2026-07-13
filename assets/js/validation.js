@@ -236,7 +236,7 @@
                 var validator = obj.rule.split('|')[0];
 
                 $this.find('> .error').hide();
-                $this.removeClass('cfs-field-invalid');
+                $this.removeClass('cfs-field-invalid cfs-field-invalid-visual');
                 $this.removeAttr('data-validation-message');
 
                 if ($this.closest('.cfs-conditional-branch[hidden]').length) {
@@ -253,15 +253,15 @@
                 var is_required = 0 === validator.indexOf('required') || 'required' == validator;
                 var is_empty = '' == $.trim(null == val ? '' : val);
 
-                if (is_empty && !is_required) {
+                if (is_empty && !is_required && 'limit' != validator) {
                     $this.find('> .error').hide();
-                    $this.removeClass('cfs-field-invalid');
+                    $this.removeClass('cfs-field-invalid cfs-field-invalid-visual');
                     return;
                 }
 
                 if (is_empty && is_required && !options.show_empty_required) {
                     $this.find('> .error').hide();
-                    $this.removeClass('cfs-field-invalid');
+                    $this.removeClass('cfs-field-invalid cfs-field-invalid-visual');
                     return;
                 }
 
@@ -306,6 +306,8 @@
                 }
             });
 
+            CFS.refresh_validation_field_visuals();
+
             return is_valid;
         };
 
@@ -333,6 +335,11 @@
                     label = $.trim($row.text()) + ' / ' + label;
                 }
 
+                var tabLabels = CFS.get_field_tab_labels($field);
+                if (tabLabels.length) {
+                    label = tabLabels.join(' / ') + ' / ' + (label || fieldName);
+                }
+
                 $('<li></li>').append(
                     $('<a></a>')
                         .attr('href', '#' + fieldId)
@@ -342,6 +349,8 @@
             });
 
             CFS.refresh_validation_containers();
+            CFS.refresh_validation_field_visuals();
+            CFS.ensure_validation_notice_visible();
 
             if (CFS.validation_notice_active && 0 < errorCount) {
                 $notice.show();
@@ -351,28 +360,115 @@
             }
         };
 
+        CFS.ensure_validation_notice_visible = function() {
+            var $notice = $('#atshift-cfs-validation-admin-notice');
+
+            if (!$notice.length) {
+                return;
+            }
+
+            var $targetBox = $('.cfs_input .field.cfs-field-invalid').first().closest('.cfs_input');
+
+            if (!$targetBox.length) {
+                $targetBox = $('.cfs_input').first();
+            }
+
+            var $target = $targetBox.children('.inside').first();
+
+            if (!$target.length) {
+                $target = $targetBox;
+            }
+
+            if ($target.length && !$notice.parent().is($target)) {
+                $notice.prependTo($target);
+            }
+        };
+
+        CFS.refresh_validation_field_visuals = function() {
+            $('.cfs_input .field')
+                .removeClass('cfs-field-invalid-visual');
+
+            $('.cfs_input .field.cfs-field-invalid').each(function() {
+                var $field = $(this);
+                var $error = $field.children('.error').first();
+
+                if (!$error.length || !$.trim($error.text()) || !$error.is(':visible')) {
+                    $field.addClass('cfs-field-invalid-visual');
+                }
+            });
+        };
+
+        CFS.get_tab_key = function($content) {
+            var tabName = $content.attr('data-tab-key') || null;
+
+            if (!tabName) {
+                $.each(($content.attr('class') || '').split(/\s+/), function(index, className) {
+                    if (0 === className.indexOf('cfs-tab-content-')) {
+                        tabName = className.substring('cfs-tab-content-'.length);
+                        return false;
+                    }
+                });
+            }
+
+            return tabName;
+        };
+
+        CFS.get_tab_for_content = function($content) {
+            var tabName = CFS.get_tab_key($content);
+
+            if (!tabName) {
+                return $();
+            }
+
+            return $content.parent().children('.cfs-tabs').children('.cfs-tab').filter(function() {
+                return ($(this).attr('data-tab-key') || $(this).attr('rel')) === tabName;
+            });
+        };
+
+        CFS.get_tab_label = function($tab) {
+            return $.trim($tab.clone().children().remove().end().text());
+        };
+
+        CFS.get_field_tab_labels = function($field) {
+            var labels = [];
+
+            $($field.parents('.cfs-tab-content').get().reverse()).each(function() {
+                var tabLabel = CFS.get_tab_label(CFS.get_tab_for_content($(this)));
+
+                if (tabLabel) {
+                    labels.push(tabLabel);
+                }
+            });
+
+            return labels;
+        };
+
         CFS.refresh_validation_containers = function() {
             $('.cfs-accordion').each(function() {
                 $(this).toggleClass('cfs-has-error', 0 < $(this).find('.field.cfs-field-invalid').length);
             });
 
+            $('.cfs-tab.cfs-has-error')
+                .removeClass('cfs-has-error')
+                .removeAttr('data-error-count')
+                .children('.cfs-tab-error-count')
+                .remove();
+
             $('.cfs-tab-content').each(function() {
                 var $content = $(this);
-                var tabName = $content.attr('data-tab-key') || null;
+                var errorCount = $content.find('.field.cfs-field-invalid').length;
+                var $tab = CFS.get_tab_for_content($content);
 
-                if (!tabName) {
-                    $.each(($content.attr('class') || '').split(/\s+/), function(index, className) {
-                        if (0 === className.indexOf('cfs-tab-content-')) {
-                            tabName = className.substring('cfs-tab-content-'.length);
-                            return false;
-                        }
-                    });
-                }
-
-                if (tabName) {
-                    $content.parent().children('.cfs-tabs').children('.cfs-tab').filter(function() {
-                        return ($(this).attr('data-tab-key') || $(this).attr('rel')) === tabName;
-                    }).toggleClass('cfs-has-error', 0 < $content.find('.field.cfs-field-invalid').length);
+                if ($tab.length && 0 < errorCount) {
+                    $tab
+                        .addClass('cfs-has-error')
+                        .attr('data-error-count', errorCount)
+                        .append(
+                            $('<span></span>')
+                                .addClass('cfs-tab-error-count')
+                                .attr('aria-hidden', 'true')
+                                .text(errorCount)
+                        );
                 }
             });
 
@@ -393,22 +489,7 @@
 
             $($field.parents('.cfs-tab-content').get().reverse()).each(function() {
                 var $content = $(this);
-                var tabName = $content.attr('data-tab-key') || null;
-
-                if (!tabName) {
-                    $.each(($content.attr('class') || '').split(/\s+/), function(index, className) {
-                        if (0 === className.indexOf('cfs-tab-content-')) {
-                            tabName = className.substring('cfs-tab-content-'.length);
-                            return false;
-                        }
-                    });
-                }
-
-                if (tabName) {
-                    $content.parent().children('.cfs-tabs').children('.cfs-tab').filter(function() {
-                        return ($(this).attr('data-tab-key') || $(this).attr('rel')) === tabName;
-                    }).trigger('click');
-                }
+                CFS.get_tab_for_content($content).trigger('click');
             });
 
             window.setTimeout(function() {
@@ -456,6 +537,12 @@
             CFS.render_validation_notice();
         });
 
+        $(document).on('click', '.cfs_input .cfs-tab', function() {
+            window.setTimeout(function() {
+                CFS.refresh_validation_field_visuals();
+            }, 0);
+        });
+
         $(document).on('click', '#atshift-cfs-validation-error-list a', function(event) {
             var targetId = ($(this).attr('href') || '').substring(1);
             var $field = $('#' + targetId);
@@ -482,6 +569,24 @@
                 }
             }
         });
+
+        document.addEventListener('click', function(event) {
+            var target = event.target && event.target.closest ?
+                event.target.closest('.editor-post-save-draft, .editor-post-publish-button__button') :
+                null;
+
+            if (!target) {
+                return;
+            }
+
+            var passthru = CFS.validate_all_fields();
+
+            if (!passthru) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return false;
+            }
+        }, true);
 
         if (CFS.server_validation_errors) {
             CFS.validation_notice_active = true;

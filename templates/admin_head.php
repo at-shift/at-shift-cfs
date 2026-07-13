@@ -134,7 +134,7 @@ else {
 
         $native_fields = empty( $native_field_group_ids ) ? [] : atshift_fields_maintenance_for_custom_field_suite()->api->find_input_fields( [
             'group_id' => $native_field_group_ids,
-            'field_type' => [ 'wp_category', 'wp_tag', 'featured_image' ],
+            'field_type' => [ 'post_title', 'wp_category', 'wp_tag', 'featured_image' ],
         ] );
         $hide_native = [];
         $native_panel_rules = [];
@@ -193,6 +193,9 @@ else {
             elseif ( 'featured_image' === $native_field['type'] ) {
                 $add_native_panel_rule( 'featured_image', '#postimagediv' );
             }
+            elseif ( 'post_title' === $native_field['type'] ) {
+                $add_native_panel_rule( 'post_title', '#titlediv' );
+            }
         }
         $native_panel_rules = array_values( $native_panel_rules );
 
@@ -246,7 +249,11 @@ else {
                 $hide_editor = true;
             }
 
-            $args = [ 'box' => 'input', 'group_id' => $group_id ];
+            $args = [
+                'box' => 'input',
+                'group_id' => $group_id,
+                '__block_editor_compatible_meta_box' => true,
+            ];
             add_meta_box( "cfs_input_$group_id", $title, [ $this, 'meta_box' ], $post->post_type, $context, $priority, $args );
             add_filter( "postbox_classes_{$post->post_type}_cfs_input_{$group_id}", 'atshift_cfs_postbox_classes' );
         }
@@ -331,7 +338,9 @@ else {
     }
 }
 
-function atshift_cfs_postbox_classes( $classes ) {
-    $classes[] = 'cfs_input';
-    return $classes;
+if ( ! function_exists( 'atshift_cfs_postbox_classes' ) ) {
+    function atshift_cfs_postbox_classes( $classes ) {
+        $classes[] = 'cfs_input';
+        return $classes;
+    }
 }

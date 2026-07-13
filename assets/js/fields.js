@@ -26,6 +26,25 @@
             });
         }
 
+        function init_select2_controls($context) {
+            if ('function' != typeof $.fn.select2) {
+                return;
+            }
+
+            $context.find('.cfs-post-title-role-select').each(function() {
+                var $select = $(this);
+
+                if ($select.data('select2')) {
+                    return;
+                }
+
+                $select.select2({
+                    placeholder: $select.data('placeholder') || $select.attr('data-placeholder') || '',
+                    width: '99.95%'
+                });
+            });
+        }
+
         function sync_parent_ids() {
             $('ul.fields li').each(function() {
                 var $item = $(this);
@@ -565,6 +584,7 @@
 
         zebra_stripes();
         init_tooltip();
+        init_select2_controls($(document));
         ensure_child_containers($('ul.fields'));
         init_sortables($('ul.fields, ul.fields ul'));
         sync_parent_ids();
@@ -590,6 +610,7 @@
             set_outside_tabs($new_field, false);
             CFS.field_index = CFS.field_index + 1;
             init_tooltip();
+            init_select2_controls($new_field);
             sync_parent_ids();
             update_add_field_button_labels($('ul.fields'));
             refresh_structure_markers($('ul.fields'));
@@ -621,6 +642,7 @@
             CFS.field_index = CFS.field_index + 1;
             zebra_stripes();
             init_tooltip();
+            init_select2_controls($new_field);
             ensure_child_containers($('ul.fields'));
             init_sortables($('ul.fields, ul.fields ul'));
             sync_parent_ids();
@@ -679,6 +701,7 @@
             }
 
             init_tooltip();
+            init_select2_controls($item);
             enforce_group_child_rules($item);
             sync_parent_ids();
             update_add_field_button_labels($('ul.fields'));

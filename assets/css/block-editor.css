@@ -21,3 +21,10 @@
     color: #646970;
     font-size: 13px;
 }
+
+body.atshift-cfs-hide-post-title .editor-post-title,
+body.atshift-cfs-hide-post-title .editor-post-title__block,
+body.atshift-cfs-hide-post-title .editor-visual-editor__post-title-wrapper,
+body.atshift-cfs-hide-post-title .edit-post-visual-editor__post-title-wrapper {
+    display: none !important;
+}

@@ -454,8 +454,8 @@ msgid "Display Settings"
 msgstr "表示設定"
 
 #: ../templates/meta_box_extras.php:64
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "コンテンツエディタを隠す (Gutenberg / ブロックエディタの本文入力エリアには対応していません)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "コンテンツエディタを隠す（該当する投稿では Gutenberg / ブロックエディタも隠します）"
 
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
@@ -713,6 +713,21 @@ msgstr "CFSフィールドグループを表示します。"
 
 msgid "No fields in this group."
 msgstr "このグループにフィールドはありません。"
+
+msgid "Post Title (Native)"
+msgstr "投稿タイトル（標準）"
+
+msgid "You do not have permission to change the native title."
+msgstr "投稿タイトルを変更する権限がありません。"
+
+msgid "Allowed User Role Groups"
+msgstr "投稿タイトル変更を許可するユーザー権限グループ"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "投稿タイトルを変更できるユーザー権限グループを選択します。空欄の場合は、この投稿を編集できるすべてのユーザー権限グループに許可します。"
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "この投稿を編集できるすべてのユーザー権限グループに許可する場合は空欄"
 
 msgid "Post Categories"
 msgstr "投稿カテゴリー（標準）"
@@ -1007,3 +1022,79 @@ msgstr "チェックボックスのラベル"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "編集画面でチェックボックスの横に表示されます。"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "保存・公開（標準）"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "保存・公開設定を変更する権限がありません。"
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "ステータス"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "公開状態"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "公開"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "パスワード保護"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "非公開"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "パスワード"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "公開日時"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "現在の日時にする"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "保存・公開設定"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "このフィールドに表示するWordPress標準の保存・公開操作を選択します。"
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "ステータス変更を許可"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "公開状態の変更を許可"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "公開日時の変更を許可"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "下書き"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "レビュー待ち"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "公開済み"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "予約済み"

@@ -444,8 +444,8 @@ msgstr "Ez teljesen törli az összes at-shift CFS-adatot, majd deaktiválja és
 msgid "Delete everything"
 msgstr "Minden törlése"
 
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "A tartalomszerkesztő elrejtése (nem vonatkozik a Gutenberg / blokkszerkesztő tartalmi területére)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "A tartalomszerkesztő elrejtése (az egyező bejegyzéseknél a Gutenberg / blokkszerkesztőt is elrejti)"
 
 msgid "Checkbox"
 msgstr "Jelölőnégyzet"
@@ -860,3 +860,94 @@ msgstr "Jelölőnégyzet címkéje"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "A szerkesztési képernyőn a jelölőnégyzet mellett jelenik meg."
+
+msgid "Post Title (Native)"
+msgstr "Bejegyzés címe (natív)"
+
+msgid "You do not have permission to change the native title."
+msgstr "Nincs jogosultságod a natív cím módosításához."
+
+msgid "Allowed User Role Groups"
+msgstr "Engedélyezett felhasználói szerepkörcsoportok"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "Válaszd ki azokat a szerepköröket, amelyek módosíthatják a natív címet. Hagyd üresen, hogy bármely, a bejegyzést szerkeszteni képes felhasználói szerepkör engedélyezve legyen."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "Hagyd üresen, hogy bármely szerepkör engedélyezve legyen, amely szerkesztheti ezt a bejegyzést"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "Mentés / Közzététel (natív)"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "Nincs jogosultságod a mentési / közzétételi beállítások módosításához."
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "Állapot"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "Láthatóság"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "Nyilvános"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "Jelszóval védett"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "Privát"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "Jelszó"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "Közzététel dátuma"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "Aktuális dátum és idő beállítása"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "Mentési / közzétételi beállítások"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "Válaszd ki, mely natív WordPress mentési és közzétételi vezérlők jelenjenek meg ebben a mezőben."
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "Állapot módosításának engedélyezése"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "Láthatóság módosításának engedélyezése"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "Közzétételi dátum módosításának engedélyezése"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "Vázlat"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "Ellenőrzésre vár"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "Közzétéve"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "Ütemezve"

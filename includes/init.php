@@ -27,6 +27,7 @@ class Atshift_CFS_init
         add_action( 'manage_' . ATSHIFT_CFS_FIELD_GROUP_POST_TYPE . '_posts_custom_column', [ $this, 'atshift_cfs_column_content' ], 10, 2 );
         add_action( 'enqueue_block_editor_assets',      [ $this, 'enqueue_block_editor_assets' ] );
         add_filter( 'block_categories_all',             [ $this, 'block_categories' ], 10, 2 );
+        add_filter( 'use_block_editor_for_post',        [ $this, 'maybe_disable_block_editor' ], 20, 2 );
 
         if ( version_compare( get_bloginfo( 'version' ), '5.8', '<' ) ) {
             add_filter( 'block_categories',             [ $this, 'block_categories' ], 10, 2 );
@@ -80,6 +81,43 @@ class Atshift_CFS_init
 
 
     /**
+     * Disable the block editor when a matching field group is configured to hide
+     * the content editor. The classic editor content area is hidden later by CSS.
+     */
+    function maybe_disable_block_editor( $use_block_editor, $post ) {
+        if ( ! $use_block_editor || ! ( $post instanceof WP_Post ) ) {
+            return $use_block_editor;
+        }
+
+        if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE === $post->post_type ) {
+            return $use_block_editor;
+        }
+
+        if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->api ) ) {
+            return $use_block_editor;
+        }
+
+        $matching_groups = atshift_fields_maintenance_for_custom_field_suite()->api->get_matching_groups( $post->ID );
+
+        if ( empty( $matching_groups ) ) {
+            return $use_block_editor;
+        }
+
+        $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
+
+        foreach ( array_keys( $matching_groups ) as $group_id ) {
+            $extras = isset( $field_groups[ $group_id ]['extras'] ) && is_array( $field_groups[ $group_id ]['extras'] ) ? $field_groups[ $group_id ]['extras'] : [];
+
+            if ( ! empty( $extras['hide_editor'] ) ) {
+                return false;
+            }
+        }
+
+        return $use_block_editor;
+    }
+
+
+    /**
      * Register field types
      */
     function get_field_types() {
@@ -104,6 +142,8 @@ class Atshift_CFS_init
             'gallery'       => ATSHIFT_CFS_DIR . '/includes/fields/gallery.php',
             'color'         => ATSHIFT_CFS_DIR . '/includes/fields/color/color.php',
             'code_view'     => ATSHIFT_CFS_DIR . '/includes/fields/code_view.php',
+            'post_title'    => ATSHIFT_CFS_DIR . '/includes/fields/post_title.php',
+            'post_publish'  => ATSHIFT_CFS_DIR . '/includes/fields/post_publish.php',
             'wp_category'   => ATSHIFT_CFS_DIR . '/includes/fields/wp_category.php',
             'wp_tag'        => ATSHIFT_CFS_DIR . '/includes/fields/wp_tag.php',
             'featured_image' => ATSHIFT_CFS_DIR . '/includes/fields/featured_image.php',
@@ -265,6 +305,9 @@ class Atshift_CFS_init
                 }
                 elseif ( 'featured_image' === $field['type'] ) {
                     $hide_panels[] = 'featured-image';
+                }
+                elseif ( 'post_title' === $field['type'] ) {
+                    $hide_panels[] = 'post-title';
                 }
             }
 
@@ -467,9 +510,13 @@ class Atshift_CFS_init
      * add_meta_boxes
      */
     function add_meta_boxes() {
-        add_meta_box( 'cfs_fields', __('Fields', 'atshift-fields-maintenance-for-custom-field-suite' ), [ $this, 'meta_box' ], ATSHIFT_CFS_FIELD_GROUP_POST_TYPE, 'normal', 'high', [ 'box' => 'fields' ] );
-        add_meta_box( 'cfs_rules', __('Placement Rules', 'atshift-fields-maintenance-for-custom-field-suite' ), [ $this, 'meta_box' ], ATSHIFT_CFS_FIELD_GROUP_POST_TYPE, 'normal', 'high', [ 'box' => 'rules' ] );
-        add_meta_box( 'cfs_extras', __('Extras', 'atshift-fields-maintenance-for-custom-field-suite' ), [ $this, 'meta_box' ], ATSHIFT_CFS_FIELD_GROUP_POST_TYPE, 'normal', 'high', [ 'box' => 'extras' ] );
+        $meta_box_args = [
+            '__block_editor_compatible_meta_box' => true,
+        ];
+
+        add_meta_box( 'cfs_fields', __('Fields', 'atshift-fields-maintenance-for-custom-field-suite' ), [ $this, 'meta_box' ], ATSHIFT_CFS_FIELD_GROUP_POST_TYPE, 'normal', 'high', array_merge( $meta_box_args, [ 'box' => 'fields' ] ) );
+        add_meta_box( 'cfs_rules', __('Placement Rules', 'atshift-fields-maintenance-for-custom-field-suite' ), [ $this, 'meta_box' ], ATSHIFT_CFS_FIELD_GROUP_POST_TYPE, 'normal', 'high', array_merge( $meta_box_args, [ 'box' => 'rules' ] ) );
+        add_meta_box( 'cfs_extras', __('Extras', 'atshift-fields-maintenance-for-custom-field-suite' ), [ $this, 'meta_box' ], ATSHIFT_CFS_FIELD_GROUP_POST_TYPE, 'normal', 'high', array_merge( $meta_box_args, [ 'box' => 'extras' ] ) );
     }
 
 

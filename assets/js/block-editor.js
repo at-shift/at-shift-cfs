@@ -41,9 +41,23 @@
         });
     });
 
-    if (config.hidePanels && config.hidePanels.length && window.wp.data && window.wp.domReady) {
+    if (config.hidePanels && config.hidePanels.length && window.wp.domReady) {
         window.wp.domReady(function () {
-            var editor = window.wp.data.dispatch('core/editor');
+            var hidePostTitle = config.hidePanels.indexOf('post-title') !== -1;
+            var panelNames = config.hidePanels.filter(function (panelName) {
+                return 'post-title' !== panelName;
+            });
+            var editor;
+
+            if (hidePostTitle) {
+                document.body.classList.add('atshift-cfs-hide-post-title');
+            }
+
+            if (!panelNames.length || !window.wp.data) {
+                return;
+            }
+
+            editor = window.wp.data.dispatch('core/editor');
 
             if (!editor || 'function' !== typeof editor.removeEditorPanel) {
                 editor = window.wp.data.dispatch('core/edit-post');
@@ -53,7 +67,7 @@
                 return;
             }
 
-            config.hidePanels.forEach(function (panelName) {
+            panelNames.forEach(function (panelName) {
                 editor.removeEditorPanel(panelName);
             });
         });

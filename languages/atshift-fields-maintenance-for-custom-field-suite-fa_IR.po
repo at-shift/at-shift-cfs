@@ -490,8 +490,8 @@ msgstr "حذف و غیرفعال سازی"
 #  msgstr "عنوان نوشته"
 #  msgid "Attach file"
 #  msgstr "پیوست فایل"
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "پنهان کردن ویرایشگر محتوا (برای ناحیه محتوای گوتنبرگ / ویرایشگر بلوک اعمال نمی‌شود)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "پنهان کردن ویرایشگر محتوا (برای نوشته‌های منطبق، Gutenberg / ویرایشگر بلوک را نیز پنهان می‌کند)"
 
 msgid "Checkbox"
 msgstr "چک‌باکس"
@@ -906,3 +906,94 @@ msgstr "برچسب چک‌باکس"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "در صفحه ویرایش کنار چک‌باکس نمایش داده می‌شود."
+
+msgid "Post Title (Native)"
+msgstr "عنوان نوشته (بومی)"
+
+msgid "You do not have permission to change the native title."
+msgstr "شما مجوز تغییر عنوان بومی را ندارید."
+
+msgid "Allowed User Role Groups"
+msgstr "گروه‌های نقش کاربری مجاز"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "نقش‌هایی را انتخاب کنید که می‌توانند عنوان بومی را تغییر دهند. برای اجازه دادن به هر نقش کاربری که می‌تواند نوشته را ویرایش کند، خالی بگذارید."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "برای اجازه دادن به هر نقشی که می‌تواند این نوشته را ویرایش کند، خالی بگذارید"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "ذخیره / انتشار (بومی)"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "شما مجوز تغییر تنظیمات ذخیره / انتشار را ندارید."
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "وضعیت"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "نمایانی"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "عمومی"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "محافظت‌شده با رمز عبور"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "خصوصی"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "رمز عبور"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "تاریخ انتشار"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "تنظیم به تاریخ و زمان فعلی"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "تنظیمات ذخیره / انتشار"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "انتخاب کنید کدام کنترل‌های بومی وردپرس برای ذخیره و انتشار در این فیلد نمایش داده شوند."
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "اجازه تغییر وضعیت"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "اجازه تغییر نمایانی"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "اجازه تغییر تاریخ انتشار"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "پیش‌نویس"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "در انتظار بازبینی"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "منتشر شده"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "زمان‌بندی شده"

@@ -482,8 +482,8 @@ msgstr "Удалить все"
 #  msgstr "Фоурм"
 #  msgid "Write a review"
 #  msgstr "Написать отзыв"
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
-msgstr "Скрыть редактор содержимого (не применяется к области содержимого Gutenberg / редактора блоков)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "Скрыть редактор содержимого (также скрывает Gutenberg / редактор блоков для совпадающих записей)"
 
 msgid "Checkbox"
 msgstr "Флажок"
@@ -898,3 +898,94 @@ msgstr "Подпись флажка"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "Отображается рядом с флажком на экране редактирования."
+
+msgid "Post Title (Native)"
+msgstr "Заголовок записи (нативный)"
+
+msgid "You do not have permission to change the native title."
+msgstr "У вас нет прав для изменения нативного заголовка."
+
+msgid "Allowed User Role Groups"
+msgstr "Разрешенные группы ролей пользователей"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "Выберите роли, которым разрешено изменять нативный заголовок. Оставьте пустым, чтобы разрешить любой роли пользователя, которая может редактировать запись."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "Оставьте пустым, чтобы разрешить любой роли, которая может редактировать эту запись"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "Сохранение / публикация (встроенное)"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "У вас нет прав на изменение настроек сохранения / публикации."
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "Статус"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "Видимость"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "Публично"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "Защищено паролем"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "Личное"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "Пароль"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "Дата публикации"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "Установить текущие дату и время"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "Настройки сохранения / публикации"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "Выберите, какие встроенные элементы WordPress для сохранения и публикации показывать в этом поле."
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "Разрешить изменение статуса"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "Разрешить изменение видимости"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "Разрешить изменение даты публикации"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "Черновик"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "На утверждении"
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr "Опубликовано"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "Запланировано"

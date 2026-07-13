@@ -42,7 +42,7 @@ class Atshift_CFS_select extends Atshift_CFS_field
         $show_placeholder = '' === $multiple && empty( $field->options['force_single'] ) && ! $has_empty_choice;
     ?>
         <?php $this->input_suffix_open( $field ); ?>
-        <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php if ( $multiple ) : ?> multiple="multiple"<?php endif; ?>>
+        <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php if ( $multiple ) : ?> multiple="multiple"<?php endif; ?><?php if ( ! empty( $field->options['placeholder'] ) ) : ?> data-placeholder="<?php echo esc_attr( $field->options['placeholder'] ); ?>"<?php endif; ?>>
         <?php if ( $show_placeholder ) : ?>
             <option value=""<?php selected( in_array( '', $selected_values, true ) ); ?>><?php esc_html_e( 'Please select...', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
         <?php endif; ?>

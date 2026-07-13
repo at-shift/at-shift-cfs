@@ -65,7 +65,7 @@ if ( ! isset( $extras['context'] ) ) {
                         'input_name'    => "cfs[extras][hide_editor]",
                         'input_class'   => 'true_false',
                         'value'         => $extras['hide_editor'],
-                        'options'       => [ 'message' => __( 'Hide the content editor (does not apply to the Gutenberg / block editor content area)', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                        'options'       => [ 'message' => __( 'Hide the content editor (also hides the Gutenberg / block editor for matching posts)', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </div>

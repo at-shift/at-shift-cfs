@@ -453,7 +453,7 @@ msgid "Display Settings"
 msgstr ""
 
 #: ../templates/meta_box_extras.php:64
-msgid "Hide the content editor (does not apply to the Gutenberg / block editor content area)"
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
 msgstr ""
 
 #: ../templates/meta_box_fields.php:60
@@ -711,6 +711,21 @@ msgid "Displays a CFS field group."
 msgstr ""
 
 msgid "No fields in this group."
+msgstr ""
+
+msgid "Post Title (Native)"
+msgstr ""
+
+msgid "You do not have permission to change the native title."
+msgstr ""
+
+msgid "Allowed User Role Groups"
+msgstr ""
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr ""
+
+msgid "Leave blank to allow any role that can edit this post"
 msgstr ""
 
 msgid "Post Categories"
@@ -1002,4 +1017,80 @@ msgstr ""
 
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Published"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
 msgstr ""
