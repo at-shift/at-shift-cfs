@@ -111,11 +111,11 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 - コード
 - チェックボックス
 - ラジオボタン
-- 投稿タイトル（標準）
-- 保存・公開（標準）
+- 投稿タイトル（WordPress 標準）
+- 保存・公開（WordPress 標準）
 - 投稿カテゴリー (標準 / グローバル)
-- 投稿タグ・WordPress 標準
-- アイキャッチ画像・WordPress 標準
+- 投稿タグ（WordPress 標準）
+- アイキャッチ画像（WordPress 標準）
 - 横並びグループ
 - アコーディオン・開閉グループ
 - 条件分岐グループ
