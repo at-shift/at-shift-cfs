@@ -16,11 +16,11 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
     function html( $field ) {
         global $post;
 
-        $post_title = $post instanceof WP_Post ? $post->post_title : '';
+        $post_title = $post instanceof WP_Post ? $this->get_display_title( $post ) : '';
         $post_id = $post instanceof WP_Post ? $post->ID : 0;
         $can_edit_title = $this->current_user_can_edit_title( $post_id, $field );
 
-        if ( isset( $field->value ) && '' !== $field->value ) {
+        if ( isset( $field->value ) && '' !== $field->value && 'Auto Draft' !== $field->value ) {
             $post_title = $field->value;
         }
     ?>
@@ -133,6 +133,19 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
 
         $user = wp_get_current_user();
         return $user instanceof WP_User && ! empty( array_intersect( $allowed_roles, (array) $user->roles ) );
+    }
+
+
+    protected function get_display_title( $post ) {
+        if ( ! ( $post instanceof WP_Post ) ) {
+            return '';
+        }
+
+        if ( 'auto-draft' === $post->post_status || 'Auto Draft' === $post->post_title ) {
+            return '';
+        }
+
+        return (string) $post->post_title;
     }
 
 

@@ -287,6 +287,11 @@ class Atshift_CFS_init
 
             $group = $field_groups[ $group_id ];
             $fields = isset( $group['fields'] ) && is_array( $group['fields'] ) ? $group['fields'] : [];
+            $extras = isset( $group['extras'] ) && is_array( $group['extras'] ) ? $group['extras'] : [];
+
+            if ( ! empty( $extras['hide_page_attributes'] ) ) {
+                $hide_panels[] = 'page-attributes';
+            }
 
             foreach ( $fields as $field ) {
                 if ( ! isset( $field['type'] ) ) {
@@ -308,6 +313,9 @@ class Atshift_CFS_init
                 }
                 elseif ( 'post_title' === $field['type'] ) {
                     $hide_panels[] = 'post-title';
+                }
+                elseif ( 'post_publish' === $field['type'] ) {
+                    $hide_panels[] = 'post-status';
                 }
             }
 

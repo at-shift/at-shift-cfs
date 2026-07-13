@@ -294,6 +294,19 @@
             $input.trigger('focus');
         }
 
+        function restore_admin_submit_state() {
+            var $publish_button = $('#publish');
+
+            $publish_button
+                .prop('disabled', false)
+                .removeClass('disabled button-primary-disabled')
+                .attr('aria-disabled', 'false');
+
+            $('#publishing-action .spinner, #major-publishing-actions .spinner, #submitdiv .spinner')
+                .removeClass('is-active')
+                .css('visibility', 'hidden');
+        }
+
         function maybe_outdent_dragged_item($item, event) {
             var outdented = false;
             var guard = 0;
@@ -722,11 +735,15 @@
 
             if (0 < duplicate_names.length) {
                 event.preventDefault();
+                event.stopImmediatePropagation();
+                restore_admin_submit_state();
                 window.alert(message(
                     'duplicate_field_names_alert',
                     'Duplicate field names found: %s. Field names must be unique before saving.'
                 ).replace('%s', duplicate_names.join(', ')));
                 reveal_duplicate_field_name();
+                restore_admin_submit_state();
+                setTimeout(restore_admin_submit_state, 100);
                 return false;
             }
 

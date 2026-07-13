@@ -456,6 +456,10 @@ msgstr ""
 msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
 msgstr ""
 
+#: ../templates/meta_box_extras.php:78
+msgid "Hide page attributes"
+msgstr ""
+
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr ""
@@ -1032,6 +1036,30 @@ msgid "Status"
 msgstr ""
 
 #: includes/fields/post_publish.php
+msgid "Current Status"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Change Status"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Do not change"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Change to Draft"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Change to Pending Review"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Publish / Schedule"
+msgstr ""
+
+#: includes/fields/post_publish.php
 msgid "Visibility"
 msgstr ""
 
@@ -1048,6 +1076,10 @@ msgid "Private"
 msgstr ""
 
 #: includes/fields/post_publish.php
+msgid "Autosaving"
+msgstr ""
+
+#: includes/fields/post_publish.php
 msgid "Password"
 msgstr ""
 
@@ -1057,6 +1089,26 @@ msgstr ""
 
 #: includes/fields/post_publish.php
 msgid "Set to current date and time"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Save Draft"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Update"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Submit for Review"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Publish"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Schedule"
 msgstr ""
 
 #: includes/fields/post_publish.php
@@ -1085,10 +1137,6 @@ msgstr ""
 
 #: includes/fields/post_publish.php
 msgid "Pending Review"
-msgstr ""
-
-#: includes/fields/post_publish.php
-msgid "Published"
 msgstr ""
 
 #: includes/fields/post_publish.php

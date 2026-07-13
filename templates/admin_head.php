@@ -82,6 +82,7 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
 
 else {
     $hide_editor = false;
+    $hide_page_attributes = false;
     $admin_styles = [];
     $print_admin_styles = static function( $styles ) {
         if ( empty( $styles ) ) {
@@ -118,6 +119,7 @@ else {
             'operator' => isset( $operator[0] ) && '!=' === $operator[0] ? '!=' : '==',
             'values' => $term_values,
             'hideEditor' => ! empty( $all_field_groups[ $group_id ]['extras']['hide_editor'] ),
+            'hidePageAttributes' => ! empty( $all_field_groups[ $group_id ]['extras']['hide_page_attributes'] ),
         ];
         $field_groups[ $group_id ] = $group_title;
     }
@@ -134,7 +136,7 @@ else {
 
         $native_fields = empty( $native_field_group_ids ) ? [] : atshift_fields_maintenance_for_custom_field_suite()->api->find_input_fields( [
             'group_id' => $native_field_group_ids,
-            'field_type' => [ 'post_title', 'wp_category', 'wp_tag', 'featured_image' ],
+            'field_type' => [ 'post_title', 'post_publish', 'wp_category', 'wp_tag', 'featured_image' ],
         ] );
         $hide_native = [];
         $native_panel_rules = [];
@@ -196,6 +198,9 @@ else {
             elseif ( 'post_title' === $native_field['type'] ) {
                 $add_native_panel_rule( 'post_title', '#titlediv' );
             }
+            elseif ( 'post_publish' === $native_field['type'] ) {
+                $add_native_panel_rule( 'post_publish', '#submitdiv' );
+            }
         }
         $native_panel_rules = array_values( $native_panel_rules );
 
@@ -213,7 +218,7 @@ else {
                     }
 
                     $selector = $native_panel_rule['selector'];
-                    if ( 0 === strpos( $selector, '#' ) && '#postimagediv' !== $selector ) {
+                    if ( 0 === strpos( $selector, '#' ) && ! in_array( $selector, [ '#postimagediv', '#submitdiv' ], true ) ) {
                         remove_meta_box( substr( $selector, 1 ), $post->post_type, 'side' );
                     }
                 }
@@ -247,6 +252,14 @@ else {
                 && ! isset( $term_placement_groups[ (int) $group_id ] )
             ) {
                 $hide_editor = true;
+            }
+
+            if (
+                isset( $extras['hide_page_attributes'] )
+                && 0 < (int) $extras['hide_page_attributes']
+                && ! isset( $term_placement_groups[ (int) $group_id ] )
+            ) {
+                $hide_page_attributes = true;
             }
 
             $args = [
@@ -304,6 +317,7 @@ else {
                     function refreshTermPlacementGroups() {
                         var selected = selectedTermIds();
                         var hideEditor = false;
+                        var hidePageAttributes = false;
                         $.each(groups, function(groupId, rule) {
                             var matched = rule.values.some(function(termId) {
                                 return selected.indexOf(parseInt(termId, 10)) !== -1;
@@ -315,8 +329,12 @@ else {
                             if (visible && rule.hideEditor) {
                                 hideEditor = true;
                             }
+                            if (visible && rule.hidePageAttributes) {
+                                hidePageAttributes = true;
+                            }
                         });
                         $("#postdivrich, #poststuff .postarea").toggle(!hideEditor);
+                        $("#pageparentdiv").toggle(!hidePageAttributes);
                         refreshNativePanels();
                     }
 
@@ -332,6 +350,10 @@ else {
 
         if ( ! $has_editor || $hide_editor ) {
             $admin_styles[] = '#postdivrich,#poststuff .postarea{display:none!important;}';
+        }
+
+        if ( $hide_page_attributes ) {
+            $admin_styles[] = '#pageparentdiv{display:none!important;}';
         }
 
         $print_admin_styles( $admin_styles );

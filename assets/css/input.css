@@ -225,7 +225,6 @@
 .cfs-accordion-toggle {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     padding: 10px 12px;
     border: 0;
@@ -236,6 +235,11 @@
     font-weight: 700;
     line-height: 1.45;
     text-align: left;
+}
+
+.cfs-accordion-icon {
+    flex: 0 0 auto;
+    margin-left: auto;
 }
 
 .cfs-accordion-toggle:hover,
@@ -1108,6 +1112,16 @@
     line-height: 1.45;
 }
 
+.cfs-post-publish-status .post_publish_status_preview {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    color: #2c3338;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
 .cfs_input .field .cfs-post-publish-row input[type="text"],
 .cfs_input .field .cfs-post-publish-row input[type="datetime-local"],
 .cfs_input .field .cfs-post-publish-row select {
@@ -1134,6 +1148,21 @@
     flex: 0 0 auto;
 }
 
+.cfs-post-publish-actions {
+    margin-top: 2px;
+}
+
+.cfs-post-publish-action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.cfs-post-publish-actions .button-primary {
+    min-width: 120px;
+}
+
 @media (max-width: 782px) {
     .cfs-post-publish-row {
         grid-template-columns: 1fr;
@@ -1146,6 +1175,18 @@
 
     .cfs_input .field .cfs-post-publish-date-control input[type="datetime-local"],
     .cfs-post-publish-date-control .button {
+        width: 100%;
+    }
+
+    .cfs-post-publish-actions .button-primary {
+        width: 100%;
+    }
+
+    .cfs-post-publish-action-buttons {
+        align-items: stretch;
+    }
+
+    .cfs-post-publish-action-buttons .button {
         width: 100%;
     }
 }

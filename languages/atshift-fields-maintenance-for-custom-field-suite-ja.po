@@ -457,6 +457,10 @@ msgstr "表示設定"
 msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
 msgstr "コンテンツエディタを隠す（該当する投稿では Gutenberg / ブロックエディタも隠します）"
 
+#: ../templates/meta_box_extras.php:78
+msgid "Hide page attributes"
+msgstr "ページ属性を隠す"
+
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "新規フィールドを追加"
@@ -1036,8 +1040,32 @@ msgid "Status"
 msgstr "ステータス"
 
 #: includes/fields/post_publish.php
+msgid "Current Status"
+msgstr "状況"
+
+#: includes/fields/post_publish.php
+msgid "Change Status"
+msgstr "ステータスを変更"
+
+#: includes/fields/post_publish.php
+msgid "Do not change"
+msgstr "変更しない"
+
+#: includes/fields/post_publish.php
+msgid "Change to Draft"
+msgstr "下書きに変更"
+
+#: includes/fields/post_publish.php
+msgid "Change to Pending Review"
+msgstr "レビュー待ちに変更"
+
+#: includes/fields/post_publish.php
+msgid "Publish / Schedule"
+msgstr "公開・予約投稿に変更"
+
+#: includes/fields/post_publish.php
 msgid "Visibility"
-msgstr "公開状態"
+msgstr "表示範囲"
 
 #: includes/fields/post_publish.php
 msgid "Public"
@@ -1052,6 +1080,10 @@ msgid "Private"
 msgstr "非公開"
 
 #: includes/fields/post_publish.php
+msgid "Autosaving"
+msgstr "自動保存中"
+
+#: includes/fields/post_publish.php
 msgid "Password"
 msgstr "パスワード"
 
@@ -1062,6 +1094,26 @@ msgstr "公開日時"
 #: includes/fields/post_publish.php
 msgid "Set to current date and time"
 msgstr "現在の日時にする"
+
+#: includes/fields/post_publish.php
+msgid "Save Draft"
+msgstr "下書き保存"
+
+#: includes/fields/post_publish.php
+msgid "Update"
+msgstr "更新"
+
+#: includes/fields/post_publish.php
+msgid "Submit for Review"
+msgstr "レビュー待ちとして送信"
+
+#: includes/fields/post_publish.php
+msgid "Publish"
+msgstr "公開"
+
+#: includes/fields/post_publish.php
+msgid "Schedule"
+msgstr "予約投稿"
 
 #: includes/fields/post_publish.php
 msgid "Save / Publish Settings"
@@ -1090,10 +1142,6 @@ msgstr "下書き"
 #: includes/fields/post_publish.php
 msgid "Pending Review"
 msgstr "レビュー待ち"
-
-#: includes/fields/post_publish.php
-msgid "Published"
-msgstr "公開済み"
 
 #: includes/fields/post_publish.php
 msgid "Scheduled"

@@ -21,6 +21,9 @@ $extras = (array) get_post_meta( $post->ID, 'cfs_extras', true );
 if ( ! isset( $extras['hide_editor'] ) ) {
     $extras['hide_editor'] = '';
 }
+if ( ! isset( $extras['hide_page_attributes'] ) ) {
+    $extras['hide_page_attributes'] = '';
+}
 if ( ! isset( $extras['order'] ) ) {
     $extras['order'] = 0;
 }
@@ -66,6 +69,17 @@ if ( ! isset( $extras['context'] ) ) {
                         'input_class'   => 'true_false',
                         'value'         => $extras['hide_editor'],
                         'options'       => [ 'message' => __( 'Hide the content editor (also hides the Gutenberg / block editor for matching posts)', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                    ] );
+                ?>
+            </div>
+            <div>
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type'          => 'true_false',
+                        'input_name'    => "cfs[extras][hide_page_attributes]",
+                        'input_class'   => 'true_false',
+                        'value'         => $extras['hide_page_attributes'],
+                        'options'       => [ 'message' => __( 'Hide page attributes', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </div>
