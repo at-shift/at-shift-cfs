@@ -127,6 +127,11 @@ class Atshift_CFS_init
             'text'          => ATSHIFT_CFS_DIR . '/includes/fields/text.php',
             'textarea'      => ATSHIFT_CFS_DIR . '/includes/fields/textarea.php',
             'wysiwyg'       => ATSHIFT_CFS_DIR . '/includes/fields/wysiwyg.php',
+            'tab'           => ATSHIFT_CFS_DIR . '/includes/fields/tab.php',
+            'loop'          => ATSHIFT_CFS_DIR . '/includes/fields/loop.php',
+            'group'         => ATSHIFT_CFS_DIR . '/includes/fields/group.php',
+            'accordion'     => ATSHIFT_CFS_DIR . '/includes/fields/accordion.php',
+            'conditional'   => ATSHIFT_CFS_DIR . '/includes/fields/conditional.php',
             'phone'         => ATSHIFT_CFS_DIR . '/includes/fields/phone.php',
             'email'         => ATSHIFT_CFS_DIR . '/includes/fields/email.php',
             'hyperlink'     => ATSHIFT_CFS_DIR . '/includes/fields/hyperlink.php',
@@ -150,11 +155,6 @@ class Atshift_CFS_init
             'term'          => ATSHIFT_CFS_DIR . '/includes/fields/term.php',
             'relationship'  => ATSHIFT_CFS_DIR . '/includes/fields/relationship.php',
             'user'          => ATSHIFT_CFS_DIR . '/includes/fields/user.php',
-            'loop'          => ATSHIFT_CFS_DIR . '/includes/fields/loop.php',
-            'tab'           => ATSHIFT_CFS_DIR . '/includes/fields/tab.php',
-            'accordion'     => ATSHIFT_CFS_DIR . '/includes/fields/accordion.php',
-            'group'         => ATSHIFT_CFS_DIR . '/includes/fields/group.php',
-            'conditional'   => ATSHIFT_CFS_DIR . '/includes/fields/conditional.php',
         ] );
 
         foreach ( $field_types as $type => $path ) {

@@ -213,6 +213,10 @@ msgstr "¿Selección múltiple?"
 msgid "This is a multi-select field"
 msgstr "Este es un campo de selección múltiple"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Grupo de pestañas"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Tabulación"
@@ -1085,3 +1089,52 @@ msgstr "Publicado"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Programado"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Acciones"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Duplicar"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Se nombrara automaticamente al guardar"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Permitir mover a la papelera"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Roles permitidos para la papelera"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Selecciona los roles que pueden mover entradas a la papelera desde este campo. Dejalo en blanco para permitir cualquier rol de usuario que pueda borrar la entrada."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Dejalo en blanco para permitir cualquier rol que pueda borrar esta entrada"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Mover a la papelera"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "No especificado"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Etiquetas de entrada (nativo)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Imagen destacada (nativo)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Numero de telefono"

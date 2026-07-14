@@ -56,7 +56,7 @@ class Atshift_CFS_hyperlink extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][format]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][format]',
                         'options' => [
                             'choices' => [
                                 'html' => __( 'HTML', 'atshift-fields-maintenance-for-custom-field-suite' ),

@@ -250,6 +250,10 @@ msgstr "Exibe o campo de seleção com Select2. Isso facilita pesquisar e seleci
 msgid "Render this field with Select2"
 msgstr "Exibir este campo com Select2"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Grupo de abas"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Aba"
@@ -1094,3 +1098,52 @@ msgstr "Publicado"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Agendado"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Ações"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Duplicar"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Nomeado automaticamente ao salvar"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Permitir mover para a lixeira"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Funcoes permitidas para a lixeira"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Selecione as funcoes que podem mover posts para a lixeira a partir deste campo. Deixe em branco para permitir qualquer funcao de usuario que possa excluir o post."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Deixe em branco para permitir qualquer funcao que possa excluir este post"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Mover para a lixeira"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Nao especificado"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Tags do post (nativo)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Imagem destacada (nativo)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Numero de telefone"

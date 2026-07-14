@@ -200,6 +200,7 @@ class Atshift_CFS_field_group
         $params['rules'] = isset( $params['rules'] ) && is_array( $params['rules'] ) ? $params['rules'] : [];
         $params['rules']['operator'] = isset( $params['rules']['operator'] ) && is_array( $params['rules']['operator'] ) ? $params['rules']['operator'] : [];
         $params['extras'] = isset( $params['extras'] ) && is_array( $params['extras'] ) ? $params['extras'] : [];
+        $params['fields'] = isset( $params['fields'] ) && is_array( $params['fields'] ) ? $params['fields'] : [];
 
         /*---------------------------------------------------------------------------------------------
             Save fields
@@ -212,6 +213,7 @@ class Atshift_CFS_field_group
         $next_field_id = (int) get_option( ATSHIFT_CFS_NEXT_FIELD_ID_OPTION );
         $existing_fields = get_post_meta( $post_id, 'cfs_fields', true );
         $other_field_ids = $this->get_field_ids_for_other_groups( $post_id );
+        $reserved_field_names = $this->get_reserved_field_names( $params['fields'] );
 
         if ( ! empty( $existing_fields ) ) {
             foreach ( $existing_fields as $item ) {
@@ -258,24 +260,13 @@ class Atshift_CFS_field_group
                 $field['id'] = 0;
             }
 
+            $field_is_existing = 0 < (int) $field['id'];
+
             // Use an existing ID if available
-            if ( 0 < (int) $field['id'] ) {
+            if ( $field_is_existing ) {
 
                 // We use this variable to check for deleted fields
                 $current_field_ids[] = $field['id'];
-
-                // Rename the postmeta key if necessary
-                if ( isset( $prev_fields[ $field['id'] ] ) && $field['name'] != $prev_fields[ $field['id'] ] ) {
-                    $wpdb->query(
-                        $wpdb->prepare("
-                            UPDATE {$wpdb->postmeta} m
-                            INNER JOIN {$wpdb->prefix}cfs_values v ON v.meta_id = m.meta_id
-                            SET meta_key = %s
-                            WHERE v.field_id = %d",
-                            $field['name'], $field['id']
-                        )
-                    );
-                }
             }
             else {
                 $field['id'] = $next_field_id;
@@ -284,6 +275,23 @@ class Atshift_CFS_field_group
                 if ( isset( $field['remapped_from'] ) ) {
                     $remapped_field_ids[ (int) $field['remapped_from'] ] = (int) $field['id'];
                 }
+            }
+
+            if ( $this->uses_generated_field_name( $field['type'] ) ) {
+                $field['name'] = $this->generate_unique_field_name( $field['type'], $reserved_field_names );
+            }
+
+            // Rename the postmeta key if necessary
+            if ( $field_is_existing && isset( $prev_fields[ $field['id'] ] ) && $field['name'] != $prev_fields[ $field['id'] ] ) {
+                $wpdb->query(
+                    $wpdb->prepare("
+                        UPDATE {$wpdb->postmeta} m
+                        INNER JOIN {$wpdb->prefix}cfs_values v ON v.meta_id = m.meta_id
+                        SET meta_key = %s
+                        WHERE v.field_id = %d",
+                        $field['name'], $field['id']
+                    )
+                );
             }
 
             $field_key_to_id[ $field['key'] ] = (int) $field['id'];
@@ -400,6 +408,75 @@ class Atshift_CFS_field_group
         ---------------------------------------------------------------------------------------------*/
 
         update_post_meta( $post_id, 'cfs_extras', $params['extras'] );
+    }
+
+
+    private function uses_generated_field_name( $field_type ) {
+        return in_array( $field_type, [
+            'tab',
+            'group',
+            'accordion',
+            'conditional',
+            'post_title',
+            'post_publish',
+            'wp_category',
+            'wp_tag',
+            'featured_image',
+        ], true );
+    }
+
+
+    private function get_reserved_field_names( $fields ) {
+        $reserved_field_names = [];
+
+        foreach ( $fields as $field ) {
+            $field = stripslashes_deep( $field );
+            $field_type = isset( $field['type'] ) ? (string) $field['type'] : '';
+            if ( $this->uses_generated_field_name( $field_type ) ) {
+                continue;
+            }
+            $field_name = isset( $field['name'] ) ? trim( (string) $field['name'] ) : '';
+            $this->reserve_field_name( $reserved_field_names, $field_name );
+        }
+
+        return $reserved_field_names;
+    }
+
+
+    private function reserve_field_name( &$reserved_field_names, $field_name ) {
+        $field_name = trim( (string) $field_name );
+
+        if ( '' === $field_name ) {
+            return;
+        }
+
+        $reserved_field_names[ strtolower( $field_name ) ] = true;
+    }
+
+
+    private function generate_unique_field_name( $field_type, &$reserved_field_names ) {
+        $prefixes = [
+            'tab'            => 'tab',
+            'group'          => 'group',
+            'accordion'      => 'accordion',
+            'conditional'    => 'conditional',
+            'post_title'     => 'post_title',
+            'post_publish'   => 'post_publish',
+            'wp_category'    => 'category',
+            'wp_tag'         => 'tag',
+            'featured_image' => 'featured_image',
+        ];
+        $prefix = isset( $prefixes[ $field_type ] ) ? $prefixes[ $field_type ] : 'field';
+        $index = 1;
+
+        do {
+            $field_name = $prefix . $index;
+            $index++;
+        } while ( isset( $reserved_field_names[ strtolower( $field_name ) ] ) );
+
+        $this->reserve_field_name( $reserved_field_names, $field_name );
+
+        return $field_name;
     }
 
 

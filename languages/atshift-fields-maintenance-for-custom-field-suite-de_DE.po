@@ -213,6 +213,10 @@ msgstr "Mehrere Werte auswählen?"
 msgid "This is a multi-select field"
 msgstr "Dieses Feld erlaubt es, mehrere Werte auszuwählen"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Tab-Gruppe"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Registerkarten"
@@ -1087,3 +1091,52 @@ msgstr "Veröffentlicht"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Geplant"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Aktionen"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Duplizieren"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Beim Speichern automatisch benannt"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Verschieben in den Papierkorb erlauben"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Erlaubte Papierkorb-Rollen"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Wahlen Sie die Rollen aus, die Beitrage uber dieses Feld in den Papierkorb verschieben durfen. Leer lassen, um jede Benutzerrolle zu erlauben, die den Beitrag loschen darf."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Leer lassen, um jede Rolle zu erlauben, die diesen Beitrag loschen darf"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "In den Papierkorb verschieben"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Nicht angegeben"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Beitrags-Schlagwörter (nativ)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Beitragsbild (nativ)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Telefonnummer"

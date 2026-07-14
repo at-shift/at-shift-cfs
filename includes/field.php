@@ -233,7 +233,7 @@ class Atshift_CFS_field
                 </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][input_suffix]" value="<?php echo esc_attr( $this->get_input_suffix( $field ) ); ?>" />
+                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][input_suffix]" value="<?php echo esc_attr( $this->get_input_suffix( $field ) ); ?>" />
             </td>
         </tr>
     <?php
@@ -264,7 +264,7 @@ class Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'text',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][' . $option_name . ']',
+                        'input_name' => 'cfs[fields][' . $this->normalize_admin_key( $key ) . '][options][' . $option_name . ']',
                         'value' => $this->get_option( $field, $option_name ),
                     ] );
                 ?>
@@ -289,6 +289,28 @@ class Atshift_CFS_field
 
     public static function required_badge() {
         return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</span>';
+    }
+
+
+    /**
+     * Normalize field setting keys while preserving the JavaScript clone token.
+     *
+     * @param mixed $key
+     * @return string
+     */
+    protected function normalize_admin_key( $key ) {
+        return 'clone' === (string) $key ? 'clone' : (string) absint( $key );
+    }
+
+
+    /**
+     * Escape a field setting key for use in name attributes.
+     *
+     * @param mixed $key
+     * @return string
+     */
+    protected function admin_key_attr( $key ) {
+        return esc_attr( $this->normalize_admin_key( $key ) );
     }
 }
 

@@ -197,12 +197,28 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][taxonomy]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][taxonomy]',
                         'options' => [
                             'choices' => $choices,
                             'force_single' => true,
                         ],
                         'value' => $this->get_option( $field, 'taxonomy', 'category' ),
+                    ] );
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
+            <td class="label">
+                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+            </td>
+            <td>
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type' => 'true_false',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][required]',
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option( $field, 'required' ),
+                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
             </td>
@@ -215,7 +231,7 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][auto_select_children]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][auto_select_children]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'auto_select_children' ),
                         'options' => [ 'message' => __( 'Selecting a parent also selects all child categories', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
@@ -225,7 +241,7 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][auto_select_parents]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][auto_select_parents]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'auto_select_parents', 1 ),
                         'options' => [ 'message' => __( 'Selecting a child also selects its parent categories', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
@@ -256,6 +272,7 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
     function pre_save_field( $field ) {
         $taxonomy_name = isset( $field['options']['taxonomy'] ) ? sanitize_key( $field['options']['taxonomy'] ) : 'category';
         $field['options']['taxonomy'] = taxonomy_exists( $taxonomy_name ) ? $taxonomy_name : 'category';
+        $field['options']['required'] = empty( $field['options']['required'] ) ? 0 : 1;
         $field['options']['auto_select_children'] = empty( $field['options']['auto_select_children'] ) ? 0 : 1;
         $field['options']['auto_select_parents'] = empty( $field['options']['auto_select_parents'] ) ? 0 : 1;
 

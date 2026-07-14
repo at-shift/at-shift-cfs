@@ -180,6 +180,10 @@ msgstr "Többszörös kiválasztás?"
 msgid "This is a multi-select field"
 msgstr "Több lehetőség is kiválasztható egyszerre"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Fülcsoport"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Fül"
@@ -951,3 +955,52 @@ msgstr "Közzétéve"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Ütemezve"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Műveletek"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Duplikálás"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Mentéskor automatikusan elnevezve"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Áthelyezés engedélyezése a lomtárba"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Lomtárhoz engedélyezett szerepkörök"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Válassza ki azokat a szerepköröket, amelyek ebből a mezőből a lomtárba helyezhetik a bejegyzéseket. Hagyja üresen, ha minden olyan szerepkört engedélyez, amely törölheti a bejegyzést."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Hagyja üresen, ha minden olyan szerepkört engedélyez, amely törölheti ezt a bejegyzést"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Áthelyezés a lomtárba"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Nincs megadva"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Bejegyzes cimkei (nativ)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Kiemelt kep (nativ)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Telefonszam"

@@ -423,12 +423,93 @@ body #powerTip {
     padding: 0;
 }
 
+.field_form .cfs-generated-field-name-display {
+    box-sizing: border-box;
+    display: block;
+    width: 99.95%;
+    min-height: 38px;
+    margin-top: 10px;
+    padding: 8px 10px;
+    border: 1px solid #dcdcde;
+    background: #f6f7f7;
+    color: #50575e;
+    line-height: 20px;
+    overflow-wrap: anywhere;
+}
+
 .field_form tr.field_label td {
     border-top: 0;
 }
 
 .field_form tr.field_actions td {
     background: #fff;
+}
+
+.field_form .cfs-field-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.field_form .cfs-field-action-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.field_form .cfs_field_actions_toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.field_form .cfs_field_actions_toggle .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.field_form .cfs-field-action-menu-list {
+    position: absolute;
+    z-index: 1000;
+    top: calc(100% + 4px);
+    right: 0;
+    min-width: 128px;
+    margin: 0;
+    padding: 4px 0;
+    border: 1px solid #c3c4c7;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.field_form .cfs-field-action-menu-list li {
+    margin: 0;
+}
+
+.field_form .cfs-field-action-menu-list .button-link {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    color: #1d2327;
+    text-align: left;
+    text-decoration: none;
+}
+
+.field_form .cfs-field-action-menu-list .button-link:hover,
+.field_form .cfs-field-action-menu-list .button-link:focus {
+    background: #f0f0f1;
+    color: #1d2327;
+}
+
+.field_form .cfs-field-action-menu-list .cfs_delete_field {
+    color: #b32d2e;
+}
+
+.field_form .cfs-field-action-menu-list .cfs_delete_field:hover,
+.field_form .cfs-field-action-menu-list .cfs_delete_field:focus {
+    background: #fcf0f1;
+    color: #8a2424;
 }
 
 .field_form select,

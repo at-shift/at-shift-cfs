@@ -119,7 +119,7 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
             <td>
                 <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'select',
-                    'input_name' => 'cfs[fields][' . absint( $key ) . '][options][display_type]',
+                    'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][display_type]',
                     'input_class' => 'cfs-conditional-display-type',
                     'options' => [
                         'choices' => [
@@ -140,7 +140,7 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
             <td>
                 <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                     'type' => 'textarea',
-                    'input_name' => 'cfs[fields][' . absint( $key ) . '][options][choices]',
+                    'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][choices]',
                     'input_class' => 'cfs-conditional-choices',
                     'value' => implode( "\n", $choice_lines ),
                 ] ); ?>
@@ -154,7 +154,7 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
                 </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][default_value]" value="<?php echo esc_attr( $this->get_option( $field, 'default_value' ) ); ?>" />
+                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][default_value]" value="<?php echo esc_attr( $this->get_option( $field, 'default_value' ) ); ?>" />
             </td>
         </tr>
         <?php

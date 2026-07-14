@@ -120,7 +120,7 @@ class Atshift_CFS_select extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'textarea',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][choices]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][choices]',
                         'value' => $choices,
                     ] );
                 ?>
@@ -134,7 +134,7 @@ class Atshift_CFS_select extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][multiple]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][multiple]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'multiple' ),
                         'options' => [ 'message' => __( 'This is a multi-select field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
@@ -153,7 +153,7 @@ class Atshift_CFS_select extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][select2]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][select2]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'select2' ),
                         'options' => [ 'message' => __( 'Render this field with Select2', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
@@ -170,7 +170,7 @@ class Atshift_CFS_select extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
                         'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],

@@ -9,7 +9,7 @@ class Atshift_CFS_featured_image extends Atshift_CFS_field
 
     function __construct() {
         $this->name = 'featured_image';
-        $this->label = __( 'Featured Image', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Featured Image (Native)', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 

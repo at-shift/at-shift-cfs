@@ -87,9 +87,10 @@ class Atshift_CFS_group extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][columns]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][columns]',
                         'options' => [
                             'choices' => [
+                                'none' => __( 'Not specified', 'atshift-fields-maintenance-for-custom-field-suite' ),
                                 'auto' => __( 'Auto', 'atshift-fields-maintenance-for-custom-field-suite' ),
                                 '2' => __( '2 columns', 'atshift-fields-maintenance-for-custom-field-suite' ),
                                 '3' => __( '3 columns', 'atshift-fields-maintenance-for-custom-field-suite' ),
@@ -110,7 +111,7 @@ class Atshift_CFS_group extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][alignment]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][alignment]',
                         'options' => [
                             'choices' => [
                                 'stretch' => __( 'Evenly distributed', 'atshift-fields-maintenance-for-custom-field-suite' ),
@@ -129,6 +130,10 @@ class Atshift_CFS_group extends Atshift_CFS_field
 
     private function get_columns( $value ) {
         $value = (string) $value;
+
+        if ( 'none' === $value ) {
+            return 'none';
+        }
 
         return in_array( $value, [ '2', '3', '4' ], true ) ? $value : 'auto';
     }

@@ -55,7 +55,7 @@ class Atshift_CFS_file extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][file_type]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][file_type]',
                         'options' => [
                             'choices' => [
                                 'file'  => __( 'Any', 'atshift-fields-maintenance-for-custom-field-suite' ),
@@ -78,7 +78,7 @@ class Atshift_CFS_file extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][return_value]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][return_value]',
                         'options' => [
                             'choices' => [
                                 'url' => __( 'File URL', 'atshift-fields-maintenance-for-custom-field-suite' ),
@@ -99,7 +99,7 @@ class Atshift_CFS_file extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
                         'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],

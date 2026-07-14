@@ -59,6 +59,7 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
             'duplicate_field_name_inline' => __( 'This field name is duplicated. Use a unique field name.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: comma-separated duplicate field names. */
             'duplicate_field_names_alert' => __( 'Duplicate field names found: %s. Field names must be unique before saving.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'automatically_named_when_saved' => __( 'Automatically named when saved', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'move_here'         => __( 'Move here', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: destination field label. */
             'outdent_to_container' => __( 'Move here: inside %s', 'atshift-fields-maintenance-for-custom-field-suite' ),

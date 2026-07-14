@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.6.7.45.1
+Stable tag: 2.6.7.45.2
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -31,7 +31,12 @@ For setup instructions, field value output examples, migration notes, and implem
 * Text
 * Textarea
 * WYSIWYG
-* Phone
+* Tab Group
+* Loop (repeatable fields)
+* Horizontal Group
+* Accordion Group (collapsible group)
+* Conditional Group
+* Phone Number
 * Email Address
 * Hyperlink
 * URL
@@ -48,22 +53,18 @@ For setup instructions, field value output examples, migration notes, and implem
 * Post Title (native WordPress title)
 * Save / Publish (native WordPress save and publish controls)
 * Post Categories (Standard / Global)
-* Post Tags (native WordPress tags)
-* Featured Image (native WordPress featured image)
+* Post Tags (Native)
+* Featured Image (Native)
 * Term
 * Relationship
 * User
-* Loop (repeatable fields)
-* Tab
-* Horizontal Group
-* Accordion Group (collapsible group)
 
 = Added features in this maintenance build =
 
 * Security hardening for known CFS 2.6.7 vulnerability classes.
 * PHP 8.2+ and WordPress admin compatibility fixes.
 * Checkbox and Radio Button fields.
-* Phone, Email Address, Number, URL, and Time fields with format validation.
+* Phone Number, Email Address, Number, URL, and Time fields with format validation.
 * Time field with hour and minute select menus.
 * Photo Gallery field with sortable media selection and gallery-friendly output data.
 * Native WordPress Post Title, Save / Publish, Standard and Shared Taxonomy Post Categories, Post Tags, and Featured Image fields inside CFS field groups.
@@ -76,7 +77,7 @@ For setup instructions, field value output examples, migration notes, and implem
 * Field type list ordering grouped by common editing workflows.
 * Field Group parent / child synchronization to reduce cases where nested fields disappear from the post edit screen.
 * Placement rule warnings for field groups that have no placement rules.
-* Configurable placeholders for Text, Phone, Email Address, Hyperlink, and URL fields.
+* Configurable placeholders for Text, Phone Number, Email Address, Hyperlink, and URL fields.
 
 = Usage =
 
@@ -134,6 +135,10 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 2.6.7.45.2 =
+* Improved automatic field names for group and native WordPress fields.
+* Added required validation to Post Categories and role-controlled Move to Trash support to Save / Publish.
+
 = 2.6.7.45.1 =
 * Refined Save / Publish field status behavior and labels.
 * Fixed the Field Group editor update button state after duplicate field name validation.
@@ -146,4 +151,4 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 = 2.6.7.44.0.1 =
 * Added an after-input helper text setting for supported fields.
 * Improved field setting labels, tooltips, placeholders, and multilingual translations.
-* Removed default value settings from Email Address, Phone, and URL fields.
+* Removed default value settings from Email Address, Phone Number, and URL fields.

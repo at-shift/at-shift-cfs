@@ -181,6 +181,10 @@ msgstr "Множественный выбор?"
 msgid "This is a multi-select field"
 msgstr "Поле множественного выбора"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Группа вкладок"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Вкладка"
@@ -989,3 +993,52 @@ msgstr "Опубликовано"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Запланировано"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Действия"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Дублировать"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Имя будет задано автоматически при сохранении"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Разрешить перемещение в корзину"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Роли, которым разрешена корзина"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Выберите роли, которые могут перемещать записи в корзину из этого поля. Оставьте пустым, чтобы разрешить любой роли пользователя, которая может удалить запись."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Оставьте пустым, чтобы разрешить любой роли, которая может удалить эту запись"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Переместить в корзину"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Не указано"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Метки записи (нативное)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Изображение записи (нативное)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Номер телефона"

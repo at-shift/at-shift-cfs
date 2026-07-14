@@ -181,6 +181,10 @@ msgstr "Selecció múltiple?"
 msgid "This is a multi-select field"
 msgstr "Aquest és un camp de selecció múltiple"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Grup de pestanyes"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Pestanya"
@@ -967,3 +971,52 @@ msgstr "Publicat"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Programat"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Accions"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Duplica"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "S'anomenara automaticament en desar"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Permet moure a la paperera"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Rols autoritzats per a la paperera"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Seleccioneu els rols que poden moure publicacions a la paperera des d'aquest camp. Deixeu-ho en blanc per permetre qualsevol rol d'usuari que pugui suprimir la publicacio."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Deixeu-ho en blanc per permetre qualsevol rol que pugui suprimir aquesta publicacio"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Mou a la paperera"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "No especificat"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Etiquetes de publicacio (nadiu)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Imatge destacada (nadiu)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Numero de telefon"

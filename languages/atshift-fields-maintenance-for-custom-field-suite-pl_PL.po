@@ -181,6 +181,10 @@ msgstr "Wielokrotne wybieranie"
 msgid "This is a multi-select field"
 msgstr "To jest pole wielokrotnego wyboru"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Grupa kart"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Zakładka"
@@ -1036,3 +1040,52 @@ msgstr "Opublikowane"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Zaplanowane"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Akcje"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Duplikuj"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Nazwa zostanie nadana automatycznie podczas zapisywania"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Zezwalaj na przenoszenie do kosza"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Role uprawnione do kosza"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Wybierz role, ktore moga przenosic wpisy do kosza z tego pola. Pozostaw puste, aby zezwolic kazdej roli uzytkownika, ktora moze usunac wpis."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Pozostaw puste, aby zezwolic kazdej roli, ktora moze usunac ten wpis"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Przenieś do kosza"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Nie okreslono"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Tagi wpisu (natywne)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Obrazek wyrozniajacy (natywne)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Numer telefonu"

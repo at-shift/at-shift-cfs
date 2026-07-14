@@ -23,7 +23,7 @@ class Atshift_CFS_color extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'text',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][default_value]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][default_value]',
                         'value' => $this->get_option( $field, 'default_value' ),
                     ] );
                 ?>

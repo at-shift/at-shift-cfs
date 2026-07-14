@@ -9,7 +9,7 @@ class Atshift_CFS_wp_tag extends Atshift_CFS_field
 
     function __construct() {
         $this->name = 'wp_tag';
-        $this->label = __( 'Post Tags', 'atshift-fields-maintenance-for-custom-field-suite' );
+        $this->label = __( 'Post Tags (Native)', 'atshift-fields-maintenance-for-custom-field-suite' );
     }
 
 

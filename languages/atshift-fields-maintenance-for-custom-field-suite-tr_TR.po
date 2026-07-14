@@ -982,3 +982,56 @@ msgstr "Yayımlandı"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Zamanlandı"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "İşlemler"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Çoğalt"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Kaydedilirken otomatik olarak adlandirilir"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Çöpe taşımaya izin ver"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Çöp için izin verilen roller"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Bu alandan yazilari çöpe tasiyabilecek rolleri seçin. Yaziyi silebilen herhangi bir kullanici rolüne izin vermek için bos birakin."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Bu yaziyi silebilen herhangi bir role izin vermek için bos birakin"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Çöpe tasi"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Belirtilmedi"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Yazi etiketleri (yerel)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "One cikan gorsel (yerel)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Telefon numarasi"
+
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Sekme grubu"

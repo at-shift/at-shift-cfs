@@ -213,6 +213,10 @@ msgstr "Multi-selezione?"
 msgid "This is a multi-select field"
 msgstr "Questo è un campo multi-selezione"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Gruppo di schede"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Scheda"
@@ -1085,3 +1089,52 @@ msgstr "Pubblicato"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Programmato"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Azioni"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Duplica"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Nominato automaticamente al salvataggio"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Consenti lo spostamento nel cestino"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Ruoli autorizzati per il cestino"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Seleziona i ruoli che possono spostare gli articoli nel cestino da questo campo. Lascia vuoto per consentire qualsiasi ruolo utente che possa eliminare l’articolo."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Lascia vuoto per consentire qualsiasi ruolo che possa eliminare questo articolo"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Sposta nel cestino"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Non specificato"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Tag articolo (nativo)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Immagine in evidenza (nativo)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Numero di telefono"

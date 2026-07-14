@@ -43,7 +43,7 @@ class Atshift_CFS_true_false extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'text',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][message]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][message]',
                         'value' => $this->get_option( $field, 'message' ),
                     ] );
                 ?>
@@ -57,7 +57,7 @@ class Atshift_CFS_true_false extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
                         'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],

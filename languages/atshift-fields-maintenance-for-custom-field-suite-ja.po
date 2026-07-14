@@ -221,6 +221,10 @@ msgstr "複数選択"
 msgid "This is a multi-select field"
 msgstr "複数選択を可能にする"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "タブグループ"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "タブ"
@@ -1146,3 +1150,52 @@ msgstr "レビュー待ち"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "予約済み"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "操作"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "複製"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "保存時に自動命名されます"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "ごみ箱に移動を許可"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "ごみ箱に移動できる権限グループ"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "このフィールドから投稿をごみ箱に移動できるロールを選択します。空欄の場合は、投稿を削除できるすべてのロールに許可します。"
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "空欄の場合は、この投稿を削除できるすべてのロールに許可"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "ごみ箱に移動"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "指定なし"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "投稿タグ（標準）"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "アイキャッチ画像（標準）"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "電話番号"

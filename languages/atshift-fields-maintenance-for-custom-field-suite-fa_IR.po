@@ -181,6 +181,10 @@ msgstr "چند انتخابی؟"
 msgid "This is a multi-select field"
 msgstr "این یک فیلت چند انتخابی است"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "گروه زبانه"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "زبانه"
@@ -997,3 +1001,52 @@ msgstr "منتشر شده"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "زمان‌بندی شده"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "اقدامات"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "تکثیر"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "هنگام ذخیره به‌صورت خودکار نام‌گذاری می‌شود"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "اجازه انتقال به زباله‌دان"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "نقش‌های مجاز برای زباله‌دان"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "نقش‌هایی را انتخاب کنید که می‌توانند از این فیلد نوشته‌ها را به زباله‌دان منتقل کنند. برای اجازه به هر نقش کاربری که می‌تواند نوشته را حذف کند، خالی بگذارید."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "برای اجازه به هر نقشی که می‌تواند این نوشته را حذف کند، خالی بگذارید"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "انتقال به زباله‌دان"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "مشخص نشده"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "برچسب‌های نوشته (بومی)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "تصویر شاخص (بومی)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "شماره تلفن"

@@ -35,7 +35,7 @@ class Atshift_CFS_number extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'text',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][default_value]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][default_value]',
                         'value' => $this->get_option( $field, 'default_value' ),
                     ] );
                 ?>
@@ -49,9 +49,9 @@ class Atshift_CFS_number extends Atshift_CFS_field
                 </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][min]" value="<?php echo esc_attr( $this->get_option( $field, 'min' ) ); ?>" placeholder="<?php esc_attr_e( 'Minimum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][max]" value="<?php echo esc_attr( $this->get_option( $field, 'max' ) ); ?>" placeholder="<?php esc_attr_e( 'Maximum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
-                <input type="text" name="cfs[fields][<?php echo absint( $key ); ?>][options][step]" value="<?php echo esc_attr( $this->get_option( $field, 'step' ) ); ?>" placeholder="<?php esc_attr_e( 'Step', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][min]" value="<?php echo esc_attr( $this->get_option( $field, 'min' ) ); ?>" placeholder="<?php esc_attr_e( 'Minimum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][max]" value="<?php echo esc_attr( $this->get_option( $field, 'max' ) ); ?>" placeholder="<?php esc_attr_e( 'Maximum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][step]" value="<?php echo esc_attr( $this->get_option( $field, 'step' ) ); ?>" placeholder="<?php esc_attr_e( 'Step', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
             </td>
         </tr>
         <?php $this->input_suffix_option_html( $key, $field ); ?>
@@ -63,7 +63,7 @@ class Atshift_CFS_number extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][required]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][required]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
                         'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],

@@ -220,6 +220,10 @@ msgstr ""
 msgid "This is a multi-select field"
 msgstr ""
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr ""
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr ""
@@ -1141,4 +1145,53 @@ msgstr ""
 
 #: includes/fields/post_publish.php
 msgid "Scheduled"
+msgstr ""
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr ""
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr ""
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr ""
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr ""
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr ""
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr ""
+
+#: includes/fields/phone.php
+msgid "Phone Number"
 msgstr ""

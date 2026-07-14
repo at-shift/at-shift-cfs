@@ -182,6 +182,10 @@ msgstr "Sélection multiple?"
 msgid "This is a multi-select field"
 msgstr "Ceci est un champ de sélection multiple."
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Groupe d’onglets"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Onglet"
@@ -997,3 +1001,52 @@ msgstr "Publié"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Planifié"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Actions"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Dupliquer"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Nomme automatiquement lors de l’enregistrement"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Autoriser le deplacement vers la corbeille"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Roles autorises pour la corbeille"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Selectionnez les roles qui peuvent deplacer les publications vers la corbeille depuis ce champ. Laissez vide pour autoriser tout role utilisateur pouvant supprimer la publication."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Laissez vide pour autoriser tout role pouvant supprimer cette publication"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Deplacer vers la corbeille"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Non specifie"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Etiquettes d’article (natif)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Image mise en avant (natif)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Numero de telephone"

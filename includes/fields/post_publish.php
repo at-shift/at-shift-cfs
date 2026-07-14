@@ -25,6 +25,8 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
         $allow_status = $this->option_enabled( $field, 'allow_status', true );
         $allow_visibility = $this->option_enabled( $field, 'allow_visibility', true );
         $allow_date = $this->option_enabled( $field, 'allow_date', true );
+        $allow_trash = $this->option_enabled( $field, 'allow_trash', true );
+        $can_trash = $this->current_user_can_trash( $post, $field );
         $visibility = $this->get_post_visibility( $post );
         $date_value = $this->format_local_datetime_value( $post->post_date );
         $status_preview = $this->get_status_preview_label( $post, $visibility, $date_value, $allow_visibility );
@@ -95,10 +97,17 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
             <div class="cfs-post-publish-row cfs-post-publish-actions">
                 <span aria-hidden="true"></span>
                 <span class="cfs-post-publish-action-buttons">
-                    <?php if ( $this->show_save_draft_button( $post ) ) : ?>
-                    <button type="button" class="button post_publish_save_draft"><?php esc_html_e( 'Save Draft', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
-                    <?php endif; ?>
-                    <button type="button" class="button button-primary post_publish_submit"><?php echo esc_html( $this->get_submit_button_label( $post ) ); ?></button>
+                    <span class="cfs-post-publish-secondary-actions">
+                        <?php if ( $allow_trash && $can_trash ) : ?>
+                        <a class="submitdelete deletion cfs-post-publish-trash" href="<?php echo esc_url( get_delete_post_link( $post_id ) ); ?>"><?php esc_html_e( 'Move to Trash', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></a>
+                        <?php endif; ?>
+                        <?php if ( $this->show_save_draft_button( $post ) ) : ?>
+                        <button type="button" class="button post_publish_save_draft"><?php esc_html_e( 'Save Draft', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
+                        <?php endif; ?>
+                    </span>
+                    <span class="cfs-post-publish-primary-actions">
+                        <button type="button" class="button button-primary post_publish_submit"><?php echo esc_html( $this->get_submit_button_label( $post ) ); ?></button>
+                    </span>
                 </span>
             </div>
         </div>
@@ -525,6 +534,8 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
 
 
     function options_html( $key, $field ) {
+        $role_choices = $this->get_role_choices();
+        $trash_allowed_roles = $this->get_allowed_roles( $field, 'trash_allowed_roles' );
     ?>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
@@ -539,6 +550,34 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 <?php $this->render_option_checkbox( $key, $field, 'allow_visibility', __( 'Allow visibility changes', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>
                 <br />
                 <?php $this->render_option_checkbox( $key, $field, 'allow_date', __( 'Allow publish date changes', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>
+                <br />
+                <?php $this->render_option_checkbox( $key, $field, 'allow_trash', __( 'Allow moving to trash', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
+            <td class="label">
+                <label>
+                    <?php esc_html_e( 'Allowed Trash Roles', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                    <div class="cfs_tooltip">?
+                        <div class="tooltip_inner"><?php esc_html_e( 'Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                    </div>
+                </label>
+            </td>
+            <td>
+                <input type="hidden" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][trash_allowed_roles][]" value="" />
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type' => 'select',
+                        'input_class' => 'select2 cfs-post-native-role-select',
+                        'input_name' => 'cfs[fields][' . $this->normalize_admin_key( $key ) . '][options][trash_allowed_roles]',
+                        'options' => [
+                            'multiple' => '1',
+                            'choices' => $role_choices,
+                            'placeholder' => __( 'Leave blank to allow any role that can delete this post', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                        ],
+                        'value' => $trash_allowed_roles,
+                    ] );
+                ?>
             </td>
         </tr>
     <?php
@@ -548,7 +587,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
     protected function render_option_checkbox( $key, $field, $option_name, $message ) {
         atshift_fields_maintenance_for_custom_field_suite()->create_field( [
             'type' => 'true_false',
-            'input_name' => 'cfs[fields][' . absint( $key ) . '][options][' . $option_name . ']',
+            'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][' . $option_name . ']',
             'input_class' => 'true_false',
             'value' => $this->get_option( $field, $option_name, 1 ),
             'options' => [ 'message' => $message ],
@@ -577,6 +616,41 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
         }
 
         return current_user_can( $post_type->cap->publish_posts );
+    }
+
+
+    protected function current_user_can_trash( $post, $field = null ) {
+        if ( ! ( $post instanceof WP_Post ) || ! current_user_can( 'delete_post', $post->ID ) ) {
+            return false;
+        }
+
+        $allowed_roles = $this->get_allowed_roles( $field, 'trash_allowed_roles' );
+
+        if ( empty( $allowed_roles ) ) {
+            return true;
+        }
+
+        $user = wp_get_current_user();
+        return $user instanceof WP_User && ! empty( array_intersect( $allowed_roles, (array) $user->roles ) );
+    }
+
+
+    protected function get_allowed_roles( $field = null, $option_name = 'trash_allowed_roles' ) {
+        $roles = $this->get_option( $field, $option_name, [] );
+        $roles = array_filter( array_map( 'sanitize_key', (array) $roles ) );
+        return array_values( array_unique( $roles ) );
+    }
+
+
+    protected function get_role_choices() {
+        $choices = [];
+
+        foreach ( wp_roles()->roles as $role_key => $role ) {
+            $role_label = isset( $role['name'] ) ? translate_user_role( $role['name'] ) : $role_key;
+            $choices[ sanitize_key( $role_key ) ] = $role_label;
+        }
+
+        return $choices;
     }
 
 
@@ -775,6 +849,8 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
         $field['options']['allow_status'] = isset( $field['options']['allow_status'] ) ? (int) $field['options']['allow_status'] : 1;
         $field['options']['allow_visibility'] = isset( $field['options']['allow_visibility'] ) ? (int) $field['options']['allow_visibility'] : 1;
         $field['options']['allow_date'] = isset( $field['options']['allow_date'] ) ? (int) $field['options']['allow_date'] : 1;
+        $field['options']['allow_trash'] = isset( $field['options']['allow_trash'] ) ? (int) $field['options']['allow_trash'] : 1;
+        $field['options']['trash_allowed_roles'] = isset( $field['options']['trash_allowed_roles'] ) ? array_values( array_filter( array_map( 'sanitize_key', (array) $field['options']['trash_allowed_roles'] ) ) ) : [];
 
         return $field;
     }

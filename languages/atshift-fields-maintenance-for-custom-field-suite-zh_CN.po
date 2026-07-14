@@ -180,6 +180,10 @@ msgstr "多重选择吗?"
 msgid "This is a multi-select field"
 msgstr "这是一个多项选择的字段"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "选项卡组"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "选项卡"
@@ -965,3 +969,52 @@ msgstr "已发布"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "已计划"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "操作"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "复制"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "保存时自动命名"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "允许移至回收站"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "允许移至回收站的角色"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "选择可通过此字段将文章移至回收站的角色。留空则允许任何可删除该文章的用户角色。"
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "留空则允许任何可删除此文章的角色"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "移至回收站"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "未指定"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "文章标签（原生）"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "特色图片（原生）"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "电话号码"

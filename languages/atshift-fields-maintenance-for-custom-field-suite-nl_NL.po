@@ -180,6 +180,10 @@ msgstr "Meervoudig selecteerbaar?"
 msgid "This is a multi-select field"
 msgstr "Dit is een meervoudig selecteerbaar veld"
 
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Tabgroep"
+
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Tab"
@@ -965,3 +969,52 @@ msgstr "Gepubliceerd"
 #: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Gepland"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Acties"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Dupliceren"
+
+#: templates/admin_head.php
+#: templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Automatisch benoemd bij opslaan"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Verplaatsen naar prullenbak toestaan"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Toegestane rollen voor prullenbak"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Selecteer de rollen die berichten vanuit dit veld naar de prullenbak mogen verplaatsen. Laat leeg om elke gebruikersrol toe te staan die het bericht kan verwijderen."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Laat leeg om elke rol toe te staan die dit bericht kan verwijderen"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Naar prullenbak verplaatsen"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Niet gespecificeerd"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Berichttags (native)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Uitgelichte afbeelding (native)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Telefoonnummer"

@@ -90,7 +90,7 @@ class Atshift_CFS_accordion extends Atshift_CFS_field
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'true_false',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][open]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][open]',
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'open', 0 ),
                         'options' => [ 'message' => __( 'Open by default', 'atshift-fields-maintenance-for-custom-field-suite' ) ],

@@ -46,12 +46,12 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
                 </label>
             </td>
             <td>
-                <input type="hidden" name="cfs[fields][<?php echo absint( $key ); ?>][options][allowed_roles][]" value="" />
+                <input type="hidden" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][allowed_roles][]" value="" />
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
                         'input_class' => 'select2 cfs-post-title-role-select',
-                        'input_name' => 'cfs[fields][' . absint( $key ) . '][options][allowed_roles]',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][allowed_roles]',
                         'options' => [
                             'multiple' => '1',
                             'choices' => $role_choices,
