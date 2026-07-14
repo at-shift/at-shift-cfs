@@ -13,6 +13,7 @@ $generated_name_types = [
     'accordion',
     'conditional',
     'post_title',
+    'post_content',
     'post_publish',
     'wp_category',
     'wp_tag',

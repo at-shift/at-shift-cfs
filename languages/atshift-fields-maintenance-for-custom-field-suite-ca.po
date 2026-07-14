@@ -1020,3 +1020,23 @@ msgstr "Imatge destacada (nadiu)"
 #: includes/fields/phone.php
 msgid "Phone Number"
 msgstr "Numero de telefon"
+
+#: includes/fields/post_content.php
+msgid "Post Content (Native)"
+msgstr "Contingut de l'entrada (natiu)"
+
+#: includes/fields/post_content.php
+msgid "Content Editor"
+msgstr "Editor de contingut"
+
+#: includes/fields/post_content.php
+msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
+msgstr "Trieu com els editors editen el contingut natiu de WordPress. Aquest camp desa a post_content i no utilitza Gutenberg / l’editor de blocs."
+
+#: includes/fields/post_content.php
+msgid "Visual editor"
+msgstr "Editor visual"
+
+#: includes/fields/post_content.php
+msgid "You do not have permission to change the native content."
+msgstr "No teniu permís per canviar el contingut natiu."

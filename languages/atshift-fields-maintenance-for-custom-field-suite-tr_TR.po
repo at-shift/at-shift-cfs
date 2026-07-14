@@ -1035,3 +1035,23 @@ msgstr "Telefon numarasi"
 #: ../includes/fields/tab.php:12
 msgid "Tab Group"
 msgstr "Sekme grubu"
+
+#: includes/fields/post_content.php
+msgid "Post Content (Native)"
+msgstr "Yazı İçeriği (Yerel)"
+
+#: includes/fields/post_content.php
+msgid "Content Editor"
+msgstr "İçerik düzenleyici"
+
+#: includes/fields/post_content.php
+msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
+msgstr "Editörlerin yerel WordPress içeriğini nasıl düzenleyeceğini seçin. Bu alan post_content içine kaydedilir ve Gutenberg / blok düzenleyiciyi kullanmaz."
+
+#: includes/fields/post_content.php
+msgid "Visual editor"
+msgstr "Görsel düzenleyici"
+
+#: includes/fields/post_content.php
+msgid "You do not have permission to change the native content."
+msgstr "Yerel içeriği değiştirme izniniz yok."

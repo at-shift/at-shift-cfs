@@ -1138,3 +1138,23 @@ msgstr "Imagen destacada (nativo)"
 #: includes/fields/phone.php
 msgid "Phone Number"
 msgstr "Numero de telefono"
+
+#: includes/fields/post_content.php
+msgid "Post Content (Native)"
+msgstr "Contenido de la entrada (nativo)"
+
+#: includes/fields/post_content.php
+msgid "Content Editor"
+msgstr "Editor de contenido"
+
+#: includes/fields/post_content.php
+msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
+msgstr "Elige cómo los editores editan el contenido nativo de WordPress. Este campo guarda en post_content y no usa Gutenberg / el editor de bloques."
+
+#: includes/fields/post_content.php
+msgid "Visual editor"
+msgstr "Editor visual"
+
+#: includes/fields/post_content.php
+msgid "You do not have permission to change the native content."
+msgstr "No tienes permiso para cambiar el contenido nativo."

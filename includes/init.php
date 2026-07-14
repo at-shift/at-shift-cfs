@@ -106,9 +106,10 @@ class Atshift_CFS_init
         $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
 
         foreach ( array_keys( $matching_groups ) as $group_id ) {
-            $extras = isset( $field_groups[ $group_id ]['extras'] ) && is_array( $field_groups[ $group_id ]['extras'] ) ? $field_groups[ $group_id ]['extras'] : [];
+            $field_group = isset( $field_groups[ $group_id ] ) && is_array( $field_groups[ $group_id ] ) ? $field_groups[ $group_id ] : [];
+            $extras = isset( $field_group['extras'] ) && is_array( $field_group['extras'] ) ? $field_group['extras'] : [];
 
-            if ( ! empty( $extras['hide_editor'] ) ) {
+            if ( ! empty( $extras['hide_editor'] ) || $this->field_group_has_field_type( $field_group, 'post_content' ) ) {
                 return false;
             }
         }
@@ -148,6 +149,7 @@ class Atshift_CFS_init
             'color'         => ATSHIFT_CFS_DIR . '/includes/fields/color/color.php',
             'code_view'     => ATSHIFT_CFS_DIR . '/includes/fields/code_view.php',
             'post_title'    => ATSHIFT_CFS_DIR . '/includes/fields/post_title.php',
+            'post_content'  => ATSHIFT_CFS_DIR . '/includes/fields/post_content.php',
             'post_publish'  => ATSHIFT_CFS_DIR . '/includes/fields/post_publish.php',
             'wp_category'   => ATSHIFT_CFS_DIR . '/includes/fields/wp_category.php',
             'wp_tag'        => ATSHIFT_CFS_DIR . '/includes/fields/wp_tag.php',
@@ -181,6 +183,20 @@ class Atshift_CFS_init
         }
 
         return $field_types;
+    }
+
+
+    private function field_group_has_field_type( $field_group, $field_type ) {
+        $field_types = (array) $field_type;
+        $fields = isset( $field_group['fields'] ) && is_array( $field_group['fields'] ) ? $field_group['fields'] : [];
+
+        foreach ( $fields as $field ) {
+            if ( isset( $field['type'] ) && in_array( $field['type'], $field_types, true ) ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 

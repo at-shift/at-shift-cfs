@@ -1199,3 +1199,23 @@ msgstr "アイキャッチ画像（標準）"
 #: includes/fields/phone.php
 msgid "Phone Number"
 msgstr "電話番号"
+
+#: includes/fields/post_content.php
+msgid "Post Content (Native)"
+msgstr "本文（WordPress 標準）"
+
+#: includes/fields/post_content.php
+msgid "Content Editor"
+msgstr "本文エディタ"
+
+#: includes/fields/post_content.php
+msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
+msgstr "WordPress 標準の本文を編集する方法を選択します。このフィールドは post_content に保存され、Gutenberg / ブロックエディタは使用しません。"
+
+#: includes/fields/post_content.php
+msgid "Visual editor"
+msgstr "ビジュアルエディタ"
+
+#: includes/fields/post_content.php
+msgid "You do not have permission to change the native content."
+msgstr "WordPress 標準の本文を変更する権限がありません。"

@@ -137,7 +137,7 @@ else {
 
         $native_fields = empty( $native_field_group_ids ) ? [] : atshift_fields_maintenance_for_custom_field_suite()->api->find_input_fields( [
             'group_id' => $native_field_group_ids,
-            'field_type' => [ 'post_title', 'post_publish', 'wp_category', 'wp_tag', 'featured_image' ],
+            'field_type' => [ 'post_title', 'post_content', 'post_publish', 'wp_category', 'wp_tag', 'featured_image' ],
         ] );
         $hide_native = [];
         $native_panel_rules = [];
@@ -199,6 +199,10 @@ else {
             elseif ( 'post_title' === $native_field['type'] ) {
                 $add_native_panel_rule( 'post_title', '#titlediv' );
             }
+            elseif ( 'post_content' === $native_field['type'] ) {
+                $add_native_panel_rule( 'post_content', '#postdivrich, #poststuff .postarea' );
+                $hide_editor = true;
+            }
             elseif ( 'post_publish' === $native_field['type'] ) {
                 $add_native_panel_rule( 'post_publish', '#submitdiv' );
             }
@@ -219,7 +223,7 @@ else {
                     }
 
                     $selector = $native_panel_rule['selector'];
-                    if ( 0 === strpos( $selector, '#' ) && ! in_array( $selector, [ '#postimagediv', '#submitdiv' ], true ) ) {
+                    if ( 0 === strpos( $selector, '#' ) && false === strpos( $selector, ',' ) && ! in_array( $selector, [ '#postimagediv', '#submitdiv' ], true ) ) {
                         remove_meta_box( substr( $selector, 1 ), $post->post_type, 'side' );
                     }
                 }

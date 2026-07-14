@@ -1018,3 +1018,23 @@ msgstr "特色图片（原生）"
 #: includes/fields/phone.php
 msgid "Phone Number"
 msgstr "电话号码"
+
+#: includes/fields/post_content.php
+msgid "Post Content (Native)"
+msgstr "文章内容（原生）"
+
+#: includes/fields/post_content.php
+msgid "Content Editor"
+msgstr "内容编辑器"
+
+#: includes/fields/post_content.php
+msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
+msgstr "选择编辑者如何编辑 WordPress 原生正文。此字段保存到 post_content，不使用 Gutenberg / 区块编辑器。"
+
+#: includes/fields/post_content.php
+msgid "Visual editor"
+msgstr "可视化编辑器"
+
+#: includes/fields/post_content.php
+msgid "You do not have permission to change the native content."
+msgstr "您没有权限更改原生内容。"

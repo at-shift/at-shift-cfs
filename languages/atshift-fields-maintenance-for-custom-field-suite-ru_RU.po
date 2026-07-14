@@ -1042,3 +1042,23 @@ msgstr "Изображение записи (нативное)"
 #: includes/fields/phone.php
 msgid "Phone Number"
 msgstr "Номер телефона"
+
+#: includes/fields/post_content.php
+msgid "Post Content (Native)"
+msgstr "Содержимое записи (штатное)"
+
+#: includes/fields/post_content.php
+msgid "Content Editor"
+msgstr "Редактор содержимого"
+
+#: includes/fields/post_content.php
+msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
+msgstr "Выберите, как редакторы будут редактировать штатное содержимое WordPress. Это поле сохраняется в post_content и не использует Gutenberg / редактор блоков."
+
+#: includes/fields/post_content.php
+msgid "Visual editor"
+msgstr "Визуальный редактор"
+
+#: includes/fields/post_content.php
+msgid "You do not have permission to change the native content."
+msgstr "У вас нет прав для изменения штатного содержимого."

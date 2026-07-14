@@ -568,7 +568,7 @@ class Atshift_CFS_api
         return in_array( $field_type, [
             'text', 'textarea', 'wysiwyg', 'phone', 'email', 'url', 'number',
             'radio', 'date', 'file', 'color', 'true_false', 'wp_tag',
-            'post_title', 'featured_image', 'conditional',
+            'post_title', 'post_content', 'featured_image', 'conditional',
         ], true );
     }
 

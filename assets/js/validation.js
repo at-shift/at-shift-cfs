@@ -206,6 +206,12 @@
                 tinyMCE.triggerSave();
                 return el.find('textarea').val();
             },
+            'post_content': function(el) {
+                if (window.tinyMCE && 'function' === typeof tinyMCE.triggerSave) {
+                    tinyMCE.triggerSave();
+                }
+                return el.find('textarea').val();
+            },
             'loop': function(el) {
                 var rows = [];
                 el.find('> .cfs_loop > .loop_wrapper').each(function(index) {

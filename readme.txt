@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.6.7.45.2
+Stable tag: 2.6.7.45.3
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -51,6 +51,7 @@ For setup instructions, field value output examples, migration notes, and implem
 * Photo Gallery
 * Color
 * Post Title (native WordPress title)
+* Post Content (native WordPress content)
 * Save / Publish (native WordPress save and publish controls)
 * Post Categories (Standard / Global)
 * Post Tags (Native)
@@ -67,7 +68,7 @@ For setup instructions, field value output examples, migration notes, and implem
 * Phone Number, Email Address, Number, URL, and Time fields with format validation.
 * Time field with hour and minute select menus.
 * Photo Gallery field with sortable media selection and gallery-friendly output data.
-* Native WordPress Post Title, Save / Publish, Standard and Shared Taxonomy Post Categories, Post Tags, and Featured Image fields inside CFS field groups.
+* Native WordPress Post Title, Post Content, Save / Publish, Standard and Shared Taxonomy Post Categories, Post Tags, and Featured Image fields inside CFS field groups.
 * Horizontal Group field for arranging multiple fields side by side, with evenly distributed and left-aligned layout options.
 * Accordion Group field for organizing child fields into collapsible sections on post edit screens.
 * Field Group editor buttons to add a new field directly below an existing field or inside a Loop, Horizontal Group, or Accordion Group.
@@ -106,7 +107,7 @@ Tabs cannot be placed inside an Accordion Group.
 
 = WordPress native field notes =
 
-Post Title, Save / Publish, Post Categories, Post Tags, and Featured Image edit the native WordPress objects directly. They are not CFS-only post meta fields.
+Post Title, Post Content, Save / Publish, Post Categories, Post Tags, and Featured Image edit the native WordPress objects directly. They are not CFS-only post meta fields.
 
 For Post Categories, child category selection can also select parent categories, and removing a parent selection removes its child selections. If all categories are removed, WordPress' default category is restored.
 
@@ -134,6 +135,9 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * [Original Custom Field Suite source](https://github.com/mgibbs189/custom-field-suite)
 
 == Changelog ==
+
+= 2.6.7.45.3 =
+* Added Post Content (Native) for editing native WordPress content from Field Groups.
 
 = 2.6.7.45.2 =
 * Improved automatic field names for group and native WordPress fields.

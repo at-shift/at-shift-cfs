@@ -9,6 +9,7 @@
             'accordion',
             'conditional',
             'post_title',
+            'post_content',
             'post_publish',
             'wp_category',
             'wp_tag',
