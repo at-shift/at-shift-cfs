@@ -114,11 +114,11 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 - コード
 - チェックボックス
 - ラジオボタン
-- 投稿タイトル（標準）
-- 保存・公開（標準）
+- 投稿タイトル（WordPress 標準）
+- 保存・公開（WordPress 標準）
 - 投稿カテゴリー (標準 / グローバル)
-- 投稿タグ・WordPress 標準
-- アイキャッチ画像・WordPress 標準
+- 投稿タグ（WordPress 標準）
+- アイキャッチ画像（WordPress 標準）
 
 設定方法は[フィールドグループ設定ガイド](https://cfs.at-shift.net/guide/)を、
 返り値と出力例は[フィールド別の出力リファレンス](https://cfs.at-shift.net/output/)をご覧ください。
