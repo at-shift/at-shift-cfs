@@ -59,11 +59,20 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
             'duplicate_field_name_inline' => __( 'This field name is duplicated. Use a unique field name.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: comma-separated duplicate field names. */
             'duplicate_field_names_alert' => __( 'Duplicate field names found: %s. Field names must be unique before saving.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'tab_child_count_warning' => __( 'Add at least one field to this tab group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'horizontal_group_child_count_warning' => __( 'Add two or more fields to this horizontal group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'loop_child_count_warning' => __( 'Add at least one field to this loop group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'accordion_child_count_warning' => __( 'Add at least one field to this accordion group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'conditional_group_no_conditions_warning' => __( 'Set conditions and add fields to each condition.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'conditional_child_count_warning' => __( 'Add fields to each condition.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'conditional_group_two_fields_warning' => __( 'Create two or more conditions, then add fields to each condition.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'conditional_group_one_more_field_warning' => __( 'Add fields to each empty condition.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'automatically_named_when_saved' => __( 'Automatically named when saved', 'atshift-fields-maintenance-for-custom-field-suite' ),
-            'move_here'         => __( 'Move here', 'atshift-fields-maintenance-for-custom-field-suite' ),
-            /* translators: %s: destination field label. */
-            'outdent_to_container' => __( 'Move here: inside %s', 'atshift-fields-maintenance-for-custom-field-suite' ),
-            'outdent_to_tab'       => __( 'Move here: inside the current Tab', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'unnamed_condition' => __( 'Unnamed condition', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            /* translators: %s: conditional choice label. */
+            'conditional_branch_drop_label' => __( 'Drag fields for condition "%s" here.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'open_field_settings' => __( 'Open field settings', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'close_field_settings' => __( 'Close field settings', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'structure_badges'       => [
                 'tab'         => __( 'TAB', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'loop'        => __( 'LOOP', 'atshift-fields-maintenance-for-custom-field-suite' ),

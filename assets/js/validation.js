@@ -1,4 +1,8 @@
 (function($) {
+    function trim(value) {
+        return String(null == value ? '' : value).trim();
+    }
+
     $(function() {
         var validationMessage = function(key, fallback) {
             return CFS.validation_messages && CFS.validation_messages[key] ? CFS.validation_messages[key] : fallback;
@@ -28,19 +32,19 @@
             'valid_phone': {
                 'error': validationMessage('valid_phone', 'Please enter a valid phone number'),
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     var regex = /^[0-9+\-().\s]+$/;
                     return '' == val || regex.test(val);
                 }
             },
             'required_phone': {
                 'error': function(el, val) {
-                    return '' == $.trim(val || '') ?
+                    return '' == trim(val) ?
                         validationMessage('enter_phone', 'Please enter a phone number') :
                         validationMessage('valid_phone', 'Please enter a valid phone number');
                 },
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     var regex = /^[0-9+\-().\s]+$/;
                     return '' != val && null != val && regex.test(val);
                 }
@@ -48,19 +52,19 @@
             'valid_email': {
                 'error': validationMessage('valid_email', 'Please enter a valid email address'),
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     return '' == val || regex.test(val);
                 }
             },
             'required_email': {
                 'error': function(el, val) {
-                    return '' == $.trim(val || '') ?
+                    return '' == trim(val) ?
                         validationMessage('enter_email', 'Please enter an email address') :
                         validationMessage('valid_email', 'Please enter a valid email address');
                 },
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     return '' != val && null != val && regex.test(val);
                 }
@@ -68,55 +72,55 @@
             'valid_number': {
                 'error': validationMessage('valid_number', 'Please enter a valid number'),
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     return '' == val || /^-?(?:\d+|\d*\.\d+)$/.test(val);
                 }
             },
             'required_number': {
                 'error': function(el, val) {
-                    return '' == $.trim(val || '') ?
+                    return '' == trim(val) ?
                         validationMessage('enter_number', 'Please enter a number') :
                         validationMessage('valid_number', 'Please enter a valid number');
                 },
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     return '' != val && null != val && /^-?(?:\d+|\d*\.\d+)$/.test(val);
                 }
             },
             'valid_url': {
                 'error': validationMessage('valid_url', 'Please enter a valid URL'),
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     return '' == val || /^(https?:\/\/|mailto:|tel:)/i.test(val);
                 }
             },
             'required_url': {
                 'error': function(el, val) {
-                    return '' == $.trim(val || '') ?
+                    return '' == trim(val) ?
                         validationMessage('enter_url', 'Please enter a URL') :
                         validationMessage('valid_url', 'Please enter a valid URL');
                 },
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     return '' != val && null != val && /^(https?:\/\/|mailto:|tel:)/i.test(val);
                 }
             },
             'valid_time': {
                 'error': validationMessage('valid_time', 'Please select a valid time'),
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     var regex = /^([01]\d|2[0-3]):[0-5]\d$/;
                     return '' == val || regex.test(val);
                 }
             },
             'required_time': {
                 'error': function(el, val) {
-                    return '' == $.trim(val || '') ?
+                    return '' == trim(val) ?
                         validationMessage('select_time', 'Please select a time') :
                         validationMessage('valid_time', 'Please select a valid time');
                 },
                 'validate': function(val) {
-                    val = $.trim(val);
+                    val = trim(val);
                     var regex = /^([01]\d|2[0-3]):[0-5]\d$/;
                     return '' != val && null != val && regex.test(val);
                 }
@@ -124,8 +128,8 @@
             'required_code_view': {
                 'error': validationMessage('enter_code', 'Please select a language and enter code'),
                 'validate': function(val, el) {
-                    var language = $.trim(el.find('.atshift-cfs-code-view-language').val() || '');
-                    var code = $.trim(el.find('textarea').val() || '');
+                    var language = trim(el.find('.atshift-cfs-code-view-language').val());
+                    var code = trim(el.find('textarea').val());
                     return '' != language && '' != code;
                 }
             },
@@ -257,7 +261,7 @@
 
                 var val = ('function' == typeof CFS.get_field_value[type]) ? CFS.get_field_value[type]($this) : $this.find('input').val();
                 var is_required = 0 === validator.indexOf('required') || 'required' == validator;
-                var is_empty = '' == $.trim(null == val ? '' : val);
+                var is_empty = '' == trim(val);
 
                 if (is_empty && !is_required && 'limit' != validator) {
                     $this.find('> .error').hide();
@@ -295,7 +299,7 @@
 
                     if (options.collect_errors) {
                         var field_id = $this.attr('id');
-                        var label = $.trim($this.find('> label').first().text());
+                        var label = trim($this.find('> label').first().text());
 
                         if (!field_id) {
                             field_id = 'atshift-cfs-validation-field-' + field_name.replace(/[^a-zA-Z0-9_-]/g, '-') + '-' + CFS.validation_errors.length;
@@ -328,8 +332,8 @@
                 var $field = $(this);
                 var fieldId = $field.attr('id');
                 var fieldName = $field.attr('data-name') || '';
-                var label = $.trim($field.find('> label').first().clone().children().remove().end().text());
-                var message = $field.attr('data-validation-message') || $.trim($field.find('> .error').text());
+                var label = trim($field.find('> label').first().clone().children().remove().end().text());
+                var message = $field.attr('data-validation-message') || trim($field.find('> .error').text());
                 var $row = $field.closest('.loop_wrapper').children('.cfs_loop_head').first().find('.label').first();
 
                 if (!fieldId) {
@@ -337,8 +341,8 @@
                     $field.attr('id', fieldId);
                 }
 
-                if ($row.length && $.trim($row.text())) {
-                    label = $.trim($row.text()) + ' / ' + label;
+                if ($row.length && trim($row.text())) {
+                    label = trim($row.text()) + ' / ' + label;
                 }
 
                 var tabLabels = CFS.get_field_tab_labels($field);
@@ -398,7 +402,7 @@
                 var $field = $(this);
                 var $error = $field.children('.error').first();
 
-                if (!$error.length || !$.trim($error.text()) || !$error.is(':visible')) {
+                if (!$error.length || !trim($error.text()) || !$error.is(':visible')) {
                     $field.addClass('cfs-field-invalid-visual');
                 }
             });
@@ -432,7 +436,7 @@
         };
 
         CFS.get_tab_label = function($tab) {
-            return $.trim($tab.clone().children().remove().end().text());
+            return trim($tab.clone().children().remove().end().text());
         };
 
         CFS.get_field_tab_labels = function($field) {

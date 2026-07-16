@@ -10,6 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Basepath: .\n"
 "X-Generator: Poedit 1.8.5\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
@@ -19,6 +20,15 @@ msgstr ""
 #: ../includes/fields/conditional.php:7
 msgid "Conditional Group"
 msgstr "条件分岐グループ"
+
+#: ../templates/admin_head.php:63
+msgid "Unnamed condition"
+msgstr "名称未設定条件"
+
+#: ../templates/admin_head.php:65
+#, php-format
+msgid "Drag fields for condition \"%s\" here."
+msgstr "条件「%s」"
 
 #: ../includes/fields/conditional.php:107
 msgid "Display Type"
@@ -477,9 +487,61 @@ msgstr "等しい"
 msgid "is not"
 msgstr "等しくない"
 
+#: ../templates/meta_box_rules.php:57
+msgid "Standard"
+msgstr "標準"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Administrator"
+msgstr "管理者"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Editor"
+msgstr "編集者"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Author"
+msgstr "投稿者"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Contributor"
+msgstr "寄稿者"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Subscriber"
+msgstr "購読者"
+
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
 msgstr "このルールをスキップするには空白のままにしておいてください"
+
+#: ../templates/meta_box_rules.php:248
+msgid "The results could not be loaded."
+msgstr "結果を読み込めませんでした。"
+
+#: ../templates/meta_box_rules.php:253
+msgid "Please enter 1 more character"
+msgstr "あと1文字入力してください"
+
+#: ../templates/meta_box_rules.php:256
+msgid "Please enter %s or more characters"
+msgstr "%s文字以上入力してください"
+
+#: ../templates/meta_box_rules.php:259
+msgid "Loading more results..."
+msgstr "さらに読み込んでいます..."
+
+#: ../templates/meta_box_rules.php:262
+msgid "No results found"
+msgstr "一致する項目がありません"
+
+#: ../templates/meta_box_rules.php:265
+msgid "Searching..."
+msgstr "検索しています..."
+
+#: ../templates/meta_box_rules.php:282
+msgid "%s allowed"
+msgstr "%s件まで選択できます"
 
 #: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
@@ -605,8 +667,8 @@ msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
 #: ../includes/init.php:154
-msgid "at-shift CFS Tools"
-msgstr "at-shift CFS ツール"
+msgid "atshift Fields Tool"
+msgstr "atshift Fields ツール"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -794,8 +856,29 @@ msgstr "このフィールドグループは編集可能なすべての投稿画
 msgid "A newer version %s is available on GitHub."
 msgstr "GitHub上に最新版 %s が出ています。"
 
+msgid "Add at least one field to this tab group."
+msgstr "タブグループには1つ以上のフィールドを登録してください。"
+
 msgid "Add two or more fields to this horizontal group."
 msgstr "横並びグループには複数のフィールドを登録してください。"
+
+msgid "Add at least one field to this loop group."
+msgstr "ループグループには1つ以上のフィールドを登録してください。"
+
+msgid "Add at least one field to this accordion group."
+msgstr "アコーディオングループには1つ以上のフィールドを登録してください。"
+
+msgid "Set conditions and add fields to each condition."
+msgstr "条件を設定してそれぞれの条件にフィールドを追加してください"
+
+msgid "Add fields to each condition."
+msgstr "各条件にフィールドを追加してください。"
+
+msgid "Create two or more conditions, then add fields to each condition."
+msgstr "2つ以上の条件を作成し、各条件にフィールドを追加してください。"
+
+msgid "Add fields to each empty condition."
+msgstr "空の条件にフィールドを追加してください。"
 
 msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
 msgstr "タブ、ループ、横並びグループは、横並びグループの中には配置できません。"
@@ -1219,3 +1302,27 @@ msgstr "ビジュアルエディタ"
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
 msgstr "WordPress 標準の本文を変更する権限がありません。"
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "カテゴリー表示"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "親カテゴリーを横に並べる"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "子・孫カテゴリーを横に並べる"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "どちらも未選択の場合は従来通りのカテゴリー階層で表示します。"
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "よく使われているタグから選択"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "よく使われているタグはまだありません。"

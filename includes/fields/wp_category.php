@@ -79,6 +79,16 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
 
         $auto_select_children = 0 < (int) $this->get_option( $field, 'auto_select_children' );
         $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents', 1 );
+        $layout_parent_horizontal = 0 < (int) $this->get_option( $field, 'layout_parent_horizontal' );
+        $layout_children_horizontal = 0 < (int) $this->get_option( $field, 'layout_children_horizontal' );
+        $list_classes = [ 'cfs-wp-category-list' ];
+
+        if ( $layout_parent_horizontal ) {
+            $list_classes[] = 'is-parent-horizontal';
+        }
+        if ( $layout_children_horizontal ) {
+            $list_classes[] = 'is-children-horizontal';
+        }
     ?>
         <div class="cfs-wp-category-control">
             <div class="cfs-wp-category-tools">
@@ -89,25 +99,25 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
                 </label>
             </div>
     <?php
-        echo '<div class="cfs-wp-category-list" data-taxonomy="' . esc_attr( $taxonomy_name ) . '" data-auto-select-children="' . esc_attr( $auto_select_children ? '1' : '0' ) . '" data-auto-select-parents="' . esc_attr( $auto_select_parents ? '1' : '0' ) . '" data-default-category="' . esc_attr( $default_term_id ) . '">';
+        echo '<div class="' . esc_attr( implode( ' ', $list_classes ) ) . '" data-taxonomy="' . esc_attr( $taxonomy_name ) . '" data-auto-select-children="' . esc_attr( $auto_select_children ? '1' : '0' ) . '" data-auto-select-parents="' . esc_attr( $auto_select_parents ? '1' : '0' ) . '" data-default-category="' . esc_attr( $default_term_id ) . '">';
         $this->render_terms( $children, 0, $selected, $field->input_name, $default_term_id );
         echo '</div>';
         echo '</div>';
     }
 
 
-    protected function render_terms( $children, $parent_id, $selected, $input_name, $default_term_id ) {
+    protected function render_terms( $children, $parent_id, $selected, $input_name, $default_term_id, $depth = 0 ) {
         if ( empty( $children[ $parent_id ] ) ) {
             return;
         }
 
-        echo '<ul>';
+        echo '<ul class="' . esc_attr( 0 === $depth ? 'cfs-wp-category-root' : 'children' ) . '">';
         foreach ( $children[ $parent_id ] as $term ) {
             $term_id = (int) $term->term_id;
             $term_name = $this->get_term_name( $term );
             $is_selected = in_array( $term_id, $selected, true );
             $has_children = ! empty( $children[ $term_id ] );
-            $classes = [ 'cfs-wp-category-item' ];
+            $classes = [ 'cfs-wp-category-item', 'depth-' . min( 4, absint( $depth ) ) ];
 
             if ( $is_selected ) {
                 $classes[] = 'is-selected';
@@ -124,7 +134,7 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
             echo '<input type="checkbox" name="' . esc_attr( $input_name ) . '[]" value="' . absint( $term_id ) . '"' . checked( $is_selected, true, false ) . ' /> ';
             echo esc_html( $term_name );
             echo '</label>';
-            $this->render_terms( $children, $term_id, $selected, $input_name, $default_term_id );
+            $this->render_terms( $children, $term_id, $selected, $input_name, $default_term_id, $depth + 1 );
             echo '</li>';
         }
         echo '</ul>';
@@ -209,6 +219,33 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
+                <label><?php esc_html_e( 'Category Display', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+            </td>
+            <td>
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type' => 'true_false',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][layout_parent_horizontal]',
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option( $field, 'layout_parent_horizontal' ),
+                        'options' => [ 'message' => __( 'Arrange parent categories horizontally', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                    ] );
+                ?>
+                <br />
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type' => 'true_false',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][layout_children_horizontal]',
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option( $field, 'layout_children_horizontal' ),
+                        'options' => [ 'message' => __( 'Arrange child and grandchild categories horizontally', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                    ] );
+                ?>
+                <p class="description"><?php esc_html_e( 'Leave both unchecked to use the traditional category tree.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
+            <td class="label">
                 <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
@@ -275,6 +312,8 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         $field['options']['required'] = empty( $field['options']['required'] ) ? 0 : 1;
         $field['options']['auto_select_children'] = empty( $field['options']['auto_select_children'] ) ? 0 : 1;
         $field['options']['auto_select_parents'] = empty( $field['options']['auto_select_parents'] ) ? 0 : 1;
+        $field['options']['layout_parent_horizontal'] = empty( $field['options']['layout_parent_horizontal'] ) ? 0 : 1;
+        $field['options']['layout_children_horizontal'] = empty( $field['options']['layout_children_horizontal'] ) ? 0 : 1;
 
         return $field;
     }

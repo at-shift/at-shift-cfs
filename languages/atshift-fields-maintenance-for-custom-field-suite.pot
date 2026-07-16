@@ -19,6 +19,15 @@ msgstr ""
 msgid "Conditional Group"
 msgstr ""
 
+#: ../templates/admin_head.php:63
+msgid "Unnamed condition"
+msgstr ""
+
+#: ../templates/admin_head.php:65
+#, php-format
+msgid "Drag fields for condition \"%s\" here."
+msgstr ""
+
 #: ../includes/fields/conditional.php:107
 msgid "Display Type"
 msgstr ""
@@ -476,8 +485,60 @@ msgstr ""
 msgid "is not"
 msgstr ""
 
+#: ../templates/meta_box_rules.php:57
+msgid "Standard"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:70
+msgid "Administrator"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:70
+msgid "Editor"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:70
+msgid "Author"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:70
+msgid "Contributor"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:70
+msgid "Subscriber"
+msgstr ""
+
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:248
+msgid "The results could not be loaded."
+msgstr ""
+
+#: ../templates/meta_box_rules.php:253
+msgid "Please enter 1 more character"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:256
+msgid "Please enter %s or more characters"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:259
+msgid "Loading more results..."
+msgstr ""
+
+#: ../templates/meta_box_rules.php:262
+msgid "No results found"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:265
+msgid "Searching..."
+msgstr ""
+
+#: ../templates/meta_box_rules.php:282
+msgid "%s allowed"
 msgstr ""
 
 #: ../templates/meta_box_rules.php:258
@@ -604,7 +665,7 @@ msgid "Custom Field Suite"
 msgstr ""
 
 #: ../includes/init.php:154
-msgid "at-shift CFS Tools"
+msgid "atshift Fields Tool"
 msgstr ""
 
 #: ../includes/fields/phone.php:8
@@ -790,7 +851,28 @@ msgstr ""
 msgid "A newer version %s is available on GitHub."
 msgstr ""
 
+msgid "Add at least one field to this tab group."
+msgstr ""
+
 msgid "Add two or more fields to this horizontal group."
+msgstr ""
+
+msgid "Add at least one field to this loop group."
+msgstr ""
+
+msgid "Add at least one field to this accordion group."
+msgstr ""
+
+msgid "Set conditions and add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each condition."
+msgstr ""
+
+msgid "Create two or more conditions, then add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each empty condition."
 msgstr ""
 
 msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
@@ -1214,4 +1296,28 @@ msgstr ""
 
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr ""
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr ""
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
 msgstr ""

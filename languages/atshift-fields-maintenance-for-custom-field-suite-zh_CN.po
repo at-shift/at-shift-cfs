@@ -516,8 +516,8 @@ msgstr "切换行可见性"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "at-shift CFS Tools"
-msgstr "CFS 工具"
+msgid "atshift Fields Tool"
+msgstr "atshift Fields 工具"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -1038,3 +1038,73 @@ msgstr "可视化编辑器"
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
 msgstr "您没有权限更改原生内容。"
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "分类显示"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "横向排列父级分类"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "横向排列子级和孙级分类"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "两项都不勾选时，将使用传统分类树显示。"
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "从最常用的标签中选择"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "暂无常用标签。"
+
+#: ../templates/meta_box_rules.php
+msgid "%s allowed"
+msgstr "允许 %s 个"
+
+#: ../templates/meta_box_rules.php
+msgid "Standard"
+msgstr "标准"
+
+#: ../templates/meta_box_rules.php
+msgid "Administrator"
+msgstr "管理员"
+
+#: ../templates/meta_box_rules.php
+msgid "Editor"
+msgstr "编辑"
+
+#: ../templates/meta_box_rules.php
+msgid "Author"
+msgstr "作者"
+
+#: ../templates/meta_box_rules.php
+msgid "Contributor"
+msgstr "贡献者"
+
+#: ../templates/meta_box_rules.php
+msgid "Subscriber"
+msgstr "订阅者"
+
+msgid "The results could not be loaded."
+msgstr "无法加载结果。"
+
+msgid "Please enter 1 more character"
+msgstr "请再输入 1 个字符"
+
+msgid "Please enter %s or more characters"
+msgstr "请输入 %s 个或更多字符"
+
+msgid "Loading more results..."
+msgstr "正在加载更多结果..."
+
+msgid "No results found"
+msgstr "未找到结果"
+
+msgid "Searching..."
+msgstr "正在搜索..."

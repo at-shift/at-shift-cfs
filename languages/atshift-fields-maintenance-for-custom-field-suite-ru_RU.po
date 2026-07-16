@@ -540,8 +540,8 @@ msgstr "Переключить видимость строки"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "at-shift CFS Tools"
-msgstr "Инструменты CFS"
+msgid "atshift Fields Tool"
+msgstr "Инструмент atshift Fields"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -1062,3 +1062,73 @@ msgstr "Визуальный редактор"
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
 msgstr "У вас нет прав для изменения штатного содержимого."
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "Отображение категорий"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "Располагать родительские категории горизонтально"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "Располагать дочерние и вложенные категории горизонтально"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "Оставьте оба параметра выключенными, чтобы использовать традиционное дерево категорий."
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "Выбрать из часто используемых меток"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "Часто используемые метки пока недоступны."
+
+#: ../templates/meta_box_rules.php
+msgid "%s allowed"
+msgstr "Разрешено: %s"
+
+#: ../templates/meta_box_rules.php
+msgid "Standard"
+msgstr "Стандартный"
+
+#: ../templates/meta_box_rules.php
+msgid "Administrator"
+msgstr "Администратор"
+
+#: ../templates/meta_box_rules.php
+msgid "Editor"
+msgstr "Редактор"
+
+#: ../templates/meta_box_rules.php
+msgid "Author"
+msgstr "Автор"
+
+#: ../templates/meta_box_rules.php
+msgid "Contributor"
+msgstr "Участник"
+
+#: ../templates/meta_box_rules.php
+msgid "Subscriber"
+msgstr "Подписчик"
+
+msgid "The results could not be loaded."
+msgstr "Не удалось загрузить результаты."
+
+msgid "Please enter 1 more character"
+msgstr "Введите ещё 1 символ"
+
+msgid "Please enter %s or more characters"
+msgstr "Введите %s или более символов"
+
+msgid "Loading more results..."
+msgstr "Загрузка дополнительных результатов..."
+
+msgid "No results found"
+msgstr "Результаты не найдены"
+
+msgid "Searching..."
+msgstr "Поиск..."

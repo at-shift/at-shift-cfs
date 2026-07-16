@@ -31,9 +31,33 @@ body #powerTip {
     #cfs_fields (container)
 ---------------------------------------------------------------------------------------------*/
 
+#cfs_fields,
+#cfs_rules,
+#cfs_extras {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+#cfs_fields *,
+#cfs_fields *:before,
+#cfs_fields *:after,
+#cfs_rules *,
+#cfs_rules *:before,
+#cfs_rules *:after,
+#cfs_extras *,
+#cfs_extras *:before,
+#cfs_extras *:after {
+    box-sizing: border-box;
+}
+
 #cfs_fields .inside {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 #cfs_fields .table_footer {
@@ -41,13 +65,20 @@ body #powerTip {
     text-align: right;
 }
 
-#cfs_fields .field_meta.even td {
-    background-color: #fcfcfc;
-}
-
 #cfs_fields .fields {
     margin: 0;
-    background: #0073aa;
+}
+
+#cfs_fields .fields,
+#cfs_fields .fields ul,
+#cfs_fields .fields li,
+#cfs_fields .fields li > .field,
+#cfs_fields .field_meta,
+#cfs_fields .field_meta table,
+#cfs_fields .field_form,
+#cfs_fields .field_form table {
+    max-width: 100%;
+    min-width: 0;
 }
 
 #cfs_fields .fields a.cfs_edit_field {
@@ -57,14 +88,6 @@ body #powerTip {
 
 #cfs_fields .fields .button-secondary.cfs_edit_field {
     vertical-align: baseline;
-}
-
-#cfs_fields .fields li {
-    margin: 0;
-}
-
-#cfs_fields .fields li li {
-    margin: 0 0 0 10px;
 }
 
 #cfs_fields .cfs-structure-badge {
@@ -84,58 +107,23 @@ body #powerTip {
 }
 
 #cfs_fields .cfs-structure-badge-tab {
-    background: #2271b1;
+    background: var(--cfs-structure-tab-color);
 }
 
 #cfs_fields .cfs-structure-badge-loop {
-    background: #7e57c2;
+    background: var(--cfs-structure-loop-color);
 }
 
 #cfs_fields .cfs-structure-badge-group {
-    background: #238636;
+    background: var(--cfs-structure-group-color);
 }
 
 #cfs_fields .cfs-structure-badge-accordion {
-    background: #d97706;
+    background: var(--cfs-structure-accordion-color);
 }
 
 #cfs_fields .cfs-structure-badge-conditional {
-    background: #0f766e;
-}
-
-#cfs_fields li.cfs-structure-loop > ul,
-#cfs_fields li.cfs-structure-group > ul,
-#cfs_fields li.cfs-structure-accordion > ul {
-    margin-left: 10px;
-    min-height: 44px;
-    padding: 8px 8px 14px;
-    border-width: 0 2px 2px;
-    border-style: solid;
-}
-
-#cfs_fields li.cfs-structure-loop > ul {
-    border-color: #7e57c2;
-    background: #f2eef9;
-}
-
-#cfs_fields li.cfs-structure-group > ul {
-    border-color: #238636;
-    background: #edf7ef;
-}
-
-#cfs_fields li.cfs-structure-accordion > ul {
-    border-color: #d97706;
-    background: #fff3e3;
-}
-
-#cfs_fields li.cfs-structure-conditional > ul {
-    margin-left: 10px;
-    min-height: 44px;
-    padding: 8px 8px 14px;
-    border-width: 0 2px 2px;
-    border-style: solid;
-    border-color: #0f766e;
-    background: #e0f2f1;
+    background: var(--cfs-structure-conditional-color);
 }
 
 #cfs_fields .field_conditional_value,
@@ -151,96 +139,6 @@ body #powerTip {
     margin: 0;
     border: 0;
     border-top: 1px solid #dcdcde;
-}
-
-#cfs_fields li.cfs-tab-range > ul {
-    box-sizing: border-box;
-    margin-right: 10px;
-}
-
-#cfs_fields li.cfs-tab-range {
-    margin-left: 5px;
-    border-left: 2px solid #2271b1;
-    background: #edf5fb;
-}
-
-#cfs_fields li.cfs-tab-range.cfs-structure-loop > .field > .field_meta table,
-#cfs_fields li.cfs-tab-range.cfs-structure-group > .field > .field_meta table,
-#cfs_fields li.cfs-tab-range.cfs-structure-accordion > .field > .field_meta table,
-#cfs_fields li.cfs-tab-range.cfs-structure-conditional > .field > .field_meta table {
-    width: calc(100% - 5px);
-}
-
-#cfs_fields li.cfs-tab-range.cfs-structure-loop > .field > .field_meta td.field_type,
-#cfs_fields li.cfs-tab-range.cfs-structure-group > .field > .field_meta td.field_type,
-#cfs_fields li.cfs-tab-range.cfs-structure-accordion > .field > .field_meta td.field_type,
-#cfs_fields li.cfs-tab-range.cfs-structure-conditional > .field > .field_meta td.field_type {
-    width: 95px;
-}
-
-#cfs_fields li.cfs-structure-tab[data-outside-tabs="1"] {
-    margin-top: 0;
-    border-top: 10px solid #fff;
-}
-
-#cfs_fields .fields li.loop > ul {
-    min-height: 44px;
-}
-
-#cfs_fields .fields.cfs-drop-target,
-#cfs_fields .fields li.loop > ul.cfs-drop-target {
-    outline: 2px dashed rgba(34, 113, 177, 0.45);
-    outline-offset: -5px;
-}
-
-#cfs_fields > .inside > ul.fields.cfs-drop-target {
-    padding-bottom: 56px;
-}
-
-#cfs_fields .fields.cfs-drop-target-active,
-#cfs_fields .fields li.loop > ul.cfs-drop-target-active {
-    outline-color: #2271b1;
-    background-image: linear-gradient(rgba(34, 113, 177, 0.08), rgba(34, 113, 177, 0.08));
-}
-
-#cfs_fields .fields li.loop > ul.cfs-outdent-target:before,
-#cfs_fields li.cfs-outdent-tab-target:after {
-    content: attr(data-cfs-drop-label);
-    display: block;
-    box-sizing: border-box;
-    min-height: 34px;
-    margin: 2px 0 8px;
-    padding: 8px 12px;
-    border: 1px dashed #72aee6;
-    background: #f0f6fc;
-    color: #1d2327;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.4;
-    text-align: center;
-}
-
-#cfs_fields .fields li.loop > ul.cfs-outdent-target {
-    padding-top: 14px;
-    padding-bottom: 18px;
-}
-
-#cfs_fields li.cfs-outdent-tab-target:after {
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-#cfs_fields .field.form_open {
-    border-bottom: 1px solid #DFDFDF;
-}
-
-#cfs_fields .field.form_open .field_meta td {
-    background-color: #0073aa;
-    color: #fff;
-}
-
-#cfs_fields .field.form_open .field_meta td a {
-    color: #fff;
 }
 
 #cfs_fields .field.cfs-duplicate-field-name .field_meta td {
@@ -273,15 +171,966 @@ body #powerTip {
     font-weight: 600;
 }
 
-#cfs_fields .field_meta tr.field_warning td {
-    background: #fff8e5;
-    color: #1d2327;
-    border-bottom: 1px solid #dfdfdf;
+#cfs_fields .field.cfs-conditional-branch-required .field_meta td {
+    background: #fff1f1;
 }
 
-#cfs_fields .field_meta tr.field_warning td:nth-child(2) {
+#cfs_fields .field.cfs-conditional-branch-required.form_open .field_meta td {
+    background: #b32d2e;
+    color: #fff;
+}
+
+#cfs_fields .field.cfs-conditional-branch-required.form_open .field_meta td a,
+#cfs_fields .field.cfs-conditional-branch-required.form_open .field_meta td.field_name,
+#cfs_fields .field.cfs-conditional-branch-required.form_open .field_meta td.field_type {
+    color: #fff;
+}
+
+#cfs_fields .field_form select.cfs-conditional-branch-required-input {
+    border-color: #d63638;
+    box-shadow: 0 0 0 1px #d63638;
+}
+
+#cfs_fields .field_form .cfs-conditional-branch-required-warning {
+    margin: 6px 0 0 0 !important;
+    color: #b32d2e;
+    font-weight: 600;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Modern field group editor surface
+---------------------------------------------------------------------------------------------*/
+
+#cfs_fields .inside {
+    background: #fff;
+}
+
+#cfs_fields {
+    --cfs-editor-row-height: 44px;
+    --cfs-editor-gap: 8px;
+    --cfs-editor-pad: 7px;
+    --cfs-editor-group-pad: 18px;
+    --cfs-editor-accent: #4b3320;
+    --cfs-editor-accent-border: #6f4c2b;
+    --cfs-structure-tab-color: #7d572e;
+    --cfs-structure-tab-border: #a68563;
+    --cfs-structure-tab-bg: #f4ebe2;
+    --cfs-structure-tab-head: #e6d4c2;
+    --cfs-structure-loop-color: #8f6740;
+    --cfs-structure-loop-border: #b99068;
+    --cfs-structure-loop-bg: #fffdf9;
+    --cfs-structure-loop-head: #e1ccb2;
+    --cfs-structure-group-color: #8a7258;
+    --cfs-structure-group-border: #b99f80;
+    --cfs-structure-group-bg: #fffdf9;
+    --cfs-structure-group-head: #e8d8c4;
+    --cfs-structure-accordion-color: #a98862;
+    --cfs-structure-accordion-border: #c9aa82;
+    --cfs-structure-accordion-bg: #fffdf8;
+    --cfs-structure-accordion-head: #dfc9ac;
+    --cfs-structure-conditional-color: #6f6655;
+    --cfs-structure-conditional-border: #d1c5b4;
+    --cfs-structure-conditional-bg: #f7f4ec;
+    --cfs-structure-conditional-head: #e4ddcd;
+    container-type: inline-size;
+}
+
+#cfs_fields .fields {
+    box-sizing: border-box;
+    padding: 10px 12px 18px;
+    background: #fff;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#cfs_fields .fields li {
+    box-sizing: border-box;
+    margin: var(--cfs-editor-gap) 0;
+}
+
+#cfs_fields .fields li li {
+    margin: var(--cfs-editor-gap) 0 0 10px;
+}
+
+#cfs_fields .fields li > .field {
+    box-sizing: border-box;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    background: #fff;
+    container-type: inline-size;
+    overflow: hidden;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#cfs_fields .fields li.cfs-actions-open,
+#cfs_fields .fields li.cfs-actions-open-ancestor {
+    position: relative;
+    overflow: visible !important;
+}
+
+#cfs_fields .fields li.cfs-actions-open-ancestor {
+    z-index: 90;
+}
+
+#cfs_fields .fields li.cfs-actions-open {
+    z-index: 120;
+}
+
+#cfs_fields .fields li > .field.cfs-actions-open,
+#cfs_fields .fields li > .field.cfs-actions-open-ancestor {
+    position: relative;
+    z-index: 130;
+    overflow: visible !important;
+}
+
+#cfs_fields .fields li > .field:hover {
+    border-color: #b8c0c8;
+}
+
+#cfs_fields .fields li > .field.form_open {
+    border-color: var(--cfs-editor-accent-border);
+    box-shadow: 0 0 0 1px var(--cfs-editor-accent-border);
+}
+
+#cfs_fields .field_meta table {
+    background: transparent;
+}
+
+#cfs_fields .field_meta td {
+    height: var(--cfs-editor-row-height);
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+    background: #fff;
+    vertical-align: middle;
+}
+
+#cfs_fields .field_meta td.field_order {
+    width: 50px;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: center;
+}
+
+#cfs_fields .field_meta td.field_label {
+    padding-left: 0;
+    padding-right: 10px;
+}
+
+#cfs_fields .field_meta td.field_label a {
+    color: var(--cfs-editor-accent);
+}
+
+#cfs_fields .field_meta td.field_name {
+    width: 188px;
+    padding-right: 2em;
+}
+
+#cfs_fields .field_meta td.field_type {
+    width: 154px;
+    padding-left: 10px;
+    padding-right: 8px;
+    overflow: visible;
+}
+
+#cfs_fields .field_meta td.field_type a.cfs_edit_field {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 136px;
+    height: 28px;
+    padding: 0 26px 0 16px;
+    overflow: hidden;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 26px;
+    color: var(--cfs-editor-accent);
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+#cfs_fields .field_meta td.field_type .cfs-field-type-text {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+
+#cfs_fields .field_meta td.field_type a.cfs_edit_field:after {
+    content: "";
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-65%) rotate(45deg);
+}
+
+#cfs_fields .field.form_open .field_meta td.field_type a.cfs_edit_field:after {
+    transform: translateY(-35%) rotate(-135deg);
+}
+
+#cfs_fields .field.form_open .field_meta td.field_type a.cfs_edit_field {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#cfs_fields .field.form_open .field_meta td {
+    background: var(--cfs-editor-accent);
+    color: #fff;
+}
+
+#cfs_fields .field.form_open .field_meta td a,
+#cfs_fields .field.form_open .field_meta td.field_name,
+#cfs_fields .field.form_open .field_meta td.field_type {
+    color: #fff;
+}
+
+#cfs_fields .field.form_open .field_meta td.field_order:after {
+    color: #fff;
+}
+
+#cfs_fields .field_form {
+    border-top: 1px solid #dcdcde;
+    background: #fff;
+}
+
+#cfs_fields .field.form_open .field_form {
+    position: relative;
+    z-index: 5;
+    border-top-color: #d8e7f3;
+}
+
+#cfs_fields .field.form_open.cfs-actions-open .field_form {
+    z-index: 140;
+}
+
+#cfs_fields .field_form tr.field_basics table {
+    padding: 16px 16px 14px;
+    border-bottom-color: #e3e6e8;
+}
+
+#cfs_fields .field_form td {
+    padding: 12px 16px;
+}
+
+#cfs_fields .field_form .cfs-field-actions {
+    justify-content: center;
+    gap: 12px;
+}
+
+#cfs_fields .field_form .cfs-field-actions:after {
+    content: none;
+}
+
+#cfs_fields li.cfs-structure-tab,
+#cfs_fields li.cfs-structure-loop,
+#cfs_fields li.cfs-structure-group,
+#cfs_fields li.cfs-structure-accordion,
+#cfs_fields li.cfs-structure-conditional {
+    padding: 0;
+    border: 2px solid #dcdcde;
+    border-radius: 10px;
+    background: #f6f7f7;
+    box-shadow: 0 2px 7px rgba(30, 41, 59, 0.12);
+    overflow: hidden;
+}
+
+#cfs_fields li.cfs-structure-tab {
+    border-color: var(--cfs-structure-tab-border);
+    background: var(--cfs-structure-tab-bg);
+}
+
+#cfs_fields li.cfs-structure-loop {
+    border-color: var(--cfs-structure-loop-border);
+    background: var(--cfs-structure-loop-bg);
+}
+
+#cfs_fields li.cfs-structure-group {
+    border-color: var(--cfs-structure-group-border);
+    background: var(--cfs-structure-group-bg);
+}
+
+#cfs_fields li.cfs-structure-accordion {
+    border-color: var(--cfs-structure-accordion-border);
+    background: var(--cfs-structure-accordion-bg);
+}
+
+#cfs_fields li.cfs-structure-conditional {
+    border-color: var(--cfs-structure-conditional-border);
+    background: var(--cfs-structure-conditional-bg);
+}
+
+#cfs_fields li.cfs-structure-tab > .field,
+#cfs_fields li.cfs-structure-loop > .field,
+#cfs_fields li.cfs-structure-group > .field,
+#cfs_fields li.cfs-structure-accordion > .field,
+#cfs_fields li.cfs-structure-conditional > .field {
+    position: relative;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    margin: 0;
+}
+
+#cfs_fields li.cfs-structure-tab > .field {
+    border-bottom: 2px solid var(--cfs-structure-tab-border);
+}
+
+#cfs_fields li.cfs-structure-loop > .field {
+    border-bottom: 2px solid var(--cfs-structure-loop-border);
+}
+
+#cfs_fields li.cfs-structure-group > .field {
+    border-bottom: 2px solid var(--cfs-structure-group-border);
+}
+
+#cfs_fields li.cfs-structure-accordion > .field {
+    border-bottom: 2px solid var(--cfs-structure-accordion-border);
+}
+
+#cfs_fields li.cfs-structure-conditional > .field {
+    border-bottom: 2px solid var(--cfs-structure-conditional-border);
+}
+
+#cfs_fields li.cfs-structure-tab > .field:hover,
+#cfs_fields li.cfs-structure-loop > .field:hover,
+#cfs_fields li.cfs-structure-group > .field:hover,
+#cfs_fields li.cfs-structure-accordion > .field:hover,
+#cfs_fields li.cfs-structure-conditional > .field:hover,
+#cfs_fields li.cfs-structure-tab > .field.form_open,
+#cfs_fields li.cfs-structure-loop > .field.form_open,
+#cfs_fields li.cfs-structure-group > .field.form_open,
+#cfs_fields li.cfs-structure-accordion > .field.form_open,
+#cfs_fields li.cfs-structure-conditional > .field.form_open {
+    border: 0;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    box-shadow: none;
+}
+
+#cfs_fields li.cfs-structure-tab > .field.form_open {
+    border-bottom-color: var(--cfs-structure-tab-border);
+}
+
+#cfs_fields li.cfs-structure-tab > .field.form_open,
+#cfs_fields li.cfs-structure-loop > .field.form_open,
+#cfs_fields li.cfs-structure-group > .field.form_open,
+#cfs_fields li.cfs-structure-accordion > .field.form_open,
+#cfs_fields li.cfs-structure-conditional > .field.form_open {
+    border-radius: 8px 8px 0 0;
+    overflow: visible;
+}
+
+#cfs_fields li.cfs-structure-loop > .field.form_open {
+    border-bottom-color: var(--cfs-structure-loop-border);
+}
+
+#cfs_fields li.cfs-structure-group > .field.form_open {
+    border-bottom-color: var(--cfs-structure-group-border);
+}
+
+#cfs_fields li.cfs-structure-accordion > .field.form_open {
+    border-bottom-color: var(--cfs-structure-accordion-border);
+}
+
+#cfs_fields li.cfs-structure-conditional > .field.form_open {
+    border-bottom-color: var(--cfs-structure-conditional-border);
+}
+
+#cfs_fields li.cfs-structure-tab > .field:not(.form_open) .field_meta td {
+    background: var(--cfs-structure-tab-head);
+}
+
+#cfs_fields li.cfs-structure-loop > .field:not(.form_open) .field_meta td {
+    background: var(--cfs-structure-loop-head);
+}
+
+#cfs_fields li.cfs-structure-group > .field:not(.form_open) .field_meta td {
+    background: var(--cfs-structure-group-head);
+}
+
+#cfs_fields li.cfs-structure-accordion > .field:not(.form_open) .field_meta td {
+    background: var(--cfs-structure-accordion-head);
+}
+
+#cfs_fields li.cfs-structure-conditional > .field:not(.form_open) .field_meta td {
+    background: var(--cfs-structure-conditional-head);
+}
+
+#cfs_fields li.cfs-structure-tab > .field:not(.form_open) .field_meta td.field_label a,
+#cfs_fields li.cfs-structure-loop > .field:not(.form_open) .field_meta td.field_label a,
+#cfs_fields li.cfs-structure-group > .field:not(.form_open) .field_meta td.field_label a,
+#cfs_fields li.cfs-structure-accordion > .field:not(.form_open) .field_meta td.field_label a,
+#cfs_fields li.cfs-structure-conditional > .field:not(.form_open) .field_meta td.field_label a,
+#cfs_fields li.cfs-structure-tab > .field:not(.form_open) .field_meta td.field_type,
+#cfs_fields li.cfs-structure-loop > .field:not(.form_open) .field_meta td.field_type,
+#cfs_fields li.cfs-structure-group > .field:not(.form_open) .field_meta td.field_type,
+#cfs_fields li.cfs-structure-accordion > .field:not(.form_open) .field_meta td.field_type,
+#cfs_fields li.cfs-structure-conditional > .field:not(.form_open) .field_meta td.field_type {
+    font-weight: 700;
+}
+
+#cfs_fields li.cfs-structure-tab > .field:not(.form_open) .field_meta td.field_type,
+#cfs_fields li.cfs-structure-tab > .field:not(.form_open) .field_meta td.field_type a.cfs_edit_field {
+    color: var(--cfs-structure-tab-color);
+}
+
+#cfs_fields li.cfs-structure-loop > .field:not(.form_open) .field_meta td.field_type,
+#cfs_fields li.cfs-structure-loop > .field:not(.form_open) .field_meta td.field_type a.cfs_edit_field {
+    color: var(--cfs-structure-loop-color);
+}
+
+#cfs_fields li.cfs-structure-group > .field:not(.form_open) .field_meta td.field_type,
+#cfs_fields li.cfs-structure-group > .field:not(.form_open) .field_meta td.field_type a.cfs_edit_field {
+    color: var(--cfs-structure-group-color);
+}
+
+#cfs_fields li.cfs-structure-accordion > .field:not(.form_open) .field_meta td.field_type,
+#cfs_fields li.cfs-structure-accordion > .field:not(.form_open) .field_meta td.field_type a.cfs_edit_field {
+    color: var(--cfs-structure-accordion-color);
+}
+
+#cfs_fields li.cfs-structure-conditional > .field:not(.form_open) .field_meta td.field_type,
+#cfs_fields li.cfs-structure-conditional > .field:not(.form_open) .field_meta td.field_type a.cfs_edit_field {
+    color: var(--cfs-structure-conditional-color);
+}
+
+#cfs_fields li.cfs-structure-loop > ul,
+#cfs_fields li.cfs-structure-group > ul,
+#cfs_fields li.cfs-structure-accordion > ul,
+#cfs_fields li.cfs-structure-conditional > ul {
+    box-sizing: border-box;
+    min-height: calc(var(--cfs-editor-row-height) + 14px);
+    margin: 0;
+    padding: var(--cfs-editor-group-pad);
+    border: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+#cfs_fields li.cfs-structure-tab > ul > li,
+#cfs_fields li.cfs-structure-loop > ul > li,
+#cfs_fields li.cfs-structure-group > ul > li,
+#cfs_fields li.cfs-structure-accordion > ul > li,
+#cfs_fields li.cfs-structure-conditional > ul > li {
+    margin-left: 0;
+}
+
+#cfs_fields li.cfs-structure-tab > ul > li:first-child,
+#cfs_fields li.cfs-structure-loop > ul > li:first-child,
+#cfs_fields li.cfs-structure-group > ul > li:first-child,
+#cfs_fields li.cfs-structure-accordion > ul > li:first-child,
+#cfs_fields li.cfs-structure-conditional > ul > li:first-child {
+    margin-top: 0;
+}
+
+#cfs_fields li.cfs-structure-loop > ul {
+    background: var(--cfs-structure-loop-bg);
+}
+
+#cfs_fields li.cfs-structure-group > ul {
+    background: var(--cfs-structure-group-bg);
+}
+
+#cfs_fields li.cfs-structure-tab > ul > .cfs-structure-child-warning,
+#cfs_fields li.cfs-structure-loop > ul > .cfs-structure-child-warning,
+#cfs_fields li.cfs-structure-group > ul > .cfs-structure-child-warning,
+#cfs_fields li.cfs-structure-accordion > ul > .cfs-structure-child-warning,
+#cfs_fields li.cfs-structure-conditional > ul > .cfs-structure-child-warning,
+#cfs_fields > .inside > ul.fields > .cfs-structure-child-warning {
+    box-sizing: border-box;
+    margin: 0 0 var(--cfs-editor-item-gap);
+    padding: 10px 12px;
     border-left: 4px solid #d63638;
-    padding-left: 8px;
+    border-radius: 6px;
+    background: #fff;
+    color: #1d2327;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+#cfs_fields > .inside > ul.fields > .cfs-structure-child-warning.cfs-tab-range {
+    margin: 0 0 10px;
+    padding: var(--cfs-editor-group-pad);
+    border-top: 0;
+    border-right: 2px solid var(--cfs-structure-tab-border);
+    border-bottom: 2px solid var(--cfs-structure-tab-border);
+    border-left: 2px solid var(--cfs-structure-tab-border);
+    border-radius: 0 0 10px 10px;
+    background: #fff;
+    box-shadow:
+        inset 4px 0 0 #d63638,
+        0 2px 7px rgba(30, 41, 59, 0.12);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-structure-tab.cfs-tab-has-empty-warning {
+    margin-bottom: 0;
+    border-bottom: 0;
+    border-bottom-width: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow:
+        4px 0 7px -5px rgba(30, 41, 59, 0.12),
+        -4px 0 7px -5px rgba(30, 41, 59, 0.12);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-structure-tab.cfs-tab-has-empty-warning + .cfs-structure-child-warning.cfs-tab-range {
+    margin-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-structure-tab.cfs-tab-has-empty-warning + li.cfs-structure-child-warning {
+    margin-top: 0;
+    padding: var(--cfs-editor-group-pad);
+    border-top: 0;
+    border-right: 2px solid var(--cfs-structure-tab-border);
+    border-bottom: 2px solid var(--cfs-structure-tab-border);
+    border-left: 2px solid var(--cfs-structure-tab-border);
+    border-radius: 0 0 10px 10px;
+    background: #fff;
+    box-shadow:
+        inset 4px 0 0 #d63638,
+        0 2px 7px rgba(30, 41, 59, 0.12);
+}
+
+#cfs_fields .cfs-group-warning {
+    display: none;
+}
+
+#cfs_fields li.cfs-structure-accordion > ul {
+    background: var(--cfs-structure-accordion-bg);
+}
+
+#cfs_fields li.cfs-structure-conditional > ul {
+    background: var(--cfs-structure-conditional-bg);
+}
+
+#cfs_fields li.cfs-structure-conditional > ul.cfs-conditional-unassigned-list.cfs-conditional-has-branches:empty {
+    display: none;
+}
+
+#cfs_fields li.cfs-structure-conditional > ul.cfs-conditional-unassigned-list > .cfs-structure-child-warning {
+    margin-bottom: var(--cfs-editor-item-gap);
+}
+
+#cfs_fields li.cfs-structure-conditional > ul.cfs-conditional-branch-list {
+    box-sizing: border-box;
+    min-height: calc(var(--cfs-editor-row-height) + 44px);
+    margin: var(--cfs-editor-group-pad) var(--cfs-editor-group-pad) 0;
+    padding: 18px 20px 20px;
+    border: 2px dashed rgba(111, 102, 85, 0.32);
+    border-radius: 8px;
+    background: var(--cfs-structure-conditional-bg);
+}
+
+#cfs_fields li.cfs-structure-conditional > ul.cfs-conditional-branch-list:last-child {
+    margin-bottom: var(--cfs-editor-group-pad);
+}
+
+#cfs_fields li.cfs-structure-conditional > ul.cfs-conditional-branch-list:before {
+    content: attr(data-cfs-conditional-drop-label);
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0 0 14px;
+    color: var(--cfs-structure-conditional-color);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+#cfs_fields li.cfs-structure-conditional > ul.cfs-conditional-branch-list:after {
+    content: none;
+}
+
+#cfs_fields li.cfs-structure-conditional > ul.cfs-conditional-branch-list > li:first-child {
+    margin-top: 0;
+}
+
+#cfs_fields li.cfs-structure-conditional > ul.cfs-conditional-branch-list > li {
+    position: relative;
+    z-index: 1;
+}
+
+#cfs_fields li.cfs-structure-tab > ul {
+    box-sizing: border-box;
+    min-height: calc(var(--cfs-editor-row-height) + 14px);
+    margin: 0;
+    padding: var(--cfs-editor-group-pad);
+    border: 0;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-parent.cfs-tab-has-range {
+    margin-bottom: 0;
+    border-bottom: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 0;
+    background: var(--cfs-structure-tab-bg);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range {
+    margin: 0;
+    padding: 4px var(--cfs-editor-group-pad);
+    background: var(--cfs-structure-tab-bg);
+    border-right: 2px solid var(--cfs-structure-tab-border);
+    border-left: 2px solid var(--cfs-structure-tab-border);
+    box-shadow:
+        4px 0 7px -5px rgba(30, 41, 59, 0.12),
+        -4px 0 7px -5px rgba(30, 41, 59, 0.12);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-start {
+    padding-top: var(--cfs-editor-group-pad);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end {
+    margin-bottom: 10px;
+    padding-bottom: var(--cfs-editor-group-pad);
+    border-bottom: 2px solid var(--cfs-structure-tab-border);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0 2px 7px rgba(30, 41, 59, 0.12);
+    overflow: hidden;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-loop,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-group,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-accordion,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional {
+    position: relative;
+    padding: 4px var(--cfs-editor-group-pad);
+    border-width: 0 2px;
+    border-style: solid;
+    border-color: var(--cfs-structure-tab-border);
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-loop:before,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-group:before,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-accordion:before,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 4px;
+    right: var(--cfs-editor-group-pad);
+    bottom: 4px;
+    left: var(--cfs-editor-group-pad);
+    border-radius: 10px;
+    box-shadow: 0 2px 7px rgba(30, 41, 59, 0.12);
+    pointer-events: none;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-start.cfs-structure-loop,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-start.cfs-structure-group,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-start.cfs-structure-accordion,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-start.cfs-structure-conditional {
+    padding-top: var(--cfs-editor-group-pad);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-start.cfs-structure-loop:before,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-start.cfs-structure-group:before,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-start.cfs-structure-accordion:before,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-start.cfs-structure-conditional:before {
+    top: var(--cfs-editor-group-pad);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-loop,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-group,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-accordion,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-conditional {
+    padding-bottom: var(--cfs-editor-group-pad);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-loop:before,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-group:before,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-accordion:before,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-conditional:before {
+    bottom: var(--cfs-editor-group-pad);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-loop,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-group,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-accordion,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-structure-conditional {
+    border-bottom: 2px solid var(--cfs-structure-tab-border);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-loop > .field,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-group > .field,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-accordion > .field,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional > .field {
+    position: relative;
+    z-index: 1;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-loop > .field > .field_meta table,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-group > .field > .field_meta table,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-accordion > .field > .field_meta table,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional > .field > .field_meta table {
+    width: 100%;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-loop > .field {
+    border-color: var(--cfs-structure-loop-border);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-group > .field {
+    border-color: var(--cfs-structure-group-border);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-accordion > .field {
+    border-color: var(--cfs-structure-accordion-border);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional > .field {
+    border-color: var(--cfs-structure-conditional-border);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-loop > ul,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-group > ul,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-accordion > ul,
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional > ul {
+    position: relative;
+    z-index: 1;
+    border-width: 0 2px 2px;
+    border-style: solid;
+    border-radius: 0 0 10px 10px;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-loop > ul {
+    border-color: var(--cfs-structure-loop-border);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-group > ul {
+    border-color: var(--cfs-structure-group-border);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-accordion > ul {
+    border-color: var(--cfs-structure-accordion-border);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional > ul {
+    border-color: var(--cfs-structure-conditional-border);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional > ul.cfs-conditional-branch-list {
+    position: relative;
+    min-height: calc(var(--cfs-editor-row-height) + 56px);
+    margin: 0;
+    padding: 26px calc(var(--cfs-editor-group-pad) + 20px);
+    border-width: 0 2px;
+    border-style: solid;
+    border-color: var(--cfs-structure-conditional-border);
+    border-radius: 0;
+    background: var(--cfs-structure-conditional-bg);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional > ul.cfs-conditional-branch-list:after {
+    content: "";
+    position: absolute;
+    inset: 10px var(--cfs-editor-group-pad);
+    z-index: 0;
+    border: 2px dashed rgba(111, 102, 85, 0.32);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range.cfs-structure-conditional > ul.cfs-conditional-branch-list:last-child {
+    border-bottom-width: 2px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#cfs_fields li.cfs-tab-range:not(.cfs-structure-tab):not(.cfs-structure-loop):not(.cfs-structure-group):not(.cfs-structure-accordion):not(.cfs-structure-conditional) > .field {
+    border-color: rgba(166, 133, 99, 0.38);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range > ul {
+    margin-right: 0;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-structure-tab.cfs-tab-has-empty-warning {
+    margin-bottom: 0;
+    border-bottom: 0;
+    border-bottom-width: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow:
+        4px 0 7px -5px rgba(30, 41, 59, 0.12),
+        -4px 0 7px -5px rgba(30, 41, 59, 0.12);
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-structure-tab.cfs-tab-has-empty-warning + li.cfs-structure-child-warning.cfs-tab-range {
+    margin: 0 0 10px;
+    padding: var(--cfs-editor-group-pad);
+    border-top: 0;
+    border-right: 2px solid var(--cfs-structure-tab-border);
+    border-bottom: 2px solid var(--cfs-structure-tab-border);
+    border-left: 2px solid var(--cfs-structure-tab-border);
+    border-radius: 0 0 10px 10px;
+    background: #fff;
+    box-shadow:
+        inset 4px 0 0 #d63638,
+        0 2px 7px rgba(30, 41, 59, 0.12);
+}
+
+@supports selector(:has(+ *)) {
+    #cfs_fields > .inside > ul.fields > li.cfs-structure-tab.cfs-tab-parent:has(+ li.cfs-structure-child-warning.cfs-tab-range) {
+        margin-bottom: 0;
+        border-bottom: 0;
+        border-bottom-width: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        box-shadow:
+            4px 0 7px -5px rgba(30, 41, 59, 0.12),
+            -4px 0 7px -5px rgba(30, 41, 59, 0.12);
+    }
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-structure-tab.cfs-tab-has-empty-warning + li.cfs-structure-child-warning.cfs-tab-range {
+    padding: calc(var(--cfs-editor-group-pad) + 10px) calc(var(--cfs-editor-group-pad) + 12px) calc(var(--cfs-editor-group-pad) + 10px) calc(var(--cfs-editor-group-pad) + 28px);
+    background:
+        linear-gradient(#d63638, #d63638)
+            left var(--cfs-editor-group-pad) top var(--cfs-editor-group-pad) /
+            4px calc(100% - var(--cfs-editor-group-pad) - var(--cfs-editor-group-pad)) no-repeat,
+        linear-gradient(#fff, #fff)
+            left var(--cfs-editor-group-pad) top var(--cfs-editor-group-pad) /
+            calc(100% - var(--cfs-editor-group-pad) - var(--cfs-editor-group-pad)) calc(100% - var(--cfs-editor-group-pad) - var(--cfs-editor-group-pad)) no-repeat,
+        var(--cfs-structure-tab-bg);
+    box-shadow: 0 2px 7px rgba(30, 41, 59, 0.12);
+}
+
+#cfs_fields:not(.cfs-is-dragging) ul.cfs-drop-target {
+    outline: 0;
+    background-image: none;
+}
+
+#cfs_fields.cfs-is-dragging ul.cfs-drop-target-active,
+#cfs_fields.cfs-is-dragging ul.cfs-outdent-visible {
+    box-sizing: border-box;
+    min-height: calc(var(--cfs-editor-row-height) + 22px);
+    outline: 2px dashed rgba(140, 143, 148, 0.6);
+    outline-offset: -6px;
+    transition: min-height 0.15s ease, padding 0.15s ease, background-color 0.15s ease;
+}
+
+#cfs_fields.cfs-is-dragging .fields ul.cfs-drop-target-active,
+#cfs_fields.cfs-is-dragging .fields ul.cfs-outdent-visible {
+    min-height: calc(var(--cfs-editor-row-height) + 14px);
+}
+
+#cfs_fields.cfs-is-dragging .fields ul.cfs-drop-target-active:empty,
+#cfs_fields.cfs-is-dragging .fields ul.cfs-outdent-visible:empty {
+    min-height: calc(var(--cfs-editor-row-height) + 30px);
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+#cfs_fields.cfs-is-dragging > .inside > ul.fields.cfs-drop-target {
+    padding-bottom: 56px;
+}
+
+#cfs_fields.cfs-is-dragging ul.cfs-drop-target-active {
+    outline-color: #8c8f94;
+    background-image: none;
+}
+
+#cfs_fields.cfs-is-dragging > .inside > ul.fields.cfs-drop-target-active {
+    outline: 0;
+    background-image: none;
+}
+
+#cfs_fields .ui-sortable-placeholder {
+    height: 8px !important;
+    min-height: 8px !important;
+    margin: 6px 0;
+    border: 0;
+    border-top: 2px dashed #a7aaad;
+    border-radius: 0;
+    background: transparent;
+}
+
+#cfs_fields .ui-sortable-placeholder.cfs-placeholder-tab-range {
+    height: 14px !important;
+    min-height: 14px !important;
+    margin: 0;
+    padding: 6px var(--cfs-editor-pad);
+    border: 0;
+    border-right: 2px solid var(--cfs-structure-tab-border);
+    border-left: 2px solid var(--cfs-structure-tab-border);
+    background: var(--cfs-structure-tab-bg);
+}
+
+#cfs_fields .ui-sortable-placeholder.cfs-placeholder-tab-range:before {
+    content: "";
+    display: block;
+    height: 0;
+    border-top: 2px dashed #a7aaad;
+}
+
+#cfs_fields > .inside > ul.fields > li.cfs-tab-range-end.cfs-tab-range-placeholder-open {
+    margin-bottom: 0;
+    border-bottom: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    overflow: visible;
+}
+
+#cfs_fields .ui-sortable-placeholder.cfs-placeholder-tab-range.cfs-placeholder-tab-range-end {
+    height: 22px !important;
+    min-height: 22px !important;
+    padding-top: 6px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--cfs-structure-tab-border);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#cfs_fields .cfs-empty-tab-drop-target {
+    display: none;
+}
+
+#cfs_fields.cfs-is-dragging .cfs-empty-tab-drop-target {
+    display: block;
+    box-sizing: border-box;
+    height: 28px;
+    min-height: 28px;
+    margin: 0;
+    padding: 13px var(--cfs-editor-pad, 7px);
+    border-right: 2px solid var(--cfs-structure-tab-border);
+    border-left: 2px solid var(--cfs-structure-tab-border);
+    background: var(--cfs-structure-tab-bg);
+}
+
+#cfs_fields.cfs-is-dragging .cfs-empty-tab-drop-target:before {
+    content: "";
+    display: block;
+    height: 0;
+    border-top: 2px dashed #a7aaad;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -322,6 +1171,11 @@ body #powerTip {
     position: relative;
 }
 
+#cfs_fields .field_meta td.field_label .cfs-structure-badge {
+    min-width: 78px;
+    white-space: nowrap;
+}
+
 .field_meta td.field_label {
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -346,23 +1200,491 @@ body #powerTip {
 }
 
 .field_meta td.field_type {
-    width: 100px;
+    width: 154px;
     overflow: hidden;
     padding-left: 8px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-#cfs_fields .fields li li .field_meta td.field_type {
-    width: 80px;
-}
-
-#cfs_fields .fields li li li .field_meta td.field_type {
-    width: 60px;
-}
-
+#cfs_fields .fields li li .field_meta td.field_type,
+#cfs_fields .fields li li li .field_meta td.field_type,
 #cfs_fields .fields li li li li .field_meta td.field_type {
-    width: 48px;
+    width: 154px;
+}
+
+@container (max-width: 560px) {
+    #cfs_fields .field_meta table,
+    #cfs_fields .field_meta tbody {
+        display: block;
+        width: 100%;
+    }
+
+    #cfs_fields .field_meta table > tbody > tr:first-child {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        grid-template-areas:
+            "order label"
+            ". name"
+            ". type";
+        align-items: center;
+        row-gap: 7px;
+        column-gap: 8px;
+        box-sizing: border-box;
+        min-height: var(--cfs-editor-row-height);
+        padding: 10px 12px;
+    }
+
+    #cfs_fields .field_meta table > tbody > tr:first-child > td {
+        display: block;
+        width: auto;
+        height: auto;
+        min-height: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    #cfs_fields .field.form_open .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-editor-accent);
+        color: #fff;
+    }
+
+    #cfs_fields li.cfs-structure-tab > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-tab-head);
+    }
+
+    #cfs_fields li.cfs-structure-loop > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-loop-head);
+    }
+
+    #cfs_fields li.cfs-structure-group > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-group-head);
+    }
+
+    #cfs_fields li.cfs-structure-accordion > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-accordion-head);
+    }
+
+    #cfs_fields li.cfs-structure-conditional > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-conditional-head);
+    }
+
+    #cfs_fields .field.form_open .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-tab > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-loop > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-group > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-accordion > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-conditional > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td {
+        background: transparent;
+    }
+
+    #cfs_fields .field_meta td.field_order {
+        grid-area: order;
+        align-self: start;
+        padding-top: 2px;
+    }
+
+    #cfs_fields .field_meta td.field_label {
+        grid-area: label;
+        min-width: 0;
+    }
+
+    #cfs_fields .field_meta td.field_label a {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 5px 8px;
+        min-width: 0;
+    }
+
+    #cfs_fields .field_meta td.field_label .cfs-field-label-text {
+        min-width: 0;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    #cfs_fields .field_meta td.field_name {
+        grid-area: name;
+        width: auto;
+        padding-right: 0;
+        overflow: visible;
+        text-align: left;
+        text-overflow: clip;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    #cfs_fields .field_meta td.field_type,
+    #cfs_fields .fields li li .field_meta td.field_type,
+    #cfs_fields .fields li li li .field_meta td.field_type,
+    #cfs_fields .fields li li li li .field_meta td.field_type,
+    #cfs_fields li.cfs-tab-range.cfs-structure-loop > .field > .field_meta td.field_type,
+    #cfs_fields li.cfs-tab-range.cfs-structure-group > .field > .field_meta td.field_type,
+    #cfs_fields li.cfs-tab-range.cfs-structure-accordion > .field > .field_meta td.field_type,
+    #cfs_fields li.cfs-tab-range.cfs-structure-conditional > .field > .field_meta td.field_type {
+        grid-area: type;
+        justify-self: stretch;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        overflow: visible;
+    }
+
+    #cfs_fields .field_meta td.field_type a.cfs_edit_field {
+        width: 100%;
+    }
+
+    #cfs_fields .field_form > table,
+    #cfs_fields .field_form > table > tbody,
+    #cfs_fields .field_form > table > tbody > tr,
+    #cfs_fields .field_form > table > tbody > tr > td,
+    #cfs_fields .field_form tr.field_basics table,
+    #cfs_fields .field_form tr.field_basics table > tbody,
+    #cfs_fields .field_form tr.field_basics table > tbody > tr,
+    #cfs_fields .field_form tr.field_basics table > tbody > tr > td {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    #cfs_fields .field_form td,
+    #cfs_fields .field_form tr.field_basics td {
+        padding: 0;
+        border: 0;
+    }
+
+    #cfs_fields .field_form > table > tbody > tr {
+        padding: 12px 16px;
+        border-bottom: 1px solid #e3e6e8;
+    }
+
+    #cfs_fields .field_form > table > tbody > tr:last-child {
+        border-bottom: 0;
+    }
+
+    #cfs_fields .field_form tr.field_basics {
+        padding: 14px 16px 2px;
+    }
+
+    #cfs_fields .field_form tr.field_basics table {
+        padding: 0;
+        border-bottom: 0;
+    }
+
+    #cfs_fields .field_form tr.field_basics td {
+        margin-bottom: 12px;
+    }
+
+    #cfs_fields .field_form tr.field_basics td:last-child {
+        margin-bottom: 0;
+    }
+
+    #cfs_fields .field_form td.label {
+        padding-bottom: 8px;
+    }
+
+    #cfs_fields .field_form td.label,
+    #cfs_fields .field_form td.label label,
+    #cfs_fields .field_form td.label p.description {
+        width: 100%;
+        max-width: none;
+    }
+
+    #cfs_fields .field_form td.label p.description {
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    #cfs_fields .field_form tr.field_basics td label {
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    #cfs_fields .field_form select,
+    #cfs_fields .field_form textarea,
+    #cfs_fields .field_form input[type="text"],
+    #cfs_fields .field_form input[type="email"],
+    #cfs_fields .field_form input[type="number"],
+    #cfs_fields .field_form input[type="url"],
+    #cfs_fields .field_form .cfs-generated-field-name-display {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    #cfs_fields .field_form textarea {
+        min-height: 84px;
+    }
+
+    #cfs_fields .field_form input[type="checkbox"],
+    #cfs_fields .field_form input[type="radio"] {
+        width: auto;
+        max-width: none;
+    }
+
+    #cfs_fields .field_form .cfs-field-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #cfs_fields .field_form .cfs-field-actions .button,
+    #cfs_fields .field_form .cfs-field-actions .button-primary,
+    #cfs_fields .field_form .cfs-field-actions .button-secondary,
+    #cfs_fields .field_form .cfs_field_actions_toggle {
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    #cfs_fields .field_form .cfs-field-action-menu {
+        display: block;
+        width: 100%;
+    }
+
+    #cfs_fields .field_form .cfs-field-action-menu-list {
+        right: 0;
+        left: 0;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #cfs_fields .field_meta table,
+    #cfs_fields .field_meta tbody {
+        display: block;
+        width: 100%;
+    }
+
+    #cfs_fields .field_meta table > tbody > tr:first-child {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        grid-template-areas:
+            "order label"
+            ". name"
+            ". type";
+        align-items: center;
+        row-gap: 7px;
+        column-gap: 8px;
+        box-sizing: border-box;
+        min-height: var(--cfs-editor-row-height);
+        padding: 10px 12px;
+    }
+
+    #cfs_fields .field_meta table > tbody > tr:first-child > td {
+        display: block;
+        width: auto;
+        height: auto;
+        min-height: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    #cfs_fields .field.form_open .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-editor-accent);
+        color: #fff;
+    }
+
+    #cfs_fields li.cfs-structure-tab > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-tab-head);
+    }
+
+    #cfs_fields li.cfs-structure-loop > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-loop-head);
+    }
+
+    #cfs_fields li.cfs-structure-group > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-group-head);
+    }
+
+    #cfs_fields li.cfs-structure-accordion > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-accordion-head);
+    }
+
+    #cfs_fields li.cfs-structure-conditional > .field:not(.form_open) .field_meta table > tbody > tr:first-child {
+        background: var(--cfs-structure-conditional-head);
+    }
+
+    #cfs_fields .field.form_open .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-tab > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-loop > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-group > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-accordion > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td,
+    #cfs_fields li.cfs-structure-conditional > .field:not(.form_open) .field_meta table > tbody > tr:first-child > td {
+        background: transparent;
+    }
+
+    #cfs_fields .field_meta td.field_order {
+        grid-area: order;
+        align-self: start;
+        padding-top: 2px;
+    }
+
+    #cfs_fields .field_meta td.field_label {
+        grid-area: label;
+        min-width: 0;
+    }
+
+    #cfs_fields .field_meta td.field_label a {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 5px 8px;
+        min-width: 0;
+    }
+
+    #cfs_fields .field_meta td.field_label .cfs-field-label-text {
+        min-width: 0;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    #cfs_fields .field_meta td.field_name {
+        grid-area: name;
+        width: auto;
+        padding-right: 0;
+        overflow: visible;
+        text-align: left;
+        text-overflow: clip;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    #cfs_fields .field_meta td.field_type,
+    #cfs_fields .fields li li .field_meta td.field_type,
+    #cfs_fields .fields li li li .field_meta td.field_type,
+    #cfs_fields .fields li li li li .field_meta td.field_type,
+    #cfs_fields li.cfs-tab-range.cfs-structure-loop > .field > .field_meta td.field_type,
+    #cfs_fields li.cfs-tab-range.cfs-structure-group > .field > .field_meta td.field_type,
+    #cfs_fields li.cfs-tab-range.cfs-structure-accordion > .field > .field_meta td.field_type,
+    #cfs_fields li.cfs-tab-range.cfs-structure-conditional > .field > .field_meta td.field_type {
+        grid-area: type;
+        justify-self: stretch;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        overflow: visible;
+    }
+
+    #cfs_fields .field_meta td.field_type a.cfs_edit_field {
+        width: 100%;
+    }
+
+    #cfs_fields .field_form > table,
+    #cfs_fields .field_form > table > tbody,
+    #cfs_fields .field_form > table > tbody > tr,
+    #cfs_fields .field_form > table > tbody > tr > td,
+    #cfs_fields .field_form tr.field_basics table,
+    #cfs_fields .field_form tr.field_basics table > tbody,
+    #cfs_fields .field_form tr.field_basics table > tbody > tr,
+    #cfs_fields .field_form tr.field_basics table > tbody > tr > td {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    #cfs_fields .field_form td,
+    #cfs_fields .field_form tr.field_basics td {
+        padding: 0;
+        border: 0;
+    }
+
+    #cfs_fields .field_form > table > tbody > tr {
+        padding: 12px 16px;
+        border-bottom: 1px solid #e3e6e8;
+    }
+
+    #cfs_fields .field_form > table > tbody > tr:last-child {
+        border-bottom: 0;
+    }
+
+    #cfs_fields .field_form tr.field_basics {
+        padding: 14px 16px 2px;
+    }
+
+    #cfs_fields .field_form tr.field_basics table {
+        padding: 0;
+        border-bottom: 0;
+    }
+
+    #cfs_fields .field_form tr.field_basics td {
+        margin-bottom: 12px;
+    }
+
+    #cfs_fields .field_form tr.field_basics td:last-child {
+        margin-bottom: 0;
+    }
+
+    #cfs_fields .field_form td.label {
+        padding-bottom: 8px;
+    }
+
+    #cfs_fields .field_form td.label,
+    #cfs_fields .field_form td.label label,
+    #cfs_fields .field_form td.label p.description {
+        width: 100%;
+        max-width: none;
+    }
+
+    #cfs_fields .field_form td.label p.description {
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    #cfs_fields .field_form tr.field_basics td label {
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    #cfs_fields .field_form select,
+    #cfs_fields .field_form textarea,
+    #cfs_fields .field_form input[type="text"],
+    #cfs_fields .field_form input[type="email"],
+    #cfs_fields .field_form input[type="number"],
+    #cfs_fields .field_form input[type="url"],
+    #cfs_fields .field_form .cfs-generated-field-name-display {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    #cfs_fields .field_form textarea {
+        min-height: 84px;
+    }
+
+    #cfs_fields .field_form input[type="checkbox"],
+    #cfs_fields .field_form input[type="radio"] {
+        width: auto;
+        max-width: none;
+    }
+
+    #cfs_fields .field_form .cfs-field-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #cfs_fields .field_form .cfs-field-actions .button,
+    #cfs_fields .field_form .cfs-field-actions .button-primary,
+    #cfs_fields .field_form .cfs-field-actions .button-secondary,
+    #cfs_fields .field_form .cfs_field_actions_toggle {
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    #cfs_fields .field_form .cfs-field-action-menu {
+        display: block;
+        width: 100%;
+    }
+
+    #cfs_fields .field_form .cfs-field-action-menu-list {
+        right: 0;
+        left: 0;
+        width: auto;
+    }
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -454,6 +1776,7 @@ body #powerTip {
 
 .field_form .cfs-field-action-menu {
     position: relative;
+    z-index: 20;
     display: inline-block;
 }
 
@@ -472,25 +1795,39 @@ body #powerTip {
 
 .field_form .cfs-field-action-menu-list {
     position: absolute;
-    z-index: 1000;
+    z-index: 10000;
     top: calc(100% + 4px);
+    bottom: auto;
     right: 0;
-    min-width: 128px;
+    min-width: 112px;
     margin: 0;
-    padding: 4px 0;
+    padding: 4px;
+    list-style: none;
     border: 1px solid #c3c4c7;
+    border-radius: 3px;
     background: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
+.field_form .cfs-field-action-menu.cfs-field-action-menu-above .cfs-field-action-menu-list {
+    top: auto;
+    bottom: calc(100% + 4px);
+}
+
 .field_form .cfs-field-action-menu-list li {
     margin: 0;
+    list-style: none;
 }
 
 .field_form .cfs-field-action-menu-list .button-link {
-    display: block;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
     width: 100%;
-    padding: 8px 12px;
+    min-height: 34px;
+    padding: 7px 10px;
+    border-left: 3px solid transparent;
+    border-radius: 2px;
     color: #1d2327;
     text-align: left;
     text-decoration: none;
@@ -498,7 +1835,8 @@ body #powerTip {
 
 .field_form .cfs-field-action-menu-list .button-link:hover,
 .field_form .cfs-field-action-menu-list .button-link:focus {
-    background: #f0f0f1;
+    border-left-color: #8a6339;
+    background: #f5efe7;
     color: #1d2327;
 }
 
@@ -508,6 +1846,7 @@ body #powerTip {
 
 .field_form .cfs-field-action-menu-list .cfs_delete_field:hover,
 .field_form .cfs-field-action-menu-list .cfs_delete_field:focus {
+    border-left-color: #d63638;
     background: #fcf0f1;
     color: #8a2424;
 }
@@ -528,39 +1867,24 @@ body #powerTip {
 
 .ui-sortable-placeholder {
     box-sizing: border-box;
-    min-height: 42px;
+    height: 8px !important;
+    min-height: 8px !important;
     margin: 4px 0;
-    border: 1px dashed #72aee6;
-    background: #f0f6fc;
+    border: 0;
+    border-top: 2px dashed #a7aaad;
+    border-radius: 0;
+    background: transparent;
     visibility: visible !important;
 }
 
 .ui-sortable-placeholder:before {
-    content: attr(data-cfs-drop-label);
-    display: block;
-    padding: 11px 12px;
-    color: #1d2327;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.4;
-    text-align: center;
+    content: "";
+    display: none;
 }
 
 /*---------------------------------------------------------------------------------------------
     Buttons, links
 ---------------------------------------------------------------------------------------------*/
-
-span.cfs_delete_field {
-    text-decoration: underline;
-    cursor: pointer;
-    color: red;
-}
-
-span.cfs_delete_field:hover {
-    text-decoration: none;
-    background: red;
-    color: #fff;
-}
 
 #cfs_fields .fields .button-primary.cfs_add_field_below {
     vertical-align: baseline;
@@ -574,12 +1898,28 @@ span.cfs_delete_field:hover {
 #cfs_extras .inside {
     margin: 0;
     padding: 0;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
 }
 
 #cfs_rules table,
 #cfs_extras table {
+    box-sizing: border-box;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     border-spacing: 0;
+}
+
+#cfs_rules table tbody,
+#cfs_rules table tr,
+#cfs_rules table td,
+#cfs_extras table tbody,
+#cfs_extras table tr,
+#cfs_extras table td {
+    max-width: 100%;
+    min-width: 0;
 }
 
 #cfs_rules table td,
@@ -602,24 +1942,52 @@ span.cfs_delete_field:hover {
 }
 
 #cfs_rules table {
+    display: block;
     table-layout: fixed;
+}
+
+#cfs_rules table tbody {
+    display: block;
+}
+
+#cfs_rules table tr {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(140px, 0.16fr) minmax(140px, 0.14fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 16px;
+    border-bottom: 1px solid #dcdcde;
+}
+
+#cfs_rules table tr:last-child {
+    border-bottom: 0;
 }
 
 #cfs_rules table td {
     box-sizing: border-box;
 }
 
+#cfs_rules table td,
+#cfs_rules table tr:last-child td {
+    padding: 0;
+    border: 0;
+}
+
 #cfs_rules table td.cfs-rule-label {
-    width: 120px;
+    width: auto;
 }
 
 #cfs_rules table td.cfs-rule-operator {
-    width: 120px;
-    vertical-align: top;
+    width: auto;
+    vertical-align: middle;
 }
 
 #cfs_rules table td.cfs-rule-value {
     min-width: 0;
+    vertical-align: middle;
 }
 
 #cfs_rules table td.label label,
@@ -647,8 +2015,52 @@ span.cfs_delete_field:hover {
     outline: none;
 }
 
+#cfs_rules table select,
+#cfs_rules table input[type="text"] {
+    min-height: 44px;
+    padding: 0 36px 0 12px;
+    border-color: #8c8f94;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+#cfs_rules table select:focus,
+#cfs_rules table input[type="text"]:focus,
+#cfs_rules .select2-container--default.select2-container--focus .select2-selection--multiple,
+#cfs_rules .select2-container--default.select2-container--open .select2-selection--multiple {
+    border-color: #3858e9;
+    box-shadow: 0 0 0 1px #3858e9;
+}
+
 #wpcontent #cfs_extras table select.multiple {
     height: 60px;
+}
+
+#cfs_extras .cfs-extras-display-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+}
+
+#cfs_extras .cfs-extras-display-settings-option > label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 100%;
+    margin: 0;
+    line-height: 1.45;
+}
+
+#cfs_extras .cfs-extras-display-settings-option input[type="checkbox"] {
+    flex: 0 0 auto;
+    margin: 2px 0 0;
+}
+
+#cfs_extras .cfs-extras-display-settings-option label > span {
+    display: block;
+    min-width: 0;
 }
 
 #cfs_rules table td.cfs-rule-operator select,
@@ -669,13 +2081,161 @@ span.cfs_delete_field:hover {
     display: block;
 }
 
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-selection--multiple {
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 44px;
+    padding: 6px 10px;
+    border-color: #8c8f94;
+    border-radius: 4px;
+    background: #fff;
+    text-align: left;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    display: block;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    text-align: left;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-selection--multiple .select2-selection__rendered > li {
+    float: none;
+    max-width: 100%;
+    text-align: left;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container.cfs-select2-has-selection .select2-selection--multiple .select2-selection__rendered {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-selection--multiple .select2-search--inline {
+    display: block;
+    float: none;
+    width: 100%;
+    min-width: min(240px, 100%);
+    margin: 0;
+    text-align: left;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container.cfs-select2-has-selection:not(.cfs-select2-is-active) .select2-selection--multiple .select2-search--inline {
+    position: absolute;
+    width: 1px !important;
+    min-width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-search--inline .select2-search__field {
+    display: block;
+    width: 100% !important;
+    min-width: min(240px, 100%);
+    height: 28px;
+    margin: 0;
+    color: #646970;
+    font-size: 15px;
+    line-height: 28px;
+    text-align: left !important;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container.cfs-select2-has-selection:not(.cfs-select2-is-active) .select2-selection--multiple .select2-search__field {
+    width: 1px !important;
+    min-width: 1px;
+    height: 1px;
+    line-height: 1;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container.cfs-select2-has-selection.cfs-select2-is-active .select2-selection--multiple .select2-search--inline {
+    display: block;
+    flex: 1 0 100%;
+    width: 100% !important;
+    min-width: min(240px, 100%);
+    margin-top: 6px;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container.cfs-select2-has-selection.cfs-select2-is-active .select2-selection--multiple .select2-search__field {
+    width: 100% !important;
+    min-width: min(240px, 100%);
+    height: 28px;
+    line-height: 28px;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-selection__placeholder,
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-search__field::placeholder {
+    text-align: left !important;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    display: inline-grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 26px;
+    margin: 2px 6px 2px 0;
+    padding: 0;
+    overflow: hidden;
+    border-color: #a68563;
+    border-radius: 5px;
+    background: #f4ebe2;
+    color: #4b3320;
+    font-size: 14px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    margin: 0;
+    padding: 0 7px;
+    border-right: 1px solid #a68563;
+    border-radius: 5px 0 0 5px;
+    background: #eadac8;
+    color: #6f4c2b;
+    font-size: 16px;
+    line-height: 1;
+}
+
+#cfs_rules table td.cfs-rule-value .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 @media screen and (max-width: 782px) {
     #cfs_rules table,
     #cfs_rules table tbody,
-    #cfs_rules table tr,
     #cfs_rules table td {
         display: block;
         width: 100% !important;
+    }
+
+    #cfs_rules table tr {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 14px 12px;
     }
 
     #cfs_rules table td.cfs-rule-operator,

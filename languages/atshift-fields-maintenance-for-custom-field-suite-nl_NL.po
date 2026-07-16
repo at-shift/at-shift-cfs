@@ -516,8 +516,8 @@ msgstr "Rijzichtbaarheid wisselen"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "at-shift CFS Tools"
-msgstr "CFS-gereedschappen"
+msgid "atshift Fields Tool"
+msgstr "atshift Fields-tool"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -1038,3 +1038,73 @@ msgstr "Visuele editor"
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
 msgstr "Je hebt geen toestemming om de native inhoud te wijzigen."
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "Categorieweergave"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "Hoofdcategorieën horizontaal rangschikken"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "Sub- en kleinkindcategorieën horizontaal rangschikken"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "Laat beide opties uitgeschakeld om de traditionele categorieboom te gebruiken."
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "Kies uit de meest gebruikte tags"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "Er zijn nog geen veelgebruikte tags beschikbaar."
+
+#: ../templates/meta_box_rules.php
+msgid "%s allowed"
+msgstr "%s toegestaan"
+
+#: ../templates/meta_box_rules.php
+msgid "Standard"
+msgstr "Standaard"
+
+#: ../templates/meta_box_rules.php
+msgid "Administrator"
+msgstr "Beheerder"
+
+#: ../templates/meta_box_rules.php
+msgid "Editor"
+msgstr "Redacteur"
+
+#: ../templates/meta_box_rules.php
+msgid "Author"
+msgstr "Auteur"
+
+#: ../templates/meta_box_rules.php
+msgid "Contributor"
+msgstr "Bijdrager"
+
+#: ../templates/meta_box_rules.php
+msgid "Subscriber"
+msgstr "Abonnee"
+
+msgid "The results could not be loaded."
+msgstr "De resultaten konden niet worden geladen."
+
+msgid "Please enter 1 more character"
+msgstr "Voer nog 1 teken in"
+
+msgid "Please enter %s or more characters"
+msgstr "Voer %s of meer tekens in"
+
+msgid "Loading more results..."
+msgstr "Meer resultaten laden..."
+
+msgid "No results found"
+msgstr "Geen resultaten gevonden"
+
+msgid "Searching..."
+msgstr "Zoeken..."

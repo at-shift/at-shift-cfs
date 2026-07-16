@@ -518,8 +518,8 @@ msgstr "Commuta la visibilitat de la fila"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "at-shift CFS Tools"
-msgstr "Eines CFS"
+msgid "atshift Fields Tool"
+msgstr "Eina atshift Fields"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -1040,3 +1040,73 @@ msgstr "Editor visual"
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
 msgstr "No teniu permís per canviar el contingut natiu."
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "Visualització de categories"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "Organitza les categories principals horitzontalment"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "Organitza les categories filles i netes horitzontalment"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "Deixa les dues opcions sense marcar per utilitzar l’arbre de categories tradicional."
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "Tria entre les etiquetes més utilitzades"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "Encara no hi ha etiquetes utilitzades freqüentment."
+
+#: ../templates/meta_box_rules.php
+msgid "%s allowed"
+msgstr "Es poden seleccionar %s"
+
+#: ../templates/meta_box_rules.php
+msgid "Standard"
+msgstr "Estàndard"
+
+#: ../templates/meta_box_rules.php
+msgid "Administrator"
+msgstr "Administrador"
+
+#: ../templates/meta_box_rules.php
+msgid "Editor"
+msgstr "Editor"
+
+#: ../templates/meta_box_rules.php
+msgid "Author"
+msgstr "Autor"
+
+#: ../templates/meta_box_rules.php
+msgid "Contributor"
+msgstr "Col·laborador"
+
+#: ../templates/meta_box_rules.php
+msgid "Subscriber"
+msgstr "Subscriptor"
+
+msgid "The results could not be loaded."
+msgstr "No s'han pogut carregar els resultats."
+
+msgid "Please enter 1 more character"
+msgstr "Introduiu 1 caracter mes"
+
+msgid "Please enter %s or more characters"
+msgstr "Introduiu %s caracters o mes"
+
+msgid "Loading more results..."
+msgstr "S'estan carregant mes resultats..."
+
+msgid "No results found"
+msgstr "No s'han trobat resultats"
+
+msgid "Searching..."
+msgstr "S'esta cercant..."

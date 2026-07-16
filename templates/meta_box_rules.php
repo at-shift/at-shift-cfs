@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post, $wpdb, $wp_roles;
 
+$text_domain = 'atshift-fields-maintenance-for-custom-field-suite';
 $equals_text = __( 'equals', 'atshift-fields-maintenance-for-custom-field-suite' );
 $not_equals_text = __( 'is not', 'atshift-fields-maintenance-for-custom-field-suite' );
 $rules = (array) get_post_meta( $post->ID, 'cfs_rules', true );
@@ -26,31 +27,61 @@ foreach ( $rule_types as $type ) {
     }
 }
 
+$get_post_type_rule_label = static function( $post_type ) {
+    $post_type_object = get_post_type_object( $post_type );
+
+    if ( $post_type_object && ! empty( $post_type_object->labels->singular_name ) ) {
+        return $post_type_object->labels->singular_name;
+    }
+
+    return $post_type;
+};
+
+$get_taxonomy_rule_label = static function( $taxonomy ) {
+    $taxonomy_object = get_taxonomy( $taxonomy );
+
+    if ( $taxonomy_object && ! empty( $taxonomy_object->labels->singular_name ) ) {
+        return $taxonomy_object->labels->singular_name;
+    }
+
+    return $taxonomy;
+};
+
 // Post types
 $post_types = [];
 $types = get_post_types();
 foreach ( $types as $post_type ) {
     if ( ! in_array( $post_type, [ ATSHIFT_CFS_FIELD_GROUP_POST_TYPE, ATSHIFT_CFS_LEGACY_FIELD_GROUP_POST_TYPE, 'attachment', 'revision', 'nav_menu_item' ], true ) ) {
-        $post_types[ $post_type ] = $post_type;
+        $post_types[ $post_type ] = $get_post_type_rule_label( $post_type );
     }
 }
 
 // Post formats
 $post_formats = [];
 if ( current_theme_supports( 'post-formats' ) ) {
-    $post_formats = [ 'standard' => 'Standard' ];
+    $post_format_strings = get_post_format_strings();
+    $standard_format_label = __( 'Standard', $text_domain );
+    $post_formats = [ 'standard' => $standard_format_label ];
     $post_formats_slugs = get_theme_support( 'post-formats' );
 
     if ( is_array( $post_formats_slugs[0] ) ) {
         foreach ( $post_formats_slugs[0] as $post_format ) {
-            $post_formats[ $post_format ] = get_post_format_string( $post_format );
+            $post_formats[ $post_format ] = $post_format_strings[ $post_format ] ?? get_post_format_string( $post_format );
         }
     }
 }
 
 // User roles
+$user_roles = [];
 foreach ( $wp_roles->roles as $key => $role ) {
-    $user_roles[ $key ] = $key;
+    $role_name = $role['name'] ?? $key;
+    $role_label = translate_user_role( $role_name );
+
+    if ( $role_label === $role_name ) {
+        $role_label = __( $role_name, $text_domain );
+    }
+
+    $user_roles[ $key ] = $role_label;
 }
 
 // Post IDs
@@ -86,7 +117,12 @@ if ( ! empty( $rules['post_ids']['values'] ) ) {
             $parent = "$parent->post_title >";
         }
 
-        $json_posts[] = [ 'id' => $result->ID, 'text' => "($result->post_type) $parent $result->post_title (#$result->ID)" ];
+        $post_type_label = $get_post_type_rule_label( $result->post_type );
+
+        $json_posts[] = [
+            'id' => $result->ID,
+            'text' => sprintf( '(%s) %s %s (#%d)', $post_type_label, $parent, $result->post_title, $result->ID ),
+        ];
         $post_ids[] = $result->ID;
     }
 }
@@ -101,7 +137,9 @@ ORDER BY tt.parent, tt.taxonomy, t.name";
 $results = $wpdb->get_results( $sql );
 
 foreach ( $results as $result ) {
-    $term_ids[ $result->term_id ] = "($result->taxonomy) $result->name";
+    $taxonomy_label = $get_taxonomy_rule_label( $result->taxonomy );
+
+    $term_ids[ $result->term_id ] = sprintf( '(%s) %s', $taxonomy_label, $result->name );
 }
 
 // Page templates
@@ -119,13 +157,202 @@ foreach ( $templates as $template_name => $filename ) {
     $(function() {
         var cfs_nonce = '<?php echo esc_js( wp_create_nonce( 'atshift_cfs_admin_nonce' ) ); ?>';
 
-        $('.select2').select2({
-            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>',
+        function updateRuleSelect2State($select) {
+            var instance = $select.data('select2');
+            var value = $select.val();
+            var hasValue = $.isArray(value) ? value.length > 0 : !!value;
+
+            if (instance && instance.$container) {
+                instance.$container.toggleClass('cfs-select2-has-selection', hasValue);
+            }
+        }
+
+        function activateRuleSelect2($select) {
+            var instance = $select.data('select2');
+
+            if (instance && instance.$container) {
+                instance.$container.addClass('cfs-select2-is-active');
+            }
+        }
+
+        function getRuleSelect2Dropdown($select) {
+            var instance = $select.data('select2');
+            var $dropdown = $();
+
+            if (instance && instance.dropdown) {
+                if (instance.dropdown.$dropdownContainer) {
+                    $dropdown = instance.dropdown.$dropdownContainer;
+                } else if (instance.dropdown.$dropdown) {
+                    $dropdown = instance.dropdown.$dropdown;
+                }
+            }
+
+            if (!$dropdown.length && instance && instance.$container) {
+                $dropdown = $('.select2-container--open').filter(function() {
+                    return !$(this).is(instance.$container) && 0 < $(this).find('.select2-dropdown').length;
+                }).last();
+            }
+
+            return $dropdown;
+        }
+
+        function positionRuleSelect2Dropdown($select) {
+            var instance = $select.data('select2');
+            var $dropdown = getRuleSelect2Dropdown($select);
+            var $dropdownContainer;
+            var $dropdownPanel;
+            var offset;
+
+            if (!instance || !instance.$container || !$dropdown.length) {
+                return;
+            }
+
+            $dropdownContainer = $dropdown.hasClass('select2-dropdown') ? $dropdown.parent() : $dropdown;
+            $dropdownPanel = $dropdown.hasClass('select2-dropdown') ? $dropdown : $dropdown.find('.select2-dropdown').first();
+            offset = instance.$container.offset();
+
+            if (!offset || !$dropdownContainer.length) {
+                return;
+            }
+
+            $dropdownContainer.css({
+                left: Math.round(offset.left) + 'px',
+                top: Math.round(offset.top + instance.$container.outerHeight(false)) + 'px',
+                width: Math.round(instance.$container.outerWidth(false)) + 'px'
+            });
+
+            if ($dropdownPanel.length) {
+                $dropdownPanel.removeClass('select2-dropdown--above').addClass('select2-dropdown--below');
+            }
+        }
+
+        function keepRuleSelect2DropdownBelow($select) {
+            positionRuleSelect2Dropdown($select);
+
+            if ('function' === typeof window.requestAnimationFrame) {
+                window.requestAnimationFrame(function() {
+                    positionRuleSelect2Dropdown($select);
+                });
+            }
+
+            setTimeout(function() {
+                positionRuleSelect2Dropdown($select);
+            }, 0);
+        }
+
+        function bindRuleSelect2State($select) {
+            updateRuleSelect2State($select);
+
+            $select.on('change select2:select select2:unselect select2:clear', function() {
+                var $current = $(this);
+                var instance = $current.data('select2');
+
+                updateRuleSelect2State($current);
+
+                if (instance && instance.$container && instance.$container.hasClass('cfs-select2-is-active')) {
+                    keepRuleSelect2DropdownBelow($current);
+                }
+            });
+
+            $select.on('select2:opening', function() {
+                var $current = $(this);
+
+                updateRuleSelect2State($current);
+                activateRuleSelect2($current);
+            });
+
+            $select.on('select2:open', function() {
+                var $current = $(this);
+
+                activateRuleSelect2($current);
+                keepRuleSelect2DropdownBelow($current);
+            });
+
+            $select.on('select2:close', function() {
+                var instance = $(this).data('select2');
+
+                if (instance && instance.$container) {
+                    instance.$container.removeClass('cfs-select2-is-active');
+                }
+
+                updateRuleSelect2State($(this));
+            });
+        }
+
+        var ruleSelect2MaxSelectedText = '<?php echo esc_js( __( '%s allowed', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
+        var formatRuleSelect2MaxSelected = function(maximum) {
+            if (maximum && 'object' === typeof maximum && maximum.maximum) {
+                maximum = maximum.maximum;
+            }
+            maximum = parseInt(maximum, 10);
+            if (!maximum || 1 > maximum) {
+                maximum = 1;
+            }
+            return ruleSelect2MaxSelectedText.replace('%s', maximum);
+        };
+        var ruleSelect2Language = {
+            errorLoading: function() {
+                return '<?php echo esc_js( __( 'The results could not be loaded.', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
+            },
+            inputTooShort: function(args) {
+                var remaining = args.minimum - args.input.length;
+
+                if (1 === remaining) {
+                    return '<?php echo esc_js( __( 'Please enter 1 more character', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
+                }
+
+                return '<?php echo esc_js( __( 'Please enter %s or more characters', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>'.replace('%s', remaining);
+            },
+            loadingMore: function() {
+                return '<?php echo esc_js( __( 'Loading more results...', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
+            },
+            noResults: function() {
+                return '<?php echo esc_js( __( 'No results found', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
+            },
+            searching: function() {
+                return '<?php echo esc_js( __( 'Searching...', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
+            },
+            maximumSelected: function(args) {
+                return formatRuleSelect2MaxSelected(args.maximum);
+            }
+        };
+
+        var ruleSelect2LegacyLanguage = {
+            formatInputTooShort: function(input, minimum) {
+                var remaining = minimum - input.length;
+
+                if (1 === remaining) {
+                    return '<?php echo esc_js( __( 'Please enter 1 more character', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
+                }
+
+                return '<?php echo esc_js( __( 'Please enter %s or more characters', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>'.replace('%s', remaining);
+            },
+            formatSelectionTooBig: function(limit) {
+                return formatRuleSelect2MaxSelected(limit);
+            },
+            formatNoMatches: function() {
+                return '<?php echo esc_js( __( 'No results found', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
+            },
+            formatSearching: function() {
+                return '<?php echo esc_js( __( 'Searching...', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
+            }
+        };
+
+        if ($.fn.select2 && $.fn.select2.defaults && $.fn.select2.defaults.set) {
+            $.fn.select2.defaults.set('language', ruleSelect2Language);
+        }
+
+        $('.select2').select2($.extend({
+            placeholder: '<?php echo esc_js( __( 'Leave blank to skip this rule', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>',
+            language: ruleSelect2Language,
             width: 'resolve'
+        }, ruleSelect2LegacyLanguage)).each(function() {
+            bindRuleSelect2State($(this));
         });
 
-        $('.select2-ajax').select2({
-            placeholder: '<?php esc_html_e( 'Leave blank to skip this rule', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>',
+        $('.select2-ajax').select2($.extend({
+            placeholder: '<?php echo esc_js( __( 'Leave blank to skip this rule', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>',
+            language: ruleSelect2Language,
             minimumInputLength: 2,
             width: '99.95%',
             ajax: {
@@ -145,6 +372,8 @@ foreach ( $templates as $template_name => $filename ) {
                     return { results: data };
                 }
             }
+        }, ruleSelect2LegacyLanguage)).each(function() {
+            bindRuleSelect2State($(this));
         });
     });
 })(jQuery);

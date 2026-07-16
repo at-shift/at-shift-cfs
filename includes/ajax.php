@@ -36,6 +36,12 @@ class Atshift_CFS_ajax
         $output = [];
         foreach ( $results as $result ) {
             $parent = '';
+            $post_type_label = $result->post_type;
+            $post_type_object = get_post_type_object( $result->post_type );
+
+            if ( $post_type_object && ! empty( $post_type_object->labels->singular_name ) ) {
+                $post_type_label = $post_type_object->labels->singular_name;
+            }
 
             if (
                 isset( $result->post_parent ) &&
@@ -47,7 +53,7 @@ class Atshift_CFS_ajax
 
             $output[] = [
                 'id' => absint( $result->ID ),
-                'text' => "($result->post_type) $parent $result->post_title (#$result->ID)"
+                'text' => sprintf( '(%s) %s %s (#%d)', $post_type_label, $parent, $result->post_title, absint( $result->ID ) ),
             ];
         }
         return wp_json_encode( $output );

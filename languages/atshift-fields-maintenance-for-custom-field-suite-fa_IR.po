@@ -548,8 +548,8 @@ msgstr "تغییر نمایش ردیف"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "at-shift CFS Tools"
-msgstr "ابزارهای CFS"
+msgid "atshift Fields Tool"
+msgstr "ابزار atshift Fields"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -1070,3 +1070,73 @@ msgstr "ویرایشگر دیداری"
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
 msgstr "شما اجازه تغییر محتوای بومی را ندارید."
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "نمایش دسته‌ها"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "دسته‌های والد را افقی بچینید"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "دسته‌های فرزند و نوه را افقی بچینید"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "برای استفاده از درخت دسته‌بندی سنتی، هر دو گزینه را بدون انتخاب بگذارید."
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "انتخاب از برچسب‌های پرکاربرد"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "هنوز برچسب پرکاربردی در دسترس نیست."
+
+#: ../templates/meta_box_rules.php
+msgid "%s allowed"
+msgstr "%s مجاز است"
+
+#: ../templates/meta_box_rules.php
+msgid "Standard"
+msgstr "استاندارد"
+
+#: ../templates/meta_box_rules.php
+msgid "Administrator"
+msgstr "مدیر"
+
+#: ../templates/meta_box_rules.php
+msgid "Editor"
+msgstr "ویرایشگر"
+
+#: ../templates/meta_box_rules.php
+msgid "Author"
+msgstr "نویسنده"
+
+#: ../templates/meta_box_rules.php
+msgid "Contributor"
+msgstr "مشارکت‌کننده"
+
+#: ../templates/meta_box_rules.php
+msgid "Subscriber"
+msgstr "مشترک"
+
+msgid "The results could not be loaded."
+msgstr "نتایج بارگذاری نشدند."
+
+msgid "Please enter 1 more character"
+msgstr "لطفاً ۱ نویسه دیگر وارد کنید"
+
+msgid "Please enter %s or more characters"
+msgstr "لطفاً %s نویسه یا بیشتر وارد کنید"
+
+msgid "Loading more results..."
+msgstr "نتایج بیشتر در حال بارگذاری است..."
+
+msgid "No results found"
+msgstr "نتیجه‌ای یافت نشد"
+
+msgid "Searching..."
+msgstr "در حال جستجو..."

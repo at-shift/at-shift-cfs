@@ -5,7 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 
-$child_count = 0;
 $structure_types = [ 'tab', 'loop', 'group', 'accordion', 'conditional' ];
 $generated_name_types = [
     'tab',
@@ -35,13 +34,6 @@ $structure_badges = [
 ];
 $structure_badge = isset( $structure_badges[ $field->type ] ) ? $structure_badges[ $field->type ] : strtoupper( $field->type );
 
-if ( 'group' === $field->type && ! empty( $field->id ) ) {
-    $child_fields = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
-        'group_id'  => $post->ID,
-        'parent_id' => $field->id,
-    ] );
-    $child_count = is_array( $child_fields ) ? count( $child_fields ) : 0;
-}
 ?>
 <div class="field<?php echo $uses_generated_name ? ' cfs-field-generated-name' : ''; ?>">
     <div class="field_meta">
@@ -62,17 +54,11 @@ if ( 'group' === $field->type && ! empty( $field->id ) ) {
                     <?php echo esc_html( $uses_generated_name ? $field_name_display : $field->name ); ?>
                 </td>
                 <td class="field_type">
-                    <a class="cfs_edit_field"><?php echo esc_html( $field->type ); ?></a>
+                    <a class="cfs_edit_field cfs-field-type-toggle" aria-expanded="false" title="<?php esc_attr_e( 'Open field settings', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>">
+                        <span class="cfs-field-type-text"><?php echo esc_html( $field->type ); ?></span>
+                    </a>
                 </td>
             </tr>
-            <?php if ( 'group' === $field->type && 2 > $child_count ) : ?>
-            <tr class="field_warning">
-                <td></td>
-                <td colspan="3">
-                    <?php esc_html_e( 'Add two or more fields to this horizontal group.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
-                </td>
-            </tr>
-            <?php endif; ?>
         </table>
     </div>
 

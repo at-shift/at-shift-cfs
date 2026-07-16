@@ -502,8 +502,8 @@ msgstr "Sor láthatóságának váltása"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "at-shift CFS Tools"
-msgstr "CFS eszközök"
+msgid "atshift Fields Tool"
+msgstr "atshift Fields eszköz"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -1024,3 +1024,73 @@ msgstr "Vizuális szerkesztő"
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
 msgstr "Nincs jogosultsága a natív tartalom módosításához."
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "Kategóriamegjelenítés"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "Szülő kategóriák vízszintes elrendezése"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "Gyermek és unoka kategóriák vízszintes elrendezése"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "Hagyja mindkettőt jelöletlenül a hagyományos kategóriafa használatához."
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "Választás a leggyakrabban használt címkék közül"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "Még nincsenek gyakran használt címkék."
+
+#: ../templates/meta_box_rules.php
+msgid "%s allowed"
+msgstr "%s engedélyezett"
+
+#: ../templates/meta_box_rules.php
+msgid "Standard"
+msgstr "Alapértelmezett"
+
+#: ../templates/meta_box_rules.php
+msgid "Administrator"
+msgstr "Adminisztrátor"
+
+#: ../templates/meta_box_rules.php
+msgid "Editor"
+msgstr "Szerkesztő"
+
+#: ../templates/meta_box_rules.php
+msgid "Author"
+msgstr "Szerző"
+
+#: ../templates/meta_box_rules.php
+msgid "Contributor"
+msgstr "Közreműködő"
+
+#: ../templates/meta_box_rules.php
+msgid "Subscriber"
+msgstr "Feliratkozó"
+
+msgid "The results could not be loaded."
+msgstr "Az eredmenyeket nem sikerult betolteni."
+
+msgid "Please enter 1 more character"
+msgstr "Adjon meg meg 1 karaktert"
+
+msgid "Please enter %s or more characters"
+msgstr "Adjon meg legalabb %s karaktert"
+
+msgid "Loading more results..."
+msgstr "Tovabbi eredmenyek betoltese..."
+
+msgid "No results found"
+msgstr "Nincs talalat"
+
+msgid "Searching..."
+msgstr "Kereses..."

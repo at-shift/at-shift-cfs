@@ -61,7 +61,8 @@ if ( ! isset( $extras['context'] ) ) {
             <label><?php esc_html_e( 'Display Settings', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
         </td>
         <td style="vertical-align:top">
-            <div>
+            <div class="cfs-extras-display-settings">
+            <div class="cfs-extras-display-settings-option">
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type'          => 'true_false',
@@ -72,7 +73,7 @@ if ( ! isset( $extras['context'] ) ) {
                     ] );
                 ?>
             </div>
-            <div>
+            <div class="cfs-extras-display-settings-option">
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type'          => 'true_false',
@@ -82,6 +83,7 @@ if ( ! isset( $extras['context'] ) ) {
                         'options'       => [ 'message' => __( 'Hide page attributes', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
                     ] );
                 ?>
+            </div>
             </div>
         </td>
     </tr>

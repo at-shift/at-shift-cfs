@@ -636,8 +636,8 @@ msgstr "Attiva/disattiva visibilità della riga"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "at-shift CFS Tools"
-msgstr "Strumenti CFS"
+msgid "atshift Fields Tool"
+msgstr "Strumento atshift Fields"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -1158,3 +1158,73 @@ msgstr "Editor visuale"
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
 msgstr "Non hai il permesso di modificare il contenuto nativo."
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "Visualizzazione categorie"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "Disponi le categorie principali in orizzontale"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "Disponi le categorie figlie e nipoti in orizzontale"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "Lascia entrambe le opzioni deselezionate per usare l’albero categorie tradizionale."
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "Scegli tra i tag più utilizzati"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "Non sono ancora disponibili tag usati di frequente."
+
+#: ../templates/meta_box_rules.php
+msgid "%s allowed"
+msgstr "%s consentiti"
+
+#: ../templates/meta_box_rules.php
+msgid "Standard"
+msgstr "Standard"
+
+#: ../templates/meta_box_rules.php
+msgid "Administrator"
+msgstr "Amministratore"
+
+#: ../templates/meta_box_rules.php
+msgid "Editor"
+msgstr "Editore"
+
+#: ../templates/meta_box_rules.php
+msgid "Author"
+msgstr "Autore"
+
+#: ../templates/meta_box_rules.php
+msgid "Contributor"
+msgstr "Collaboratore"
+
+#: ../templates/meta_box_rules.php
+msgid "Subscriber"
+msgstr "Sottoscrittore"
+
+msgid "The results could not be loaded."
+msgstr "Impossibile caricare i risultati."
+
+msgid "Please enter 1 more character"
+msgstr "Inserisci ancora 1 carattere"
+
+msgid "Please enter %s or more characters"
+msgstr "Inserisci %s o piu caratteri"
+
+msgid "Loading more results..."
+msgstr "Caricamento di altri risultati..."
+
+msgid "No results found"
+msgstr "Nessun risultato trovato"
+
+msgid "Searching..."
+msgstr "Ricerca..."

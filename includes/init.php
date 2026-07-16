@@ -203,10 +203,29 @@ class Atshift_CFS_init
     /**
      * admin_enqueue_scripts
      */
-    function admin_enqueue_scripts() {
+    function admin_enqueue_scripts( $hook_suffix = '' ) {
         $screen = get_current_screen();
+        $is_field_group_screen = is_object( $screen ) && ATSHIFT_CFS_FIELD_GROUP_POST_TYPE === $screen->post_type;
+        $is_tools_screen = is_object( $screen ) && ( 'tools_page_atshift-cfs-tools' === $screen->id || 'tools_page_atshift-cfs-tools' === $hook_suffix );
 
-        if ( ! is_object( $screen ) || ATSHIFT_CFS_FIELD_GROUP_POST_TYPE !== $screen->post_type ) {
+        if ( ! $is_field_group_screen && ! $is_tools_screen ) {
+            return;
+        }
+
+        if ( $is_tools_screen ) {
+            $tools_js_version = file_exists( ATSHIFT_CFS_DIR . '/assets/js/tools.js' ) ? ATSHIFT_CFS_VERSION . '.' . filemtime( ATSHIFT_CFS_DIR . '/assets/js/tools.js' ) : ATSHIFT_CFS_VERSION;
+            $tools_css_version = file_exists( ATSHIFT_CFS_DIR . '/assets/css/tools.css' ) ? ATSHIFT_CFS_VERSION . '.' . filemtime( ATSHIFT_CFS_DIR . '/assets/css/tools.css' ) : ATSHIFT_CFS_VERSION;
+
+            wp_enqueue_style( 'atshift-cfs-tools', ATSHIFT_CFS_URL . '/assets/css/tools.css', [], $tools_css_version );
+            wp_enqueue_script( 'atshift-cfs-tools', ATSHIFT_CFS_URL . '/assets/js/tools.js', [ 'jquery' ], $tools_js_version, true );
+            wp_localize_script(
+                'atshift-cfs-tools',
+                'AtshiftCFSTools',
+                [
+                    'nonce'               => wp_create_nonce( 'atshift_cfs_admin_nonce' ),
+                    'resetConfirmMessage' => __( 'This will delete all atshift Fields data. Are you sure?', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                ]
+            );
             return;
         }
 
@@ -526,7 +545,7 @@ class Atshift_CFS_init
     */
     function admin_menu() {
         if ( false === atshift_cfs_apply_filters_compat( 'cfs_disable_admin', 'atshift_cfs_disable_admin', false ) ) {
-            add_submenu_page( 'tools.php', __( 'atshift Fields Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), __( 'atshift Fields Tools', 'atshift-fields-maintenance-for-custom-field-suite' ), 'manage_options', 'atshift-cfs-tools', [ $this, 'page_tools' ] );
+            add_submenu_page( 'tools.php', __( 'atshift Fields Tool', 'atshift-fields-maintenance-for-custom-field-suite' ), __( 'atshift Fields Tool', 'atshift-fields-maintenance-for-custom-field-suite' ), 'manage_options', 'atshift-cfs-tools', [ $this, 'page_tools' ] );
         }
     }
 
@@ -635,11 +654,11 @@ class Atshift_CFS_init
         $just_saved = (bool) get_transient( 'atshift_cfs_empty_rules_notice_' . $post_id );
         delete_transient( 'atshift_cfs_empty_rules_notice_' . $post_id );
 
-        $message = __( 'This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'atshift-fields-maintenance-for-custom-field-suite' );
-
-        if ( $just_saved ) {
-            $message = __( 'Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'atshift-fields-maintenance-for-custom-field-suite' );
+        if ( ! $just_saved ) {
+            return;
         }
+
+        $message = __( 'Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional.', 'atshift-fields-maintenance-for-custom-field-suite' );
 
         printf(
             '<div class="notice notice-warning"><p><strong>%s</strong> %s</p></div>',
@@ -702,7 +721,7 @@ class Atshift_CFS_init
             }
             elseif ('reset' == $ajax_method) {
                 $ajax->reset();
-                deactivate_plugins( plugin_basename( __FILE__ ) );
+                deactivate_plugins( plugin_basename( ATSHIFT_CFS_DIR . '/cfs.php' ) );
                 echo esc_url( admin_url( 'plugins.php' ) );
             }
             elseif ( in_array( $ajax_method, [ 'search_posts' ], true ) && method_exists( $ajax, $ajax_method ) ) {
@@ -780,20 +799,139 @@ class Atshift_CFS_init
 
                 $label = $labels[ $criteria ];
                 $values = (array) $data['values'];
-                $operator = ( isset( $data['operator'] ) && '==' == $data['operator'] ) ? '=' : '!=';
-
-                // Get post titles
-                if ( 'post_ids' == $criteria ) {
-                    $temp = [];
-                    foreach ( $values as $val ) {
-                        $temp[] = get_the_title( (int) $val );
-                    }
-                    $values = $temp;
-                }
+                $operator = $this->format_placement_rule_operator( isset( $data['operator'] ) ? $data['operator'] : '==' );
+                $values = $this->format_placement_rule_values( $criteria, $values );
 
                 echo '<div><strong>' . esc_html( $label ) . '</strong> ' . esc_html( $operator ) . ' ' . esc_html( implode( ', ', $values ) ) . '</div>';
             }
         }
+    }
+
+
+    /**
+     * Normalize stored placement operators for compact list-table display.
+     */
+    private function format_placement_rule_operator( $operator ) {
+        $operator = is_array( $operator ) ? reset( $operator ) : $operator;
+        $operator = strtolower( trim( (string) $operator ) );
+
+        if ( in_array( $operator, [ '!=', '!==', '<>', 'not_equals', 'not_equal', 'not equals', 'not-equal', 'is not', 'not' ], true ) ) {
+            return '≠';
+        }
+
+        return '=';
+    }
+
+
+    /**
+     * Format placement rule values for list-table display.
+     */
+    private function format_placement_rule_values( $criteria, $values ) {
+        $formatted = [];
+
+        foreach ( (array) $values as $value ) {
+            $formatted[] = $this->format_placement_rule_value( $criteria, $value );
+        }
+
+        return array_filter( $formatted, static function( $value ) {
+            return '' !== (string) $value;
+        } );
+    }
+
+
+    /**
+     * Convert stored placement values into readable labels without changing saved slugs.
+     */
+    private function format_placement_rule_value( $criteria, $value ) {
+        $value = (string) $value;
+
+        if ( '' === $value ) {
+            return '';
+        }
+
+        if ( 'post_types' === $criteria ) {
+            $post_type = get_post_type_object( $value );
+
+            if ( $post_type && ! empty( $post_type->labels->singular_name ) ) {
+                return $this->format_label_with_slug( $post_type->labels->singular_name, $value );
+            }
+
+            if ( $post_type && ! empty( $post_type->label ) ) {
+                return $this->format_label_with_slug( $post_type->label, $value );
+            }
+
+            return $value;
+        }
+
+        if ( 'post_formats' === $criteria ) {
+            $label = get_post_format_string( $value );
+
+            if ( is_string( $label ) && '' !== $label ) {
+                return $this->format_label_with_slug( $label, $value );
+            }
+
+            return $value;
+        }
+
+        if ( 'user_roles' === $criteria ) {
+            $roles = wp_roles();
+
+            if ( $roles && isset( $roles->roles[ $value ]['name'] ) ) {
+                return $this->format_label_with_slug( translate_user_role( $roles->roles[ $value ]['name'] ), $value );
+            }
+
+            return $value;
+        }
+
+        if ( 'post_ids' === $criteria ) {
+            $post_id = (int) $value;
+            $title = get_the_title( $post_id );
+
+            if ( '' !== $title ) {
+                return sprintf( '%s (#%d)', $title, $post_id );
+            }
+
+            return sprintf( '#%d', $post_id );
+        }
+
+        if ( 'term_ids' === $criteria ) {
+            $term = get_term( (int) $value );
+
+            if ( $term && ! is_wp_error( $term ) ) {
+                return $this->format_label_with_slug( $term->name, $term->slug );
+            }
+
+            return $value;
+        }
+
+        if ( 'page_templates' === $criteria ) {
+            if ( 'default' === $value ) {
+                return $this->format_label_with_slug( __( 'Default' ), $value );
+            }
+
+            $template_label = array_search( $value, get_page_templates(), true );
+
+            if ( false !== $template_label ) {
+                return $this->format_label_with_slug( $template_label, $value );
+            }
+        }
+
+        return $value;
+    }
+
+
+    /**
+     * Show a friendly label while keeping the stored slug visible for precision.
+     */
+    private function format_label_with_slug( $label, $slug ) {
+        $label = (string) $label;
+        $slug = (string) $slug;
+
+        if ( '' === $slug || $label === $slug ) {
+            return $label;
+        }
+
+        return sprintf( '%s (%s)', $label, $slug );
     }
 
 

@@ -529,8 +529,8 @@ msgstr "Satır görünürlüğünü değiştir"
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-msgid "at-shift CFS Tools"
-msgstr "CFS Araçları"
+msgid "atshift Fields Tool"
+msgstr "atshift Fields Aracı"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
@@ -1055,3 +1055,73 @@ msgstr "Görsel düzenleyici"
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
 msgstr "Yerel içeriği değiştirme izniniz yok."
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "Kategori Görünümü"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "Üst kategorileri yatay diz"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "Alt ve torun kategorileri yatay diz"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "Geleneksel kategori ağacını kullanmak için ikisini de işaretlemeyin."
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "En sık kullanılan etiketlerden seç"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "Henüz sık kullanılan etiket yok."
+
+#: ../templates/meta_box_rules.php
+msgid "%s allowed"
+msgstr "%s izin verildi"
+
+#: ../templates/meta_box_rules.php
+msgid "Standard"
+msgstr "Standart"
+
+#: ../templates/meta_box_rules.php
+msgid "Administrator"
+msgstr "Yönetici"
+
+#: ../templates/meta_box_rules.php
+msgid "Editor"
+msgstr "Editör"
+
+#: ../templates/meta_box_rules.php
+msgid "Author"
+msgstr "Yazar"
+
+#: ../templates/meta_box_rules.php
+msgid "Contributor"
+msgstr "İçerik sağlayıcı"
+
+#: ../templates/meta_box_rules.php
+msgid "Subscriber"
+msgstr "Abone"
+
+msgid "The results could not be loaded."
+msgstr "Sonuclar yuklenemedi."
+
+msgid "Please enter 1 more character"
+msgstr "Lutfen 1 karakter daha girin"
+
+msgid "Please enter %s or more characters"
+msgstr "Lutfen %s veya daha fazla karakter girin"
+
+msgid "Loading more results..."
+msgstr "Daha fazla sonuc yukleniyor..."
+
+msgid "No results found"
+msgstr "Sonuc bulunamadi"
+
+msgid "Searching..."
+msgstr "Araniyor..."

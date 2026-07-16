@@ -1,6 +1,10 @@
 (function($) {
     'use strict';
 
+    function trim(value) {
+        return String(null == value ? '' : value).trim();
+    }
+
     function refreshCategoryState($list) {
         $list.find('.cfs-wp-category-item').each(function() {
             var $item = $(this);
@@ -10,7 +14,7 @@
     }
 
     function applyCategoryFilter($control) {
-        var query = $.trim($control.find('.cfs-wp-category-search').val()).toLowerCase();
+        var query = trim($control.find('.cfs-wp-category-search').val()).toLowerCase();
         var selectedOnly = $control.find('.cfs-wp-category-selected-only-toggle').prop('checked');
         var $items = $control.find('.cfs-wp-category-item');
 
@@ -18,10 +22,10 @@
 
         $items.each(function() {
             var $item = $(this);
-            var name = $item.attr('data-term-name') || '';
+            var name = ($item.attr('data-term-name') || '').toLowerCase();
             var selfMatchesQuery = '' === query || -1 < name.indexOf(query);
             var childMatchesQuery = '' !== query && 0 < $item.children('ul').find('.cfs-wp-category-item').filter(function() {
-                return -1 < ($(this).attr('data-term-name') || '').indexOf(query);
+                return -1 < (($(this).attr('data-term-name') || '').toLowerCase()).indexOf(query);
             }).length;
             var selfSelected = $item.children('label').find('input[type="checkbox"]').prop('checked');
             var childSelected = 0 < $item.children('ul').find('input[type="checkbox"]:checked').length;

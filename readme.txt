@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.6.7.45.3
+Stable tag: 3.0.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -136,7 +136,7 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
-= 2.6.7.45.3 =
+= 3.0.0 =
 * Added Post Content (Native) for editing native WordPress content from Field Groups.
 
 = 2.6.7.45.2 =
