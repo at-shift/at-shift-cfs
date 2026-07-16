@@ -264,42 +264,36 @@ add_action( 'init', function() {
 
 ### 3.0.0
 
-- Added Post Content (Native) for editing native WordPress content from Field Groups.
-- 本文（WordPress 標準）フィールドを追加し、フィールドグループから WordPress 標準本文を編集できるようにしました。
-
-### 2.6.7.45.2
-
-- Improved automatic field-name handling for group and native WordPress fields.
-- Added required validation for Post Categories (Standard / Global).
-- Added role-controlled Move to Trash support to Save / Publish (Native).
-- グループ系フィールドと WordPress標準フィールドのフィールド名自動命名を改善しました。
-- 投稿カテゴリー（標準 / グローバル）に入力必須設定を追加しました。
-- 保存・公開（標準）にロール制御付きの「ごみ箱に移動」を追加しました。
-
-### 2.6.7.45.1
-
-- Refined Save / Publish field status behavior and labels.
-- Fixed the Field Group editor update button state after duplicate field name validation.
-- 保存・公開（標準）フィールドのステータス表示とボタン挙動を調整しました。
-- フィールド名重複チェック後のフィールドグループ編集画面の更新ボタン状態を修正しました。
-
-### 2.6.7.45
-
-- Added native WordPress Post Title and Save / Publish fields.
-- Improved Gutenberg / Block Editor and classic meta box compatibility.
-- Improved validation error visibility across Tabs, Loops, and grouped fields.
-- 投稿タイトル（標準）と保存・公開（標準）フィールドを追加しました。
-- Gutenberg / ブロックエディタとクラシックメタボックスの互換性を改善しました。
-- タブ、Loop、グループ内フィールドでの入力エラー表示を改善しました。
-
-### 2.6.7.44.0.1
-
-- Added an after-input helper text setting for supported fields.
-- Improved field setting labels, tooltips, placeholders, and multilingual translations.
-- Removed default value settings from Email Address, Phone Number, and URL fields.
-- 対応フィールドに「入力欄の後に表示」設定を追加しました。
-- フィールド設定のラベル、ツールチップ、プレースホルダー、多言語翻訳を改善しました。
-- メールアドレス、電話番号、URLフィールドからデフォルト値設定を削除しました。
+- Fully reviewed the Field Group editor UI and improved group hierarchy, spacing, drag-and-drop behavior, and responsive display.
+- Organized the display of Tab, Accordion, Loop, Horizontal, and Conditional Groups to make nested structures easier to understand.
+- Added condition-specific drop areas for Conditional Groups, making it easier to assign dragged fields to each condition.
+- Reduced unnecessary manual input by automatically naming group fields and native WordPress fields.
+- Improved support for native WordPress Post Title, Post Content, Save / Publish, Categories, Tags, and Featured Image fields inside Fields.
+- Improved Save / Publish field status, visibility, publish date, draft save, publish, and update behavior and labels.
+- Improved display and selection behavior for Post Categories (Standard / Global) and Post Tags fields.
+- Improved admin display for Photo Gallery, File Upload, and image-related fields.
+- Refined the atshift Fields Tool UI and added descriptions and translations for export, import, and reset.
+- Improved admin UI for placement rules, extra settings, tooltips, and Select2 / Selectize displays.
+- Improved warnings for required fields and group configuration issues so problems are easier to identify.
+- Improved meta box compatibility and display stability in Block Editor and Classic Editor environments.
+- Cleaned up internal PHP, CSS, and JavaScript while preserving compatibility with existing Custom Field Suite APIs and saved data.
+- Reviewed admin save and AJAX handling and strengthened nonce and capability checks.
+- Updated multilingual translations for new field names, settings, warnings, and tool screens.
+- フィールドグループ編集画面のUIを全面的に見直し、グループ階層・余白・ドラッグ操作・レスポンシブ表示を改善しました。
+- タブ、アコーディオン、Loop、横並び、条件分岐グループの表示を整理し、入れ子構造を分かりやすくしました。
+- 条件分岐グループで、条件ごとの追加エリアを表示し、ドラッグしたフィールドを条件に紐付けやすくしました。
+- グループ系フィールドやWordPress標準フィールドのフィールド名を自動命名するようにし、不要な手入力を減らしました。
+- WordPress標準の投稿タイトル、本文、保存・公開、カテゴリー、タグ、アイキャッチ画像をFields内で扱いやすくしました。
+- 保存・公開フィールドのステータス、公開状態、公開日時、下書き保存、公開/更新の表示と挙動を改善しました。
+- カテゴリー（標準 / グローバル）とタグフィールドの表示・選択操作を改善しました。
+- 写真ギャラリーフィールド、ファイル/画像フィールドの管理画面表示を改善しました。
+- atshift Fields Tool のUIを整理し、エクスポート/インポート/リセットの説明と翻訳を追加しました。
+- 配置ルール、エクストラ設定、ツールチップ、Select2/Selectize表示など管理画面UIを改善しました。
+- 入力必須やグループ構成に関する警告表示を見直し、問題点を把握しやすくしました。
+- ブロックエディタ/クラシックエディタ環境でのメタボックス互換性と表示安定性を改善しました。
+- 既存のCustom Field Suite APIおよび保存データとの互換性を維持しながら、内部処理とCSS/JavaScriptを整理しました。
+- 管理画面の保存・AJAX処理を見直し、nonce/権限チェックなど安全性を強化しました。
+- 多言語翻訳を更新し、新しいフィールド名、設定項目、警告文、ツール画面の翻訳漏れを補完しました。
 
 Past release notes are available on the [Releases page](https://github.com/at-shift/at-shift-cfs/releases).
 
