@@ -374,6 +374,8 @@ class Atshift_CFS_api
         }
 
         // If this is an API call, flatten the data!
+        $preserved_input_rows = [];
+
         if ( 'api' == $options['format'] ) {
             $field_ids = [];
 
@@ -404,6 +406,7 @@ class Atshift_CFS_api
 
             // If saving raw input, delete existing postdata
             $results = $this->find_input_fields( [ 'group_id' => $group_ids ] );
+            $preserved_input_rows = $this->get_preserved_input_rows( $post_id, $fields );
             if ( ! empty( $results ) ) {
                 $field_ids = [];
                 foreach ( $results as $result ) {
@@ -446,6 +449,10 @@ class Atshift_CFS_api
                     'depth'                 => 0,
                 ]
             );
+        }
+
+        if ( ! empty( $preserved_input_rows ) ) {
+            $this->restore_preserved_input_rows( $post_id, $preserved_input_rows );
         }
 
         // Clear the cache
@@ -497,6 +504,11 @@ class Atshift_CFS_api
             // Trigger the pre_save hook
             $field = $params['all_fields'][ $field_id ];
             $field->post_id = $params['post_id'];
+
+            if ( 'input' === $params['format'] && $this->should_preserve_existing_field_on_save( $field, $params['post_id'] ) ) {
+                return;
+            }
+
             $values = atshift_fields_maintenance_for_custom_field_suite()->fields[ $field_type ]->pre_save( $values, $field );
 
             $sub_weight = 0;
@@ -568,8 +580,95 @@ class Atshift_CFS_api
         return in_array( $field_type, [
             'text', 'textarea', 'wysiwyg', 'phone', 'email', 'url', 'number',
             'radio', 'date', 'file', 'color', 'true_false', 'wp_tag',
-            'post_title', 'post_content', 'featured_image', 'conditional',
+            'post_title', 'post_content', 'featured_image', 'conditional', 'shortcode',
         ], true );
+    }
+
+
+    private function should_preserve_existing_field_on_save( $field, $post_id ) {
+        if ( ! is_object( $field ) || empty( $field->type ) ) {
+            return false;
+        }
+
+        if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ] ) ) {
+            return false;
+        }
+
+        $field_type = atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ];
+
+        if ( ! method_exists( $field_type, 'should_preserve_existing_value_on_save' ) ) {
+            return false;
+        }
+
+        return (bool) $field_type->should_preserve_existing_value_on_save( $field, $post_id );
+    }
+
+
+    private function get_preserved_input_rows( $post_id, $fields ) {
+        global $wpdb;
+
+        $preserved_field_ids = [];
+
+        foreach ( $fields as $field_id => $field ) {
+            if ( $this->should_preserve_existing_field_on_save( $field, $post_id ) ) {
+                $preserved_field_ids[] = absint( $field_id );
+            }
+        }
+
+        $preserved_field_ids = array_values( array_filter( $preserved_field_ids ) );
+
+        if ( empty( $preserved_field_ids ) ) {
+            return [];
+        }
+
+        $field_id_placeholders = implode( ',', array_fill( 0, count( $preserved_field_ids ), '%d' ) );
+        $sql = $wpdb->prepare(
+            "
+            SELECT v.field_id, v.post_id, v.base_field_id, v.hierarchy, v.depth, v.weight, v.sub_weight, m.meta_key, m.meta_value
+            FROM {$wpdb->prefix}cfs_values v
+            INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
+            WHERE v.post_id = %d AND v.field_id IN ($field_id_placeholders)",
+            array_merge( [ absint( $post_id ) ], $preserved_field_ids )
+        );
+
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $sql is prepared above with sanitized field IDs.
+        return $wpdb->get_results( $sql, ARRAY_A );
+    }
+
+
+    private function restore_preserved_input_rows( $post_id, $rows ) {
+        global $wpdb;
+
+        foreach ( $rows as $row ) {
+            $wpdb->insert(
+                $wpdb->postmeta,
+                [
+                    'post_id'    => absint( $post_id ),
+                    'meta_key'   => isset( $row['meta_key'] ) ? (string) $row['meta_key'] : '',
+                    'meta_value' => isset( $row['meta_value'] ) ? $row['meta_value'] : '',
+                ]
+            );
+
+            $meta_id = absint( $wpdb->insert_id );
+
+            if ( 1 > $meta_id ) {
+                continue;
+            }
+
+            $wpdb->insert(
+                $wpdb->prefix . 'cfs_values',
+                [
+                    'field_id'      => isset( $row['field_id'] ) ? absint( $row['field_id'] ) : 0,
+                    'meta_id'       => $meta_id,
+                    'post_id'       => absint( $post_id ),
+                    'base_field_id' => isset( $row['base_field_id'] ) ? absint( $row['base_field_id'] ) : 0,
+                    'hierarchy'     => isset( $row['hierarchy'] ) ? (string) $row['hierarchy'] : '',
+                    'depth'         => isset( $row['depth'] ) ? absint( $row['depth'] ) : 0,
+                    'weight'        => isset( $row['weight'] ) ? absint( $row['weight'] ) : 0,
+                    'sub_weight'    => isset( $row['sub_weight'] ) ? absint( $row['sub_weight'] ) : 0,
+                ]
+            );
+        }
     }
 
 

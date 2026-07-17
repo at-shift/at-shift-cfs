@@ -70,7 +70,7 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
             'automatically_named_when_saved' => __( 'Automatically named when saved', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'unnamed_condition' => __( 'Unnamed condition', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: conditional choice label. */
-            'conditional_branch_drop_label' => __( 'Drag fields for condition "%s" here.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'conditional_branch_drop_label' => __( 'Condition "%s"', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'open_field_settings' => __( 'Open field settings', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'close_field_settings' => __( 'Close field settings', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'structure_badges'       => [
@@ -94,6 +94,26 @@ else {
     $hide_editor = false;
     $hide_page_attributes = false;
     $admin_styles = [];
+    $extra_native_panels = [
+        'side' => [
+            'hide_categories'      => [ 'selector' => '#categorydiv', 'meta_box_id' => 'categorydiv', 'context' => 'side' ],
+            'hide_tags'            => [ 'selector' => '#tagsdiv-post_tag', 'meta_box_id' => 'tagsdiv-post_tag', 'context' => 'side' ],
+            'hide_featured_image'  => [ 'selector' => '#postimagediv', 'meta_box_id' => 'postimagediv', 'context' => 'side' ],
+            'hide_page_attributes' => [ 'selector' => '#pageparentdiv', 'meta_box_id' => 'pageparentdiv', 'context' => 'side' ],
+            'hide_format'          => [ 'selector' => '#formatdiv', 'meta_box_id' => 'formatdiv', 'context' => 'side' ],
+        ],
+        'main' => [
+            'hide_comments'      => [ 'selector' => '#commentsdiv', 'meta_box_id' => 'commentsdiv', 'context' => 'normal' ],
+            'hide_discussion'    => [ 'selector' => '#commentstatusdiv', 'meta_box_id' => 'commentstatusdiv', 'context' => 'normal' ],
+            'hide_excerpt'       => [ 'selector' => '#postexcerpt', 'meta_box_id' => 'postexcerpt', 'context' => 'normal' ],
+            'hide_trackbacks'    => [ 'selector' => '#trackbacksdiv', 'meta_box_id' => 'trackbacksdiv', 'context' => 'normal' ],
+            'hide_permalink'     => [ 'selector' => '#edit-slug-box', 'meta_box_id' => '', 'context' => 'normal' ],
+            'hide_slug'          => [ 'selector' => '#slugdiv', 'meta_box_id' => 'slugdiv', 'context' => 'normal' ],
+            'hide_author'        => [ 'selector' => '#authordiv', 'meta_box_id' => 'authordiv', 'context' => 'normal' ],
+            'hide_custom_fields' => [ 'selector' => '#postcustom', 'meta_box_id' => 'postcustom', 'context' => 'normal' ],
+        ],
+    ];
+    $hidden_extra_native_panel_selectors = [];
     $print_admin_styles = static function( $styles ) {
         if ( empty( $styles ) ) {
             return;
@@ -129,8 +149,22 @@ else {
             'operator' => isset( $operator[0] ) && '!=' === $operator[0] ? '!=' : '==',
             'values' => $term_values,
             'hideEditor' => ! empty( $all_field_groups[ $group_id ]['extras']['hide_editor'] ),
-            'hidePageAttributes' => ! empty( $all_field_groups[ $group_id ]['extras']['hide_page_attributes'] ),
+            'hidePageAttributes' => ! empty( $all_field_groups[ $group_id ]['extras']['hide_page_attributes'] ) && atshift_fields_maintenance_for_custom_field_suite()->init->extra_display_section_applies_to_current_user( $all_field_groups[ $group_id ]['extras'], 'side' ),
+            'hideNativePanelSelectors' => [],
         ];
+
+        foreach ( $extra_native_panels as $section => $panels ) {
+            if ( ! atshift_fields_maintenance_for_custom_field_suite()->init->extra_display_section_applies_to_current_user( $all_field_groups[ $group_id ]['extras'], $section ) ) {
+                continue;
+            }
+
+            foreach ( $panels as $extra_key => $panel ) {
+                if ( ! empty( $all_field_groups[ $group_id ]['extras'][ $extra_key ] ) ) {
+                    $term_placement_groups[ (int) $group_id ]['hideNativePanelSelectors'][] = $panel['selector'];
+                }
+            }
+        }
+
         $field_groups[ $group_id ] = $group_title;
     }
 
@@ -271,9 +305,27 @@ else {
             if (
                 isset( $extras['hide_page_attributes'] )
                 && 0 < (int) $extras['hide_page_attributes']
+                && atshift_fields_maintenance_for_custom_field_suite()->init->extra_display_section_applies_to_current_user( $extras, 'side' )
                 && ! isset( $term_placement_groups[ (int) $group_id ] )
             ) {
                 $hide_page_attributes = true;
+            }
+
+            if ( ! isset( $term_placement_groups[ (int) $group_id ] ) ) {
+                foreach ( $extra_native_panels as $section => $panels ) {
+                    if ( ! atshift_fields_maintenance_for_custom_field_suite()->init->extra_display_section_applies_to_current_user( $extras, $section ) ) {
+                        continue;
+                    }
+
+                    foreach ( $panels as $extra_key => $panel ) {
+                        if ( empty( $extras[ $extra_key ] ) ) {
+                            continue;
+                        }
+
+                        $hidden_extra_native_panel_selectors[] = $panel['selector'];
+                        remove_meta_box( $panel['meta_box_id'], $post->post_type, $panel['context'] );
+                    }
+                }
             }
 
             $args = [
@@ -296,6 +348,15 @@ else {
                 'jQuery(function($) {
                     var groups = ' . wp_json_encode( $term_placement_groups ) . ';
                     var nativePanelRules = ' . wp_json_encode( $native_panel_rules ) . ';
+                    var dynamicExtraPanelSelectors = [];
+
+                    $.each(groups, function(groupId, rule) {
+                        $.each(rule.hideNativePanelSelectors || [], function(index, selector) {
+                            if (dynamicExtraPanelSelectors.indexOf(selector) === -1) {
+                                dynamicExtraPanelSelectors.push(selector);
+                            }
+                        });
+                    });
 
                     function selectedTermIds() {
                         var selected = [];
@@ -332,6 +393,7 @@ else {
                         var selected = selectedTermIds();
                         var hideEditor = false;
                         var hidePageAttributes = false;
+                        var hideNativePanelSelectors = {};
                         $.each(groups, function(groupId, rule) {
                             var matched = rule.values.some(function(termId) {
                                 return selected.indexOf(parseInt(termId, 10)) !== -1;
@@ -346,9 +408,17 @@ else {
                             if (visible && rule.hidePageAttributes) {
                                 hidePageAttributes = true;
                             }
+                            if (visible) {
+                                $.each(rule.hideNativePanelSelectors || [], function(index, selector) {
+                                    hideNativePanelSelectors[selector] = true;
+                                });
+                            }
                         });
                         $("#postdivrich, #poststuff .postarea").toggle(!hideEditor);
                         $("#pageparentdiv").toggle(!hidePageAttributes);
+                        $.each(dynamicExtraPanelSelectors, function(index, selector) {
+                            $(selector).toggle(!hideNativePanelSelectors[selector]);
+                        });
                         refreshNativePanels();
                     }
 
@@ -368,6 +438,10 @@ else {
 
         if ( $hide_page_attributes ) {
             $admin_styles[] = '#pageparentdiv{display:none!important;}';
+        }
+
+        if ( ! empty( $hidden_extra_native_panel_selectors ) ) {
+            $admin_styles[] = implode( ',', array_unique( $hidden_extra_native_panel_selectors ) ) . '{display:none!important;}';
         }
 
         $print_admin_styles( $admin_styles );

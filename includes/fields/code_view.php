@@ -19,7 +19,7 @@ class Atshift_CFS_code_view extends Atshift_CFS_field
         $field->value = $this->normalize_value_with_default( $field->value, '' );
     ?>
         <div class="atshift-cfs-code-view-language-control" style="margin-bottom:10px;">
-            <label style="display:block;margin-bottom:3px;"><?php esc_html_e( 'Language', 'atshift-fields-maintenance-for-custom-field-suite' ); ?><?php echo Atshift_CFS_field::is_required_field( $field ) ? wp_kses_post( Atshift_CFS_field::required_badge() ) : ''; ?></label>
+            <label style="display:block;margin-bottom:3px;"><?php esc_html_e( 'Language', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             <select name="<?php echo esc_attr( $field->input_name ); ?>[language]" class="atshift-cfs-code-view-language">
                 <?php foreach ( $this->get_input_languages() as $language => $label ) : ?>
                     <option value="<?php echo esc_attr( $language ); ?>"<?php selected( $field->value['language'], $language ); ?>><?php echo esc_html( $label ); ?></option>
@@ -63,23 +63,14 @@ class Atshift_CFS_code_view extends Atshift_CFS_field
                 ?>
             </td>
         </tr>
-        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
-            <td class="label">
-                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-            </td>
-            <td>
-                <?php
-                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
-                        'type' => 'true_false',
-                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][required]',
-                        'input_class' => 'true_false',
-                        'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
-                    ] );
-                ?>
-            </td>
-        </tr>
     <?php
+    }
+
+
+    function pre_save_field( $field ) {
+        unset( $field['options']['required'] );
+
+        return $field;
     }
 
 

@@ -66,6 +66,10 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
                         continue;
                     }
 
+                    if ( Atshift_CFS_field::should_hide_input_field( $child ) ) {
+                        continue;
+                    }
+
                     $conditional_value = isset( $child->options['conditional_value'] ) ? (string) $child->options['conditional_value'] : '';
                     $is_visible = '' !== $selected && $conditional_value === $selected;
                     $args = [

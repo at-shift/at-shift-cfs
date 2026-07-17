@@ -6,8 +6,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Atshift_CFS_init
 {
+    private $force_single_column_screen_id = '';
 
     function __construct() {
+        atshift_fields_maintenance_for_custom_field_suite()->init = $this;
         add_action( 'init', [ $this, 'init' ] );
     }
 
@@ -15,6 +17,7 @@ class Atshift_CFS_init
     function init() {
 
         add_action( 'admin_head',                       [ $this, 'admin_head' ] );
+        add_action( 'current_screen',                   [ $this, 'maybe_force_single_column_screen_layout' ] );
         add_action( 'admin_enqueue_scripts',            [ $this, 'admin_enqueue_scripts' ] );
         add_action( 'admin_notices',                    [ $this, 'admin_notices' ] );
         add_action( 'admin_menu',                       [ $this, 'admin_menu' ] );
@@ -119,6 +122,119 @@ class Atshift_CFS_init
 
 
     /**
+     * Force the classic post edit Screen Options layout to one column when a
+     * matching field group requests it.
+     */
+    function maybe_force_single_column_screen_layout( $screen ) {
+        if ( ! is_object( $screen ) || 'post' !== $screen->base || empty( $screen->id ) || empty( $screen->post_type ) ) {
+            return;
+        }
+
+        if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE === $screen->post_type ) {
+            return;
+        }
+
+        if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->api, atshift_fields_maintenance_for_custom_field_suite()->field_group ) ) {
+            return;
+        }
+
+        $post_id = isset( $_GET['post'] ) ? absint( wp_unslash( $_GET['post'] ) ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen setup.
+        $matching_groups = [];
+
+        if ( 0 < $post_id ) {
+            $matching_groups = atshift_fields_maintenance_for_custom_field_suite()->api->get_matching_groups( $post_id );
+        }
+        elseif ( ! empty( $screen->post_type ) ) {
+            $matching_groups = atshift_fields_maintenance_for_custom_field_suite()->api->get_matching_groups( [
+                'post_types' => [ $screen->post_type ],
+            ] );
+        }
+
+        if ( empty( $matching_groups ) ) {
+            return;
+        }
+
+        $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
+
+        foreach ( array_keys( $matching_groups ) as $group_id ) {
+            $field_group = isset( $field_groups[ $group_id ] ) && is_array( $field_groups[ $group_id ] ) ? $field_groups[ $group_id ] : [];
+            $extras = isset( $field_group['extras'] ) && is_array( $field_group['extras'] ) ? $field_group['extras'] : [];
+
+            if ( ! empty( $extras['force_single_column_layout'] ) ) {
+                $this->force_single_column_screen_id = $screen->id;
+                add_filter( 'screen_layout_columns', [ $this, 'force_single_column_screen_layout_columns' ], 20, 3 );
+                add_filter( "get_user_option_screen_layout_{$screen->id}", [ $this, 'force_single_column_screen_layout' ], 20, 3 );
+                return;
+            }
+        }
+    }
+
+
+    function force_single_column_screen_layout_columns( $columns, $screen_id, $screen ) {
+        $target_screen_id = is_object( $screen ) && ! empty( $screen->id ) ? $screen->id : $screen_id;
+
+        if ( $this->force_single_column_screen_id === $target_screen_id ) {
+            $columns[ $target_screen_id ] = 1;
+        }
+
+        return $columns;
+    }
+
+
+    function force_single_column_screen_layout( $value = null, $option = '', $user = null ) {
+        return 1;
+    }
+
+
+    function extra_display_section_applies_to_current_user( $extras, $section ) {
+        $extras = is_array( $extras ) ? $extras : [];
+        $section = sanitize_key( $section );
+        $mode = isset( $extras[ $section . '_section_role_mode' ] ) ? sanitize_key( $extras[ $section . '_section_role_mode' ] ) : 'all';
+        $user = wp_get_current_user();
+        $user_roles = $user instanceof WP_User ? array_map( 'sanitize_key', (array) $user->roles ) : [];
+
+        if ( 'except_admins' === $mode ) {
+            return empty( array_intersect( $user_roles, $this->get_admin_web_roles() ) );
+        }
+
+        if ( 'selected' === $mode ) {
+            $selected_roles = isset( $extras[ $section . '_section_roles' ] ) ? array_filter( array_map( 'sanitize_key', (array) $extras[ $section . '_section_roles' ] ) ) : [];
+            return ! empty( array_intersect( $user_roles, $selected_roles ) );
+        }
+
+        return true;
+    }
+
+
+    function get_admin_web_roles() {
+        $roles = [ 'administrator' ];
+
+        foreach ( wp_roles()->roles as $role_key => $role ) {
+            $role_key = sanitize_key( $role_key );
+            $role_name = isset( $role['name'] ) ? translate_user_role( $role['name'] ) : $role_key;
+
+            if ( in_array( $role_key, [ 'web_admin', 'web_manager', 'website_manager' ], true ) || 'Web管理者' === $role_name ) {
+                $roles[] = $role_key;
+            }
+        }
+
+        return array_values( array_unique( $roles ) );
+    }
+
+
+    function get_role_choices() {
+        $choices = [];
+
+        foreach ( wp_roles()->roles as $role_key => $role ) {
+            $role_label = isset( $role['name'] ) ? translate_user_role( $role['name'] ) : $role_key;
+            $choices[ sanitize_key( $role_key ) ] = $role_label;
+        }
+
+        return $choices;
+    }
+
+
+    /**
      * Register field types
      */
     function get_field_types() {
@@ -148,6 +264,7 @@ class Atshift_CFS_init
             'gallery'       => ATSHIFT_CFS_DIR . '/includes/fields/gallery.php',
             'color'         => ATSHIFT_CFS_DIR . '/includes/fields/color/color.php',
             'code_view'     => ATSHIFT_CFS_DIR . '/includes/fields/code_view.php',
+            'shortcode'     => ATSHIFT_CFS_DIR . '/includes/fields/shortcode.php',
             'post_title'    => ATSHIFT_CFS_DIR . '/includes/fields/post_title.php',
             'post_content'  => ATSHIFT_CFS_DIR . '/includes/fields/post_content.php',
             'post_publish'  => ATSHIFT_CFS_DIR . '/includes/fields/post_publish.php',
@@ -323,9 +440,35 @@ class Atshift_CFS_init
             $group = $field_groups[ $group_id ];
             $fields = isset( $group['fields'] ) && is_array( $group['fields'] ) ? $group['fields'] : [];
             $extras = isset( $group['extras'] ) && is_array( $group['extras'] ) ? $group['extras'] : [];
+            $hide_side_sections = $this->extra_display_section_applies_to_current_user( $extras, 'side' );
+            $hide_main_sections = $this->extra_display_section_applies_to_current_user( $extras, 'main' );
 
-            if ( ! empty( $extras['hide_page_attributes'] ) ) {
+            if ( $hide_side_sections && ! empty( $extras['hide_categories'] ) ) {
+                $hide_panels[] = 'taxonomy-panel-category';
+            }
+
+            if ( $hide_side_sections && ! empty( $extras['hide_tags'] ) ) {
+                $hide_panels[] = 'taxonomy-panel-post_tag';
+            }
+
+            if ( $hide_side_sections && ! empty( $extras['hide_featured_image'] ) ) {
+                $hide_panels[] = 'featured-image';
+            }
+
+            if ( $hide_side_sections && ! empty( $extras['hide_page_attributes'] ) ) {
                 $hide_panels[] = 'page-attributes';
+            }
+
+            if ( $hide_main_sections && ! empty( $extras['hide_discussion'] ) ) {
+                $hide_panels[] = 'discussion-panel';
+            }
+
+            if ( $hide_main_sections && ! empty( $extras['hide_excerpt'] ) ) {
+                $hide_panels[] = 'post-excerpt';
+            }
+
+            if ( $hide_main_sections && ! empty( $extras['hide_permalink'] ) ) {
+                $hide_panels[] = 'post-link';
             }
 
             foreach ( $fields as $field ) {

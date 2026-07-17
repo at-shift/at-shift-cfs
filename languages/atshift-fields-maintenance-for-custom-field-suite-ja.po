@@ -27,7 +27,7 @@ msgstr "名称未設定条件"
 
 #: ../templates/admin_head.php:65
 #, php-format
-msgid "Drag fields for condition \"%s\" here."
+msgid "Condition \"%s\""
 msgstr "条件「%s」"
 
 #: ../includes/fields/conditional.php:107
@@ -451,21 +451,29 @@ msgstr "順序"
 msgid "The field group with the lowest order will appear first."
 msgstr "最も低い順序のフィールド グループが最初に表示されます。"
 
-#: ../templates/meta_box_extras.php:45
-msgid "Position"
-msgstr "位置"
+#: ../templates/meta_box_extras.php:281
+msgid "Field Group Position"
+msgstr "フィールドグループの位置"
 
-#: ../templates/meta_box_extras.php:48
+#: ../templates/meta_box_extras.php:284
 msgid "Normal"
 msgstr "通常"
 
-#: ../templates/meta_box_extras.php:49
+#: ../templates/meta_box_extras.php:285
 msgid "Side"
 msgstr "サイド"
 
-#: ../templates/meta_box_extras.php:54
-msgid "Display Settings"
-msgstr "表示設定"
+#: ../templates/meta_box_extras.php:287
+msgid "Controls where this field group appears on the edit screen."
+msgstr "このフィールドグループを編集画面のどこに表示するかを制御します。"
+
+#: ../templates/meta_box_extras.php:293
+msgid "Native Editor Display Settings"
+msgstr "標準編集画面の表示設定"
+
+#: ../templates/meta_box_extras.php:298
+msgid "These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed."
+msgstr "このフィールドグループの表示位置に関係なく、該当する投稿のWordPress標準編集セクションを非表示にします。"
 
 #: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
@@ -474,6 +482,104 @@ msgstr "コンテンツエディタを隠す（該当する投稿では Gutenber
 #: ../templates/meta_box_extras.php:78
 msgid "Hide page attributes"
 msgstr "ページ属性を隠す"
+
+#: ../templates/meta_box_extras.php:92
+msgid "Force the post edit screen layout to 1 column"
+msgstr "投稿編集画面のレイアウトを1列に固定"
+
+#: ../templates/meta_box_extras.php:309
+msgid "Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area."
+msgstr "サードパーティ製のサイドメタボックスは非表示にならず、1列レイアウトではメインエディタエリアの下に表示されます。"
+
+#: ../templates/meta_box_extras.php:93
+msgid "All roles"
+msgstr "すべてのロール"
+
+#: ../templates/meta_box_extras.php:94
+msgid "All roles except Administrators / Web administrators"
+msgstr "管理者 / Web管理者以外のすべてのロール"
+
+#: ../templates/meta_box_extras.php:95
+msgid "Selected roles only"
+msgstr "選択したロールのみ"
+
+#: ../templates/meta_box_extras.php:96
+msgid "Select roles when using selected roles only"
+msgstr "「選択したロールのみ」を使う場合にロールを選択"
+
+#: ../templates/meta_box_extras.php:157
+msgid "Already controlled by a native field in this field group."
+msgstr "このフィールドグループの標準フィールドで制御されています。"
+
+#: ../templates/meta_box_extras.php:163
+#, php-format
+msgid "Already controlled by \"%s\"."
+msgstr "「%s」で制御されています。"
+
+#: ../templates/meta_box_extras.php:97
+msgid "Screen Layout"
+msgstr "画面レイアウト"
+
+#: ../templates/meta_box_extras.php:98
+msgid "Side Sections"
+msgstr "サイドセクション"
+
+#: ../templates/meta_box_extras.php:99
+msgid "Hide categories"
+msgstr "カテゴリーを隠す"
+
+#: ../templates/meta_box_extras.php:100
+msgid "Hide tags"
+msgstr "タグを隠す"
+
+#: ../templates/meta_box_extras.php:101
+msgid "Hide featured image"
+msgstr "アイキャッチ画像を隠す"
+
+#: ../templates/meta_box_extras.php:313
+#: ../templates/meta_box_extras.php:329
+msgid "Hiding behavior"
+msgstr "非表示の運用"
+
+#: ../templates/meta_box_extras.php:103
+msgid "Main Sections"
+msgstr "メインセクション"
+
+#: ../templates/meta_box_extras.php:105
+msgid "Hide format"
+msgstr "フォーマットを隠す"
+
+#: ../templates/meta_box_extras.php:106
+msgid "Hide comments"
+msgstr "コメントを隠す"
+
+#: ../templates/meta_box_extras.php:107
+msgid "Hide discussion"
+msgstr "ディスカッションを隠す"
+
+#: ../templates/meta_box_extras.php:108
+msgid "Hide excerpt"
+msgstr "抜粋を隠す"
+
+#: ../templates/meta_box_extras.php:109
+msgid "Hide trackbacks"
+msgstr "トラックバックを隠す"
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide permalink"
+msgstr "パーマリンクを隠す"
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide slug"
+msgstr "スラッグを隠す"
+
+#: ../templates/meta_box_extras.php:111
+msgid "Hide author"
+msgstr "投稿者を隠す"
+
+#: ../templates/meta_box_extras.php:112
+msgid "Hide custom fields"
+msgstr "カスタムフィールドを隠す"
 
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"

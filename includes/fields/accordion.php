@@ -46,6 +46,10 @@ class Atshift_CFS_accordion extends Atshift_CFS_field
                         continue;
                     }
 
+                    if ( Atshift_CFS_field::should_hide_input_field( $child ) ) {
+                        continue;
+                    }
+
                     $args = [
                         'id' => $child->id,
                         'group_id' => $child->group_id,

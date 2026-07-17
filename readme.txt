@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -11,6 +11,14 @@ Add custom fields to posts, pages, and custom post types.
 
 == Description ==
 
+
+atshift Fields 3.0.1 is a maintenance update for corporate, organizational, non-profit, and other content-heavy WordPress sites that need structured field management, safer editing workflows, and clearer admin screens.
+
+atshift Fields は、企業サイト・団体サイト・NPO サイトなど、構造化された情報を扱う WordPress サイトに向けたメジャーアップデートです。複雑な入力画面を分かりやすく整理し、運用担当者が安全に編集できる管理画面を作りたいケースに適しています。
+
+atshift Fields is an extended version based on Custom Field Suite. It keeps compatibility with the original Custom Field Suite API and saved data while adding native WordPress fields, improved group editing, multilingual labels, and a refined administration UI.
+
+atshift Fields は Custom Field Suite をベースにした拡張版です。上流版の API と保存データの互換性を保ちながら、WordPress 標準フィールドの取り込み、フィールドグループ編集画面、多言語翻訳、管理画面 UI を強化しています。
 Custom Field Suite (CFS) is a lightweight WordPress plugin for adding custom fields to posts, pages, and custom post types.
 
 This package is a maintenance build based on the upstream Custom Field Suite 2.6.7 release. It keeps the basic CFS data structure and API compatibility while adding security hardening, admin compatibility fixes, and practical field types for existing CFS sites.
@@ -50,6 +58,8 @@ For setup instructions, field value output examples, migration notes, and implem
 * File Upload
 * Photo Gallery
 * Color
+* Code View
+* Shortcode
 * Post Title (native WordPress title)
 * Post Content (native WordPress content)
 * Save / Publish (native WordPress save and publish controls)
@@ -136,23 +146,56 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 == Changelog ==
 
+= 3.0.1 =
+
+**English**
+* Added a Shortcode field that returns rendered shortcode output through `CFS()->get()`.
+* Added role-based shortcode editing controls. Users without permission do not see the field, and existing shortcode values are preserved when they save other fields.
+* Refined Conditional Group branch labels in the Field Group editor.
+* Removed required-field settings from Code View and Shortcode fields.
+* Added an Extra Display Setting to force the classic post edit Screen Options layout to 1 column.
+* Added Side / Main Extra Display Settings for hiding unnecessary native editor sections with section-level role targeting.
+
+**日本語**
+* `CFS()->get()` でショートコード実行済みの出力を返す Shortcode フィールドを追加しました。
+* ショートコード入力のロール制御を追加しました。権限のないユーザーにはフィールドを表示せず、他のフィールド保存時も既存のショートコード値を維持します。
+* フィールドグループ編集画面の条件分岐エリア表示を「条件『〜』」の形式に調整しました。
+* Code View と Shortcode フィールドから必須設定を外しました。
+* 投稿編集画面のスクリーンオプションを1列レイアウトに固定できる Extra の表示設定を追加しました。
+* 不要になりやすい標準セクションを Side / Main に分けて隠せる Extra の表示設定を追加し、セクション単位でロール適用を指定できるようにしました。
+
 = 3.0.0 =
-* Added Post Content (Native) for editing native WordPress content from Field Groups.
 
-= 2.6.7.45.2 =
-* Improved automatic field names for group and native WordPress fields.
-* Added required validation to Post Categories and role-controlled Move to Trash support to Save / Publish.
+**English**
+* Redesigned the Field Group editor UI, including group hierarchy, spacing, drag-and-drop behavior, and responsive layouts.
+* Clarified nested structures for Tab, Accordion, Loop, Horizontal, and Conditional groups.
+* Added condition-specific drop areas for Conditional Groups so dragged fields can be assigned to each condition more easily.
+* Added automatic field-name handling for group fields and native WordPress fields to reduce unnecessary manual input.
+* Improved native WordPress field support for Post Title, Post Content, Save / Publish, Post Categories, Post Tags, and Featured Image.
+* Refined Save / Publish status, visibility, publish date, draft, publish, and update behavior.
+* Improved display and selection behavior for Post Categories (Standard / Global) and Post Tags.
+* Improved admin previews and handling for Photo Gallery, File Upload, and image fields.
+* Updated the atshift Fields Tool UI with clearer Export / Import / Reset guidance and translations.
+* Improved placement rules, extras, tooltips, Select2/Selectize displays, and admin UI details.
+* Refined required-field and group-structure warnings so issues are easier to understand.
+* Improved metabox compatibility and display stability in both Block Editor and Classic Editor environments.
+* Cleaned up internal PHP/CSS/JavaScript while preserving compatibility with the original Custom Field Suite API and saved data.
+* Strengthened admin save and AJAX handling, including nonce and capability checks.
+* Updated multilingual translations for new fields, settings, warnings, and tool screens.
 
-= 2.6.7.45.1 =
-* Refined Save / Publish field status behavior and labels.
-* Fixed the Field Group editor update button state after duplicate field name validation.
-
-= 2.6.7.45 =
-* Added native WordPress Post Title and Save / Publish fields.
-* Improved Gutenberg / Block Editor and classic meta box compatibility.
-* Improved validation error visibility across Tabs, Loops, and grouped fields.
-
-= 2.6.7.44.0.1 =
-* Added an after-input helper text setting for supported fields.
-* Improved field setting labels, tooltips, placeholders, and multilingual translations.
-* Removed default value settings from Email Address, Phone Number, and URL fields.
+**日本語**
+* フィールドグループ編集画面のUIを全面的に見直し、グループ階層・余白・ドラッグ操作・レスポンシブ表示を改善しました。
+* タブ、アコーディオン、Loop、横並び、条件分岐グループの表示を整理し、入れ子構造を分かりやすくしました。
+* 条件分岐グループで、条件ごとの追加エリアを表示し、ドラッグしたフィールドを条件に紐付けやすくしました。
+* グループ系フィールドやWordPress標準フィールドのフィールド名を自動命名するようにし、不要な手入力を減らしました。
+* WordPress標準の投稿タイトル、本文、保存・公開、カテゴリー、タグ、アイキャッチ画像をFields内で扱いやすくしました。
+* 保存・公開フィールドのステータス、公開状態、公開日時、下書き保存、公開/更新の表示と挙動を改善しました。
+* カテゴリー（標準 / グローバル）とタグフィールドの表示・選択操作を改善しました。
+* 写真ギャラリーフィールド、ファイル/画像フィールドの管理画面表示を改善しました。
+* atshift Fields Tool のUIを整理し、エクスポート/インポート/リセットの説明と翻訳を追加しました。
+* 配置ルール、エクストラ設定、ツールチップ、Select2/Selectize表示など管理画面UIを改善しました。
+* 入力必須やグループ構成に関する警告表示を見直し、問題点を把握しやすくしました。
+* ブロックエディタ/クラシックエディタ環境でのメタボックス互換性と表示安定性を改善しました。
+* 既存のCustom Field Suite APIおよび保存データとの互換性を維持しながら、内部処理とCSS/JavaScriptを整理しました。
+* 管理画面の保存・AJAX処理を見直し、nonce/権限チェックなど安全性を強化しました。
+* 多言語翻訳を更新し、新しいフィールド名、設定項目、警告文、ツール画面の翻訳漏れを補完しました。

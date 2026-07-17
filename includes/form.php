@@ -277,6 +277,10 @@ class Atshift_CFS_form
                 continue;
             }
 
+            if ( $this->should_skip_field_validation( $field ) ) {
+                continue;
+            }
+
             if ( 'conditional' === $field->type ) {
                 $field_data = isset( $data[ $field->id ] ) ? $data[ $field->id ] : [];
                 $selected = '';
@@ -321,7 +325,7 @@ class Atshift_CFS_form
                 $this->validate_count_limits( $field, count( $this->normalize_submitted_ids( $value ) ), $errors );
             }
 
-            if ( ! empty( $field->options['required'] ) && $this->is_empty_submission_value( $value, $field->type ) ) {
+            if ( ! in_array( $field->type, [ 'code_view', 'shortcode' ], true ) && ! empty( $field->options['required'] ) && $this->is_empty_submission_value( $value, $field->type ) ) {
                 $errors[] = $field->name;
                 continue;
             }
@@ -340,6 +344,25 @@ class Atshift_CFS_form
         if ( ( 0 < $min && $count < $min ) || ( 0 < $max && $max < $count ) ) {
             $errors[] = $field->name;
         }
+    }
+
+
+    private function should_skip_field_validation( $field ) {
+        if ( ! is_object( $field ) || empty( $field->type ) ) {
+            return false;
+        }
+
+        if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ] ) ) {
+            return false;
+        }
+
+        $field_type = atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ];
+
+        if ( ! method_exists( $field_type, 'should_skip_input_validation' ) ) {
+            return false;
+        }
+
+        return (bool) $field_type->should_skip_input_validation( $field );
     }
 
 
@@ -543,7 +566,7 @@ class Atshift_CFS_form
         return in_array( $field_type, [
             'text', 'textarea', 'wysiwyg', 'phone', 'email', 'url', 'number',
             'radio', 'date', 'file', 'color', 'true_false', 'wp_tag',
-            'post_title', 'featured_image', 'gallery', 'conditional',
+            'post_title', 'featured_image', 'gallery', 'conditional', 'shortcode',
         ], true );
     }
 
@@ -807,6 +830,10 @@ CFS["validation_messages"] = ' . wp_json_encode( [
                 continue;
             }
 
+            if ( Atshift_CFS_field::should_hide_input_field( $field ) ) {
+                continue;
+            }
+
             // Skip missing field types
             if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ] ) ) {
                 continue;
@@ -849,15 +876,12 @@ CFS["validation_messages"] = ' . wp_json_encode( [
                 $validator = $format_validators[ $field->type ];
             }
 
-            if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
+            if ( ! in_array( $field->type, [ 'code_view', 'shortcode' ], true ) && isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
                 if ( 'date' == $field->type ) {
                     $validator = 'valid_date';
                 }
                 elseif ( 'color' == $field->type ) {
                     $validator = 'valid_color';
-                }
-                elseif ( 'code_view' == $field->type ) {
-                    $validator = 'required_code_view';
                 }
                 elseif ( isset( $format_validators[ $field->type ] ) ) {
                     $validator = 'required_' . $field->type;

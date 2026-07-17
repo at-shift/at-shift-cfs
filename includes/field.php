@@ -275,6 +275,10 @@ class Atshift_CFS_field
 
 
     public static function is_required_field( $field ) {
+        if ( isset( $field->type ) && in_array( $field->type, [ 'code_view', 'shortcode' ], true ) ) {
+            return false;
+        }
+
         if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
             return true;
         }
@@ -289,6 +293,25 @@ class Atshift_CFS_field
 
     public static function required_badge() {
         return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</span>';
+    }
+
+
+    public static function should_hide_input_field( $field ) {
+        if ( ! is_object( $field ) || empty( $field->type ) ) {
+            return false;
+        }
+
+        if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ] ) ) {
+            return false;
+        }
+
+        $field_type = atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ];
+
+        if ( ! method_exists( $field_type, 'should_hide_field_input' ) ) {
+            return false;
+        }
+
+        return (bool) $field_type->should_hide_field_input( $field );
     }
 
 

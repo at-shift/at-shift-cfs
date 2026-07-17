@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../templates/admin_head.php:65
 #, php-format
-msgid "Drag fields for condition \"%s\" here."
+msgid "Condition \"%s\""
 msgstr ""
 
 #: ../includes/fields/conditional.php:107
@@ -449,20 +449,28 @@ msgstr ""
 msgid "The field group with the lowest order will appear first."
 msgstr ""
 
-#: ../templates/meta_box_extras.php:45
-msgid "Position"
+#: ../templates/meta_box_extras.php:281
+msgid "Field Group Position"
 msgstr ""
 
-#: ../templates/meta_box_extras.php:48
+#: ../templates/meta_box_extras.php:284
 msgid "Normal"
 msgstr ""
 
-#: ../templates/meta_box_extras.php:49
+#: ../templates/meta_box_extras.php:285
 msgid "Side"
 msgstr ""
 
-#: ../templates/meta_box_extras.php:54
-msgid "Display Settings"
+#: ../templates/meta_box_extras.php:287
+msgid "Controls where this field group appears on the edit screen."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:293
+msgid "Native Editor Display Settings"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:298
+msgid "These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed."
 msgstr ""
 
 #: ../templates/meta_box_extras.php:64
@@ -471,6 +479,104 @@ msgstr ""
 
 #: ../templates/meta_box_extras.php:78
 msgid "Hide page attributes"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:92
+msgid "Force the post edit screen layout to 1 column"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:309
+msgid "Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:93
+msgid "All roles"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:94
+msgid "All roles except Administrators / Web administrators"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:95
+msgid "Selected roles only"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:96
+msgid "Select roles when using selected roles only"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:157
+msgid "Already controlled by a native field in this field group."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:163
+#, php-format
+msgid "Already controlled by \"%s\"."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:97
+msgid "Screen Layout"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:98
+msgid "Side Sections"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:99
+msgid "Hide categories"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:100
+msgid "Hide tags"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:101
+msgid "Hide featured image"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:313
+#: ../templates/meta_box_extras.php:329
+msgid "Hiding behavior"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:103
+msgid "Main Sections"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:105
+msgid "Hide format"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:106
+msgid "Hide comments"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:107
+msgid "Hide discussion"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:108
+msgid "Hide excerpt"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:109
+msgid "Hide trackbacks"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide permalink"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide slug"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:111
+msgid "Hide author"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:112
+msgid "Hide custom fields"
 msgstr ""
 
 #: ../templates/meta_box_fields.php:60

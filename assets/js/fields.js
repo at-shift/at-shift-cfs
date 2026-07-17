@@ -48,7 +48,7 @@
                 return;
             }
 
-            $context.find('.cfs-post-title-role-select, .cfs-post-native-role-select').each(function() {
+            $context.find('.cfs-post-title-role-select, .cfs-post-native-role-select, .cfs-shortcode-role-select, .cfs-extra-display-role-select').each(function() {
                 var $select = $(this);
 
                 if ($select.data('select2')) {
@@ -928,7 +928,7 @@
         function conditional_choice_drop_label(label) {
             return format_message(
                 'conditional_branch_drop_label',
-                'Drag fields for condition "%s" here.',
+                'Condition "%s"',
                 label
             );
         }

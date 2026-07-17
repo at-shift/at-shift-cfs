@@ -407,6 +407,21 @@ class Atshift_CFS_field_group
             Save extras
         ---------------------------------------------------------------------------------------------*/
 
+        $params['extras'] = isset( $params['extras'] ) && is_array( $params['extras'] ) ? $params['extras'] : [];
+
+        foreach ( [ 'side', 'main' ] as $section ) {
+            $mode_key = $section . '_section_role_mode';
+            $roles_key = $section . '_section_roles';
+            $mode = isset( $params['extras'][ $mode_key ] ) ? sanitize_key( $params['extras'][ $mode_key ] ) : 'all';
+
+            if ( ! in_array( $mode, [ 'all', 'except_admins', 'selected' ], true ) ) {
+                $mode = 'all';
+            }
+
+            $params['extras'][ $mode_key ] = $mode;
+            $params['extras'][ $roles_key ] = isset( $params['extras'][ $roles_key ] ) ? array_values( array_filter( array_map( 'sanitize_key', (array) $params['extras'][ $roles_key ] ) ) ) : [];
+        }
+
         update_post_meta( $post_id, 'cfs_extras', $params['extras'] );
     }
 

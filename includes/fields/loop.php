@@ -230,7 +230,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
 
         if ( 2 > count( $tabs ) ) {
             foreach ( $fields as $field ) {
-                if ( 'tab' != $field->type ) {
+                if ( 'tab' != $field->type && ! Atshift_CFS_field::should_hide_input_field( $field ) ) {
                     $render_field( $field );
                 }
             }
@@ -242,7 +242,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                 break;
             }
 
-            if ( 'tab' != $field->type ) {
+            if ( 'tab' != $field->type && ! Atshift_CFS_field::should_hide_input_field( $field ) ) {
                 $render_field( $field );
             }
         }
@@ -276,7 +276,9 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                 $content_open = true;
             }
             else {
-                $render_field( $field );
+                if ( ! Atshift_CFS_field::should_hide_input_field( $field ) ) {
+                    $render_field( $field );
+                }
             }
         }
 
