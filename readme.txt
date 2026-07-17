@@ -11,11 +11,11 @@ Add custom fields to posts, pages, and custom post types.
 
 == Description ==
 
-atshift Fields is a maintenance build of Custom Field Suite for WordPress sites that rely on structured fields and need clearer, safer editing screens.
+atshift Fields is a maintenance build of Custom Field Suite for WordPress sites that rely on structured fields and need clearer, safer editing screens. It helps organize complex editing screens with Tab Groups, Horizontal Groups, Accordion Groups, Conditional Groups, and Loops.
 
-Version 3 and later focus on practical field management for content-heavy sites. The Field Group editor has been redesigned for nested groups, drag-and-drop editing, responsive layouts, and multilingual admin labels. It also adds native WordPress fields, including post title, content, save and publish controls, categories, tags, featured image, and post editing screen display controls.
+Version 3 and later focus on practical field management for content-heavy sites. The Field Group editor has been redesigned for nested groups, drag-and-drop editing, responsive layouts, and multilingual admin labels. Conditional Groups can provide condition-specific areas for relevant child fields, while Tab Groups help split large field sets into manageable sections. It also adds native WordPress fields, including post title, content, save and publish controls, categories, tags, featured image, and post editing screen display controls.
 
-v3 also expands field composition with tabs, horizontal groups, accordions, conditional groups, loops, Code View, Shortcode output through `CFS()->get()`, and role-aware controls for editing sensitive fields or hiding unnecessary native editor sections.
+v3 also adds Code View, Shortcode output through `CFS()->get()`, and role-aware controls for editing sensitive fields or hiding unnecessary native editor sections.
 
 The plugin keeps compatibility with the original Custom Field Suite API and saved data while adding security hardening, admin compatibility fixes, and practical field types for existing CFS sites.
 
