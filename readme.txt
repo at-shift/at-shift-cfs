@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.1
+Stable tag: 3.0.1.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -161,6 +161,11 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 5. Extra display settings for edit-screen layout, native section visibility, and role-based hiding behavior.
 
 == Changelog ==
+
+= 3.0.1.1 =
+
+* Bundled translation files in the WordPress.org release package.
+* Confirmed the Japanese translation for the Shortcode field label.
 
 = 3.0.1 =
 
