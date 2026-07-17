@@ -99,6 +99,12 @@ Example:
 
 For rich text fields, use an appropriate HTML sanitizer such as `wp_kses_post()`.
 
+= Tab Group notes =
+
+Tab Group is a layout field for splitting fields on the post edit screen into tabbed sections.
+
+Place a Tab Group before the fields that should appear in that tab. Another Tab Group starts another tab section.
+
 = Horizontal Group notes =
 
 Horizontal Group is a layout field for placing multiple child fields side by side on the post edit screen. On narrow screens, the fields stack vertically.
@@ -110,6 +116,12 @@ Horizontal Groups are intended to contain multiple normal fields. Tabs, Loops, A
 Accordion Group is a layout field for placing child fields inside a collapsible section on the post edit screen. It can be configured to open by default.
 
 Tabs cannot be placed inside an Accordion Group.
+
+= Conditional Group notes =
+
+Conditional Group is a layout field for displaying different child fields depending on a selected radio button or dropdown choice on the post edit screen.
+
+Child fields can be assigned to condition-specific areas in the Field Group editor. Tabs and other Conditional Groups cannot be placed inside a Conditional Group.
 
 = WordPress native field notes =
 
