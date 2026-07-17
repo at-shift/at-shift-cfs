@@ -2,11 +2,7 @@
 
 atshift Fields is also an excellent choice for building WordPress websites that manage structured content, such as corporate and organizational sites. It helps organize complex editing screens into a clear, intuitive interface, making it easier for content managers to edit information safely and consistently.
 
-atshift Fields は、企業サイト・団体サイトサイトなど、構造化された情報を扱う WordPress サイト構築にも最適プラグインです。複雑な入力画面を分かりやすく整理し、運用担当者が安全に編集できる管理画面を作りたいケースに適しています。
-
 atshift Fields is an extended version based on Custom Field Suite. It keeps compatibility with the original Custom Field Suite API and saved data while adding native WordPress fields, improved group editing, multilingual labels, and a refined administration UI.
-
-atshift Fields は Custom Field Suite をベースにした拡張版です。上流版の API と保存データの互換性を保ちながら、WordPress 標準フィールドの取り込み、フィールドグループ編集画面、多言語翻訳、管理画面 UI を強化しています。
 
 atshift Fields is an unofficial maintenance build of the WordPress plugin Custom
 Field Suite. It preserves the original data structure and API compatibility
@@ -78,6 +74,10 @@ Suite 2.6.7 release, with an additional maintenance suffix appended to the
 version number.
 
 # atshift Fields
+
+atshift Fields は、企業サイト・団体サイトサイトなど、構造化された情報を扱う WordPress サイト構築にも最適プラグインです。複雑な入力画面を分かりやすく整理し、運用担当者が安全に編集できる管理画面を作りたいケースに適しています。
+
+atshift Fields は Custom Field Suite をベースにした拡張版です。上流版の API と保存データの互換性を保ちながら、WordPress 標準フィールドの取り込み、フィールドグループ編集画面、多言語翻訳、管理画面 UI を強化しています。
 
 atshift Fields は、WordPress の投稿編集画面にカスタムフィールドを視覚的に追加できるプラグイン Custom Field Suite のデータ構造と API 互換性を保ちながら、セキュリティ対応、現在の WordPress / PHP 互換性対応、実務向けのフィールド改善を追加した非公式メンテナンス版です。
 
