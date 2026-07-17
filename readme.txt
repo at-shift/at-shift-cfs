@@ -11,17 +11,13 @@ Add custom fields to posts, pages, and custom post types.
 
 == Description ==
 
+atshift Fields is a maintenance build of Custom Field Suite for WordPress sites that rely on structured fields and need clearer, safer editing screens.
 
-atshift Fields 3.0.1 is a maintenance update for corporate, organizational, non-profit, and other content-heavy WordPress sites that need structured field management, safer editing workflows, and clearer admin screens.
+Version 3 and later focus on practical field management for content-heavy sites. The Field Group editor has been redesigned for nested groups, drag-and-drop editing, responsive layouts, and multilingual admin labels. It also adds native WordPress fields, including post title, content, save and publish controls, categories, tags, featured image, and post editing screen display controls.
 
-atshift Fields は、企業サイト・団体サイト・NPO サイトなど、構造化された情報を扱う WordPress サイトに向けたメジャーアップデートです。複雑な入力画面を分かりやすく整理し、運用担当者が安全に編集できる管理画面を作りたいケースに適しています。
+v3 also expands field composition with tabs, horizontal groups, accordions, conditional groups, loops, Code View, Shortcode output through `CFS()->get()`, and role-aware controls for editing sensitive fields or hiding unnecessary native editor sections.
 
-atshift Fields is an extended version based on Custom Field Suite. It keeps compatibility with the original Custom Field Suite API and saved data while adding native WordPress fields, improved group editing, multilingual labels, and a refined administration UI.
-
-atshift Fields は Custom Field Suite をベースにした拡張版です。上流版の API と保存データの互換性を保ちながら、WordPress 標準フィールドの取り込み、フィールドグループ編集画面、多言語翻訳、管理画面 UI を強化しています。
-Custom Field Suite (CFS) is a lightweight WordPress plugin for adding custom fields to posts, pages, and custom post types.
-
-This package is a maintenance build based on the upstream Custom Field Suite 2.6.7 release. It keeps the basic CFS data structure and API compatibility while adding security hardening, admin compatibility fixes, and practical field types for existing CFS sites.
+The plugin keeps compatibility with the original Custom Field Suite API and saved data while adding security hardening, admin compatibility fixes, and practical field types for existing CFS sites.
 
 For setup instructions, field value output examples, migration notes, and implementation examples, see the [atshift Fields documentation site](https://cfs.at-shift.net/en/).
 
@@ -144,25 +140,25 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * [Development repository](https://github.com/at-shift/at-shift-cfs)
 * [Original Custom Field Suite source](https://github.com/mgibbs189/custom-field-suite)
 
+== Screenshots ==
+
+1. Field Group editor with the field type selector and native WordPress field types.
+2. Nested field groups using tabs, accordions, conditional groups, loops, and horizontal groups.
+3. Dedicated field group inputs displayed on the WordPress page editing screen.
+4. Placement rules for post types, post formats, user roles, posts, taxonomy terms, and page templates.
+5. Extra display settings for edit-screen layout, native section visibility, and role-based hiding behavior.
+
 == Changelog ==
 
 = 3.0.1 =
 
-**English**
 * Added a Shortcode field that returns rendered shortcode output through `CFS()->get()`.
 * Added role-based shortcode editing controls. Users without permission do not see the field, and existing shortcode values are preserved when they save other fields.
 * Added an Extra Display Setting to force the classic post edit Screen Options layout to 1 column.
 * Added Side / Main Extra Display Settings for hiding unnecessary native editor sections with section-level role targeting.
 
-**日本語**
-* `CFS()->get()` でショートコード実行済みの出力を返す Shortcode フィールドを追加しました。
-* ショートコード入力のロール制御を追加しました。権限のないユーザーにはフィールドを表示せず、他のフィールド保存時も既存のショートコード値を維持します。
-* 投稿編集画面のスクリーンオプションを1列レイアウトに固定できる Extra の表示設定を追加しました。
-* 不要になりやすい標準セクションを Side / Main に分けて隠せる Extra の表示設定を追加し、セクション単位でロール適用を指定できるようにしました。
-
 = 3.0.0 =
 
-**English**
 * Redesigned the Field Group editor UI, including group hierarchy, spacing, drag-and-drop behavior, and responsive layouts.
 * Clarified nested structures for Tab, Accordion, Loop, Horizontal, and Conditional groups.
 * Added condition-specific drop areas for Conditional Groups so dragged fields can be assigned to each condition more easily.
@@ -178,20 +174,3 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * Cleaned up internal PHP/CSS/JavaScript while preserving compatibility with the original Custom Field Suite API and saved data.
 * Strengthened admin save and AJAX handling, including nonce and capability checks.
 * Updated multilingual translations for new fields, settings, warnings, and tool screens.
-
-**日本語**
-* フィールドグループ編集画面のUIを全面的に見直し、グループ階層・余白・ドラッグ操作・レスポンシブ表示を改善しました。
-* タブ、アコーディオン、Loop、横並び、条件分岐グループの表示を整理し、入れ子構造を分かりやすくしました。
-* 条件分岐グループで、条件ごとの追加エリアを表示し、ドラッグしたフィールドを条件に紐付けやすくしました。
-* グループ系フィールドやWordPress標準フィールドのフィールド名を自動命名するようにし、不要な手入力を減らしました。
-* WordPress標準の投稿タイトル、本文、保存・公開、カテゴリー、タグ、アイキャッチ画像をFields内で扱いやすくしました。
-* 保存・公開フィールドのステータス、公開状態、公開日時、下書き保存、公開/更新の表示と挙動を改善しました。
-* カテゴリー（標準 / グローバル）とタグフィールドの表示・選択操作を改善しました。
-* 写真ギャラリーフィールド、ファイル/画像フィールドの管理画面表示を改善しました。
-* atshift Fields Tool のUIを整理し、エクスポート/インポート/リセットの説明と翻訳を追加しました。
-* 配置ルール、エクストラ設定、ツールチップ、Select2/Selectize表示など管理画面UIを改善しました。
-* 入力必須やグループ構成に関する警告表示を見直し、問題点を把握しやすくしました。
-* ブロックエディタ/クラシックエディタ環境でのメタボックス互換性と表示安定性を改善しました。
-* 既存のCustom Field Suite APIおよび保存データとの互換性を維持しながら、内部処理とCSS/JavaScriptを整理しました。
-* 管理画面の保存・AJAX処理を見直し、nonce/権限チェックなど安全性を強化しました。
-* 多言語翻訳を更新し、新しいフィールド名、設定項目、警告文、ツール画面の翻訳漏れを補完しました。
