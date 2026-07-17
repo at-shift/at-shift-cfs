@@ -119,9 +119,10 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 - 電話番号
 - メールアドレス
 - 数字
-- URL・ハイパーリンクではない
+- URL(ハイパーリンクでわない)
 - 時間
 - コード
+- ショートコード
 - チェックボックス
 - ラジオボタン
 - 投稿タイトル（WordPress 標準）
