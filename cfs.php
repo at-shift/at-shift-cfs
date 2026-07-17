@@ -10,6 +10,7 @@ Version: 3.0.1
 Author: Matt Gibbs / Maintenance: @shift Yoshiya Tsuchisaka
 Author URI: https://at-shift.net
 Text Domain: atshift-fields-maintenance-for-custom-field-suite
+Domain Path: /languages
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
