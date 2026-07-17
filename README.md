@@ -1,8 +1,8 @@
 # atshift Fields
 
-atshift Fields is a maintenance update for corporate, organizational, non-profit, and other content-heavy WordPress sites that need structured field management, safer editing workflows, and clearer admin screens.
+atshift Fields is also an excellent choice for building WordPress websites that manage structured content, such as corporate and organizational sites. It helps organize complex editing screens into a clear, intuitive interface, making it easier for content managers to edit information safely and consistently.
 
-atshift Fields は、企業サイト・団体サイトサイトなど、構造化された情報を扱う WordPress サイト構築にも最適なメジャーアップデートです。複雑な入力画面を分かりやすく整理し、運用担当者が安全に編集できる管理画面を作りたいケースに適しています。
+atshift Fields は、企業サイト・団体サイトサイトなど、構造化された情報を扱う WordPress サイト構築にも最適プラグインです。複雑な入力画面を分かりやすく整理し、運用担当者が安全に編集できる管理画面を作りたいケースに適しています。
 
 atshift Fields is an extended version based on Custom Field Suite. It keeps compatibility with the original Custom Field Suite API and saved data while adding native WordPress fields, improved group editing, multilingual labels, and a refined administration UI.
 
