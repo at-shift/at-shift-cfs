@@ -773,6 +773,9 @@ msgstr "Zakladki, petle i grupy poziome nie moga byc umieszczane wewnatrz grupy 
 msgid "Code View"
 msgstr "Widok kodu"
 
+msgid "Shortcode"
+msgstr "Shortcode"
+
 msgid "Plain text"
 msgstr "Zwykly tekst"
 

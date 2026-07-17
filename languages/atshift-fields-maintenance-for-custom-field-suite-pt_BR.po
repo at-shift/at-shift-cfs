@@ -831,6 +831,9 @@ msgstr "Abas, loops e grupos horizontais nao podem ser colocados dentro de um gr
 msgid "Code View"
 msgstr "Visualizacao de codigo"
 
+msgid "Shortcode"
+msgstr "Shortcode"
+
 msgid "Plain text"
 msgstr "Texto simples"
 

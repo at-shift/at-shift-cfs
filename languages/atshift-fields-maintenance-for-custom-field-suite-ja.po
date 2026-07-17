@@ -992,6 +992,9 @@ msgstr "タブ、ループ、横並びグループは、横並びグループの
 msgid "Code View"
 msgstr "コード"
 
+msgid "Shortcode"
+msgstr "ショートコード"
+
 msgid "Plain text"
 msgstr "プレーンテキスト"
 

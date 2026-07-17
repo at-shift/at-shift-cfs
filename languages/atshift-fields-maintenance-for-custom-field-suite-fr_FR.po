@@ -734,6 +734,9 @@ msgstr "Les onglets, les boucles et les groupes horizontaux ne peuvent pas etre 
 msgid "Code View"
 msgstr "Affichage du code"
 
+msgid "Shortcode"
+msgstr "Shortcode"
+
 msgid "Plain text"
 msgstr "Texte brut"
 

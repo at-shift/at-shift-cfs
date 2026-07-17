@@ -704,6 +704,9 @@ msgstr "Les pestanyes, els bucles i els grups horitzontals no es poden col locar
 msgid "Code View"
 msgstr "Vista de codi"
 
+msgid "Shortcode"
+msgstr "Codi curt"
+
 msgid "Plain text"
 msgstr "Text pla"
 

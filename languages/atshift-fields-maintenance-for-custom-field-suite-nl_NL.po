@@ -702,6 +702,9 @@ msgstr "Tabs, loops en horizontale groepen kunnen niet in een horizontale groep 
 msgid "Code View"
 msgstr "Codeweergave"
 
+msgid "Shortcode"
+msgstr "Shortcode"
+
 msgid "Plain text"
 msgstr "Platte tekst"
 

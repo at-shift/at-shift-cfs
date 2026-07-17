@@ -715,6 +715,9 @@ msgstr "Sekmeler, donguler ve yatay gruplar bir yatay grubun icine yerlestirilem
 msgid "Code View"
 msgstr "Kod gorunumu"
 
+msgid "Shortcode"
+msgstr "Kısa kod"
+
 msgid "Plain text"
 msgstr "Duz metin"
 

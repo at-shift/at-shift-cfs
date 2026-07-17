@@ -987,6 +987,9 @@ msgstr ""
 msgid "Code View"
 msgstr ""
 
+msgid "Shortcode"
+msgstr ""
+
 msgid "Plain text"
 msgstr ""
 

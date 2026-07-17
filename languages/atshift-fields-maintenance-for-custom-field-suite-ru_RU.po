@@ -726,6 +726,9 @@ msgstr "Вкладки, циклы и горизонтальные группы 
 msgid "Code View"
 msgstr "Просмотр кода"
 
+msgid "Shortcode"
+msgstr "Шорткод"
+
 msgid "Plain text"
 msgstr "Обычный текст"
 

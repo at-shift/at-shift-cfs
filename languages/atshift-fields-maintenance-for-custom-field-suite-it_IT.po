@@ -822,6 +822,9 @@ msgstr "Schede, loop e gruppi orizzontali non possono essere inseriti all intern
 msgid "Code View"
 msgstr "Vista codice"
 
+msgid "Shortcode"
+msgstr "Shortcode"
+
 msgid "Plain text"
 msgstr "Testo semplice"
 

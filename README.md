@@ -1,12 +1,8 @@
 # atshift Fields
 
-atshift Fields 3.0.1 is a maintenance update for corporate, organizational, non-profit, and other content-heavy WordPress sites that need structured field management, safer editing workflows, and clearer admin screens.
-
-atshift Fields は、企業サイト・団体サイト・NPO サイトなど、構造化された情報を扱う WordPress サイトに向けたメジャーアップデートです。複雑な入力画面を分かりやすく整理し、運用担当者が安全に編集できる管理画面を作りたいケースに適しています。
+atshift Fields is also an excellent choice for building WordPress websites that manage structured content, such as corporate and organizational sites. It helps organize complex editing screens into a clear, intuitive interface, making it easier for content managers to edit information safely and consistently.
 
 atshift Fields is an extended version based on Custom Field Suite. It keeps compatibility with the original Custom Field Suite API and saved data while adding native WordPress fields, improved group editing, multilingual labels, and a refined administration UI.
-
-atshift Fields は Custom Field Suite をベースにした拡張版です。上流版の API と保存データの互換性を保ちながら、WordPress 標準フィールドの取り込み、フィールドグループ編集画面、多言語翻訳、管理画面 UI を強化しています。
 
 atshift Fields is an unofficial maintenance build of the WordPress plugin Custom
 Field Suite. It preserves the original data structure and API compatibility
@@ -79,6 +75,10 @@ version number.
 
 # atshift Fields
 
+atshift Fields は、企業サイト・団体サイトサイトなど、構造化された情報を扱う WordPress サイト構築にも最適プラグインです。複雑な入力画面を分かりやすく整理し、運用担当者が安全に編集できる管理画面を作りたいケースに適しています。
+
+atshift Fields は Custom Field Suite をベースにした拡張版です。上流版の API と保存データの互換性を保ちながら、WordPress 標準フィールドの取り込み、フィールドグループ編集画面、多言語翻訳、管理画面 UI を強化しています。
+
 atshift Fields は、WordPress の投稿編集画面にカスタムフィールドを視覚的に追加できるプラグイン Custom Field Suite のデータ構造と API 互換性を保ちながら、セキュリティ対応、現在の WordPress / PHP 互換性対応、実務向けのフィールド改善を追加した非公式メンテナンス版です。
 
 WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Suite)**。
@@ -119,9 +119,10 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 - 電話番号
 - メールアドレス
 - 数字
-- URL・ハイパーリンクではない
+- URL(ハイパーリンクでわない)
 - 時間
 - コード
+- ショートコード
 - チェックボックス
 - ラジオボタン
 - 投稿タイトル（WordPress 標準）
@@ -324,3 +325,39 @@ add_action( 'init', function() {
 - 既存のCustom Field Suite APIおよび保存データとの互換性を維持しながら、内部処理とCSS/JavaScriptを整理しました。
 - 管理画面の保存・AJAX処理を見直し、nonce/権限チェックなど安全性を強化しました。
 - 多言語翻訳を更新し、新しいフィールド名、設定項目、警告文、ツール画面の翻訳漏れを補完しました。
+
+## Attribution (帰属表示)
+
+- Original plugin (元プラグイン): Custom Field Suite (CFS)
+- Original author (元作者): Matt Gibbs
+- Original project (元プロジェクト): https://wordpress.org/plugins/custom-field-suite/
+- Original source (元ソースコード): https://github.com/mgibbs189/custom-field-suite
+- Maintenance build (メンテナンスビルド版): @shift Yoshiya Tsuchisaka
+- GitHub account (GitHub アカウント): https://github.com/at-shift
+
+The original author attribution and GPLv2 license are preserved. This repository
+is a maintenance build, not an official upstream release by the original author.
+
+This repository is not a GitHub fork of the upstream repository. It is an
+independent GPLv2 maintenance redistribution based on the upstream 2.6.7 source
+code.
+
+元作者の表記および GPLv2 ライセンス表記は保持しています。このリポジトリはメンテナンスビルド版であり、元作者による公式の上流リリースではありません。
+
+このリポジトリは GitHub 上の fork ではありません。上流版 2.6.7 のソースコードをベースに、GPLv2 に基づいて独立して再配布しているメンテナンス版です。
+
+## License (公開ライセンス)
+
+This maintenance build is distributed under the GNU General Public License
+version 2 (GPLv2), the same license as the upstream plugin.
+
+You may use, copy, modify, and redistribute this package, including modified
+versions, under the terms of GPLv2. When redistributing, keep the GPLv2 license
+notice, preserve the original author attribution, include the source code, and
+make clear that this is a maintenance build.
+
+このメンテナンスビルド版は、上流プラグインと同じ GNU General Public License version 2 (GPLv2) のもとで配布されます。
+
+GPLv2 の条件に従い、このパッケージおよび改変版を使用、複製、改変、再配布できます。再配布する場合は、GPLv2 のライセンス表記、元作者の表記、ソースコードを保持し、これがメンテナンスビルド版であることを明示してください。
+
+See [LICENSE](LICENSE) for the full GPLv2 license text. GPLv2 の全文は [LICENSE](LICENSE) を参照してください。

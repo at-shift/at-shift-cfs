@@ -702,6 +702,9 @@ msgstr "选项卡、循环和横向分组不能放在横向分组内。"
 msgid "Code View"
 msgstr "代码视图"
 
+msgid "Shortcode"
+msgstr "短代码"
+
 msgid "Plain text"
 msgstr "纯文本"
 

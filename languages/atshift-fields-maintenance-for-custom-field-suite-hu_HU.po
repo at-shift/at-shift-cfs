@@ -688,6 +688,9 @@ msgstr "Lapok, ismetlok es vizszintes csoportok nem helyezhetok vizszintes csopo
 msgid "Code View"
 msgstr "Kod nezet"
 
+msgid "Shortcode"
+msgstr "Rövidkód"
+
 msgid "Plain text"
 msgstr "Egyszeru szoveg"
 

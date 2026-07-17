@@ -822,6 +822,9 @@ msgstr "Las pestanas, los bucles y los grupos horizontales no se pueden colocar 
 msgid "Code View"
 msgstr "Vista de codigo"
 
+msgid "Shortcode"
+msgstr "Shortcode"
+
 msgid "Plain text"
 msgstr "Texto sin formato"
 
