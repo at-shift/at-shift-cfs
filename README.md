@@ -277,8 +277,6 @@ add_action( 'init', function() {
 
 - Added a Shortcode field that renders shortcode output through `CFS()->get()`.
 - Added role-based editing controls for shortcode values. Users without permission do not see the field, and existing values are preserved when they save other fields.
-- Refined Conditional Group branch labels in the Field Group editor.
-- Removed required-field settings from Code View and Shortcode fields.
 - Added an Extra Display Setting to force the classic post edit Screen Options layout to 1 column.
 - Added Side / Main Extra Display Settings for hiding unnecessary native editor sections with section-level role targeting.
 
@@ -286,8 +284,6 @@ add_action( 'init', function() {
 
 - `CFS()->get()` でショートコード実行済みの出力を返す Shortcode フィールドを追加しました。
 - ショートコード値のロール別編集制御を追加しました。権限のないユーザーにはフィールドを表示せず、他のフィールド保存時も既存値を維持します。
-- フィールドグループ編集画面の条件分岐エリア表示を「条件『〜』」の形式に調整しました。
-- Code View と Shortcode フィールドから必須設定を外しました。
 - 投稿編集画面のスクリーンオプションを1列レイアウトに固定できる Extra の表示設定を追加しました。
 - 不要になりやすい標準セクションを Side / Main に分けて隠せる Extra の表示設定を追加し、セクション単位でロール適用を指定できるようにしました。
 
