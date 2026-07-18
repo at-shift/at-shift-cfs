@@ -278,14 +278,10 @@ add_action( 'init', function() {
 #### English
 
 - Added Classic Meta Box Placement for placing classic third-party meta boxes inside atshift Fields field groups.
-- Added display-width options for placed classic meta boxes.
-- Updated bundled translation files for the new field type and settings.
 
 #### 日本語
 
 - クラシック形式のサードパーティ製メタボックスを atshift Fields のフィールドグループ内に配置できる「メタボックス配置（Classic）」フィールドを追加しました。
-- 配置したメタボックスの表示幅を選択できる設定を追加しました。
-- 新しいフィールドタイプと設定に対応する翻訳ファイルを更新しました。
 
 ### 3.0.1.1
 

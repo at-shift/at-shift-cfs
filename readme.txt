@@ -207,8 +207,6 @@ See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for se
 = 3.0.2 =
 
 * Added Classic Meta Box Placement for placing classic third-party meta boxes inside atshift Fields field groups.
-* Added display-width options for placed classic meta boxes.
-* Updated bundled translation files for the new field type and settings.
 
 = 3.0.1.1 =
 
