@@ -438,6 +438,7 @@ class Atshift_CFS_field_group
             'wp_category',
             'wp_tag',
             'featured_image',
+            'external_metabox',
         ], true );
     }
 
@@ -482,6 +483,7 @@ class Atshift_CFS_field_group
             'wp_category'    => 'category',
             'wp_tag'         => 'tag',
             'featured_image' => 'featured_image',
+            'external_metabox' => 'external_metabox',
         ];
         $prefix = isset( $prefixes[ $field_type ] ) ? $prefixes[ $field_type ] : 'field';
         $index = 1;

@@ -265,6 +265,7 @@ class Atshift_CFS_init
             'color'         => ATSHIFT_CFS_DIR . '/includes/fields/color/color.php',
             'code_view'     => ATSHIFT_CFS_DIR . '/includes/fields/code_view.php',
             'shortcode'     => ATSHIFT_CFS_DIR . '/includes/fields/shortcode.php',
+            'external_metabox' => ATSHIFT_CFS_DIR . '/includes/fields/external_metabox.php',
             'post_title'    => ATSHIFT_CFS_DIR . '/includes/fields/post_title.php',
             'post_content'  => ATSHIFT_CFS_DIR . '/includes/fields/post_content.php',
             'post_publish'  => ATSHIFT_CFS_DIR . '/includes/fields/post_publish.php',
@@ -867,7 +868,7 @@ class Atshift_CFS_init
                 deactivate_plugins( plugin_basename( ATSHIFT_CFS_DIR . '/cfs.php' ) );
                 echo esc_url( admin_url( 'plugins.php' ) );
             }
-            elseif ( in_array( $ajax_method, [ 'search_posts' ], true ) && method_exists( $ajax, $ajax_method ) ) {
+            elseif ( in_array( $ajax_method, [ 'search_posts', 'discover_meta_boxes' ], true ) && method_exists( $ajax, $ajax_method ) ) {
                 echo wp_json_encode( json_decode( $ajax->$ajax_method( $post_data ), true ) );
             }
         }

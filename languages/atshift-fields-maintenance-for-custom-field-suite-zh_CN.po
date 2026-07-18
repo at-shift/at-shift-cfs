@@ -705,6 +705,80 @@ msgstr "代码视图"
 msgid "Shortcode"
 msgstr "短代码"
 
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr "Meta Box 是由第三方插件添加到 WordPress 文章编辑界面的设置或输入框。此字段仅用于将第三方 Meta Box 重新放置或移动到 atshift Fields 字段组中。"
+
+msgid "Classic Meta Box Placement"
+msgstr "经典 Meta Box 放置"
+
+msgid "Meta box ID is not set."
+msgstr "未设置 Meta Box ID。"
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr "在此编辑界面中未找到所选 Meta Box。"
+
+msgid "This meta box is not recommended to move."
+msgstr "不建议移动此 Meta Box。"
+
+msgid "This meta box is already placed in another slot."
+msgstr "此 Meta Box 已放置在另一个位置。"
+
+msgid "Meta Box ID"
+msgstr "Meta Box ID"
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr "从放置规则中选择的文章类型检测经典第三方 Meta Box，或手动输入 HTML 源码中的 id。保存处理仍由原插件负责。"
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr "可以移动在编辑界面中渲染的经典 Meta Box。不支持仅限区块编辑器的面板。"
+
+msgid "Display Width"
+msgstr "显示宽度"
+
+msgid "Side width (320px)"
+msgstr "侧栏宽度 (320px)"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "75%"
+msgstr "75%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr "在窄屏幕上，Meta Box 始终以 100% 宽度显示。"
+
+msgid "Detect Meta Boxes"
+msgstr "检测 Meta Box"
+
+msgid "Detected Meta Boxes"
+msgstr "已检测到的 Meta Box"
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr "请先在放置规则中选择至少一种文章类型。"
+
+msgid "Detecting meta boxes..."
+msgstr "正在检测 Meta Box..."
+
+msgid "Meta box detection failed. Please try again."
+msgstr "Meta Box 检测失败。请重试。"
+
+msgid "No classic meta boxes were detected."
+msgstr "未检测到经典 Meta Box。"
+
+msgid "Select a detected meta box"
+msgstr "选择检测到的 Meta Box"
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr "可用于：%s"
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr "已在另一个经典 Meta Box 放置字段中选择。"
+
+
 msgid "Plain text"
 msgstr "纯文本"
 

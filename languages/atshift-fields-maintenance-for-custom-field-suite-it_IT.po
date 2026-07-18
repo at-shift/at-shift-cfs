@@ -825,6 +825,80 @@ msgstr "Vista codice"
 msgid "Shortcode"
 msgstr "Shortcode"
 
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr "Un meta box e un riquadro di impostazioni o input aggiunto alla schermata di modifica degli articoli di WordPress da un plugin di terze parti. Questo campo serve solo per riposizionare e spostare un meta box di terze parti dentro un gruppo di campi atshift Fields."
+
+msgid "Classic Meta Box Placement"
+msgstr "Posizionamento meta box classico"
+
+msgid "Meta box ID is not set."
+msgstr "L'ID del meta box non e impostato."
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr "Il meta box selezionato non e stato trovato in questa schermata di modifica."
+
+msgid "This meta box is not recommended to move."
+msgstr "Non e consigliato spostare questo meta box."
+
+msgid "This meta box is already placed in another slot."
+msgstr "Questo meta box e gia posizionato in un altro spazio."
+
+msgid "Meta Box ID"
+msgstr "ID meta box"
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr "Rileva un meta box classico di terze parti dai tipi di contenuto selezionati nelle regole di posizionamento, oppure inserisci manualmente il suo id dal sorgente HTML. Il plugin originale continua a gestire il salvataggio."
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr "I meta box classici visualizzati nella schermata di modifica possono essere spostati. I pannelli solo per l'editor a blocchi non sono supportati."
+
+msgid "Display Width"
+msgstr "Larghezza di visualizzazione"
+
+msgid "Side width (320px)"
+msgstr "Larghezza laterale (320px)"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "75%"
+msgstr "75%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr "Sugli schermi stretti, il meta box viene sempre visualizzato al 100% della larghezza."
+
+msgid "Detect Meta Boxes"
+msgstr "Rileva meta box"
+
+msgid "Detected Meta Boxes"
+msgstr "Meta box rilevati"
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr "Seleziona prima almeno un tipo di contenuto nelle regole di posizionamento."
+
+msgid "Detecting meta boxes..."
+msgstr "Rilevamento meta box..."
+
+msgid "Meta box detection failed. Please try again."
+msgstr "Rilevamento del meta box non riuscito. Riprova."
+
+msgid "No classic meta boxes were detected."
+msgstr "Non sono stati rilevati meta box classici."
+
+msgid "Select a detected meta box"
+msgstr "Seleziona un meta box rilevato"
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr "Disponibile su: %s"
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr "Gia selezionato in un altro campo di posizionamento meta box classico."
+
+
 msgid "Plain text"
 msgstr "Testo semplice"
 

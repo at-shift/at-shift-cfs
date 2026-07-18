@@ -122,6 +122,63 @@
     line-height: 1.55;
 }
 
+.cfs_input .atshift-cfs-external-metabox-slot {
+    width: 100%;
+    max-width: 100%;
+}
+
+.cfs_input .atshift-cfs-external-metabox-width-side {
+    width: 320px;
+}
+
+.cfs_input .atshift-cfs-external-metabox-width-50 {
+    width: 50%;
+}
+
+.cfs_input .atshift-cfs-external-metabox-width-75 {
+    width: 75%;
+}
+
+.cfs_input .atshift-cfs-external-metabox-width-100 {
+    width: 100%;
+}
+
+.cfs_input .atshift-cfs-external-metabox-container:empty {
+    display: none;
+}
+
+.cfs_input .atshift-cfs-external-metabox-slot .postbox.atshift-cfs-external-metabox-mounted {
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 0;
+    width: 100%;
+}
+
+#poststuff .cfs_input .atshift-cfs-external-metabox-slot .postbox.atshift-cfs-external-metabox-mounted .inside {
+    margin: 0;
+    padding: 16px 18px 18px;
+}
+
+.cfs_input .atshift-cfs-external-metabox-slot .postbox.atshift-cfs-external-metabox-mounted > .postbox-header,
+.cfs_input .atshift-cfs-external-metabox-slot .postbox.atshift-cfs-external-metabox-mounted > .hndle,
+.cfs_input .atshift-cfs-external-metabox-slot .postbox.atshift-cfs-external-metabox-mounted > .handlediv {
+    display: none;
+}
+
+.cfs_input .atshift-cfs-external-metabox-message {
+    margin: 0;
+    padding: 10px 12px;
+    border-left: 4px solid #dba617;
+    background: #fcf9e8;
+    color: #3c434a;
+}
+
+@media screen and (max-width: 782px) {
+    .cfs_input .atshift-cfs-external-metabox-slot {
+        width: 100%;
+    }
+}
+
 .cfs_input .cfs-wp-tag-selected {
     display: flex;
     flex-wrap: wrap;

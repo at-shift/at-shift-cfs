@@ -718,6 +718,80 @@ msgstr "Kod gorunumu"
 msgid "Shortcode"
 msgstr "Kısa kod"
 
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr "Meta kutusu, ucuncu taraf bir eklenti tarafindan WordPress yazi duzenleme ekranina eklenen bir ayar veya giris kutusudur. Bu alan yalnizca ucuncu taraf bir meta kutusunu atshift Fields alan grubunun icine yeniden konumlandirmak ve tasimak icindir."
+
+msgid "Classic Meta Box Placement"
+msgstr "Klasik meta kutusu yerlestirme"
+
+msgid "Meta box ID is not set."
+msgstr "Meta kutusu ID'si ayarlanmamis."
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr "Secilen meta kutusu bu duzenleme ekraninda bulunamadi."
+
+msgid "This meta box is not recommended to move."
+msgstr "Bu meta kutusunun tasinmasi onerilmez."
+
+msgid "This meta box is already placed in another slot."
+msgstr "Bu meta kutusu zaten baska bir yuvaya yerlestirilmis."
+
+msgid "Meta Box ID"
+msgstr "Meta kutusu ID'si"
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr "Yerlestirme Kurallarinda secilen yazi turlerinden klasik bir ucuncu taraf meta kutusu algilayin veya HTML kaynak kodundaki id'sini elle girin. Kaydetme islemini ozgun eklenti yurutmeye devam eder."
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr "Duzenleme ekraninda olusturulan klasik meta kutulari tasinabilir. Yalnizca Blok Duzenleyici panelleri desteklenmez."
+
+msgid "Display Width"
+msgstr "Goruntuleme genisligi"
+
+msgid "Side width (320px)"
+msgstr "Yan genislik (320px)"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "75%"
+msgstr "75%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr "Dar ekranlarda meta kutusu her zaman %100 genislikte gosterilir."
+
+msgid "Detect Meta Boxes"
+msgstr "Meta kutularini algila"
+
+msgid "Detected Meta Boxes"
+msgstr "Algilanan meta kutulari"
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr "Once Yerlestirme Kurallarinda en az bir yazi turu secin."
+
+msgid "Detecting meta boxes..."
+msgstr "Meta kutulari algilaniyor..."
+
+msgid "Meta box detection failed. Please try again."
+msgstr "Meta kutusu algilama basarisiz oldu. Lutfen tekrar deneyin."
+
+msgid "No classic meta boxes were detected."
+msgstr "Klasik meta kutusu algilanmadi."
+
+msgid "Select a detected meta box"
+msgstr "Algilanan bir meta kutusu secin"
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr "Kullanilabilir: %s"
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr "Baska bir klasik meta kutusu yerlestirme alaninda zaten secilmis."
+
+
 msgid "Plain text"
 msgstr "Duz metin"
 

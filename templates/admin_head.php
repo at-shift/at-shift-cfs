@@ -68,6 +68,15 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
             'conditional_group_two_fields_warning' => __( 'Create two or more conditions, then add fields to each condition.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'conditional_group_one_more_field_warning' => __( 'Add fields to each empty condition.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'automatically_named_when_saved' => __( 'Automatically named when saved', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'select_post_type_before_metabox_detection' => __( 'Select at least one post type in Placement Rules first.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'detecting_meta_boxes' => __( 'Detecting meta boxes...', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'detect_meta_boxes_failed' => __( 'Meta box detection failed. Please try again.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'no_meta_boxes_detected' => __( 'No classic meta boxes were detected.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'select_detected_meta_box' => __( 'Select a detected meta box', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            /* translators: %s: post type labels. */
+            'available_on_post_types' => __( 'Available on: %s', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'meta_box_not_recommended' => __( 'This meta box is not recommended to move.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'meta_box_already_selected' => __( 'Already selected in another Classic Meta Box Placement field.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'unnamed_condition' => __( 'Unnamed condition', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: conditional choice label. */
             'conditional_branch_drop_label' => __( 'Condition "%s"', 'atshift-fields-maintenance-for-custom-field-suite' ),

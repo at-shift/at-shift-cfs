@@ -17,6 +17,7 @@ $generated_name_types = [
     'wp_category',
     'wp_tag',
     'featured_image',
+    'external_metabox',
 ];
 $uses_generated_name = in_array( $field->type, $generated_name_types, true );
 $field_name_value = empty( $field->id ) ? '' : (string) $field->name;
@@ -65,6 +66,14 @@ $structure_badge = isset( $structure_badges[ $field->type ] ) ? $structure_badge
     <div class="field_form">
         <table class="widefat">
             <tbody>
+                <tr class="cfs-field-type-intro cfs-external-metabox-field-intro" <?php echo 'external_metabox' === $field->type ? '' : 'hidden'; ?>>
+                    <td colspan="2">
+                        <p>
+                            <?php esc_html_e( 'A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                        </p>
+                    </td>
+                </tr>
+
                 <tr class="field_basics">
                     <td colspan="2">
                         <table>

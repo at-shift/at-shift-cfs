@@ -707,6 +707,80 @@ msgstr "Vista de codi"
 msgid "Shortcode"
 msgstr "Codi curt"
 
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr "Una caixa meta es un quadre de configuracio o entrada afegit a la pantalla d'edicio d'entrades de WordPress per un plugin de tercers. Aquest camp es nomes per recol.locar i moure una caixa meta de tercers dins d'un grup de camps atshift Fields."
+
+msgid "Classic Meta Box Placement"
+msgstr "Col.locacio de caixa meta classica"
+
+msgid "Meta box ID is not set."
+msgstr "No s'ha definit l'ID de la caixa meta."
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr "La caixa meta seleccionada no s'ha trobat en aquesta pantalla d'edicio."
+
+msgid "This meta box is not recommended to move."
+msgstr "No es recomana moure aquesta caixa meta."
+
+msgid "This meta box is already placed in another slot."
+msgstr "Aquesta caixa meta ja esta col.locada en un altre espai."
+
+msgid "Meta Box ID"
+msgstr "ID de caixa meta"
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr "Detecta una caixa meta classica de tercers dels tipus d'entrada seleccionats a les regles de col.locacio, o introdueix-ne l'id del codi font HTML manualment. El plugin original continua gestionant el desament."
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr "Es poden moure les caixes meta classiques renderitzades a la pantalla d'edicio. Els panells nomes del Block Editor no son compatibles."
+
+msgid "Display Width"
+msgstr "Amplada de visualitzacio"
+
+msgid "Side width (320px)"
+msgstr "Amplada lateral (320px)"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "75%"
+msgstr "75%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr "En pantalles estretes, la caixa meta sempre es mostra amb una amplada del 100%."
+
+msgid "Detect Meta Boxes"
+msgstr "Detecta caixes meta"
+
+msgid "Detected Meta Boxes"
+msgstr "Caixes meta detectades"
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr "Selecciona primer almenys un tipus d'entrada a les regles de col.locacio."
+
+msgid "Detecting meta boxes..."
+msgstr "S'estan detectant caixes meta..."
+
+msgid "Meta box detection failed. Please try again."
+msgstr "No s'han pogut detectar les caixes meta. Torna-ho a provar."
+
+msgid "No classic meta boxes were detected."
+msgstr "No s'ha detectat cap caixa meta classica."
+
+msgid "Select a detected meta box"
+msgstr "Selecciona una caixa meta detectada"
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr "Disponible a: %s"
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr "Ja esta seleccionada en un altre camp de col.locacio de caixa meta classica."
+
+
 msgid "Plain text"
 msgstr "Text pla"
 

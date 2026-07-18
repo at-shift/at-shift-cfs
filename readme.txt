@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.1.1
+Stable tag: 3.0.2
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -56,6 +56,7 @@ For setup instructions, field value output examples, migration notes, and implem
 * Color
 * Code View
 * Shortcode
+* Classic Meta Box Placement
 * Post Title (native WordPress title)
 * Post Content (native WordPress content)
 * Save / Publish (native WordPress save and publish controls)
@@ -122,6 +123,14 @@ Tabs cannot be placed inside an Accordion Group.
 Conditional Group is a layout field for displaying different child fields depending on a selected radio button or dropdown choice on the post edit screen.
 
 Child fields can be assigned to condition-specific areas in the Field Group editor. Tabs and other Conditional Groups cannot be placed inside a Conditional Group.
+
+= Classic Meta Box Placement notes =
+
+Classic Meta Box Placement is a slot field for moving classic third-party meta boxes into a chosen position inside an atshift Fields field group. It does not save CFS field values; saving, nonces, permissions, scripts, and styles remain the responsibility of the original meta box plugin.
+
+Block Editor-only panels are not supported. Native WordPress meta boxes and internal CFS meta boxes are shown as not recommended to move.
+
+The original meta box header is hidden after placement because the atshift Fields field label and notes provide the heading. Display width can be set to side width (320px), 50%, 75%, or 100%; narrow screens always use 100% width.
 
 = WordPress native field notes =
 
@@ -194,6 +203,12 @@ The release package includes bundled translation files for ca, de_DE, es_ES, fa_
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.2 =
+
+* Added Classic Meta Box Placement for placing classic third-party meta boxes inside atshift Fields field groups.
+* Added display-width options for placed classic meta boxes.
+* Updated bundled translation files for the new field type and settings.
 
 = 3.0.1.1 =
 

@@ -737,6 +737,80 @@ msgstr "نمایش کد"
 msgid "Shortcode"
 msgstr "کد کوتاه"
 
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr "متاباکس یک جعبه تنظیمات یا ورودی است که توسط افزونه‌های شخص ثالث به صفحه ویرایش نوشته وردپرس اضافه می‌شود. این فیلد فقط برای جابه‌جایی و انتقال متاباکس شخص ثالث به داخل یک گروه فیلد atshift Fields است."
+
+msgid "Classic Meta Box Placement"
+msgstr "جایگذاری متاباکس کلاسیک"
+
+msgid "Meta box ID is not set."
+msgstr "شناسه متاباکس تنظیم نشده است."
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr "متاباکس انتخاب شده در این صفحه ویرایش پیدا نشد."
+
+msgid "This meta box is not recommended to move."
+msgstr "جابجایی این متاباکس توصیه نمی‌شود."
+
+msgid "This meta box is already placed in another slot."
+msgstr "این متاباکس قبلاً در جایگاه دیگری قرار گرفته است."
+
+msgid "Meta Box ID"
+msgstr "شناسه متاباکس"
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr "یک متاباکس کلاسیک افزونه‌های دیگر را از نوع‌های نوشته انتخاب شده در قوانین جایگذاری تشخیص دهید، یا id آن در منبع HTML را دستی وارد کنید. ذخیره‌سازی همچنان توسط افزونه اصلی انجام می‌شود."
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr "متاباکس‌های کلاسیکی که در صفحه ویرایش نمایش داده می‌شوند قابل جابجایی هستند. پنل‌های مخصوص ویرایشگر بلوکی پشتیبانی نمی‌شوند."
+
+msgid "Display Width"
+msgstr "عرض نمایش"
+
+msgid "Side width (320px)"
+msgstr "عرض کناری (320px)"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "75%"
+msgstr "75%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr "در صفحه‌های باریک، متاباکس همیشه با عرض 100% نمایش داده می‌شود."
+
+msgid "Detect Meta Boxes"
+msgstr "تشخیص متاباکس‌ها"
+
+msgid "Detected Meta Boxes"
+msgstr "متاباکس‌های تشخیص داده شده"
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr "ابتدا حداقل یک نوع نوشته را در قوانین جایگذاری انتخاب کنید."
+
+msgid "Detecting meta boxes..."
+msgstr "در حال تشخیص متاباکس‌ها..."
+
+msgid "Meta box detection failed. Please try again."
+msgstr "تشخیص متاباکس ناموفق بود. دوباره تلاش کنید."
+
+msgid "No classic meta boxes were detected."
+msgstr "هیچ متاباکس کلاسیکی تشخیص داده نشد."
+
+msgid "Select a detected meta box"
+msgstr "یک متاباکس تشخیص داده شده را انتخاب کنید"
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr "در دسترس در: %s"
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr "قبلاً در یک فیلد جایگذاری متاباکس کلاسیک دیگر انتخاب شده است."
+
+
 msgid "Plain text"
 msgstr "متن ساده"
 

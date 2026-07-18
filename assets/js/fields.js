@@ -17,7 +17,8 @@
             'post_publish',
             'wp_category',
             'wp_tag',
-            'featured_image'
+            'featured_image',
+            'external_metabox'
         ];
 
         function get_parent_item($item) {
@@ -60,6 +61,93 @@
                     width: '99.95%'
                 });
             });
+        }
+
+        function get_selected_rule_post_types() {
+            var values = [];
+
+            $('select[name^="cfs[rules][post_types]"]').each(function() {
+                var selected = $(this).val();
+
+                if ($.isArray(selected)) {
+                    values = values.concat(selected);
+                } else if (selected) {
+                    values.push(selected);
+                }
+            });
+
+            return $.grep(values, function(value, index) {
+                return value && $.inArray(value, values) === index;
+            });
+        }
+
+        function render_detected_meta_boxes($row, response) {
+            var $picker = $row.find('.atshift-cfs-external-metabox-picker').first();
+            var $status = $row.find('.atshift-cfs-external-metabox-detection-status').first();
+            var meta_boxes = response && $.isArray(response.meta_boxes) ? response.meta_boxes : [];
+            var current_value = trim($row.find('input[name*="[options][meta_box_id]"]').first().val());
+            var used_values = [];
+
+            $('.field_option_external_metabox').not($row).each(function() {
+                var value = trim($(this).find('input[name*="[options][meta_box_id]"]').first().val());
+
+                if (value && -1 === $.inArray(value, used_values)) {
+                    used_values.push(value);
+                }
+            });
+
+            $picker.empty().append($('<option></option>', {
+                value: '',
+                text: message('select_detected_meta_box', 'Select a detected meta box')
+            }));
+
+            if (!meta_boxes.length) {
+                $picker.prop('hidden', true);
+                $status.text(message('no_meta_boxes_detected', 'No classic meta boxes were detected.'));
+                return;
+            }
+
+            $.each(meta_boxes, function(index, meta_box) {
+                var label = meta_box.title + ' — ' + meta_box.context_label + ' (#' + meta_box.id + ')';
+                var already_used = -1 !== $.inArray(meta_box.id, used_values);
+
+                if (!meta_box.available_on_all && $.isArray(meta_box.post_types)) {
+                    label += ' — ' + format_message(
+                        'available_on_post_types',
+                        'Available on: %s',
+                        meta_box.post_types.join(', ')
+                    );
+                }
+
+                if (!meta_box.recommended) {
+                    label += ' — ' + message('meta_box_not_recommended', 'This meta box is not recommended to move.');
+                }
+
+                if (already_used) {
+                    label += ' — ' + message(
+                        'meta_box_already_selected',
+                        'Already selected in another Classic Meta Box Placement field.'
+                    );
+                }
+
+                $picker.append($('<option></option>', {
+                    value: meta_box.id,
+                    text: label,
+                    disabled: !meta_box.recommended || already_used
+                }));
+            });
+
+            $picker.children('option').filter(function() {
+                return this.value === current_value;
+            }).prop('selected', true);
+            $picker.prop('hidden', false);
+            $status.text('');
+        }
+
+        function refresh_field_type_intro($field) {
+            var type = $field.find('.field_form .field_type select').first().val();
+
+            $field.find('.cfs-external-metabox-field-intro').prop('hidden', 'external_metabox' !== type);
         }
 
         function sync_parent_ids() {
@@ -1556,6 +1644,48 @@
             $(this).siblings('input').val(val);
         });
 
+        $(document).on('click', '.atshift-cfs-discover-metaboxes', function() {
+            var $button = $(this);
+            var $row = $button.closest('.field_option_external_metabox');
+            var $status = $row.find('.atshift-cfs-external-metabox-detection-status').first();
+            var post_types = get_selected_rule_post_types();
+
+            if (!post_types.length) {
+                $status.text(message('select_post_type_before_metabox_detection', 'Select at least one post type in Placement Rules first.'));
+                return;
+            }
+
+            $button.prop('disabled', true);
+            $status.text(message('detecting_meta_boxes', 'Detecting meta boxes...'));
+
+            $.ajax({
+                url: ajaxurl,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    action: 'atshift_cfs_ajax_handler',
+                    action_type: 'discover_meta_boxes',
+                    nonce: $button.attr('data-nonce'),
+                    post_types: post_types
+                }
+            }).done(function(response) {
+                render_detected_meta_boxes($row, response);
+            }).fail(function() {
+                $status.text(message('detect_meta_boxes_failed', 'Meta box detection failed. Please try again.'));
+            }).always(function() {
+                $button.prop('disabled', false);
+            });
+        });
+
+        $(document).on('change', '.atshift-cfs-external-metabox-picker', function() {
+            var value = $(this).val();
+            var $row = $(this).closest('.field_option_external_metabox');
+
+            if (value) {
+                $row.find('input[name*="[options][meta_box_id]"]').first().val(value).trigger('change');
+            }
+        });
+
         // Add a new field
         $(document).on('click', '.cfs_add_field', function() {
             var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
@@ -1697,6 +1827,7 @@
             }
             $(this).closest('.field').find('.field_option').remove();
             $(this).closest('.field_basics').after($options);
+            refresh_field_type_intro($(this).closest('.field'));
             refresh_field_name_mode($item);
 
             if ('loop' == type || 'group' == type || 'accordion' == type || 'conditional' == type) {

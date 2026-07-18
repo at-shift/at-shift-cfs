@@ -995,6 +995,79 @@ msgstr "コード"
 msgid "Shortcode"
 msgstr "ショートコード"
 
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr "メタボックスとは、WordPress の投稿編集画面にサードパーティ製プラグインによって追加表示される設定・入力用のボックスです。このフィールドはサードパーティによるメタボックスを atshift Fields のフィールドグループ内へ再配置・移動させるためだけのものです。"
+
+msgid "Classic Meta Box Placement"
+msgstr "メタボックス配置（Classic）"
+
+msgid "Meta box ID is not set."
+msgstr "メタボックスIDが設定されていません。"
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr "選択されたメタボックスはこの編集画面に見つかりませんでした。"
+
+msgid "This meta box is not recommended to move."
+msgstr "このメタボックスは移動非推奨です。"
+
+msgid "This meta box is already placed in another slot."
+msgstr "このメタボックスは別のスロットにすでに配置されています。"
+
+msgid "Meta Box ID"
+msgstr "メタボックスID"
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr "配置ルールで選択した投稿タイプからクラシック形式のサードパーティ製メタボックスを検出するか、HTMLソースの id を直接入力します。保存処理は元のプラグイン側に任せます。"
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr "編集画面に表示されるクラシックメタボックスを移動できます。ブロックエディター専用パネルは対象外です。"
+
+msgid "Display Width"
+msgstr "表示幅"
+
+msgid "Side width (320px)"
+msgstr "サイド相当 (320px)"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "75%"
+msgstr "75%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr "狭い画面では、メタボックスは常に100%幅で表示されます。"
+
+msgid "Detect Meta Boxes"
+msgstr "メタボックスを検出"
+
+msgid "Detected Meta Boxes"
+msgstr "検出されたメタボックス"
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr "先に配置ルールで投稿タイプを1つ以上選択してください。"
+
+msgid "Detecting meta boxes..."
+msgstr "メタボックスを検出しています..."
+
+msgid "Meta box detection failed. Please try again."
+msgstr "メタボックスを検出できませんでした。もう一度お試しください。"
+
+msgid "No classic meta boxes were detected."
+msgstr "クラシックメタボックスが検出されませんでした。"
+
+msgid "Select a detected meta box"
+msgstr "検出されたメタボックスを選択"
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr "利用できる投稿タイプ: %s"
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr "別のメタボックス配置（Classic）フィールドですでに選択されています。"
+
 msgid "Plain text"
 msgstr "プレーンテキスト"
 

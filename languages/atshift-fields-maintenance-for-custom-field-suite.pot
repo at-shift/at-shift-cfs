@@ -990,6 +990,79 @@ msgstr ""
 msgid "Shortcode"
 msgstr ""
 
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr ""
+
+msgid "Classic Meta Box Placement"
+msgstr ""
+
+msgid "Meta box ID is not set."
+msgstr ""
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr ""
+
+msgid "This meta box is not recommended to move."
+msgstr ""
+
+msgid "This meta box is already placed in another slot."
+msgstr ""
+
+msgid "Meta Box ID"
+msgstr ""
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr ""
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr ""
+
+msgid "Display Width"
+msgstr ""
+
+msgid "Side width (320px)"
+msgstr ""
+
+msgid "50%"
+msgstr ""
+
+msgid "75%"
+msgstr ""
+
+msgid "100%"
+msgstr ""
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr ""
+
+msgid "Detect Meta Boxes"
+msgstr ""
+
+msgid "Detected Meta Boxes"
+msgstr ""
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr ""
+
+msgid "Detecting meta boxes..."
+msgstr ""
+
+msgid "Meta box detection failed. Please try again."
+msgstr ""
+
+msgid "No classic meta boxes were detected."
+msgstr ""
+
+msgid "Select a detected meta box"
+msgstr ""
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr ""
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr ""
+
 msgid "Plain text"
 msgstr ""
 

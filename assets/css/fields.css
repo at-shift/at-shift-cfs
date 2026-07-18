@@ -1730,6 +1730,20 @@ body #powerTip {
     color: red;
 }
 
+.field_form tr.cfs-field-type-intro td {
+    padding-bottom: 0;
+}
+
+.field_form tr.cfs-field-type-intro p {
+    margin: 0;
+    padding: 14px 16px;
+    border-left: 4px solid #8b5a2b;
+    background: #f7f3ec;
+    color: #3c434a;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
 .field_form tr.field_basics table {
     padding: 10px 12px;
     border-bottom: 1px solid #dfdfdf;
@@ -2420,6 +2434,47 @@ span.checkbox.active {
 
 #submitdiv #major-publishing-actions {
     border-top: none;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Classic Meta Box Placement
+---------------------------------------------------------------------------------------------*/
+
+.atshift-cfs-external-metabox-option {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+}
+
+.field_form .atshift-cfs-external-metabox-option input[type="text"] {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.atshift-cfs-external-metabox-option .button {
+    min-height: 40px;
+}
+
+.atshift-cfs-external-metabox-picker {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 8px;
+}
+
+.atshift-cfs-external-metabox-detection-status:not(:empty) {
+    margin: 8px 0 0;
+}
+
+@media screen and (max-width: 782px) {
+    .atshift-cfs-external-metabox-option {
+        grid-template-columns: 1fr;
+    }
+
+    .atshift-cfs-external-metabox-option .button {
+        justify-self: start;
+    }
 }
 
 

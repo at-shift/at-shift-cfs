@@ -691,6 +691,80 @@ msgstr "Kod nezet"
 msgid "Shortcode"
 msgstr "Rövidkód"
 
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr "A metabox egy beallitasi vagy adatbeviteli doboz, amelyet kulso bovítmeny ad hozza a WordPress bejegyzes szerkeszto kepernyojehez. Ez a mezo csak arra szolgal, hogy egy kulso metaboxot athelyezz egy atshift Fields mezocsoportba."
+
+msgid "Classic Meta Box Placement"
+msgstr "Klasszikus metabox elhelyezese"
+
+msgid "Meta box ID is not set."
+msgstr "A metabox azonosito nincs beallitva."
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr "A kivalasztott metabox nem talalhato ezen a szerkeszto kepernyon."
+
+msgid "This meta box is not recommended to move."
+msgstr "Ezt a metaboxot nem ajanlott athelyezni."
+
+msgid "This meta box is already placed in another slot."
+msgstr "Ez a metabox mar egy masik helyen van elhelyezve."
+
+msgid "Meta Box ID"
+msgstr "Metabox azonosito"
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr "Klasszikus, kulso bovítmenyhez tartozo metabox felismerese az elhelyezesi szabalyokban kivalasztott bejegyzestipusok alapjan, vagy az id kezi megadasa a HTML-forrasbol. A mentest tovabbra is az eredeti bovítmeny kezeli."
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr "A szerkeszto kepernyon megjeleno klasszikus metaboxok athelyezhetok. A csak blokk-szerkeszto paneljei nem tamogatottak."
+
+msgid "Display Width"
+msgstr "Megjelenitesi szelesseg"
+
+msgid "Side width (320px)"
+msgstr "Oldalso szelesseg (320px)"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "75%"
+msgstr "75%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr "Keskeny kepernyokon a metabox mindig 100% szelesseggel jelenik meg."
+
+msgid "Detect Meta Boxes"
+msgstr "Metaboxok felismerese"
+
+msgid "Detected Meta Boxes"
+msgstr "Felismert metaboxok"
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr "Eloszor valassz legalabb egy bejegyzestipust az elhelyezesi szabalyokban."
+
+msgid "Detecting meta boxes..."
+msgstr "Metaboxok felismerese..."
+
+msgid "Meta box detection failed. Please try again."
+msgstr "A metabox felismerese sikertelen. Probald ujra."
+
+msgid "No classic meta boxes were detected."
+msgstr "Nem talalhato klasszikus metabox."
+
+msgid "Select a detected meta box"
+msgstr "Valassz egy felismert metaboxot"
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr "Elerheto itt: %s"
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr "Mar ki van valasztva egy masik klasszikus metabox elhelyezesi mezoben."
+
+
 msgid "Plain text"
 msgstr "Egyszeru szoveg"
 

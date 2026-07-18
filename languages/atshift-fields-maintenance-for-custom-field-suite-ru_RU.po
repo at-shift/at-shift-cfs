@@ -729,6 +729,80 @@ msgstr "Просмотр кода"
 msgid "Shortcode"
 msgstr "Шорткод"
 
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr "Метабокс — это блок настроек или ввода, добавляемый на экран редактирования записи WordPress сторонним плагином. Это поле предназначено только для повторного размещения и перемещения стороннего метабокса внутрь группы полей atshift Fields."
+
+msgid "Classic Meta Box Placement"
+msgstr "Размещение классического метабокса"
+
+msgid "Meta box ID is not set."
+msgstr "ID метабокса не задан."
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr "Выбранный метабокс не найден на этом экране редактирования."
+
+msgid "This meta box is not recommended to move."
+msgstr "Этот метабокс не рекомендуется перемещать."
+
+msgid "This meta box is already placed in another slot."
+msgstr "Этот метабокс уже размещен в другом слоте."
+
+msgid "Meta Box ID"
+msgstr "ID метабокса"
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr "Обнаружьте классический метабокс стороннего плагина для типов записей, выбранных в правилах размещения, или вручную введите его id из HTML-исходника. Сохранение по-прежнему выполняет исходный плагин."
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr "Классические метабоксы, выводимые на экране редактирования, можно перемещать. Панели только для редактора блоков не поддерживаются."
+
+msgid "Display Width"
+msgstr "Ширина отображения"
+
+msgid "Side width (320px)"
+msgstr "Ширина боковой области (320px)"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "75%"
+msgstr "75%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr "На узких экранах метабокс всегда отображается с шириной 100%."
+
+msgid "Detect Meta Boxes"
+msgstr "Обнаружить метабоксы"
+
+msgid "Detected Meta Boxes"
+msgstr "Обнаруженные метабоксы"
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr "Сначала выберите хотя бы один тип записи в правилах размещения."
+
+msgid "Detecting meta boxes..."
+msgstr "Обнаружение метабоксов..."
+
+msgid "Meta box detection failed. Please try again."
+msgstr "Не удалось обнаружить метабоксы. Попробуйте еще раз."
+
+msgid "No classic meta boxes were detected."
+msgstr "Классические метабоксы не обнаружены."
+
+msgid "Select a detected meta box"
+msgstr "Выберите обнаруженный метабокс"
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr "Доступно для: %s"
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr "Уже выбрано в другом поле размещения классического метабокса."
+
+
 msgid "Plain text"
 msgstr "Обычный текст"
 
