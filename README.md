@@ -277,12 +277,10 @@ add_action( 'init', function() {
 #### English
 
 - Bundled translation files in the WordPress.org release package.
-- Confirmed the Japanese translation for the Shortcode field label.
 
 #### 日本語
 
 - WordPress.org の配布パッケージに翻訳ファイルを同梱しました。
-- ショートコードフィールドラベルの日本語訳を確認しました。
 
 ### 3.0.1
 

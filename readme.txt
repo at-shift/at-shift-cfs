@@ -165,7 +165,6 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 = 3.0.1.1 =
 
 * Bundled translation files in the WordPress.org release package.
-* Confirmed the Japanese translation for the Shortcode field label.
 
 = 3.0.1 =
 
