@@ -152,6 +152,15 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 * [Development repository](https://github.com/at-shift/at-shift-cfs)
 * [Original Custom Field Suite source](https://github.com/mgibbs189/custom-field-suite)
 
+== Installation ==
+
+1. Back up your files and database before replacing an existing Custom Field Suite installation.
+2. Deactivate the original Custom Field Suite plugin before activating this maintenance build.
+3. Install and activate atshift Fields from the WordPress plugin directory, or upload the plugin folder to `/wp-content/plugins/`.
+4. Open the atshift Fields / Field Groups admin screen.
+5. Create a Field Group, add fields, and set Placement Rules for the edit screens where it should appear.
+6. Use `CFS()->get()` in your theme templates to display saved field values.
+
 == Screenshots ==
 
 1. Field Group editor with the field type selector and native WordPress field types.
