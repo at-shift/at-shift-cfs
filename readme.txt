@@ -171,6 +171,28 @@ For detailed guides and examples, see the [documentation site](https://cfs.at-sh
 4. Placement rules for post types, post formats, user roles, posts, taxonomy terms, and page templates.
 5. Extra display settings for edit-screen layout, native section visibility, and role-based hiding behavior.
 
+== Frequently Asked Questions ==
+
+= Is this the official successor to Custom Field Suite? =
+
+No. atshift Fields is an independent, unofficial compatible maintenance and extension build distributed under GPLv2.
+
+= Can I replace the original Custom Field Suite with atshift Fields? =
+
+In many cases, yes. The plugin preserves the main data structures and API compatibility, but always back up your site and test on staging before replacement.
+
+= Does atshift Fields preserve the original Custom Field Suite API? =
+
+Yes. It preserves the main APIs used by existing themes, including `CFS()->get()`, `get_field_info()`, `get_reverse_related()`, `save()`, `find_fields()`, and `form()`.
+
+= Which translations are bundled? =
+
+The release package includes bundled translation files for ca, de_DE, es_ES, fa_IR, fr_FR, hu_HU, it_IT, ja, nl_NL, pl_PL, pt_BR, ru_RU, tr_TR, and zh_CN.
+
+= Where can I find documentation? =
+
+See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
+
 == Changelog ==
 
 = 3.0.1.1 =
