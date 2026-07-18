@@ -161,6 +161,8 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 5. Create a Field Group, add fields, and set Placement Rules for the edit screens where it should appear.
 6. Use `CFS()->get()` in your theme templates to display saved field values.
 
+For detailed guides and examples, see the [documentation site](https://cfs.at-shift.net/en/).
+
 == Screenshots ==
 
 1. Field Group editor with the field type selector and native WordPress field types.
