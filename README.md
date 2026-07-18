@@ -124,6 +124,7 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 - 時間
 - コード
 - ショートコード
+- メタボックス配置（Classic）
 - チェックボックス
 - ラジオボタン
 - 投稿タイトル（WordPress 標準）
