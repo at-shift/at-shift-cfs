@@ -1,1505 +1,1504 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: at-shift CFS\n"
-"POT-Creation-Date: 2015-10-20 22:30-0400\n"
-"PO-Revision-Date: 2015-10-20 22:30-0400\n"
-"Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
-"Language-Team: \n"
-"Language: en\n"
+"Project-Id-Version: atshift Fields\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
+"POT-Creation-Date: 2026-07-19 00:00+0900\n"
+"PO-Revision-Date: 2026-07-19 00:00+0900\n"
+"Last-Translator: at-shift\n"
+"Language-Team: Chinese (Taiwan)\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Codex\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../includes/fields/conditional.php:7
 msgid "Conditional Group"
-msgstr ""
+msgstr "條件組"
 
 #: ../templates/admin_head.php:63
 msgid "Unnamed condition"
-msgstr ""
+msgstr "未命名條件"
 
 #: ../templates/admin_head.php:65
 #, php-format
 msgid "Condition \"%s\""
-msgstr ""
+msgstr "條件「%s」"
 
 #: ../includes/fields/conditional.php:107
 msgid "Display Type"
-msgstr ""
+msgstr "顯示類型"
 
 #: ../includes/fields/conditional.php:120
 msgid "Dropdown"
-msgstr ""
+msgstr "下拉式選單"
 
 #: ../includes/fields/conditional.php:147
 msgid "Used for radio buttons. The first choice is used when left blank."
-msgstr ""
+msgstr "用於單選按鈕。留空時使用第一個選擇。"
 
 #: ../templates/field_html.php:94
 msgid "Display for choice"
-msgstr ""
+msgstr "顯示供選擇"
 
 #: ../templates/field_html.php:95
 msgid "Choose the parent Conditional Group value that displays this field."
-msgstr ""
+msgstr "選擇顯示此欄位的父條件組值。"
 
 #: ../templates/admin_head.php:50
 msgid "Tabs and conditional groups cannot be placed inside a Conditional Group."
-msgstr ""
+msgstr "選項卡和條件組不能放置在條件組內。"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
-msgstr ""
+msgstr "文字"
 
 #: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
-msgstr ""
+msgstr "驗證"
 
 #: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
-msgstr ""
+msgstr "這是必填字段"
 
 #: ../includes/form.php:266 ../includes/fields/group.php:147
 msgid "Required"
-msgstr ""
+msgstr "必需的"
 
 #: ../includes/field_group.php:112
 msgid "Imported"
-msgstr ""
+msgstr "進口"
 
 #: ../includes/field_group.php:115
 msgid "Skipped"
-msgstr ""
+msgstr "跳過"
 
 #: ../includes/field_group.php:120
 msgid "Nothing to import"
-msgstr ""
+msgstr "沒有什麼可導入的"
 
 #: ../includes/fields/color/color.php:8
 msgid "Color"
-msgstr ""
+msgstr "顏色"
 
 #: ../includes/fields/date/date.php:8
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #: ../includes/fields/file.php:8
 msgid "File Upload"
-msgstr ""
+msgstr "文件上傳"
 
 #: ../includes/fields/file.php:32
 msgid "Add File"
-msgstr ""
+msgstr "新增文件"
 
 #: ../includes/fields/file.php:33
 msgid "Remove"
-msgstr ""
+msgstr "消除"
 
 #: ../includes/fields/file.php:43
 msgid "Return Value"
-msgstr ""
+msgstr "傳回值"
 
 #: ../includes/fields/file.php:52
 msgid "File URL"
-msgstr ""
+msgstr "文件 URL"
 
 #: ../includes/fields/file.php:53
 msgid "Attachment ID"
-msgstr ""
+msgstr "附件ID"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr ""
+msgstr "超連結"
 
 #: ../includes/fields/hyperlink.php:23
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: ../includes/fields/hyperlink.php:27
 msgid "Link Text"
-msgstr ""
+msgstr "連結文字"
 
 #: ../includes/fields/hyperlink.php:31
 msgid "Link Target"
-msgstr ""
+msgstr "連結目標"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr ""
+msgstr "輸出格式"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr ""
+msgstr "PHP Array"
 
 #: ../includes/fields/loop.php:8
 msgid "Loop"
-msgstr ""
+msgstr "環形"
 
 #: ../includes/fields/loop.php:36
 msgid "Row Display"
-msgstr ""
+msgstr "行顯示"
 
 #: ../includes/fields/loop.php:45
 msgid "Show the values by default"
-msgstr ""
+msgstr "預設顯示值"
 
 #: ../includes/fields/loop.php:52
 msgid "Row Label"
-msgstr ""
+msgstr "行標籤"
 
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
 #: ../includes/fields/loop.php:194
 msgid "Loop Row"
-msgstr ""
+msgstr "循環行"
 
 #: ../includes/fields/loop.php:66
 msgid "Button Label"
-msgstr ""
+msgstr "按鈕標籤"
 
 #: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
 #: ../includes/fields/loop.php:195
 msgid "Add Row"
-msgstr ""
+msgstr "新增行"
 
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
-msgstr ""
+msgstr "限制"
 
 msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
-msgstr ""
+msgstr "最小值設定可以選擇的最少項。最大設定可以選擇的最多項。"
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
-msgstr ""
+msgstr "關係"
 
 #: ../includes/fields/relationship.php:60
 msgid "Search posts"
-msgstr ""
+msgstr "搜尋貼文"
 
 #: ../includes/fields/relationship.php:88 ../includes/init.php:282
 #: ../templates/meta_box_rules.php:136
 msgid "Post Types"
-msgstr ""
+msgstr "貼文類型"
 
 #: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
-msgstr ""
+msgstr "將貼文限制為以下類型"
 
 #: ../includes/fields/select.php:8
 msgid "Select"
-msgstr ""
+msgstr "選擇"
 
 #: ../includes/fields/select.php:43
 msgid "Please select..."
-msgstr ""
+msgstr "請選擇..."
 
 #: ../includes/fields/code_view.php:210
 msgid "Please select a language..."
-msgstr ""
+msgstr "請選擇語言..."
 
 #: ../includes/fields/select.php:86
 msgid "Choices"
-msgstr ""
+msgstr "選擇"
 
 #: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
-msgstr ""
+msgstr "每行輸入一個選擇"
 
 #: ../includes/fields/select.php:101
 msgid "Multi-select?"
-msgstr ""
+msgstr "多選？"
 
 #: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
-msgstr ""
+msgstr "這是一個多選字段"
 
 #: ../includes/fields/tab.php:12
 msgid "Tab Group"
-msgstr ""
+msgstr "選項卡組"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr ""
+msgstr "選項卡"
 
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
-msgstr ""
+msgstr "預設值"
 
 msgid "Placeholder"
-msgstr ""
+msgstr "佔位符"
 
 msgid "The value specified from the beginning."
-msgstr ""
+msgstr "從一開始就指定的值。"
 
 msgid "An input example or other helpful hint."
-msgstr ""
+msgstr "輸入範例或其他有用的提示。"
 
 msgid "at-shift CFS"
-msgstr ""
+msgstr "at-shift CFS"
 
 msgctxt "date picker"
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
-msgstr ""
+msgstr "文字區"
 
 #: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
-msgstr ""
+msgstr "格式化"
 
 #: ../includes/fields/textarea.php:46
 msgid "None"
-msgstr ""
+msgstr "沒有任何"
 
 #: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
-msgstr ""
+msgstr "將換行符轉換為 <br />"
 
 #: ../includes/fields/true_false.php:8
 msgid "True / False"
-msgstr ""
+msgstr "正確/錯誤"
 
 #: ../includes/fields/true_false.php:30
 msgid "Message"
-msgstr ""
+msgstr "訊息"
 
 #: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
-msgstr ""
+msgstr "複選框旁的文字"
 
 #: ../includes/fields/user.php:8
 msgid "User"
-msgstr ""
+msgstr "使用者"
 
 #: ../includes/fields/user.php:31
 msgid "Search users"
-msgstr ""
+msgstr "搜尋用戶"
 
 #: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
-msgstr ""
+msgstr "所見即所得編輯器"
 
 #: ../includes/fields/wysiwyg.php:42
 msgid "Default"
-msgstr ""
+msgstr "預設"
 
 #: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
-msgstr ""
+msgstr "無（繞過過濾器）"
 
 #: ../includes/form.php:194
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: ../includes/init.php:58
 msgid "Field Groups"
-msgstr ""
+msgstr "現場組"
 
 #: ../includes/init.php:59
 msgid "Field Group"
-msgstr ""
+msgstr "現場組"
 
 #: ../includes/init.php:60
 msgid "All Field Groups"
-msgstr ""
+msgstr "所有字段組"
 
 #: ../includes/init.php:61
 msgid "Add New Field Group"
-msgstr ""
+msgstr "新增字段組"
 
 #: ../includes/init.php:62
 msgid "Edit Field Group"
-msgstr ""
+msgstr "編輯字段組"
 
 #: ../includes/init.php:63
 msgid "New Field Group"
-msgstr ""
+msgstr "新田集團"
 
 #: ../includes/init.php:64
 msgid "View Field Group"
-msgstr ""
+msgstr "查看字段組"
 
 #: ../includes/init.php:65
 msgid "Search Field Groups"
-msgstr ""
+msgstr "搜尋字段組"
 
 #: ../includes/init.php:66
 msgid "No Field Groups found"
-msgstr ""
+msgstr "未找到欄位組"
 
 #: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
-msgstr ""
+msgstr "在垃圾箱中找不到字段組"
 
 #: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
-msgstr ""
+msgstr "工具"
 
 #: ../includes/init.php:153
 msgid "Fields"
-msgstr ""
+msgstr "領域"
 
 #: ../includes/init.php:154
 msgid "Placement Rules"
-msgstr ""
+msgstr "安置規則"
 
 #: ../includes/init.php:155
 msgid "Extras"
-msgstr ""
+msgstr "附加功能"
 
 #: ../includes/init.php:268
 msgid "Title"
-msgstr ""
+msgstr "標題"
 
 #: ../includes/init.php:269
 msgid "Placement"
-msgstr ""
+msgstr "放置"
 
 #: ../includes/init.php:283 ../templates/meta_box_rules.php:202
 msgid "User Roles"
-msgstr ""
+msgstr "使用者角色"
 
 #: ../includes/init.php:284 ../templates/meta_box_rules.php:234
 msgid "Posts"
-msgstr ""
+msgstr "貼文"
 
 #: ../includes/init.php:285
 msgid "Term IDs"
-msgstr ""
+msgstr "術語 ID"
 
 #: ../includes/init.php:286 ../templates/meta_box_rules.php:290
 msgid "Page Templates"
-msgstr ""
+msgstr "頁面模板"
 
 #: ../includes/init.php:287 ../templates/meta_box_rules.php:169
 msgid "Post Formats"
-msgstr ""
+msgstr "貼文格式"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
-msgstr ""
+msgstr "後元"
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
-msgstr ""
+msgstr "新領域"
 
 #: ../templates/field_html.php:30
 msgid "Label"
-msgstr ""
+msgstr "標籤"
 
 #: ../templates/field_html.php:32
 msgid "The field label that editors will see."
-msgstr ""
+msgstr "編輯者將看到的欄位標籤。"
 
 #: ../templates/field_html.php:39
 msgid "Name"
-msgstr ""
+msgstr "姓名"
 
 #: ../templates/field_html.php:42
 msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr ""
+msgstr "欄位名稱傳遞到 get() 以檢索值。僅使用小寫字母、數字和底線。"
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
-msgstr ""
+msgstr "字段類型"
 
 #: ../templates/field_html.php:67
 msgid "Notes"
-msgstr ""
+msgstr "筆記"
 
 #: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
-msgstr ""
+msgstr "編輯者在資料輸入期間的注意事項"
 
 #: ../templates/field_html.php:82
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: ../templates/field_html.php:83
 msgid "or"
-msgstr ""
+msgstr "或者"
 
 #: ../templates/field_html.php:83
 msgid "delete"
-msgstr ""
+msgstr "刪除"
 
 #: ../templates/meta_box_extras.php:33
 msgid "Order"
-msgstr ""
+msgstr "命令"
 
 #: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
-msgstr ""
+msgstr "順序最低的欄位組將首先出現。"
 
 #: ../templates/meta_box_extras.php:281
 msgid "Field Group Position"
-msgstr ""
+msgstr "現場組位置"
 
 #: ../templates/meta_box_extras.php:284
 msgid "Normal"
-msgstr ""
+msgstr "普通的"
 
 #: ../templates/meta_box_extras.php:285
 msgid "Side"
-msgstr ""
+msgstr "邊"
 
 #: ../templates/meta_box_extras.php:287
 msgid "Controls where this field group appears on the edit screen."
-msgstr ""
+msgstr "控制該欄位組在編輯畫面上的顯示位置。"
 
 #: ../templates/meta_box_extras.php:293
 msgid "Native Editor Display Settings"
-msgstr ""
+msgstr "本機編輯器顯示設定"
 
 #: ../templates/meta_box_extras.php:298
 msgid "These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed."
-msgstr ""
+msgstr "這些設定隱藏符合貼文的本機 __CFS_PH_3__ 編輯器部分，無論此欄位群組顯示在何處。"
 
 #: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
-msgstr ""
+msgstr "隱藏內容編輯器（也隱藏符合貼文的__CFS_PH_4__ /區塊編輯器）"
 
 #: ../templates/meta_box_extras.php:78
 msgid "Hide page attributes"
-msgstr ""
+msgstr "隱藏頁面屬性"
 
 #: ../templates/meta_box_extras.php:92
 msgid "Force the post edit screen layout to 1 column"
-msgstr ""
+msgstr "強制貼文編輯畫面版面配置為 1 列"
 
 #: ../templates/meta_box_extras.php:309
 msgid "Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area."
-msgstr ""
+msgstr "第三方側元框不隱藏；在 1 列佈局中，它們出現在主編輯器區域下方。"
 
 #: ../templates/meta_box_extras.php:93
 msgid "All roles"
-msgstr ""
+msgstr "所有角色"
 
 #: ../templates/meta_box_extras.php:94
 msgid "All roles except Administrators / Web administrators"
-msgstr ""
+msgstr "除管理員/Web 管理員之外的所有角色"
 
 #: ../templates/meta_box_extras.php:95
 msgid "Selected roles only"
-msgstr ""
+msgstr "僅選定的角色"
 
 #: ../templates/meta_box_extras.php:96
 msgid "Select roles when using selected roles only"
-msgstr ""
+msgstr "僅使用選定角色時選擇角色"
 
 #: ../templates/meta_box_extras.php:157
 msgid "Already controlled by a native field in this field group."
-msgstr ""
+msgstr "已被該字段組中的本機字段控制。"
 
 #: ../templates/meta_box_extras.php:163
 #, php-format
 msgid "Already controlled by \"%s\"."
-msgstr ""
+msgstr "已由「%s」控制。"
 
 #: ../templates/meta_box_extras.php:97
 msgid "Screen Layout"
-msgstr ""
+msgstr "螢幕佈局"
 
 #: ../templates/meta_box_extras.php:98
 msgid "Side Sections"
-msgstr ""
+msgstr "側面部分"
 
 #: ../templates/meta_box_extras.php:99
 msgid "Hide categories"
-msgstr ""
+msgstr "隱藏類別"
 
 #: ../templates/meta_box_extras.php:100
 msgid "Hide tags"
-msgstr ""
+msgstr "隱藏標籤"
 
 #: ../templates/meta_box_extras.php:101
 msgid "Hide featured image"
-msgstr ""
+msgstr "隱藏特色圖片"
 
 #: ../templates/meta_box_extras.php:313
 #: ../templates/meta_box_extras.php:329
 msgid "Hiding behavior"
-msgstr ""
+msgstr "隱藏行為"
 
 #: ../templates/meta_box_extras.php:103
 msgid "Main Sections"
-msgstr ""
+msgstr "主要部分"
 
 #: ../templates/meta_box_extras.php:105
 msgid "Hide format"
-msgstr ""
+msgstr "隱藏格式"
 
 #: ../templates/meta_box_extras.php:106
 msgid "Hide comments"
-msgstr ""
+msgstr "隱藏評論"
 
 #: ../templates/meta_box_extras.php:107
 msgid "Hide discussion"
-msgstr ""
+msgstr "隱藏討論"
 
 #: ../templates/meta_box_extras.php:108
 msgid "Hide excerpt"
-msgstr ""
+msgstr "隱藏摘錄"
 
 #: ../templates/meta_box_extras.php:109
 msgid "Hide trackbacks"
-msgstr ""
+msgstr "隱藏引用引用"
 
 #: ../templates/meta_box_extras.php:110
 msgid "Hide permalink"
-msgstr ""
+msgstr "隱藏固定連結"
 
 #: ../templates/meta_box_extras.php:110
 msgid "Hide slug"
-msgstr ""
+msgstr "隱藏蛞蝓"
 
 #: ../templates/meta_box_extras.php:111
 msgid "Hide author"
-msgstr ""
+msgstr "隱藏作者"
 
 #: ../templates/meta_box_extras.php:112
 msgid "Hide custom fields"
-msgstr ""
+msgstr "隱藏自訂字段"
 
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
-msgstr ""
+msgstr "新增字段"
 
 #: ../templates/meta_box_rules.php:5
 msgid "equals"
-msgstr ""
+msgstr "等於"
 
 #: ../templates/meta_box_rules.php:6
 msgid "is not"
-msgstr ""
+msgstr "不是"
 
 #: ../templates/meta_box_rules.php:57
 msgid "Standard"
-msgstr ""
+msgstr "標準"
 
 #: ../templates/meta_box_rules.php:70
 msgid "Administrator"
-msgstr ""
+msgstr "行政人員"
 
 #: ../templates/meta_box_rules.php:70
 msgid "Editor"
-msgstr ""
+msgstr "編輯"
 
 #: ../templates/meta_box_rules.php:70
 msgid "Author"
-msgstr ""
+msgstr "作者"
 
 #: ../templates/meta_box_rules.php:70
 msgid "Contributor"
-msgstr ""
+msgstr "貢獻者"
 
 #: ../templates/meta_box_rules.php:70
 msgid "Subscriber"
-msgstr ""
+msgstr "訂戶"
 
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
-msgstr ""
+msgstr "留空可跳過此規則"
 
 #: ../templates/meta_box_rules.php:248
 msgid "The results could not be loaded."
-msgstr ""
+msgstr "無法載入結果。"
 
 #: ../templates/meta_box_rules.php:253
 msgid "Please enter 1 more character"
-msgstr ""
+msgstr "請再輸入1個字符"
 
 #: ../templates/meta_box_rules.php:256
 msgid "Please enter %s or more characters"
-msgstr ""
+msgstr "請輸入 %s 個或更多字元"
 
 #: ../templates/meta_box_rules.php:259
 msgid "Loading more results..."
-msgstr ""
+msgstr "正在加載更多結果..."
 
 #: ../templates/meta_box_rules.php:262
 msgid "No results found"
-msgstr ""
+msgstr "沒有找到結果"
 
 #: ../templates/meta_box_rules.php:265
 msgid "Searching..."
-msgstr ""
+msgstr "正在尋找..."
 
 #: ../templates/meta_box_rules.php:282
 msgid "%s allowed"
-msgstr ""
+msgstr "%s allowed"
 
 #: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
-msgstr ""
+msgstr "分類術語"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
-msgstr ""
+msgstr "出口"
 
 #: ../templates/page_tools.php:96
 msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
-msgstr ""
+msgstr "選擇要匯出的欄位組，按下按鈕，然後儲存顯示的代碼。您可以選擇多個項目。"
 
 #: ../templates/page_tools.php:112
 msgid "Export Code"
-msgstr ""
+msgstr "出口代碼"
 
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
-msgstr ""
+msgstr "進口"
 
 #: ../templates/page_tools.php:122
 msgid "Paste the exported field group code into the input field below, then press the button."
-msgstr ""
+msgstr "將匯出的欄位組代碼貼到下面的輸入欄位中，然後按 按鈕。"
 
 #: ../templates/page_tools.php:125
 msgid "Import Code"
-msgstr ""
+msgstr "導入程式碼"
 
 #: ../templates/page_tools.php:120
 msgid "Paste the import code here"
-msgstr ""
+msgstr "將導入代碼貼到此處"
 
 #: ../templates/page_tools.php:78
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
-msgstr ""
+msgstr "重置並停用。"
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all at-shift CFS data and deactivate the plugin."
-msgstr ""
+msgstr "這將刪除所有 __CFS_PH_2__ 資料並停用該外掛程式。"
 
 #: ../templates/page_tools.php:24
 msgid "This will delete all at-shift CFS data. Are you sure?"
-msgstr ""
+msgstr "這將刪除所有 __CFS_PH_2__ 資料。你確定嗎？"
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
-msgstr ""
+msgstr "刪除所有內容"
 
 #: ../includes/fields/checkbox.php:8
 msgid "Checkbox"
-msgstr ""
+msgstr "複選框"
 
 #: ../includes/fields/file.php:44
 msgid "File Type"
-msgstr ""
+msgstr "文件類型"
 
 #: ../includes/fields/file.php:53
 msgid "Any"
-msgstr ""
+msgstr "任何"
 
 #: ../includes/fields/file.php:54
 msgid "Image"
-msgstr ""
+msgstr "影像"
 
 #: ../includes/fields/file.php:55
 msgid "Audio"
-msgstr ""
+msgstr "聲音的"
 
 #: ../includes/fields/file.php:56
 msgid "Video"
-msgstr ""
+msgstr "影片"
 
 #: ../includes/fields/radio.php:8
 msgid "Radio Button"
-msgstr ""
+msgstr "單選按鈕"
 
 #: ../includes/fields/select.php:133
 msgid "Select2"
-msgstr ""
+msgstr "Select2"
 
 msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
-msgstr ""
+msgstr "顯示帶有 __CFS_PH_5__ 的選擇欄位。這使得長選擇清單更容易在編輯畫面上搜尋和選擇。"
 
 #: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
-msgstr ""
+msgstr "使用 __CFS_PH_5__ 渲染此字段"
 
 #: ../includes/fields/term.php:8
 msgid "Term"
-msgstr ""
+msgstr "學期"
 
 #: ../includes/fields/term.php:69
 msgid "Search terms"
-msgstr ""
+msgstr "搜尋詞"
 
 #: ../includes/fields/term.php:97
 msgid "Taxonomies"
-msgstr ""
+msgstr "分類法"
 
 #: ../includes/fields/term.php:98
 msgid "Limit terms to the following taxonomies"
-msgstr ""
+msgstr "將術語限制為以下分類法"
 
 #: ../includes/form.php:247
 msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr ""
+msgstr "您的一個（或多個）欄位存在驗證錯誤。更多資訊如下。"
 
 #: ../includes/form.php:444
 msgid "Toggle row visibility"
-msgstr ""
+msgstr "切換行可見性"
 
 #: ../includes/fields/loop.php:444
 msgid "Remove this row?"
-msgstr ""
+msgstr "刪除這一行？"
 
 #: ../includes/init.php:60
 msgid "Custom Field Suite"
-msgstr ""
+msgstr "Custom Field Suite"
 
 #: ../includes/init.php:154
 msgid "atshift Fields Tool"
-msgstr ""
+msgstr "__CFS_PH_1__ 工具"
 
 #: ../includes/fields/phone.php:8
 msgid "Phone"
-msgstr ""
+msgstr "電話"
 
 #: ../includes/fields/email.php:8
 msgid "Email Address"
-msgstr ""
+msgstr "電子郵件"
 
 #: ../includes/fields/number.php:8
 msgid "Number"
-msgstr ""
+msgstr "數位"
 
 #: ../includes/fields/number.php:40
 msgid "Number Settings"
-msgstr ""
+msgstr "號碼設定"
 
 msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
-msgstr ""
+msgstr "最小值設定允許的最低值。最大值設定允許的最高值。 Step 設定值之間允許的間隔，例如 1、0.1 或 5。"
 
 msgid "Minimum"
-msgstr ""
+msgstr "最低限度"
 
 msgid "Maximum"
-msgstr ""
+msgstr "最大限度"
 
 msgid "Step"
-msgstr ""
+msgstr "步"
 
 #: ../includes/fields/time.php:8
 msgid "Time"
-msgstr ""
+msgstr "時間"
 
 #: ../includes/fields/time.php:54
 msgid "Minute Interval"
-msgstr ""
+msgstr "分鐘間隔"
 
 #: ../includes/fields/time.php:64
 msgid "1 minute"
-msgstr ""
+msgstr "1分鐘"
 
 #: ../includes/fields/time.php:65
 msgid "5 minutes"
-msgstr ""
+msgstr "5分鐘"
 
 #: ../includes/fields/time.php:66
 msgid "10 minutes"
-msgstr ""
+msgstr "10分鐘"
 
 #: ../includes/fields/time.php:67
 msgid "15 minutes"
-msgstr ""
+msgstr "15分鐘"
 
 #: ../includes/fields/time.php:68
 msgid "30 minutes"
-msgstr ""
+msgstr "30分鐘"
 
 #: ../includes/fields/group.php:8
 msgid "Horizontal Group"
-msgstr ""
+msgstr "水平組"
 
 #: ../includes/fields/group.php:68
 msgid "Columns"
-msgstr ""
+msgstr "專欄"
 
 msgid "Columns (default: 3)"
-msgstr ""
+msgstr "列（預設：3）"
 
 #: ../includes/fields/group.php:77
 msgid "Auto"
-msgstr ""
+msgstr "汽車"
 
 #: ../includes/fields/group.php:78
 msgid "2 columns"
-msgstr ""
+msgstr "2 列"
 
 #: ../includes/fields/group.php:79
 msgid "3 columns"
-msgstr ""
+msgstr "3 列"
 
 #: ../includes/fields/group.php:80
 msgid "4 columns"
-msgstr ""
+msgstr "4 列"
 
 #: ../includes/fields/group.php:92
 msgid "Alignment"
-msgstr ""
+msgstr "結盟"
 
 #: ../includes/fields/group.php:101
 msgid "Evenly distributed"
-msgstr ""
+msgstr "分佈均勻"
 
 #: ../includes/fields/group.php:102
 msgid "Left aligned"
-msgstr ""
+msgstr "左對齊"
 
 #: ../templates/field_html.php:84
 msgid "Add new field below"
-msgstr ""
+msgstr "在下面新增字段"
 
 msgid "Add field inside"
-msgstr ""
+msgstr "裡面新增字段"
 
 msgid "CFS Field Groups"
-msgstr ""
+msgstr "CFS Field Groups"
 
 msgid "CFS Field Group: %s"
-msgstr ""
+msgstr "CFS Field Group: %s"
 
 msgid "Displays a CFS field group."
-msgstr ""
+msgstr "顯示 CFS 欄位組。"
 
 msgid "No fields in this group."
-msgstr ""
+msgstr "該組中沒有字段。"
 
 msgid "Post Title (Native)"
-msgstr ""
+msgstr "貼文標題（母語）"
 
 msgid "You do not have permission to change the native title."
-msgstr ""
+msgstr "您無權更改原住民頭銜。"
 
 msgid "Allowed User Role Groups"
-msgstr ""
+msgstr "允許的使用者角色群組"
 
 msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
-msgstr ""
+msgstr "選擇可以更改本機頭銜的角色。留空以允許任何可以編輯貼文的使用者角色。"
 
 msgid "Leave blank to allow any role that can edit this post"
-msgstr ""
+msgstr "留空以允許任何可以編輯此帖子的角色"
 
 msgid "Post Categories"
-msgstr ""
+msgstr "貼文類別"
 
 msgid "Post Tags"
-msgstr ""
+msgstr "貼文標籤"
 
 msgid "Featured Image"
-msgstr ""
+msgstr "特色圖片"
 
 msgid "No categories found"
-msgstr ""
+msgstr "沒有找到類別"
 
 msgid "Separate tags with commas"
-msgstr ""
+msgstr "用逗號分隔標籤"
 
 msgid "Select Image"
-msgstr ""
+msgstr "選擇影像"
 
 msgid "Remove Image"
-msgstr ""
+msgstr "刪除影像"
 
 msgid "Search categories"
-msgstr ""
+msgstr "搜尋類別"
 
 msgid "Show selected only"
-msgstr ""
+msgstr "僅顯示選定的"
 
 msgid "Category Selection"
-msgstr ""
+msgstr "類別選擇"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr ""
+msgstr "選擇父類別也會選擇所有子類別"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr ""
+msgstr "選擇子類別也會選擇其父類別"
 
 msgid "CFS placement warning:"
-msgstr ""
+msgstr "CFS 放置警告："
 
 msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr ""
+msgstr "該字段組沒有放置規則。它將出現在所有可編輯的帖子螢幕上，因此請設定帖子類型或其他放置規則，除非是故意的。"
 
 msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr ""
+msgstr "已保存，但该字段组没有放置规则。它將出現在所有可編輯的帖子螢幕上，因此請設定帖子類型或其他放置規則，除非是故意的。"
 
 msgid "No placement rules"
-msgstr ""
+msgstr "無放置規則"
 
 msgid "This field group will appear on all editable post screens."
-msgstr ""
+msgstr "此欄位組將出現在所有可編輯的貼文畫面上。"
 
 msgid "A newer version %s is available on GitHub."
-msgstr ""
+msgstr "GitHub 上有較新的版本 %s 可用。"
 
 msgid "Add at least one field to this tab group."
-msgstr ""
+msgstr "在該選項卡組中新增至少一個欄位。"
 
 msgid "Add two or more fields to this horizontal group."
-msgstr ""
+msgstr "將兩個或多個欄位新增至該水平組。"
 
 msgid "Add at least one field to this loop group."
-msgstr ""
+msgstr "在該循環組中新增至少一個欄位。"
 
 msgid "Add at least one field to this accordion group."
-msgstr ""
+msgstr "在該手風琴組中添加至少一個欄位。"
 
 msgid "Set conditions and add fields to each condition."
-msgstr ""
+msgstr "設定條件並向每個條件新增欄位。"
 
 msgid "Add fields to each condition."
-msgstr ""
+msgstr "為每個條件新增欄位。"
 
 msgid "Create two or more conditions, then add fields to each condition."
-msgstr ""
+msgstr "建立兩個或多個條件，然後在每個條件下新增欄位。"
 
 msgid "Add fields to each empty condition."
-msgstr ""
+msgstr "將欄位新增至每個空條件。"
 
 msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr ""
+msgstr "製表符、循環和水平組不能放置在水平組內。"
 
 msgid "Code View"
-msgstr ""
+msgstr "程式碼檢視"
 
 msgid "Shortcode"
-msgstr ""
+msgstr "短代碼"
 
 msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
-msgstr ""
+msgstr "元框是由第三方外掛程式新增至 __CFS_PH_3__ 貼文編輯畫面的設定或輸入框。此欄位僅用於重新定位第三方元框並將其移至 __CFS_PH_1__ 欄位組。"
 
 msgid "Classic Meta Box Placement"
-msgstr ""
+msgstr "Meta Box 配置（Classic）"
 
 msgid "Meta box ID is not set."
-msgstr ""
+msgstr "未設定元框 ID。"
 
 msgid "The selected meta box was not found on this edit screen."
-msgstr ""
+msgstr "在此編輯畫面上找不到所選的元框。"
 
 msgid "This meta box is not recommended to move."
-msgstr ""
+msgstr "此元框不建議移動。"
 
 msgid "This meta box is already placed in another slot."
-msgstr ""
+msgstr "該元框已放置在另一個插槽。"
 
 msgid "Meta Box ID"
-msgstr ""
+msgstr "Meta Box ID"
 
 msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
-msgstr ""
+msgstr "從放置規則中選擇的貼文類型中偵測經典的第三方元框，或手動輸入其 HTML 來源 ID。原始插件繼續處理保存。"
 
 msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
-msgstr ""
+msgstr "可以移動編輯畫面中呈現的經典元框。不支援僅塊編輯器面板。"
 
 msgid "Display Width"
-msgstr ""
+msgstr "顯示寬度"
 
 msgid "Side width (320px)"
-msgstr ""
+msgstr "側邊欄寬度（320px）"
 
 msgid "50%"
-msgstr ""
+msgstr "50%"
 
 msgid "75%"
-msgstr ""
+msgstr "75%"
 
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 msgid "On narrow screens, the meta box is always displayed at 100% width."
-msgstr ""
+msgstr "在窄螢幕上，元框始終以 100% 寬度顯示。"
 
 msgid "Detect Meta Boxes"
-msgstr ""
+msgstr "偵測 Meta Box"
 
 msgid "Detected Meta Boxes"
-msgstr ""
+msgstr "已偵測到的 Meta Box"
 
 msgid "Select at least one post type in Placement Rules first."
-msgstr ""
+msgstr "首先在展示位置規則中至少選擇一種貼文類型。"
 
 msgid "Detecting meta boxes..."
-msgstr ""
+msgstr "正在檢測元框..."
 
 msgid "Meta box detection failed. Please try again."
-msgstr ""
+msgstr "元框檢測失敗。請再試一次。"
 
 msgid "No classic meta boxes were detected."
-msgstr ""
+msgstr "未偵測到 Classic Meta Box。"
 
 msgid "Select a detected meta box"
-msgstr ""
+msgstr "選擇偵測到的元框"
 
 #. translators: %s: post type labels.
 msgid "Available on: %s"
-msgstr ""
+msgstr "可用於：%s"
 
 msgid "Already selected in another Classic Meta Box Placement field."
-msgstr ""
+msgstr "已在另一個經典元框放置欄位中選擇。"
 
 msgid "Plain text"
-msgstr ""
+msgstr "純文字"
 
 msgid "Copy Button"
-msgstr ""
+msgstr "複製按鈕"
 
 msgid "Show copy button"
-msgstr ""
+msgstr "顯示複製按鈕"
 
 msgid "Copy"
-msgstr ""
+msgstr "複製"
 
 msgid "Copied"
-msgstr ""
+msgstr "已複製"
 
-msgid "Language"
-msgstr ""
 msgid "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
-msgstr ""
+msgstr "此外掛程式是 Custom Field Suite 的維護與擴充版本，可在 WordPress 編輯畫面中加入更有效且彈性的輸入欄位。"
 
 msgid "Accordion Group"
-msgstr ""
+msgstr "手風琴組"
 
 msgid "Initial State"
-msgstr ""
+msgstr "初始狀態"
 
 msgid "Open by default"
-msgstr ""
+msgstr "預設開啟"
 
 msgid "Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group."
-msgstr ""
+msgstr "製表符、循環、折疊式、條件組和水平組不能放置在水平組內。"
 
 msgid "Tabs cannot be placed inside an accordion."
-msgstr ""
+msgstr "選項卡不能放置在手風琴內部。"
 
 msgid "Please enter a value"
-msgstr ""
+msgstr "請輸入一個值"
 
 msgid "Please enter a valid date (YYYY-MM-DD HH:MM)"
-msgstr ""
+msgstr "請輸入有效日期 (YYYY-MM-DD HH:MM)"
 
 msgid "Please enter a valid color HEX (#ff0000)"
-msgstr ""
+msgstr "請輸入有效的顏色 HEX (#ff0000)"
 
 msgid "Please enter a phone number"
-msgstr ""
+msgstr "請輸入電話號碼"
 
 msgid "Please enter a valid phone number"
-msgstr ""
+msgstr "請輸入有效的電話號碼"
 
 msgid "Please enter an email address"
-msgstr ""
+msgstr "請輸入電子郵件地址"
 
 msgid "Please enter a valid email address"
-msgstr ""
+msgstr "請輸入有效的電子郵件地址"
 
 msgid "Please enter a number"
-msgstr ""
+msgstr "請輸入一個數字"
 
 msgid "Please enter a valid number"
-msgstr ""
+msgstr "請輸入有效號碼"
 
 msgid "Please enter a URL"
-msgstr ""
+msgstr "請輸入 URL"
 
 msgid "Please enter a valid URL"
-msgstr ""
+msgstr "請輸入有效的 URL"
 
 msgid "Please select a time"
-msgstr ""
+msgstr "請選擇時間"
 
 msgid "Please select a valid time"
-msgstr ""
+msgstr "請選擇有效時間"
 
 msgid "Please select a language and enter code"
-msgstr ""
+msgstr "請選擇語言並輸入代碼"
 
 msgid "Please select %s item(s)"
-msgstr ""
+msgstr "請選取 %s 個項目"
 
 msgid "Please select between %1$s and %2$s items"
-msgstr ""
+msgstr "請選取 %1$s 到 %2$s 個項目"
 
 msgid "TAB"
-msgstr ""
+msgstr "分頁"
 
 msgid "LOOP"
-msgstr ""
+msgstr "環形"
 
 msgid "GROUP"
-msgstr ""
+msgstr "團體"
 
 msgid "ACCORDION"
-msgstr ""
+msgstr "手風琴"
 
 msgid "CONDITION"
-msgstr ""
+msgstr "狀態"
 
 msgid "This field name is duplicated. Use a unique field name."
-msgstr ""
+msgstr "此欄位名稱重複。使用唯一的欄位名稱。"
 
 msgid "Duplicate field names found: %s. Field names must be unique before saving."
-msgstr ""
+msgstr "找到重複的欄位名稱：%s。儲存前欄位名稱必須唯一。"
 
 msgid "Move here"
-msgstr ""
+msgstr "搬到這裡"
 
 msgid "Move here: inside %s"
-msgstr ""
+msgstr "移到這裡：%s 內"
 
 msgid "Move here: inside the current Tab"
-msgstr ""
+msgstr "移至此處：目前分頁內"
 
 msgid "Post Categories (Standard / Global)"
-msgstr ""
+msgstr "貼文類別（標準/全球）"
 
 #, php-format
 msgid "No categories found in %s"
-msgstr ""
+msgstr "在 %s 中找不到分類"
 
 msgid "Standard Category"
-msgstr ""
+msgstr "標準類別"
 
 msgid "Category Source"
-msgstr ""
+msgstr "類別來源"
 
 msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
-msgstr ""
+msgstr "選擇要使用此欄位顯示和儲存的標準類別或已註冊的共用分類法。"
 
 msgid "Photo Gallery"
-msgstr ""
+msgstr "照片庫"
 
 msgid "Add Images"
-msgstr ""
+msgstr "新增圖片"
 
 msgid "Clear Gallery"
-msgstr ""
+msgstr "清除畫廊"
 
 msgid "Remove image"
-msgstr ""
+msgstr "刪除影像"
 
 msgid "Attachment IDs"
-msgstr ""
+msgstr "附件 ID"
 
 msgid "Image URLs"
-msgstr ""
+msgstr "圖片 URLs"
 
 msgid "Image Data"
-msgstr ""
+msgstr "影像資料"
 
 msgid "Gallery HTML"
-msgstr ""
+msgstr "畫廊 HTML"
 
 msgid "Gallery Display"
-msgstr ""
+msgstr "畫廊展示"
 
 msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
-msgstr ""
+msgstr "當傳回值為 Gallery HTML 時使用。列數設定產生的庫 HTML 中的列數。圖像檔案連結包括模式友善的資料屬性。"
 
 msgid "CSS class"
-msgstr ""
+msgstr "CSS class"
 
 msgid "Link To"
-msgstr ""
+msgstr "連結到"
 
 msgid "Image File"
-msgstr ""
+msgstr "圖片檔案"
 
 msgid "Attachment Page"
-msgstr ""
+msgstr "附件頁"
 
 msgid "Select Gallery Images"
-msgstr ""
+msgstr "選擇圖庫圖像"
 
 msgid "After input"
-msgstr ""
+msgstr "輸入後"
 
 msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
-msgstr ""
+msgstr "在編輯畫面上輸入後顯示。將此用於短單位或分隔符，例如 kg、% 或 ~。此文字不包含在已儲存的值或前端輸出中。"
 
 #: ../includes/fields/gallery.php:88
 msgid "Image Size"
-msgstr ""
+msgstr "影像尺寸"
 
 #: ../includes/fields/gallery.php:183
 msgid "Thumbnail"
-msgstr ""
+msgstr "縮圖"
 
 #: ../includes/fields/gallery.php:184
 msgid "Medium"
-msgstr ""
+msgstr "中等的"
 
 #: ../includes/fields/gallery.php:185
 msgid "Medium Large"
-msgstr ""
+msgstr "中號 大號"
 
 #: ../includes/fields/gallery.php:186
 msgid "Large"
-msgstr ""
+msgstr "大的"
 
 #: ../includes/fields/gallery.php:187
 msgid "Full Size"
-msgstr ""
+msgstr "全尺寸"
 
 #: ../includes/fields/gallery.php:142
 msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
-msgstr ""
+msgstr "最小值設定可以選擇的最少圖像。最大設定可以選擇的圖像數量。"
 
 #: ../includes/fields/loop.php:93
 msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
-msgstr ""
+msgstr "最小值設定可以增加的最少行數。最大值設定可以添加的最多行數。"
 
 #: ../includes/fields/relationship.php:125
 msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
-msgstr ""
+msgstr "最小值設定可以選擇的最少相關項目。最大設定可以選擇的最相關的項目。"
 
 #: ../includes/fields/user.php:74
 msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
-msgstr ""
+msgstr "最小值設定可以選擇的最少用戶。最大設定可以選擇的最多使用者。"
 
 #: ../includes/fields/true_false.php:37
 msgid "Checkbox Label"
-msgstr ""
+msgstr "複選框標籤"
 
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
-msgstr ""
+msgstr "顯示在編輯畫面上的複選框旁。"
 
 #: includes/fields/post_publish.php
 msgid "Save / Publish (Native)"
-msgstr ""
+msgstr "儲存/發布（本機）"
 
 #: includes/fields/post_publish.php
 msgid "You do not have permission to change save / publish settings."
-msgstr ""
+msgstr "您無權更改儲存/發佈設定。"
 
 #: includes/fields/post_publish.php
 msgid "Status"
-msgstr ""
+msgstr "地位"
 
 #: includes/fields/post_publish.php
 msgid "Current Status"
-msgstr ""
+msgstr "目前狀態"
 
 #: includes/fields/post_publish.php
 msgid "Change Status"
-msgstr ""
+msgstr "更改狀態"
 
 #: includes/fields/post_publish.php
 msgid "Do not change"
-msgstr ""
+msgstr "不要改變"
 
 #: includes/fields/post_publish.php
 msgid "Change to Draft"
-msgstr ""
+msgstr "更改為草稿"
 
 #: includes/fields/post_publish.php
 msgid "Change to Pending Review"
-msgstr ""
+msgstr "改為待審核"
 
 #: includes/fields/post_publish.php
 msgid "Publish / Schedule"
-msgstr ""
+msgstr "發布/安排"
 
 #: includes/fields/post_publish.php
 msgid "Visibility"
-msgstr ""
+msgstr "能見度"
 
 #: includes/fields/post_publish.php
 msgid "Public"
-msgstr ""
+msgstr "民眾"
 
 #: includes/fields/post_publish.php
 msgid "Password protected"
-msgstr ""
+msgstr "密碼保護"
 
 #: includes/fields/post_publish.php
 msgid "Private"
-msgstr ""
+msgstr "私人的"
 
 #: includes/fields/post_publish.php
 msgid "Autosaving"
-msgstr ""
+msgstr "自動儲存"
 
 #: includes/fields/post_publish.php
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #: includes/fields/post_publish.php
 msgid "Publish Date"
-msgstr ""
+msgstr "發布日期"
 
 #: includes/fields/post_publish.php
 msgid "Set to current date and time"
-msgstr ""
+msgstr "設定為目前日期和時間"
 
 #: includes/fields/post_publish.php
 msgid "Save Draft"
-msgstr ""
+msgstr "儲存草稿"
 
 #: includes/fields/post_publish.php
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 #: includes/fields/post_publish.php
 msgid "Submit for Review"
-msgstr ""
+msgstr "提交審核"
 
 #: includes/fields/post_publish.php
 msgid "Publish"
-msgstr ""
+msgstr "發布"
 
 #: includes/fields/post_publish.php
 msgid "Schedule"
-msgstr ""
+msgstr "行程"
 
 #: includes/fields/post_publish.php
 msgid "Save / Publish Settings"
-msgstr ""
+msgstr "儲存/發佈設定"
 
 #: includes/fields/post_publish.php
 msgid "Choose which native WordPress save and publish controls are shown in this field."
-msgstr ""
+msgstr "選擇此欄位中顯示的本機 __CFS_PH_3__ 儲存和發佈控制項。"
 
 #: includes/fields/post_publish.php
 msgid "Allow status changes"
-msgstr ""
+msgstr "允許狀態更改"
 
 #: includes/fields/post_publish.php
 msgid "Allow visibility changes"
-msgstr ""
+msgstr "允許可見性更改"
 
 #: includes/fields/post_publish.php
 msgid "Allow publish date changes"
-msgstr ""
+msgstr "允許更改發布日期"
 
 #: includes/fields/post_publish.php
 msgid "Draft"
-msgstr ""
+msgstr "草稿"
 
 #: includes/fields/post_publish.php
 msgid "Pending Review"
-msgstr ""
+msgstr "待審核"
 
 #: includes/fields/post_publish.php
 msgid "Scheduled"
-msgstr ""
+msgstr "預定"
 
 #: ../templates/field_html.php
 msgid "Actions"
-msgstr ""
+msgstr "行動"
 
 #: ../templates/field_html.php
 msgid "Duplicate"
-msgstr ""
+msgstr "複製"
 
 #: templates/admin_head.php
 #: templates/field_html.php
 msgid "Automatically named when saved"
-msgstr ""
+msgstr "儲存時自動命名"
 
 #: includes/fields/post_publish.php
 msgid "Allow moving to trash"
-msgstr ""
+msgstr "允許移至垃圾箱"
 
 #: includes/fields/post_publish.php
 msgid "Allowed Trash Roles"
-msgstr ""
+msgstr "允許的垃圾角色"
 
 #: includes/fields/post_publish.php
 msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
-msgstr ""
+msgstr "從此欄位中選擇可以將貼文移至回收站的角色。留空以允許任何可以刪除貼文的使用者角色。"
 
 #: includes/fields/post_publish.php
 msgid "Leave blank to allow any role that can delete this post"
-msgstr ""
+msgstr "留空以允許任何可以刪除此帖子的角色"
 
 #: includes/fields/post_publish.php
 msgid "Move to Trash"
-msgstr ""
+msgstr "移至垃圾箱"
 
 #: includes/fields/group.php
 msgid "Not specified"
-msgstr ""
+msgstr "未指定"
 
 #: includes/fields/wp_tag.php
 msgid "Post Tags (Native)"
-msgstr ""
+msgstr "貼文標籤（本地）"
 
 #: includes/fields/featured_image.php
 msgid "Featured Image (Native)"
-msgstr ""
+msgstr "特色圖片（原生）"
 
 #: includes/fields/phone.php
 msgid "Phone Number"
-msgstr ""
+msgstr "電話號碼"
 
 #: includes/fields/post_content.php
 msgid "Post Content (Native)"
-msgstr ""
+msgstr "貼文內容（本地）"
 
 #: includes/fields/post_content.php
 msgid "Content Editor"
-msgstr ""
+msgstr "內容編輯"
 
 #: includes/fields/post_content.php
 msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
-msgstr ""
+msgstr "選擇編輯者如何編輯原生 __CFS_PH_3__ 內容。此欄位儲存到 post_content 且不使用 __CFS_PH_4__ / 區塊編輯器。"
 
 #: includes/fields/post_content.php
 msgid "Visual editor"
-msgstr ""
+msgstr "視覺化編輯器"
 
 #: includes/fields/post_content.php
 msgid "You do not have permission to change the native content."
-msgstr ""
+msgstr "您無權更改本機內容。"
 
 #: includes/fields/wp_category.php
 msgid "Category Display"
-msgstr ""
+msgstr "類別展示"
 
 #: includes/fields/wp_category.php
 msgid "Arrange parent categories horizontally"
-msgstr ""
+msgstr "水平排列父類別"
 
 #: includes/fields/wp_category.php
 msgid "Arrange child and grandchild categories horizontally"
-msgstr ""
+msgstr "水平排列子類別和孫類別"
 
 #: includes/fields/wp_category.php
 msgid "Leave both unchecked to use the traditional category tree."
-msgstr ""
+msgstr "不選取兩者即可使用傳統的類別樹。"
 
 #: includes/fields/wp_tag.php:35
 msgid "Choose from the most used tags"
-msgstr ""
+msgstr "從最常用的標籤中選擇"
 
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
-msgstr ""
+msgstr "目前還沒有常用的標籤。"

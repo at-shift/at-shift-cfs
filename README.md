@@ -31,36 +31,36 @@ Custom Field Suite data can continue to be used.
 - Textarea
 - WYSIWYG
 - Tab Group
-- Loop
+- Loop (repeatable fields)
 - Horizontal Group
-- Accordion Group
+- Accordion Group (collapsible group)
 - Conditional Group
-- Date
-- Color
-- Hyperlink
-- True / False (Checkbox)
-- Select
-- File Upload
-- Photo Gallery
-- Relationship
-- Term
-- User
 - Phone Number
 - Email Address
-- Number
+- Hyperlink
 - URL
+- Number
+- Select
+- Checkbox
+- True / False
+- Radio Button
+- Date
 - Time
+- File Upload
+- Photo Gallery
+- Color
 - Code View
 - Shortcode
 - Classic Meta Box Placement
-- Checkbox
-- Radio Button
-- Post Title (Native)
-- Post Content (Native)
-- Save / Publish (Native)
+- Post Title (native WordPress title)
+- Post Content (native WordPress content)
+- Save / Publish (native WordPress save and publish controls)
 - Post Categories (Standard / Global)
-- Post Tags (Native)
-- Featured Image (Native)
+- Post Tags (native WordPress tags)
+- Featured Image (native WordPress featured image)
+- Term
+- Relationship
+- User
 
 For setup instructions, see the [field group setup guide](https://cfs.at-shift.net/en/guide/).
 For return values and output examples, see the [field output reference](https://cfs.at-shift.net/en/output/).
@@ -107,32 +107,32 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 - 横並びグループ
 - アコーディオン・開閉グループ
 - 条件分岐グループ
-- 日付フォーマット
-- カラーピッカー
-- ハイパーリンク
-- 真/偽・簡易チェックボックス
-- セレクト・ドロップダウンメニュー
-- ファイルのアップロード
-- 写真ギャラリー
-- 関連ポスト選択
-- ターム
-- ユーザー
 - 電話番号
 - メールアドレス
+- ハイパーリンク
+- URL(ハイパーリンクではない)
 - 数字
-- URL(ハイパーリンクでわない)
+- セレクト・ドロップダウンメニュー
+- チェックボックス
+- 真/偽・簡易チェックボックス
+- ラジオボタン
+- 日付フォーマット
 - 時間
+- ファイルのアップロード
+- 写真ギャラリー
+- カラーピッカー
 - コード
 - ショートコード
 - メタボックス配置（Classic）
-- チェックボックス
-- ラジオボタン
 - 投稿タイトル（WordPress 標準）
 - 本文（WordPress 標準）
 - 保存・公開（WordPress 標準）
 - 投稿カテゴリー (標準 / グローバル)
 - 投稿タグ（WordPress 標準）
 - アイキャッチ画像（WordPress 標準）
+- ターム
+- 関連ポスト選択
+- ユーザー
 
 設定方法は[フィールドグループ設定ガイド](https://cfs.at-shift.net/guide/)を、
 返り値と出力例は[フィールド別の出力リファレンス](https://cfs.at-shift.net/output/)をご覧ください。

@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /*
 Plugin Name: atshift Fields (Maintenance for Custom Field Suite)
-Description: This plugin is a maintenance build of Custom Field Suite that lets you visually add custom fields to your WordPress edit pages.
+Description: This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens.
 Version: 3.0.2
 Author: Matt Gibbs / Maintenance: @shift Yoshiya Tsuchisaka
 Author URI: https://at-shift.net
