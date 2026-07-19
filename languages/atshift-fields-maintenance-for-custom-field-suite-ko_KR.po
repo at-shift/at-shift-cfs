@@ -1502,3 +1502,18 @@ msgstr "가장 많이 사용되는 태그 중에서 선택"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "아직 자주 사용되는 태그가 없습니다."
+
+msgid "Require a condition selection"
+msgstr "조건 선택을 필수로 설정"
+
+msgid "Contains required fields"
+msgstr "필수 항목이 포함되어 있습니다"
+
+msgid "Please select a condition"
+msgstr "조건을 선택하세요"
+
+msgid "Hide the category search box"
+msgstr "카테고리 검색 상자 숨기기"
+
+msgid "Hide the selected-only filter"
+msgstr "선택됨만 보기 필터 숨기기"

@@ -296,6 +296,11 @@ class Atshift_CFS_form
                     $selected = isset( $choices[ $default_value ] ) ? $default_value : (string) key( $choices );
                 }
 
+                if ( ! empty( $field->options['required'] ) && ( '' === $selected || ! isset( $choices[ $selected ] ) ) ) {
+                    $errors[] = $field->name;
+                    continue;
+                }
+
                 if ( '' !== $selected ) {
                     $this->validate_field_container( $data, (int) $field->id, $fields_by_parent, $errors, $selected );
                 }
@@ -620,6 +625,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
                 'valid_number'      => __( 'Please enter a valid number', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'enter_url'         => __( 'Please enter a URL', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'valid_url'         => __( 'Please enter a valid URL', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                'select_condition'  => __( 'Please select a condition', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'select_time'       => __( 'Please select a time', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'valid_time'        => __( 'Please select a valid time', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'enter_code'        => __( 'Please select a language and enter code', 'atshift-fields-maintenance-for-custom-field-suite' ),
@@ -882,6 +888,9 @@ CFS["validation_messages"] = ' . wp_json_encode( [
                 }
                 elseif ( 'color' == $field->type ) {
                     $validator = 'valid_color';
+                }
+                elseif ( 'conditional' == $field->type ) {
+                    $validator = 'required_conditional';
                 }
                 elseif ( isset( $format_validators[ $field->type ] ) ) {
                     $validator = 'required_' . $field->type;

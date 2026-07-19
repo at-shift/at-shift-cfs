@@ -1502,3 +1502,18 @@ msgstr "從最常用的標籤中選擇"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "目前還沒有常用的標籤。"
+
+msgid "Require a condition selection"
+msgstr "要求選擇條件"
+
+msgid "Contains required fields"
+msgstr "包含必填欄位"
+
+msgid "Please select a condition"
+msgstr "請選擇條件"
+
+msgid "Hide the category search box"
+msgstr "隱藏分類搜尋框"
+
+msgid "Hide the selected-only filter"
+msgstr "隱藏僅顯示已選取篩選器"

@@ -40,6 +40,10 @@ msgstr ""
 msgid "Used for radio buttons. The first choice is used when left blank."
 msgstr ""
 
+#: ../includes/fields/conditional.php:174
+msgid "Require a condition selection"
+msgstr ""
+
 #: ../templates/field_html.php:94
 msgid "Display for choice"
 msgstr ""
@@ -969,6 +973,9 @@ msgstr ""
 msgid "Add at least one field to this accordion group."
 msgstr ""
 
+msgid "Contains required fields"
+msgstr ""
+
 msgid "Set conditions and add fields to each condition."
 msgstr ""
 
@@ -1129,6 +1136,9 @@ msgid "Please enter a URL"
 msgstr ""
 
 msgid "Please enter a valid URL"
+msgstr ""
+
+msgid "Please select a condition"
 msgstr ""
 
 msgid "Please select a time"
@@ -1494,6 +1504,14 @@ msgstr ""
 
 #: includes/fields/wp_category.php
 msgid "Leave both unchecked to use the traditional category tree."
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Hide the category search box"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Hide the selected-only filter"
 msgstr ""
 
 #: includes/fields/wp_tag.php:35

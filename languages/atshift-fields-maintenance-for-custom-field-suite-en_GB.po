@@ -1502,3 +1502,18 @@ msgstr "Choose from the most used tags"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "No frequently used tags are available yet."
+
+msgid "Require a condition selection"
+msgstr "Require a condition selection"
+
+msgid "Contains required fields"
+msgstr "Contains required fields"
+
+msgid "Please select a condition"
+msgstr "Please select a condition"
+
+msgid "Hide the category search box"
+msgstr "Hide the category search box"
+
+msgid "Hide the selected-only filter"
+msgstr "Hide the selected-only filter"

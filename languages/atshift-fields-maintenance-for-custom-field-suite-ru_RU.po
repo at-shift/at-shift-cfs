@@ -1209,3 +1209,18 @@ msgstr "Результаты не найдены"
 
 msgid "Searching..."
 msgstr "Поиск..."
+
+msgid "Require a condition selection"
+msgstr "Сделать выбор условия обязательным"
+
+msgid "Contains required fields"
+msgstr "Содержит обязательные поля"
+
+msgid "Please select a condition"
+msgstr "Выберите условие"
+
+msgid "Hide the category search box"
+msgstr "Скрыть поле поиска категорий"
+
+msgid "Hide the selected-only filter"
+msgstr "Скрыть фильтр только выбранных"

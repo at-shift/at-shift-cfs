@@ -1185,3 +1185,18 @@ msgstr "Geen resultaten gevonden"
 
 msgid "Searching..."
 msgstr "Zoeken..."
+
+msgid "Require a condition selection"
+msgstr "Maak conditiekeuze verplicht"
+
+msgid "Contains required fields"
+msgstr "Bevat verplichte velden"
+
+msgid "Please select a condition"
+msgstr "Selecteer een conditie"
+
+msgid "Hide the category search box"
+msgstr "Categoriezoekveld verbergen"
+
+msgid "Hide the selected-only filter"
+msgstr "Filter alleen geselecteerd verbergen"

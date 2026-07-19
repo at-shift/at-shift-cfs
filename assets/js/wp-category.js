@@ -13,6 +13,30 @@
         });
     }
 
+    function getCategoryInput($list, termId) {
+        var termIdString = String(termId);
+
+        return $list.find('input[type="checkbox"]').filter(function() {
+            return $(this).val() === termIdString;
+        }).first();
+    }
+
+    function defaultCategoryHasCheckedDescendant($list, defaultCategory) {
+        var $defaultInput = getCategoryInput($list, defaultCategory);
+
+        if (!$defaultInput.length) {
+            return false;
+        }
+
+        return 0 < $defaultInput.closest('.cfs-wp-category-item').children('ul').find('input[type="checkbox"]:checked').length;
+    }
+
+    function shouldKeepDefaultCategory($list, defaultCategory) {
+        var autoSelectsRelatedTerms = '1' === $list.attr('data-auto-select-children') || '1' === $list.attr('data-auto-select-parents');
+
+        return autoSelectsRelatedTerms && defaultCategoryHasCheckedDescendant($list, defaultCategory);
+    }
+
     function applyCategoryFilter($control) {
         var query = trim($control.find('.cfs-wp-category-search').val()).toLowerCase();
         var selectedOnly = $control.find('.cfs-wp-category-selected-only-toggle').prop('checked');
@@ -89,14 +113,16 @@
                 var isDefaultCategory = defaultCategory && defaultCategory === $input.val();
 
                 if (isDefaultCategory) {
-                    $list.find('input[type="checkbox"]').not($input).prop('checked', false);
+                    if (!shouldKeepDefaultCategory($list, defaultCategory)) {
+                        $list.find('input[type="checkbox"]').not($input).prop('checked', false);
+                    }
                 }
-                else if (defaultCategory) {
-                    $list.find('input[type="checkbox"][value="' + defaultCategory + '"]').prop('checked', false);
+                else if (defaultCategory && !shouldKeepDefaultCategory($list, defaultCategory)) {
+                    getCategoryInput($list, defaultCategory).prop('checked', false);
                 }
             }
             else if (defaultCategory && 0 === $list.find('input[type="checkbox"]:checked').length) {
-                $list.find('input[type="checkbox"][value="' + defaultCategory + '"]').prop('checked', true);
+                getCategoryInput($list, defaultCategory).prop('checked', true);
             }
 
             refreshCategoryState($list);

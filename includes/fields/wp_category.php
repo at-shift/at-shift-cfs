@@ -81,6 +81,8 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents', 1 );
         $layout_parent_horizontal = 0 < (int) $this->get_option( $field, 'layout_parent_horizontal' );
         $layout_children_horizontal = 0 < (int) $this->get_option( $field, 'layout_children_horizontal' );
+        $hide_search = 0 < (int) $this->get_option( $field, 'hide_search' );
+        $hide_selected_filter = 0 < (int) $this->get_option( $field, 'hide_selected_filter' );
         $list_classes = [ 'cfs-wp-category-list' ];
 
         if ( $layout_parent_horizontal ) {
@@ -91,13 +93,19 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         }
     ?>
         <div class="cfs-wp-category-control">
+            <?php if ( ! $hide_search || ! $hide_selected_filter ) : ?>
             <div class="cfs-wp-category-tools">
+                <?php if ( ! $hide_search ) : ?>
                 <input type="search" class="cfs-wp-category-search" autocomplete="off" placeholder="<?php echo esc_attr( $this->get_search_placeholder() ); ?>" />
+                <?php endif; ?>
+                <?php if ( ! $hide_selected_filter ) : ?>
                 <label class="cfs-wp-category-selected-only">
                     <input type="checkbox" class="cfs-wp-category-selected-only-toggle" />
                     <?php esc_html_e( 'Show selected only', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
                 </label>
+                <?php endif; ?>
             </div>
+            <?php endif; ?>
     <?php
         echo '<div class="' . esc_attr( implode( ' ', $list_classes ) ) . '" data-taxonomy="' . esc_attr( $taxonomy_name ) . '" data-auto-select-children="' . esc_attr( $auto_select_children ? '1' : '0' ) . '" data-auto-select-parents="' . esc_attr( $auto_select_parents ? '1' : '0' ) . '" data-default-category="' . esc_attr( $default_term_id ) . '">';
         $this->render_terms( $children, 0, $selected, $field->input_name, $default_term_id );
@@ -168,7 +176,7 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
                 $term_ids = $this->include_parent_terms( $term_ids, $taxonomy_name );
             }
 
-            if ( 0 < $default_term_id && 1 < count( $term_ids ) ) {
+            if ( $this->should_remove_default_term( $default_term_id, $term_ids, $taxonomy_name, $field ) ) {
                 $term_ids = array_values( array_diff( $term_ids, [ $default_term_id ] ) );
             }
 
@@ -242,6 +250,25 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
                     ] );
                 ?>
                 <p class="description"><?php esc_html_e( 'Leave both unchecked to use the traditional category tree.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type' => 'true_false',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][hide_search]',
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option( $field, 'hide_search' ),
+                        'options' => [ 'message' => __( 'Hide the category search box', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                    ] );
+                ?>
+                <br />
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type' => 'true_false',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][hide_selected_filter]',
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option( $field, 'hide_selected_filter' ),
+                        'options' => [ 'message' => __( 'Hide the selected-only filter', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                    ] );
+                ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
@@ -314,6 +341,8 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         $field['options']['auto_select_parents'] = empty( $field['options']['auto_select_parents'] ) ? 0 : 1;
         $field['options']['layout_parent_horizontal'] = empty( $field['options']['layout_parent_horizontal'] ) ? 0 : 1;
         $field['options']['layout_children_horizontal'] = empty( $field['options']['layout_children_horizontal'] ) ? 0 : 1;
+        $field['options']['hide_search'] = empty( $field['options']['hide_search'] ) ? 0 : 1;
+        $field['options']['hide_selected_filter'] = empty( $field['options']['hide_selected_filter'] ) ? 0 : 1;
 
         return $field;
     }
@@ -355,5 +384,45 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         }
 
         return array_values( array_unique( array_filter( $expanded ) ) );
+    }
+
+
+    protected function should_remove_default_term( $default_term_id, $term_ids, $taxonomy_name, $field ) {
+        $default_term_id = absint( $default_term_id );
+        $term_ids = array_values( array_unique( array_filter( array_map( 'absint', (array) $term_ids ) ) ) );
+
+        if ( 1 > $default_term_id || 1 >= count( $term_ids ) || ! in_array( $default_term_id, $term_ids, true ) ) {
+            return false;
+        }
+
+        $auto_select_children = 0 < (int) $this->get_option( $field, 'auto_select_children' );
+        $auto_select_parents = 0 < (int) $this->get_option( $field, 'auto_select_parents', 1 );
+
+        if ( ( $auto_select_children || $auto_select_parents ) && $this->has_selected_descendant( $default_term_id, $term_ids, $taxonomy_name ) ) {
+            return false;
+        }
+
+        return true;
+    }
+
+
+    protected function has_selected_descendant( $ancestor_id, $term_ids, $taxonomy_name ) {
+        $ancestor_id = absint( $ancestor_id );
+
+        foreach ( (array) $term_ids as $term_id ) {
+            $term_id = absint( $term_id );
+
+            if ( 1 > $term_id || $ancestor_id === $term_id ) {
+                continue;
+            }
+
+            $ancestors = array_map( 'absint', get_ancestors( $term_id, $taxonomy_name, 'taxonomy' ) );
+
+            if ( in_array( $ancestor_id, $ancestors, true ) ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

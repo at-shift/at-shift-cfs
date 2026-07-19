@@ -1217,3 +1217,18 @@ msgstr "نتیجه‌ای یافت نشد"
 
 msgid "Searching..."
 msgstr "در حال جستجو..."
+
+msgid "Require a condition selection"
+msgstr "انتخاب شرط را الزامی کن"
+
+msgid "Contains required fields"
+msgstr "شامل فیلدهای ضروری است"
+
+msgid "Please select a condition"
+msgstr "لطفاً یک شرط را انتخاب کنید"
+
+msgid "Hide the category search box"
+msgstr "کادر جستجوی دسته‌بندی را مخفی کن"
+
+msgid "Hide the selected-only filter"
+msgstr "فیلتر فقط انتخاب‌شده‌ها را مخفی کن"

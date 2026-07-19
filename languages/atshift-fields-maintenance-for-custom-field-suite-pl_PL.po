@@ -1256,3 +1256,18 @@ msgstr "Nie znaleziono wynikow"
 
 msgid "Searching..."
 msgstr "Szukanie..."
+
+msgid "Require a condition selection"
+msgstr "Wymagaj wyboru warunku"
+
+msgid "Contains required fields"
+msgstr "Zawiera wymagane pola"
+
+msgid "Please select a condition"
+msgstr "Wybierz warunek"
+
+msgid "Hide the category search box"
+msgstr "Ukryj pole wyszukiwania kategorii"
+
+msgid "Hide the selected-only filter"
+msgstr "Ukryj filtr tylko wybranych"

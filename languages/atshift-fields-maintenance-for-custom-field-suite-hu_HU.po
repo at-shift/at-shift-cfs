@@ -1171,3 +1171,18 @@ msgstr "Nincs talalat"
 
 msgid "Searching..."
 msgstr "Kereses..."
+
+msgid "Require a condition selection"
+msgstr "Feltetel kivalasztasanak kotelezove tetele"
+
+msgid "Contains required fields"
+msgstr "Kotelezo mezoket tartalmaz"
+
+msgid "Please select a condition"
+msgstr "Valassz feltetelt"
+
+msgid "Hide the category search box"
+msgstr "Kategoriakereso mezo elrejtese"
+
+msgid "Hide the selected-only filter"
+msgstr "Csak kijeloltek szuro elrejtese"

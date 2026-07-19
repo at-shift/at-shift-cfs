@@ -1187,3 +1187,18 @@ msgstr "No s'han trobat resultats"
 
 msgid "Searching..."
 msgstr "S'esta cercant..."
+
+msgid "Require a condition selection"
+msgstr "Requereix una seleccio de condicio"
+
+msgid "Contains required fields"
+msgstr "Conte camps obligatoris"
+
+msgid "Please select a condition"
+msgstr "Seleccioneu una condicio"
+
+msgid "Hide the category search box"
+msgstr "Amaga el quadre de cerca de categories"
+
+msgid "Hide the selected-only filter"
+msgstr "Amaga el filtre de nomes seleccionats"

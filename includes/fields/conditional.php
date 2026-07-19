@@ -161,6 +161,20 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
                 <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][default_value]" value="<?php echo esc_attr( $this->get_option( $field, 'default_value' ) ); ?>" />
             </td>
         </tr>
+        <tr class="field_option field_option_conditional">
+            <td class="label">
+                <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+            </td>
+            <td>
+                <?php atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                    'type' => 'true_false',
+                    'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][required]',
+                    'input_class' => 'true_false',
+                    'value' => $this->get_option( $field, 'required' ),
+                    'options' => [ 'message' => __( 'Require a condition selection', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                ] ); ?>
+            </td>
+        </tr>
         <?php
     }
 
@@ -200,6 +214,7 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
     function pre_save_field( $field ) {
         $field['options']['display_type'] = isset( $field['options']['display_type'] ) && 'select' === $field['options']['display_type'] ? 'select' : 'radio';
         $field['options']['default_value'] = isset( $field['options']['default_value'] ) ? sanitize_text_field( $field['options']['default_value'] ) : '';
+        $field['options']['required'] = empty( $field['options']['required'] ) ? 0 : 1;
         $field['options']['choices'] = $this->parse_choices( isset( $field['options']['choices'] ) ? $field['options']['choices'] : '' );
 
         return $field;

@@ -1185,3 +1185,18 @@ msgstr "未找到结果"
 
 msgid "Searching..."
 msgstr "正在搜索..."
+
+msgid "Require a condition selection"
+msgstr "要求选择条件"
+
+msgid "Contains required fields"
+msgstr "包含必填字段"
+
+msgid "Please select a condition"
+msgstr "请选择一个条件"
+
+msgid "Hide the category search box"
+msgstr "隐藏分类搜索框"
+
+msgid "Hide the selected-only filter"
+msgstr "隐藏仅显示已选择筛选器"

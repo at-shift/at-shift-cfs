@@ -133,6 +133,12 @@
                     return '' != language && '' != code;
                 }
             },
+            'required_conditional': {
+                'error': validationMessage('select_condition', 'Please select a condition'),
+                'validate': function(val) {
+                    return '' != trim(val);
+                }
+            },
             'limit': {
                 'error': function(el) {
                     var limits = el.attr('data-validator').split('|')[1].split(',');
@@ -205,6 +211,15 @@
                 var hour = el.find('.cfs-time-hour').val();
                 var minute = el.find('.cfs-time-minute').val();
                 return ('' == hour && '' == minute) ? '' : hour + ':' + minute;
+            },
+            'conditional': function(el) {
+                var selected = el.find('.cfs-conditional-selector:checked').val();
+
+                if (undefined !== selected) {
+                    return selected;
+                }
+
+                return el.find('select.cfs-conditional-selector').val() || '';
             },
             'wysiwyg': function(el) {
                 tinyMCE.triggerSave();

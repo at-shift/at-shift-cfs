@@ -1314,3 +1314,18 @@ msgstr "Nenhum resultado encontrado"
 
 msgid "Searching..."
 msgstr "Pesquisando..."
+
+msgid "Require a condition selection"
+msgstr "Exigir selecao de uma condicao"
+
+msgid "Contains required fields"
+msgstr "Contem campos obrigatorios"
+
+msgid "Please select a condition"
+msgstr "Selecione uma condicao"
+
+msgid "Hide the category search box"
+msgstr "Ocultar a caixa de busca de categorias"
+
+msgid "Hide the selected-only filter"
+msgstr "Ocultar o filtro de apenas selecionadas"

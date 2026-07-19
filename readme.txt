@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.2
+Stable tag: 3.0.2.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -203,6 +203,15 @@ The release package includes bundled translation files for ca, de_DE, es_ES, fa_
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.2.1 =
+
+* Added an option to require a condition selection in Conditional Group fields.
+* Added a required-field indicator for Accordion Group headings when required child fields are included.
+* Added Post Categories options to hide the category search box and selected-only filter.
+* Fixed a conflict between default category handling and parent/child auto-selection in Post Categories fields.
+* Refined the Save / Publish field layout and visual presentation.
+* Updated bundled translation files.
 
 = 3.0.2 =
 

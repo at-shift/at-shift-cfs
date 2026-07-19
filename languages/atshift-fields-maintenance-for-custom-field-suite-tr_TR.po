@@ -1202,3 +1202,18 @@ msgstr "Sonuc bulunamadi"
 
 msgid "Searching..."
 msgstr "Araniyor..."
+
+msgid "Require a condition selection"
+msgstr "Kosul secimini zorunlu yap"
+
+msgid "Contains required fields"
+msgstr "Zorunlu alanlar icerir"
+
+msgid "Please select a condition"
+msgstr "Lutfen bir kosul secin"
+
+msgid "Hide the category search box"
+msgstr "Kategori arama kutusunu gizle"
+
+msgid "Hide the selected-only filter"
+msgstr "Yalnizca secilenler filtresini gizle"

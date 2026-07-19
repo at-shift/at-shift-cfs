@@ -1217,3 +1217,18 @@ msgstr "Aucun resultat trouve"
 
 msgid "Searching..."
 msgstr "Recherche..."
+
+msgid "Require a condition selection"
+msgstr "Rendre la selection d'une condition obligatoire"
+
+msgid "Contains required fields"
+msgstr "Contient des champs obligatoires"
+
+msgid "Please select a condition"
+msgstr "Veuillez selectionner une condition"
+
+msgid "Hide the category search box"
+msgstr "Masquer le champ de recherche des categories"
+
+msgid "Hide the selected-only filter"
+msgstr "Masquer le filtre des elements selectionnes"

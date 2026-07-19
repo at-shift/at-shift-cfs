@@ -29,10 +29,14 @@ class Atshift_CFS_accordion extends Atshift_CFS_field
 
         $input_name_template = isset( $field->input_name_template ) ? (string) $field->input_name_template : 'cfs[input][%d][value]';
         $is_open = 0 < (int) $this->get_option( $field, 'open', 0 );
+        $has_required_children = $this->has_required_descendant( $field, $children );
     ?>
         <div class="cfs-accordion<?php echo $is_open ? ' open' : ''; ?>">
             <button type="button" class="cfs-accordion-toggle" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>">
                 <span class="cfs-accordion-title"><?php echo esc_html( $field->label ); ?></span>
+                <?php if ( $has_required_children ) : ?>
+                <span class="cfs-accordion-required-note"><?php esc_html_e( 'Contains required fields', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></span>
+                <?php endif; ?>
                 <span class="cfs-accordion-icon" aria-hidden="true"></span>
             </button>
             <div class="cfs-accordion-body">
@@ -120,5 +124,35 @@ class Atshift_CFS_accordion extends Atshift_CFS_field
         })(jQuery);
         <?php } ) ); ?>
     <?php
+    }
+
+
+    private function has_required_descendant( $field, $children = null ) {
+        if ( null === $children ) {
+            $children = atshift_fields_maintenance_for_custom_field_suite()->api->get_input_fields( [
+                'group_id' => $field->group_id,
+                'parent_id' => $field->id,
+            ] );
+        }
+
+        foreach ( $children as $child ) {
+            if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $child->type ] ) ) {
+                continue;
+            }
+
+            if ( Atshift_CFS_field::should_hide_input_field( $child ) ) {
+                continue;
+            }
+
+            if ( Atshift_CFS_field::is_required_field( $child ) ) {
+                return true;
+            }
+
+            if ( in_array( $child->type, [ 'group', 'accordion', 'conditional', 'loop' ], true ) && $this->has_required_descendant( $child ) ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
