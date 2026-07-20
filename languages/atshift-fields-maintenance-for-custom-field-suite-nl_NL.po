@@ -1200,3 +1200,23 @@ msgstr "Categoriezoekveld verbergen"
 
 msgid "Hide the selected-only filter"
 msgstr "Filter alleen geselecteerd verbergen"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Wijzigingen bekijken"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Voorbeeld"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Publiceren of plannen"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Wijzigen naar gepland"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Wijzigen naar publiceren of plannen"

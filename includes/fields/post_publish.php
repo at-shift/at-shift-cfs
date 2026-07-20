@@ -26,11 +26,17 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
         $allow_visibility = $this->option_enabled( $field, 'allow_visibility', true );
         $allow_date = $this->option_enabled( $field, 'allow_date', true );
         $allow_trash = $this->option_enabled( $field, 'allow_trash', true );
-        $can_trash = $this->current_user_can_trash( $post, $field );
         $visibility = $this->get_post_visibility( $post );
         $date_value = $this->format_local_datetime_value( $post->post_date );
         $status_preview = $this->get_status_preview_label( $post, $visibility, $date_value, $allow_visibility );
-        $status_change_value = 'auto-draft' === $post->post_status && $this->current_user_can_publish( $post ) ? 'publish' : '';
+        $status_row_class = '' === $status_preview ? ' is-empty' : '';
+        $status_change_value = '';
+        $publish_status_option_label = $this->get_publish_status_option_label( $post );
+        $preview_link = $this->get_preview_link( $post );
+        $preview_label = $this->get_preview_button_label( $post );
+        $trash_link = $allow_trash && $this->show_trash_link( $post, $field ) ? get_delete_post_link( $post_id ) : '';
+        $show_top_actions = $this->show_save_draft_button( $post ) || '' !== $preview_link;
+        $final_actions_class = 'cfs-post-publish-final-actions' . ( '' !== $trash_link ? ' has-trash' : '' );
 
         if ( ! $can_edit ) {
             echo '<p class="notes">' . esc_html__( 'You do not have permission to change save / publish settings.', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</p>';
@@ -51,8 +57,23 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
             data-allow-status="<?php echo $allow_status ? '1' : '0'; ?>"
             data-can-publish="<?php echo $this->current_user_can_publish( $post ) ? '1' : '0'; ?>"
             data-current-status="<?php echo esc_attr( $post->post_status ); ?>">
-            <div class="cfs-post-publish-row cfs-post-publish-status">
-                <label><?php esc_html_e( 'Current Status', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+            <?php if ( $show_top_actions ) : ?>
+            <div class="cfs-post-publish-top-actions">
+                <span class="cfs-post-publish-draft-action">
+                    <?php if ( $this->show_save_draft_button( $post ) ) : ?>
+                    <button type="button" class="button post_publish_save_draft"><?php esc_html_e( 'Save Draft', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
+                    <?php endif; ?>
+                </span>
+                <span class="cfs-post-publish-preview-action">
+                    <?php if ( '' !== $preview_link ) : ?>
+                    <a class="button post_publish_preview" href="<?php echo esc_url( $preview_link ); ?>" target="wp-preview-<?php echo absint( $post_id ); ?>" rel="noopener"><?php echo esc_html( $preview_label ); ?></a>
+                    <?php endif; ?>
+                </span>
+            </div>
+            <?php endif; ?>
+
+            <div class="cfs-post-publish-row cfs-post-publish-status<?php echo esc_attr( $status_row_class ); ?>">
+                <label><?php esc_html_e( 'Status', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
                 <span class="post_publish_status_preview"><?php echo esc_html( $status_preview ); ?></span>
             </div>
             <?php if ( $allow_status ) : ?>
@@ -67,7 +88,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                     <option value="pending"<?php selected( $status_change_value, 'pending' ); ?>><?php esc_html_e( 'Change to Pending Review', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
                     <?php endif; ?>
                     <?php if ( $this->current_user_can_publish( $post ) ) : ?>
-                    <option value="publish"<?php selected( $status_change_value, 'publish' ); ?>><?php esc_html_e( 'Publish / Schedule', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
+                    <option value="publish"<?php selected( $status_change_value, 'publish' ); ?>><?php echo esc_html( $publish_status_option_label ); ?></option>
                     <?php endif; ?>
                 </select>
             </div>
@@ -75,12 +96,14 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
             <?php if ( $allow_visibility ) : ?>
             <div class="cfs-post-publish-row cfs-post-publish-visibility">
                 <label for="cfs-post-publish-visibility-<?php echo absint( $field->id ); ?>"><?php esc_html_e( 'Visibility', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                <select id="cfs-post-publish-visibility-<?php echo absint( $field->id ); ?>" name="<?php echo esc_attr( $field->input_name ); ?>[visibility]" class="post_publish_visibility">
-                    <option value="public"<?php selected( $visibility, 'public' ); ?>><?php esc_html_e( 'Public', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
-                    <option value="password"<?php selected( $visibility, 'password' ); ?>><?php esc_html_e( 'Password protected', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
-                    <option value="private"<?php selected( $visibility, 'private' ); ?>><?php esc_html_e( 'Private', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
-                </select>
-                <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>[password]" class="post_publish_password" value="<?php echo esc_attr( $post->post_password ); ?>" placeholder="<?php esc_attr_e( 'Password', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+                <span class="cfs-post-publish-visibility-control">
+                    <select id="cfs-post-publish-visibility-<?php echo absint( $field->id ); ?>" name="<?php echo esc_attr( $field->input_name ); ?>[visibility]" class="post_publish_visibility">
+                        <option value="public"<?php selected( $visibility, 'public' ); ?>><?php esc_html_e( 'Public', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
+                        <option value="password"<?php selected( $visibility, 'password' ); ?>><?php esc_html_e( 'Password protected', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
+                        <option value="private"<?php selected( $visibility, 'private' ); ?>><?php esc_html_e( 'Private', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
+                    </select>
+                    <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>[password]" class="post_publish_password" value="<?php echo esc_attr( $post->post_password ); ?>" placeholder="<?php esc_attr_e( 'Password', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+                </span>
             </div>
             <?php endif; ?>
 
@@ -95,19 +118,11 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
             <?php endif; ?>
 
             <div class="cfs-post-publish-row cfs-post-publish-actions">
-                <span aria-hidden="true"></span>
-                <span class="cfs-post-publish-action-buttons">
-                    <span class="cfs-post-publish-secondary-actions">
-                        <?php if ( $allow_trash && $can_trash ) : ?>
-                        <a class="submitdelete deletion cfs-post-publish-trash" href="<?php echo esc_url( get_delete_post_link( $post_id ) ); ?>"><?php esc_html_e( 'Move to Trash', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></a>
-                        <?php endif; ?>
-                        <?php if ( $this->show_save_draft_button( $post ) ) : ?>
-                        <button type="button" class="button post_publish_save_draft"><?php esc_html_e( 'Save Draft', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
-                        <?php endif; ?>
-                    </span>
-                    <span class="cfs-post-publish-primary-actions">
-                        <button type="button" class="button button-primary post_publish_submit"><?php echo esc_html( $this->get_submit_button_label( $post ) ); ?></button>
-                    </span>
+                <span class="<?php echo esc_attr( $final_actions_class ); ?>">
+                    <?php if ( '' !== $trash_link ) : ?>
+                    <a class="submitdelete deletion cfs-post-publish-trash" href="<?php echo esc_url( $trash_link ); ?>"><?php esc_html_e( 'Move to Trash', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></a>
+                    <?php endif; ?>
+                    <button type="button" class="button button-primary post_publish_submit"><?php echo esc_html( $this->get_submit_button_label( $post ) ); ?></button>
                 </span>
             </div>
         </div>
@@ -196,14 +211,33 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 return $control.attr('data-button-' + name) || '';
             }
 
+            function setStatusPreview($control, label) {
+                label = String(label || '').trim();
+                $control.find('.post_publish_status_preview').text(label);
+                $control.find('.cfs-post-publish-status').toggleClass('is-empty', '' === label);
+            }
+
+            function getDisplayStatus($control) {
+                var currentStatus = String($control.data('currentStatus') || '');
+
+                if ('future' === currentStatus) {
+                    return 'future';
+                }
+
+                if ('draft' === currentStatus || 'pending' === currentStatus || 'private' === currentStatus || 'publish' === currentStatus) {
+                    return currentStatus;
+                }
+
+                return '';
+            }
+
             function refreshStatusPreview($control) {
                 var currentStatus = String($control.data('currentStatus') || '');
-                var status = getEffectiveStatus($control);
+                var status = getDisplayStatus($control);
                 var label = getStatusLabel($control, 'public');
 
                 if ('auto-draft' === currentStatus) {
-                    label = '';
-                    $control.find('.post_publish_status_preview').text(label);
+                    setStatusPreview($control, '');
                     return;
                 }
 
@@ -220,7 +254,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                     label = getStatusLabel($control, 'private');
                 }
 
-                $control.find('.post_publish_status_preview').text(label || $control.find('.post_publish_status_preview').text());
+                setStatusPreview($control, label || $control.find('.post_publish_status_preview').text());
             }
 
             function refreshAutosaveStatus() {
@@ -240,7 +274,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                     var $control = $(this);
 
                     if (isAutosaving) {
-                        $control.find('.post_publish_status_preview').text(getStatusLabel($control, 'autosaving'));
+                        setStatusPreview($control, getStatusLabel($control, 'autosaving'));
                     }
                     else {
                         refreshStatusPreview($control);
@@ -284,7 +318,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
             }
 
             function syncClassicPostFields($control, submitIntent) {
-                var status = getEffectiveStatus($control, submitIntent);
+                var status = submitIntent ? getEffectiveStatus($control, true) : '';
                 var visibility = $control.find('.post_publish_visibility').val();
                 var password = $control.find('.post_publish_password').val() || '';
                 var dateValue = $control.find('.post_publish_date').val();
@@ -404,7 +438,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 refreshPassword($control);
                 refreshStatusPreview($control);
                 refreshSubmitButtonLabels($control);
-                syncClassicPostFields($control);
+                syncClassicPostFields($control, false);
             });
 
             $(document).on('click', '.cfs-post-publish-control .post_publish_now', function(e) {
@@ -424,7 +458,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 refreshPassword($control);
                 refreshStatusPreview($control);
                 refreshSubmitButtonLabels($control);
-                syncClassicPostFields($control);
+                syncClassicPostFields($control, true);
                 $('input[name="post_status"], #hidden_post_status').val('draft');
                 $('#post_status').val('draft');
 
@@ -460,7 +494,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                     refreshPassword($(this));
                     refreshStatusPreview($(this));
                     refreshSubmitButtonLabels($(this));
-                    syncClassicPostFields($(this));
+                    syncClassicPostFields($(this), false);
                 });
 
                 if (window.wp && wp.data && 'function' === typeof wp.data.subscribe) {
@@ -483,6 +517,10 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
         $post = get_post( $post_id );
 
         if ( ! ( $post instanceof WP_Post ) ) {
+            return [];
+        }
+
+        if ( $this->is_autosave_request( $post_id ) ) {
             return [];
         }
 
@@ -635,6 +673,64 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
     }
 
 
+    protected function show_trash_link( $post, $field = null ) {
+        if ( ! ( $post instanceof WP_Post ) || in_array( $post->post_status, [ 'auto-draft', 'trash' ], true ) ) {
+            return false;
+        }
+
+        return $this->current_user_can_trash( $post, $field ) && '' !== (string) get_delete_post_link( $post->ID );
+    }
+
+
+    protected function get_preview_link( $post ) {
+        if ( ! ( $post instanceof WP_Post ) || 'auto-draft' === $post->post_status || ! current_user_can( 'edit_post', $post->ID ) ) {
+            return '';
+        }
+
+        if ( ! in_array( $post->post_status, [ 'draft', 'pending', 'publish', 'future', 'private' ], true ) ) {
+            return '';
+        }
+
+        $preview_args = [
+            'preview_id' => $post->ID,
+            'preview_nonce' => wp_create_nonce( 'post_preview_' . $post->ID ),
+        ];
+        $preview_link = get_preview_post_link( $post, $preview_args );
+
+        if ( empty( $preview_link ) ) {
+            $permalink = get_permalink( $post );
+            $preview_link = empty( $permalink ) ? '' : add_query_arg(
+                array_merge( $preview_args, [ 'preview' => 'true' ] ),
+                $permalink
+            );
+        }
+
+        return is_string( $preview_link ) ? $preview_link : '';
+    }
+
+
+    protected function get_preview_button_label( $post ) {
+        if ( $post instanceof WP_Post && in_array( $post->post_status, [ 'publish', 'future', 'private' ], true ) ) {
+            return __( 'Preview Changes', 'atshift-fields-maintenance-for-custom-field-suite' );
+        }
+
+        return __( 'Preview', 'atshift-fields-maintenance-for-custom-field-suite' );
+    }
+
+
+    protected function get_publish_status_option_label( $post ) {
+        if ( ! ( $post instanceof WP_Post ) || 'auto-draft' === $post->post_status ) {
+            return __( 'Publish or Schedule', 'atshift-fields-maintenance-for-custom-field-suite' );
+        }
+
+        if ( 'publish' === $post->post_status ) {
+            return __( 'Change to Scheduled', 'atshift-fields-maintenance-for-custom-field-suite' );
+        }
+
+        return __( 'Change to Publish or Schedule', 'atshift-fields-maintenance-for-custom-field-suite' );
+    }
+
+
     protected function get_allowed_roles( $field = null, $option_name = 'trash_allowed_roles' ) {
         $roles = $this->get_option( $field, $option_name, [] );
         $roles = array_filter( array_map( 'sanitize_key', (array) $roles ) );
@@ -658,7 +754,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
         $explicit_status = isset( $value['status'] ) ? sanitize_key( $value['status'] ) : '';
         $requested_status = $this->get_requested_post_status();
 
-        if ( $allow_status && '' !== $explicit_status && $this->can_set_status( $explicit_status, $can_publish ) ) {
+        if ( $allow_status && '' !== $requested_status && '' !== $explicit_status && $this->can_set_status( $explicit_status, $can_publish ) ) {
             return $this->normalize_status_for_save( $explicit_status );
         }
 
@@ -759,6 +855,15 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
         }
 
         return '';
+    }
+
+
+    protected function is_autosave_request( $post_id ) {
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+            return true;
+        }
+
+        return 0 < $post_id && false !== wp_is_post_autosave( $post_id );
     }
 
 

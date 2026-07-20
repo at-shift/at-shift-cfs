@@ -1202,3 +1202,23 @@ msgstr "Amaga el quadre de cerca de categories"
 
 msgid "Hide the selected-only filter"
 msgstr "Amaga el filtre de nomes seleccionats"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Previsualitza els canvis"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Previsualitza"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Publica o programa"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Canvia a programat"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Canvia a publicar o programar"

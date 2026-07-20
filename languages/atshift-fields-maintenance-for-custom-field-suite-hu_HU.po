@@ -1186,3 +1186,23 @@ msgstr "Kategoriakereso mezo elrejtese"
 
 msgid "Hide the selected-only filter"
 msgstr "Csak kijeloltek szuro elrejtese"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Változások előnézete"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Előnézet"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Közzététel vagy ütemezés"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Ütemezettre módosítás"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Közzétételre vagy ütemezésre módosítás"

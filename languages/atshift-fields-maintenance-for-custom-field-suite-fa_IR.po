@@ -1232,3 +1232,23 @@ msgstr "کادر جستجوی دسته‌بندی را مخفی کن"
 
 msgid "Hide the selected-only filter"
 msgstr "فیلتر فقط انتخاب‌شده‌ها را مخفی کن"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "پیش‌نمایش تغییرات"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "پیش‌نمایش"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "انتشار یا زمان‌بندی"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "تغییر به زمان‌بندی‌شده"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "تغییر به انتشار یا زمان‌بندی"

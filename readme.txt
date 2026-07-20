@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.2.1
+Stable tag: 3.0.2.2
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -203,6 +203,16 @@ The release package includes bundled translation files for ca, de_DE, es_ES, fa_
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.2.2 =
+
+* Refined the Save / Publish field status display so selected status changes are applied only when saving.
+* Improved Save / Publish field labels for publish and schedule actions.
+* Added preview button support for draft and pending posts in the Save / Publish field.
+* Prevented autosave requests from applying Save / Publish field status changes.
+* Restored WordPress-standard left alignment for the trash link in the Save / Publish field.
+* Fixed password field placement in the Save / Publish visibility controls.
+* Updated bundled translation files.
 
 = 3.0.2.1 =
 

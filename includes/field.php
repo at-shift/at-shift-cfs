@@ -292,7 +292,29 @@ class Atshift_CFS_field
 
 
     public static function required_badge() {
-        return ' <span class="cfs-required-badge">' . esc_html__( 'Required', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</span>';
+        return '<span class="cfs-required-badge">' . esc_html__( 'Required', 'atshift-fields-maintenance-for-custom-field-suite' ) . '</span>';
+    }
+
+
+    public static function field_label_html( $field ) {
+        $label = isset( $field->label ) ? (string) $field->label : '';
+        $html = '';
+
+        if ( self::is_required_field( $field ) ) {
+            $html .= self::required_badge();
+        }
+
+        if ( '' !== $label ) {
+            $html .= '<span class="cfs-field-label-text">' . esc_html( $label ) . '</span>';
+        }
+
+        return $html;
+    }
+
+
+    public static function should_render_field_label( $field ) {
+        $label = isset( $field->label ) ? (string) $field->label : '';
+        return '' !== $label || self::is_required_field( $field );
     }
 
 

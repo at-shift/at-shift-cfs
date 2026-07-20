@@ -1521,3 +1521,23 @@ msgstr ""
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr ""

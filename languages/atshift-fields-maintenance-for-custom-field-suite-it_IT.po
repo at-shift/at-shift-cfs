@@ -1320,3 +1320,23 @@ msgstr "Nascondi il campo di ricerca categorie"
 
 msgid "Hide the selected-only filter"
 msgstr "Nascondi il filtro solo selezionate"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Anteprima delle modifiche"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Anteprima"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Pubblica o programma"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Cambia in programmato"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Cambia in pubblica o programma"

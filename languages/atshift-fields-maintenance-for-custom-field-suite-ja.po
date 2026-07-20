@@ -1416,7 +1416,7 @@ msgstr "公開日時の変更を許可"
 
 #: includes/fields/post_publish.php
 msgid "Draft"
-msgstr "下書き"
+msgstr "下書き中"
 
 #: includes/fields/post_publish.php
 msgid "Pending Review"
@@ -1424,7 +1424,7 @@ msgstr "レビュー待ち"
 
 #: includes/fields/post_publish.php
 msgid "Scheduled"
-msgstr "予約済み"
+msgstr "予約中"
 
 #: ../templates/field_html.php
 msgid "Actions"
@@ -1526,3 +1526,23 @@ msgstr "よく使われているタグから選択"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "よく使われているタグはまだありません。"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "変更をプレビュー"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "プレビュー"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "公開または予約投稿"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "予約投稿に変更"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "公開または予約投稿に変更"

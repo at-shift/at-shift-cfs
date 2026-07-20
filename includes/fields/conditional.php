@@ -88,8 +88,8 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
                     ?>
                     <div class="cfs-conditional-branch" data-conditional-value="<?php echo esc_attr( $conditional_value ); ?>"<?php echo $is_visible ? '' : ' hidden'; ?>>
                         <div class="field field-<?php echo esc_attr( $child->name ); ?>" data-type="<?php echo esc_attr( $child->type ); ?>" data-name="<?php echo esc_attr( $child->name ); ?>">
-                            <?php if ( ! in_array( $child->type, [ 'accordion', 'tab' ], true ) && ! empty( $child->label ) ) : ?>
-                            <label><?php echo esc_html( $child->label ); ?><?php echo Atshift_CFS_field::is_required_field( $child ) ? wp_kses_post( Atshift_CFS_field::required_badge() ) : ''; ?></label>
+                            <?php if ( ! in_array( $child->type, [ 'accordion', 'tab' ], true ) && Atshift_CFS_field::should_render_field_label( $child ) ) : ?>
+                            <label><?php echo wp_kses_post( Atshift_CFS_field::field_label_html( $child ) ); ?></label>
                             <?php endif; ?>
 
                             <?php if ( 'accordion' !== $child->type && ! empty( $child->notes ) ) : ?>

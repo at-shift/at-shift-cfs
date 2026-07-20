@@ -1517,3 +1517,23 @@ msgstr "隱藏分類搜尋框"
 
 msgid "Hide the selected-only filter"
 msgstr "隱藏僅顯示已選取篩選器"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "預覽變更"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "預覽"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "發布或排程發布"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "改為排程發布"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "改為發布或排程發布"

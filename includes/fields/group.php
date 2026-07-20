@@ -63,8 +63,8 @@ class Atshift_CFS_group extends Atshift_CFS_field
                 ];
                 ?>
                 <div class="field field-<?php echo esc_attr( $child->name ); ?>" data-type="<?php echo esc_attr( $child->type ); ?>" data-name="<?php echo esc_attr( $child->name ); ?>">
-                    <?php if ( ! empty( $child->label ) ) : ?>
-                    <label><?php echo esc_html( $child->label ); ?><?php echo Atshift_CFS_field::is_required_field( $child ) ? wp_kses_post( Atshift_CFS_field::required_badge() ) : ''; ?></label>
+                    <?php if ( Atshift_CFS_field::should_render_field_label( $child ) ) : ?>
+                    <label><?php echo wp_kses_post( Atshift_CFS_field::field_label_html( $child ) ); ?></label>
                     <?php endif; ?>
 
                     <?php if ( ! empty( $child->notes ) ) : ?>

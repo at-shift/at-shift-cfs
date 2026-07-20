@@ -1322,3 +1322,23 @@ msgstr "Kategoriesuche ausblenden"
 
 msgid "Hide the selected-only filter"
 msgstr "Filter fuer nur ausgewaehlte Kategorien ausblenden"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Änderungen vorschauen"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Vorschau"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Veröffentlichen oder planen"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "In geplant ändern"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "In veröffentlichen oder planen ändern"

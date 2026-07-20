@@ -1517,3 +1517,23 @@ msgstr "Hide the category search box"
 
 msgid "Hide the selected-only filter"
 msgstr "Hide the selected-only filter"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Preview Changes"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Preview"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Publish or Schedule"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Change to Scheduled"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Change to Publish or Schedule"

@@ -1224,3 +1224,23 @@ msgstr "Скрыть поле поиска категорий"
 
 msgid "Hide the selected-only filter"
 msgstr "Скрыть фильтр только выбранных"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Предпросмотр изменений"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Опубликовать или запланировать"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Изменить на запланировано"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Изменить на опубликовать или запланировать"

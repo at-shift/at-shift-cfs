@@ -1271,3 +1271,23 @@ msgstr "Ukryj pole wyszukiwania kategorii"
 
 msgid "Hide the selected-only filter"
 msgstr "Ukryj filtr tylko wybranych"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Podgląd zmian"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Podgląd"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Opublikuj lub zaplanuj"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Zmień na zaplanowane"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Zmień na opublikuj lub zaplanuj"

@@ -1232,3 +1232,23 @@ msgstr "Masquer le champ de recherche des categories"
 
 msgid "Hide the selected-only filter"
 msgstr "Masquer le filtre des elements selectionnes"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Prévisualiser les modifications"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Prévisualiser"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Publier ou planifier"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Changer en planifié"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Changer en publier ou planifier"

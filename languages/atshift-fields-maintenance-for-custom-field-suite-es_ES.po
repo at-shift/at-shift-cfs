@@ -1320,3 +1320,23 @@ msgstr "Ocultar el cuadro de busqueda de categorias"
 
 msgid "Hide the selected-only filter"
 msgstr "Ocultar el filtro de solo seleccionadas"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Vista previa de los cambios"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Vista previa"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Publicar o programar"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Cambiar a programada"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Cambiar a publicar o programar"

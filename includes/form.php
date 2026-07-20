@@ -942,8 +942,8 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_attr_e( 'Toggle row visibility', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"></a>
             <?php endif; ?>
 
-            <?php if ( 'accordion' !== $field->type && ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?><?php echo Atshift_CFS_field::is_required_field( $field ) ? wp_kses_post( Atshift_CFS_field::required_badge() ) : ''; ?></label>
+            <?php if ( 'accordion' !== $field->type && Atshift_CFS_field::should_render_field_label( $field ) ) : ?>
+            <label><?php echo wp_kses_post( Atshift_CFS_field::field_label_html( $field ) ); ?></label>
             <?php endif; ?>
 
             <?php if ( 'accordion' !== $field->type && ! empty( $field->notes ) ) : ?>

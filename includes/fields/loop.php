@@ -293,8 +293,8 @@ class Atshift_CFS_loop extends Atshift_CFS_field
     private function render_clone_field( $field, &$loop_field_ids ) {
     ?>
         <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
-        <?php if ( 'accordion' !== $field->type && ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?><?php echo Atshift_CFS_field::is_required_field( $field ) ? wp_kses_post( Atshift_CFS_field::required_badge() ) : ''; ?></label>
+        <?php if ( 'accordion' !== $field->type && Atshift_CFS_field::should_render_field_label( $field ) ) : ?>
+            <label><?php echo wp_kses_post( Atshift_CFS_field::field_label_html( $field ) ); ?></label>
         <?php endif; ?>
 
         <?php if ( 'accordion' !== $field->type && ! empty( $field->notes ) ) : ?>
@@ -341,8 +341,8 @@ class Atshift_CFS_loop extends Atshift_CFS_field
     private function render_value_field( $field, $group_id, $parent_tag, $row_index, $values ) {
     ?>
         <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>">
-        <?php if ( 'accordion' !== $field->type && ! empty( $field->label ) ) : ?>
-            <label><?php echo esc_html( $field->label ); ?><?php echo Atshift_CFS_field::is_required_field( $field ) ? wp_kses_post( Atshift_CFS_field::required_badge() ) : ''; ?></label>
+        <?php if ( 'accordion' !== $field->type && Atshift_CFS_field::should_render_field_label( $field ) ) : ?>
+            <label><?php echo wp_kses_post( Atshift_CFS_field::field_label_html( $field ) ); ?></label>
         <?php endif; ?>
 
         <?php if ( 'accordion' !== $field->type && ! empty( $field->notes ) ) : ?>

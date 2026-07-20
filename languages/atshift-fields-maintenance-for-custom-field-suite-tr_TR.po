@@ -1217,3 +1217,23 @@ msgstr "Kategori arama kutusunu gizle"
 
 msgid "Hide the selected-only filter"
 msgstr "Yalnizca secilenler filtresini gizle"
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Değişiklikleri önizle"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Önizleme"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Yayınla veya zamanla"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Zamanlanmış olarak değiştir"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Yayınla veya zamanla olarak değiştir"

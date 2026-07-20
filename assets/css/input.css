@@ -94,18 +94,24 @@
 }
 
 .cfs_input .field > label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.45;
     margin: 0 0 8px;
     padding: 0;
     cursor: default;
-    display: block;
+}
+
+.cfs_input .field > label .cfs-field-label-text {
+    min-width: 0;
 }
 
 .cfs_input .field label .cfs-required-badge {
     display: inline-block;
-    margin-left: 6px;
+    flex: 0 0 auto;
     padding: 1px 5px;
     border-radius: 2px;
     background: #d63638;
@@ -1422,6 +1428,35 @@
     background: transparent;
 }
 
+.cfs-post-publish-top-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+}
+
+.cfs-post-publish-draft-action,
+.cfs-post-publish-preview-action {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.cfs-post-publish-preview-action {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.cfs-post-publish-top-actions .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
 .cfs-post-publish-row {
     display: grid;
     grid-template-columns: minmax(120px, 160px) minmax(0, 1fr);
@@ -1433,6 +1468,10 @@
     font-size: 14px;
     font-weight: 700;
     line-height: 1.45;
+}
+
+.cfs-post-publish-status.is-empty {
+    display: none;
 }
 
 .cfs-post-publish-status .post_publish_status_preview {
@@ -1458,8 +1497,15 @@
     width: 100%;
 }
 
-.cfs-post-publish-visibility .post_publish_password {
-    margin-top: 8px;
+.cfs-post-publish-visibility-control {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+    width: 100%;
+}
+
+.cfs-post-publish-visibility-control .post_publish_password {
+    margin-top: 0;
 }
 
 .cfs-post-publish-date-control {
@@ -1483,7 +1529,7 @@
 
 .cfs-post-publish-actions {
     grid-template-columns: 1fr;
-    justify-items: center;
+    justify-items: end;
     margin: 8px -24px -24px;
     padding: 18px 24px 20px;
     border-top: 1px solid #dcdcde;
@@ -1491,42 +1537,33 @@
     background: #f7f3ee;
 }
 
-.cfs-post-publish-actions > span[aria-hidden="true"] {
-    display: none;
-}
-
-.cfs-post-publish-action-buttons {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 12px;
-    align-items: center;
-    width: 100%;
-    max-width: 560px;
-    box-sizing: border-box;
-}
-
-.cfs-post-publish-secondary-actions,
-.cfs-post-publish-primary-actions {
+.cfs-post-publish-final-actions {
     display: flex;
-    align-items: center;
-}
-
-.cfs-post-publish-secondary-actions {
+    justify-content: flex-end;
     gap: 12px;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.cfs-post-publish-primary-actions .post_publish_submit {
-    width: 100%;
-    min-width: 0;
+.cfs-post-publish-final-actions.has-trash {
+    justify-content: space-between;
+}
+
+.cfs-post-publish-final-actions .post_publish_submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
     min-height: 40px;
     box-sizing: border-box;
+    line-height: 1.4;
     font-weight: 700;
 }
 
-.cfs-post-publish-secondary-actions .post_publish_save_draft {
+.cfs-post-publish-top-actions .post_publish_save_draft,
+.cfs-post-publish-top-actions .post_publish_preview {
     min-width: 120px;
-    min-height: 40px;
-    font-weight: 700;
 }
 
 .cfs-post-publish-trash {
@@ -1551,13 +1588,28 @@
         gap: 6px;
     }
 
+    .cfs-post-publish-top-actions,
+    .cfs-post-publish-final-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cfs-post-publish-preview-action {
+        justify-content: stretch;
+        margin-left: 0;
+    }
+
+    .cfs-post-publish-draft-action,
+    .cfs-post-publish-preview-action {
+        width: 100%;
+    }
+
     .cfs-post-publish-actions {
         margin: 8px -18px -18px;
         padding: 16px 18px 18px;
     }
 
-    .cfs-post-publish-date-control,
-    .cfs-post-publish-action-buttons {
+    .cfs-post-publish-date-control {
         grid-template-columns: 1fr;
         align-items: stretch;
     }
@@ -1567,17 +1619,13 @@
         width: 100%;
     }
 
-    .cfs-post-publish-actions .button-primary {
+    .cfs-post-publish-top-actions .button,
+    .cfs-post-publish-final-actions .button {
         width: 100%;
     }
 
-    .cfs-post-publish-secondary-actions,
-    .cfs-post-publish-primary-actions {
-        align-items: stretch;
-    }
-
-    .cfs-post-publish-action-buttons .button {
-        width: 100%;
+    .cfs-post-publish-trash {
+        align-self: flex-start;
     }
 }
 
