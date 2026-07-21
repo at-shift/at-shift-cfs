@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: at-shift CFS\n"
-"POT-Creation-Date: 2015-10-20 22:31-0400\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
 "PO-Revision-Date: 2015-10-20 22:31-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
@@ -15,6 +15,53 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
+
+#: ../includes/fields/conditional.php:7
+#, fuzzy
+msgid "Conditional Group"
+msgstr "Grup horitzontal"
+
+#: ../templates/admin_head.php:63
+msgid "Unnamed condition"
+msgstr ""
+
+#: ../templates/admin_head.php:65
+#, php-format
+msgid "Condition \"%s\""
+msgstr ""
+
+#: ../includes/fields/conditional.php:107
+#, fuzzy
+msgid "Display Type"
+msgstr "Tipus de fitxer"
+
+#: ../includes/fields/conditional.php:120
+msgid "Dropdown"
+msgstr ""
+
+#: ../includes/fields/conditional.php:147
+msgid "Used for radio buttons. The first choice is used when left blank."
+msgstr ""
+
+#: ../includes/fields/conditional.php:174
+msgid "Require a condition selection"
+msgstr "Requereix una seleccio de condicio"
+
+#: ../templates/field_html.php:94
+msgid "Display for choice"
+msgstr ""
+
+#: ../templates/field_html.php:95
+msgid "Choose the parent Conditional Group value that displays this field."
+msgstr ""
+
+#: ../templates/admin_head.php:50
+#, fuzzy
+msgid ""
+"Tabs and conditional groups cannot be placed inside a Conditional Group."
+msgstr ""
+"Les pestanyes, els bucles i els grups horitzontals no es poden col locar "
+"dins d un grup horitzontal."
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
@@ -33,6 +80,10 @@ msgstr "Validació"
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "Aquest és un camp requerit"
+
+#: ../includes/form.php:266 ../includes/fields/group.php:147
+msgid "Required"
+msgstr "Obligatori"
 
 #: ../includes/field_group.php:112
 msgid "Imported"
@@ -141,8 +192,12 @@ msgstr "AfegirFila"
 msgid "Limits"
 msgstr "Límits"
 
-msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
-msgstr "Mínim defineix el menor nombre de termes que es poden seleccionar. Màxim defineix el major nombre de termes que es poden seleccionar."
+msgid ""
+"Minimum sets the fewest terms that can be selected. Maximum sets the most "
+"terms that can be selected."
+msgstr ""
+"Mínim defineix el menor nombre de termes que es poden seleccionar. Màxim "
+"defineix el major nombre de termes que es poden seleccionar."
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
@@ -164,6 +219,14 @@ msgstr "Limitar posts als següents tipus"
 #: ../includes/fields/select.php:8
 msgid "Select"
 msgstr "Seleccionar"
+
+#: ../includes/fields/select.php:43
+msgid "Please select..."
+msgstr "Seleccioneu..."
+
+#: ../includes/fields/code_view.php:210
+msgid "Please select a language..."
+msgstr "Seleccioneu un idioma..."
 
 #: ../includes/fields/select.php:86
 msgid "Choices"
@@ -192,6 +255,23 @@ msgstr "Pestanya"
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
 msgstr "Valor per Defecte"
+
+#, fuzzy
+msgid "Placeholder"
+msgstr "Col·locació"
+
+msgid "The value specified from the beginning."
+msgstr ""
+
+msgid "An input example or other helpful hint."
+msgstr ""
+
+msgid "at-shift CFS"
+msgstr ""
+
+msgctxt "date picker"
+msgid "Clear"
+msgstr "Neteja"
 
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
@@ -350,8 +430,12 @@ msgid "Name"
 msgstr "Nom"
 
 #: ../templates/field_html.php:42
-msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "El nom del camp es passa a get() per recuperar els valors. Utilitzeu només lletres minúscules, nombres i guions baixos."
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"El nom del camp es passa a get() per recuperar els valors. Utilitzeu només "
+"lletres minúscules, nombres i guions baixos."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
@@ -385,69 +469,36 @@ msgstr "Ordre"
 msgid "The field group with the lowest order will appear first."
 msgstr "El grup de camps amb l'ordre més baix apareixerà primer."
 
-#: ../templates/meta_box_extras.php:45
-msgid "Position"
-msgstr "Posició"
+#: ../templates/meta_box_extras.php:281
+#, fuzzy
+msgid "Field Group Position"
+msgstr "Grups de Camps"
 
-#: ../templates/meta_box_extras.php:48
+#: ../templates/meta_box_extras.php:284
 msgid "Normal"
 msgstr "Normal"
 
-#: ../templates/meta_box_extras.php:49
+#: ../templates/meta_box_extras.php:285
 msgid "Side"
 msgstr "Costat"
 
-#: ../templates/meta_box_extras.php:54
-msgid "Display Settings"
+#: ../templates/meta_box_extras.php:287
+#, fuzzy
+msgid "Controls where this field group appears on the edit screen."
+msgstr ""
+"Aquest grup de camps pot coincidir amb qualsevol pantalla d edicio d "
+"entrades."
+
+#: ../templates/meta_box_extras.php:293
+#, fuzzy
+msgid "Native Editor Display Settings"
 msgstr "Configuració de Visualització"
 
-#: ../templates/meta_box_extras.php:64
-msgid "Hide the content editor"
-msgstr "Amagar l'editor de continguts"
-
-#: ../templates/meta_box_fields.php:60
-msgid "Add New Field"
-msgstr "Afegir Nou Camp"
-
-#: ../templates/meta_box_rules.php:5
-msgid "equals"
-msgstr "és igual a"
-
-#: ../templates/meta_box_rules.php:6
-msgid "is not"
-msgstr "no és"
-
-#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
-msgid "Leave blank to skip this rule"
-msgstr "Deixar en blanc per saltar-se aquesta regla"
-
-#: ../templates/meta_box_rules.php:258
-msgid "Taxonomy Terms"
-msgstr "Termes de Taxonomía"
-
-#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
-msgid "Export"
-msgstr "Exportar"
-
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
-msgid "Import"
-msgstr "Importar"
-
-#: ../templates/page_tools.php:78
-msgid "Reset"
-msgstr "Restablir"
-
-#: ../templates/page_tools.php:122
-msgid "Reset and deactivate."
-msgstr "Restablir y desactivar."
-
-#: ../templates/page_tools.php:123
-msgid "This will delete all at-shift CFS data and deactivate the plugin."
-msgstr "Això suprimirà completament totes les dades d’at-shift CFS i desactivarà i reinicialitzarà el connector."
-
-#: ../templates/page_tools.php:124
-msgid "Delete everything"
-msgstr "Eliminar tot"
+#: ../templates/meta_box_extras.php:298
+msgid ""
+"These settings hide native WordPress editor sections for matching posts, "
+"regardless of where this field group is displayed."
+msgstr ""
 
 #  msgid "Use This File"
 #  msgstr "Utilitzeu aquest fitxer"
@@ -464,60 +515,334 @@ msgstr "Eliminar tot"
 #  "Gravity Form i etiquetes de camps de CFS han de coincidir exactament"
 #  msgid "Learn more"
 #  msgstr "Saber més"
-msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
-msgstr "Amaga l'editor de contingut (també amaga Gutenberg / l'editor de blocs per a les entrades coincidents)"
+#: ../templates/meta_box_extras.php:64
+msgid ""
+"Hide the content editor (also hides the Gutenberg / block editor for "
+"matching posts)"
+msgstr ""
+"Amaga l'editor de contingut (també amaga Gutenberg / l'editor de blocs per a "
+"les entrades coincidents)"
 
+#: ../templates/meta_box_extras.php:78
+msgid "Hide page attributes"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:92
+msgid "Force the post edit screen layout to 1 column"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:309
+msgid ""
+"Third-party side meta boxes are not hidden; in the 1-column layout, they "
+"appear below the main editor area."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:93
+#, fuzzy
+msgid "All roles"
+msgstr "Rols autoritzats per a la paperera"
+
+#: ../templates/meta_box_extras.php:94
+msgid "All roles except Administrators / Web administrators"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:95
+#, fuzzy
+msgid "Selected roles only"
+msgstr "Mostra nomes les seleccionades"
+
+#: ../templates/meta_box_extras.php:96
+msgid "Select roles when using selected roles only"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:157
+msgid "Already controlled by a native field in this field group."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:163
+#, php-format
+msgid "Already controlled by \"%s\"."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:97
+msgid "Screen Layout"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:98
+#, fuzzy
+msgid "Side Sections"
+msgstr "Accions"
+
+#: ../templates/meta_box_extras.php:99
+#, fuzzy
+msgid "Hide categories"
+msgstr "Cerca categories"
+
+#: ../templates/meta_box_extras.php:100
+msgid "Hide tags"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:101
+#, fuzzy
+msgid "Hide featured image"
+msgstr "Imatge destacada"
+
+#: ../templates/meta_box_extras.php:313 ../templates/meta_box_extras.php:329
+msgid "Hiding behavior"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:103
+#, fuzzy
+msgid "Main Sections"
+msgstr "Accions"
+
+#: ../templates/meta_box_extras.php:105
+msgid "Hide format"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:106
+msgid "Hide comments"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:107
+msgid "Hide discussion"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:108
+msgid "Hide excerpt"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:109
+msgid "Hide trackbacks"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:110
+#, fuzzy
+msgid "Hide permalink"
+msgstr "Hiperenllaç"
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide slug"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:111
+msgid "Hide author"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:112
+msgid "Hide custom fields"
+msgstr ""
+
+#: ../templates/meta_box_fields.php:60
+msgid "Add New Field"
+msgstr "Afegir Nou Camp"
+
+#: ../templates/meta_box_rules.php:5
+msgid "equals"
+msgstr "és igual a"
+
+#: ../templates/meta_box_rules.php:6
+msgid "is not"
+msgstr "no és"
+
+#: ../templates/meta_box_rules.php:57
+msgid "Standard"
+msgstr "Estàndard"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Administrator"
+msgstr "Administrador"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Editor"
+msgstr "Editor"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Author"
+msgstr "Autor"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Contributor"
+msgstr "Col·laborador"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Subscriber"
+msgstr "Subscriptor"
+
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
+msgid "Leave blank to skip this rule"
+msgstr "Deixar en blanc per saltar-se aquesta regla"
+
+#: ../templates/meta_box_rules.php:248
+msgid "The results could not be loaded."
+msgstr "No s'han pogut carregar els resultats."
+
+#: ../templates/meta_box_rules.php:253
+msgid "Please enter 1 more character"
+msgstr "Introduiu 1 caracter mes"
+
+#: ../templates/meta_box_rules.php:256
+msgid "Please enter %s or more characters"
+msgstr "Introduiu %s caracters o mes"
+
+#: ../templates/meta_box_rules.php:259
+msgid "Loading more results..."
+msgstr "S'estan carregant mes resultats..."
+
+#: ../templates/meta_box_rules.php:262
+msgid "No results found"
+msgstr "No s'han trobat resultats"
+
+#: ../templates/meta_box_rules.php:265
+msgid "Searching..."
+msgstr "S'esta cercant..."
+
+#: ../templates/meta_box_rules.php:282
+msgid "%s allowed"
+msgstr "Es poden seleccionar %s"
+
+#: ../templates/meta_box_rules.php:258
+msgid "Taxonomy Terms"
+msgstr "Termes de Taxonomía"
+
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
+msgid "Export"
+msgstr "Exportar"
+
+#: ../templates/page_tools.php:96
+msgid ""
+"Select the field groups you want to export, press the button, then save the "
+"displayed code. You can select multiple items."
+msgstr ""
+"Seleccioneu els grups de camps que voleu exportar, premeu el botó i deseu el "
+"codi que es mostri. Podeu seleccionar diversos elements."
+
+#: ../templates/page_tools.php:112
+msgid "Export Code"
+msgstr "Codi d’exportació"
+
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
+msgid "Import"
+msgstr "Importar"
+
+#: ../templates/page_tools.php:122
+msgid ""
+"Paste the exported field group code into the input field below, then press "
+"the button."
+msgstr ""
+"Enganxeu el codi del grup de camps exportat al camp d’entrada de sota i "
+"premeu el botó."
+
+#: ../templates/page_tools.php:125
+msgid "Import Code"
+msgstr "Codi d’importació"
+
+#: ../templates/page_tools.php:120
+msgid "Paste the import code here"
+msgstr "Enganxeu aquí el codi d’importació"
+
+#: ../templates/page_tools.php:78
+msgid "Reset"
+msgstr "Restablir"
+
+#: ../templates/page_tools.php:122
+msgid "Reset and deactivate."
+msgstr "Restablir y desactivar."
+
+#: ../templates/page_tools.php:123
+msgid "This will delete all at-shift CFS data and deactivate the plugin."
+msgstr ""
+"Això suprimirà completament totes les dades d’at-shift CFS i desactivarà i "
+"reinicialitzarà el connector."
+
+#: ../templates/page_tools.php:24
+msgid "This will delete all at-shift CFS data. Are you sure?"
+msgstr ""
+"Això suprimirà completament totes les dades d’at-shift CFS. N’esteu segur?"
+
+#: ../templates/page_tools.php:124
+msgid "Delete everything"
+msgstr "Eliminar tot"
+
+#: ../includes/fields/checkbox.php:8
 msgid "Checkbox"
 msgstr "Casella de selecció"
 
+#: ../includes/fields/file.php:44
 msgid "File Type"
 msgstr "Tipus de fitxer"
 
+#: ../includes/fields/file.php:53
 msgid "Any"
 msgstr "Qualsevol"
 
+#: ../includes/fields/file.php:54
 msgid "Image"
 msgstr "Imatge"
 
+#: ../includes/fields/file.php:55
 msgid "Audio"
 msgstr "Àudio"
 
+#: ../includes/fields/file.php:56
 msgid "Video"
 msgstr "Vídeo"
 
+#: ../includes/fields/radio.php:8
 msgid "Radio Button"
 msgstr "Botó d'opció"
 
+#: ../includes/fields/select.php:133
 msgid "Select2"
 msgstr "Select2"
 
-msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
-msgstr "Mostra el camp de selecció amb Select2. Això facilita cercar i seleccionar en llistes d’opcions llargues a les pantalles d’edició."
+msgid ""
+"Displays the select field with Select2. This makes long choice lists easier "
+"to search and select on edit screens."
+msgstr ""
+"Mostra el camp de selecció amb Select2. Això facilita cercar i seleccionar "
+"en llistes d’opcions llargues a les pantalles d’edició."
 
+#: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
 msgstr "Mostra aquest camp amb Select2"
 
+#: ../includes/fields/term.php:8
 msgid "Term"
 msgstr "Terme"
 
+#: ../includes/fields/term.php:69
 msgid "Search terms"
 msgstr "Cerca termes"
 
+#: ../includes/fields/term.php:97
 msgid "Taxonomies"
 msgstr "Taxonomies"
 
+#: ../includes/fields/term.php:98
 msgid "Limit terms to the following taxonomies"
 msgstr "Limita els termes a les taxonomies següents"
 
-msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "Un o més camps tenen errors de validació. Hi ha més informació a continuació."
+#: ../includes/form.php:247
+msgid ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
+msgstr ""
+"Un o més camps tenen errors de validació. Hi ha més informació a continuació."
 
+#: ../includes/form.php:444
 msgid "Toggle row visibility"
 msgstr "Commuta la visibilitat de la fila"
 
+#: ../includes/fields/loop.php:444
+msgid "Remove this row?"
+msgstr ""
+
+#: ../includes/init.php:60
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
+#: ../includes/init.php:154
 msgid "atshift Fields Tool"
 msgstr "Eina atshift Fields"
 
@@ -537,8 +862,13 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
-msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
-msgstr "El valor mínim defineix el valor permès més baix. El valor màxim defineix el valor permès més alt. L’interval defineix l’espai permès entre valors, com ara 1, 0.1, o 5."
+msgid ""
+"Minimum sets the lowest allowed value. Maximum sets the highest allowed "
+"value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr ""
+"El valor mínim defineix el valor permès més baix. El valor màxim defineix el "
+"valor permès més alt. L’interval defineix l’espai permès entre valors, com "
+"ara 1, 0.1, o 5."
 
 msgid "Minimum"
 msgstr "Mínim"
@@ -604,6 +934,18 @@ msgstr "3 columnes"
 msgid "4 columns"
 msgstr "4 columnes"
 
+#: ../includes/fields/group.php:92
+msgid "Alignment"
+msgstr "Alineacio"
+
+#: ../includes/fields/group.php:101
+msgid "Evenly distributed"
+msgstr "Distribuit uniformement"
+
+#: ../includes/fields/group.php:102
+msgid "Left aligned"
+msgstr "Alineat a l esquerra"
+
 #: ../templates/field_html.php:84
 msgid "Add new field below"
 msgstr "Afegeix un camp nou a sota"
@@ -622,6 +964,26 @@ msgstr "Mostra un grup de camps CFS."
 
 msgid "No fields in this group."
 msgstr "No hi ha camps en aquest grup."
+
+msgid "Post Title (Native)"
+msgstr "Títol de l'entrada (natiu)"
+
+msgid "You do not have permission to change the native title."
+msgstr "No tens permís per canviar el títol natiu."
+
+msgid "Allowed User Role Groups"
+msgstr "Grups de rols d'usuari permesos"
+
+msgid ""
+"Select the roles that can change the native title. Leave blank to allow any "
+"user role that can edit the post."
+msgstr ""
+"Selecciona els rols que poden canviar el títol natiu. Deixa-ho en blanc per "
+"permetre qualsevol rol d'usuari que pugui editar l'entrada."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr ""
+"Deixa-ho en blanc per permetre qualsevol rol que pugui editar aquesta entrada"
 
 msgid "Post Categories"
 msgstr "Categories de l entrada"
@@ -654,52 +1016,82 @@ msgid "Category Selection"
 msgstr "Seleccio de categories"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "En seleccionar una categoria pare tambe se seleccionen totes les categories filles"
+msgstr ""
+"En seleccionar una categoria pare tambe se seleccionen totes les categories "
+"filles"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "En seleccionar una categoria filla tambe se seleccionen les categories pare"
-
-msgid "A newer version %s is available on GitHub."
-msgstr "Hi ha una versió més recent %s disponible a GitHub."
-
-msgid "Required"
-msgstr "Obligatori"
-
-msgid "Please select..."
-msgstr "Seleccioneu..."
-
-msgid "Please select a language..."
-msgstr "Seleccioneu un idioma..."
-
-msgid "Alignment"
-msgstr "Alineacio"
-
-msgid "Evenly distributed"
-msgstr "Distribuit uniformement"
-
-msgid "Left aligned"
-msgstr "Alineat a l esquerra"
+msgstr ""
+"En seleccionar una categoria filla tambe se seleccionen les categories pare"
 
 msgid "CFS placement warning:"
 msgstr "Avis d ubicacio de CFS:"
 
-msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Aquest grup de camps no te regles d ubicacio. Pot coincidir amb qualsevol pantalla d edicio d entrades, aixi que definiu un tipus d entrada o una altra regla d ubicacio tret que sigui intencionat."
+msgid ""
+"This field group has no placement rules. It will appear on all editable post "
+"screens, so set a Post Type or another placement rule unless that is "
+"intentional."
+msgstr ""
+"Aquest grup de camps no te regles d ubicacio. Pot coincidir amb qualsevol "
+"pantalla d edicio d entrades, aixi que definiu un tipus d entrada o una "
+"altra regla d ubicacio tret que sigui intencionat."
 
-msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "S ha desat, pero aquest grup de camps no te regles d ubicacio. Pot coincidir amb qualsevol pantalla d edicio d entrades, aixi que definiu un tipus d entrada o una altra regla d ubicacio tret que sigui intencionat."
+msgid ""
+"Saved, but this field group has no placement rules. It will appear on all "
+"editable post screens, so set a Post Type or another placement rule unless "
+"that is intentional."
+msgstr ""
+"S ha desat, pero aquest grup de camps no te regles d ubicacio. Pot coincidir "
+"amb qualsevol pantalla d edicio d entrades, aixi que definiu un tipus d "
+"entrada o una altra regla d ubicacio tret que sigui intencionat."
 
 msgid "No placement rules"
 msgstr "Sense regles d ubicacio"
 
 msgid "This field group will appear on all editable post screens."
-msgstr "Aquest grup de camps pot coincidir amb qualsevol pantalla d edicio d entrades."
+msgstr ""
+"Aquest grup de camps pot coincidir amb qualsevol pantalla d edicio d "
+"entrades."
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Hi ha una versió més recent %s disponible a GitHub."
+
+#, fuzzy
+msgid "Add at least one field to this tab group."
+msgstr "Afegiu dos o mes camps a aquest grup horitzontal."
 
 msgid "Add two or more fields to this horizontal group."
 msgstr "Afegiu dos o mes camps a aquest grup horitzontal."
 
-msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "Les pestanyes, els bucles i els grups horitzontals no es poden col locar dins d un grup horitzontal."
+#, fuzzy
+msgid "Add at least one field to this loop group."
+msgstr "Afegiu dos o mes camps a aquest grup horitzontal."
+
+#, fuzzy
+msgid "Add at least one field to this accordion group."
+msgstr "Afegiu dos o mes camps a aquest grup horitzontal."
+
+msgid "Contains required fields"
+msgstr "Conte camps obligatoris"
+
+msgid "Set conditions and add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each condition."
+msgstr ""
+
+msgid "Create two or more conditions, then add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each empty condition."
+msgstr ""
+
+msgid ""
+"Tabs, loops, and horizontal groups cannot be placed inside a horizontal "
+"group."
+msgstr ""
+"Les pestanyes, els bucles i els grups horitzontals no es poden col locar "
+"dins d un grup horitzontal."
 
 msgid "Code View"
 msgstr "Vista de codi"
@@ -707,8 +1099,15 @@ msgstr "Vista de codi"
 msgid "Shortcode"
 msgstr "Codi curt"
 
-msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
-msgstr "Una caixa meta es un quadre de configuracio o entrada afegit a la pantalla d'edicio d'entrades de WordPress per un plugin de tercers. Aquest camp es nomes per recol.locar i moure una caixa meta de tercers dins d'un grup de camps atshift Fields."
+msgid ""
+"A meta box is a settings or input box added to the WordPress post edit "
+"screen by a third-party plugin. This field is only for repositioning and "
+"moving a third-party meta box into an atshift Fields field group."
+msgstr ""
+"Una caixa meta es un quadre de configuracio o entrada afegit a la pantalla "
+"d'edicio d'entrades de WordPress per un plugin de tercers. Aquest camp es "
+"nomes per recol.locar i moure una caixa meta de tercers dins d'un grup de "
+"camps atshift Fields."
 
 msgid "Classic Meta Box Placement"
 msgstr "Col.locacio de caixa meta classica"
@@ -717,7 +1116,8 @@ msgid "Meta box ID is not set."
 msgstr "No s'ha definit l'ID de la caixa meta."
 
 msgid "The selected meta box was not found on this edit screen."
-msgstr "La caixa meta seleccionada no s'ha trobat en aquesta pantalla d'edicio."
+msgstr ""
+"La caixa meta seleccionada no s'ha trobat en aquesta pantalla d'edicio."
 
 msgid "This meta box is not recommended to move."
 msgstr "No es recomana moure aquesta caixa meta."
@@ -728,11 +1128,21 @@ msgstr "Aquesta caixa meta ja esta col.locada en un altre espai."
 msgid "Meta Box ID"
 msgstr "ID de caixa meta"
 
-msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
-msgstr "Detecta una caixa meta classica de tercers dels tipus d'entrada seleccionats a les regles de col.locacio, o introdueix-ne l'id del codi font HTML manualment. El plugin original continua gestionant el desament."
+msgid ""
+"Detect a classic third-party meta box from the post types selected in "
+"Placement Rules, or enter its HTML source id manually. The original plugin "
+"keeps handling saving."
+msgstr ""
+"Detecta una caixa meta classica de tercers dels tipus d'entrada seleccionats "
+"a les regles de col.locacio, o introdueix-ne l'id del codi font HTML "
+"manualment. El plugin original continua gestionant el desament."
 
-msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
-msgstr "Es poden moure les caixes meta classiques renderitzades a la pantalla d'edicio. Els panells nomes del Block Editor no son compatibles."
+msgid ""
+"Classic meta boxes rendered in the edit screen can be moved. Block Editor-"
+"only panels are not supported."
+msgstr ""
+"Es poden moure les caixes meta classiques renderitzades a la pantalla "
+"d'edicio. Els panells nomes del Block Editor no son compatibles."
 
 msgid "Display Width"
 msgstr "Amplada de visualitzacio"
@@ -750,7 +1160,9 @@ msgid "100%"
 msgstr "100%"
 
 msgid "On narrow screens, the meta box is always displayed at 100% width."
-msgstr "En pantalles estretes, la caixa meta sempre es mostra amb una amplada del 100%."
+msgstr ""
+"En pantalles estretes, la caixa meta sempre es mostra amb una amplada del "
+"100%."
 
 msgid "Detect Meta Boxes"
 msgstr "Detecta caixes meta"
@@ -759,7 +1171,8 @@ msgid "Detected Meta Boxes"
 msgstr "Caixes meta detectades"
 
 msgid "Select at least one post type in Placement Rules first."
-msgstr "Selecciona primer almenys un tipus d'entrada a les regles de col.locacio."
+msgstr ""
+"Selecciona primer almenys un tipus d'entrada a les regles de col.locacio."
 
 msgid "Detecting meta boxes..."
 msgstr "S'estan detectant caixes meta..."
@@ -778,8 +1191,8 @@ msgid "Available on: %s"
 msgstr "Disponible a: %s"
 
 msgid "Already selected in another Classic Meta Box Placement field."
-msgstr "Ja esta seleccionada en un altre camp de col.locacio de caixa meta classica."
-
+msgstr ""
+"Ja esta seleccionada en un altre camp de col.locacio de caixa meta classica."
 
 msgid "Plain text"
 msgstr "Text pla"
@@ -798,11 +1211,100 @@ msgstr "Copiat"
 
 msgid "Language"
 msgstr "Idioma"
-msgid "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
-msgstr "Aquest connector és una versió de manteniment i ampliada de Custom Field Suite que afegeix camps d'entrada més efectius i flexibles a les pantalles d'edició de WordPress."
-msgctxt "date picker"
-msgid "Clear"
-msgstr "Neteja"
+
+msgid ""
+"This plugin is a maintained and extended version of Custom Field Suite that "
+"adds more effective and flexible input fields to WordPress edit screens."
+msgstr ""
+"Aquest connector és una versió de manteniment i ampliada de Custom Field "
+"Suite que afegeix camps d'entrada més efectius i flexibles a les pantalles "
+"d'edició de WordPress."
+
+#, fuzzy
+msgid "Accordion Group"
+msgstr "Grup horitzontal"
+
+msgid "Initial State"
+msgstr ""
+
+msgid "Open by default"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"Tabs, loops, accordions, conditional groups, and horizontal groups cannot be "
+"placed inside a horizontal group."
+msgstr ""
+"Les pestanyes, els bucles i els grups horitzontals no es poden col locar "
+"dins d un grup horitzontal."
+
+#, fuzzy
+msgid "Tabs cannot be placed inside an accordion."
+msgstr ""
+"Les pestanyes, els bucles i els grups horitzontals no es poden col locar "
+"dins d un grup horitzontal."
+
+#, fuzzy
+msgid "Please enter a value"
+msgstr "Introduiu 1 caracter mes"
+
+msgid "Please enter a valid date (YYYY-MM-DD HH:MM)"
+msgstr ""
+
+msgid "Please enter a valid color HEX (#ff0000)"
+msgstr ""
+
+#, fuzzy
+msgid "Please enter a phone number"
+msgstr "Introduiu 1 caracter mes"
+
+#, fuzzy
+msgid "Please enter a valid phone number"
+msgstr "Introduiu 1 caracter mes"
+
+#, fuzzy
+msgid "Please enter an email address"
+msgstr "Introduiu 1 caracter mes"
+
+#, fuzzy
+msgid "Please enter a valid email address"
+msgstr "Introduiu %s caracters o mes"
+
+#, fuzzy
+msgid "Please enter a number"
+msgstr "Introduiu 1 caracter mes"
+
+#, fuzzy
+msgid "Please enter a valid number"
+msgstr "Introduiu 1 caracter mes"
+
+msgid "Please enter a URL"
+msgstr ""
+
+msgid "Please enter a valid URL"
+msgstr ""
+
+msgid "Please select a condition"
+msgstr "Seleccioneu una condicio"
+
+#, fuzzy
+msgid "Please select a time"
+msgstr "Seleccioneu una condicio"
+
+#, fuzzy
+msgid "Please select a valid time"
+msgstr "Seleccioneu una condicio"
+
+#, fuzzy
+msgid "Please select a language and enter code"
+msgstr "Seleccioneu un idioma..."
+
+#, fuzzy
+msgid "Please select %s item(s)"
+msgstr "Seleccioneu una condicio"
+
+msgid "Please select between %1$s and %2$s items"
+msgstr ""
 
 msgid "TAB"
 msgstr "Pestanya"
@@ -819,29 +1321,21 @@ msgstr "Desplegable"
 msgid "CONDITION"
 msgstr "Condició"
 
-#: ../templates/page_tools.php:206
-msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
-msgstr "Seleccioneu els grups de camps que voleu exportar, premeu el botó i deseu el codi que es mostri. Podeu seleccionar diversos elements."
+msgid "This field name is duplicated. Use a unique field name."
+msgstr ""
 
-#: ../templates/page_tools.php:222
-msgid "Export Code"
-msgstr "Codi d’exportació"
+msgid ""
+"Duplicate field names found: %s. Field names must be unique before saving."
+msgstr ""
 
-#: ../templates/page_tools.php:231
-msgid "Paste the exported field group code into the input field below, then press the button."
-msgstr "Enganxeu el codi del grup de camps exportat al camp d’entrada de sota i premeu el botó."
+msgid "Move here"
+msgstr ""
 
-#: ../templates/page_tools.php:234
-msgid "Import Code"
-msgstr "Codi d’importació"
+msgid "Move here: inside %s"
+msgstr ""
 
-#: ../templates/page_tools.php:235
-msgid "Paste the import code here"
-msgstr "Enganxeu aquí el codi d’importació"
-
-#: ../templates/page_tools.php:150
-msgid "This will delete all at-shift CFS data. Are you sure?"
-msgstr "Això suprimirà completament totes les dades d’at-shift CFS. N’esteu segur?"
+msgid "Move here: inside the current Tab"
+msgstr ""
 
 msgid "Post Categories (Standard / Global)"
 msgstr "Categories d'entrades (estandard / global)"
@@ -856,8 +1350,12 @@ msgstr "Categoria estandard"
 msgid "Category Source"
 msgstr "Origen de categoria"
 
-msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
-msgstr "Tria la categoria estandard o una Shared Taxonomy registrada per mostrar i desar amb aquest camp."
+msgid ""
+"Choose the standard category or a registered Shared Taxonomy to show and "
+"save with this field."
+msgstr ""
+"Tria la categoria estandard o una Shared Taxonomy registrada per mostrar i "
+"desar amb aquest camp."
 
 msgid "Photo Gallery"
 msgstr "Galeria de fotos"
@@ -886,8 +1384,14 @@ msgstr "HTML de la galeria"
 msgid "Gallery Display"
 msgstr "Visualitzacio de la galeria"
 
-msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "S’utilitza quan el valor de retorn és Gallery HTML. Columnes defineix el nombre de columnes a l’HTML de galeria generat. Els enllaços als fitxers d’imatge inclouen atributs de dades útils per a modals."
+msgid ""
+"Used when the return value is Gallery HTML. Columns sets the number of "
+"columns in the generated gallery HTML. Image file links include modal-"
+"friendly data attributes."
+msgstr ""
+"S’utilitza quan el valor de retorn és Gallery HTML. Columnes defineix el "
+"nombre de columnes a l’HTML de galeria generat. Els enllaços als fitxers "
+"d’imatge inclouen atributs de dades útils per a modals."
 
 msgid "CSS class"
 msgstr "Classe CSS"
@@ -907,8 +1411,14 @@ msgstr "Selecciona imatges de la galeria"
 msgid "After input"
 msgstr "Després del camp"
 
-msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
-msgstr "Es mostra després del camp a les pantalles d’edició. Feu-ho servir per a unitats o separadors breus, com ara kg, %, o ~. Aquest text no s’inclou en els valors desats ni en la sortida del front-end."
+msgid ""
+"Shown after the input on edit screens. Use this for short units or "
+"separators such as kg, %, or ~. This text is not included in saved values or "
+"front-end output."
+msgstr ""
+"Es mostra després del camp a les pantalles d’edició. Feu-ho servir per a "
+"unitats o separadors breus, com ara kg, %, o ~. Aquest text no s’inclou en "
+"els valors desats ni en la sortida del front-end."
 
 #: ../includes/fields/gallery.php:88
 msgid "Image Size"
@@ -935,20 +1445,37 @@ msgid "Full Size"
 msgstr "Mida completa"
 
 #: ../includes/fields/gallery.php:142
-msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
-msgstr "Mínim defineix el menor nombre d’imatges que es poden seleccionar. Màxim defineix el major nombre d’imatges que es poden seleccionar."
+msgid ""
+"Minimum sets the fewest images that can be selected. Maximum sets the most "
+"images that can be selected."
+msgstr ""
+"Mínim defineix el menor nombre d’imatges que es poden seleccionar. Màxim "
+"defineix el major nombre d’imatges que es poden seleccionar."
 
 #: ../includes/fields/loop.php:93
-msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
-msgstr "Mínim defineix el menor nombre de files que es poden afegir. Màxim defineix el major nombre de files que es poden afegir."
+msgid ""
+"Minimum sets the fewest rows that can be added. Maximum sets the most rows "
+"that can be added."
+msgstr ""
+"Mínim defineix el menor nombre de files que es poden afegir. Màxim defineix "
+"el major nombre de files que es poden afegir."
 
 #: ../includes/fields/relationship.php:125
-msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
-msgstr "Mínim defineix el menor nombre d’elements relacionats que es poden seleccionar. Màxim defineix el major nombre d’elements relacionats que es poden seleccionar."
+msgid ""
+"Minimum sets the fewest related items that can be selected. Maximum sets the "
+"most related items that can be selected."
+msgstr ""
+"Mínim defineix el menor nombre d’elements relacionats que es poden "
+"seleccionar. Màxim defineix el major nombre d’elements relacionats que es "
+"poden seleccionar."
 
 #: ../includes/fields/user.php:74
-msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
-msgstr "Mínim defineix el menor nombre d’usuaris que es poden seleccionar. Màxim defineix el major nombre d’usuaris que es poden seleccionar."
+msgid ""
+"Minimum sets the fewest users that can be selected. Maximum sets the most "
+"users that can be selected."
+msgstr ""
+"Mínim defineix el menor nombre d’usuaris que es poden seleccionar. Màxim "
+"defineix el major nombre d’usuaris que es poden seleccionar."
 
 #: ../includes/fields/true_false.php:37
 msgid "Checkbox Label"
@@ -957,21 +1484,6 @@ msgstr "Etiqueta de la casella"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "Es mostra al costat de la casella de selecció a la pantalla d’edició."
-
-msgid "Post Title (Native)"
-msgstr "Títol de l'entrada (natiu)"
-
-msgid "You do not have permission to change the native title."
-msgstr "No tens permís per canviar el títol natiu."
-
-msgid "Allowed User Role Groups"
-msgstr "Grups de rols d'usuari permesos"
-
-msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
-msgstr "Selecciona els rols que poden canviar el títol natiu. Deixa-ho en blanc per permetre qualsevol rol d'usuari que pugui editar l'entrada."
-
-msgid "Leave blank to allow any role that can edit this post"
-msgstr "Deixa-ho en blanc per permetre qualsevol rol que pugui editar aquesta entrada"
 
 #: includes/fields/post_publish.php
 msgid "Save / Publish (Native)"
@@ -984,6 +1496,35 @@ msgstr "No teniu permís per canviar la configuració de desar / publicar."
 #: includes/fields/post_publish.php
 msgid "Status"
 msgstr "Estat"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Current Status"
+msgstr "Estat"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Change Status"
+msgstr "Estat"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Do not change"
+msgstr "Permet canvis d’estat"
+
+#: includes/fields/post_publish.php
+msgid "Change to Draft"
+msgstr ""
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Change to Pending Review"
+msgstr "Pendent de revisió"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Publish / Schedule"
+msgstr "Publica o programa"
 
 #: includes/fields/post_publish.php
 msgid "Visibility"
@@ -1002,6 +1543,10 @@ msgid "Private"
 msgstr "Privat"
 
 #: includes/fields/post_publish.php
+msgid "Autosaving"
+msgstr ""
+
+#: includes/fields/post_publish.php
 msgid "Password"
 msgstr "Contrasenya"
 
@@ -1014,12 +1559,39 @@ msgid "Set to current date and time"
 msgstr "Estableix la data i hora actuals"
 
 #: includes/fields/post_publish.php
+#, fuzzy
+msgid "Save Draft"
+msgstr "Esborrany"
+
+#: includes/fields/post_publish.php
+msgid "Update"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Submit for Review"
+msgstr ""
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Publish"
+msgstr "Publicat"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Schedule"
+msgstr "Programat"
+
+#: includes/fields/post_publish.php
 msgid "Save / Publish Settings"
 msgstr "Configuració de desar / publicar"
 
 #: includes/fields/post_publish.php
-msgid "Choose which native WordPress save and publish controls are shown in this field."
-msgstr "Trieu quins controls natius de WordPress per desar i publicar es mostren en aquest camp."
+msgid ""
+"Choose which native WordPress save and publish controls are shown in this "
+"field."
+msgstr ""
+"Trieu quins controls natius de WordPress per desar i publicar es mostren en "
+"aquest camp."
 
 #: includes/fields/post_publish.php
 msgid "Allow status changes"
@@ -1042,10 +1614,6 @@ msgid "Pending Review"
 msgstr "Pendent de revisió"
 
 #: includes/fields/post_publish.php
-msgid "Published"
-msgstr "Publicat"
-
-#: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Programat"
 
@@ -1057,8 +1625,7 @@ msgstr "Accions"
 msgid "Duplicate"
 msgstr "Duplica"
 
-#: templates/admin_head.php
-#: templates/field_html.php
+#: templates/admin_head.php templates/field_html.php
 msgid "Automatically named when saved"
 msgstr "S'anomenara automaticament en desar"
 
@@ -1071,12 +1638,19 @@ msgid "Allowed Trash Roles"
 msgstr "Rols autoritzats per a la paperera"
 
 #: includes/fields/post_publish.php
-msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
-msgstr "Seleccioneu els rols que poden moure publicacions a la paperera des d'aquest camp. Deixeu-ho en blanc per permetre qualsevol rol d'usuari que pugui suprimir la publicacio."
+msgid ""
+"Select the roles that can move posts to trash from this field. Leave blank "
+"to allow any user role that can delete the post."
+msgstr ""
+"Seleccioneu els rols que poden moure publicacions a la paperera des d'aquest "
+"camp. Deixeu-ho en blanc per permetre qualsevol rol d'usuari que pugui "
+"suprimir la publicacio."
 
 #: includes/fields/post_publish.php
 msgid "Leave blank to allow any role that can delete this post"
-msgstr "Deixeu-ho en blanc per permetre qualsevol rol que pugui suprimir aquesta publicacio"
+msgstr ""
+"Deixeu-ho en blanc per permetre qualsevol rol que pugui suprimir aquesta "
+"publicacio"
 
 #: includes/fields/post_publish.php
 msgid "Move to Trash"
@@ -1107,8 +1681,12 @@ msgid "Content Editor"
 msgstr "Editor de contingut"
 
 #: includes/fields/post_content.php
-msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
-msgstr "Trieu com els editors editen el contingut natiu de WordPress. Aquest camp desa a post_content i no utilitza Gutenberg / l’editor de blocs."
+msgid ""
+"Choose how editors edit the native WordPress content. This field saves to "
+"post_content and does not use the Gutenberg / block editor."
+msgstr ""
+"Trieu com els editors editen el contingut natiu de WordPress. Aquest camp "
+"desa a post_content i no utilitza Gutenberg / l’editor de blocs."
 
 #: includes/fields/post_content.php
 msgid "Visual editor"
@@ -1132,7 +1710,17 @@ msgstr "Organitza les categories filles i netes horitzontalment"
 
 #: includes/fields/wp_category.php
 msgid "Leave both unchecked to use the traditional category tree."
-msgstr "Deixa les dues opcions sense marcar per utilitzar l’arbre de categories tradicional."
+msgstr ""
+"Deixa les dues opcions sense marcar per utilitzar l’arbre de categories "
+"tradicional."
+
+#: includes/fields/wp_category.php
+msgid "Hide the category search box"
+msgstr "Amaga el quadre de cerca de categories"
+
+#: includes/fields/wp_category.php
+msgid "Hide the selected-only filter"
+msgstr "Amaga el filtre de nomes seleccionats"
 
 #: includes/fields/wp_tag.php:35
 msgid "Choose from the most used tags"
@@ -1141,67 +1729,6 @@ msgstr "Tria entre les etiquetes més utilitzades"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "Encara no hi ha etiquetes utilitzades freqüentment."
-
-#: ../templates/meta_box_rules.php
-msgid "%s allowed"
-msgstr "Es poden seleccionar %s"
-
-#: ../templates/meta_box_rules.php
-msgid "Standard"
-msgstr "Estàndard"
-
-#: ../templates/meta_box_rules.php
-msgid "Administrator"
-msgstr "Administrador"
-
-#: ../templates/meta_box_rules.php
-msgid "Editor"
-msgstr "Editor"
-
-#: ../templates/meta_box_rules.php
-msgid "Author"
-msgstr "Autor"
-
-#: ../templates/meta_box_rules.php
-msgid "Contributor"
-msgstr "Col·laborador"
-
-#: ../templates/meta_box_rules.php
-msgid "Subscriber"
-msgstr "Subscriptor"
-
-msgid "The results could not be loaded."
-msgstr "No s'han pogut carregar els resultats."
-
-msgid "Please enter 1 more character"
-msgstr "Introduiu 1 caracter mes"
-
-msgid "Please enter %s or more characters"
-msgstr "Introduiu %s caracters o mes"
-
-msgid "Loading more results..."
-msgstr "S'estan carregant mes resultats..."
-
-msgid "No results found"
-msgstr "No s'han trobat resultats"
-
-msgid "Searching..."
-msgstr "S'esta cercant..."
-
-msgid "Require a condition selection"
-msgstr "Requereix una seleccio de condicio"
-
-msgid "Contains required fields"
-msgstr "Conte camps obligatoris"
-
-msgid "Please select a condition"
-msgstr "Seleccioneu una condicio"
-
-msgid "Hide the category search box"
-msgstr "Amaga el quadre de cerca de categories"
-
-msgid "Hide the selected-only filter"
-msgstr "Amaga el filtre de nomes seleccionats"
 
 #: includes/fields/post_publish.php
 msgid "Preview Changes"
@@ -1222,3 +1749,120 @@ msgstr "Canvia a programat"
 #: includes/fields/post_publish.php
 msgid "Change to Publish or Schedule"
 msgstr "Canvia a publicar o programar"
+
+#: templates/admin_head.php
+msgid ""
+"The number of input fields is large, and some field group settings may not "
+"be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number "
+"of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or "
+"your server settings."
+msgstr ""
+
+#: templates/admin_head.php
+#, php-format
+msgid "Current inputs: %1$s / max_input_vars: %2$s"
+msgstr ""
+
+#: templates/meta_box_extras.php
+msgid "Hide revisions"
+msgstr ""
+
+#: includes/init.php
+msgid ""
+"The field group form exceeded the server input limit, so field settings were "
+"not saved to avoid data loss. PHP max_input_vars is commonly 1000 by "
+"default. Placement Rules and Extras were saved only if they reached the "
+"server. Reduce the number of fields or increase max_input_vars in "
+"php.ini, .user.ini, .htaccess, or your server settings."
+msgstr ""
+
+#: includes/init.php
+#, fuzzy
+msgid "CFS save warning:"
+msgstr "Avis d ubicacio de CFS:"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "+ Add category"
+msgstr "Categoria estandard"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category name"
+msgstr "Origen de categoria"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Parent category"
+msgstr "Cerca categories"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Add category"
+msgstr "Categoria estandard"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category Adding"
+msgstr "Seleccio de categories"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Show + Add category"
+msgstr "Categoria estandard"
+
+#: includes/fields/wp_category.php
+msgid ""
+"Users must also have permission to create terms for the selected taxonomy."
+msgstr ""
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Allowed Add Roles"
+msgstr "Rols autoritzats per a la paperera"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid ""
+"Select the roles that can add categories from this field. Leave blank to "
+"allow any role that can create terms for this taxonomy."
+msgstr ""
+"Seleccioneu els rols que poden moure publicacions a la paperera des d'aquest "
+"camp. Deixeu-ho en blanc per permetre qualsevol rol d'usuari que pugui "
+"suprimir la publicacio."
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Leave blank to allow any role that can create categories"
+msgstr ""
+"Deixeu-ho en blanc per permetre qualsevol rol que pugui suprimir aquesta "
+"publicacio"
+
+#: includes/fields/wp_category.php
+msgid "Adding category..."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Category added."
+msgstr "Origen de categoria"
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Enter a category name."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Failed to add category."
+msgstr "Categoria estandard"
+
+#: includes/init.php
+#, fuzzy
+msgid "You do not have permission to add categories."
+msgstr "No tens permís per canviar el títol natiu."
+
+#~ msgid "Position"
+#~ msgstr "Posició"
+
+#~ msgid "Hide the content editor"
+#~ msgstr "Amagar l'editor de continguts"

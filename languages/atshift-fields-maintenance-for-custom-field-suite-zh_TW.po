@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: atshift Fields\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2026-07-19 00:00+0900\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
 "PO-Revision-Date: 2026-07-19 00:00+0900\n"
 "Last-Translator: at-shift\n"
 "Language-Team: Chinese (Taiwan)\n"
@@ -41,6 +41,10 @@ msgstr "下拉式選單"
 msgid "Used for radio buttons. The first choice is used when left blank."
 msgstr "用於單選按鈕。留空時使用第一個選擇。"
 
+#: ../includes/fields/conditional.php:174
+msgid "Require a condition selection"
+msgstr "要求選擇條件"
+
 #: ../templates/field_html.php:94
 msgid "Display for choice"
 msgstr "顯示供選擇"
@@ -50,7 +54,8 @@ msgid "Choose the parent Conditional Group value that displays this field."
 msgstr "選擇顯示此欄位的父條件組值。"
 
 #: ../templates/admin_head.php:50
-msgid "Tabs and conditional groups cannot be placed inside a Conditional Group."
+msgid ""
+"Tabs and conditional groups cannot be placed inside a Conditional Group."
 msgstr "選項卡和條件組不能放置在條件組內。"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
@@ -182,7 +187,9 @@ msgstr "新增行"
 msgid "Limits"
 msgstr "限制"
 
-msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgid ""
+"Minimum sets the fewest terms that can be selected. Maximum sets the most "
+"terms that can be selected."
 msgstr "最小值設定可以選擇的最少項。最大設定可以選擇的最多項。"
 
 #: ../includes/fields/relationship.php:8
@@ -415,7 +422,9 @@ msgid "Name"
 msgstr "姓名"
 
 #: ../templates/field_html.php:42
-msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
 msgstr "欄位名稱傳遞到 get() 以檢索值。僅使用小寫字母、數字和底線。"
 
 #: ../templates/field_html.php:49
@@ -471,11 +480,17 @@ msgid "Native Editor Display Settings"
 msgstr "本機編輯器顯示設定"
 
 #: ../templates/meta_box_extras.php:298
-msgid "These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed."
-msgstr "這些設定隱藏符合貼文的本機 __CFS_PH_3__ 編輯器部分，無論此欄位群組顯示在何處。"
+msgid ""
+"These settings hide native WordPress editor sections for matching posts, "
+"regardless of where this field group is displayed."
+msgstr ""
+"這些設定隱藏符合貼文的本機 __CFS_PH_3__ 編輯器部分，無論此欄位群組顯示在何"
+"處。"
 
 #: ../templates/meta_box_extras.php:64
-msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgid ""
+"Hide the content editor (also hides the Gutenberg / block editor for "
+"matching posts)"
 msgstr "隱藏內容編輯器（也隱藏符合貼文的__CFS_PH_4__ /區塊編輯器）"
 
 #: ../templates/meta_box_extras.php:78
@@ -487,7 +502,9 @@ msgid "Force the post edit screen layout to 1 column"
 msgstr "強制貼文編輯畫面版面配置為 1 列"
 
 #: ../templates/meta_box_extras.php:309
-msgid "Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area."
+msgid ""
+"Third-party side meta boxes are not hidden; in the 1-column layout, they "
+"appear below the main editor area."
 msgstr "第三方側元框不隱藏；在 1 列佈局中，它們出現在主編輯器區域下方。"
 
 #: ../templates/meta_box_extras.php:93
@@ -535,8 +552,7 @@ msgstr "隱藏標籤"
 msgid "Hide featured image"
 msgstr "隱藏特色圖片"
 
-#: ../templates/meta_box_extras.php:313
-#: ../templates/meta_box_extras.php:329
+#: ../templates/meta_box_extras.php:313 ../templates/meta_box_extras.php:329
 msgid "Hiding behavior"
 msgstr "隱藏行為"
 
@@ -657,7 +673,9 @@ msgid "Export"
 msgstr "出口"
 
 #: ../templates/page_tools.php:96
-msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
+msgid ""
+"Select the field groups you want to export, press the button, then save the "
+"displayed code. You can select multiple items."
 msgstr "選擇要匯出的欄位組，按下按鈕，然後儲存顯示的代碼。您可以選擇多個項目。"
 
 #: ../templates/page_tools.php:112
@@ -669,7 +687,9 @@ msgid "Import"
 msgstr "進口"
 
 #: ../templates/page_tools.php:122
-msgid "Paste the exported field group code into the input field below, then press the button."
+msgid ""
+"Paste the exported field group code into the input field below, then press "
+"the button."
 msgstr "將匯出的欄位組代碼貼到下面的輸入欄位中，然後按 按鈕。"
 
 #: ../templates/page_tools.php:125
@@ -732,8 +752,12 @@ msgstr "單選按鈕"
 msgid "Select2"
 msgstr "Select2"
 
-msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
-msgstr "顯示帶有 __CFS_PH_5__ 的選擇欄位。這使得長選擇清單更容易在編輯畫面上搜尋和選擇。"
+msgid ""
+"Displays the select field with Select2. This makes long choice lists easier "
+"to search and select on edit screens."
+msgstr ""
+"顯示帶有 __CFS_PH_5__ 的選擇欄位。這使得長選擇清單更容易在編輯畫面上搜尋和選"
+"擇。"
 
 #: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
@@ -756,7 +780,9 @@ msgid "Limit terms to the following taxonomies"
 msgstr "將術語限制為以下分類法"
 
 #: ../includes/form.php:247
-msgid "One (or more) of your fields had validation errors. More information is available below."
+msgid ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
 msgstr "您的一個（或多個）欄位存在驗證錯誤。更多資訊如下。"
 
 #: ../includes/form.php:444
@@ -791,8 +817,12 @@ msgstr "數位"
 msgid "Number Settings"
 msgstr "號碼設定"
 
-msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
-msgstr "最小值設定允許的最低值。最大值設定允許的最高值。 Step 設定值之間允許的間隔，例如 1、0.1 或 5。"
+msgid ""
+"Minimum sets the lowest allowed value. Maximum sets the highest allowed "
+"value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr ""
+"最小值設定允許的最低值。最大值設定允許的最高值。 Step 設定值之間允許的間隔，"
+"例如 1、0.1 或 5。"
 
 msgid "Minimum"
 msgstr "最低限度"
@@ -898,7 +928,9 @@ msgstr "您無權更改原住民頭銜。"
 msgid "Allowed User Role Groups"
 msgstr "允許的使用者角色群組"
 
-msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgid ""
+"Select the roles that can change the native title. Leave blank to allow any "
+"user role that can edit the post."
 msgstr "選擇可以更改本機頭銜的角色。留空以允許任何可以編輯貼文的使用者角色。"
 
 msgid "Leave blank to allow any role that can edit this post"
@@ -943,11 +975,21 @@ msgstr "選擇子類別也會選擇其父類別"
 msgid "CFS placement warning:"
 msgstr "CFS 放置警告："
 
-msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "該字段組沒有放置規則。它將出現在所有可編輯的帖子螢幕上，因此請設定帖子類型或其他放置規則，除非是故意的。"
+msgid ""
+"This field group has no placement rules. It will appear on all editable post "
+"screens, so set a Post Type or another placement rule unless that is "
+"intentional."
+msgstr ""
+"該字段組沒有放置規則。它將出現在所有可編輯的帖子螢幕上，因此請設定帖子類型或"
+"其他放置規則，除非是故意的。"
 
-msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "已保存，但该字段组没有放置规则。它將出現在所有可編輯的帖子螢幕上，因此請設定帖子類型或其他放置規則，除非是故意的。"
+msgid ""
+"Saved, but this field group has no placement rules. It will appear on all "
+"editable post screens, so set a Post Type or another placement rule unless "
+"that is intentional."
+msgstr ""
+"已保存，但该字段组没有放置规则。它將出現在所有可編輯的帖子螢幕上，因此請設定"
+"帖子類型或其他放置規則，除非是故意的。"
 
 msgid "No placement rules"
 msgstr "無放置規則"
@@ -970,6 +1012,9 @@ msgstr "在該循環組中新增至少一個欄位。"
 msgid "Add at least one field to this accordion group."
 msgstr "在該手風琴組中添加至少一個欄位。"
 
+msgid "Contains required fields"
+msgstr "包含必填欄位"
+
 msgid "Set conditions and add fields to each condition."
 msgstr "設定條件並向每個條件新增欄位。"
 
@@ -982,7 +1027,9 @@ msgstr "建立兩個或多個條件，然後在每個條件下新增欄位。"
 msgid "Add fields to each empty condition."
 msgstr "將欄位新增至每個空條件。"
 
-msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgid ""
+"Tabs, loops, and horizontal groups cannot be placed inside a horizontal "
+"group."
 msgstr "製表符、循環和水平組不能放置在水平組內。"
 
 msgid "Code View"
@@ -991,8 +1038,13 @@ msgstr "程式碼檢視"
 msgid "Shortcode"
 msgstr "短代碼"
 
-msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
-msgstr "元框是由第三方外掛程式新增至 __CFS_PH_3__ 貼文編輯畫面的設定或輸入框。此欄位僅用於重新定位第三方元框並將其移至 __CFS_PH_1__ 欄位組。"
+msgid ""
+"A meta box is a settings or input box added to the WordPress post edit "
+"screen by a third-party plugin. This field is only for repositioning and "
+"moving a third-party meta box into an atshift Fields field group."
+msgstr ""
+"元框是由第三方外掛程式新增至 __CFS_PH_3__ 貼文編輯畫面的設定或輸入框。此欄位"
+"僅用於重新定位第三方元框並將其移至 __CFS_PH_1__ 欄位組。"
 
 msgid "Classic Meta Box Placement"
 msgstr "Meta Box 配置（Classic）"
@@ -1012,10 +1064,17 @@ msgstr "該元框已放置在另一個插槽。"
 msgid "Meta Box ID"
 msgstr "Meta Box ID"
 
-msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
-msgstr "從放置規則中選擇的貼文類型中偵測經典的第三方元框，或手動輸入其 HTML 來源 ID。原始插件繼續處理保存。"
+msgid ""
+"Detect a classic third-party meta box from the post types selected in "
+"Placement Rules, or enter its HTML source id manually. The original plugin "
+"keeps handling saving."
+msgstr ""
+"從放置規則中選擇的貼文類型中偵測經典的第三方元框，或手動輸入其 HTML 來源 ID。"
+"原始插件繼續處理保存。"
 
-msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgid ""
+"Classic meta boxes rendered in the edit screen can be moved. Block Editor-"
+"only panels are not supported."
 msgstr "可以移動編輯畫面中呈現的經典元框。不支援僅塊編輯器面板。"
 
 msgid "Display Width"
@@ -1079,8 +1138,15 @@ msgstr "複製"
 msgid "Copied"
 msgstr "已複製"
 
-msgid "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
-msgstr "此外掛程式是 Custom Field Suite 的維護與擴充版本，可在 WordPress 編輯畫面中加入更有效且彈性的輸入欄位。"
+msgid "Language"
+msgstr ""
+
+msgid ""
+"This plugin is a maintained and extended version of Custom Field Suite that "
+"adds more effective and flexible input fields to WordPress edit screens."
+msgstr ""
+"此外掛程式是 Custom Field Suite 的維護與擴充版本，可在 WordPress 編輯畫面中加"
+"入更有效且彈性的輸入欄位。"
 
 msgid "Accordion Group"
 msgstr "手風琴組"
@@ -1091,7 +1157,9 @@ msgstr "初始狀態"
 msgid "Open by default"
 msgstr "預設開啟"
 
-msgid "Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group."
+msgid ""
+"Tabs, loops, accordions, conditional groups, and horizontal groups cannot be "
+"placed inside a horizontal group."
 msgstr "製表符、循環、折疊式、條件組和水平組不能放置在水平組內。"
 
 msgid "Tabs cannot be placed inside an accordion."
@@ -1130,6 +1198,9 @@ msgstr "請輸入 URL"
 msgid "Please enter a valid URL"
 msgstr "請輸入有效的 URL"
 
+msgid "Please select a condition"
+msgstr "請選擇條件"
+
 msgid "Please select a time"
 msgstr "請選擇時間"
 
@@ -1163,7 +1234,8 @@ msgstr "狀態"
 msgid "This field name is duplicated. Use a unique field name."
 msgstr "此欄位名稱重複。使用唯一的欄位名稱。"
 
-msgid "Duplicate field names found: %s. Field names must be unique before saving."
+msgid ""
+"Duplicate field names found: %s. Field names must be unique before saving."
 msgstr "找到重複的欄位名稱：%s。儲存前欄位名稱必須唯一。"
 
 msgid "Move here"
@@ -1188,7 +1260,9 @@ msgstr "標準類別"
 msgid "Category Source"
 msgstr "類別來源"
 
-msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgid ""
+"Choose the standard category or a registered Shared Taxonomy to show and "
+"save with this field."
 msgstr "選擇要使用此欄位顯示和儲存的標準類別或已註冊的共用分類法。"
 
 msgid "Photo Gallery"
@@ -1218,8 +1292,13 @@ msgstr "畫廊 HTML"
 msgid "Gallery Display"
 msgstr "畫廊展示"
 
-msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "當傳回值為 Gallery HTML 時使用。列數設定產生的庫 HTML 中的列數。圖像檔案連結包括模式友善的資料屬性。"
+msgid ""
+"Used when the return value is Gallery HTML. Columns sets the number of "
+"columns in the generated gallery HTML. Image file links include modal-"
+"friendly data attributes."
+msgstr ""
+"當傳回值為 Gallery HTML 時使用。列數設定產生的庫 HTML 中的列數。圖像檔案連結"
+"包括模式友善的資料屬性。"
 
 msgid "CSS class"
 msgstr "CSS class"
@@ -1239,8 +1318,13 @@ msgstr "選擇圖庫圖像"
 msgid "After input"
 msgstr "輸入後"
 
-msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
-msgstr "在編輯畫面上輸入後顯示。將此用於短單位或分隔符，例如 kg、% 或 ~。此文字不包含在已儲存的值或前端輸出中。"
+msgid ""
+"Shown after the input on edit screens. Use this for short units or "
+"separators such as kg, %, or ~. This text is not included in saved values or "
+"front-end output."
+msgstr ""
+"在編輯畫面上輸入後顯示。將此用於短單位或分隔符，例如 kg、% 或 ~。此文字不包含"
+"在已儲存的值或前端輸出中。"
 
 #: ../includes/fields/gallery.php:88
 msgid "Image Size"
@@ -1267,19 +1351,27 @@ msgid "Full Size"
 msgstr "全尺寸"
 
 #: ../includes/fields/gallery.php:142
-msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgid ""
+"Minimum sets the fewest images that can be selected. Maximum sets the most "
+"images that can be selected."
 msgstr "最小值設定可以選擇的最少圖像。最大設定可以選擇的圖像數量。"
 
 #: ../includes/fields/loop.php:93
-msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgid ""
+"Minimum sets the fewest rows that can be added. Maximum sets the most rows "
+"that can be added."
 msgstr "最小值設定可以增加的最少行數。最大值設定可以添加的最多行數。"
 
 #: ../includes/fields/relationship.php:125
-msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgid ""
+"Minimum sets the fewest related items that can be selected. Maximum sets the "
+"most related items that can be selected."
 msgstr "最小值設定可以選擇的最少相關項目。最大設定可以選擇的最相關的項目。"
 
 #: ../includes/fields/user.php:74
-msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgid ""
+"Minimum sets the fewest users that can be selected. Maximum sets the most "
+"users that can be selected."
 msgstr "最小值設定可以選擇的最少用戶。最大設定可以選擇的最多使用者。"
 
 #: ../includes/fields/true_false.php:37
@@ -1383,7 +1475,9 @@ msgid "Save / Publish Settings"
 msgstr "儲存/發佈設定"
 
 #: includes/fields/post_publish.php
-msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgid ""
+"Choose which native WordPress save and publish controls are shown in this "
+"field."
 msgstr "選擇此欄位中顯示的本機 __CFS_PH_3__ 儲存和發佈控制項。"
 
 #: includes/fields/post_publish.php
@@ -1418,8 +1512,7 @@ msgstr "行動"
 msgid "Duplicate"
 msgstr "複製"
 
-#: templates/admin_head.php
-#: templates/field_html.php
+#: templates/admin_head.php templates/field_html.php
 msgid "Automatically named when saved"
 msgstr "儲存時自動命名"
 
@@ -1432,8 +1525,12 @@ msgid "Allowed Trash Roles"
 msgstr "允許的垃圾角色"
 
 #: includes/fields/post_publish.php
-msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
-msgstr "從此欄位中選擇可以將貼文移至回收站的角色。留空以允許任何可以刪除貼文的使用者角色。"
+msgid ""
+"Select the roles that can move posts to trash from this field. Leave blank "
+"to allow any user role that can delete the post."
+msgstr ""
+"從此欄位中選擇可以將貼文移至回收站的角色。留空以允許任何可以刪除貼文的使用者"
+"角色。"
 
 #: includes/fields/post_publish.php
 msgid "Leave blank to allow any role that can delete this post"
@@ -1468,8 +1565,12 @@ msgid "Content Editor"
 msgstr "內容編輯"
 
 #: includes/fields/post_content.php
-msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
-msgstr "選擇編輯者如何編輯原生 __CFS_PH_3__ 內容。此欄位儲存到 post_content 且不使用 __CFS_PH_4__ / 區塊編輯器。"
+msgid ""
+"Choose how editors edit the native WordPress content. This field saves to "
+"post_content and does not use the Gutenberg / block editor."
+msgstr ""
+"選擇編輯者如何編輯原生 __CFS_PH_3__ 內容。此欄位儲存到 post_content 且不使用 "
+"__CFS_PH_4__ / 區塊編輯器。"
 
 #: includes/fields/post_content.php
 msgid "Visual editor"
@@ -1495,6 +1596,14 @@ msgstr "水平排列子類別和孫類別"
 msgid "Leave both unchecked to use the traditional category tree."
 msgstr "不選取兩者即可使用傳統的類別樹。"
 
+#: includes/fields/wp_category.php
+msgid "Hide the category search box"
+msgstr "隱藏分類搜尋框"
+
+#: includes/fields/wp_category.php
+msgid "Hide the selected-only filter"
+msgstr "隱藏僅顯示已選取篩選器"
+
 #: includes/fields/wp_tag.php:35
 msgid "Choose from the most used tags"
 msgstr "從最常用的標籤中選擇"
@@ -1502,21 +1611,6 @@ msgstr "從最常用的標籤中選擇"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "目前還沒有常用的標籤。"
-
-msgid "Require a condition selection"
-msgstr "要求選擇條件"
-
-msgid "Contains required fields"
-msgstr "包含必填欄位"
-
-msgid "Please select a condition"
-msgstr "請選擇條件"
-
-msgid "Hide the category search box"
-msgstr "隱藏分類搜尋框"
-
-msgid "Hide the selected-only filter"
-msgstr "隱藏僅顯示已選取篩選器"
 
 #: includes/fields/post_publish.php
 msgid "Preview Changes"
@@ -1537,3 +1631,111 @@ msgstr "改為排程發布"
 #: includes/fields/post_publish.php
 msgid "Change to Publish or Schedule"
 msgstr "改為發布或排程發布"
+
+#: templates/admin_head.php
+msgid ""
+"The number of input fields is large, and some field group settings may not "
+"be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number "
+"of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or "
+"your server settings."
+msgstr ""
+
+#: templates/admin_head.php
+#, php-format
+msgid "Current inputs: %1$s / max_input_vars: %2$s"
+msgstr ""
+
+#: templates/meta_box_extras.php
+msgid "Hide revisions"
+msgstr ""
+
+#: includes/init.php
+msgid ""
+"The field group form exceeded the server input limit, so field settings were "
+"not saved to avoid data loss. PHP max_input_vars is commonly 1000 by "
+"default. Placement Rules and Extras were saved only if they reached the "
+"server. Reduce the number of fields or increase max_input_vars in "
+"php.ini, .user.ini, .htaccess, or your server settings."
+msgstr ""
+
+#: includes/init.php
+#, fuzzy
+msgid "CFS save warning:"
+msgstr "CFS 放置警告："
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "+ Add category"
+msgstr "標準類別"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category name"
+msgstr "類別來源"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Parent category"
+msgstr "搜尋類別"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Add category"
+msgstr "標準類別"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category Adding"
+msgstr "類別選擇"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Show + Add category"
+msgstr "標準類別"
+
+#: includes/fields/wp_category.php
+msgid ""
+"Users must also have permission to create terms for the selected taxonomy."
+msgstr ""
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Allowed Add Roles"
+msgstr "允許的垃圾角色"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid ""
+"Select the roles that can add categories from this field. Leave blank to "
+"allow any role that can create terms for this taxonomy."
+msgstr ""
+"從此欄位中選擇可以將貼文移至回收站的角色。留空以允許任何可以刪除貼文的使用者"
+"角色。"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Leave blank to allow any role that can create categories"
+msgstr "留空以允許任何可以刪除此帖子的角色"
+
+#: includes/fields/wp_category.php
+msgid "Adding category..."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Category added."
+msgstr "類別來源"
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Enter a category name."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Failed to add category."
+msgstr "標準類別"
+
+#: includes/init.php
+#, fuzzy
+msgid "You do not have permission to add categories."
+msgstr "您無權更改原住民頭銜。"

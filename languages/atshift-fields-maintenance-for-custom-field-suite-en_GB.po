@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: atshift Fields\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2026-07-19 00:00+0900\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
 "PO-Revision-Date: 2026-07-19 00:00+0900\n"
 "Last-Translator: at-shift\n"
 "Language-Team: English (UK)\n"
@@ -41,6 +41,10 @@ msgstr "Dropdown"
 msgid "Used for radio buttons. The first choice is used when left blank."
 msgstr "Used for radio buttons. The first choice is used when left blank."
 
+#: ../includes/fields/conditional.php:174
+msgid "Require a condition selection"
+msgstr "Require a condition selection"
+
 #: ../templates/field_html.php:94
 msgid "Display for choice"
 msgstr "Display for choice"
@@ -50,8 +54,10 @@ msgid "Choose the parent Conditional Group value that displays this field."
 msgstr "Choose the parent Conditional Group value that displays this field."
 
 #: ../templates/admin_head.php:50
-msgid "Tabs and conditional groups cannot be placed inside a Conditional Group."
-msgstr "Tabs and conditional groups cannot be placed inside a Conditional Group."
+msgid ""
+"Tabs and conditional groups cannot be placed inside a Conditional Group."
+msgstr ""
+"Tabs and conditional groups cannot be placed inside a Conditional Group."
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
@@ -182,8 +188,12 @@ msgstr "Add Row"
 msgid "Limits"
 msgstr "Limits"
 
-msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
-msgstr "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgid ""
+"Minimum sets the fewest terms that can be selected. Maximum sets the most "
+"terms that can be selected."
+msgstr ""
+"Minimum sets the fewest terms that can be selected. Maximum sets the most "
+"terms that can be selected."
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
@@ -415,8 +425,12 @@ msgid "Name"
 msgstr "Name"
 
 #: ../templates/field_html.php:42
-msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
@@ -471,12 +485,20 @@ msgid "Native Editor Display Settings"
 msgstr "Native Editor Display Settings"
 
 #: ../templates/meta_box_extras.php:298
-msgid "These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed."
-msgstr "These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed."
+msgid ""
+"These settings hide native WordPress editor sections for matching posts, "
+"regardless of where this field group is displayed."
+msgstr ""
+"These settings hide native WordPress editor sections for matching posts, "
+"regardless of where this field group is displayed."
 
 #: ../templates/meta_box_extras.php:64
-msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
-msgstr "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgid ""
+"Hide the content editor (also hides the Gutenberg / block editor for "
+"matching posts)"
+msgstr ""
+"Hide the content editor (also hides the Gutenberg / block editor for "
+"matching posts)"
 
 #: ../templates/meta_box_extras.php:78
 msgid "Hide page attributes"
@@ -487,8 +509,12 @@ msgid "Force the post edit screen layout to 1 column"
 msgstr "Force the post edit screen layout to 1 column"
 
 #: ../templates/meta_box_extras.php:309
-msgid "Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area."
-msgstr "Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area."
+msgid ""
+"Third-party side meta boxes are not hidden; in the 1-column layout, they "
+"appear below the main editor area."
+msgstr ""
+"Third-party side meta boxes are not hidden; in the 1-column layout, they "
+"appear below the main editor area."
 
 #: ../templates/meta_box_extras.php:93
 msgid "All roles"
@@ -535,8 +561,7 @@ msgstr "Hide tags"
 msgid "Hide featured image"
 msgstr "Hide featured image"
 
-#: ../templates/meta_box_extras.php:313
-#: ../templates/meta_box_extras.php:329
+#: ../templates/meta_box_extras.php:313 ../templates/meta_box_extras.php:329
 msgid "Hiding behavior"
 msgstr "Hiding behavior"
 
@@ -657,8 +682,12 @@ msgid "Export"
 msgstr "Export"
 
 #: ../templates/page_tools.php:96
-msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
-msgstr "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
+msgid ""
+"Select the field groups you want to export, press the button, then save the "
+"displayed code. You can select multiple items."
+msgstr ""
+"Select the field groups you want to export, press the button, then save the "
+"displayed code. You can select multiple items."
 
 #: ../templates/page_tools.php:112
 msgid "Export Code"
@@ -669,8 +698,12 @@ msgid "Import"
 msgstr "Import"
 
 #: ../templates/page_tools.php:122
-msgid "Paste the exported field group code into the input field below, then press the button."
-msgstr "Paste the exported field group code into the input field below, then press the button."
+msgid ""
+"Paste the exported field group code into the input field below, then press "
+"the button."
+msgstr ""
+"Paste the exported field group code into the input field below, then press "
+"the button."
 
 #: ../templates/page_tools.php:125
 msgid "Import Code"
@@ -732,8 +765,12 @@ msgstr "Radio Button"
 msgid "Select2"
 msgstr "Select2"
 
-msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
-msgstr "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgid ""
+"Displays the select field with Select2. This makes long choice lists easier "
+"to search and select on edit screens."
+msgstr ""
+"Displays the select field with Select2. This makes long choice lists easier "
+"to search and select on edit screens."
 
 #: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
@@ -756,8 +793,12 @@ msgid "Limit terms to the following taxonomies"
 msgstr "Limit terms to the following taxonomies"
 
 #: ../includes/form.php:247
-msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "One (or more) of your fields had validation errors. More information is available below."
+msgid ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
+msgstr ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
 
 #: ../includes/form.php:444
 msgid "Toggle row visibility"
@@ -791,8 +832,12 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
-msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
-msgstr "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgid ""
+"Minimum sets the lowest allowed value. Maximum sets the highest allowed "
+"value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr ""
+"Minimum sets the lowest allowed value. Maximum sets the highest allowed "
+"value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
 
 msgid "Minimum"
 msgstr "Minimum"
@@ -898,8 +943,12 @@ msgstr "You do not have permission to change the native title."
 msgid "Allowed User Role Groups"
 msgstr "Allowed User Role Groups"
 
-msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
-msgstr "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgid ""
+"Select the roles that can change the native title. Leave blank to allow any "
+"user role that can edit the post."
+msgstr ""
+"Select the roles that can change the native title. Leave blank to allow any "
+"user role that can edit the post."
 
 msgid "Leave blank to allow any role that can edit this post"
 msgstr "Leave blank to allow any role that can edit this post"
@@ -943,11 +992,23 @@ msgstr "Selecting a child also selects its parent categories"
 msgid "CFS placement warning:"
 msgstr "CFS placement warning:"
 
-msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
+msgid ""
+"This field group has no placement rules. It will appear on all editable post "
+"screens, so set a Post Type or another placement rule unless that is "
+"intentional."
+msgstr ""
+"This field group has no placement rules. It will appear on all editable post "
+"screens, so set a Post Type or another placement rule unless that is "
+"intentional."
 
-msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
+msgid ""
+"Saved, but this field group has no placement rules. It will appear on all "
+"editable post screens, so set a Post Type or another placement rule unless "
+"that is intentional."
+msgstr ""
+"Saved, but this field group has no placement rules. It will appear on all "
+"editable post screens, so set a Post Type or another placement rule unless "
+"that is intentional."
 
 msgid "No placement rules"
 msgstr "No placement rules"
@@ -970,6 +1031,9 @@ msgstr "Add at least one field to this loop group."
 msgid "Add at least one field to this accordion group."
 msgstr "Add at least one field to this accordion group."
 
+msgid "Contains required fields"
+msgstr "Contains required fields"
+
 msgid "Set conditions and add fields to each condition."
 msgstr "Set conditions and add fields to each condition."
 
@@ -982,8 +1046,12 @@ msgstr "Create two or more conditions, then add fields to each condition."
 msgid "Add fields to each empty condition."
 msgstr "Add fields to each empty condition."
 
-msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgid ""
+"Tabs, loops, and horizontal groups cannot be placed inside a horizontal "
+"group."
+msgstr ""
+"Tabs, loops, and horizontal groups cannot be placed inside a horizontal "
+"group."
 
 msgid "Code View"
 msgstr "Code View"
@@ -991,8 +1059,14 @@ msgstr "Code View"
 msgid "Shortcode"
 msgstr "Shortcode"
 
-msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
-msgstr "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgid ""
+"A meta box is a settings or input box added to the WordPress post edit "
+"screen by a third-party plugin. This field is only for repositioning and "
+"moving a third-party meta box into an atshift Fields field group."
+msgstr ""
+"A meta box is a settings or input box added to the WordPress post edit "
+"screen by a third-party plugin. This field is only for repositioning and "
+"moving a third-party meta box into an atshift Fields field group."
 
 msgid "Classic Meta Box Placement"
 msgstr "Classic Meta Box Placement"
@@ -1012,11 +1086,21 @@ msgstr "This meta box is already placed in another slot."
 msgid "Meta Box ID"
 msgstr "Meta Box ID"
 
-msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
-msgstr "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgid ""
+"Detect a classic third-party meta box from the post types selected in "
+"Placement Rules, or enter its HTML source id manually. The original plugin "
+"keeps handling saving."
+msgstr ""
+"Detect a classic third-party meta box from the post types selected in "
+"Placement Rules, or enter its HTML source id manually. The original plugin "
+"keeps handling saving."
 
-msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
-msgstr "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgid ""
+"Classic meta boxes rendered in the edit screen can be moved. Block Editor-"
+"only panels are not supported."
+msgstr ""
+"Classic meta boxes rendered in the edit screen can be moved. Block Editor-"
+"only panels are not supported."
 
 msgid "Display Width"
 msgstr "Display Width"
@@ -1079,8 +1163,15 @@ msgstr "Copy"
 msgid "Copied"
 msgstr "Copied"
 
-msgid "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
-msgstr "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
+msgid "Language"
+msgstr ""
+
+msgid ""
+"This plugin is a maintained and extended version of Custom Field Suite that "
+"adds more effective and flexible input fields to WordPress edit screens."
+msgstr ""
+"This plugin is a maintained and extended version of Custom Field Suite that "
+"adds more effective and flexible input fields to WordPress edit screens."
 
 msgid "Accordion Group"
 msgstr "Accordion Group"
@@ -1091,8 +1182,12 @@ msgstr "Initial State"
 msgid "Open by default"
 msgstr "Open by default"
 
-msgid "Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group."
+msgid ""
+"Tabs, loops, accordions, conditional groups, and horizontal groups cannot be "
+"placed inside a horizontal group."
+msgstr ""
+"Tabs, loops, accordions, conditional groups, and horizontal groups cannot be "
+"placed inside a horizontal group."
 
 msgid "Tabs cannot be placed inside an accordion."
 msgstr "Tabs cannot be placed inside an accordion."
@@ -1130,6 +1225,9 @@ msgstr "Please enter a URL"
 msgid "Please enter a valid URL"
 msgstr "Please enter a valid URL"
 
+msgid "Please select a condition"
+msgstr "Please select a condition"
+
 msgid "Please select a time"
 msgstr "Please select a time"
 
@@ -1163,8 +1261,10 @@ msgstr "CONDITION"
 msgid "This field name is duplicated. Use a unique field name."
 msgstr "This field name is duplicated. Use a unique field name."
 
-msgid "Duplicate field names found: %s. Field names must be unique before saving."
-msgstr "Duplicate field names found: %s. Field names must be unique before saving."
+msgid ""
+"Duplicate field names found: %s. Field names must be unique before saving."
+msgstr ""
+"Duplicate field names found: %s. Field names must be unique before saving."
 
 msgid "Move here"
 msgstr "Move here"
@@ -1188,8 +1288,12 @@ msgstr "Standard Category"
 msgid "Category Source"
 msgstr "Category Source"
 
-msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
-msgstr "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgid ""
+"Choose the standard category or a registered Shared Taxonomy to show and "
+"save with this field."
+msgstr ""
+"Choose the standard category or a registered Shared Taxonomy to show and "
+"save with this field."
 
 msgid "Photo Gallery"
 msgstr "Photo Gallery"
@@ -1218,8 +1322,14 @@ msgstr "Gallery HTML"
 msgid "Gallery Display"
 msgstr "Gallery Display"
 
-msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgid ""
+"Used when the return value is Gallery HTML. Columns sets the number of "
+"columns in the generated gallery HTML. Image file links include modal-"
+"friendly data attributes."
+msgstr ""
+"Used when the return value is Gallery HTML. Columns sets the number of "
+"columns in the generated gallery HTML. Image file links include modal-"
+"friendly data attributes."
 
 msgid "CSS class"
 msgstr "CSS class"
@@ -1239,8 +1349,14 @@ msgstr "Select Gallery Images"
 msgid "After input"
 msgstr "After input"
 
-msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
-msgstr "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgid ""
+"Shown after the input on edit screens. Use this for short units or "
+"separators such as kg, %, or ~. This text is not included in saved values or "
+"front-end output."
+msgstr ""
+"Shown after the input on edit screens. Use this for short units or "
+"separators such as kg, %, or ~. This text is not included in saved values or "
+"front-end output."
 
 #: ../includes/fields/gallery.php:88
 msgid "Image Size"
@@ -1267,20 +1383,36 @@ msgid "Full Size"
 msgstr "Full Size"
 
 #: ../includes/fields/gallery.php:142
-msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
-msgstr "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgid ""
+"Minimum sets the fewest images that can be selected. Maximum sets the most "
+"images that can be selected."
+msgstr ""
+"Minimum sets the fewest images that can be selected. Maximum sets the most "
+"images that can be selected."
 
 #: ../includes/fields/loop.php:93
-msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
-msgstr "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgid ""
+"Minimum sets the fewest rows that can be added. Maximum sets the most rows "
+"that can be added."
+msgstr ""
+"Minimum sets the fewest rows that can be added. Maximum sets the most rows "
+"that can be added."
 
 #: ../includes/fields/relationship.php:125
-msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
-msgstr "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgid ""
+"Minimum sets the fewest related items that can be selected. Maximum sets the "
+"most related items that can be selected."
+msgstr ""
+"Minimum sets the fewest related items that can be selected. Maximum sets the "
+"most related items that can be selected."
 
 #: ../includes/fields/user.php:74
-msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
-msgstr "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgid ""
+"Minimum sets the fewest users that can be selected. Maximum sets the most "
+"users that can be selected."
+msgstr ""
+"Minimum sets the fewest users that can be selected. Maximum sets the most "
+"users that can be selected."
 
 #: ../includes/fields/true_false.php:37
 msgid "Checkbox Label"
@@ -1383,8 +1515,12 @@ msgid "Save / Publish Settings"
 msgstr "Save / Publish Settings"
 
 #: includes/fields/post_publish.php
-msgid "Choose which native WordPress save and publish controls are shown in this field."
-msgstr "Choose which native WordPress save and publish controls are shown in this field."
+msgid ""
+"Choose which native WordPress save and publish controls are shown in this "
+"field."
+msgstr ""
+"Choose which native WordPress save and publish controls are shown in this "
+"field."
 
 #: includes/fields/post_publish.php
 msgid "Allow status changes"
@@ -1418,8 +1554,7 @@ msgstr "Actions"
 msgid "Duplicate"
 msgstr "Duplicate"
 
-#: templates/admin_head.php
-#: templates/field_html.php
+#: templates/admin_head.php templates/field_html.php
 msgid "Automatically named when saved"
 msgstr "Automatically named when saved"
 
@@ -1432,8 +1567,12 @@ msgid "Allowed Trash Roles"
 msgstr "Allowed Bin Roles"
 
 #: includes/fields/post_publish.php
-msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
-msgstr "Select the roles that can move posts to the bin from this field. Leave blank to allow any user role that can delete the post."
+msgid ""
+"Select the roles that can move posts to trash from this field. Leave blank "
+"to allow any user role that can delete the post."
+msgstr ""
+"Select the roles that can move posts to the bin from this field. Leave blank "
+"to allow any user role that can delete the post."
 
 #: includes/fields/post_publish.php
 msgid "Leave blank to allow any role that can delete this post"
@@ -1468,8 +1607,12 @@ msgid "Content Editor"
 msgstr "Content Editor"
 
 #: includes/fields/post_content.php
-msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
-msgstr "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
+msgid ""
+"Choose how editors edit the native WordPress content. This field saves to "
+"post_content and does not use the Gutenberg / block editor."
+msgstr ""
+"Choose how editors edit the native WordPress content. This field saves to "
+"post_content and does not use the Gutenberg / block editor."
 
 #: includes/fields/post_content.php
 msgid "Visual editor"
@@ -1495,6 +1638,14 @@ msgstr "Arrange child and grandchild categories horizontally"
 msgid "Leave both unchecked to use the traditional category tree."
 msgstr "Leave both unchecked to use the traditional category tree."
 
+#: includes/fields/wp_category.php
+msgid "Hide the category search box"
+msgstr "Hide the category search box"
+
+#: includes/fields/wp_category.php
+msgid "Hide the selected-only filter"
+msgstr "Hide the selected-only filter"
+
 #: includes/fields/wp_tag.php:35
 msgid "Choose from the most used tags"
 msgstr "Choose from the most used tags"
@@ -1502,21 +1653,6 @@ msgstr "Choose from the most used tags"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "No frequently used tags are available yet."
-
-msgid "Require a condition selection"
-msgstr "Require a condition selection"
-
-msgid "Contains required fields"
-msgstr "Contains required fields"
-
-msgid "Please select a condition"
-msgstr "Please select a condition"
-
-msgid "Hide the category search box"
-msgstr "Hide the category search box"
-
-msgid "Hide the selected-only filter"
-msgstr "Hide the selected-only filter"
 
 #: includes/fields/post_publish.php
 msgid "Preview Changes"
@@ -1537,3 +1673,99 @@ msgstr "Change to Scheduled"
 #: includes/fields/post_publish.php
 msgid "Change to Publish or Schedule"
 msgstr "Change to Publish or Schedule"
+
+#: templates/admin_head.php
+msgid ""
+"The number of input fields is large, and some field group settings may not "
+"be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number "
+"of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or "
+"your server settings."
+msgstr ""
+
+#: templates/admin_head.php
+#, php-format
+msgid "Current inputs: %1$s / max_input_vars: %2$s"
+msgstr ""
+
+#: templates/meta_box_extras.php
+msgid "Hide revisions"
+msgstr "Hide revisions"
+
+#: includes/init.php
+msgid ""
+"The field group form exceeded the server input limit, so field settings were "
+"not saved to avoid data loss. PHP max_input_vars is commonly 1000 by "
+"default. Placement Rules and Extras were saved only if they reached the "
+"server. Reduce the number of fields or increase max_input_vars in "
+"php.ini, .user.ini, .htaccess, or your server settings."
+msgstr ""
+
+#: includes/init.php
+msgid "CFS save warning:"
+msgstr "CFS save warning:"
+
+#: includes/fields/wp_category.php
+msgid "+ Add category"
+msgstr "+ Add category"
+
+#: includes/fields/wp_category.php
+msgid "Category name"
+msgstr "Category name"
+
+#: includes/fields/wp_category.php
+msgid "Parent category"
+msgstr "Parent category"
+
+#: includes/fields/wp_category.php
+msgid "Add category"
+msgstr "Add category"
+
+#: includes/fields/wp_category.php
+msgid "Category Adding"
+msgstr "Category Adding"
+
+#: includes/fields/wp_category.php
+msgid "Show + Add category"
+msgstr "Show + Add category"
+
+#: includes/fields/wp_category.php
+msgid ""
+"Users must also have permission to create terms for the selected taxonomy."
+msgstr ""
+"Users must also have permission to create terms for the selected taxonomy."
+
+#: includes/fields/wp_category.php
+msgid "Allowed Add Roles"
+msgstr "Allowed Add Roles"
+
+#: includes/fields/wp_category.php
+msgid ""
+"Select the roles that can add categories from this field. Leave blank to "
+"allow any role that can create terms for this taxonomy."
+msgstr ""
+"Select the roles that can add categories from this field. Leave blank to "
+"allow any role that can create terms for this taxonomy."
+
+#: includes/fields/wp_category.php
+msgid "Leave blank to allow any role that can create categories"
+msgstr "Leave blank to allow any role that can create categories"
+
+#: includes/fields/wp_category.php
+msgid "Adding category..."
+msgstr "Adding category..."
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Category added."
+msgstr "Category added."
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Enter a category name."
+msgstr "Enter a category name."
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Failed to add category."
+msgstr "Failed to add category."
+
+#: includes/init.php
+msgid "You do not have permission to add categories."
+msgstr "You do not have permission to add categories."

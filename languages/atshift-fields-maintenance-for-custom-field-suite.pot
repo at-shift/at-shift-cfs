@@ -1541,3 +1541,84 @@ msgstr ""
 #: includes/fields/post_publish.php
 msgid "Change to Publish or Schedule"
 msgstr ""
+
+#: templates/admin_head.php
+msgid "The number of input fields is large, and some field group settings may not be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or your server settings."
+msgstr ""
+
+#: templates/admin_head.php
+#, php-format
+msgid "Current inputs: %1$s / max_input_vars: %2$s"
+msgstr ""
+
+#: templates/meta_box_extras.php
+msgid "Hide revisions"
+msgstr ""
+
+#: includes/init.php
+msgid "The field group form exceeded the server input limit, so field settings were not saved to avoid data loss. PHP max_input_vars is commonly 1000 by default. Placement Rules and Extras were saved only if they reached the server. Reduce the number of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or your server settings."
+msgstr ""
+
+#: includes/init.php
+msgid "CFS save warning:"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "+ Add category"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Category name"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Parent category"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Add category"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Category Adding"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Show + Add category"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Users must also have permission to create terms for the selected taxonomy."
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Allowed Add Roles"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Select the roles that can add categories from this field. Leave blank to allow any role that can create terms for this taxonomy."
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Leave blank to allow any role that can create categories"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Adding category..."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Category added."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Enter a category name."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Failed to add category."
+msgstr ""
+
+#: includes/init.php
+msgid "You do not have permission to add categories."
+msgstr ""

@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.2.3
+Stable tag: 3.0.2.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -150,7 +150,7 @@ The changes were verified locally against the built-in CFS field types, added fi
 
 This maintenance build is distributed under the GNU General Public License version 2 (GPLv2), the same license as the upstream plugin. You may use, copy, modify, and redistribute this package, including modified versions, under GPLv2.
 
-When redistributing this package, keep the GPLv2 license notice, preserve the original author attribution, include the source code, and make clear that this is a maintenance build inherited by @shift ツチサカヨシヤ.
+When redistributing this package, keep the GPLv2 license notice, preserve the original author attribution, include the source code, and make clear that this is a maintained and extended build by @shift.
 
 = Documentation and support =
 
@@ -203,6 +203,12 @@ The release package includes bundled translation files for ca, de_DE, es_ES, fa_
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.2.4 =
+
+* Added warnings and safeguards for some sites with many fields where field values or placement rules may fail to save.
+* Added an option to add categories from the Post Categories (Standard / Global) field.
+* Other minor fixes.
 
 = 3.0.2.3 =
 

@@ -381,48 +381,104 @@ class Atshift_CFS_field_group
             Save rules
         ---------------------------------------------------------------------------------------------*/
 
-        $data = [];
-        $rule_types = [ 'post_types', 'post_formats', 'user_roles', 'post_ids', 'term_ids', 'page_templates' ];
-
-        foreach ( $rule_types as $type ) {
-            if ( ! empty( $params['rules'][ $type ] ) ) {
-
-                if ( 'post_ids' == $type ) {
-                    $params['rules'][ $type ] = is_array( $params['rules'][ $type ] )
-                        ? array_values( array_filter( array_map( 'absint', $params['rules'][ $type ] ) ) )
-                        : array_values( array_filter( array_map( 'absint', explode( ',', (string) $params['rules'][ $type ] ) ) ) );
-                }
-
-                $data[ $type ] = [
-                    'operator' => isset( $params['rules']['operator'][ $type ] ) ? $params['rules']['operator'][ $type ] : '==',
-                    'values' => $params['rules'][ $type ],
-                ];
-            }
-        }
-
-        $data = atshift_cfs_apply_filters_compat( 'cfs_save_field_group_rules', 'atshift_cfs_save_field_group_rules', $data, $post_id );
-        update_post_meta( $post_id, 'cfs_rules', $data );
+        $this->save_rules( $post_id, $params['rules'] );
 
         /*---------------------------------------------------------------------------------------------
             Save extras
         ---------------------------------------------------------------------------------------------*/
 
-        $params['extras'] = isset( $params['extras'] ) && is_array( $params['extras'] ) ? $params['extras'] : [];
+        $this->save_extras( $post_id, $params['extras'] );
+    }
+
+
+    /**
+     * Save field group placement rules.
+     *
+     * @param int   $post_id Field group post ID.
+     * @param array $rules Placement rules.
+     */
+    public function save_rules( $post_id, $rules ) {
+        $data = $this->normalize_rules_for_save( is_array( $rules ) ? $rules : [] );
+
+        $data = atshift_cfs_apply_filters_compat( 'cfs_save_field_group_rules', 'atshift_cfs_save_field_group_rules', $data, $post_id );
+        update_post_meta( $post_id, 'cfs_rules', $data );
+    }
+
+
+    /**
+     * Save field group extras.
+     *
+     * @param int   $post_id Field group post ID.
+     * @param array $extras Extra settings.
+     */
+    public function save_extras( $post_id, $extras ) {
+        $extras = is_array( $extras ) ? $extras : [];
 
         foreach ( [ 'side', 'main' ] as $section ) {
             $mode_key = $section . '_section_role_mode';
             $roles_key = $section . '_section_roles';
-            $mode = isset( $params['extras'][ $mode_key ] ) ? sanitize_key( $params['extras'][ $mode_key ] ) : 'all';
+            $mode = isset( $extras[ $mode_key ] ) ? sanitize_key( $extras[ $mode_key ] ) : 'all';
 
             if ( ! in_array( $mode, [ 'all', 'except_admins', 'selected' ], true ) ) {
                 $mode = 'all';
             }
 
-            $params['extras'][ $mode_key ] = $mode;
-            $params['extras'][ $roles_key ] = isset( $params['extras'][ $roles_key ] ) ? array_values( array_filter( array_map( 'sanitize_key', (array) $params['extras'][ $roles_key ] ) ) ) : [];
+            $extras[ $mode_key ] = $mode;
+            $extras[ $roles_key ] = isset( $extras[ $roles_key ] ) ? array_values( array_filter( array_map( 'sanitize_key', (array) $extras[ $roles_key ] ) ) ) : [];
         }
 
-        update_post_meta( $post_id, 'cfs_extras', $params['extras'] );
+        update_post_meta( $post_id, 'cfs_extras', $extras );
+    }
+
+
+    /**
+     * Normalize placement rules from either the edit form POST shape or saved meta shape.
+     *
+     * @param array $rules Placement rules.
+     * @return array
+     */
+    private function normalize_rules_for_save( $rules ) {
+        $data = [];
+        $rule_types = [ 'post_types', 'post_formats', 'user_roles', 'post_ids', 'term_ids', 'page_templates' ];
+        $operators = isset( $rules['operator'] ) && is_array( $rules['operator'] ) ? $rules['operator'] : [];
+
+        foreach ( $rule_types as $type ) {
+            if ( ! isset( $rules[ $type ] ) ) {
+                continue;
+            }
+
+            $rule = $rules[ $type ];
+            $values = is_array( $rule ) && array_key_exists( 'values', $rule ) ? $rule['values'] : $rule;
+            $operator = is_array( $rule ) && array_key_exists( 'operator', $rule ) ? $rule['operator'] : ( $operators[ $type ] ?? '==' );
+            $operator = is_array( $operator ) ? reset( $operator ) : $operator;
+            $operator = in_array( $operator, [ '==', '!=' ], true ) ? $operator : '==';
+
+            if ( ! is_array( $values ) ) {
+                $values = explode( ',', (string) $values );
+            }
+            $values = array_filter( $values, static function( $value ) {
+                return is_scalar( $value ) || null === $value;
+            } );
+
+            if ( 'post_ids' === $type || 'term_ids' === $type ) {
+                $values = array_values( array_filter( array_map( 'absint', $values ) ) );
+            } else {
+                $values = array_values( array_filter( array_map( 'sanitize_text_field', $values ), static function( $value ) {
+                    return '' !== (string) $value;
+                } ) );
+            }
+
+            if ( empty( $values ) ) {
+                continue;
+            }
+
+            $data[ $type ] = [
+                'operator' => $operator,
+                'values'   => $values,
+            ];
+        }
+
+        return $data;
     }
 
 

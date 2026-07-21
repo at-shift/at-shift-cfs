@@ -1403,6 +1403,58 @@
     display: none !important;
 }
 
+.cfs-wp-category-add {
+    margin-top: 12px;
+}
+
+.cfs-wp-category-add-toggle {
+    font-weight: 600;
+}
+
+.cfs-wp-category-add-panel {
+    display: grid;
+    grid-template-columns: minmax(160px, 1.1fr) minmax(140px, 0.9fr);
+    gap: 10px;
+    align-items: center;
+    max-width: 640px;
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid #d8cabb;
+    border-radius: 6px;
+    background: #fffdf8;
+    box-sizing: border-box;
+}
+
+.cfs-wp-category-add-panel[hidden] {
+    display: none;
+}
+
+.cfs-wp-category-add-name,
+.cfs-wp-category-add-parent {
+    width: 100%;
+    max-width: 100%;
+}
+
+.cfs-wp-category-add-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    grid-column: 1 / -1;
+}
+
+.cfs-wp-category-add-message {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.cfs-wp-category-add-message.is-error {
+    color: #b32d2e;
+}
+
+.cfs-wp-category-add-message.is-success {
+    color: #007017;
+}
+
 @media (max-width: 782px) {
     .cfs-wp-category-list {
         padding: 10px;
@@ -1411,6 +1463,10 @@
     .cfs-wp-category-list.is-parent-horizontal > ul,
     .cfs-wp-category-list.is-children-horizontal ul.children {
         flex-direction: column;
+    }
+
+    .cfs-wp-category-add-panel {
+        grid-template-columns: 1fr;
     }
 }
 

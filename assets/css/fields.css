@@ -2200,9 +2200,21 @@ body #powerTip {
 .field_form .cfs-post-title-role-select + .select2-container,
 .field_form .cfs-post-native-role-select + .select2-container,
 .field_form .cfs-shortcode-role-select + .select2-container,
+.field_form .cfs-wp-category-role-select + .select2-container,
 .field_form .cfs-extra-display-role-select + .select2-container {
     width: 100% !important;
     max-width: 100%;
+}
+
+.field_form .cfs-wp-category-add-roles {
+    display: grid;
+    gap: 6px;
+    max-width: 620px;
+    margin-top: 10px;
+}
+
+.field_form .cfs-wp-category-add-roles > label {
+    font-weight: 600;
 }
 
 .field_form .select2-container--default .select2-selection--multiple .select2-selection__choice,

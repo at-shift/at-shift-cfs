@@ -26,6 +26,7 @@ class Atshift_CFS_init
         add_action( 'delete_post',                      [ $this, 'delete_post' ] );
         add_action( 'add_meta_boxes',                   [ $this, 'add_meta_boxes' ] );
         add_action( 'wp_ajax_atshift_cfs_ajax_handler', [ $this, 'ajax_handler' ] );
+        add_action( 'wp_ajax_atshift_cfs_add_wp_category_term', [ $this, 'ajax_add_wp_category_term' ] );
         add_filter( 'manage_' . ATSHIFT_CFS_FIELD_GROUP_POST_TYPE . '_posts_columns', [ $this, 'atshift_cfs_columns' ] );
         add_action( 'manage_' . ATSHIFT_CFS_FIELD_GROUP_POST_TYPE . '_posts_custom_column', [ $this, 'atshift_cfs_column_content' ], 10, 2 );
         add_action( 'enqueue_block_editor_assets',      [ $this, 'enqueue_block_editor_assets' ] );
@@ -472,6 +473,11 @@ class Atshift_CFS_init
                 $hide_panels[] = 'post-link';
             }
 
+            if ( $hide_main_sections && ! empty( $extras['hide_revisions'] ) ) {
+                $hide_panels[] = 'post-revisions';
+                $hide_panels[] = 'revisions';
+            }
+
             foreach ( $fields as $field ) {
                 if ( ! isset( $field['type'] ) ) {
                     continue;
@@ -755,19 +761,41 @@ class Atshift_CFS_init
         $nonce = sanitize_text_field( $cfs_post['save'] );
 
         if ( wp_verify_nonce( $nonce, 'atshift_cfs_save_fields' ) ) {
-            $fields = isset( $cfs_post['fields'] ) ? $this->sanitize_recursive_textarea( $cfs_post['fields'] ) : [];
-            $rules = isset( $cfs_post['rules'] ) ? $this->sanitize_recursive_textarea( $cfs_post['rules'] ) : [];
-            $extras = isset( $cfs_post['extras'] ) ? $this->sanitize_recursive_textarea( $cfs_post['extras'] ) : [];
+            $field_group = atshift_fields_maintenance_for_custom_field_suite()->field_group;
+            $has_complete_payload = isset( $cfs_post['complete'] ) && '1' === (string) $cfs_post['complete'];
+            $has_rules_payload = isset( $cfs_post['rules'] ) && is_array( $cfs_post['rules'] );
+            $has_extras_payload = isset( $cfs_post['extras'] ) && is_array( $cfs_post['extras'] );
 
-            atshift_fields_maintenance_for_custom_field_suite()->field_group->save( [
+            if ( ! $has_complete_payload ) {
+                if ( $has_rules_payload ) {
+                    $field_group->save_rules( $post_id, $this->sanitize_recursive_textarea( $cfs_post['rules'] ) );
+                }
+
+                if ( $has_extras_payload ) {
+                    $field_group->save_extras( $post_id, $this->sanitize_recursive_textarea( $cfs_post['extras'] ) );
+                }
+
+                set_transient( 'atshift_cfs_incomplete_save_notice_' . (int) $post_id, 1, MINUTE_IN_SECONDS );
+                return;
+            }
+
+            $fields = isset( $cfs_post['fields'] ) ? $this->sanitize_recursive_textarea( $cfs_post['fields'] ) : [];
+            $rules = $has_rules_payload ? $this->sanitize_recursive_textarea( $cfs_post['rules'] ) : get_post_meta( $post_id, 'cfs_rules', true );
+            $extras = $has_extras_payload ? $this->sanitize_recursive_textarea( $cfs_post['extras'] ) : get_post_meta( $post_id, 'cfs_extras', true );
+
+            $field_group->save( [
                 'post_id'   => $post_id,
                 'fields'    => $fields,
                 'rules'     => $rules,
                 'extras'    => $extras,
             ] );
 
-            if ( ! $this->has_placement_rules( $rules ) ) {
+            $saved_rules = get_post_meta( $post_id, 'cfs_rules', true );
+
+            if ( ! $this->has_placement_rules( $saved_rules ) ) {
                 set_transient( 'atshift_cfs_empty_rules_notice_' . (int) $post_id, 1, MINUTE_IN_SECONDS );
+            } else {
+                delete_transient( 'atshift_cfs_empty_rules_notice_' . (int) $post_id );
             }
         }
     }
@@ -786,6 +814,21 @@ class Atshift_CFS_init
         $post_id = isset( $_GET['post'] ) ? absint( $_GET['post'] ) : 0;
 
         if ( 0 === $post_id || ATSHIFT_CFS_FIELD_GROUP_POST_TYPE !== get_post_type( $post_id ) ) {
+            return;
+        }
+
+        $incomplete_save = (bool) get_transient( 'atshift_cfs_incomplete_save_notice_' . $post_id );
+        delete_transient( 'atshift_cfs_incomplete_save_notice_' . $post_id );
+
+        if ( $incomplete_save ) {
+            $message = __( 'The field group form exceeded the server input limit, so field settings were not saved to avoid data loss. PHP max_input_vars is commonly 1000 by default. Placement Rules and Extras were saved only if they reached the server. Reduce the number of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or your server settings.', 'atshift-fields-maintenance-for-custom-field-suite' );
+
+            printf(
+                '<div class="notice notice-error"><p><strong>%s</strong> %s</p></div>',
+                esc_html__( 'CFS save warning:', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                esc_html( $message )
+            );
+
             return;
         }
 
@@ -874,6 +917,76 @@ class Atshift_CFS_init
         }
 
         exit;
+    }
+
+
+    function ajax_add_wp_category_term() {
+        if ( ! check_ajax_referer( 'atshift_cfs_add_wp_category_term', 'nonce', false ) ) {
+            wp_send_json_error( [
+                'message' => __( 'Failed to add category.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            ], 403 );
+        }
+
+        $taxonomy_name = isset( $_POST['taxonomy'] ) ? sanitize_key( wp_unslash( $_POST['taxonomy'] ) ) : '';
+        $field_id = isset( $_POST['field_id'] ) ? absint( wp_unslash( $_POST['field_id'] ) ) : 0;
+        $post_id = isset( $_POST['post_id'] ) ? absint( wp_unslash( $_POST['post_id'] ) ) : 0;
+        $parent_id = isset( $_POST['parent'] ) ? absint( wp_unslash( $_POST['parent'] ) ) : 0;
+        $name = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
+        $taxonomy = get_taxonomy( $taxonomy_name );
+
+        if ( '' === $name ) {
+            wp_send_json_error( [
+                'message' => __( 'Enter a category name.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            ], 400 );
+        }
+
+        if ( ! $taxonomy || ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields['wp_category'] ) ) {
+            wp_send_json_error( [
+                'message' => __( 'Failed to add category.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            ], 400 );
+        }
+
+        $field_type = atshift_fields_maintenance_for_custom_field_suite()->fields['wp_category'];
+        if (
+            ! method_exists( $field_type, 'current_user_can_add_terms_for_request' )
+            || ! $field_type->current_user_can_add_terms_for_request( $field_id, $post_id, $taxonomy_name )
+        ) {
+            wp_send_json_error( [
+                'message' => __( 'You do not have permission to add categories.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            ], 403 );
+        }
+
+        if ( 0 < $parent_id && ! term_exists( $parent_id, $taxonomy_name ) ) {
+            $parent_id = 0;
+        }
+
+        $result = wp_insert_term( $name, $taxonomy_name, [
+            'parent' => $parent_id,
+        ] );
+
+        if ( is_wp_error( $result ) ) {
+            wp_send_json_error( [
+                'message' => $result->get_error_message() ?: __( 'Failed to add category.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            ], 400 );
+        }
+
+        $term_id = isset( $result['term_id'] ) ? absint( $result['term_id'] ) : 0;
+        $term = 0 < $term_id ? get_term( $term_id, $taxonomy_name ) : null;
+
+        if ( ! ( $term instanceof WP_Term ) ) {
+            wp_send_json_error( [
+                'message' => __( 'Failed to add category.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            ], 400 );
+        }
+
+        wp_send_json_success( [
+            'message' => __( 'Category added.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'term' => [
+                'id'     => absint( $term->term_id ),
+                'name'   => $term->name,
+                'parent' => absint( $term->parent ),
+            ],
+        ] );
     }
 
 

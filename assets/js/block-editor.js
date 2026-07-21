@@ -44,13 +44,18 @@
     if (config.hidePanels && config.hidePanels.length && window.wp.domReady) {
         window.wp.domReady(function () {
             var hidePostTitle = config.hidePanels.indexOf('post-title') !== -1;
+            var hideRevisions = config.hidePanels.indexOf('post-revisions') !== -1 || config.hidePanels.indexOf('revisions') !== -1;
             var panelNames = config.hidePanels.filter(function (panelName) {
-                return 'post-title' !== panelName;
+                return 'post-title' !== panelName && 'post-revisions' !== panelName && 'revisions' !== panelName;
             });
             var editor;
 
             if (hidePostTitle) {
                 document.body.classList.add('atshift-cfs-hide-post-title');
+            }
+
+            if (hideRevisions) {
+                document.body.classList.add('atshift-cfs-hide-revisions');
             }
 
             if (!panelNames.length || !window.wp.data) {

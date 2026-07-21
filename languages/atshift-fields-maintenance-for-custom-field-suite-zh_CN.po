@@ -15,6 +15,51 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+#: ../includes/fields/conditional.php:7
+#, fuzzy
+msgid "Conditional Group"
+msgstr "横向分组"
+
+#: ../templates/admin_head.php:63
+msgid "Unnamed condition"
+msgstr ""
+
+#: ../templates/admin_head.php:65
+#, php-format
+msgid "Condition \"%s\""
+msgstr ""
+
+#: ../includes/fields/conditional.php:107
+#, fuzzy
+msgid "Display Type"
+msgstr "文件类型"
+
+#: ../includes/fields/conditional.php:120
+msgid "Dropdown"
+msgstr ""
+
+#: ../includes/fields/conditional.php:147
+msgid "Used for radio buttons. The first choice is used when left blank."
+msgstr ""
+
+#: ../includes/fields/conditional.php:174
+msgid "Require a condition selection"
+msgstr "要求选择条件"
+
+#: ../templates/field_html.php:94
+msgid "Display for choice"
+msgstr ""
+
+#: ../templates/field_html.php:95
+msgid "Choose the parent Conditional Group value that displays this field."
+msgstr ""
+
+#: ../templates/admin_head.php:50
+#, fuzzy
+msgid ""
+"Tabs and conditional groups cannot be placed inside a Conditional Group."
+msgstr "选项卡、循环和横向分组不能放在横向分组内。"
+
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
 msgstr "文本"
@@ -32,6 +77,10 @@ msgstr "验证"
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "必选"
+
+#: ../includes/form.php:266 ../includes/fields/group.php:147
+msgid "Required"
+msgstr "必填"
 
 #: ../includes/field_group.php:112
 msgid "Imported"
@@ -140,7 +189,9 @@ msgstr "Add Row"
 msgid "Limits"
 msgstr "限制"
 
-msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgid ""
+"Minimum sets the fewest terms that can be selected. Maximum sets the most "
+"terms that can be selected."
 msgstr "最小值设置可选择的最少术语数。最大值设置可选择的最多术语数。"
 
 #: ../includes/fields/relationship.php:8
@@ -163,6 +214,14 @@ msgstr "限制帖子类型"
 #: ../includes/fields/select.php:8
 msgid "Select"
 msgstr "选项"
+
+#: ../includes/fields/select.php:43
+msgid "Please select..."
+msgstr "请选择..."
+
+#: ../includes/fields/code_view.php:210
+msgid "Please select a language..."
+msgstr "请选择一种语言..."
 
 #: ../includes/fields/select.php:86
 msgid "Choices"
@@ -191,6 +250,23 @@ msgstr "选项卡"
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
 msgstr "默认值"
+
+#, fuzzy
+msgid "Placeholder"
+msgstr "放置"
+
+msgid "The value specified from the beginning."
+msgstr ""
+
+msgid "An input example or other helpful hint."
+msgstr ""
+
+msgid "at-shift CFS"
+msgstr ""
+
+msgctxt "date picker"
+msgid "Clear"
+msgstr "清除"
 
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
@@ -349,7 +425,9 @@ msgid "Name"
 msgstr "名称"
 
 #: ../templates/field_html.php:42
-msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
 msgstr "使用 get() 获取字段值.字段名称只能使用小写字母,数字和下划线."
 
 #: ../templates/field_html.php:49
@@ -384,69 +462,34 @@ msgstr "排序"
 msgid "The field group with the lowest order will appear first."
 msgstr "数字最小的字段组将出现在第一位."
 
-#: ../templates/meta_box_extras.php:45
-msgid "Position"
-msgstr "位置"
+#: ../templates/meta_box_extras.php:281
+#, fuzzy
+msgid "Field Group Position"
+msgstr "字段组"
 
-#: ../templates/meta_box_extras.php:48
+#: ../templates/meta_box_extras.php:284
 msgid "Normal"
 msgstr "正常"
 
-#: ../templates/meta_box_extras.php:49
+#: ../templates/meta_box_extras.php:285
 msgid "Side"
 msgstr "边侧栏"
 
-#: ../templates/meta_box_extras.php:54
-msgid "Display Settings"
+#: ../templates/meta_box_extras.php:287
+#, fuzzy
+msgid "Controls where this field group appears on the edit screen."
+msgstr "此字段组可能匹配所有可编辑的文章页面。"
+
+#: ../templates/meta_box_extras.php:293
+#, fuzzy
+msgid "Native Editor Display Settings"
 msgstr "显示设置"
 
-#: ../templates/meta_box_extras.php:64
-msgid "Hide the content editor"
-msgstr "隐藏内容编辑器"
-
-#: ../templates/meta_box_fields.php:60
-msgid "Add New Field"
-msgstr "添加新字段"
-
-#: ../templates/meta_box_rules.php:5
-msgid "equals"
-msgstr "等于"
-
-#: ../templates/meta_box_rules.php:6
-msgid "is not"
-msgstr "不等于"
-
-#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
-msgid "Leave blank to skip this rule"
-msgstr "留空则跳过规则"
-
-#: ../templates/meta_box_rules.php:258
-msgid "Taxonomy Terms"
-msgstr "菜单类型"
-
-#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
-msgid "Export"
-msgstr "导出"
-
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
-msgid "Import"
-msgstr "导入"
-
-#: ../templates/page_tools.php:78
-msgid "Reset"
-msgstr "重设"
-
-#: ../templates/page_tools.php:122
-msgid "Reset and deactivate."
-msgstr "复位和停用"
-
-#: ../templates/page_tools.php:123
-msgid "This will delete all at-shift CFS data and deactivate the plugin."
-msgstr "这将完全删除所有 at-shift CFS 数据，并停用和重置该插件。"
-
-#: ../templates/page_tools.php:124
-msgid "Delete everything"
-msgstr "删除一切"
+#: ../templates/meta_box_extras.php:298
+msgid ""
+"These settings hide native WordPress editor sections for matching posts, "
+"regardless of where this field group is displayed."
+msgstr ""
 
 #  msgid "Use This File"
 #  msgstr "使用此文件"
@@ -462,60 +505,323 @@ msgstr "删除一切"
 #  msgstr "Your Gravity Form and CFS field labels must match exactly"
 #  msgid "Learn more"
 #  msgstr "了解更多"
-msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+#: ../templates/meta_box_extras.php:64
+msgid ""
+"Hide the content editor (also hides the Gutenberg / block editor for "
+"matching posts)"
 msgstr "隐藏内容编辑器（也会在匹配的文章中隐藏 Gutenberg / 区块编辑器）"
 
+#: ../templates/meta_box_extras.php:78
+msgid "Hide page attributes"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:92
+msgid "Force the post edit screen layout to 1 column"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:309
+msgid ""
+"Third-party side meta boxes are not hidden; in the 1-column layout, they "
+"appear below the main editor area."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:93
+#, fuzzy
+msgid "All roles"
+msgstr "允许移至回收站的角色"
+
+#: ../templates/meta_box_extras.php:94
+msgid "All roles except Administrators / Web administrators"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:95
+#, fuzzy
+msgid "Selected roles only"
+msgstr "仅显示已选择"
+
+#: ../templates/meta_box_extras.php:96
+msgid "Select roles when using selected roles only"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:157
+msgid "Already controlled by a native field in this field group."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:163
+#, php-format
+msgid "Already controlled by \"%s\"."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:97
+msgid "Screen Layout"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:98
+#, fuzzy
+msgid "Side Sections"
+msgstr "操作"
+
+#: ../templates/meta_box_extras.php:99
+#, fuzzy
+msgid "Hide categories"
+msgstr "搜索分类"
+
+#: ../templates/meta_box_extras.php:100
+msgid "Hide tags"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:101
+#, fuzzy
+msgid "Hide featured image"
+msgstr "特色图片"
+
+#: ../templates/meta_box_extras.php:313 ../templates/meta_box_extras.php:329
+msgid "Hiding behavior"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:103
+#, fuzzy
+msgid "Main Sections"
+msgstr "操作"
+
+#: ../templates/meta_box_extras.php:105
+msgid "Hide format"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:106
+msgid "Hide comments"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:107
+msgid "Hide discussion"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:108
+msgid "Hide excerpt"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:109
+msgid "Hide trackbacks"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:110
+#, fuzzy
+msgid "Hide permalink"
+msgstr "超链接"
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide slug"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:111
+msgid "Hide author"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:112
+msgid "Hide custom fields"
+msgstr ""
+
+#: ../templates/meta_box_fields.php:60
+msgid "Add New Field"
+msgstr "添加新字段"
+
+#: ../templates/meta_box_rules.php:5
+msgid "equals"
+msgstr "等于"
+
+#: ../templates/meta_box_rules.php:6
+msgid "is not"
+msgstr "不等于"
+
+#: ../templates/meta_box_rules.php:57
+msgid "Standard"
+msgstr "标准"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Administrator"
+msgstr "管理员"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Editor"
+msgstr "编辑"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Author"
+msgstr "作者"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Contributor"
+msgstr "贡献者"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Subscriber"
+msgstr "订阅者"
+
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
+msgid "Leave blank to skip this rule"
+msgstr "留空则跳过规则"
+
+#: ../templates/meta_box_rules.php:248
+msgid "The results could not be loaded."
+msgstr "无法加载结果。"
+
+#: ../templates/meta_box_rules.php:253
+msgid "Please enter 1 more character"
+msgstr "请再输入 1 个字符"
+
+#: ../templates/meta_box_rules.php:256
+msgid "Please enter %s or more characters"
+msgstr "请输入 %s 个或更多字符"
+
+#: ../templates/meta_box_rules.php:259
+msgid "Loading more results..."
+msgstr "正在加载更多结果..."
+
+#: ../templates/meta_box_rules.php:262
+msgid "No results found"
+msgstr "未找到结果"
+
+#: ../templates/meta_box_rules.php:265
+msgid "Searching..."
+msgstr "正在搜索..."
+
+#: ../templates/meta_box_rules.php:282
+msgid "%s allowed"
+msgstr "允许 %s 个"
+
+#: ../templates/meta_box_rules.php:258
+msgid "Taxonomy Terms"
+msgstr "菜单类型"
+
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
+msgid "Export"
+msgstr "导出"
+
+#: ../templates/page_tools.php:96
+msgid ""
+"Select the field groups you want to export, press the button, then save the "
+"displayed code. You can select multiple items."
+msgstr "选择要导出的字段组，点击按钮，然后保存显示的代码。可以选择多个项目。"
+
+#: ../templates/page_tools.php:112
+msgid "Export Code"
+msgstr "导出代码"
+
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
+msgid "Import"
+msgstr "导入"
+
+#: ../templates/page_tools.php:122
+msgid ""
+"Paste the exported field group code into the input field below, then press "
+"the button."
+msgstr "将已导出的字段组代码粘贴到下面的输入框中，然后点击按钮。"
+
+#: ../templates/page_tools.php:125
+msgid "Import Code"
+msgstr "导入代码"
+
+#: ../templates/page_tools.php:120
+msgid "Paste the import code here"
+msgstr "在此粘贴导入代码"
+
+#: ../templates/page_tools.php:78
+msgid "Reset"
+msgstr "重设"
+
+#: ../templates/page_tools.php:122
+msgid "Reset and deactivate."
+msgstr "复位和停用"
+
+#: ../templates/page_tools.php:123
+msgid "This will delete all at-shift CFS data and deactivate the plugin."
+msgstr "这将完全删除所有 at-shift CFS 数据，并停用和重置该插件。"
+
+#: ../templates/page_tools.php:24
+msgid "This will delete all at-shift CFS data. Are you sure?"
+msgstr "这将完全删除所有 at-shift CFS 数据。确定吗？"
+
+#: ../templates/page_tools.php:124
+msgid "Delete everything"
+msgstr "删除一切"
+
+#: ../includes/fields/checkbox.php:8
 msgid "Checkbox"
 msgstr "复选框"
 
+#: ../includes/fields/file.php:44
 msgid "File Type"
 msgstr "文件类型"
 
+#: ../includes/fields/file.php:53
 msgid "Any"
 msgstr "任意"
 
+#: ../includes/fields/file.php:54
 msgid "Image"
 msgstr "图片"
 
+#: ../includes/fields/file.php:55
 msgid "Audio"
 msgstr "音频"
 
+#: ../includes/fields/file.php:56
 msgid "Video"
 msgstr "视频"
 
+#: ../includes/fields/radio.php:8
 msgid "Radio Button"
 msgstr "单选按钮"
 
+#: ../includes/fields/select.php:133
 msgid "Select2"
 msgstr "Select2"
 
-msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
-msgstr "使用 Select2 显示选择字段。在编辑页面中，长选项列表会更容易搜索和选择。"
+msgid ""
+"Displays the select field with Select2. This makes long choice lists easier "
+"to search and select on edit screens."
+msgstr ""
+"使用 Select2 显示选择字段。在编辑页面中，长选项列表会更容易搜索和选择。"
 
+#: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
 msgstr "使用 Select2 渲染此字段"
 
+#: ../includes/fields/term.php:8
 msgid "Term"
 msgstr "项目"
 
+#: ../includes/fields/term.php:69
 msgid "Search terms"
 msgstr "搜索项目"
 
+#: ../includes/fields/term.php:97
 msgid "Taxonomies"
 msgstr "分类法"
 
+#: ../includes/fields/term.php:98
 msgid "Limit terms to the following taxonomies"
 msgstr "将项目限制为以下分类法"
 
-msgid "One (or more) of your fields had validation errors. More information is available below."
+#: ../includes/form.php:247
+msgid ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
 msgstr "一个或多个字段存在验证错误。更多信息如下。"
 
+#: ../includes/form.php:444
 msgid "Toggle row visibility"
 msgstr "切换行可见性"
 
+#: ../includes/fields/loop.php:444
+msgid "Remove this row?"
+msgstr ""
+
+#: ../includes/init.php:60
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
+#: ../includes/init.php:154
 msgid "atshift Fields Tool"
 msgstr "atshift Fields 工具"
 
@@ -535,8 +841,12 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
-msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
-msgstr "最小值设置允许输入的最低值。最大值设置允许输入的最高值。间隔设置数值之间允许的步进，例如 1、0.1 或 5。"
+msgid ""
+"Minimum sets the lowest allowed value. Maximum sets the highest allowed "
+"value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr ""
+"最小值设置允许输入的最低值。最大值设置允许输入的最高值。间隔设置数值之间允许"
+"的步进，例如 1、0.1 或 5。"
 
 msgid "Minimum"
 msgstr "最小值"
@@ -602,6 +912,18 @@ msgstr "3 列"
 msgid "4 columns"
 msgstr "4 列"
 
+#: ../includes/fields/group.php:92
+msgid "Alignment"
+msgstr "对齐方式"
+
+#: ../includes/fields/group.php:101
+msgid "Evenly distributed"
+msgstr "均匀分布"
+
+#: ../includes/fields/group.php:102
+msgid "Left aligned"
+msgstr "左对齐"
+
 #: ../templates/field_html.php:84
 msgid "Add new field below"
 msgstr "在下方添加新字段"
@@ -620,6 +942,23 @@ msgstr "显示一个 CFS 字段组。"
 
 msgid "No fields in this group."
 msgstr "此组中没有字段。"
+
+msgid "Post Title (Native)"
+msgstr "文章标题（原生）"
+
+msgid "You do not have permission to change the native title."
+msgstr "您没有权限更改原生标题。"
+
+msgid "Allowed User Role Groups"
+msgstr "允许的用户角色组"
+
+msgid ""
+"Select the roles that can change the native title. Leave blank to allow any "
+"user role that can edit the post."
+msgstr "选择可以更改原生标题的角色。留空则允许任何可以编辑该文章的用户角色。"
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "留空则允许任何可以编辑这篇文章的角色"
 
 msgid "Post Categories"
 msgstr "文章分类"
@@ -657,35 +996,24 @@ msgstr "选择父分类时也会选择所有子分类"
 msgid "Selecting a child also selects its parent categories"
 msgstr "选择子分类时也会选择其父分类"
 
-msgid "A newer version %s is available on GitHub."
-msgstr "GitHub 上有较新的版本 %s 可用。"
-
-msgid "Required"
-msgstr "必填"
-
-msgid "Please select..."
-msgstr "请选择..."
-
-msgid "Please select a language..."
-msgstr "请选择一种语言..."
-
-msgid "Alignment"
-msgstr "对齐方式"
-
-msgid "Evenly distributed"
-msgstr "均匀分布"
-
-msgid "Left aligned"
-msgstr "左对齐"
-
 msgid "CFS placement warning:"
 msgstr "CFS 位置规则警告："
 
-msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "此字段组没有位置规则。它可能匹配所有可编辑的文章页面，因此除非这是有意设置，请指定文章类型或其他位置规则。"
+msgid ""
+"This field group has no placement rules. It will appear on all editable post "
+"screens, so set a Post Type or another placement rule unless that is "
+"intentional."
+msgstr ""
+"此字段组没有位置规则。它可能匹配所有可编辑的文章页面，因此除非这是有意设置，"
+"请指定文章类型或其他位置规则。"
 
-msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "已保存，但此字段组没有位置规则。它可能匹配所有可编辑的文章页面，因此除非这是有意设置，请指定文章类型或其他位置规则。"
+msgid ""
+"Saved, but this field group has no placement rules. It will appear on all "
+"editable post screens, so set a Post Type or another placement rule unless "
+"that is intentional."
+msgstr ""
+"已保存，但此字段组没有位置规则。它可能匹配所有可编辑的文章页面，因此除非这是"
+"有意设置，请指定文章类型或其他位置规则。"
 
 msgid "No placement rules"
 msgstr "没有位置规则"
@@ -693,10 +1021,42 @@ msgstr "没有位置规则"
 msgid "This field group will appear on all editable post screens."
 msgstr "此字段组可能匹配所有可编辑的文章页面。"
 
+msgid "A newer version %s is available on GitHub."
+msgstr "GitHub 上有较新的版本 %s 可用。"
+
+#, fuzzy
+msgid "Add at least one field to this tab group."
+msgstr "请向此横向分组添加两个或更多字段。"
+
 msgid "Add two or more fields to this horizontal group."
 msgstr "请向此横向分组添加两个或更多字段。"
 
-msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+#, fuzzy
+msgid "Add at least one field to this loop group."
+msgstr "请向此横向分组添加两个或更多字段。"
+
+#, fuzzy
+msgid "Add at least one field to this accordion group."
+msgstr "请向此横向分组添加两个或更多字段。"
+
+msgid "Contains required fields"
+msgstr "包含必填字段"
+
+msgid "Set conditions and add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each condition."
+msgstr ""
+
+msgid "Create two or more conditions, then add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each empty condition."
+msgstr ""
+
+msgid ""
+"Tabs, loops, and horizontal groups cannot be placed inside a horizontal "
+"group."
 msgstr "选项卡、循环和横向分组不能放在横向分组内。"
 
 msgid "Code View"
@@ -705,8 +1065,13 @@ msgstr "代码视图"
 msgid "Shortcode"
 msgstr "短代码"
 
-msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
-msgstr "Meta Box 是由第三方插件添加到 WordPress 文章编辑界面的设置或输入框。此字段仅用于将第三方 Meta Box 重新放置或移动到 atshift Fields 字段组中。"
+msgid ""
+"A meta box is a settings or input box added to the WordPress post edit "
+"screen by a third-party plugin. This field is only for repositioning and "
+"moving a third-party meta box into an atshift Fields field group."
+msgstr ""
+"Meta Box 是由第三方插件添加到 WordPress 文章编辑界面的设置或输入框。此字段仅"
+"用于将第三方 Meta Box 重新放置或移动到 atshift Fields 字段组中。"
 
 msgid "Classic Meta Box Placement"
 msgstr "经典 Meta Box 放置"
@@ -726,10 +1091,17 @@ msgstr "此 Meta Box 已放置在另一个位置。"
 msgid "Meta Box ID"
 msgstr "Meta Box ID"
 
-msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
-msgstr "从放置规则中选择的文章类型检测经典第三方 Meta Box，或手动输入 HTML 源码中的 id。保存处理仍由原插件负责。"
+msgid ""
+"Detect a classic third-party meta box from the post types selected in "
+"Placement Rules, or enter its HTML source id manually. The original plugin "
+"keeps handling saving."
+msgstr ""
+"从放置规则中选择的文章类型检测经典第三方 Meta Box，或手动输入 HTML 源码中的 "
+"id。保存处理仍由原插件负责。"
 
-msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgid ""
+"Classic meta boxes rendered in the edit screen can be moved. Block Editor-"
+"only panels are not supported."
 msgstr "可以移动在编辑界面中渲染的经典 Meta Box。不支持仅限区块编辑器的面板。"
 
 msgid "Display Width"
@@ -778,7 +1150,6 @@ msgstr "可用于：%s"
 msgid "Already selected in another Classic Meta Box Placement field."
 msgstr "已在另一个经典 Meta Box 放置字段中选择。"
 
-
 msgid "Plain text"
 msgstr "纯文本"
 
@@ -796,11 +1167,95 @@ msgstr "已复制"
 
 msgid "Language"
 msgstr "语言"
-msgid "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
-msgstr "此插件是 Custom Field Suite 的维护与扩展版本，可在 WordPress 编辑界面中添加更高效、更灵活的输入字段。"
-msgctxt "date picker"
-msgid "Clear"
-msgstr "清除"
+
+msgid ""
+"This plugin is a maintained and extended version of Custom Field Suite that "
+"adds more effective and flexible input fields to WordPress edit screens."
+msgstr ""
+"此插件是 Custom Field Suite 的维护与扩展版本，可在 WordPress 编辑界面中添加更"
+"高效、更灵活的输入字段。"
+
+#, fuzzy
+msgid "Accordion Group"
+msgstr "横向分组"
+
+msgid "Initial State"
+msgstr ""
+
+msgid "Open by default"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"Tabs, loops, accordions, conditional groups, and horizontal groups cannot be "
+"placed inside a horizontal group."
+msgstr "选项卡、循环和横向分组不能放在横向分组内。"
+
+#, fuzzy
+msgid "Tabs cannot be placed inside an accordion."
+msgstr "选项卡、循环和横向分组不能放在横向分组内。"
+
+#, fuzzy
+msgid "Please enter a value"
+msgstr "请再输入 1 个字符"
+
+msgid "Please enter a valid date (YYYY-MM-DD HH:MM)"
+msgstr ""
+
+msgid "Please enter a valid color HEX (#ff0000)"
+msgstr ""
+
+#, fuzzy
+msgid "Please enter a phone number"
+msgstr "请再输入 1 个字符"
+
+#, fuzzy
+msgid "Please enter a valid phone number"
+msgstr "请再输入 1 个字符"
+
+#, fuzzy
+msgid "Please enter an email address"
+msgstr "请再输入 1 个字符"
+
+#, fuzzy
+msgid "Please enter a valid email address"
+msgstr "请输入 %s 个或更多字符"
+
+#, fuzzy
+msgid "Please enter a number"
+msgstr "请再输入 1 个字符"
+
+#, fuzzy
+msgid "Please enter a valid number"
+msgstr "请再输入 1 个字符"
+
+msgid "Please enter a URL"
+msgstr ""
+
+msgid "Please enter a valid URL"
+msgstr ""
+
+msgid "Please select a condition"
+msgstr "请选择一个条件"
+
+#, fuzzy
+msgid "Please select a time"
+msgstr "请选择一个条件"
+
+#, fuzzy
+msgid "Please select a valid time"
+msgstr "请选择一个条件"
+
+#, fuzzy
+msgid "Please select a language and enter code"
+msgstr "请选择一种语言..."
+
+#, fuzzy
+msgid "Please select %s item(s)"
+msgstr "请选择一个条件"
+
+msgid "Please select between %1$s and %2$s items"
+msgstr ""
 
 msgid "TAB"
 msgstr "标签"
@@ -817,29 +1272,21 @@ msgstr "折叠"
 msgid "CONDITION"
 msgstr "条件"
 
-#: ../templates/page_tools.php:206
-msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
-msgstr "选择要导出的字段组，点击按钮，然后保存显示的代码。可以选择多个项目。"
+msgid "This field name is duplicated. Use a unique field name."
+msgstr ""
 
-#: ../templates/page_tools.php:222
-msgid "Export Code"
-msgstr "导出代码"
+msgid ""
+"Duplicate field names found: %s. Field names must be unique before saving."
+msgstr ""
 
-#: ../templates/page_tools.php:231
-msgid "Paste the exported field group code into the input field below, then press the button."
-msgstr "将已导出的字段组代码粘贴到下面的输入框中，然后点击按钮。"
+msgid "Move here"
+msgstr ""
 
-#: ../templates/page_tools.php:234
-msgid "Import Code"
-msgstr "导入代码"
+msgid "Move here: inside %s"
+msgstr ""
 
-#: ../templates/page_tools.php:235
-msgid "Paste the import code here"
-msgstr "在此粘贴导入代码"
-
-#: ../templates/page_tools.php:150
-msgid "This will delete all at-shift CFS data. Are you sure?"
-msgstr "这将完全删除所有 at-shift CFS 数据。确定吗？"
+msgid "Move here: inside the current Tab"
+msgstr ""
 
 msgid "Post Categories (Standard / Global)"
 msgstr "文章分类（标准 / 全局）"
@@ -854,7 +1301,9 @@ msgstr "标准分类"
 msgid "Category Source"
 msgstr "分类来源"
 
-msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgid ""
+"Choose the standard category or a registered Shared Taxonomy to show and "
+"save with this field."
 msgstr "选择标准分类或已注册的 Shared Taxonomy，用于通过此字段显示和保存。"
 
 msgid "Photo Gallery"
@@ -884,8 +1333,13 @@ msgstr "图库 HTML"
 msgid "Gallery Display"
 msgstr "图库显示"
 
-msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "当返回值为 Gallery HTML 时使用。列数设置生成的画廊 HTML 中的列数。图片文件链接包含便于模态窗口使用的数据属性。"
+msgid ""
+"Used when the return value is Gallery HTML. Columns sets the number of "
+"columns in the generated gallery HTML. Image file links include modal-"
+"friendly data attributes."
+msgstr ""
+"当返回值为 Gallery HTML 时使用。列数设置生成的画廊 HTML 中的列数。图片文件链"
+"接包含便于模态窗口使用的数据属性。"
 
 msgid "CSS class"
 msgstr "CSS 类"
@@ -905,8 +1359,13 @@ msgstr "选择图库图片"
 msgid "After input"
 msgstr "显示在输入框后"
 
-msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
-msgstr "在编辑页面的输入框后显示。可用于 kg、%、~ 等简短单位或分隔符。此文本不会包含在保存值或前端输出中。"
+msgid ""
+"Shown after the input on edit screens. Use this for short units or "
+"separators such as kg, %, or ~. This text is not included in saved values or "
+"front-end output."
+msgstr ""
+"在编辑页面的输入框后显示。可用于 kg、%、~ 等简短单位或分隔符。此文本不会包含"
+"在保存值或前端输出中。"
 
 #: ../includes/fields/gallery.php:88
 msgid "Image Size"
@@ -933,19 +1392,27 @@ msgid "Full Size"
 msgstr "完整尺寸"
 
 #: ../includes/fields/gallery.php:142
-msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgid ""
+"Minimum sets the fewest images that can be selected. Maximum sets the most "
+"images that can be selected."
 msgstr "最小值设置可选择的最少图片数。最大值设置可选择的最多图片数。"
 
 #: ../includes/fields/loop.php:93
-msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgid ""
+"Minimum sets the fewest rows that can be added. Maximum sets the most rows "
+"that can be added."
 msgstr "最小值设置可添加的最少行数。最大值设置可添加的最多行数。"
 
 #: ../includes/fields/relationship.php:125
-msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgid ""
+"Minimum sets the fewest related items that can be selected. Maximum sets the "
+"most related items that can be selected."
 msgstr "最小值设置可选择的最少关联项目数。最大值设置可选择的最多关联项目数。"
 
 #: ../includes/fields/user.php:74
-msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgid ""
+"Minimum sets the fewest users that can be selected. Maximum sets the most "
+"users that can be selected."
 msgstr "最小值设置可选择的最少用户数。最大值设置可选择的最多用户数。"
 
 #: ../includes/fields/true_false.php:37
@@ -955,21 +1422,6 @@ msgstr "复选框标签"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "显示在编辑画面的复选框旁边。"
-
-msgid "Post Title (Native)"
-msgstr "文章标题（原生）"
-
-msgid "You do not have permission to change the native title."
-msgstr "您没有权限更改原生标题。"
-
-msgid "Allowed User Role Groups"
-msgstr "允许的用户角色组"
-
-msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
-msgstr "选择可以更改原生标题的角色。留空则允许任何可以编辑该文章的用户角色。"
-
-msgid "Leave blank to allow any role that can edit this post"
-msgstr "留空则允许任何可以编辑这篇文章的角色"
 
 #: includes/fields/post_publish.php
 msgid "Save / Publish (Native)"
@@ -982,6 +1434,35 @@ msgstr "您无权更改保存 / 发布设置。"
 #: includes/fields/post_publish.php
 msgid "Status"
 msgstr "状态"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Current Status"
+msgstr "状态"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Change Status"
+msgstr "状态"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Do not change"
+msgstr "允许更改状态"
+
+#: includes/fields/post_publish.php
+msgid "Change to Draft"
+msgstr ""
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Change to Pending Review"
+msgstr "待审核"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Publish / Schedule"
+msgstr "发布或预约发布"
 
 #: includes/fields/post_publish.php
 msgid "Visibility"
@@ -1000,6 +1481,10 @@ msgid "Private"
 msgstr "私密"
 
 #: includes/fields/post_publish.php
+msgid "Autosaving"
+msgstr ""
+
+#: includes/fields/post_publish.php
 msgid "Password"
 msgstr "密码"
 
@@ -1012,11 +1497,36 @@ msgid "Set to current date and time"
 msgstr "设为当前日期和时间"
 
 #: includes/fields/post_publish.php
+#, fuzzy
+msgid "Save Draft"
+msgstr "草稿"
+
+#: includes/fields/post_publish.php
+msgid "Update"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Submit for Review"
+msgstr ""
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Publish"
+msgstr "已发布"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Schedule"
+msgstr "已计划"
+
+#: includes/fields/post_publish.php
 msgid "Save / Publish Settings"
 msgstr "保存 / 发布设置"
 
 #: includes/fields/post_publish.php
-msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgid ""
+"Choose which native WordPress save and publish controls are shown in this "
+"field."
 msgstr "选择在此字段中显示哪些 WordPress 原生保存和发布控件。"
 
 #: includes/fields/post_publish.php
@@ -1040,10 +1550,6 @@ msgid "Pending Review"
 msgstr "待审核"
 
 #: includes/fields/post_publish.php
-msgid "Published"
-msgstr "已发布"
-
-#: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "已计划"
 
@@ -1055,8 +1561,7 @@ msgstr "操作"
 msgid "Duplicate"
 msgstr "复制"
 
-#: templates/admin_head.php
-#: templates/field_html.php
+#: templates/admin_head.php templates/field_html.php
 msgid "Automatically named when saved"
 msgstr "保存时自动命名"
 
@@ -1069,8 +1574,12 @@ msgid "Allowed Trash Roles"
 msgstr "允许移至回收站的角色"
 
 #: includes/fields/post_publish.php
-msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
-msgstr "选择可通过此字段将文章移至回收站的角色。留空则允许任何可删除该文章的用户角色。"
+msgid ""
+"Select the roles that can move posts to trash from this field. Leave blank "
+"to allow any user role that can delete the post."
+msgstr ""
+"选择可通过此字段将文章移至回收站的角色。留空则允许任何可删除该文章的用户角"
+"色。"
 
 #: includes/fields/post_publish.php
 msgid "Leave blank to allow any role that can delete this post"
@@ -1105,8 +1614,12 @@ msgid "Content Editor"
 msgstr "内容编辑器"
 
 #: includes/fields/post_content.php
-msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
-msgstr "选择编辑者如何编辑 WordPress 原生正文。此字段保存到 post_content，不使用 Gutenberg / 区块编辑器。"
+msgid ""
+"Choose how editors edit the native WordPress content. This field saves to "
+"post_content and does not use the Gutenberg / block editor."
+msgstr ""
+"选择编辑者如何编辑 WordPress 原生正文。此字段保存到 post_content，不使用 "
+"Gutenberg / 区块编辑器。"
 
 #: includes/fields/post_content.php
 msgid "Visual editor"
@@ -1132,6 +1645,14 @@ msgstr "横向排列子级和孙级分类"
 msgid "Leave both unchecked to use the traditional category tree."
 msgstr "两项都不勾选时，将使用传统分类树显示。"
 
+#: includes/fields/wp_category.php
+msgid "Hide the category search box"
+msgstr "隐藏分类搜索框"
+
+#: includes/fields/wp_category.php
+msgid "Hide the selected-only filter"
+msgstr "隐藏仅显示已选择筛选器"
+
 #: includes/fields/wp_tag.php:35
 msgid "Choose from the most used tags"
 msgstr "从最常用的标签中选择"
@@ -1139,67 +1660,6 @@ msgstr "从最常用的标签中选择"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "暂无常用标签。"
-
-#: ../templates/meta_box_rules.php
-msgid "%s allowed"
-msgstr "允许 %s 个"
-
-#: ../templates/meta_box_rules.php
-msgid "Standard"
-msgstr "标准"
-
-#: ../templates/meta_box_rules.php
-msgid "Administrator"
-msgstr "管理员"
-
-#: ../templates/meta_box_rules.php
-msgid "Editor"
-msgstr "编辑"
-
-#: ../templates/meta_box_rules.php
-msgid "Author"
-msgstr "作者"
-
-#: ../templates/meta_box_rules.php
-msgid "Contributor"
-msgstr "贡献者"
-
-#: ../templates/meta_box_rules.php
-msgid "Subscriber"
-msgstr "订阅者"
-
-msgid "The results could not be loaded."
-msgstr "无法加载结果。"
-
-msgid "Please enter 1 more character"
-msgstr "请再输入 1 个字符"
-
-msgid "Please enter %s or more characters"
-msgstr "请输入 %s 个或更多字符"
-
-msgid "Loading more results..."
-msgstr "正在加载更多结果..."
-
-msgid "No results found"
-msgstr "未找到结果"
-
-msgid "Searching..."
-msgstr "正在搜索..."
-
-msgid "Require a condition selection"
-msgstr "要求选择条件"
-
-msgid "Contains required fields"
-msgstr "包含必填字段"
-
-msgid "Please select a condition"
-msgstr "请选择一个条件"
-
-msgid "Hide the category search box"
-msgstr "隐藏分类搜索框"
-
-msgid "Hide the selected-only filter"
-msgstr "隐藏仅显示已选择筛选器"
 
 #: includes/fields/post_publish.php
 msgid "Preview Changes"
@@ -1220,3 +1680,117 @@ msgstr "改为预约发布"
 #: includes/fields/post_publish.php
 msgid "Change to Publish or Schedule"
 msgstr "改为发布或预约发布"
+
+#: templates/admin_head.php
+msgid ""
+"The number of input fields is large, and some field group settings may not "
+"be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number "
+"of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or "
+"your server settings."
+msgstr ""
+
+#: templates/admin_head.php
+#, php-format
+msgid "Current inputs: %1$s / max_input_vars: %2$s"
+msgstr ""
+
+#: templates/meta_box_extras.php
+msgid "Hide revisions"
+msgstr ""
+
+#: includes/init.php
+msgid ""
+"The field group form exceeded the server input limit, so field settings were "
+"not saved to avoid data loss. PHP max_input_vars is commonly 1000 by "
+"default. Placement Rules and Extras were saved only if they reached the "
+"server. Reduce the number of fields or increase max_input_vars in "
+"php.ini, .user.ini, .htaccess, or your server settings."
+msgstr ""
+
+#: includes/init.php
+#, fuzzy
+msgid "CFS save warning:"
+msgstr "CFS 位置规则警告："
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "+ Add category"
+msgstr "标准分类"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category name"
+msgstr "分类来源"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Parent category"
+msgstr "搜索分类"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Add category"
+msgstr "标准分类"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category Adding"
+msgstr "分类选择"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Show + Add category"
+msgstr "标准分类"
+
+#: includes/fields/wp_category.php
+msgid ""
+"Users must also have permission to create terms for the selected taxonomy."
+msgstr ""
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Allowed Add Roles"
+msgstr "允许移至回收站的角色"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid ""
+"Select the roles that can add categories from this field. Leave blank to "
+"allow any role that can create terms for this taxonomy."
+msgstr ""
+"选择可通过此字段将文章移至回收站的角色。留空则允许任何可删除该文章的用户角"
+"色。"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Leave blank to allow any role that can create categories"
+msgstr "留空则允许任何可删除此文章的角色"
+
+#: includes/fields/wp_category.php
+msgid "Adding category..."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Category added."
+msgstr "分类来源"
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Enter a category name."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Failed to add category."
+msgstr "标准分类"
+
+#: includes/init.php
+#, fuzzy
+msgid "You do not have permission to add categories."
+msgstr "您没有权限更改原生标题。"
+
+#~ msgid "Position"
+#~ msgstr "位置"
+
+#~ msgid "Hide the content editor"
+#~ msgstr "隐藏内容编辑器"

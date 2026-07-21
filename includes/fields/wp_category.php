@@ -67,7 +67,15 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
             'order'      => 'ASC',
         ] );
 
-        if ( is_wp_error( $terms ) || empty( $terms ) ) {
+        if ( is_wp_error( $terms ) ) {
+            echo '<p class="notes">' . esc_html( $this->get_no_terms_message( $taxonomy ) ) . '</p>';
+            return;
+        }
+
+        $terms = is_array( $terms ) ? $terms : [];
+        $can_add_terms = $this->current_user_can_add_terms( $field, $taxonomy );
+
+        if ( empty( $terms ) && ! $can_add_terms ) {
             echo '<p class="notes">' . esc_html( $this->get_no_terms_message( $taxonomy ) ) . '</p>';
             return;
         }
@@ -93,7 +101,7 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         }
     ?>
         <div class="cfs-wp-category-control">
-            <?php if ( ! $hide_search || ! $hide_selected_filter ) : ?>
+            <?php if ( ! empty( $terms ) && ( ! $hide_search || ! $hide_selected_filter ) ) : ?>
             <div class="cfs-wp-category-tools">
                 <?php if ( ! $hide_search ) : ?>
                 <input type="search" class="cfs-wp-category-search" autocomplete="off" placeholder="<?php echo esc_attr( $this->get_search_placeholder() ); ?>" />
@@ -107,9 +115,14 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
             </div>
             <?php endif; ?>
     <?php
-        echo '<div class="' . esc_attr( implode( ' ', $list_classes ) ) . '" data-taxonomy="' . esc_attr( $taxonomy_name ) . '" data-auto-select-children="' . esc_attr( $auto_select_children ? '1' : '0' ) . '" data-auto-select-parents="' . esc_attr( $auto_select_parents ? '1' : '0' ) . '" data-default-category="' . esc_attr( $default_term_id ) . '">';
+        if ( empty( $terms ) ) {
+            echo '<p class="notes cfs-wp-category-empty">' . esc_html( $this->get_no_terms_message( $taxonomy ) ) . '</p>';
+        }
+
+        echo '<div class="' . esc_attr( implode( ' ', $list_classes ) ) . '" data-taxonomy="' . esc_attr( $taxonomy_name ) . '" data-input-name="' . esc_attr( $field->input_name ) . '" data-auto-select-children="' . esc_attr( $auto_select_children ? '1' : '0' ) . '" data-auto-select-parents="' . esc_attr( $auto_select_parents ? '1' : '0' ) . '" data-default-category="' . esc_attr( $default_term_id ) . '">';
         $this->render_terms( $children, 0, $selected, $field->input_name, $default_term_id );
         echo '</div>';
+        $this->render_add_term_control( $field, $taxonomy_name, $taxonomy, $children, $post_id );
         echo '</div>';
     }
 
@@ -158,6 +171,120 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
     }
 
 
+    protected function render_add_term_control( $field, $taxonomy_name, $taxonomy, $children, $post_id ) {
+        if ( ! $this->current_user_can_add_terms( $field, $taxonomy ) ) {
+            return;
+        }
+
+        $field_id = isset( $field->id ) ? absint( $field->id ) : 0;
+        $post_id = absint( $post_id );
+
+        if ( 1 > $field_id ) {
+            return;
+        }
+    ?>
+        <div
+            class="cfs-wp-category-add"
+            data-taxonomy="<?php echo esc_attr( $taxonomy_name ); ?>"
+            data-field-id="<?php echo esc_attr( $field_id ); ?>"
+            data-post-id="<?php echo esc_attr( $post_id ); ?>"
+            data-nonce="<?php echo esc_attr( wp_create_nonce( 'atshift_cfs_add_wp_category_term' ) ); ?>"
+        >
+            <button type="button" class="button-link cfs-wp-category-add-toggle" aria-expanded="false">
+                <?php esc_html_e( '+ Add category', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+            </button>
+            <div class="cfs-wp-category-add-panel" hidden>
+                <input type="text" class="cfs-wp-category-add-name" autocomplete="off" placeholder="<?php esc_attr_e( 'Category name', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+                <select class="cfs-wp-category-add-parent">
+                    <option value="0"><?php esc_html_e( 'Parent category', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></option>
+                    <?php $this->render_parent_options( $children ); ?>
+                </select>
+                <div class="cfs-wp-category-add-actions">
+                    <button type="button" class="button cfs-wp-category-add-submit"><?php esc_html_e( 'Add category', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
+                    <button type="button" class="button-link cfs-wp-category-add-cancel"><?php esc_html_e( 'Cancel', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
+                </div>
+                <p class="description cfs-wp-category-add-message" aria-live="polite"></p>
+            </div>
+        </div>
+    <?php
+    }
+
+
+    protected function render_parent_options( $children, $parent_id = 0, $depth = 0 ) {
+        if ( empty( $children[ $parent_id ] ) ) {
+            return;
+        }
+
+        foreach ( $children[ $parent_id ] as $term ) {
+            $term_id = absint( $term->term_id );
+            $prefix = str_repeat( '&mdash; ', absint( $depth ) );
+
+            echo '<option value="' . esc_attr( $term_id ) . '" data-depth="' . esc_attr( $depth ) . '">' . wp_kses_post( $prefix ) . esc_html( $this->get_term_name( $term ) ) . '</option>';
+            $this->render_parent_options( $children, $term_id, $depth + 1 );
+        }
+    }
+
+
+    public function current_user_can_add_terms_for_request( $field_id, $post_id, $taxonomy_name ) {
+        $field_id = absint( $field_id );
+        $post_id = absint( $post_id );
+        $taxonomy_name = sanitize_key( $taxonomy_name );
+
+        if ( 1 > $field_id || ! taxonomy_exists( $taxonomy_name ) ) {
+            return false;
+        }
+
+        if ( 0 < $post_id && ! current_user_can( 'edit_post', $post_id ) ) {
+            return false;
+        }
+
+        $params = [
+            'field_id'   => [ $field_id ],
+            'field_type' => [ $this->name ],
+        ];
+
+        if ( 0 < $post_id ) {
+            $params['post_id'] = $post_id;
+        }
+
+        $fields = atshift_fields_maintenance_for_custom_field_suite()->api->find_input_fields( $params );
+
+        foreach ( $fields as $field ) {
+            $field = (object) $field;
+
+            if ( $taxonomy_name !== $this->get_taxonomy_name( $field ) ) {
+                continue;
+            }
+
+            return $this->current_user_can_add_terms( $field, get_taxonomy( $taxonomy_name ) );
+        }
+
+        return false;
+    }
+
+
+    protected function current_user_can_add_terms( $field, $taxonomy ) {
+        if ( ! $taxonomy || empty( $field->id ) || 1 > (int) $this->get_option( $field, 'allow_add_terms' ) ) {
+            return false;
+        }
+
+        $edit_terms_cap = isset( $taxonomy->cap->edit_terms ) ? $taxonomy->cap->edit_terms : 'manage_categories';
+
+        if ( ! current_user_can( $edit_terms_cap ) ) {
+            return false;
+        }
+
+        $allowed_roles = $this->get_allowed_add_roles( $field );
+
+        if ( empty( $allowed_roles ) ) {
+            return true;
+        }
+
+        $user = wp_get_current_user();
+        return $user instanceof WP_User && ! empty( array_intersect( $allowed_roles, (array) $user->roles ) );
+    }
+
+
     function pre_save( $value, $field = null ) {
         $post_id = isset( $field->post_id ) ? absint( $field->post_id ) : 0;
         $taxonomy_name = $this->get_taxonomy_name( $field );
@@ -190,6 +317,8 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
     function options_html( $key, $field ) {
         $category_taxonomies = $this->get_category_taxonomies();
         $choices = [];
+        $role_choices = $this->get_role_choices();
+        $allowed_add_roles = $this->get_allowed_add_roles( $field );
 
         foreach ( $category_taxonomies as $taxonomy_name => $taxonomy ) {
             if ( 'category' === $taxonomy_name ) {
@@ -273,6 +402,45 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
+                <label><?php esc_html_e( 'Category Adding', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+            </td>
+            <td>
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type' => 'true_false',
+                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][allow_add_terms]',
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option( $field, 'allow_add_terms' ),
+                        'options' => [ 'message' => __( 'Show + Add category', 'atshift-fields-maintenance-for-custom-field-suite' ) ],
+                    ] );
+                ?>
+                <p class="description"><?php esc_html_e( 'Users must also have permission to create terms for the selected taxonomy.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
+                <div class="cfs-wp-category-add-roles">
+                    <label>
+                        <?php esc_html_e( 'Allowed Add Roles', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                        <div class="cfs_tooltip">?
+                            <div class="tooltip_inner"><?php esc_html_e( 'Select the roles that can add categories from this field. Leave blank to allow any role that can create terms for this taxonomy.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                        </div>
+                    </label>
+                    <input type="hidden" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][add_allowed_roles][]" value="" />
+                    <?php
+                        atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                            'type' => 'select',
+                            'input_class' => 'select2 cfs-wp-category-role-select',
+                            'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][add_allowed_roles]',
+                            'options' => [
+                                'multiple' => '1',
+                                'choices' => $role_choices,
+                                'placeholder' => __( 'Leave blank to allow any role that can create categories', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                            ],
+                            'value' => $allowed_add_roles,
+                        ] );
+                    ?>
+                </div>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
+            <td class="label">
                 <label><?php esc_html_e( 'Validation', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
@@ -333,6 +501,25 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
     }
 
 
+    protected function get_allowed_add_roles( $field = null ) {
+        $roles = $this->get_option( $field, 'add_allowed_roles', [] );
+        $roles = array_filter( array_map( 'sanitize_key', (array) $roles ) );
+        return array_values( array_unique( $roles ) );
+    }
+
+
+    protected function get_role_choices() {
+        $choices = [];
+
+        foreach ( wp_roles()->roles as $role_key => $role ) {
+            $role_label = isset( $role['name'] ) ? translate_user_role( $role['name'] ) : $role_key;
+            $choices[ sanitize_key( $role_key ) ] = $role_label;
+        }
+
+        return $choices;
+    }
+
+
     function pre_save_field( $field ) {
         $taxonomy_name = isset( $field['options']['taxonomy'] ) ? sanitize_key( $field['options']['taxonomy'] ) : 'category';
         $field['options']['taxonomy'] = taxonomy_exists( $taxonomy_name ) ? $taxonomy_name : 'category';
@@ -343,6 +530,8 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
         $field['options']['layout_children_horizontal'] = empty( $field['options']['layout_children_horizontal'] ) ? 0 : 1;
         $field['options']['hide_search'] = empty( $field['options']['hide_search'] ) ? 0 : 1;
         $field['options']['hide_selected_filter'] = empty( $field['options']['hide_selected_filter'] ) ? 0 : 1;
+        $field['options']['allow_add_terms'] = empty( $field['options']['allow_add_terms'] ) ? 0 : 1;
+        $field['options']['add_allowed_roles'] = isset( $field['options']['add_allowed_roles'] ) ? array_values( array_filter( array_map( 'sanitize_key', (array) $field['options']['add_allowed_roles'] ) ) ) : [];
 
         return $field;
     }
@@ -367,6 +556,20 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
             [ 'jquery' ],
             $version,
             true
+        );
+
+        wp_localize_script(
+            'atshift-cfs-wp-category',
+            'AtshiftCFSWpCategory',
+            [
+                'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+                'messages' => [
+                    'adding' => __( 'Adding category...', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                    'added' => __( 'Category added.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                    'enter_name' => __( 'Enter a category name.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                    'failed' => __( 'Failed to add category.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                ],
+            ]
         );
     }
 

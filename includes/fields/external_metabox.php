@@ -113,7 +113,8 @@ class Atshift_CFS_external_metabox extends Atshift_CFS_field
                 'trackbacksdiv',
                 'slugdiv',
                 'authordiv',
-                'postcustom'
+                'postcustom',
+                'revisionsdiv'
             ];
 
             function escapeId(id) {

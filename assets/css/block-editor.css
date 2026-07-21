@@ -28,3 +28,9 @@ body.atshift-cfs-hide-post-title .editor-visual-editor__post-title-wrapper,
 body.atshift-cfs-hide-post-title .edit-post-visual-editor__post-title-wrapper {
     display: none !important;
 }
+
+body.atshift-cfs-hide-revisions .editor-post-last-revision__panel,
+body.atshift-cfs-hide-revisions .editor-post-last-revision__title,
+body.atshift-cfs-hide-revisions .editor-post-panel__row:has(.editor-private-post-last-revision__button) {
+    display: none !important;
+}

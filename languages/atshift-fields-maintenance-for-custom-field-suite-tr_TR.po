@@ -15,434 +15,484 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: includes/field.php:16 includes/fields/text.php:8
+#: ../includes/fields/conditional.php:7
+#, fuzzy
+msgid "Conditional Group"
+msgstr "Yatay grup"
+
+#: ../templates/admin_head.php:63
+msgid "Unnamed condition"
+msgstr ""
+
+#: ../templates/admin_head.php:65
+#, php-format
+msgid "Condition \"%s\""
+msgstr ""
+
+#: ../includes/fields/conditional.php:107
+#, fuzzy
+msgid "Display Type"
+msgstr "Dosya türü"
+
+#: ../includes/fields/conditional.php:120
+msgid "Dropdown"
+msgstr ""
+
+#: ../includes/fields/conditional.php:147
+msgid "Used for radio buttons. The first choice is used when left blank."
+msgstr ""
+
+#: ../includes/fields/conditional.php:174
+msgid "Require a condition selection"
+msgstr "Kosul secimini zorunlu yap"
+
+#: ../templates/field_html.php:94
+msgid "Display for choice"
+msgstr ""
+
+#: ../templates/field_html.php:95
+msgid "Choose the parent Conditional Group value that displays this field."
+msgstr ""
+
+#: ../templates/admin_head.php:50
+#, fuzzy
+msgid ""
+"Tabs and conditional groups cannot be placed inside a Conditional Group."
+msgstr ""
+"Sekmeler, donguler ve yatay gruplar bir yatay grubun icine yerlestirilemez."
+
+#: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
 msgstr "Metin"
 
-#: includes/field.php:42 includes/fields/file.php:64
-#: includes/fields/select.php:117 includes/fields/text.php:30
-#: includes/fields/textarea.php:58 includes/fields/true_false.php:45
-#: includes/fields/wysiwyg.php:54
+#: ../includes/field.php:42 ../includes/fields/file.php:64
+#: ../includes/fields/select.php:117 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
+#: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr "Doğrulama"
 
-#: includes/field.php:51 includes/fields/file.php:73
-#: includes/fields/select.php:126 includes/fields/text.php:39
-#: includes/fields/textarea.php:67 includes/fields/true_false.php:54
-#: includes/fields/wysiwyg.php:63
+#: ../includes/field.php:51 ../includes/fields/file.php:73
+#: ../includes/fields/select.php:126 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
+#: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "Bu alanı zorunlu yap"
 
-#: includes/field_group.php:112
+#: ../includes/form.php:266 ../includes/fields/group.php:147
+msgid "Required"
+msgstr "Zorunlu"
+
+#: ../includes/field_group.php:112
 msgid "Imported"
 msgstr "İçe Aktar"
 
-#: includes/field_group.php:115
+#: ../includes/field_group.php:115
 msgid "Skipped"
 msgstr "Atlanan"
 
-#: includes/field_group.php:120
+#: ../includes/field_group.php:120
 msgid "Nothing to import"
 msgstr "Hiçbir şey alınamadı"
 
-#: includes/fields/color/color.php:8
+#: ../includes/fields/color/color.php:8
 msgid "Color"
 msgstr "Renk"
 
-#: includes/fields/date/date.php:8
+#: ../includes/fields/date/date.php:8
 msgid "Date"
 msgstr "Tarih"
 
-#: includes/fields/file.php:8
+#: ../includes/fields/file.php:8
 msgid "File Upload"
 msgstr "Dosya Yükle"
 
-#: includes/fields/file.php:32
+#: ../includes/fields/file.php:32
 msgid "Add File"
 msgstr "Dosya Ekle"
 
-#: includes/fields/file.php:33
+#: ../includes/fields/file.php:33
 msgid "Remove"
 msgstr "Sil"
 
-#: includes/fields/file.php:43
+#: ../includes/fields/file.php:43
 msgid "Return Value"
 msgstr "Dönüş Değeri"
 
-#: includes/fields/file.php:52
+#: ../includes/fields/file.php:52
 msgid "File URL"
 msgstr "Dosya URL"
 
-#: includes/fields/file.php:53
+#: ../includes/fields/file.php:53
 msgid "Attachment ID"
 msgstr "Dosya ID"
 
-#: includes/fields/hyperlink.php:9
+#: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
 msgstr "Bağlantı"
 
-#: includes/fields/hyperlink.php:23
+#: ../includes/fields/hyperlink.php:23
 msgid "URL"
 msgstr "URL"
 
-#: includes/fields/hyperlink.php:27
+#: ../includes/fields/hyperlink.php:27
 msgid "Link Text"
 msgstr "Bağlantı Metni"
 
-#: includes/fields/hyperlink.php:31
+#: ../includes/fields/hyperlink.php:31
 msgid "Link Target"
 msgstr "Link Hedefi"
 
-#: includes/fields/hyperlink.php:48
+#: ../includes/fields/hyperlink.php:48
 msgid "Output format"
 msgstr "Çıktı biçimi"
 
-#: includes/fields/hyperlink.php:57
+#: ../includes/fields/hyperlink.php:57
 msgid "HTML"
 msgstr "HTML"
 
-#: includes/fields/hyperlink.php:58
+#: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
 msgstr "PHP Dizi"
 
-#: includes/fields/loop.php:8
+#: ../includes/fields/loop.php:8
 msgid "Loop"
 msgstr "Döngü"
 
-#: includes/fields/loop.php:36
+#: ../includes/fields/loop.php:36
 msgid "Row Display"
 msgstr "Döngü Çıktısı"
 
-#: includes/fields/loop.php:45
+#: ../includes/fields/loop.php:45
 msgid "Show the values by default"
 msgstr "Varsayılan değeri göster"
 
-#: includes/fields/loop.php:52
+#: ../includes/fields/loop.php:52
 msgid "Row Label"
 msgstr "Dizi Etiket"
 
-#: includes/fields/loop.php:59 includes/fields/loop.php:113
-#: includes/fields/loop.php:194
+#: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
+#: ../includes/fields/loop.php:194
 msgid "Loop Row"
 msgstr "Satır döngüsü"
 
-#: includes/fields/loop.php:66
+#: ../includes/fields/loop.php:66
 msgid "Button Label"
 msgstr "Buton İsmi"
 
-#: includes/fields/loop.php:73 includes/fields/loop.php:138
-#: includes/fields/loop.php:195
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
+#: ../includes/fields/loop.php:195
 msgid "Add Row"
 msgstr "Yeni Ekle"
 
-#: includes/fields/loop.php:81 includes/fields/relationship.php:104
-#: includes/fields/user.php:56
+#: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
+#: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "Limitler"
 
-msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
-msgstr "Minimum, seçilebilecek en az terim sayısını belirler. Maksimum, seçilebilecek en fazla terim sayısını belirler."
+msgid ""
+"Minimum sets the fewest terms that can be selected. Maximum sets the most "
+"terms that can be selected."
+msgstr ""
+"Minimum, seçilebilecek en az terim sayısını belirler. Maksimum, "
+"seçilebilecek en fazla terim sayısını belirler."
 
-#: includes/fields/relationship.php:8
+#: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "İlişkilendirme"
 
-#: includes/fields/relationship.php:60
+#: ../includes/fields/relationship.php:60
 msgid "Search posts"
 msgstr "Arama"
 
-#: includes/fields/relationship.php:88 includes/init.php:282
-#: templates/meta_box_rules.php:136
+#: ../includes/fields/relationship.php:88 ../includes/init.php:282
+#: ../templates/meta_box_rules.php:136
 msgid "Post Types"
 msgstr "Yazı Formatı"
 
-#: includes/fields/relationship.php:89
+#: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
 msgstr "Yazı karakteri sınırlama"
 
-#: includes/fields/select.php:8
+#: ../includes/fields/select.php:8
 msgid "Select"
 msgstr "Seçici"
 
-#: includes/fields/select.php:86
+#: ../includes/fields/select.php:43
+msgid "Please select..."
+msgstr "Lutfen secin..."
+
+#: ../includes/fields/code_view.php:210
+msgid "Please select a language..."
+msgstr "Bir dil secin..."
+
+#: ../includes/fields/select.php:86
 msgid "Choices"
 msgstr "Seçimler"
 
-#: includes/fields/select.php:87
+#: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
 msgstr "Her satıra 1 tane ekle"
 
-#: includes/fields/select.php:101
+#: ../includes/fields/select.php:101
 msgid "Multi-select?"
 msgstr "Çoklu Seçim?"
 
-#: includes/fields/select.php:110
+#: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
 msgstr "Bu alanı zorunlu yap"
 
-#: includes/fields/tab.php:8
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Sekme grubu"
+
+#: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Sekme"
 
-#: includes/fields/text.php:16 includes/fields/textarea.php:23
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
 msgstr "Standart"
 
-#: includes/fields/textarea.php:8
+#, fuzzy
+msgid "Placeholder"
+msgstr "Atama"
+
+msgid "The value specified from the beginning."
+msgstr ""
+
+msgid "An input example or other helpful hint."
+msgstr ""
+
+msgid "at-shift CFS"
+msgstr ""
+
+msgctxt "date picker"
+msgid "Clear"
+msgstr "Temizle"
+
+#: ../includes/fields/textarea.php:8
 msgid "Textarea"
 msgstr "Geniş Metin (textarea)"
 
-#: includes/fields/textarea.php:37 includes/fields/wysiwyg.php:33
+#: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
 msgstr "Biçimlendirme"
 
-#: includes/fields/textarea.php:46
+#: ../includes/fields/textarea.php:46
 msgid "None"
 msgstr "Hiçbiri"
 
-#: includes/fields/textarea.php:47
+#: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
 msgstr "Satır başı karakteri <br />"
 
-#: includes/fields/true_false.php:8
+#: ../includes/fields/true_false.php:8
 msgid "True / False"
 msgstr "Aktif / Pasif"
 
-#: includes/fields/true_false.php:30
+#: ../includes/fields/true_false.php:30
 msgid "Message"
 msgstr "Mesaj"
 
-#: includes/fields/true_false.php:31
+#: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
 msgstr "Onay kutusu metni"
 
-#: includes/fields/user.php:8
+#: ../includes/fields/user.php:8
 msgid "User"
 msgstr "Kullanıcı"
 
-#: includes/fields/user.php:31
+#: ../includes/fields/user.php:31
 msgid "Search users"
 msgstr "Kullanıcı Ara…"
 
-#: includes/fields/wysiwyg.php:8
+#: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
 msgstr "Gelişmiş Editör"
 
-#: includes/fields/wysiwyg.php:42
+#: ../includes/fields/wysiwyg.php:42
 msgid "Default"
 msgstr "Standart"
 
-#: includes/fields/wysiwyg.php:43
+#: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
 msgstr "Hiçbiri (filtre)"
 
-#: includes/form.php:194
+#: ../includes/form.php:194
 msgid "Submit"
 msgstr "Gönder"
 
-#: includes/init.php:58
+#: ../includes/init.php:58
 msgid "Field Groups"
 msgstr "Özel Alanlar"
 
-#: includes/init.php:59
+#: ../includes/init.php:59
 msgid "Field Group"
 msgstr "Özel Alan"
 
-#: includes/init.php:60
+#: ../includes/init.php:60
 msgid "All Field Groups"
 msgstr "Tüm alan grupları"
 
-#: includes/init.php:61
+#: ../includes/init.php:61
 msgid "Add New Field Group"
 msgstr "Yeni Özel Alan Grup Ekle"
 
-#: includes/init.php:62
+#: ../includes/init.php:62
 msgid "Edit Field Group"
 msgstr "Özel Alan Düzenleme"
 
-#: includes/init.php:63
+#: ../includes/init.php:63
 msgid "New Field Group"
 msgstr "Yeni Özel Alan Grup Ekle"
 
-#: includes/init.php:64
+#: ../includes/init.php:64
 msgid "View Field Group"
 msgstr "Yeni Özel Alan Grup Ekle"
 
-#: includes/init.php:65
+#: ../includes/init.php:65
 msgid "Search Field Groups"
 msgstr "Özel Alanlar Ara"
 
-#: includes/init.php:66
+#: ../includes/init.php:66
 msgid "No Field Groups found"
 msgstr "Herhangi bir özel alan bulunmamaktadır."
 
-#: includes/init.php:67
+#: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
 msgstr "Çöp kutusunda özel alan bulunmamaktadır."
 
-#: includes/init.php:140 templates/page_tools.php:73
+#: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr "Araçlar"
 
-#: includes/init.php:153
+#: ../includes/init.php:153
 msgid "Fields"
 msgstr "Alanlar"
 
-#: includes/init.php:154
+#: ../includes/init.php:154
 msgid "Placement Rules"
 msgstr "Alan Atamaları"
 
-#: includes/init.php:155
+#: ../includes/init.php:155
 msgid "Extras"
 msgstr "Ekstralar"
 
-#: includes/init.php:268
+#: ../includes/init.php:268
 msgid "Title"
 msgstr "Başlık"
 
-#: includes/init.php:269
+#: ../includes/init.php:269
 msgid "Placement"
 msgstr "Atama"
 
-#: includes/init.php:283 templates/meta_box_rules.php:202
+#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
 msgid "User Roles"
 msgstr "Kullanıcı Rolü"
 
-#: includes/init.php:284 templates/meta_box_rules.php:234
+#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
 msgid "Posts"
 msgstr "Yazılar"
 
-#: includes/init.php:285
+#: ../includes/init.php:285
 msgid "Term IDs"
 msgstr "Yazı IDs"
 
-#: includes/init.php:286 templates/meta_box_rules.php:290
+#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
 msgid "Page Templates"
 msgstr "Sayfa Teması"
 
-#: includes/init.php:287 templates/meta_box_rules.php:169
+#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
 msgid "Post Formats"
 msgstr "Yazı Tipi"
 
-#: includes/revision.php:26
+#: ../includes/revision.php:26
 msgid "Post Meta"
 msgstr "Yazı Bilgisi"
 
-#: templates/admin_head.php:24
+#: ../templates/admin_head.php:24
 msgid "New Field"
 msgstr "Yeni Alan: "
 
-#: templates/field_html.php:30
+#: ../templates/field_html.php:30
 msgid "Label"
 msgstr "Alan'ın Adı:"
 
-#: templates/field_html.php:32
+#: ../templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "Editörde görünecek isim"
 
-#: templates/field_html.php:39
+#: ../templates/field_html.php:39
 msgid "Name"
 msgstr "İsim (kodu)"
 
-#: templates/field_html.php:42
-msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
+#: ../templates/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
 msgstr "Kod kısmında kullanılacak"
 
-#: templates/field_html.php:49
+#: ../templates/field_html.php:49
 msgid "Field Type"
 msgstr "Alan Tipi"
 
-#: templates/field_html.php:67
+#: ../templates/field_html.php:67
 msgid "Notes"
 msgstr "Notlar"
 
-#: templates/field_html.php:69
+#: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "İçerik girişi için editör notu"
 
-#: templates/field_html.php:82
+#: ../templates/field_html.php:82
 msgid "Close"
 msgstr "Çıkış"
 
-#: templates/field_html.php:83
+#: ../templates/field_html.php:83
 msgid "or"
 msgstr "veya"
 
-#: templates/field_html.php:83
+#: ../templates/field_html.php:83
 msgid "delete"
 msgstr "sil"
 
-#: templates/meta_box_extras.php:33
+#: ../templates/meta_box_extras.php:33
 msgid "Order"
 msgstr "Sıralama"
 
-#: templates/meta_box_extras.php:35
+#: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
 msgstr "En düşük alan grup ilk görünecektir."
 
-#: templates/meta_box_extras.php:45
-msgid "Position"
-msgstr "Pozisyonu"
+#: ../templates/meta_box_extras.php:281
+#, fuzzy
+msgid "Field Group Position"
+msgstr "Özel Alanlar"
 
-#: templates/meta_box_extras.php:48
+#: ../templates/meta_box_extras.php:284
 msgid "Normal"
 msgstr "Normal"
 
-#: templates/meta_box_extras.php:49
+#: ../templates/meta_box_extras.php:285
 msgid "Side"
 msgstr "Yan Menüde"
 
-#: templates/meta_box_extras.php:54
-msgid "Display Settings"
+#: ../templates/meta_box_extras.php:287
+#, fuzzy
+msgid "Controls where this field group appears on the edit screen."
+msgstr "Bu alan grubu duzenlenebilir tum yazi ekranlariyla eslesebilir."
+
+#: ../templates/meta_box_extras.php:293
+#, fuzzy
+msgid "Native Editor Display Settings"
 msgstr "Ekran Ayarları"
 
-#: templates/meta_box_extras.php:64
-msgid "Hide the content editor"
-msgstr "İçerik editörünü gizle"
-
-#: templates/meta_box_fields.php:60
-msgid "Add New Field"
-msgstr "Yeni Alan Ekle"
-
-#: templates/meta_box_rules.php:5
-msgid "equals"
-msgstr "eşittir"
-
-#: templates/meta_box_rules.php:6
-msgid "is not"
-msgstr "eğiş değil"
-
-#: templates/meta_box_rules.php:98 templates/meta_box_rules.php:103
-msgid "Leave blank to skip this rule"
-msgstr "Bu kuralı atlamak için boş bırakın"
-
-#: templates/meta_box_rules.php:258
-msgid "Taxonomy Terms"
-msgstr "Kategori Rolü"
-
-#: templates/page_tools.php:76 templates/page_tools.php:97
-msgid "Export"
-msgstr "Dışa Aktar"
-
-#: templates/page_tools.php:77 templates/page_tools.php:115
-msgid "Import"
-msgstr "İçe Aktar"
-
-#: templates/page_tools.php:78
-msgid "Reset"
-msgstr "Sıfırla"
-
-#: templates/page_tools.php:122
-msgid "Reset and deactivate."
-msgstr "Sıfırla ve devre dışı bırak."
-
-#: templates/page_tools.php:123
-msgid "This will delete all at-shift CFS data and deactivate the plugin."
-msgstr "Bu işlem tüm at-shift CFS verilerini tamamen siler, eklentiyi devre dışı bırakır ve sıfırlar."
-
-#: templates/page_tools.php:124
-msgid "Delete everything"
-msgstr "Her şeyi sil"
+#: ../templates/meta_box_extras.php:298
+msgid ""
+"These settings hide native WordPress editor sections for matching posts, "
+"regardless of where this field group is displayed."
+msgstr ""
 
 #  msgid "Use This File"
 #  msgstr "Dosyayı Kullan"
@@ -475,60 +525,334 @@ msgstr "Her şeyi sil"
 #  msgstr "Yazı İçeriği"
 #  msgid "Post Title"
 #  msgstr "Yazı Başlığı"
-msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
-msgstr "İçerik düzenleyiciyi gizle (eşleşen yazılarda Gutenberg / blok düzenleyiciyi de gizler)"
+#: ../templates/meta_box_extras.php:64
+msgid ""
+"Hide the content editor (also hides the Gutenberg / block editor for "
+"matching posts)"
+msgstr ""
+"İçerik düzenleyiciyi gizle (eşleşen yazılarda Gutenberg / blok düzenleyiciyi "
+"de gizler)"
 
+#: ../templates/meta_box_extras.php:78
+msgid "Hide page attributes"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:92
+msgid "Force the post edit screen layout to 1 column"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:309
+msgid ""
+"Third-party side meta boxes are not hidden; in the 1-column layout, they "
+"appear below the main editor area."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:93
+#, fuzzy
+msgid "All roles"
+msgstr "Çöp için izin verilen roller"
+
+#: ../templates/meta_box_extras.php:94
+msgid "All roles except Administrators / Web administrators"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:95
+#, fuzzy
+msgid "Selected roles only"
+msgstr "Yalnizca secilenleri goster"
+
+#: ../templates/meta_box_extras.php:96
+msgid "Select roles when using selected roles only"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:157
+msgid "Already controlled by a native field in this field group."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:163
+#, php-format
+msgid "Already controlled by \"%s\"."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:97
+msgid "Screen Layout"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:98
+#, fuzzy
+msgid "Side Sections"
+msgstr "İşlemler"
+
+#: ../templates/meta_box_extras.php:99
+#, fuzzy
+msgid "Hide categories"
+msgstr "Kategorilerde ara"
+
+#: ../templates/meta_box_extras.php:100
+msgid "Hide tags"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:101
+#, fuzzy
+msgid "Hide featured image"
+msgstr "One cikan gorsel"
+
+#: ../templates/meta_box_extras.php:313 ../templates/meta_box_extras.php:329
+msgid "Hiding behavior"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:103
+#, fuzzy
+msgid "Main Sections"
+msgstr "İşlemler"
+
+#: ../templates/meta_box_extras.php:105
+msgid "Hide format"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:106
+msgid "Hide comments"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:107
+msgid "Hide discussion"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:108
+msgid "Hide excerpt"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:109
+msgid "Hide trackbacks"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:110
+#, fuzzy
+msgid "Hide permalink"
+msgstr "Bağlantı"
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide slug"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:111
+msgid "Hide author"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:112
+msgid "Hide custom fields"
+msgstr ""
+
+#: ../templates/meta_box_fields.php:60
+msgid "Add New Field"
+msgstr "Yeni Alan Ekle"
+
+#: ../templates/meta_box_rules.php:5
+msgid "equals"
+msgstr "eşittir"
+
+#: ../templates/meta_box_rules.php:6
+msgid "is not"
+msgstr "eğiş değil"
+
+#: ../templates/meta_box_rules.php:57
+msgid "Standard"
+msgstr "Standart"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Administrator"
+msgstr "Yönetici"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Editor"
+msgstr "Editör"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Author"
+msgstr "Yazar"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Contributor"
+msgstr "İçerik sağlayıcı"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Subscriber"
+msgstr "Abone"
+
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
+msgid "Leave blank to skip this rule"
+msgstr "Bu kuralı atlamak için boş bırakın"
+
+#: ../templates/meta_box_rules.php:248
+msgid "The results could not be loaded."
+msgstr "Sonuclar yuklenemedi."
+
+#: ../templates/meta_box_rules.php:253
+msgid "Please enter 1 more character"
+msgstr "Lutfen 1 karakter daha girin"
+
+#: ../templates/meta_box_rules.php:256
+msgid "Please enter %s or more characters"
+msgstr "Lutfen %s veya daha fazla karakter girin"
+
+#: ../templates/meta_box_rules.php:259
+msgid "Loading more results..."
+msgstr "Daha fazla sonuc yukleniyor..."
+
+#: ../templates/meta_box_rules.php:262
+msgid "No results found"
+msgstr "Sonuc bulunamadi"
+
+#: ../templates/meta_box_rules.php:265
+msgid "Searching..."
+msgstr "Araniyor..."
+
+#: ../templates/meta_box_rules.php:282
+msgid "%s allowed"
+msgstr "%s izin verildi"
+
+#: ../templates/meta_box_rules.php:258
+msgid "Taxonomy Terms"
+msgstr "Kategori Rolü"
+
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
+msgid "Export"
+msgstr "Dışa Aktar"
+
+#: ../templates/page_tools.php:96
+msgid ""
+"Select the field groups you want to export, press the button, then save the "
+"displayed code. You can select multiple items."
+msgstr ""
+"Dışa aktarmak istediğiniz alan gruplarını seçin, düğmeye basın ve "
+"görüntülenen kodu kaydedin. Birden fazla öğe seçebilirsiniz."
+
+#: ../templates/page_tools.php:112
+msgid "Export Code"
+msgstr "Dışa aktarma kodu"
+
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
+msgid "Import"
+msgstr "İçe Aktar"
+
+#: ../templates/page_tools.php:122
+msgid ""
+"Paste the exported field group code into the input field below, then press "
+"the button."
+msgstr ""
+"Dışa aktardığınız alan grubu kodunu aşağıdaki giriş alanına yapıştırın ve "
+"düğmeye basın."
+
+#: ../templates/page_tools.php:125
+msgid "Import Code"
+msgstr "İçe aktarma kodu"
+
+#: ../templates/page_tools.php:120
+msgid "Paste the import code here"
+msgstr "İçe aktarma kodunu buraya yapıştırın"
+
+#: ../templates/page_tools.php:78
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: ../templates/page_tools.php:122
+msgid "Reset and deactivate."
+msgstr "Sıfırla ve devre dışı bırak."
+
+#: ../templates/page_tools.php:123
+msgid "This will delete all at-shift CFS data and deactivate the plugin."
+msgstr ""
+"Bu işlem tüm at-shift CFS verilerini tamamen siler, eklentiyi devre dışı "
+"bırakır ve sıfırlar."
+
+#: ../templates/page_tools.php:24
+msgid "This will delete all at-shift CFS data. Are you sure?"
+msgstr "Bu işlem tüm at-shift CFS verilerini tamamen siler. Emin misiniz?"
+
+#: ../templates/page_tools.php:124
+msgid "Delete everything"
+msgstr "Her şeyi sil"
+
+#: ../includes/fields/checkbox.php:8
 msgid "Checkbox"
 msgstr "Onay kutusu"
 
+#: ../includes/fields/file.php:44
 msgid "File Type"
 msgstr "Dosya türü"
 
+#: ../includes/fields/file.php:53
 msgid "Any"
 msgstr "Herhangi biri"
 
+#: ../includes/fields/file.php:54
 msgid "Image"
 msgstr "Görsel"
 
+#: ../includes/fields/file.php:55
 msgid "Audio"
 msgstr "Ses"
 
+#: ../includes/fields/file.php:56
 msgid "Video"
 msgstr "Video"
 
+#: ../includes/fields/radio.php:8
 msgid "Radio Button"
 msgstr "Radyo düğmesi"
 
+#: ../includes/fields/select.php:133
 msgid "Select2"
 msgstr "Select2"
 
-msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
-msgstr "Seçim alanını Select2 ile gösterir. Bu, düzenleme ekranlarında uzun seçenek listelerinde arama ve seçim yapmayı kolaylaştırır."
+msgid ""
+"Displays the select field with Select2. This makes long choice lists easier "
+"to search and select on edit screens."
+msgstr ""
+"Seçim alanını Select2 ile gösterir. Bu, düzenleme ekranlarında uzun seçenek "
+"listelerinde arama ve seçim yapmayı kolaylaştırır."
 
+#: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
 msgstr "Bu alanı Select2 ile göster"
 
+#: ../includes/fields/term.php:8
 msgid "Term"
 msgstr "Terim"
 
+#: ../includes/fields/term.php:69
 msgid "Search terms"
 msgstr "Terimleri ara"
 
+#: ../includes/fields/term.php:97
 msgid "Taxonomies"
 msgstr "Taksonomiler"
 
+#: ../includes/fields/term.php:98
 msgid "Limit terms to the following taxonomies"
 msgstr "Terimleri aşağıdaki taksonomilerle sınırla"
 
-msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "Alanlarınızdan birinde veya daha fazlasında doğrulama hataları var. Daha fazla bilgi aşağıda yer almaktadır."
+#: ../includes/form.php:247
+msgid ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
+msgstr ""
+"Alanlarınızdan birinde veya daha fazlasında doğrulama hataları var. Daha "
+"fazla bilgi aşağıda yer almaktadır."
 
+#: ../includes/form.php:444
 msgid "Toggle row visibility"
 msgstr "Satır görünürlüğünü değiştir"
 
+#: ../includes/fields/loop.php:444
+msgid "Remove this row?"
+msgstr ""
+
+#: ../includes/init.php:60
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
+#: ../includes/init.php:154
 msgid "atshift Fields Tool"
 msgstr "atshift Fields Aracı"
 
@@ -548,8 +872,13 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
-msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
-msgstr "Minimum, izin verilen en düşük değeri belirler. Maksimum, izin verilen en yüksek değeri belirler. Adım, değerler arasındaki izin verilen aralığı belirler; örneğin 1, 0.1 veya 5."
+msgid ""
+"Minimum sets the lowest allowed value. Maximum sets the highest allowed "
+"value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr ""
+"Minimum, izin verilen en düşük değeri belirler. Maksimum, izin verilen en "
+"yüksek değeri belirler. Adım, değerler arasındaki izin verilen aralığı "
+"belirler; örneğin 1, 0.1 veya 5."
 
 msgid "Minimum"
 msgstr "Minimum"
@@ -615,6 +944,18 @@ msgstr "3 sutun"
 msgid "4 columns"
 msgstr "4 sutun"
 
+#: ../includes/fields/group.php:92
+msgid "Alignment"
+msgstr "Hizalama"
+
+#: ../includes/fields/group.php:101
+msgid "Evenly distributed"
+msgstr "Esit dagitilmis"
+
+#: ../includes/fields/group.php:102
+msgid "Left aligned"
+msgstr "Sola hizali"
+
 #: ../templates/field_html.php:84
 msgid "Add new field below"
 msgstr "Asagiya yeni alan ekle"
@@ -633,6 +974,26 @@ msgstr "Bir CFS alan grubunu goruntuler."
 
 msgid "No fields in this group."
 msgstr "Bu grupta alan yok."
+
+msgid "Post Title (Native)"
+msgstr "Yazı başlığı (yerel)"
+
+msgid "You do not have permission to change the native title."
+msgstr "Yerel başlığı değiştirme izniniz yok."
+
+msgid "Allowed User Role Groups"
+msgstr "İzin verilen kullanıcı rol grupları"
+
+msgid ""
+"Select the roles that can change the native title. Leave blank to allow any "
+"user role that can edit the post."
+msgstr ""
+"Yerel başlığı değiştirebilecek rolleri seçin. Yazıyı düzenleyebilen herhangi "
+"bir kullanıcı rolüne izin vermek için boş bırakın."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr ""
+"Bu yazıyı düzenleyebilen herhangi bir role izin vermek için boş bırakın"
 
 msgid "Post Categories"
 msgstr "Yazi kategorileri"
@@ -670,35 +1031,26 @@ msgstr "Bir ust kategori secildiginde tum alt kategoriler de secilir"
 msgid "Selecting a child also selects its parent categories"
 msgstr "Bir alt kategori secildiginde ust kategorileri de secilir"
 
-msgid "A newer version %s is available on GitHub."
-msgstr "Daha yeni bir sürüm %s GitHub'da mevcut."
-
-msgid "Required"
-msgstr "Zorunlu"
-
-msgid "Please select..."
-msgstr "Lutfen secin..."
-
-msgid "Please select a language..."
-msgstr "Bir dil secin..."
-
-msgid "Alignment"
-msgstr "Hizalama"
-
-msgid "Evenly distributed"
-msgstr "Esit dagitilmis"
-
-msgid "Left aligned"
-msgstr "Sola hizali"
-
 msgid "CFS placement warning:"
 msgstr "CFS yerlesim uyarisi:"
 
-msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Bu alan grubunun yerlesim kurali yok. Duzenlenebilir tum yazi ekranlariyla eslesebilir; bu kasitli degilse bir yazi turu veya baska bir yerlesim kurali belirleyin."
+msgid ""
+"This field group has no placement rules. It will appear on all editable post "
+"screens, so set a Post Type or another placement rule unless that is "
+"intentional."
+msgstr ""
+"Bu alan grubunun yerlesim kurali yok. Duzenlenebilir tum yazi ekranlariyla "
+"eslesebilir; bu kasitli degilse bir yazi turu veya baska bir yerlesim kurali "
+"belirleyin."
 
-msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Kaydedildi, ancak bu alan grubunun yerlesim kurali yok. Duzenlenebilir tum yazi ekranlariyla eslesebilir; bu kasitli degilse bir yazi turu veya baska bir yerlesim kurali belirleyin."
+msgid ""
+"Saved, but this field group has no placement rules. It will appear on all "
+"editable post screens, so set a Post Type or another placement rule unless "
+"that is intentional."
+msgstr ""
+"Kaydedildi, ancak bu alan grubunun yerlesim kurali yok. Duzenlenebilir tum "
+"yazi ekranlariyla eslesebilir; bu kasitli degilse bir yazi turu veya baska "
+"bir yerlesim kurali belirleyin."
 
 msgid "No placement rules"
 msgstr "Yerlesim kurali yok"
@@ -706,11 +1058,44 @@ msgstr "Yerlesim kurali yok"
 msgid "This field group will appear on all editable post screens."
 msgstr "Bu alan grubu duzenlenebilir tum yazi ekranlariyla eslesebilir."
 
+msgid "A newer version %s is available on GitHub."
+msgstr "Daha yeni bir sürüm %s GitHub'da mevcut."
+
+#, fuzzy
+msgid "Add at least one field to this tab group."
+msgstr "Bu yatay gruba iki veya daha fazla alan ekleyin."
+
 msgid "Add two or more fields to this horizontal group."
 msgstr "Bu yatay gruba iki veya daha fazla alan ekleyin."
 
-msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "Sekmeler, donguler ve yatay gruplar bir yatay grubun icine yerlestirilemez."
+#, fuzzy
+msgid "Add at least one field to this loop group."
+msgstr "Bu yatay gruba iki veya daha fazla alan ekleyin."
+
+#, fuzzy
+msgid "Add at least one field to this accordion group."
+msgstr "Bu yatay gruba iki veya daha fazla alan ekleyin."
+
+msgid "Contains required fields"
+msgstr "Zorunlu alanlar icerir"
+
+msgid "Set conditions and add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each condition."
+msgstr ""
+
+msgid "Create two or more conditions, then add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each empty condition."
+msgstr ""
+
+msgid ""
+"Tabs, loops, and horizontal groups cannot be placed inside a horizontal "
+"group."
+msgstr ""
+"Sekmeler, donguler ve yatay gruplar bir yatay grubun icine yerlestirilemez."
 
 msgid "Code View"
 msgstr "Kod gorunumu"
@@ -718,8 +1103,15 @@ msgstr "Kod gorunumu"
 msgid "Shortcode"
 msgstr "Kısa kod"
 
-msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
-msgstr "Meta kutusu, ucuncu taraf bir eklenti tarafindan WordPress yazi duzenleme ekranina eklenen bir ayar veya giris kutusudur. Bu alan yalnizca ucuncu taraf bir meta kutusunu atshift Fields alan grubunun icine yeniden konumlandirmak ve tasimak icindir."
+msgid ""
+"A meta box is a settings or input box added to the WordPress post edit "
+"screen by a third-party plugin. This field is only for repositioning and "
+"moving a third-party meta box into an atshift Fields field group."
+msgstr ""
+"Meta kutusu, ucuncu taraf bir eklenti tarafindan WordPress yazi duzenleme "
+"ekranina eklenen bir ayar veya giris kutusudur. Bu alan yalnizca ucuncu "
+"taraf bir meta kutusunu atshift Fields alan grubunun icine yeniden "
+"konumlandirmak ve tasimak icindir."
 
 msgid "Classic Meta Box Placement"
 msgstr "Klasik meta kutusu yerlestirme"
@@ -739,11 +1131,21 @@ msgstr "Bu meta kutusu zaten baska bir yuvaya yerlestirilmis."
 msgid "Meta Box ID"
 msgstr "Meta kutusu ID'si"
 
-msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
-msgstr "Yerlestirme Kurallarinda secilen yazi turlerinden klasik bir ucuncu taraf meta kutusu algilayin veya HTML kaynak kodundaki id'sini elle girin. Kaydetme islemini ozgun eklenti yurutmeye devam eder."
+msgid ""
+"Detect a classic third-party meta box from the post types selected in "
+"Placement Rules, or enter its HTML source id manually. The original plugin "
+"keeps handling saving."
+msgstr ""
+"Yerlestirme Kurallarinda secilen yazi turlerinden klasik bir ucuncu taraf "
+"meta kutusu algilayin veya HTML kaynak kodundaki id'sini elle girin. "
+"Kaydetme islemini ozgun eklenti yurutmeye devam eder."
 
-msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
-msgstr "Duzenleme ekraninda olusturulan klasik meta kutulari tasinabilir. Yalnizca Blok Duzenleyici panelleri desteklenmez."
+msgid ""
+"Classic meta boxes rendered in the edit screen can be moved. Block Editor-"
+"only panels are not supported."
+msgstr ""
+"Duzenleme ekraninda olusturulan klasik meta kutulari tasinabilir. Yalnizca "
+"Blok Duzenleyici panelleri desteklenmez."
 
 msgid "Display Width"
 msgstr "Goruntuleme genisligi"
@@ -791,7 +1193,6 @@ msgstr "Kullanilabilir: %s"
 msgid "Already selected in another Classic Meta Box Placement field."
 msgstr "Baska bir klasik meta kutusu yerlestirme alaninda zaten secilmis."
 
-
 msgid "Plain text"
 msgstr "Duz metin"
 
@@ -809,11 +1210,97 @@ msgstr "Kopyalandi"
 
 msgid "Language"
 msgstr "Dil"
-msgid "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
-msgstr "Bu eklenti, WordPress düzenleme ekranlarına daha etkili ve esnek giriş alanları ekleyen Custom Field Suite'in bakım ve genişletilmiş sürümüdür."
-msgctxt "date picker"
-msgid "Clear"
-msgstr "Temizle"
+
+msgid ""
+"This plugin is a maintained and extended version of Custom Field Suite that "
+"adds more effective and flexible input fields to WordPress edit screens."
+msgstr ""
+"Bu eklenti, WordPress düzenleme ekranlarına daha etkili ve esnek giriş "
+"alanları ekleyen Custom Field Suite'in bakım ve genişletilmiş sürümüdür."
+
+#, fuzzy
+msgid "Accordion Group"
+msgstr "Yatay grup"
+
+msgid "Initial State"
+msgstr ""
+
+msgid "Open by default"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"Tabs, loops, accordions, conditional groups, and horizontal groups cannot be "
+"placed inside a horizontal group."
+msgstr ""
+"Sekmeler, donguler ve yatay gruplar bir yatay grubun icine yerlestirilemez."
+
+#, fuzzy
+msgid "Tabs cannot be placed inside an accordion."
+msgstr ""
+"Sekmeler, donguler ve yatay gruplar bir yatay grubun icine yerlestirilemez."
+
+#, fuzzy
+msgid "Please enter a value"
+msgstr "Lutfen 1 karakter daha girin"
+
+msgid "Please enter a valid date (YYYY-MM-DD HH:MM)"
+msgstr ""
+
+msgid "Please enter a valid color HEX (#ff0000)"
+msgstr ""
+
+#, fuzzy
+msgid "Please enter a phone number"
+msgstr "Lutfen 1 karakter daha girin"
+
+#, fuzzy
+msgid "Please enter a valid phone number"
+msgstr "Lutfen 1 karakter daha girin"
+
+#, fuzzy
+msgid "Please enter an email address"
+msgstr "Lutfen 1 karakter daha girin"
+
+#, fuzzy
+msgid "Please enter a valid email address"
+msgstr "Lutfen %s veya daha fazla karakter girin"
+
+#, fuzzy
+msgid "Please enter a number"
+msgstr "Lutfen 1 karakter daha girin"
+
+#, fuzzy
+msgid "Please enter a valid number"
+msgstr "Lutfen 1 karakter daha girin"
+
+msgid "Please enter a URL"
+msgstr ""
+
+msgid "Please enter a valid URL"
+msgstr ""
+
+msgid "Please select a condition"
+msgstr "Lutfen bir kosul secin"
+
+#, fuzzy
+msgid "Please select a time"
+msgstr "Lutfen bir kosul secin"
+
+#, fuzzy
+msgid "Please select a valid time"
+msgstr "Lutfen bir kosul secin"
+
+#, fuzzy
+msgid "Please select a language and enter code"
+msgstr "Bir dil secin..."
+
+#, fuzzy
+msgid "Please select %s item(s)"
+msgstr "Lutfen bir kosul secin"
+
+msgid "Please select between %1$s and %2$s items"
+msgstr ""
 
 msgid "TAB"
 msgstr "Sekme"
@@ -830,29 +1317,21 @@ msgstr "Açılır"
 msgid "CONDITION"
 msgstr "Koşul"
 
-#: ../templates/page_tools.php:206
-msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
-msgstr "Dışa aktarmak istediğiniz alan gruplarını seçin, düğmeye basın ve görüntülenen kodu kaydedin. Birden fazla öğe seçebilirsiniz."
+msgid "This field name is duplicated. Use a unique field name."
+msgstr ""
 
-#: ../templates/page_tools.php:222
-msgid "Export Code"
-msgstr "Dışa aktarma kodu"
+msgid ""
+"Duplicate field names found: %s. Field names must be unique before saving."
+msgstr ""
 
-#: ../templates/page_tools.php:231
-msgid "Paste the exported field group code into the input field below, then press the button."
-msgstr "Dışa aktardığınız alan grubu kodunu aşağıdaki giriş alanına yapıştırın ve düğmeye basın."
+msgid "Move here"
+msgstr ""
 
-#: ../templates/page_tools.php:234
-msgid "Import Code"
-msgstr "İçe aktarma kodu"
+msgid "Move here: inside %s"
+msgstr ""
 
-#: ../templates/page_tools.php:235
-msgid "Paste the import code here"
-msgstr "İçe aktarma kodunu buraya yapıştırın"
-
-#: ../templates/page_tools.php:150
-msgid "This will delete all at-shift CFS data. Are you sure?"
-msgstr "Bu işlem tüm at-shift CFS verilerini tamamen siler. Emin misiniz?"
+msgid "Move here: inside the current Tab"
+msgstr ""
 
 msgid "Post Categories (Standard / Global)"
 msgstr "Yazi kategorileri (standart / global)"
@@ -867,8 +1346,12 @@ msgstr "Standart Kategori"
 msgid "Category Source"
 msgstr "Kategori kaynagi"
 
-msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
-msgstr "Bu alanla gosterilip kaydedilecek standart kategoriyi veya kayitli bir Shared Taxonomy secin."
+msgid ""
+"Choose the standard category or a registered Shared Taxonomy to show and "
+"save with this field."
+msgstr ""
+"Bu alanla gosterilip kaydedilecek standart kategoriyi veya kayitli bir "
+"Shared Taxonomy secin."
 
 msgid "Photo Gallery"
 msgstr "Fotograf Galerisi"
@@ -897,8 +1380,14 @@ msgstr "Galeri HTML'i"
 msgid "Gallery Display"
 msgstr "Galeri Gorunumu"
 
-msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "Dönüş değeri Gallery HTML olduğunda kullanılır. Sütunlar, oluşturulan galeri HTML’indeki sütun sayısını belirler. Görsel dosyası bağlantıları, modal kullanımı için uygun veri öznitelikleri içerir."
+msgid ""
+"Used when the return value is Gallery HTML. Columns sets the number of "
+"columns in the generated gallery HTML. Image file links include modal-"
+"friendly data attributes."
+msgstr ""
+"Dönüş değeri Gallery HTML olduğunda kullanılır. Sütunlar, oluşturulan galeri "
+"HTML’indeki sütun sayısını belirler. Görsel dosyası bağlantıları, modal "
+"kullanımı için uygun veri öznitelikleri içerir."
 
 msgid "CSS class"
 msgstr "CSS sinifi"
@@ -918,8 +1407,14 @@ msgstr "Galeri gorsellerini sec"
 msgid "After input"
 msgstr "Giriş alanından sonra"
 
-msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
-msgstr "Düzenleme ekranlarında giriş alanından sonra gösterilir. kg, %, veya ~ gibi kısa birimler ya da ayırıcılar için kullanın. Bu metin kaydedilen değerlere veya ön uç çıktısına dahil edilmez."
+msgid ""
+"Shown after the input on edit screens. Use this for short units or "
+"separators such as kg, %, or ~. This text is not included in saved values or "
+"front-end output."
+msgstr ""
+"Düzenleme ekranlarında giriş alanından sonra gösterilir. kg, %, veya ~ gibi "
+"kısa birimler ya da ayırıcılar için kullanın. Bu metin kaydedilen değerlere "
+"veya ön uç çıktısına dahil edilmez."
 
 #: ../includes/fields/gallery.php:88
 msgid "Image Size"
@@ -946,20 +1441,36 @@ msgid "Full Size"
 msgstr "Tam boyut"
 
 #: ../includes/fields/gallery.php:142
-msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
-msgstr "Minimum, seçilebilecek en az görsel sayısını belirler. Maksimum, seçilebilecek en fazla görsel sayısını belirler."
+msgid ""
+"Minimum sets the fewest images that can be selected. Maximum sets the most "
+"images that can be selected."
+msgstr ""
+"Minimum, seçilebilecek en az görsel sayısını belirler. Maksimum, "
+"seçilebilecek en fazla görsel sayısını belirler."
 
 #: ../includes/fields/loop.php:93
-msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
-msgstr "Minimum, eklenebilecek en az satır sayısını belirler. Maksimum, eklenebilecek en fazla satır sayısını belirler."
+msgid ""
+"Minimum sets the fewest rows that can be added. Maximum sets the most rows "
+"that can be added."
+msgstr ""
+"Minimum, eklenebilecek en az satır sayısını belirler. Maksimum, "
+"eklenebilecek en fazla satır sayısını belirler."
 
 #: ../includes/fields/relationship.php:125
-msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
-msgstr "Minimum, seçilebilecek en az ilişkili öğe sayısını belirler. Maksimum, seçilebilecek en fazla ilişkili öğe sayısını belirler."
+msgid ""
+"Minimum sets the fewest related items that can be selected. Maximum sets the "
+"most related items that can be selected."
+msgstr ""
+"Minimum, seçilebilecek en az ilişkili öğe sayısını belirler. Maksimum, "
+"seçilebilecek en fazla ilişkili öğe sayısını belirler."
 
 #: ../includes/fields/user.php:74
-msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
-msgstr "Minimum, seçilebilecek en az kullanıcı sayısını belirler. Maksimum, seçilebilecek en fazla kullanıcı sayısını belirler."
+msgid ""
+"Minimum sets the fewest users that can be selected. Maximum sets the most "
+"users that can be selected."
+msgstr ""
+"Minimum, seçilebilecek en az kullanıcı sayısını belirler. Maksimum, "
+"seçilebilecek en fazla kullanıcı sayısını belirler."
 
 #: ../includes/fields/true_false.php:37
 msgid "Checkbox Label"
@@ -968,21 +1479,6 @@ msgstr "Onay kutusu etiketi"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "Düzenleme ekranında onay kutusunun yanında gösterilir."
-
-msgid "Post Title (Native)"
-msgstr "Yazı başlığı (yerel)"
-
-msgid "You do not have permission to change the native title."
-msgstr "Yerel başlığı değiştirme izniniz yok."
-
-msgid "Allowed User Role Groups"
-msgstr "İzin verilen kullanıcı rol grupları"
-
-msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
-msgstr "Yerel başlığı değiştirebilecek rolleri seçin. Yazıyı düzenleyebilen herhangi bir kullanıcı rolüne izin vermek için boş bırakın."
-
-msgid "Leave blank to allow any role that can edit this post"
-msgstr "Bu yazıyı düzenleyebilen herhangi bir role izin vermek için boş bırakın"
 
 #: includes/fields/post_publish.php
 msgid "Save / Publish (Native)"
@@ -995,6 +1491,35 @@ msgstr "Kaydetme / yayımlama ayarlarını değiştirme izniniz yok."
 #: includes/fields/post_publish.php
 msgid "Status"
 msgstr "Durum"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Current Status"
+msgstr "Durum"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Change Status"
+msgstr "Durum"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Do not change"
+msgstr "Durum değişikliklerine izin ver"
+
+#: includes/fields/post_publish.php
+msgid "Change to Draft"
+msgstr ""
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Change to Pending Review"
+msgstr "İnceleme bekliyor"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Publish / Schedule"
+msgstr "Yayınla veya zamanla"
 
 #: includes/fields/post_publish.php
 msgid "Visibility"
@@ -1013,6 +1538,10 @@ msgid "Private"
 msgstr "Özel"
 
 #: includes/fields/post_publish.php
+msgid "Autosaving"
+msgstr ""
+
+#: includes/fields/post_publish.php
 msgid "Password"
 msgstr "Parola"
 
@@ -1025,12 +1554,39 @@ msgid "Set to current date and time"
 msgstr "Geçerli tarih ve saati kullan"
 
 #: includes/fields/post_publish.php
+#, fuzzy
+msgid "Save Draft"
+msgstr "Taslak"
+
+#: includes/fields/post_publish.php
+msgid "Update"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Submit for Review"
+msgstr ""
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Publish"
+msgstr "Yayımlandı"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Schedule"
+msgstr "Zamanlandı"
+
+#: includes/fields/post_publish.php
 msgid "Save / Publish Settings"
 msgstr "Kaydetme / yayımlama ayarları"
 
 #: includes/fields/post_publish.php
-msgid "Choose which native WordPress save and publish controls are shown in this field."
-msgstr "Bu alanda hangi yerel WordPress kaydetme ve yayımlama kontrollerinin gösterileceğini seçin."
+msgid ""
+"Choose which native WordPress save and publish controls are shown in this "
+"field."
+msgstr ""
+"Bu alanda hangi yerel WordPress kaydetme ve yayımlama kontrollerinin "
+"gösterileceğini seçin."
 
 #: includes/fields/post_publish.php
 msgid "Allow status changes"
@@ -1053,10 +1609,6 @@ msgid "Pending Review"
 msgstr "İnceleme bekliyor"
 
 #: includes/fields/post_publish.php
-msgid "Published"
-msgstr "Yayımlandı"
-
-#: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Zamanlandı"
 
@@ -1068,8 +1620,7 @@ msgstr "İşlemler"
 msgid "Duplicate"
 msgstr "Çoğalt"
 
-#: templates/admin_head.php
-#: templates/field_html.php
+#: templates/admin_head.php templates/field_html.php
 msgid "Automatically named when saved"
 msgstr "Kaydedilirken otomatik olarak adlandirilir"
 
@@ -1082,8 +1633,12 @@ msgid "Allowed Trash Roles"
 msgstr "Çöp için izin verilen roller"
 
 #: includes/fields/post_publish.php
-msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
-msgstr "Bu alandan yazilari çöpe tasiyabilecek rolleri seçin. Yaziyi silebilen herhangi bir kullanici rolüne izin vermek için bos birakin."
+msgid ""
+"Select the roles that can move posts to trash from this field. Leave blank "
+"to allow any user role that can delete the post."
+msgstr ""
+"Bu alandan yazilari çöpe tasiyabilecek rolleri seçin. Yaziyi silebilen "
+"herhangi bir kullanici rolüne izin vermek için bos birakin."
 
 #: includes/fields/post_publish.php
 msgid "Leave blank to allow any role that can delete this post"
@@ -1109,10 +1664,6 @@ msgstr "One cikan gorsel (yerel)"
 msgid "Phone Number"
 msgstr "Telefon numarasi"
 
-#: ../includes/fields/tab.php:12
-msgid "Tab Group"
-msgstr "Sekme grubu"
-
 #: includes/fields/post_content.php
 msgid "Post Content (Native)"
 msgstr "Yazı İçeriği (Yerel)"
@@ -1122,8 +1673,12 @@ msgid "Content Editor"
 msgstr "İçerik düzenleyici"
 
 #: includes/fields/post_content.php
-msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
-msgstr "Editörlerin yerel WordPress içeriğini nasıl düzenleyeceğini seçin. Bu alan post_content içine kaydedilir ve Gutenberg / blok düzenleyiciyi kullanmaz."
+msgid ""
+"Choose how editors edit the native WordPress content. This field saves to "
+"post_content and does not use the Gutenberg / block editor."
+msgstr ""
+"Editörlerin yerel WordPress içeriğini nasıl düzenleyeceğini seçin. Bu alan "
+"post_content içine kaydedilir ve Gutenberg / blok düzenleyiciyi kullanmaz."
 
 #: includes/fields/post_content.php
 msgid "Visual editor"
@@ -1149,6 +1704,14 @@ msgstr "Alt ve torun kategorileri yatay diz"
 msgid "Leave both unchecked to use the traditional category tree."
 msgstr "Geleneksel kategori ağacını kullanmak için ikisini de işaretlemeyin."
 
+#: includes/fields/wp_category.php
+msgid "Hide the category search box"
+msgstr "Kategori arama kutusunu gizle"
+
+#: includes/fields/wp_category.php
+msgid "Hide the selected-only filter"
+msgstr "Yalnizca secilenler filtresini gizle"
+
 #: includes/fields/wp_tag.php:35
 msgid "Choose from the most used tags"
 msgstr "En sık kullanılan etiketlerden seç"
@@ -1156,67 +1719,6 @@ msgstr "En sık kullanılan etiketlerden seç"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "Henüz sık kullanılan etiket yok."
-
-#: ../templates/meta_box_rules.php
-msgid "%s allowed"
-msgstr "%s izin verildi"
-
-#: ../templates/meta_box_rules.php
-msgid "Standard"
-msgstr "Standart"
-
-#: ../templates/meta_box_rules.php
-msgid "Administrator"
-msgstr "Yönetici"
-
-#: ../templates/meta_box_rules.php
-msgid "Editor"
-msgstr "Editör"
-
-#: ../templates/meta_box_rules.php
-msgid "Author"
-msgstr "Yazar"
-
-#: ../templates/meta_box_rules.php
-msgid "Contributor"
-msgstr "İçerik sağlayıcı"
-
-#: ../templates/meta_box_rules.php
-msgid "Subscriber"
-msgstr "Abone"
-
-msgid "The results could not be loaded."
-msgstr "Sonuclar yuklenemedi."
-
-msgid "Please enter 1 more character"
-msgstr "Lutfen 1 karakter daha girin"
-
-msgid "Please enter %s or more characters"
-msgstr "Lutfen %s veya daha fazla karakter girin"
-
-msgid "Loading more results..."
-msgstr "Daha fazla sonuc yukleniyor..."
-
-msgid "No results found"
-msgstr "Sonuc bulunamadi"
-
-msgid "Searching..."
-msgstr "Araniyor..."
-
-msgid "Require a condition selection"
-msgstr "Kosul secimini zorunlu yap"
-
-msgid "Contains required fields"
-msgstr "Zorunlu alanlar icerir"
-
-msgid "Please select a condition"
-msgstr "Lutfen bir kosul secin"
-
-msgid "Hide the category search box"
-msgstr "Kategori arama kutusunu gizle"
-
-msgid "Hide the selected-only filter"
-msgstr "Yalnizca secilenler filtresini gizle"
 
 #: includes/fields/post_publish.php
 msgid "Preview Changes"
@@ -1237,3 +1739,117 @@ msgstr "Zamanlanmış olarak değiştir"
 #: includes/fields/post_publish.php
 msgid "Change to Publish or Schedule"
 msgstr "Yayınla veya zamanla olarak değiştir"
+
+#: templates/admin_head.php
+msgid ""
+"The number of input fields is large, and some field group settings may not "
+"be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number "
+"of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or "
+"your server settings."
+msgstr ""
+
+#: templates/admin_head.php
+#, php-format
+msgid "Current inputs: %1$s / max_input_vars: %2$s"
+msgstr ""
+
+#: templates/meta_box_extras.php
+msgid "Hide revisions"
+msgstr ""
+
+#: includes/init.php
+msgid ""
+"The field group form exceeded the server input limit, so field settings were "
+"not saved to avoid data loss. PHP max_input_vars is commonly 1000 by "
+"default. Placement Rules and Extras were saved only if they reached the "
+"server. Reduce the number of fields or increase max_input_vars in "
+"php.ini, .user.ini, .htaccess, or your server settings."
+msgstr ""
+
+#: includes/init.php
+#, fuzzy
+msgid "CFS save warning:"
+msgstr "CFS yerlesim uyarisi:"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "+ Add category"
+msgstr "Standart Kategori"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category name"
+msgstr "Kategori kaynagi"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Parent category"
+msgstr "Kategorilerde ara"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Add category"
+msgstr "Standart Kategori"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category Adding"
+msgstr "Kategori secimi"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Show + Add category"
+msgstr "Standart Kategori"
+
+#: includes/fields/wp_category.php
+msgid ""
+"Users must also have permission to create terms for the selected taxonomy."
+msgstr ""
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Allowed Add Roles"
+msgstr "Çöp için izin verilen roller"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid ""
+"Select the roles that can add categories from this field. Leave blank to "
+"allow any role that can create terms for this taxonomy."
+msgstr ""
+"Bu alandan yazilari çöpe tasiyabilecek rolleri seçin. Yaziyi silebilen "
+"herhangi bir kullanici rolüne izin vermek için bos birakin."
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Leave blank to allow any role that can create categories"
+msgstr "Bu yaziyi silebilen herhangi bir role izin vermek için bos birakin"
+
+#: includes/fields/wp_category.php
+msgid "Adding category..."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Category added."
+msgstr "Kategori kaynagi"
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Enter a category name."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Failed to add category."
+msgstr "Standart Kategori"
+
+#: includes/init.php
+#, fuzzy
+msgid "You do not have permission to add categories."
+msgstr "Yerel başlığı değiştirme izniniz yok."
+
+#~ msgid "Position"
+#~ msgstr "Pozisyonu"
+
+#~ msgid "Hide the content editor"
+#~ msgstr "İçerik editörünü gizle"

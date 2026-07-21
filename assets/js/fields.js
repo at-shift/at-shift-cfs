@@ -49,7 +49,7 @@
                 return;
             }
 
-            $context.find('.cfs-post-title-role-select, .cfs-post-native-role-select, .cfs-shortcode-role-select, .cfs-extra-display-role-select').each(function() {
+            $context.find('.cfs-post-title-role-select, .cfs-post-native-role-select, .cfs-shortcode-role-select, .cfs-extra-display-role-select, .cfs-wp-category-role-select').each(function() {
                 var $select = $(this);
 
                 if ($select.data('select2')) {
@@ -63,6 +63,88 @@
 
                 $select.next('.select2-container').css('width', '100%');
             });
+        }
+
+        function append_complete_save_marker($form) {
+            $form.find('input[name="cfs[complete]"]').remove();
+            $('<input>', {
+                type: 'hidden',
+                name: 'cfs[complete]',
+                value: '1'
+            }).appendTo($form);
+        }
+
+        function prioritize_configuration_postboxes() {
+            var $fields = $('#cfs_fields');
+            var $rules = $('#cfs_rules');
+            var $extras = $('#cfs_extras');
+
+            if (!$fields.length) {
+                return;
+            }
+
+            if ($extras.length) {
+                $extras.insertBefore($fields);
+            }
+
+            if ($rules.length) {
+                $rules.insertBefore($extras.length ? $extras : $fields);
+            }
+        }
+
+        function refresh_input_vars_warning() {
+            var maxInputVars = parseInt(CFS.max_input_vars, 10);
+            var $form = $('#post');
+            var $existing = $('.atshift-cfs-max-input-vars-warning');
+            var inputCount;
+            var threshold;
+            var noticeClass;
+            var text;
+            var countText;
+
+            if (!maxInputVars || !$form.length || !$('#cfs_fields').length) {
+                $existing.remove();
+                return;
+            }
+
+            inputCount = $form.find(':input[name]').length;
+
+            if (!$form.find('input[name="cfs[complete]"]').length) {
+                inputCount += 1;
+            }
+
+            threshold = Math.floor(maxInputVars * 0.8);
+
+            if (inputCount < threshold) {
+                $existing.remove();
+                return;
+            }
+
+            noticeClass = inputCount >= maxInputVars ? 'notice-error' : 'notice-warning';
+            text = message(
+                'max_input_vars_warning',
+                'The number of input fields is large, and some field group settings may not be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or your server settings.'
+            );
+            countText = format_message(
+                'max_input_vars_count',
+                'Current inputs: %1$s / max_input_vars: %2$s',
+                inputCount,
+                maxInputVars
+            );
+
+            if (!$existing.length) {
+                $existing = $('<div></div>', {
+                    'class': 'notice atshift-cfs-max-input-vars-warning'
+                }).insertBefore($form);
+            }
+
+            $existing
+                .removeClass('notice-warning notice-error')
+                .addClass(noticeClass)
+                .html($('<p></p>').append(
+                    $('<strong></strong>').text(text),
+                    document.createTextNode(' ' + countText)
+                ));
         }
 
         function get_selected_rule_post_types() {
@@ -1639,6 +1721,7 @@
         refresh_conditional_assignments($('ul.fields'));
         render_duplicate_field_name_warnings();
         refresh_field_toggle_states($(document));
+        refresh_input_vars_warning();
 
         // Setup checkboxes
         $(document).on('change click', 'input[type="checkbox"]', function() {
@@ -1710,6 +1793,7 @@
                 refresh_structure_markers($('ul.fields'));
             }
             render_duplicate_field_name_warnings();
+            refresh_input_vars_warning();
         });
 
         // Add a new field immediately below the current field
@@ -1750,6 +1834,7 @@
                 refresh_structure_markers($('ul.fields'));
             }
             render_duplicate_field_name_warnings();
+            refresh_input_vars_warning();
         });
 
         // Delete a field
@@ -1758,12 +1843,14 @@
             refresh_structure_markers($('ul.fields'));
             refresh_conditional_assignments($('ul.fields'));
             render_duplicate_field_name_warnings();
+            refresh_input_vars_warning();
         });
 
         // Duplicate a field
         $(document).on('click', '.cfs_duplicate_field', function() {
             duplicate_field_item($(this).closest('.field').closest('li'));
             close_field_action_menus();
+            refresh_input_vars_warning();
         });
 
         $(document).on('click', '.cfs_field_actions_toggle', function(event) {
@@ -1883,6 +1970,8 @@
         });
 
         $(document).on('submit', '#post', function(event) {
+            refresh_input_vars_warning();
+
             var duplicate_names = render_duplicate_field_name_warnings();
 
             if (0 < duplicate_names.length) {
@@ -1915,6 +2004,8 @@
             });
             sync_parent_ids();
             normalize_field_names();
+            prioritize_configuration_postboxes();
+            append_complete_save_marker($(this));
         });
 
         $(document).on('change', '.cfs-time-minute-interval', function() {

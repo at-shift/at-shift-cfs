@@ -15,6 +15,52 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+#: ../includes/fields/conditional.php:7
+#, fuzzy
+msgid "Conditional Group"
+msgstr "Vizszintes csoport"
+
+#: ../templates/admin_head.php:63
+msgid "Unnamed condition"
+msgstr ""
+
+#: ../templates/admin_head.php:65
+#, php-format
+msgid "Condition \"%s\""
+msgstr ""
+
+#: ../includes/fields/conditional.php:107
+#, fuzzy
+msgid "Display Type"
+msgstr "Fájltípus"
+
+#: ../includes/fields/conditional.php:120
+msgid "Dropdown"
+msgstr ""
+
+#: ../includes/fields/conditional.php:147
+msgid "Used for radio buttons. The first choice is used when left blank."
+msgstr ""
+
+#: ../includes/fields/conditional.php:174
+msgid "Require a condition selection"
+msgstr "Feltetel kivalasztasanak kotelezove tetele"
+
+#: ../templates/field_html.php:94
+msgid "Display for choice"
+msgstr ""
+
+#: ../templates/field_html.php:95
+msgid "Choose the parent Conditional Group value that displays this field."
+msgstr ""
+
+#: ../templates/admin_head.php:50
+#, fuzzy
+msgid ""
+"Tabs and conditional groups cannot be placed inside a Conditional Group."
+msgstr ""
+"Lapok, ismetlok es vizszintes csoportok nem helyezhetok vizszintes csoportba."
+
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
 msgstr "Szöveg"
@@ -32,6 +78,10 @@ msgstr "Ellenőrzés"
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "Mező kitöltése kötelező"
+
+#: ../includes/form.php:266 ../includes/fields/group.php:147
+msgid "Required"
+msgstr "Kotelezo"
 
 #: ../includes/field_group.php:112
 msgid "Imported"
@@ -140,8 +190,12 @@ msgstr "Sor hozzáadása"
 msgid "Limits"
 msgstr "Korlátok"
 
-msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
-msgstr "A minimum a kiválasztható kifejezések legkisebb számát állítja be. A maximum a kiválasztható kifejezések legnagyobb számát állítja be."
+msgid ""
+"Minimum sets the fewest terms that can be selected. Maximum sets the most "
+"terms that can be selected."
+msgstr ""
+"A minimum a kiválasztható kifejezések legkisebb számát állítja be. A maximum "
+"a kiválasztható kifejezések legnagyobb számát állítja be."
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
@@ -163,6 +217,14 @@ msgstr "Bejegyzések korlátozása a következő típusokra"
 #: ../includes/fields/select.php:8
 msgid "Select"
 msgstr "Kiválasztás"
+
+#: ../includes/fields/select.php:43
+msgid "Please select..."
+msgstr "Valasszon..."
+
+#: ../includes/fields/code_view.php:210
+msgid "Please select a language..."
+msgstr "Valasszon nyelvet..."
 
 #: ../includes/fields/select.php:86
 msgid "Choices"
@@ -191,6 +253,23 @@ msgstr "Fül"
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
 msgstr "Alapértelmezett érték"
+
+#, fuzzy
+msgid "Placeholder"
+msgstr "Elhelyezés"
+
+msgid "The value specified from the beginning."
+msgstr ""
+
+msgid "An input example or other helpful hint."
+msgstr ""
+
+msgid "at-shift CFS"
+msgstr ""
+
+msgctxt "date picker"
+msgid "Clear"
+msgstr "Töröl"
 
 #: ../includes/fields/textarea.php:8
 msgid "Textarea"
@@ -349,8 +428,12 @@ msgid "Name"
 msgstr "Név"
 
 #: ../templates/field_html.php:42
-msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "A mező neve amit a get() függvénynek kell átadni az értékek eléréséhez. Csak kisbetűk, számok és aláhúzás használható."
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"A mező neve amit a get() függvénynek kell átadni az értékek eléréséhez. Csak "
+"kisbetűk, számok és aláhúzás használható."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
@@ -384,25 +467,153 @@ msgstr "Sorrend"
 msgid "The field group with the lowest order will appear first."
 msgstr "A legalacsonyabb sorrendű mező csoport jelenik meg először."
 
-#: ../templates/meta_box_extras.php:45
-msgid "Position"
-msgstr "Pozíció"
+#: ../templates/meta_box_extras.php:281
+#, fuzzy
+msgid "Field Group Position"
+msgstr "Mező csoportok"
 
-#: ../templates/meta_box_extras.php:48
+#: ../templates/meta_box_extras.php:284
 msgid "Normal"
 msgstr "Normál"
 
-#: ../templates/meta_box_extras.php:49
+#: ../templates/meta_box_extras.php:285
 msgid "Side"
 msgstr "Oldalsáv"
 
-#: ../templates/meta_box_extras.php:54
-msgid "Display Settings"
+#: ../templates/meta_box_extras.php:287
+#, fuzzy
+msgid "Controls where this field group appears on the edit screen."
+msgstr ""
+"Ez a mezocsoport minden szerkesztheto bejegyzeskepernyore illeszkedhet."
+
+#: ../templates/meta_box_extras.php:293
+#, fuzzy
+msgid "Native Editor Display Settings"
 msgstr "Megjelenítési beállítás"
 
+#: ../templates/meta_box_extras.php:298
+msgid ""
+"These settings hide native WordPress editor sections for matching posts, "
+"regardless of where this field group is displayed."
+msgstr ""
+
 #: ../templates/meta_box_extras.php:64
-msgid "Hide the content editor"
-msgstr "Tartalom szerkesztő elrejtése"
+msgid ""
+"Hide the content editor (also hides the Gutenberg / block editor for "
+"matching posts)"
+msgstr ""
+"A tartalomszerkesztő elrejtése (az egyező bejegyzéseknél a Gutenberg / "
+"blokkszerkesztőt is elrejti)"
+
+#: ../templates/meta_box_extras.php:78
+msgid "Hide page attributes"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:92
+msgid "Force the post edit screen layout to 1 column"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:309
+msgid ""
+"Third-party side meta boxes are not hidden; in the 1-column layout, they "
+"appear below the main editor area."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:93
+#, fuzzy
+msgid "All roles"
+msgstr "Lomtárhoz engedélyezett szerepkörök"
+
+#: ../templates/meta_box_extras.php:94
+msgid "All roles except Administrators / Web administrators"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:95
+#, fuzzy
+msgid "Selected roles only"
+msgstr "Csak a kijeloltek megjelenitese"
+
+#: ../templates/meta_box_extras.php:96
+msgid "Select roles when using selected roles only"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:157
+msgid "Already controlled by a native field in this field group."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:163
+#, php-format
+msgid "Already controlled by \"%s\"."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:97
+msgid "Screen Layout"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:98
+#, fuzzy
+msgid "Side Sections"
+msgstr "Műveletek"
+
+#: ../templates/meta_box_extras.php:99
+#, fuzzy
+msgid "Hide categories"
+msgstr "Kategoriak keresese"
+
+#: ../templates/meta_box_extras.php:100
+msgid "Hide tags"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:101
+#, fuzzy
+msgid "Hide featured image"
+msgstr "Kiemelt kep"
+
+#: ../templates/meta_box_extras.php:313 ../templates/meta_box_extras.php:329
+msgid "Hiding behavior"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:103
+#, fuzzy
+msgid "Main Sections"
+msgstr "Műveletek"
+
+#: ../templates/meta_box_extras.php:105
+msgid "Hide format"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:106
+msgid "Hide comments"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:107
+msgid "Hide discussion"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:108
+msgid "Hide excerpt"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:109
+msgid "Hide trackbacks"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:110
+#, fuzzy
+msgid "Hide permalink"
+msgstr "Hivatkozás"
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide slug"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:111
+msgid "Hide author"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:112
+msgid "Hide custom fields"
+msgstr ""
 
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
@@ -416,9 +627,61 @@ msgstr "egyenlő"
 msgid "is not"
 msgstr "nem egyenlő"
 
+#: ../templates/meta_box_rules.php:57
+msgid "Standard"
+msgstr "Alapértelmezett"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Administrator"
+msgstr "Adminisztrátor"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Editor"
+msgstr "Szerkesztő"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Author"
+msgstr "Szerző"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Contributor"
+msgstr "Közreműködő"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Subscriber"
+msgstr "Feliratkozó"
+
 #: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
 msgstr "Hagyd üresen a szabály kihagyásához"
+
+#: ../templates/meta_box_rules.php:248
+msgid "The results could not be loaded."
+msgstr "Az eredmenyeket nem sikerult betolteni."
+
+#: ../templates/meta_box_rules.php:253
+msgid "Please enter 1 more character"
+msgstr "Adjon meg meg 1 karaktert"
+
+#: ../templates/meta_box_rules.php:256
+msgid "Please enter %s or more characters"
+msgstr "Adjon meg legalabb %s karaktert"
+
+#: ../templates/meta_box_rules.php:259
+msgid "Loading more results..."
+msgstr "Tovabbi eredmenyek betoltese..."
+
+#: ../templates/meta_box_rules.php:262
+msgid "No results found"
+msgstr "Nincs talalat"
+
+#: ../templates/meta_box_rules.php:265
+msgid "Searching..."
+msgstr "Kereses..."
+
+#: ../templates/meta_box_rules.php:282
+msgid "%s allowed"
+msgstr "%s engedélyezett"
 
 #: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
@@ -428,9 +691,37 @@ msgstr "Rendszerezési kifejezések"
 msgid "Export"
 msgstr "Exportálás"
 
+#: ../templates/page_tools.php:96
+msgid ""
+"Select the field groups you want to export, press the button, then save the "
+"displayed code. You can select multiple items."
+msgstr ""
+"Válassza ki az exportálni kívánt mezőcsoportokat, nyomja meg a gombot, majd "
+"mentse el a megjelenő kódot. Több elem is kijelölhető."
+
+#: ../templates/page_tools.php:112
+msgid "Export Code"
+msgstr "Exportkód"
+
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
 msgstr "Importálás"
+
+#: ../templates/page_tools.php:122
+msgid ""
+"Paste the exported field group code into the input field below, then press "
+"the button."
+msgstr ""
+"Illessze be az exportált mezőcsoport kódját az alábbi beviteli mezőbe, majd "
+"nyomja meg a gombot."
+
+#: ../templates/page_tools.php:125
+msgid "Import Code"
+msgstr "Importkód"
+
+#: ../templates/page_tools.php:120
+msgid "Paste the import code here"
+msgstr "Illessze be ide az importkódot"
 
 #: ../templates/page_tools.php:78
 msgid "Reset"
@@ -442,66 +733,98 @@ msgstr "Visszaállítás és kikapcsolás"
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all at-shift CFS data and deactivate the plugin."
-msgstr "Ez teljesen törli az összes at-shift CFS-adatot, majd deaktiválja és alaphelyzetbe állítja a bővítményt."
+msgstr ""
+"Ez teljesen törli az összes at-shift CFS-adatot, majd deaktiválja és "
+"alaphelyzetbe állítja a bővítményt."
+
+#: ../templates/page_tools.php:24
+msgid "This will delete all at-shift CFS data. Are you sure?"
+msgstr "Ez teljesen törli az összes at-shift CFS-adatot. Biztos benne?"
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "Minden törlése"
 
-msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
-msgstr "A tartalomszerkesztő elrejtése (az egyező bejegyzéseknél a Gutenberg / blokkszerkesztőt is elrejti)"
-
+#: ../includes/fields/checkbox.php:8
 msgid "Checkbox"
 msgstr "Jelölőnégyzet"
 
+#: ../includes/fields/file.php:44
 msgid "File Type"
 msgstr "Fájltípus"
 
+#: ../includes/fields/file.php:53
 msgid "Any"
 msgstr "Bármely"
 
+#: ../includes/fields/file.php:54
 msgid "Image"
 msgstr "Kép"
 
+#: ../includes/fields/file.php:55
 msgid "Audio"
 msgstr "Hang"
 
+#: ../includes/fields/file.php:56
 msgid "Video"
 msgstr "Videó"
 
+#: ../includes/fields/radio.php:8
 msgid "Radio Button"
 msgstr "Választógomb"
 
+#: ../includes/fields/select.php:133
 msgid "Select2"
 msgstr "Select2"
 
-msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
-msgstr "A kiválasztó mezőt Select2-vel jeleníti meg. Ez megkönnyíti a hosszú választéklisták keresését és kiválasztását a szerkesztőképernyőkön."
+msgid ""
+"Displays the select field with Select2. This makes long choice lists easier "
+"to search and select on edit screens."
+msgstr ""
+"A kiválasztó mezőt Select2-vel jeleníti meg. Ez megkönnyíti a hosszú "
+"választéklisták keresését és kiválasztását a szerkesztőképernyőkön."
 
+#: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
 msgstr "A mező megjelenítése Select2-vel"
 
+#: ../includes/fields/term.php:8
 msgid "Term"
 msgstr "Kifejezés"
 
+#: ../includes/fields/term.php:69
 msgid "Search terms"
 msgstr "Kifejezések keresése"
 
+#: ../includes/fields/term.php:97
 msgid "Taxonomies"
 msgstr "Taxonómiák"
 
+#: ../includes/fields/term.php:98
 msgid "Limit terms to the following taxonomies"
 msgstr "Kifejezések korlátozása a következő taxonómiákra"
 
-msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "Egy vagy több mező érvényesítési hibát tartalmaz. További információ alább található."
+#: ../includes/form.php:247
+msgid ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
+msgstr ""
+"Egy vagy több mező érvényesítési hibát tartalmaz. További információ alább "
+"található."
 
+#: ../includes/form.php:444
 msgid "Toggle row visibility"
 msgstr "Sor láthatóságának váltása"
 
+#: ../includes/fields/loop.php:444
+msgid "Remove this row?"
+msgstr ""
+
+#: ../includes/init.php:60
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
+#: ../includes/init.php:154
 msgid "atshift Fields Tool"
 msgstr "atshift Fields eszköz"
 
@@ -521,8 +844,13 @@ msgstr "Number"
 msgid "Number Settings"
 msgstr "Number Settings"
 
-msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
-msgstr "A minimum a legalacsonyabb megengedett értéket állítja be. A maximum a legmagasabb megengedett értéket állítja be. A lépésköz az értékek közötti megengedett intervallumot adja meg, például 1, 0.1 vagy 5."
+msgid ""
+"Minimum sets the lowest allowed value. Maximum sets the highest allowed "
+"value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr ""
+"A minimum a legalacsonyabb megengedett értéket állítja be. A maximum a "
+"legmagasabb megengedett értéket állítja be. A lépésköz az értékek közötti "
+"megengedett intervallumot adja meg, például 1, 0.1 vagy 5."
 
 msgid "Minimum"
 msgstr "Minimum"
@@ -588,6 +916,18 @@ msgstr "3 oszlop"
 msgid "4 columns"
 msgstr "4 oszlop"
 
+#: ../includes/fields/group.php:92
+msgid "Alignment"
+msgstr "Igazitas"
+
+#: ../includes/fields/group.php:101
+msgid "Evenly distributed"
+msgstr "Egyenletesen elosztva"
+
+#: ../includes/fields/group.php:102
+msgid "Left aligned"
+msgstr "Balra igazitva"
+
 #: ../templates/field_html.php:84
 msgid "Add new field below"
 msgstr "Uj mezo hozzaadasa ala"
@@ -606,6 +946,28 @@ msgstr "Megjelenit egy CFS mezocsoportot."
 
 msgid "No fields in this group."
 msgstr "Ebben a csoportban nincsenek mezok."
+
+msgid "Post Title (Native)"
+msgstr "Bejegyzés címe (natív)"
+
+msgid "You do not have permission to change the native title."
+msgstr "Nincs jogosultságod a natív cím módosításához."
+
+msgid "Allowed User Role Groups"
+msgstr "Engedélyezett felhasználói szerepkörcsoportok"
+
+msgid ""
+"Select the roles that can change the native title. Leave blank to allow any "
+"user role that can edit the post."
+msgstr ""
+"Válaszd ki azokat a szerepköröket, amelyek módosíthatják a natív címet. "
+"Hagyd üresen, hogy bármely, a bejegyzést szerkeszteni képes felhasználói "
+"szerepkör engedélyezve legyen."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr ""
+"Hagyd üresen, hogy bármely szerepkör engedélyezve legyen, amely "
+"szerkesztheti ezt a bejegyzést"
 
 msgid "Post Categories"
 msgstr "Bejegyzes kategoriai"
@@ -638,52 +1000,80 @@ msgid "Category Selection"
 msgstr "Kategoriavalasztas"
 
 msgid "Selecting a parent also selects all child categories"
-msgstr "Szulokategoria kivalasztasakor az osszes gyermekkategoria is kijelolesre kerul"
+msgstr ""
+"Szulokategoria kivalasztasakor az osszes gyermekkategoria is kijelolesre "
+"kerul"
 
 msgid "Selecting a child also selects its parent categories"
-msgstr "Gyermekkategoria kivalasztasakor a szulokategoriak is kijelolesre kerulnek"
-
-msgid "A newer version %s is available on GitHub."
-msgstr "Elérhető egy újabb verzió (%s) a GitHubon."
-
-msgid "Required"
-msgstr "Kotelezo"
-
-msgid "Please select..."
-msgstr "Valasszon..."
-
-msgid "Please select a language..."
-msgstr "Valasszon nyelvet..."
-
-msgid "Alignment"
-msgstr "Igazitas"
-
-msgid "Evenly distributed"
-msgstr "Egyenletesen elosztva"
-
-msgid "Left aligned"
-msgstr "Balra igazitva"
+msgstr ""
+"Gyermekkategoria kivalasztasakor a szulokategoriak is kijelolesre kerulnek"
 
 msgid "CFS placement warning:"
 msgstr "CFS elhelyezesi figyelmeztetes:"
 
-msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Ennek a mezocsoportnak nincsenek elhelyezesi szabalyai. Minden szerkesztheto bejegyzeskepernyore illeszkedhet, ezert allitson be bejegyzestipust vagy mas elhelyezesi szabalyt, hacsak ez nem szandekos."
+msgid ""
+"This field group has no placement rules. It will appear on all editable post "
+"screens, so set a Post Type or another placement rule unless that is "
+"intentional."
+msgstr ""
+"Ennek a mezocsoportnak nincsenek elhelyezesi szabalyai. Minden szerkesztheto "
+"bejegyzeskepernyore illeszkedhet, ezert allitson be bejegyzestipust vagy mas "
+"elhelyezesi szabalyt, hacsak ez nem szandekos."
 
-msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "Mentve, de ennek a mezocsoportnak nincsenek elhelyezesi szabalyai. Minden szerkesztheto bejegyzeskepernyore illeszkedhet, ezert allitson be bejegyzestipust vagy mas elhelyezesi szabalyt, hacsak ez nem szandekos."
+msgid ""
+"Saved, but this field group has no placement rules. It will appear on all "
+"editable post screens, so set a Post Type or another placement rule unless "
+"that is intentional."
+msgstr ""
+"Mentve, de ennek a mezocsoportnak nincsenek elhelyezesi szabalyai. Minden "
+"szerkesztheto bejegyzeskepernyore illeszkedhet, ezert allitson be "
+"bejegyzestipust vagy mas elhelyezesi szabalyt, hacsak ez nem szandekos."
 
 msgid "No placement rules"
 msgstr "Nincsenek elhelyezesi szabalyok"
 
 msgid "This field group will appear on all editable post screens."
-msgstr "Ez a mezocsoport minden szerkesztheto bejegyzeskepernyore illeszkedhet."
+msgstr ""
+"Ez a mezocsoport minden szerkesztheto bejegyzeskepernyore illeszkedhet."
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Elérhető egy újabb verzió (%s) a GitHubon."
+
+#, fuzzy
+msgid "Add at least one field to this tab group."
+msgstr "Adjon hozza legalabb ket mezot ehhez a vizszintes csoporthoz."
 
 msgid "Add two or more fields to this horizontal group."
 msgstr "Adjon hozza legalabb ket mezot ehhez a vizszintes csoporthoz."
 
-msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "Lapok, ismetlok es vizszintes csoportok nem helyezhetok vizszintes csoportba."
+#, fuzzy
+msgid "Add at least one field to this loop group."
+msgstr "Adjon hozza legalabb ket mezot ehhez a vizszintes csoporthoz."
+
+#, fuzzy
+msgid "Add at least one field to this accordion group."
+msgstr "Adjon hozza legalabb ket mezot ehhez a vizszintes csoporthoz."
+
+msgid "Contains required fields"
+msgstr "Kotelezo mezoket tartalmaz"
+
+msgid "Set conditions and add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each condition."
+msgstr ""
+
+msgid "Create two or more conditions, then add fields to each condition."
+msgstr ""
+
+msgid "Add fields to each empty condition."
+msgstr ""
+
+msgid ""
+"Tabs, loops, and horizontal groups cannot be placed inside a horizontal "
+"group."
+msgstr ""
+"Lapok, ismetlok es vizszintes csoportok nem helyezhetok vizszintes csoportba."
 
 msgid "Code View"
 msgstr "Kod nezet"
@@ -691,8 +1081,14 @@ msgstr "Kod nezet"
 msgid "Shortcode"
 msgstr "Rövidkód"
 
-msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
-msgstr "A metabox egy beallitasi vagy adatbeviteli doboz, amelyet kulso bovítmeny ad hozza a WordPress bejegyzes szerkeszto kepernyojehez. Ez a mezo csak arra szolgal, hogy egy kulso metaboxot athelyezz egy atshift Fields mezocsoportba."
+msgid ""
+"A meta box is a settings or input box added to the WordPress post edit "
+"screen by a third-party plugin. This field is only for repositioning and "
+"moving a third-party meta box into an atshift Fields field group."
+msgstr ""
+"A metabox egy beallitasi vagy adatbeviteli doboz, amelyet kulso bovítmeny ad "
+"hozza a WordPress bejegyzes szerkeszto kepernyojehez. Ez a mezo csak arra "
+"szolgal, hogy egy kulso metaboxot athelyezz egy atshift Fields mezocsoportba."
 
 msgid "Classic Meta Box Placement"
 msgstr "Klasszikus metabox elhelyezese"
@@ -712,11 +1108,21 @@ msgstr "Ez a metabox mar egy masik helyen van elhelyezve."
 msgid "Meta Box ID"
 msgstr "Metabox azonosito"
 
-msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
-msgstr "Klasszikus, kulso bovítmenyhez tartozo metabox felismerese az elhelyezesi szabalyokban kivalasztott bejegyzestipusok alapjan, vagy az id kezi megadasa a HTML-forrasbol. A mentest tovabbra is az eredeti bovítmeny kezeli."
+msgid ""
+"Detect a classic third-party meta box from the post types selected in "
+"Placement Rules, or enter its HTML source id manually. The original plugin "
+"keeps handling saving."
+msgstr ""
+"Klasszikus, kulso bovítmenyhez tartozo metabox felismerese az elhelyezesi "
+"szabalyokban kivalasztott bejegyzestipusok alapjan, vagy az id kezi megadasa "
+"a HTML-forrasbol. A mentest tovabbra is az eredeti bovítmeny kezeli."
 
-msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
-msgstr "A szerkeszto kepernyon megjeleno klasszikus metaboxok athelyezhetok. A csak blokk-szerkeszto paneljei nem tamogatottak."
+msgid ""
+"Classic meta boxes rendered in the edit screen can be moved. Block Editor-"
+"only panels are not supported."
+msgstr ""
+"A szerkeszto kepernyon megjeleno klasszikus metaboxok athelyezhetok. A csak "
+"blokk-szerkeszto paneljei nem tamogatottak."
 
 msgid "Display Width"
 msgstr "Megjelenitesi szelesseg"
@@ -743,7 +1149,8 @@ msgid "Detected Meta Boxes"
 msgstr "Felismert metaboxok"
 
 msgid "Select at least one post type in Placement Rules first."
-msgstr "Eloszor valassz legalabb egy bejegyzestipust az elhelyezesi szabalyokban."
+msgstr ""
+"Eloszor valassz legalabb egy bejegyzestipust az elhelyezesi szabalyokban."
 
 msgid "Detecting meta boxes..."
 msgstr "Metaboxok felismerese..."
@@ -764,7 +1171,6 @@ msgstr "Elerheto itt: %s"
 msgid "Already selected in another Classic Meta Box Placement field."
 msgstr "Mar ki van valasztva egy masik klasszikus metabox elhelyezesi mezoben."
 
-
 msgid "Plain text"
 msgstr "Egyszeru szoveg"
 
@@ -782,11 +1188,98 @@ msgstr "Masolva"
 
 msgid "Language"
 msgstr "Nyelv"
-msgid "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
-msgstr "Ez a bővítmény a Custom Field Suite karbantartott és kibővített változata, amely hatékonyabb és rugalmasabb beviteli mezőket ad a WordPress szerkesztőképernyőihez."
-msgctxt "date picker"
-msgid "Clear"
-msgstr "Töröl"
+
+msgid ""
+"This plugin is a maintained and extended version of Custom Field Suite that "
+"adds more effective and flexible input fields to WordPress edit screens."
+msgstr ""
+"Ez a bővítmény a Custom Field Suite karbantartott és kibővített változata, "
+"amely hatékonyabb és rugalmasabb beviteli mezőket ad a WordPress "
+"szerkesztőképernyőihez."
+
+#, fuzzy
+msgid "Accordion Group"
+msgstr "Vizszintes csoport"
+
+msgid "Initial State"
+msgstr ""
+
+msgid "Open by default"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"Tabs, loops, accordions, conditional groups, and horizontal groups cannot be "
+"placed inside a horizontal group."
+msgstr ""
+"Lapok, ismetlok es vizszintes csoportok nem helyezhetok vizszintes csoportba."
+
+#, fuzzy
+msgid "Tabs cannot be placed inside an accordion."
+msgstr ""
+"Lapok, ismetlok es vizszintes csoportok nem helyezhetok vizszintes csoportba."
+
+#, fuzzy
+msgid "Please enter a value"
+msgstr "Adjon meg meg 1 karaktert"
+
+msgid "Please enter a valid date (YYYY-MM-DD HH:MM)"
+msgstr ""
+
+msgid "Please enter a valid color HEX (#ff0000)"
+msgstr ""
+
+#, fuzzy
+msgid "Please enter a phone number"
+msgstr "Adjon meg meg 1 karaktert"
+
+#, fuzzy
+msgid "Please enter a valid phone number"
+msgstr "Adjon meg meg 1 karaktert"
+
+#, fuzzy
+msgid "Please enter an email address"
+msgstr "Adjon meg meg 1 karaktert"
+
+#, fuzzy
+msgid "Please enter a valid email address"
+msgstr "Adjon meg legalabb %s karaktert"
+
+#, fuzzy
+msgid "Please enter a number"
+msgstr "Adjon meg meg 1 karaktert"
+
+#, fuzzy
+msgid "Please enter a valid number"
+msgstr "Adjon meg meg 1 karaktert"
+
+msgid "Please enter a URL"
+msgstr ""
+
+msgid "Please enter a valid URL"
+msgstr ""
+
+msgid "Please select a condition"
+msgstr "Valassz feltetelt"
+
+#, fuzzy
+msgid "Please select a time"
+msgstr "Valassz feltetelt"
+
+#, fuzzy
+msgid "Please select a valid time"
+msgstr "Valassz feltetelt"
+
+#, fuzzy
+msgid "Please select a language and enter code"
+msgstr "Valasszon nyelvet..."
+
+#, fuzzy
+msgid "Please select %s item(s)"
+msgstr "Valassz feltetelt"
+
+msgid "Please select between %1$s and %2$s items"
+msgstr ""
 
 msgid "TAB"
 msgstr "Lap"
@@ -803,29 +1296,21 @@ msgstr "Lenyitható"
 msgid "CONDITION"
 msgstr "Feltétel"
 
-#: ../templates/page_tools.php:206
-msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
-msgstr "Válassza ki az exportálni kívánt mezőcsoportokat, nyomja meg a gombot, majd mentse el a megjelenő kódot. Több elem is kijelölhető."
+msgid "This field name is duplicated. Use a unique field name."
+msgstr ""
 
-#: ../templates/page_tools.php:222
-msgid "Export Code"
-msgstr "Exportkód"
+msgid ""
+"Duplicate field names found: %s. Field names must be unique before saving."
+msgstr ""
 
-#: ../templates/page_tools.php:231
-msgid "Paste the exported field group code into the input field below, then press the button."
-msgstr "Illessze be az exportált mezőcsoport kódját az alábbi beviteli mezőbe, majd nyomja meg a gombot."
+msgid "Move here"
+msgstr ""
 
-#: ../templates/page_tools.php:234
-msgid "Import Code"
-msgstr "Importkód"
+msgid "Move here: inside %s"
+msgstr ""
 
-#: ../templates/page_tools.php:235
-msgid "Paste the import code here"
-msgstr "Illessze be ide az importkódot"
-
-#: ../templates/page_tools.php:150
-msgid "This will delete all at-shift CFS data. Are you sure?"
-msgstr "Ez teljesen törli az összes at-shift CFS-adatot. Biztos benne?"
+msgid "Move here: inside the current Tab"
+msgstr ""
 
 msgid "Post Categories (Standard / Global)"
 msgstr "Bejegyzes kategoriak (alapertelmezett / globalis)"
@@ -840,8 +1325,12 @@ msgstr "Alapertelmezett kategoria"
 msgid "Category Source"
 msgstr "Kategoria forrasa"
 
-msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
-msgstr "Valaszd az alapertelmezett kategoriat vagy egy regisztralt Shared Taxonomy elemet, amelyet ez a mezo megjelenit es ment."
+msgid ""
+"Choose the standard category or a registered Shared Taxonomy to show and "
+"save with this field."
+msgstr ""
+"Valaszd az alapertelmezett kategoriat vagy egy regisztralt Shared Taxonomy "
+"elemet, amelyet ez a mezo megjelenit es ment."
 
 msgid "Photo Gallery"
 msgstr "Fotogaleria"
@@ -870,8 +1359,14 @@ msgstr "Galeria HTML"
 msgid "Gallery Display"
 msgstr "Galeria megjelenitese"
 
-msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "Akkor használatos, ha a visszatérési érték Gallery HTML. Az oszlopok száma a generált galéria HTML oszlopszámát állítja be. A képfájlokra mutató hivatkozások modálokhoz hasznos adatattribútumokat tartalmaznak."
+msgid ""
+"Used when the return value is Gallery HTML. Columns sets the number of "
+"columns in the generated gallery HTML. Image file links include modal-"
+"friendly data attributes."
+msgstr ""
+"Akkor használatos, ha a visszatérési érték Gallery HTML. Az oszlopok száma a "
+"generált galéria HTML oszlopszámát állítja be. A képfájlokra mutató "
+"hivatkozások modálokhoz hasznos adatattribútumokat tartalmaznak."
 
 msgid "CSS class"
 msgstr "CSS osztaly"
@@ -891,8 +1386,14 @@ msgstr "Galeriakepek kivalasztasa"
 msgid "After input"
 msgstr "A beviteli mező után"
 
-msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
-msgstr "A szerkesztőképernyőkön a beviteli mező után jelenik meg. Rövid mértékegységekhez vagy elválasztókhoz használható, például kg, %, vagy ~. Ez a szöveg nem kerül bele a mentett értékekbe vagy a frontend kimenetbe."
+msgid ""
+"Shown after the input on edit screens. Use this for short units or "
+"separators such as kg, %, or ~. This text is not included in saved values or "
+"front-end output."
+msgstr ""
+"A szerkesztőképernyőkön a beviteli mező után jelenik meg. Rövid "
+"mértékegységekhez vagy elválasztókhoz használható, például kg, %, vagy ~. Ez "
+"a szöveg nem kerül bele a mentett értékekbe vagy a frontend kimenetbe."
 
 #: ../includes/fields/gallery.php:88
 msgid "Image Size"
@@ -919,20 +1420,36 @@ msgid "Full Size"
 msgstr "Teljes méret"
 
 #: ../includes/fields/gallery.php:142
-msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
-msgstr "A minimum a kiválasztható képek legkisebb számát állítja be. A maximum a kiválasztható képek legnagyobb számát állítja be."
+msgid ""
+"Minimum sets the fewest images that can be selected. Maximum sets the most "
+"images that can be selected."
+msgstr ""
+"A minimum a kiválasztható képek legkisebb számát állítja be. A maximum a "
+"kiválasztható képek legnagyobb számát állítja be."
 
 #: ../includes/fields/loop.php:93
-msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
-msgstr "A minimum a hozzáadható sorok legkisebb számát állítja be. A maximum a hozzáadható sorok legnagyobb számát állítja be."
+msgid ""
+"Minimum sets the fewest rows that can be added. Maximum sets the most rows "
+"that can be added."
+msgstr ""
+"A minimum a hozzáadható sorok legkisebb számát állítja be. A maximum a "
+"hozzáadható sorok legnagyobb számát állítja be."
 
 #: ../includes/fields/relationship.php:125
-msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
-msgstr "A minimum a kiválasztható kapcsolódó elemek legkisebb számát állítja be. A maximum a kiválasztható kapcsolódó elemek legnagyobb számát állítja be."
+msgid ""
+"Minimum sets the fewest related items that can be selected. Maximum sets the "
+"most related items that can be selected."
+msgstr ""
+"A minimum a kiválasztható kapcsolódó elemek legkisebb számát állítja be. A "
+"maximum a kiválasztható kapcsolódó elemek legnagyobb számát állítja be."
 
 #: ../includes/fields/user.php:74
-msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
-msgstr "A minimum a kiválasztható felhasználók legkisebb számát állítja be. A maximum a kiválasztható felhasználók legnagyobb számát állítja be."
+msgid ""
+"Minimum sets the fewest users that can be selected. Maximum sets the most "
+"users that can be selected."
+msgstr ""
+"A minimum a kiválasztható felhasználók legkisebb számát állítja be. A "
+"maximum a kiválasztható felhasználók legnagyobb számát állítja be."
 
 #: ../includes/fields/true_false.php:37
 msgid "Checkbox Label"
@@ -941,21 +1458,6 @@ msgstr "Jelölőnégyzet címkéje"
 #: ../includes/fields/true_false.php:39
 msgid "Displayed beside the checkbox on the edit screen."
 msgstr "A szerkesztési képernyőn a jelölőnégyzet mellett jelenik meg."
-
-msgid "Post Title (Native)"
-msgstr "Bejegyzés címe (natív)"
-
-msgid "You do not have permission to change the native title."
-msgstr "Nincs jogosultságod a natív cím módosításához."
-
-msgid "Allowed User Role Groups"
-msgstr "Engedélyezett felhasználói szerepkörcsoportok"
-
-msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
-msgstr "Válaszd ki azokat a szerepköröket, amelyek módosíthatják a natív címet. Hagyd üresen, hogy bármely, a bejegyzést szerkeszteni képes felhasználói szerepkör engedélyezve legyen."
-
-msgid "Leave blank to allow any role that can edit this post"
-msgstr "Hagyd üresen, hogy bármely szerepkör engedélyezve legyen, amely szerkesztheti ezt a bejegyzést"
 
 #: includes/fields/post_publish.php
 msgid "Save / Publish (Native)"
@@ -968,6 +1470,35 @@ msgstr "Nincs jogosultságod a mentési / közzétételi beállítások módosí
 #: includes/fields/post_publish.php
 msgid "Status"
 msgstr "Állapot"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Current Status"
+msgstr "Állapot"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Change Status"
+msgstr "Állapot"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Do not change"
+msgstr "Állapot módosításának engedélyezése"
+
+#: includes/fields/post_publish.php
+msgid "Change to Draft"
+msgstr ""
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Change to Pending Review"
+msgstr "Ellenőrzésre vár"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Publish / Schedule"
+msgstr "Közzététel vagy ütemezés"
 
 #: includes/fields/post_publish.php
 msgid "Visibility"
@@ -986,6 +1517,10 @@ msgid "Private"
 msgstr "Privát"
 
 #: includes/fields/post_publish.php
+msgid "Autosaving"
+msgstr ""
+
+#: includes/fields/post_publish.php
 msgid "Password"
 msgstr "Jelszó"
 
@@ -998,12 +1533,39 @@ msgid "Set to current date and time"
 msgstr "Aktuális dátum és idő beállítása"
 
 #: includes/fields/post_publish.php
+#, fuzzy
+msgid "Save Draft"
+msgstr "Vázlat"
+
+#: includes/fields/post_publish.php
+msgid "Update"
+msgstr ""
+
+#: includes/fields/post_publish.php
+msgid "Submit for Review"
+msgstr ""
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Publish"
+msgstr "Közzétéve"
+
+#: includes/fields/post_publish.php
+#, fuzzy
+msgid "Schedule"
+msgstr "Ütemezve"
+
+#: includes/fields/post_publish.php
 msgid "Save / Publish Settings"
 msgstr "Mentési / közzétételi beállítások"
 
 #: includes/fields/post_publish.php
-msgid "Choose which native WordPress save and publish controls are shown in this field."
-msgstr "Válaszd ki, mely natív WordPress mentési és közzétételi vezérlők jelenjenek meg ebben a mezőben."
+msgid ""
+"Choose which native WordPress save and publish controls are shown in this "
+"field."
+msgstr ""
+"Válaszd ki, mely natív WordPress mentési és közzétételi vezérlők jelenjenek "
+"meg ebben a mezőben."
 
 #: includes/fields/post_publish.php
 msgid "Allow status changes"
@@ -1026,10 +1588,6 @@ msgid "Pending Review"
 msgstr "Ellenőrzésre vár"
 
 #: includes/fields/post_publish.php
-msgid "Published"
-msgstr "Közzétéve"
-
-#: includes/fields/post_publish.php
 msgid "Scheduled"
 msgstr "Ütemezve"
 
@@ -1041,8 +1599,7 @@ msgstr "Műveletek"
 msgid "Duplicate"
 msgstr "Duplikálás"
 
-#: templates/admin_head.php
-#: templates/field_html.php
+#: templates/admin_head.php templates/field_html.php
 msgid "Automatically named when saved"
 msgstr "Mentéskor automatikusan elnevezve"
 
@@ -1055,12 +1612,19 @@ msgid "Allowed Trash Roles"
 msgstr "Lomtárhoz engedélyezett szerepkörök"
 
 #: includes/fields/post_publish.php
-msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
-msgstr "Válassza ki azokat a szerepköröket, amelyek ebből a mezőből a lomtárba helyezhetik a bejegyzéseket. Hagyja üresen, ha minden olyan szerepkört engedélyez, amely törölheti a bejegyzést."
+msgid ""
+"Select the roles that can move posts to trash from this field. Leave blank "
+"to allow any user role that can delete the post."
+msgstr ""
+"Válassza ki azokat a szerepköröket, amelyek ebből a mezőből a lomtárba "
+"helyezhetik a bejegyzéseket. Hagyja üresen, ha minden olyan szerepkört "
+"engedélyez, amely törölheti a bejegyzést."
 
 #: includes/fields/post_publish.php
 msgid "Leave blank to allow any role that can delete this post"
-msgstr "Hagyja üresen, ha minden olyan szerepkört engedélyez, amely törölheti ezt a bejegyzést"
+msgstr ""
+"Hagyja üresen, ha minden olyan szerepkört engedélyez, amely törölheti ezt a "
+"bejegyzést"
 
 #: includes/fields/post_publish.php
 msgid "Move to Trash"
@@ -1091,8 +1655,13 @@ msgid "Content Editor"
 msgstr "Tartalomszerkesztő"
 
 #: includes/fields/post_content.php
-msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
-msgstr "Válassza ki, hogyan szerkesszék a szerkesztők a natív WordPress-tartalmat. Ez a mező a post_content mezőbe ment, és nem használja a Gutenberg / blokk szerkesztőt."
+msgid ""
+"Choose how editors edit the native WordPress content. This field saves to "
+"post_content and does not use the Gutenberg / block editor."
+msgstr ""
+"Válassza ki, hogyan szerkesszék a szerkesztők a natív WordPress-tartalmat. "
+"Ez a mező a post_content mezőbe ment, és nem használja a Gutenberg / blokk "
+"szerkesztőt."
 
 #: includes/fields/post_content.php
 msgid "Visual editor"
@@ -1116,7 +1685,16 @@ msgstr "Gyermek és unoka kategóriák vízszintes elrendezése"
 
 #: includes/fields/wp_category.php
 msgid "Leave both unchecked to use the traditional category tree."
-msgstr "Hagyja mindkettőt jelöletlenül a hagyományos kategóriafa használatához."
+msgstr ""
+"Hagyja mindkettőt jelöletlenül a hagyományos kategóriafa használatához."
+
+#: includes/fields/wp_category.php
+msgid "Hide the category search box"
+msgstr "Kategoriakereso mezo elrejtese"
+
+#: includes/fields/wp_category.php
+msgid "Hide the selected-only filter"
+msgstr "Csak kijeloltek szuro elrejtese"
 
 #: includes/fields/wp_tag.php:35
 msgid "Choose from the most used tags"
@@ -1125,67 +1703,6 @@ msgstr "Választás a leggyakrabban használt címkék közül"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "Még nincsenek gyakran használt címkék."
-
-#: ../templates/meta_box_rules.php
-msgid "%s allowed"
-msgstr "%s engedélyezett"
-
-#: ../templates/meta_box_rules.php
-msgid "Standard"
-msgstr "Alapértelmezett"
-
-#: ../templates/meta_box_rules.php
-msgid "Administrator"
-msgstr "Adminisztrátor"
-
-#: ../templates/meta_box_rules.php
-msgid "Editor"
-msgstr "Szerkesztő"
-
-#: ../templates/meta_box_rules.php
-msgid "Author"
-msgstr "Szerző"
-
-#: ../templates/meta_box_rules.php
-msgid "Contributor"
-msgstr "Közreműködő"
-
-#: ../templates/meta_box_rules.php
-msgid "Subscriber"
-msgstr "Feliratkozó"
-
-msgid "The results could not be loaded."
-msgstr "Az eredmenyeket nem sikerult betolteni."
-
-msgid "Please enter 1 more character"
-msgstr "Adjon meg meg 1 karaktert"
-
-msgid "Please enter %s or more characters"
-msgstr "Adjon meg legalabb %s karaktert"
-
-msgid "Loading more results..."
-msgstr "Tovabbi eredmenyek betoltese..."
-
-msgid "No results found"
-msgstr "Nincs talalat"
-
-msgid "Searching..."
-msgstr "Kereses..."
-
-msgid "Require a condition selection"
-msgstr "Feltetel kivalasztasanak kotelezove tetele"
-
-msgid "Contains required fields"
-msgstr "Kotelezo mezoket tartalmaz"
-
-msgid "Please select a condition"
-msgstr "Valassz feltetelt"
-
-msgid "Hide the category search box"
-msgstr "Kategoriakereso mezo elrejtese"
-
-msgid "Hide the selected-only filter"
-msgstr "Csak kijeloltek szuro elrejtese"
 
 #: includes/fields/post_publish.php
 msgid "Preview Changes"
@@ -1206,3 +1723,120 @@ msgstr "Ütemezettre módosítás"
 #: includes/fields/post_publish.php
 msgid "Change to Publish or Schedule"
 msgstr "Közzétételre vagy ütemezésre módosítás"
+
+#: templates/admin_head.php
+msgid ""
+"The number of input fields is large, and some field group settings may not "
+"be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number "
+"of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or "
+"your server settings."
+msgstr ""
+
+#: templates/admin_head.php
+#, php-format
+msgid "Current inputs: %1$s / max_input_vars: %2$s"
+msgstr ""
+
+#: templates/meta_box_extras.php
+msgid "Hide revisions"
+msgstr ""
+
+#: includes/init.php
+msgid ""
+"The field group form exceeded the server input limit, so field settings were "
+"not saved to avoid data loss. PHP max_input_vars is commonly 1000 by "
+"default. Placement Rules and Extras were saved only if they reached the "
+"server. Reduce the number of fields or increase max_input_vars in "
+"php.ini, .user.ini, .htaccess, or your server settings."
+msgstr ""
+
+#: includes/init.php
+#, fuzzy
+msgid "CFS save warning:"
+msgstr "CFS elhelyezesi figyelmeztetes:"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "+ Add category"
+msgstr "Alapertelmezett kategoria"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category name"
+msgstr "Kategoria forrasa"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Parent category"
+msgstr "Kategoriak keresese"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Add category"
+msgstr "Alapertelmezett kategoria"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category Adding"
+msgstr "Kategoriavalasztas"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Show + Add category"
+msgstr "Alapertelmezett kategoria"
+
+#: includes/fields/wp_category.php
+msgid ""
+"Users must also have permission to create terms for the selected taxonomy."
+msgstr ""
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Allowed Add Roles"
+msgstr "Lomtárhoz engedélyezett szerepkörök"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid ""
+"Select the roles that can add categories from this field. Leave blank to "
+"allow any role that can create terms for this taxonomy."
+msgstr ""
+"Válassza ki azokat a szerepköröket, amelyek ebből a mezőből a lomtárba "
+"helyezhetik a bejegyzéseket. Hagyja üresen, ha minden olyan szerepkört "
+"engedélyez, amely törölheti a bejegyzést."
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Leave blank to allow any role that can create categories"
+msgstr ""
+"Hagyja üresen, ha minden olyan szerepkört engedélyez, amely törölheti ezt a "
+"bejegyzést"
+
+#: includes/fields/wp_category.php
+msgid "Adding category..."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Category added."
+msgstr "Kategoria forrasa"
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Enter a category name."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Failed to add category."
+msgstr "Alapertelmezett kategoria"
+
+#: includes/init.php
+#, fuzzy
+msgid "You do not have permission to add categories."
+msgstr "Nincs jogosultságod a natív cím módosításához."
+
+#~ msgid "Position"
+#~ msgstr "Pozíció"
+
+#~ msgid "Hide the content editor"
+#~ msgstr "Tartalom szerkesztő elrejtése"

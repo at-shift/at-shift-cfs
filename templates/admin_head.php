@@ -19,6 +19,8 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
         } );
     }
 
+    $max_input_vars = (int) ini_get( 'max_input_vars' );
+    $max_input_vars = 0 < $max_input_vars ? $max_input_vars : 1000;
     $field_count = get_post_meta( $post->ID, 'cfs_fields', true );
     $field_count = is_array( $field_count ) ? count( $field_count ) : 0;
 
@@ -40,8 +42,9 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
     wp_add_inline_script(
         'atshift-cfs-fields',
         sprintf(
-            "var CFS = CFS || {};\nCFS['field_index'] = %d;\nCFS['field_clone'] = %s;\nCFS['options_html'] = %s;",
+            "var CFS = CFS || {};\nCFS['field_index'] = %d;\nCFS['max_input_vars'] = %d;\nCFS['field_clone'] = %s;\nCFS['options_html'] = %s;",
             (int) $field_count,
+            (int) $max_input_vars,
             wp_json_encode( $field_clone ),
             wp_json_encode( $options_html )
         ),
@@ -82,6 +85,9 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
             'conditional_branch_drop_label' => __( 'Condition "%s"', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'open_field_settings' => __( 'Open field settings', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'close_field_settings' => __( 'Close field settings', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'max_input_vars_warning' => __( 'The number of input fields is large, and some field group settings may not be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or your server settings.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            /* translators: 1: current input count, 2: max_input_vars value. */
+            'max_input_vars_count' => __( 'Current inputs: %1$s / max_input_vars: %2$s', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'structure_badges'       => [
                 'tab'         => __( 'TAB', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 'loop'        => __( 'LOOP', 'atshift-fields-maintenance-for-custom-field-suite' ),
@@ -116,6 +122,7 @@ else {
             'hide_discussion'    => [ 'selector' => '#commentstatusdiv', 'meta_box_id' => 'commentstatusdiv', 'context' => 'normal' ],
             'hide_excerpt'       => [ 'selector' => '#postexcerpt', 'meta_box_id' => 'postexcerpt', 'context' => 'normal' ],
             'hide_trackbacks'    => [ 'selector' => '#trackbacksdiv', 'meta_box_id' => 'trackbacksdiv', 'context' => 'normal' ],
+            'hide_revisions'     => [ 'selector' => '#revisionsdiv', 'meta_box_id' => 'revisionsdiv', 'context' => 'normal' ],
             'hide_permalink'     => [ 'selector' => '#edit-slug-box', 'meta_box_id' => '', 'context' => 'normal' ],
             'hide_slug'          => [ 'selector' => '#slugdiv', 'meta_box_id' => 'slugdiv', 'context' => 'normal' ],
             'hide_author'        => [ 'selector' => '#authordiv', 'meta_box_id' => 'authordiv', 'context' => 'normal' ],

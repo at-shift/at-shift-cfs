@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: atshift Fields\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2026-07-19 00:00+0900\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
 "PO-Revision-Date: 2026-07-19 00:00+0900\n"
 "Last-Translator: at-shift\n"
 "Language-Team: Korean\n"
@@ -41,6 +41,10 @@ msgstr "드롭다운"
 msgid "Used for radio buttons. The first choice is used when left blank."
 msgstr "라디오 버튼에 사용됩니다. 공백으로 두면 첫 번째 선택이 사용됩니다."
 
+#: ../includes/fields/conditional.php:174
+msgid "Require a condition selection"
+msgstr "조건 선택을 필수로 설정"
+
 #: ../templates/field_html.php:94
 msgid "Display for choice"
 msgstr "선택을 위한 전시"
@@ -50,7 +54,8 @@ msgid "Choose the parent Conditional Group value that displays this field."
 msgstr "이 필드를 표시하는 상위 조건부 그룹 값을 선택합니다."
 
 #: ../templates/admin_head.php:50
-msgid "Tabs and conditional groups cannot be placed inside a Conditional Group."
+msgid ""
+"Tabs and conditional groups cannot be placed inside a Conditional Group."
 msgstr "탭과 조건 그룹은 조건 그룹 내에 배치할 수 없습니다."
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
@@ -182,8 +187,12 @@ msgstr "행 추가"
 msgid "Limits"
 msgstr "제한"
 
-msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
-msgstr "최소는 선택할 수 있는 최소 항을 설정합니다. 최대는 선택할 수 있는 가장 많은 용어를 설정합니다."
+msgid ""
+"Minimum sets the fewest terms that can be selected. Maximum sets the most "
+"terms that can be selected."
+msgstr ""
+"최소는 선택할 수 있는 최소 항을 설정합니다. 최대는 선택할 수 있는 가장 많은 "
+"용어를 설정합니다."
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
@@ -415,8 +424,12 @@ msgid "Name"
 msgstr "이름"
 
 #: ../templates/field_html.php:42
-msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "필드 이름은 값을 검색하기 위해 get()에 전달됩니다. 소문자, 숫자, 밑줄만 사용하세요."
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"필드 이름은 값을 검색하기 위해 get()에 전달됩니다. 소문자, 숫자, 밑줄만 사용"
+"하세요."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
@@ -471,12 +484,20 @@ msgid "Native Editor Display Settings"
 msgstr "네이티브 편집기 표시 설정"
 
 #: ../templates/meta_box_extras.php:298
-msgid "These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed."
-msgstr "이러한 설정은 이 필드 그룹이 표시되는 위치에 관계없이 일치하는 게시물에 대한 기본 __CFS_PH_3__ 편집기 섹션을 숨깁니다."
+msgid ""
+"These settings hide native WordPress editor sections for matching posts, "
+"regardless of where this field group is displayed."
+msgstr ""
+"이러한 설정은 이 필드 그룹이 표시되는 위치에 관계없이 일치하는 게시물에 대한 "
+"기본 __CFS_PH_3__ 편집기 섹션을 숨깁니다."
 
 #: ../templates/meta_box_extras.php:64
-msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
-msgstr "콘텐츠 편집기 숨기기(일치하는 게시물에 대한 __CFS_PH_4__ / 블록 편집기도 숨김)"
+msgid ""
+"Hide the content editor (also hides the Gutenberg / block editor for "
+"matching posts)"
+msgstr ""
+"콘텐츠 편집기 숨기기(일치하는 게시물에 대한 __CFS_PH_4__ / 블록 편집기도 숨"
+"김)"
 
 #: ../templates/meta_box_extras.php:78
 msgid "Hide page attributes"
@@ -487,8 +508,12 @@ msgid "Force the post edit screen layout to 1 column"
 msgstr "게시물 편집 화면 레이아웃을 1열로 강제 적용"
 
 #: ../templates/meta_box_extras.php:309
-msgid "Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area."
-msgstr "타사 측면 메타 상자는 숨겨지지 않습니다. 1열 레이아웃에서는 기본 편집 영역 아래에 표시됩니다."
+msgid ""
+"Third-party side meta boxes are not hidden; in the 1-column layout, they "
+"appear below the main editor area."
+msgstr ""
+"타사 측면 메타 상자는 숨겨지지 않습니다. 1열 레이아웃에서는 기본 편집 영역 아"
+"래에 표시됩니다."
 
 #: ../templates/meta_box_extras.php:93
 msgid "All roles"
@@ -535,8 +560,7 @@ msgstr "태그 숨기기"
 msgid "Hide featured image"
 msgstr "추천 이미지 숨기기"
 
-#: ../templates/meta_box_extras.php:313
-#: ../templates/meta_box_extras.php:329
+#: ../templates/meta_box_extras.php:313 ../templates/meta_box_extras.php:329
 msgid "Hiding behavior"
 msgstr "행동을 숨기는 것"
 
@@ -657,8 +681,12 @@ msgid "Export"
 msgstr "내보내다"
 
 #: ../templates/page_tools.php:96
-msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
-msgstr "내보내려는 필드 그룹을 선택하고 버튼을 누른 다음 표시된 코드를 저장하십시오. 여러 항목을 선택할 수 있습니다."
+msgid ""
+"Select the field groups you want to export, press the button, then save the "
+"displayed code. You can select multiple items."
+msgstr ""
+"내보내려는 필드 그룹을 선택하고 버튼을 누른 다음 표시된 코드를 저장하십시오. "
+"여러 항목을 선택할 수 있습니다."
 
 #: ../templates/page_tools.php:112
 msgid "Export Code"
@@ -669,7 +697,9 @@ msgid "Import"
 msgstr "수입"
 
 #: ../templates/page_tools.php:122
-msgid "Paste the exported field group code into the input field below, then press the button."
+msgid ""
+"Paste the exported field group code into the input field below, then press "
+"the button."
 msgstr "내보낸 필드 그룹 코드를 아래 입력 필드에 붙여넣은 후 버튼을 누르세요."
 
 #: ../templates/page_tools.php:125
@@ -732,8 +762,12 @@ msgstr "라디오 버튼"
 msgid "Select2"
 msgstr "Select2"
 
-msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
-msgstr "__CFS_PH_5__를 사용하여 선택 필드를 표시합니다. 이렇게 하면 긴 선택 목록을 편집 화면에서 더 쉽게 검색하고 선택할 수 있습니다."
+msgid ""
+"Displays the select field with Select2. This makes long choice lists easier "
+"to search and select on edit screens."
+msgstr ""
+"__CFS_PH_5__를 사용하여 선택 필드를 표시합니다. 이렇게 하면 긴 선택 목록을 편"
+"집 화면에서 더 쉽게 검색하고 선택할 수 있습니다."
 
 #: ../includes/fields/select.php:142
 msgid "Render this field with Select2"
@@ -756,8 +790,12 @@ msgid "Limit terms to the following taxonomies"
 msgstr "용어를 다음 분류로 제한합니다."
 
 #: ../includes/form.php:247
-msgid "One (or more) of your fields had validation errors. More information is available below."
-msgstr "하나 이상의 필드에 유효성 검사 오류가 있습니다. 자세한 내용은 아래에서 확인할 수 있습니다."
+msgid ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
+msgstr ""
+"하나 이상의 필드에 유효성 검사 오류가 있습니다. 자세한 내용은 아래에서 확인"
+"할 수 있습니다."
 
 #: ../includes/form.php:444
 msgid "Toggle row visibility"
@@ -791,8 +829,12 @@ msgstr "숫자"
 msgid "Number Settings"
 msgstr "번호 설정"
 
-msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
-msgstr "최소값은 허용되는 가장 낮은 값을 설정합니다. 최대값은 허용되는 가장 높은 값을 설정합니다. 단계는 1, 0.1 또는 5와 같은 값 사이의 허용 간격을 설정합니다."
+msgid ""
+"Minimum sets the lowest allowed value. Maximum sets the highest allowed "
+"value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr ""
+"최소값은 허용되는 가장 낮은 값을 설정합니다. 최대값은 허용되는 가장 높은 값"
+"을 설정합니다. 단계는 1, 0.1 또는 5와 같은 값 사이의 허용 간격을 설정합니다."
 
 msgid "Minimum"
 msgstr "최저한의"
@@ -898,8 +940,12 @@ msgstr "기본 제목을 변경할 권한이 없습니다."
 msgid "Allowed User Role Groups"
 msgstr "허용된 사용자 역할 그룹"
 
-msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
-msgstr "기본 제목을 변경할 수 있는 역할을 선택하세요. 게시물을 편집할 수 있는 모든 사용자 역할을 허용하려면 비워 두세요."
+msgid ""
+"Select the roles that can change the native title. Leave blank to allow any "
+"user role that can edit the post."
+msgstr ""
+"기본 제목을 변경할 수 있는 역할을 선택하세요. 게시물을 편집할 수 있는 모든 사"
+"용자 역할을 허용하려면 비워 두세요."
 
 msgid "Leave blank to allow any role that can edit this post"
 msgstr "이 게시물을 편집할 수 있는 모든 역할을 허용하려면 비워 두세요."
@@ -943,11 +989,22 @@ msgstr "하위 항목을 선택하면 상위 카테고리도 선택됩니다."
 msgid "CFS placement warning:"
 msgstr "CFS 배치 경고:"
 
-msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "이 필드 그룹에는 배치 규칙이 없습니다. 편집 가능한 모든 게시물 화면에 표시되므로 의도한 것이 아닌 한 게시물 유형이나 다른 배치 규칙을 설정하세요."
+msgid ""
+"This field group has no placement rules. It will appear on all editable post "
+"screens, so set a Post Type or another placement rule unless that is "
+"intentional."
+msgstr ""
+"이 필드 그룹에는 배치 규칙이 없습니다. 편집 가능한 모든 게시물 화면에 표시되"
+"므로 의도한 것이 아닌 한 게시물 유형이나 다른 배치 규칙을 설정하세요."
 
-msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
-msgstr "저장되었지만 이 필드 그룹에는 배치 규칙이 없습니다. 편집 가능한 모든 게시물 화면에 표시되므로 의도한 것이 아닌 한 게시물 유형이나 다른 배치 규칙을 설정하세요."
+msgid ""
+"Saved, but this field group has no placement rules. It will appear on all "
+"editable post screens, so set a Post Type or another placement rule unless "
+"that is intentional."
+msgstr ""
+"저장되었지만 이 필드 그룹에는 배치 규칙이 없습니다. 편집 가능한 모든 게시물 "
+"화면에 표시되므로 의도한 것이 아닌 한 게시물 유형이나 다른 배치 규칙을 설정하"
+"세요."
 
 msgid "No placement rules"
 msgstr "배치 규칙 없음"
@@ -970,6 +1027,9 @@ msgstr "이 루프 그룹에 하나 이상의 필드를 추가하십시오."
 msgid "Add at least one field to this accordion group."
 msgstr "이 아코디언 그룹에 필드를 하나 이상 추가하세요."
 
+msgid "Contains required fields"
+msgstr "필수 항목이 포함되어 있습니다"
+
 msgid "Set conditions and add fields to each condition."
 msgstr "조건을 설정하고 각 조건에 필드를 추가합니다."
 
@@ -982,7 +1042,9 @@ msgstr "두 개 이상의 조건을 만든 다음 각 조건에 필드를 추가
 msgid "Add fields to each empty condition."
 msgstr "비어 있는 각 조건에 필드를 추가합니다."
 
-msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgid ""
+"Tabs, loops, and horizontal groups cannot be placed inside a horizontal "
+"group."
 msgstr "탭, 루프 및 수평 그룹은 수평 그룹 내에 배치될 수 없습니다."
 
 msgid "Code View"
@@ -991,8 +1053,14 @@ msgstr "코드 보기"
 msgid "Shortcode"
 msgstr "쇼트코드"
 
-msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
-msgstr "메타 상자는 타사 플러그인에 의해 __CFS_PH_3__ 게시물 편집 화면에 추가된 설정 또는 입력 상자입니다. 이 필드는 타사 메타 상자를 __CFS_PH_1__ 필드 그룹으로 재배치하고 이동하는 데만 사용됩니다."
+msgid ""
+"A meta box is a settings or input box added to the WordPress post edit "
+"screen by a third-party plugin. This field is only for repositioning and "
+"moving a third-party meta box into an atshift Fields field group."
+msgstr ""
+"메타 상자는 타사 플러그인에 의해 __CFS_PH_3__ 게시물 편집 화면에 추가된 설정 "
+"또는 입력 상자입니다. 이 필드는 타사 메타 상자를 __CFS_PH_1__ 필드 그룹으로 "
+"재배치하고 이동하는 데만 사용됩니다."
 
 msgid "Classic Meta Box Placement"
 msgstr "메타 박스 배치 (Classic)"
@@ -1012,11 +1080,20 @@ msgstr "이 메타박스는 이미 다른 슬롯에 배치되어 있습니다."
 msgid "Meta Box ID"
 msgstr "메타 박스 ID"
 
-msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
-msgstr "배치 규칙에서 선택한 게시물 유형에서 기존의 타사 메타 상자를 감지하거나 해당 HTML 소스 ID를 수동으로 입력하세요. 원래 플러그인은 계속 저장을 처리합니다."
+msgid ""
+"Detect a classic third-party meta box from the post types selected in "
+"Placement Rules, or enter its HTML source id manually. The original plugin "
+"keeps handling saving."
+msgstr ""
+"배치 규칙에서 선택한 게시물 유형에서 기존의 타사 메타 상자를 감지하거나 해당 "
+"HTML 소스 ID를 수동으로 입력하세요. 원래 플러그인은 계속 저장을 처리합니다."
 
-msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
-msgstr "편집 화면에 렌더링된 클래식 메타박스는 이동이 가능합니다. 블록 편집기 전용 패널은 지원되지 않습니다."
+msgid ""
+"Classic meta boxes rendered in the edit screen can be moved. Block Editor-"
+"only panels are not supported."
+msgstr ""
+"편집 화면에 렌더링된 클래식 메타박스는 이동이 가능합니다. 블록 편집기 전용 패"
+"널은 지원되지 않습니다."
 
 msgid "Display Width"
 msgstr "디스플레이 너비"
@@ -1079,8 +1156,15 @@ msgstr "복사"
 msgid "Copied"
 msgstr "복사됨"
 
-msgid "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
-msgstr "이 플러그인은 WordPress 편집 화면에 더 효과적이고 유연한 입력 필드를 추가할 수 있는 Custom Field Suite의 유지 관리 및 확장 버전입니다."
+msgid "Language"
+msgstr ""
+
+msgid ""
+"This plugin is a maintained and extended version of Custom Field Suite that "
+"adds more effective and flexible input fields to WordPress edit screens."
+msgstr ""
+"이 플러그인은 WordPress 편집 화면에 더 효과적이고 유연한 입력 필드를 추가할 "
+"수 있는 Custom Field Suite의 유지 관리 및 확장 버전입니다."
 
 msgid "Accordion Group"
 msgstr "아코디언 그룹"
@@ -1091,8 +1175,12 @@ msgstr "초기 상태"
 msgid "Open by default"
 msgstr "기본적으로 열기"
 
-msgid "Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group."
-msgstr "탭, 루프, 아코디언, 조건 그룹 및 수평 그룹은 수평 그룹 내에 배치될 수 없습니다."
+msgid ""
+"Tabs, loops, accordions, conditional groups, and horizontal groups cannot be "
+"placed inside a horizontal group."
+msgstr ""
+"탭, 루프, 아코디언, 조건 그룹 및 수평 그룹은 수평 그룹 내에 배치될 수 없습니"
+"다."
 
 msgid "Tabs cannot be placed inside an accordion."
 msgstr "탭은 아코디언 내부에 배치할 수 없습니다."
@@ -1130,6 +1218,9 @@ msgstr "URL을 입력하세요."
 msgid "Please enter a valid URL"
 msgstr "유효한 URL을(를) 입력하세요."
 
+msgid "Please select a condition"
+msgstr "조건을 선택하세요"
+
 msgid "Please select a time"
 msgstr "시간을 선택하세요."
 
@@ -1163,8 +1254,10 @@ msgstr "상태"
 msgid "This field name is duplicated. Use a unique field name."
 msgstr "이 필드 이름은 중복됩니다. 고유한 필드 이름을 사용하십시오."
 
-msgid "Duplicate field names found: %s. Field names must be unique before saving."
-msgstr "중복된 필드 이름이 있습니다: %s. 저장하기 전에 필드 이름은 고유해야 합니다."
+msgid ""
+"Duplicate field names found: %s. Field names must be unique before saving."
+msgstr ""
+"중복된 필드 이름이 있습니다: %s. 저장하기 전에 필드 이름은 고유해야 합니다."
 
 msgid "Move here"
 msgstr "여기로 이동"
@@ -1188,8 +1281,12 @@ msgstr "표준 카테고리"
 msgid "Category Source"
 msgstr "카테고리 소스"
 
-msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
-msgstr "이 필드와 함께 표시하고 저장하려면 표준 범주 또는 등록된 공유 분류를 선택하세요."
+msgid ""
+"Choose the standard category or a registered Shared Taxonomy to show and "
+"save with this field."
+msgstr ""
+"이 필드와 함께 표시하고 저장하려면 표준 범주 또는 등록된 공유 분류를 선택하세"
+"요."
 
 msgid "Photo Gallery"
 msgstr "포토갤러리"
@@ -1218,8 +1315,13 @@ msgstr "갤러리 HTML"
 msgid "Gallery Display"
 msgstr "갤러리 디스플레이"
 
-msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
-msgstr "반환 값이 갤러리 HTML일 때 사용됩니다. 열은 생성된 갤러리 HTML의 열 수를 설정합니다. 이미지 파일 링크에는 모달 친화적인 데이터 속성이 포함되어 있습니다."
+msgid ""
+"Used when the return value is Gallery HTML. Columns sets the number of "
+"columns in the generated gallery HTML. Image file links include modal-"
+"friendly data attributes."
+msgstr ""
+"반환 값이 갤러리 HTML일 때 사용됩니다. 열은 생성된 갤러리 HTML의 열 수를 설정"
+"합니다. 이미지 파일 링크에는 모달 친화적인 데이터 속성이 포함되어 있습니다."
 
 msgid "CSS class"
 msgstr "CSS class"
@@ -1239,8 +1341,13 @@ msgstr "갤러리 이미지 선택"
 msgid "After input"
 msgstr "입력 후"
 
-msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
-msgstr "편집 화면에서 입력 후 표시됩니다. kg, %, ~와 같은 짧은 단위나 구분 기호에 사용하세요. 이 텍스트는 저장된 값이나 프런트엔드 출력에 포함되지 않습니다."
+msgid ""
+"Shown after the input on edit screens. Use this for short units or "
+"separators such as kg, %, or ~. This text is not included in saved values or "
+"front-end output."
+msgstr ""
+"편집 화면에서 입력 후 표시됩니다. kg, %, ~와 같은 짧은 단위나 구분 기호에 사"
+"용하세요. 이 텍스트는 저장된 값이나 프런트엔드 출력에 포함되지 않습니다."
 
 #: ../includes/fields/gallery.php:88
 msgid "Image Size"
@@ -1267,20 +1374,36 @@ msgid "Full Size"
 msgstr "전체 크기"
 
 #: ../includes/fields/gallery.php:142
-msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
-msgstr "최소는 선택할 수 있는 최소 이미지를 설정합니다. 최대는 선택할 수 있는 최대 이미지를 설정합니다."
+msgid ""
+"Minimum sets the fewest images that can be selected. Maximum sets the most "
+"images that can be selected."
+msgstr ""
+"최소는 선택할 수 있는 최소 이미지를 설정합니다. 최대는 선택할 수 있는 최대 이"
+"미지를 설정합니다."
 
 #: ../includes/fields/loop.php:93
-msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
-msgstr "최소는 추가할 수 있는 최소 행을 설정합니다. 최대는 추가할 수 있는 최대 행을 설정합니다."
+msgid ""
+"Minimum sets the fewest rows that can be added. Maximum sets the most rows "
+"that can be added."
+msgstr ""
+"최소는 추가할 수 있는 최소 행을 설정합니다. 최대는 추가할 수 있는 최대 행을 "
+"설정합니다."
 
 #: ../includes/fields/relationship.php:125
-msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
-msgstr "최소는 선택할 수 있는 관련 항목의 최소 개수를 설정합니다. 최대는 선택할 수 있는 가장 관련성이 높은 항목을 설정합니다."
+msgid ""
+"Minimum sets the fewest related items that can be selected. Maximum sets the "
+"most related items that can be selected."
+msgstr ""
+"최소는 선택할 수 있는 관련 항목의 최소 개수를 설정합니다. 최대는 선택할 수 있"
+"는 가장 관련성이 높은 항목을 설정합니다."
 
 #: ../includes/fields/user.php:74
-msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
-msgstr "최소는 선택할 수 있는 최소 사용자를 설정합니다. 최대는 선택할 수 있는 최대 사용자를 설정합니다."
+msgid ""
+"Minimum sets the fewest users that can be selected. Maximum sets the most "
+"users that can be selected."
+msgstr ""
+"최소는 선택할 수 있는 최소 사용자를 설정합니다. 최대는 선택할 수 있는 최대 사"
+"용자를 설정합니다."
 
 #: ../includes/fields/true_false.php:37
 msgid "Checkbox Label"
@@ -1383,8 +1506,11 @@ msgid "Save / Publish Settings"
 msgstr "저장/게시 설정"
 
 #: includes/fields/post_publish.php
-msgid "Choose which native WordPress save and publish controls are shown in this field."
-msgstr "이 필드에 표시되는 기본 __CFS__PH_3__ 저장 및 게시 컨트롤을 선택하세요."
+msgid ""
+"Choose which native WordPress save and publish controls are shown in this "
+"field."
+msgstr ""
+"이 필드에 표시되는 기본 __CFS__PH_3__ 저장 및 게시 컨트롤을 선택하세요."
 
 #: includes/fields/post_publish.php
 msgid "Allow status changes"
@@ -1418,8 +1544,7 @@ msgstr "행위"
 msgid "Duplicate"
 msgstr "복제하다"
 
-#: templates/admin_head.php
-#: templates/field_html.php
+#: templates/admin_head.php templates/field_html.php
 msgid "Automatically named when saved"
 msgstr "저장 시 자동으로 이름이 지정됨"
 
@@ -1432,8 +1557,12 @@ msgid "Allowed Trash Roles"
 msgstr "허용된 휴지통 역할"
 
 #: includes/fields/post_publish.php
-msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
-msgstr "이 필드에서 게시물을 휴지통으로 이동할 수 있는 역할을 선택하세요. 게시물을 삭제할 수 있는 모든 사용자 역할을 허용하려면 비워 두세요."
+msgid ""
+"Select the roles that can move posts to trash from this field. Leave blank "
+"to allow any user role that can delete the post."
+msgstr ""
+"이 필드에서 게시물을 휴지통으로 이동할 수 있는 역할을 선택하세요. 게시물을 삭"
+"제할 수 있는 모든 사용자 역할을 허용하려면 비워 두세요."
 
 #: includes/fields/post_publish.php
 msgid "Leave blank to allow any role that can delete this post"
@@ -1468,8 +1597,12 @@ msgid "Content Editor"
 msgstr "콘텐츠 편집자"
 
 #: includes/fields/post_content.php
-msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
-msgstr "편집자가 기본 __CFS_PH_3__ 콘텐츠를 편집하는 방법을 선택하세요. 이 필드는 post_content에 저장되며 __CFS_PH_4__ / 블록 편집기를 사용하지 않습니다."
+msgid ""
+"Choose how editors edit the native WordPress content. This field saves to "
+"post_content and does not use the Gutenberg / block editor."
+msgstr ""
+"편집자가 기본 __CFS_PH_3__ 콘텐츠를 편집하는 방법을 선택하세요. 이 필드는 "
+"post_content에 저장되며 __CFS_PH_4__ / 블록 편집기를 사용하지 않습니다."
 
 #: includes/fields/post_content.php
 msgid "Visual editor"
@@ -1495,6 +1628,14 @@ msgstr "자식 및 손자 범주를 가로로 정렬"
 msgid "Leave both unchecked to use the traditional category tree."
 msgstr "기존 카테고리 트리를 사용하려면 둘 다 선택하지 않은 상태로 둡니다."
 
+#: includes/fields/wp_category.php
+msgid "Hide the category search box"
+msgstr "카테고리 검색 상자 숨기기"
+
+#: includes/fields/wp_category.php
+msgid "Hide the selected-only filter"
+msgstr "선택됨만 보기 필터 숨기기"
+
 #: includes/fields/wp_tag.php:35
 msgid "Choose from the most used tags"
 msgstr "가장 많이 사용되는 태그 중에서 선택"
@@ -1502,21 +1643,6 @@ msgstr "가장 많이 사용되는 태그 중에서 선택"
 #: includes/fields/wp_tag.php:45
 msgid "No frequently used tags are available yet."
 msgstr "아직 자주 사용되는 태그가 없습니다."
-
-msgid "Require a condition selection"
-msgstr "조건 선택을 필수로 설정"
-
-msgid "Contains required fields"
-msgstr "필수 항목이 포함되어 있습니다"
-
-msgid "Please select a condition"
-msgstr "조건을 선택하세요"
-
-msgid "Hide the category search box"
-msgstr "카테고리 검색 상자 숨기기"
-
-msgid "Hide the selected-only filter"
-msgstr "선택됨만 보기 필터 숨기기"
 
 #: includes/fields/post_publish.php
 msgid "Preview Changes"
@@ -1537,3 +1663,111 @@ msgstr "예약으로 변경"
 #: includes/fields/post_publish.php
 msgid "Change to Publish or Schedule"
 msgstr "공개 또는 예약으로 변경"
+
+#: templates/admin_head.php
+msgid ""
+"The number of input fields is large, and some field group settings may not "
+"be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number "
+"of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or "
+"your server settings."
+msgstr ""
+
+#: templates/admin_head.php
+#, php-format
+msgid "Current inputs: %1$s / max_input_vars: %2$s"
+msgstr ""
+
+#: templates/meta_box_extras.php
+msgid "Hide revisions"
+msgstr ""
+
+#: includes/init.php
+msgid ""
+"The field group form exceeded the server input limit, so field settings were "
+"not saved to avoid data loss. PHP max_input_vars is commonly 1000 by "
+"default. Placement Rules and Extras were saved only if they reached the "
+"server. Reduce the number of fields or increase max_input_vars in "
+"php.ini, .user.ini, .htaccess, or your server settings."
+msgstr ""
+
+#: includes/init.php
+#, fuzzy
+msgid "CFS save warning:"
+msgstr "CFS 배치 경고:"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "+ Add category"
+msgstr "표준 카테고리"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category name"
+msgstr "카테고리 소스"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Parent category"
+msgstr "카테고리 검색"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Add category"
+msgstr "표준 카테고리"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Category Adding"
+msgstr "카테고리 선택"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Show + Add category"
+msgstr "표준 카테고리"
+
+#: includes/fields/wp_category.php
+msgid ""
+"Users must also have permission to create terms for the selected taxonomy."
+msgstr ""
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Allowed Add Roles"
+msgstr "허용된 휴지통 역할"
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid ""
+"Select the roles that can add categories from this field. Leave blank to "
+"allow any role that can create terms for this taxonomy."
+msgstr ""
+"이 필드에서 게시물을 휴지통으로 이동할 수 있는 역할을 선택하세요. 게시물을 삭"
+"제할 수 있는 모든 사용자 역할을 허용하려면 비워 두세요."
+
+#: includes/fields/wp_category.php
+#, fuzzy
+msgid "Leave blank to allow any role that can create categories"
+msgstr "이 게시물을 삭제할 수 있는 모든 역할을 허용하려면 비워두세요."
+
+#: includes/fields/wp_category.php
+msgid "Adding category..."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Category added."
+msgstr "카테고리 소스"
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Enter a category name."
+msgstr ""
+
+#: includes/fields/wp_category.php includes/init.php
+#, fuzzy
+msgid "Failed to add category."
+msgstr "표준 카테고리"
+
+#: includes/init.php
+#, fuzzy
+msgid "You do not have permission to add categories."
+msgstr "기본 제목을 변경할 권한이 없습니다."
