@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.2.2
+Stable tag: 3.0.2.3
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -203,6 +203,10 @@ The release package includes bundled translation files for ca, de_DE, es_ES, fa_
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.2.3 =
+
+* Improved native title settings, frontend visual editor fonts, Extras display settings, and Tab Group editing UI.
 
 = 3.0.2.2 =
 

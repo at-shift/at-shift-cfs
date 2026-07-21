@@ -36,6 +36,10 @@ class Atshift_CFS_post_content extends Atshift_CFS_field
 
         if ( 'wysiwyg' === $editor_type && function_exists( 'wp_editor' ) ) {
             $editor_id = 'atshift_cfs_post_content_' . absint( $field->id );
+            $tinymce_settings = is_admin() ? true : [
+                'content_style' => $this->get_tinymce_content_style(),
+            ];
+
             wp_editor(
                 format_for_editor( $content ),
                 $editor_id,
@@ -45,7 +49,7 @@ class Atshift_CFS_post_content extends Atshift_CFS_field
                     'media_buttons' => true,
                     'teeny'         => false,
                     'quicktags'     => true,
-                    'tinymce'       => true,
+                    'tinymce'       => $tinymce_settings,
                     'editor_class'  => trim( $field->input_class . ' post_content_value' ),
                 ]
             );

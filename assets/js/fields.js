@@ -58,8 +58,10 @@
 
                 $select.select2({
                     placeholder: $select.data('placeholder') || $select.attr('data-placeholder') || '',
-                    width: '99.95%'
+                    width: '100%'
                 });
+
+                $select.next('.select2-container').css('width', '100%');
             });
         }
 

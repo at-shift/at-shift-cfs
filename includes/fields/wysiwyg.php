@@ -75,12 +75,13 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
 
 
     function input_head( $field = null ) {
+        $tinymce_content_style = is_admin() ? '' : $this->get_tinymce_content_style();
 
         // make sure the user has WYSIWYG enabled
         if ( 'true' == get_user_meta( get_current_user_id(), 'rich_editing', true ) ) {
             if ( ! is_admin() ) {
     ?>
-        <div class="hidden"><?php wp_editor( '', 'cfswysi' ); ?></div>
+        <div class="hidden"><?php wp_editor( '', 'cfswysi', [ 'tinymce' => [ 'content_style' => $tinymce_content_style ] ] ); ?></div>
     <?php
             }
     ?>
@@ -91,6 +92,7 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
             var resize;
             var wysiwyg_count = 0;
             var cfsCodePluginUrl = '<?php echo esc_js( ATSHIFT_CFS_URL . '/assets/js/tinymce/code.min.js' ); ?>';
+            var cfsEditorContentStyle = <?php echo wp_json_encode( $tinymce_content_style ); ?>;
 
             function ensurePlugin(settings, plugin, url) {
                 var plugins = settings.plugins ? settings.plugins.split(',') : [];
@@ -103,6 +105,21 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                 if (url) {
                     settings.external_plugins = settings.external_plugins || {};
                     settings.external_plugins[plugin] = url;
+                }
+            }
+
+            function ensureContentStyle(settings, style) {
+                if (!style) {
+                    return;
+                }
+
+                if (!settings.content_style) {
+                    settings.content_style = style;
+                    return;
+                }
+
+                if (settings.content_style.indexOf('atshift-cfs-editor-font-reset') < 0) {
+                    settings.content_style += "\n" + style;
                 }
             }
 
@@ -161,6 +178,7 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
 
                     ensurePlugin(tinyMCE.settings, 'code', cfsCodePluginUrl);
                     ensurePlugin(tinyMCE.settings, 'link');
+                    ensureContentStyle(tinyMCE.settings, cfsEditorContentStyle);
 
                     tinyMCE.settings.wpautop = false;
                     tinyMCE.settings.resize = 'vertical';

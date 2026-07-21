@@ -24,7 +24,7 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
             $post_title = $field->value;
         }
     ?>
-        <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?> post_title_value" value="<?php echo esc_attr( $post_title ); ?>"<?php echo $can_edit_title ? '' : ' readonly="readonly"'; ?> />
+        <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?> post_title_value" value="<?php echo esc_attr( $post_title ); ?>" placeholder="<?php echo esc_attr( $this->get_input_placeholder( $field ) ); ?>"<?php echo $can_edit_title ? '' : ' readonly="readonly"'; ?> />
         <?php if ( ! $can_edit_title ) : ?>
         <p class="notes"><?php esc_html_e( 'You do not have permission to change the native title.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
         <?php endif; ?>
@@ -36,6 +36,25 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
         $role_choices = $this->get_role_choices();
         $allowed_roles = $this->get_allowed_roles( $field );
     ?>
+        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?> cfs-post-title-placeholder-option">
+            <td class="label">
+                <label>
+                    <?php esc_html_e( 'Placeholder', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                    <div class="cfs_tooltip">?
+                        <div class="tooltip_inner"><?php esc_html_e( 'An input example or other helpful hint.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                    </div>
+                </label>
+            </td>
+            <td>
+                <?php
+                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
+                        'type'       => 'text',
+                        'input_name' => 'cfs[fields][' . $this->normalize_admin_key( $key ) . '][options][placeholder]',
+                        'value'      => $this->get_option( $field, 'placeholder' ),
+                    ] );
+                ?>
+            </td>
+        </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label>

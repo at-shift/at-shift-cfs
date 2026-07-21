@@ -300,59 +300,61 @@ $render_display_section = static function( $title, $items, $roles_callback = nul
             </p>
         </td>
     </tr>
-    <tr>
-        <td class="label">
-            <label><?php esc_html_e( 'Native Editor Display Settings', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-        </td>
-        <td style="vertical-align:top">
-            <div class="cfs-extras-display-settings">
-                <p class="description cfs-extras-setting-description">
-                    <?php esc_html_e( 'These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
-                </p>
-                <?php
-                    $render_display_section(
-                        __( 'Screen Layout', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                        [
-                            'hide_editor'                => __( 'Hide the content editor (also hides the Gutenberg / block editor for matching posts)', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'force_single_column_layout' => [
-                                'message' => __( 'Force the post edit screen layout to 1 column', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'tooltip' => __( 'Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+    <tr class="cfs-extras-display-settings-row">
+        <td colspan="2">
+            <details class="cfs-extras-display-settings-details">
+                <summary class="cfs-extras-display-settings-summary">
+                    <span><?php esc_html_e( 'Native Editor Display Settings', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></span>
+                </summary>
+                <div class="cfs-extras-display-settings">
+                    <p class="description cfs-extras-setting-description">
+                        <?php esc_html_e( 'These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>
+                    </p>
+                    <?php
+                        $render_display_section(
+                            __( 'Screen Layout', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                            [
+                                'hide_editor'                => __( 'Hide the content editor (also hides the Gutenberg / block editor for matching posts)', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'force_single_column_layout' => [
+                                    'message' => __( 'Force the post edit screen layout to 1 column', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                    'tooltip' => __( 'Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area.', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                ],
+                            ]
+                        );
+
+                        $render_display_section(
+                            __( 'Side Sections', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                            [
+                                'hide_categories'      => __( 'Hide categories', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_tags'            => __( 'Hide tags', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_featured_image'  => __( 'Hide featured image', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_page_attributes' => __( 'Hide page attributes', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_format'          => __( 'Hide format', 'atshift-fields-maintenance-for-custom-field-suite' ),
                             ],
-                        ]
-                    );
+                            static function() use ( $render_role_controls ) {
+                                $render_role_controls( 'side', __( 'Hiding behavior', 'atshift-fields-maintenance-for-custom-field-suite' ) );
+                            }
+                        );
 
-                    $render_display_section(
-                        __( 'Side Sections', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                        [
-                            'hide_categories'      => __( 'Hide categories', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_tags'            => __( 'Hide tags', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_featured_image'  => __( 'Hide featured image', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_page_attributes' => __( 'Hide page attributes', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_format'          => __( 'Hide format', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                        ],
-                        static function() use ( $render_role_controls ) {
-                            $render_role_controls( 'side', __( 'Hiding behavior', 'atshift-fields-maintenance-for-custom-field-suite' ) );
-                        }
-                    );
-
-                    $render_display_section(
-                        __( 'Main Sections', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                        [
-                            'hide_permalink'     => __( 'Hide permalink', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_excerpt'       => __( 'Hide excerpt', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_discussion'    => __( 'Hide discussion', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_trackbacks'    => __( 'Hide trackbacks', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_comments'      => __( 'Hide comments', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_author'        => __( 'Hide author', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_slug'          => __( 'Hide slug', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                            'hide_custom_fields' => __( 'Hide custom fields', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                        ],
-                        static function() use ( $render_role_controls ) {
-                            $render_role_controls( 'main', __( 'Hiding behavior', 'atshift-fields-maintenance-for-custom-field-suite' ) );
-                        }
-                    );
-                ?>
-            </div>
+                        $render_display_section(
+                            __( 'Main Sections', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                            [
+                                'hide_permalink'     => __( 'Hide permalink', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_excerpt'       => __( 'Hide excerpt', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_discussion'    => __( 'Hide discussion', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_trackbacks'    => __( 'Hide trackbacks', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_comments'      => __( 'Hide comments', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_author'        => __( 'Hide author', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_slug'          => __( 'Hide slug', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_custom_fields' => __( 'Hide custom fields', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                            ],
+                            static function() use ( $render_role_controls ) {
+                                $render_role_controls( 'main', __( 'Hiding behavior', 'atshift-fields-maintenance-for-custom-field-suite' ) );
+                            }
+                        );
+                    ?>
+                </div>
+            </details>
         </td>
     </tr>
 
