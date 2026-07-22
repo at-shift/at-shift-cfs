@@ -169,6 +169,16 @@ msgstr "デフォルト値を表示"
 msgid "Row Label"
 msgstr "行ラベル"
 
+#: ../includes/fields/loop.php:54
+msgid ""
+"Leave blank to use the first child field value as the row heading. Enter a "
+"child field name wrapped in braces, such as {field_name}, to use that field "
+"value instead."
+msgstr ""
+"空欄の場合は、最初の内部フィールドの値を行見出しに使用します。別のフィールド"
+"値を使う場合は、{field_name} のように内部フィールド名を波括弧で囲んで入力して"
+"ください。"
+
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
 #: ../includes/fields/loop.php:194
 msgid "Loop Row"
@@ -182,6 +192,10 @@ msgstr "ボタンラベル"
 #: ../includes/fields/loop.php:195
 msgid "Add Row"
 msgstr "追加"
+
+#: ../includes/fields/loop.php:301
+msgid "Add an item below"
+msgstr "この下に項目を追加"
 
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
@@ -550,6 +564,10 @@ msgstr "サイドセクション"
 msgid "Hide categories"
 msgstr "カテゴリーを隠す"
 
+#: ../templates/meta_box_extras.php
+msgid "Hide global categories"
+msgstr "グローバルカテゴリーを隠す"
+
 #: ../templates/meta_box_extras.php:100
 msgid "Hide tags"
 msgstr "タグを隠す"
@@ -788,6 +806,21 @@ msgstr "タクソノミー"
 #: ../includes/fields/term.php:98
 msgid "Limit terms to the following taxonomies"
 msgstr "以下のタクソノミーにタームを限定"
+
+#: ../includes/fields/post_publish.php:59
+msgid ""
+"The post was not saved because validation errors were found. Check the error "
+"list at the top of the field group."
+msgstr ""
+"入力エラーがあるため保存できませんでした。ページ上部のエラー一覧を確認してください。"
+
+#: ../includes/fields/post_publish.php:60
+msgid "Go to error list"
+msgstr "エラー一覧へ移動"
+
+#: ../includes/fields/post_publish.php:61
+msgid "Validation errors have been resolved. You can save the post now."
+msgstr "入力エラーが解消されました。保存できます。"
 
 #: ../includes/form.php:247
 msgid ""

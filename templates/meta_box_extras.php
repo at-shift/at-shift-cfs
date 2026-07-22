@@ -21,6 +21,7 @@ $display_setting_keys = [
     'hide_editor',
     'force_single_column_layout',
     'hide_categories',
+    'hide_global_categories',
     'hide_tags',
     'hide_featured_image',
     'hide_page_attributes',
@@ -68,7 +69,7 @@ $native_field_display_setting_key = static function( $field ) {
 
     if ( 'wp_category' === $field_type ) {
         $taxonomy_name = isset( $field['options']['taxonomy'] ) ? sanitize_key( $field['options']['taxonomy'] ) : 'category';
-        return 'category' === $taxonomy_name ? 'hide_categories' : '';
+        return 'category' === $taxonomy_name ? 'hide_categories' : 'hide_global_categories';
     }
 
     if ( 'wp_tag' === $field_type ) {
@@ -326,11 +327,12 @@ $render_display_section = static function( $title, $items, $roles_callback = nul
                         $render_display_section(
                             __( 'Side Sections', 'atshift-fields-maintenance-for-custom-field-suite' ),
                             [
-                                'hide_categories'      => __( 'Hide categories', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'hide_tags'            => __( 'Hide tags', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'hide_featured_image'  => __( 'Hide featured image', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'hide_page_attributes' => __( 'Hide page attributes', 'atshift-fields-maintenance-for-custom-field-suite' ),
-                                'hide_format'          => __( 'Hide format', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_categories'        => __( 'Hide categories', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_global_categories' => __( 'Hide global categories', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_tags'              => __( 'Hide tags', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_featured_image'    => __( 'Hide featured image', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_page_attributes'   => __( 'Hide page attributes', 'atshift-fields-maintenance-for-custom-field-suite' ),
+                                'hide_format'            => __( 'Hide format', 'atshift-fields-maintenance-for-custom-field-suite' ),
                             ],
                             static function() use ( $render_role_controls ) {
                                 $render_role_controls( 'side', __( 'Hiding behavior', 'atshift-fields-maintenance-for-custom-field-suite' ) );

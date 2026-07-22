@@ -111,13 +111,27 @@ else {
     $hide_editor = false;
     $hide_page_attributes = false;
     $admin_styles = [];
+    $global_category_meta_box_ids = [];
+    $global_category_meta_box_selectors = [];
+
+    foreach ( get_taxonomies( [ 'show_ui' => true, 'hierarchical' => true ], 'objects' ) as $taxonomy_name => $taxonomy ) {
+        if ( 'category' === $taxonomy_name ) {
+            continue;
+        }
+
+        $meta_box_id = sanitize_key( $taxonomy_name ) . 'div';
+        $global_category_meta_box_ids[] = $meta_box_id;
+        $global_category_meta_box_selectors[] = '#' . $meta_box_id;
+    }
+
     $extra_native_panels = [
         'side' => [
-            'hide_categories'      => [ 'selector' => '#categorydiv', 'meta_box_id' => 'categorydiv', 'context' => 'side' ],
-            'hide_tags'            => [ 'selector' => '#tagsdiv-post_tag', 'meta_box_id' => 'tagsdiv-post_tag', 'context' => 'side' ],
-            'hide_featured_image'  => [ 'selector' => '#postimagediv', 'meta_box_id' => 'postimagediv', 'context' => 'side' ],
-            'hide_page_attributes' => [ 'selector' => '#pageparentdiv', 'meta_box_id' => 'pageparentdiv', 'context' => 'side' ],
-            'hide_format'          => [ 'selector' => '#formatdiv', 'meta_box_id' => 'formatdiv', 'context' => 'side' ],
+            'hide_categories'        => [ 'selector' => '#categorydiv', 'meta_box_id' => 'categorydiv', 'context' => 'side' ],
+            'hide_global_categories' => [ 'selector' => implode( ',', $global_category_meta_box_selectors ), 'meta_box_id' => $global_category_meta_box_ids, 'context' => 'side' ],
+            'hide_tags'              => [ 'selector' => '#tagsdiv-post_tag', 'meta_box_id' => 'tagsdiv-post_tag', 'context' => 'side' ],
+            'hide_featured_image'    => [ 'selector' => '#postimagediv', 'meta_box_id' => 'postimagediv', 'context' => 'side' ],
+            'hide_page_attributes'   => [ 'selector' => '#pageparentdiv', 'meta_box_id' => 'pageparentdiv', 'context' => 'side' ],
+            'hide_format'            => [ 'selector' => '#formatdiv', 'meta_box_id' => 'formatdiv', 'context' => 'side' ],
         ],
         'main' => [
             'hide_comments'      => [ 'selector' => '#commentsdiv', 'meta_box_id' => 'commentsdiv', 'context' => 'normal' ],
@@ -178,7 +192,9 @@ else {
 
             foreach ( $panels as $extra_key => $panel ) {
                 if ( ! empty( $all_field_groups[ $group_id ]['extras'][ $extra_key ] ) ) {
-                    $term_placement_groups[ (int) $group_id ]['hideNativePanelSelectors'][] = $panel['selector'];
+                    if ( '' !== $panel['selector'] ) {
+                        $term_placement_groups[ (int) $group_id ]['hideNativePanelSelectors'][] = $panel['selector'];
+                    }
                 }
             }
         }
@@ -340,8 +356,13 @@ else {
                             continue;
                         }
 
-                        $hidden_extra_native_panel_selectors[] = $panel['selector'];
-                        remove_meta_box( $panel['meta_box_id'], $post->post_type, $panel['context'] );
+                        if ( '' !== $panel['selector'] ) {
+                            $hidden_extra_native_panel_selectors[] = $panel['selector'];
+                        }
+
+                        foreach ( array_filter( (array) $panel['meta_box_id'] ) as $meta_box_id ) {
+                            remove_meta_box( $meta_box_id, $post->post_type, $panel['context'] );
+                        }
                     }
                 }
             }

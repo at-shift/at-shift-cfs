@@ -54,6 +54,9 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
             data-button-publish="<?php echo esc_attr__( 'Publish', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"
             data-button-schedule="<?php echo esc_attr__( 'Schedule', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"
             data-button-submit-review="<?php echo esc_attr__( 'Submit for Review', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"
+            data-validation-error-message="<?php echo esc_attr__( 'The post was not saved because validation errors were found. Check the error list at the top of the field group.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"
+            data-validation-jump-label="<?php echo esc_attr__( 'Go to error list', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"
+            data-validation-resolved-message="<?php echo esc_attr__( 'Validation errors have been resolved. You can save the post now.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"
             data-allow-status="<?php echo $allow_status ? '1' : '0'; ?>"
             data-can-publish="<?php echo $this->current_user_can_publish( $post ) ? '1' : '0'; ?>"
             data-current-status="<?php echo esc_attr( $post->post_status ); ?>">
@@ -370,7 +373,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 $field.val(value);
             }
 
-            function validateBeforeSave(isDraft) {
+            function validateBeforeSave(isDraft, $control) {
                 var passthru;
 
                 if (window.CFS) {
@@ -386,6 +389,14 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                     $('#publish').removeClass('button-primary-disabled');
                     $('#save-post').removeClass('button-disabled');
                     $('#publishing-action .spinner, #major-publishing-actions .spinner, #submitdiv .spinner').hide();
+                    if ('function' === typeof CFS.refresh_publish_validation_feedback) {
+                        CFS.refresh_publish_validation_feedback(CFS.validation_errors ? CFS.validation_errors.length : undefined, $control);
+                    }
+                    if ('function' === typeof CFS.focus_first_validation_error) {
+                        CFS.focus_first_validation_error({
+                            prefer_notice: true
+                        });
+                    }
                     return false;
                 }
 
@@ -462,7 +473,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 $('input[name="post_status"], #hidden_post_status').val('draft');
                 $('#post_status').val('draft');
 
-                if (!validateBeforeSave(true)) {
+                if (!validateBeforeSave(true, $control)) {
                     return;
                 }
 
@@ -482,7 +493,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 refreshPassword($control);
                 syncClassicPostFields($control, true);
 
-                if (!validateBeforeSave(isDraft)) {
+                if (!validateBeforeSave(isDraft, $control)) {
                     return;
                 }
 

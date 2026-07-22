@@ -166,6 +166,13 @@ msgstr ""
 msgid "Row Label"
 msgstr ""
 
+#: ../includes/fields/loop.php:54
+msgid ""
+"Leave blank to use the first child field value as the row heading. Enter a "
+"child field name wrapped in braces, such as {field_name}, to use that field "
+"value instead."
+msgstr ""
+
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
 #: ../includes/fields/loop.php:194
 msgid "Loop Row"
@@ -178,6 +185,10 @@ msgstr ""
 #: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
 #: ../includes/fields/loop.php:195
 msgid "Add Row"
+msgstr ""
+
+#: ../includes/fields/loop.php:301
+msgid "Add an item below"
 msgstr ""
 
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
@@ -530,6 +541,10 @@ msgstr ""
 msgid "Hide categories"
 msgstr ""
 
+#: ../templates/meta_box_extras.php
+msgid "Hide global categories"
+msgstr ""
+
 #: ../templates/meta_box_extras.php:100
 msgid "Hide tags"
 msgstr ""
@@ -756,6 +771,18 @@ msgstr ""
 
 #: ../includes/fields/term.php:98
 msgid "Limit terms to the following taxonomies"
+msgstr ""
+
+#: ../includes/fields/post_publish.php:59
+msgid "The post was not saved because validation errors were found. Check the error list at the top of the field group."
+msgstr ""
+
+#: ../includes/fields/post_publish.php:60
+msgid "Go to error list"
+msgstr ""
+
+#: ../includes/fields/post_publish.php:61
+msgid "Validation errors have been resolved. You can save the post now."
 msgstr ""
 
 #: ../includes/form.php:247

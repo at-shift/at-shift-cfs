@@ -18,7 +18,7 @@ class Atshift_CFS_shortcode extends Atshift_CFS_field
             return;
         }
 
-        $field->value = null === $field->value ? $this->get_option( $field, 'default_value' ) : $field->value;
+        $field->value = null === $field->value ? '' : $field->value;
     ?>
         <textarea name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" rows="3" spellcheck="false"><?php echo esc_textarea( $field->value ); ?></textarea>
     <?php
@@ -29,20 +29,6 @@ class Atshift_CFS_shortcode extends Atshift_CFS_field
         $role_choices = $this->get_role_choices();
         $allowed_roles = $this->get_allowed_roles( $field );
     ?>
-        <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
-            <td class="label">
-                <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-            </td>
-            <td>
-                <?php
-                    atshift_fields_maintenance_for_custom_field_suite()->create_field( [
-                        'type' => 'textarea',
-                        'input_name' => 'cfs[fields]['  . $this->normalize_admin_key( $key ) . '][options][default_value]',
-                        'value' => $this->get_option( $field, 'default_value' ),
-                    ] );
-                ?>
-            </td>
-        </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label>
@@ -171,7 +157,7 @@ class Atshift_CFS_shortcode extends Atshift_CFS_field
             $field['options']['allowed_roles'] = $this->get_default_allowed_roles();
         }
 
-        $field['options']['default_value'] = isset( $field['options']['default_value'] ) ? wp_kses_post( (string) $field['options']['default_value'] ) : '';
+        unset( $field['options']['default_value'] );
         unset( $field['options']['required'] );
 
         return $field;

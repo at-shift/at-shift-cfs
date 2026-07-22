@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.2.5
+Stable tag: 3.0.2.6
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -203,6 +203,16 @@ The release package includes bundled translation files for ca, de_DE, es_ES, fa_
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.2.6 =
+
+* Improved field heading styling so labels stand out more clearly while following the user's admin color scheme.
+* Improved Loop row spacing, color-scheme-aware row styling, and safer row action controls.
+* Improved Loop row heading behavior and added guidance for dynamic row labels.
+* Improved required-field error feedback so users can more easily find and resolve validation errors.
+* Added an Extra display setting for hiding Global Categories.
+* Removed the default value setting from the Shortcode field.
+* Fixed a WYSIWYG initialization warning that could interrupt later field scripts.
 
 = 3.0.2.5 =
 

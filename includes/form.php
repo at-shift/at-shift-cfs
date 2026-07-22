@@ -660,7 +660,7 @@ CFS["validation_messages"] = ' . wp_json_encode( [
             return;
         }
 
-        echo '<div class="notice notice-error" id="atshift-cfs-validation-admin-notice" style="display: none;"><p><strong>';
+        echo '<div class="notice notice-error atshift-cfs-validation-notice" id="atshift-cfs-validation-admin-notice" role="alert" aria-live="assertive" style="display: none;"><p><strong>';
         echo esc_html__( 'One (or more) of your fields had validation errors. More information is available below.', 'atshift-fields-maintenance-for-custom-field-suite' );
         echo '</strong></p><ul id="atshift-cfs-validation-error-list"></ul></div>';
     }

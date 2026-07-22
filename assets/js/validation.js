@@ -363,6 +363,8 @@
         CFS.render_validation_notice = function() {
             var $notice = $('#atshift-cfs-validation-admin-notice');
             var $list = $('#atshift-cfs-validation-error-list');
+            var previousErrorCount = parseInt(CFS.validation_last_error_count || 0, 10);
+            var hadActiveErrors = CFS.validation_notice_active && 0 < previousErrorCount;
             var errorCount = 0;
 
             $list.empty();
@@ -391,7 +393,7 @@
 
                 $('<li></li>').append(
                     $('<a></a>')
-                        .attr('href', '#' + fieldId)
+                        .attr('href', '#' + encodeURIComponent(fieldId))
                         .text((label || fieldName) + ': ' + message)
                 ).appendTo($list);
                 errorCount++;
@@ -407,6 +409,18 @@
             else {
                 $notice.hide();
             }
+
+            CFS.refresh_publish_validation_feedback(errorCount);
+
+            if (hadActiveErrors && 0 === errorCount) {
+                CFS.validation_notice_active = false;
+                CFS.show_publish_validation_resolved_feedback();
+            }
+            else if (hadActiveErrors && errorCount < previousErrorCount) {
+                CFS.focus_next_validation_error_after_resolution();
+            }
+
+            CFS.validation_last_error_count = errorCount;
         };
 
         CFS.ensure_validation_notice_visible = function() {
@@ -492,6 +506,14 @@
             return labels;
         };
 
+        CFS.get_field_by_id = function(fieldId) {
+            if (!fieldId) {
+                return $();
+            }
+
+            return $(document.getElementById(fieldId));
+        };
+
         CFS.refresh_validation_containers = function() {
             $('.cfs-accordion').each(function() {
                 $(this).toggleClass('cfs-has-error', 0 < $(this).find('.field.cfs-field-invalid').length);
@@ -548,6 +570,183 @@
             }, 0);
         };
 
+        CFS.focus_next_validation_error_after_resolution = function() {
+            var $nextInvalidField = $('.cfs_input .field.cfs-field-invalid').first();
+
+            if (!$nextInvalidField.length) {
+                return;
+            }
+
+            window.setTimeout(function() {
+                CFS.reveal_validation_field($nextInvalidField);
+            }, 120);
+        };
+
+        CFS.scroll_to_validation_notice = function() {
+            var $notice = $('#atshift-cfs-validation-admin-notice');
+
+            CFS.ensure_validation_notice_visible();
+
+            if (!$notice.length) {
+                return false;
+            }
+
+            $notice.show();
+
+            window.setTimeout(function() {
+                var scrollTop = Math.max(0, $notice.offset().top - 90);
+
+                if (window.scrollTo) {
+                    window.scrollTo({
+                        top: scrollTop,
+                        behavior: 'smooth'
+                    });
+                }
+
+                $('html, body').stop(true).animate({
+                    scrollTop: scrollTop
+                }, 250);
+            }, 0);
+
+            return true;
+        };
+
+        CFS.refresh_publish_validation_feedback = function(errorCount, $activeControl) {
+            var numericErrorCount = 'undefined' === typeof errorCount ?
+                $('.cfs_input .field.cfs-field-invalid').length :
+                parseInt(errorCount, 10);
+            var hasErrors = 0 < (numericErrorCount || 0);
+            var noticeText = trim($('#atshift-cfs-validation-admin-notice p strong').first().text());
+
+            $('.cfs-post-publish-control').each(function() {
+                var $control = $(this);
+                var $message = $control.children('.cfs-post-publish-validation-feedback').first();
+                var message = $control.attr('data-validation-error-message') ||
+                    CFS.validation_save_error_message ||
+                    noticeText ||
+                    'The post was not saved because validation errors were found. Check the error list at the top of the field group.';
+                var jumpLabel = $control.attr('data-validation-jump-label') || 'Go to error list';
+
+                if (!$message.length) {
+                    $message = $('<div></div>')
+                        .addClass('cfs-post-publish-validation-feedback')
+                        .attr('role', 'alert')
+                        .attr('aria-live', 'assertive')
+                        .prependTo($control);
+                }
+
+                if (hasErrors && (!$activeControl || $control.is($activeControl))) {
+                    $message
+                        .empty()
+                        .removeClass('is-resolved')
+                        .append(
+                            $('<span></span>')
+                                .addClass('cfs-post-publish-validation-feedback-text')
+                                .text(message)
+                        )
+                        .append(' ')
+                        .append(
+                            $('<a></a>')
+                                .addClass('cfs-post-publish-validation-jump')
+                                .attr('href', '#atshift-cfs-validation-admin-notice')
+                                .text(jumpLabel)
+                        )
+                        .show();
+                    $control.addClass('cfs-post-publish-has-validation-error');
+                    $control.removeClass('cfs-post-publish-has-validation-resolved');
+                }
+                else {
+                    $message.hide().empty();
+                    $control.removeClass('cfs-post-publish-has-validation-error');
+                }
+            });
+        };
+
+        CFS.show_publish_validation_resolved_feedback = function($activeControl) {
+            var $control = $activeControl && $activeControl.length ?
+                $activeControl :
+                $('.cfs-post-publish-control').first();
+
+            if (!$control.length) {
+                return;
+            }
+
+            var $message = $control.children('.cfs-post-publish-validation-feedback').first();
+            var message = $control.attr('data-validation-resolved-message') ||
+                'Validation errors have been resolved. You can save the post now.';
+            var timeoutId = $control.data('cfsValidationResolvedTimer');
+
+            if (!$message.length) {
+                $message = $('<div></div>')
+                    .addClass('cfs-post-publish-validation-feedback')
+                    .attr('role', 'status')
+                    .attr('aria-live', 'polite')
+                    .prependTo($control);
+            }
+
+            if (timeoutId) {
+                window.clearTimeout(timeoutId);
+            }
+
+            $message
+                .empty()
+                .addClass('is-resolved')
+                .append(
+                    $('<span></span>')
+                        .addClass('cfs-post-publish-validation-feedback-text')
+                        .text(message)
+                )
+                .show();
+
+            $control
+                .removeClass('cfs-post-publish-has-validation-error')
+                .addClass('cfs-post-publish-has-validation-resolved');
+
+            window.setTimeout(function() {
+                $('html, body').stop(true).animate({
+                    scrollTop: Math.max(0, $control.offset().top - 90)
+                }, 250);
+            }, 0);
+
+            timeoutId = window.setTimeout(function() {
+                $message.fadeOut(180, function() {
+                    $message
+                        .empty()
+                        .removeClass('is-resolved');
+                });
+                $control.removeClass('cfs-post-publish-has-validation-resolved');
+                $control.removeData('cfsValidationResolvedTimer');
+            }, 2800);
+
+            $control.data('cfsValidationResolvedTimer', timeoutId);
+        };
+
+        CFS.focus_first_validation_error = function(options) {
+            options = $.extend({
+                prefer_notice: true
+            }, options);
+
+            var $notice = $('#atshift-cfs-validation-admin-notice:visible').first();
+
+            if (options.prefer_notice && $notice.length) {
+                CFS.scroll_to_validation_notice();
+                return;
+            }
+
+            var $firstInvalidField = $('.cfs_input .field.cfs-field-invalid').first();
+
+            if ($firstInvalidField.length) {
+                CFS.reveal_validation_field($firstInvalidField);
+                return;
+            }
+
+            if ($notice.length) {
+                $('html, body').animate({
+                    scrollTop: Math.max(0, $notice.offset().top - 80)
+                }, 250);
+            }
+        };
+
         CFS.validate_all_fields = function() {
             var passthru = true;
             CFS.validation_errors = [];
@@ -566,6 +765,9 @@
             if (!passthru) {
                 CFS.validation_notice_active = true;
                 CFS.render_validation_notice();
+            }
+            else {
+                CFS.refresh_publish_validation_feedback(0);
             }
 
             return passthru;
@@ -609,7 +811,14 @@
 
         $(document).on('click', '#atshift-cfs-validation-error-list a', function(event) {
             var targetId = ($(this).attr('href') || '').substring(1);
-            var $field = $('#' + targetId);
+            var $field;
+
+            try {
+                targetId = decodeURIComponent(targetId);
+            }
+            catch (error) {}
+
+            $field = CFS.get_field_by_id(targetId);
 
             if (!$field.length) {
                 return;
@@ -617,6 +826,10 @@
 
             event.preventDefault();
             CFS.reveal_validation_field($field);
+        });
+
+        $(document).on('click', '.cfs-post-publish-validation-jump', function() {
+            CFS.scroll_to_validation_notice();
         });
 
         $('form#post').submit(function() {
@@ -629,6 +842,7 @@
                     $('#publish').removeClass('button-primary-disabled');
                     $('#save-post').removeClass('button-disabled');
                     $('.spinner').hide();
+                    CFS.focus_first_validation_error();
                     return false;
                 }
             }
@@ -648,6 +862,7 @@
             if (!passthru) {
                 event.preventDefault();
                 event.stopImmediatePropagation();
+                CFS.focus_first_validation_error();
                 return false;
             }
         }, true);

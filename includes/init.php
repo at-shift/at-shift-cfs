@@ -449,6 +449,12 @@ class Atshift_CFS_init
                 $hide_panels[] = 'taxonomy-panel-category';
             }
 
+            if ( $hide_side_sections && ! empty( $extras['hide_global_categories'] ) ) {
+                foreach ( $this->get_global_category_taxonomy_names() as $taxonomy_name ) {
+                    $hide_panels[] = 'taxonomy-panel-' . $taxonomy_name;
+                }
+            }
+
             if ( $hide_side_sections && ! empty( $extras['hide_tags'] ) ) {
                 $hide_panels[] = 'taxonomy-panel-post_tag';
             }
@@ -552,6 +558,21 @@ class Atshift_CFS_init
         }
 
         return taxonomy_exists( 'category' ) ? 'category' : '';
+    }
+
+
+    private function get_global_category_taxonomy_names() {
+        $taxonomy_names = [];
+
+        foreach ( get_taxonomies( [ 'show_ui' => true, 'hierarchical' => true ], 'objects' ) as $taxonomy_name => $taxonomy ) {
+            if ( 'category' === $taxonomy_name ) {
+                continue;
+            }
+
+            $taxonomy_names[] = sanitize_key( $taxonomy_name );
+        }
+
+        return array_values( array_unique( $taxonomy_names ) );
     }
 
 

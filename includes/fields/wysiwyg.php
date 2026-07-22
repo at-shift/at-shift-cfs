@@ -85,7 +85,7 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
     <?php
             }
     ?>
-        <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() { ?>
+        <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() use ( $tinymce_content_style ) { ?>
         (function($) {
 
             var wpautop;

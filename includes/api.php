@@ -313,6 +313,8 @@ class Atshift_CFS_api
 
         // Log saved fields
         $this->saved_fields = [];
+        $fields = [];
+        $field_id_lookup = [];
 
         // create post if the ID is missing
         if ( empty( $post_data['ID'] ) ) {
@@ -793,6 +795,7 @@ class Atshift_CFS_api
         global $wpdb, $current_user;
 
         $ignored_rule_types = [];
+        $post_id = 0;
 
         // Set post ID
         if ( ! is_array( $params ) ) {
@@ -893,7 +896,7 @@ class Atshift_CFS_api
                 if ( ! empty( $rules[ $rule_type ] ) ) {
 
                     // Only lookup a post's term IDs if the rule exists
-                    if ( 'term_ids' == $rule_type ) {
+                    if ( 'term_ids' == $rule_type && empty( $value ) && 0 < $post_id ) {
                         $sql = "
                         SELECT tt.term_id
                         FROM $wpdb->term_taxonomy tt

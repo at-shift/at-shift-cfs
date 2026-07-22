@@ -60,13 +60,16 @@ class Atshift_CFS_loop extends Atshift_CFS_field
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
             <td class="label">
                 <label><?php esc_html_e( 'Row Label', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
+                <div class="cfs_tooltip">?
+                    <div class="tooltip_inner"><?php esc_html_e( 'Leave blank to use the first child field value as the row heading. Enter a child field name wrapped in braces, such as {field_name}, to use that field value instead.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
+                </div>
             </td>
             <td>
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][row_label]",
-                        'value' => $this->get_option( $field, 'row_label', __( 'Loop Row', 'atshift-fields-maintenance-for-custom-field-suite' ) ),
+                        'value' => $this->get_row_label_option( $field ),
                     ] );
                 ?>
             </td>
@@ -122,24 +125,24 @@ class Atshift_CFS_loop extends Atshift_CFS_field
             'parent_id' => $field_id
         ] );
 
-        $row_label = $this->dynamic_label(
-            $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'atshift-fields-maintenance-for-custom-field-suite' ) )
-        );
+        $label_fields = $this->get_label_fields( $group_id, $results );
+        $row_label = $this->dynamic_label( $this->get_row_label_option( $loop_field[ $field_id ] ), $label_fields );
 
         $buffer = atshift_cfs_capture_output( function() use ( $row_label, $results, &$loop_field_ids ) {
     ?>
         <div class="loop_wrapper">
             <div class="cfs_loop_head open">
-                <a class="cfs_delete_field" href="javascript:;"></a>
-                <a class="cfs_toggle_field" href="javascript:;"></a>
-                <a class="cfs_insert_field" href="javascript:;"></a>
                 <span class="label"><?php echo esc_attr( $row_label ); ?></span>
+                <span class="cfs_loop_actions">
+                    <a class="cfs_toggle_field" href="javascript:;" title="<?php esc_attr_e( 'Toggle row visibility', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" aria-label="<?php esc_attr_e( 'Toggle row visibility', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"></a>
+                </span>
             </div>
             <div class="cfs_loop_body open">
             <?php
                 $this->render_loop_fields( $results, function( $field ) use ( &$loop_field_ids ) {
                     $this->render_clone_field( $field, $loop_field_ids );
                 } );
+                $this->render_row_actions();
             ?>
             </div>
         </div>
@@ -177,7 +180,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
 
         // Row options
         $row_display = $this->get_option( $loop_field[ $field_id ], 'row_display', 0 );
-        $row_label = $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'atshift-fields-maintenance-for-custom-field-suite' ) );
+        $row_label = $this->get_row_label_option( $loop_field[ $field_id ] );
         $button_label = $this->get_option( $loop_field[ $field_id ], 'button_label', __( 'Add Row', 'atshift-fields-maintenance-for-custom-field-suite' ) );
         $css_class = ( 0 < (int) $row_display ) ? ' open' : '';
         $label_fields = $this->get_label_fields( $group_id, $results );
@@ -191,16 +194,17 @@ class Atshift_CFS_loop extends Atshift_CFS_field
     ?>
         <div class="loop_wrapper">
             <div class="cfs_loop_head<?php echo esc_attr( $css_class ); ?>">
-                <a class="cfs_delete_field" href="javascript:;"></a>
-                <a class="cfs_toggle_field" href="javascript:;"></a>
-                <a class="cfs_insert_field" href="javascript:;"></a>
                 <span class="label"><?php echo esc_attr( $this->dynamic_label( $row_label, $label_fields, $values[ $i ] ) ); ?>&nbsp;</span>
+                <span class="cfs_loop_actions">
+                    <a class="cfs_toggle_field" href="javascript:;" title="<?php esc_attr_e( 'Toggle row visibility', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" aria-label="<?php esc_attr_e( 'Toggle row visibility', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>"></a>
+                </span>
             </div>
             <div class="cfs_loop_body<?php echo esc_attr( $css_class ); ?>">
             <?php
                 $this->render_loop_fields( $results, function( $field ) use ( $group_id, $parent_tag, $i, $values ) {
                     $this->render_value_field( $field, $group_id, $parent_tag, $i, $values );
                 } );
+                $this->render_row_actions();
             ?>
             </div>
         </div>
@@ -287,6 +291,16 @@ class Atshift_CFS_loop extends Atshift_CFS_field
         }
 
         echo '</div>';
+    }
+
+
+    private function render_row_actions() {
+    ?>
+        <div class="cfs_loop_row_actions">
+            <button type="button" class="button button-primary cfs_loop_insert_row"><?php esc_html_e( 'Add an item below', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
+            <button type="button" class="button-link button-link-delete cfs_loop_delete_row"><?php esc_html_e( 'delete', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
+        </div>
+    <?php
     }
 
 
@@ -427,6 +441,17 @@ class Atshift_CFS_loop extends Atshift_CFS_field
     }
 
 
+    private function get_row_label_option( $field ) {
+        $row_label = trim( (string) $this->get_option( $field, 'row_label' ) );
+        $legacy_defaults = array_unique( [
+            'Loop Row',
+            __( 'Loop Row', 'atshift-fields-maintenance-for-custom-field-suite' ),
+        ] );
+
+        return in_array( $row_label, $legacy_defaults, true ) ? '' : $row_label;
+    }
+
+
     /*---------------------------------------------------------------------------------------------
         input_head
     ---------------------------------------------------------------------------------------------*/
@@ -448,7 +473,8 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     $(this).trigger('cfs/ready');
                 });
 
-                $(document).on('click', '.cfs_insert_field', function(event) {
+                $(document).on('click', '.cfs_loop_insert_row', function(event) {
+                    event.preventDefault();
                     event.stopPropagation();
                     var $loop = $(this).closest('.cfs_loop');
                     var $add_field = $loop.children('.table_footer').find('.cfs_add_field').first();
@@ -464,14 +490,26 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     $add_field.trigger('cfs/ready');
                 });
 
-                $(document).on('click', '.cfs_delete_field', function(event) {
+                $(document).on('click', '.cfs_loop_delete_row', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
                     if (confirm(remove_loop_row_message)) {
                         $(this).closest('.loop_wrapper').remove();
                     }
-                    event.stopPropagation();
                 });
 
-                $(document).on('click', '.cfs_loop_head', function() {
+                $(document).on('click', '.cfs_toggle_field', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    var $head = $(this).closest('.cfs_loop_head');
+                    $head.toggleClass('open');
+                    $head.siblings('.cfs_loop_body').toggleClass('open');
+                });
+
+                $(document).on('click', '.cfs_loop_head', function(event) {
+                    if ($(event.target).closest('.cfs_loop_actions').length) {
+                        return;
+                    }
                     $(this).toggleClass('open');
                     $(this).siblings('.cfs_loop_body').toggleClass('open');
                 });
@@ -488,6 +526,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     containment: 'parent',
                     items: '.loop_wrapper',
                     handle: '.cfs_loop_head',
+                    cancel: '.cfs_loop_actions, .cfs_loop_actions *, .cfs_loop_row_actions, .cfs_loop_row_actions *',
                     update: function(event, ui) {
 
                         // To re-order field names:
@@ -525,6 +564,11 @@ class Atshift_CFS_loop extends Atshift_CFS_field
     ================================================================
     */
     function dynamic_label( $row_label, $fields = [], $values = [] ) {
+        $row_label = trim( (string) $row_label );
+
+        if ( '' == $row_label ) {
+            return $this->default_dynamic_label( $fields, $values );
+        }
 
         // Exit stage left
         if ( '{' != substr( $row_label, 0, 1 ) || '}' != substr( $row_label, -1 ) ) {
@@ -549,19 +593,50 @@ class Atshift_CFS_loop extends Atshift_CFS_field
         }
 
         if ( ! empty( $field ) && isset( $values[ $field->id ] ) ) {
-            if ( 'select' == $field->type ) {
-                $select_key = reset( $values[ $field->id ] );
-                $row_label = $field->options['choices'][ $select_key ];
-            }
-            else {
-                $row_label = $values[ $field->id ];
-            }
+            $row_label = $this->format_dynamic_label_value( $field, $values[ $field->id ] );
         }
         elseif ( false !== $fallback ) {
              $row_label = $fallback;
         }
 
         return $row_label;
+    }
+
+
+    private function default_dynamic_label( $fields, $values ) {
+        foreach ( $fields as $field ) {
+            if ( $this->should_skip_default_label_field( $field ) || ! isset( $values[ $field->id ] ) ) {
+                continue;
+            }
+
+            $label = $this->format_dynamic_label_value( $field, $values[ $field->id ] );
+
+            if ( '' != trim( (string) $label ) ) {
+                return $label;
+            }
+        }
+
+        return '';
+    }
+
+
+    private function should_skip_default_label_field( $field ) {
+        return in_array( $field->type, [ 'tab', 'group', 'accordion', 'conditional', 'loop', 'external_metabox' ], true );
+    }
+
+
+    private function format_dynamic_label_value( $field, $value ) {
+        $value = is_array( $value ) ? reset( $value ) : $value;
+
+        if ( 'select' == $field->type ) {
+            return isset( $field->options['choices'][ $value ] ) ? $field->options['choices'][ $value ] : '';
+        }
+
+        if ( is_scalar( $value ) ) {
+            return (string) $value;
+        }
+
+        return '';
     }
 
 
