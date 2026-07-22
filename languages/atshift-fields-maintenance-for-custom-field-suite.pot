@@ -1177,6 +1177,12 @@ msgstr ""
 msgid "Duplicate field names found: %s. Field names must be unique before saving."
 msgstr ""
 
+msgid "Enter a tab label."
+msgstr ""
+
+msgid "Some tab labels are empty. Saving will continue, but labels help identify tabs."
+msgstr ""
+
 msgid "Move here"
 msgstr ""
 
@@ -1577,6 +1583,10 @@ msgstr ""
 
 #: includes/fields/wp_category.php
 msgid "Add category"
+msgstr ""
+
+#: includes/fields/wp_category.php
+msgid "Cancel"
 msgstr ""
 
 #: includes/fields/wp_category.php

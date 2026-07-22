@@ -646,6 +646,22 @@
             $('#cfs_fields .cfs-duplicate-field-name-warning').remove();
         }
 
+        function clear_tab_label_required_warnings() {
+            $('#cfs_fields .cfs-tab-label-required').removeClass('cfs-tab-label-required');
+            $('#cfs_fields .cfs-tab-label-required-input')
+                .removeClass('cfs-tab-label-required-input')
+                .removeAttr('aria-invalid');
+            $('#cfs_fields .cfs-tab-label-required-warning').remove();
+        }
+
+        function clear_tab_label_required_warning($item) {
+            $item.children('.field').removeClass('cfs-tab-label-required');
+            $item.find('.cfs-tab-label-required-input')
+                .removeClass('cfs-tab-label-required-input')
+                .removeAttr('aria-invalid');
+            $item.find('.cfs-tab-label-required-warning').remove();
+        }
+
         function collect_duplicate_field_names() {
             var names = {};
             var duplicates = {};
@@ -706,6 +722,50 @@
             return duplicate_names;
         }
 
+        function collect_empty_tab_label_fields() {
+            var empty_tabs = [];
+
+            $('ul.fields li').each(function() {
+                var $item = $(this);
+                var $input;
+
+                if ('tab' != get_item_type($item)) {
+                    return;
+                }
+
+                $input = $item.children('.field').find('.field_form .field_label input[type="text"]').first();
+
+                if ($input.length && '' === trim($input.val())) {
+                    empty_tabs.push({
+                        item: $item,
+                        input: $input
+                    });
+                }
+            });
+
+            return empty_tabs;
+        }
+
+        function render_tab_label_required_warnings() {
+            var empty_tabs = collect_empty_tab_label_fields();
+            var inline_message = message('tab_label_required_inline', 'Enter a tab label.');
+
+            clear_tab_label_required_warnings();
+
+            $.each(empty_tabs, function(index, tab) {
+                tab.item.children('.field').addClass('cfs-tab-label-required');
+                tab.input
+                    .addClass('cfs-tab-label-required-input')
+                    .attr('aria-invalid', 'true')
+                    .after($('<p></p>', {
+                        'class': 'description cfs-tab-label-required-warning',
+                        text: inline_message
+                    }));
+            });
+
+            return empty_tabs;
+        }
+
         function reveal_field_control($control) {
             var $field = $control.closest('.field');
 
@@ -726,6 +786,10 @@
 
         function reveal_duplicate_field_name() {
             reveal_field_control($('#cfs_fields .cfs-duplicate-field-name-input').first());
+        }
+
+        function reveal_tab_label_required() {
+            reveal_field_control($('#cfs_fields .cfs-tab-label-required-input').first());
         }
 
         function restore_admin_submit_state() {
@@ -929,8 +993,8 @@
             ui.item.removeData('cfs-drop-outside-tabs');
 
             if ($placeholder.parent('ul').is($root)) {
-                var $previous = $placeholder.prevAll('li:not(.ui-sortable-helper)').first();
-                var $next = $placeholder.nextAll('li:not(.ui-sortable-helper)').first();
+                var $previous = $placeholder.prevAll('li:not(.ui-sortable-helper):not(.cfs-structure-child-warning)').first();
+                var $next = $placeholder.nextAll('li:not(.ui-sortable-helper):not(.cfs-structure-child-warning)').first();
                 var pointer_y = event && 'number' === typeof event.pageY ? event.pageY : null;
                 var previous_offset = $previous.length ? $previous.offset() : null;
                 var after_tab_end = $previous.hasClass('cfs-tab-range-end');
@@ -980,7 +1044,8 @@
                 var $range = $tab.nextUntil('li.cfs-structure-tab').filter(function() {
                     var $item = $(this);
 
-                    return !$item.is($dragged_item) &&
+                    return is_countable_structure_child($item) &&
+                        !$item.is($dragged_item) &&
                         !$item.hasClass('ui-sortable-helper') &&
                         !$item.hasClass('cfs-empty-tab-drop-target') &&
                         !$item.hasClass('cfs-placeholder-tab-range') &&
@@ -1002,7 +1067,7 @@
 
         function should_place_outside_current_tab($item) {
             var $root = $('ul.fields').first();
-            var $previous = $item.prevAll('li').first();
+            var $previous = $item.prevAll('li:not(.cfs-structure-child-warning)').first();
             var forced_outside_tabs = $item.data('cfs-drop-outside-tabs');
 
             if (!$item.parent('ul').is($root) || 'tab' == get_item_type($item)) {
@@ -1505,6 +1570,10 @@
                 .removeClass('cfs-duplicate-field-name cfs-duplicate-field-name-input')
                 .removeAttr('aria-invalid');
             $item.find('.cfs-duplicate-field-name-warning').remove();
+            $item.find('.cfs-tab-label-required')
+                .removeClass('cfs-tab-label-required cfs-tab-label-required-input')
+                .removeAttr('aria-invalid');
+            $item.find('.cfs-tab-label-required-warning').remove();
             $item.find('.cfs-field-action-menu-list').prop('hidden', true);
             $item.find('.cfs_field_actions_toggle').attr('aria-expanded', 'false');
             $item.find('.field').each(function() {
@@ -1779,7 +1848,7 @@
             $new_field.find('.field_key').first().val(CFS.field_index);
             $new_field.find('.field_label a').click();
             $new_field.find('.field_type select').change();
-            set_outside_tabs($new_field, false);
+            set_outside_tabs($new_field, true);
             CFS.field_index = CFS.field_index + 1;
             init_tooltip();
             init_select2_controls($new_field);
@@ -1973,6 +2042,7 @@
             refresh_input_vars_warning();
 
             var duplicate_names = render_duplicate_field_name_warnings();
+            var empty_tab_labels = render_tab_label_required_warnings();
 
             if (0 < duplicate_names.length) {
                 event.preventDefault();
@@ -1986,6 +2056,13 @@
                 restore_admin_submit_state();
                 setTimeout(restore_admin_submit_state, 100);
                 return false;
+            }
+
+            if (0 < empty_tab_labels.length) {
+                window.alert(message(
+                    'tab_label_required_alert',
+                    'Some tab labels are empty. Saving will continue, but labels help identify tabs.'
+                ));
             }
 
             refresh_conditional_assignments($('ul.fields'));
@@ -2055,6 +2132,9 @@
             var $this = $(this);
             setTimeout(function() {
                 $this.closest('.field').find('.field_meta .cfs-field-label-text').text($this.val());
+                if ('tab' == get_item_type($this.closest('li')) && '' !== trim($this.val())) {
+                    clear_tab_label_required_warning($this.closest('li'));
+                }
             }, 1);
         });
 

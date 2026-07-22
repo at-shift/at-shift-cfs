@@ -7,8 +7,28 @@
     padding: 0;
 }
 
+.cfs_input {
+    --cfs-theme-color: var(--wp-admin-theme-color, #3858e9);
+    --cfs-theme-color-strong: var(--wp-admin-theme-color-darker-10, var(--cfs-theme-color));
+    --cfs-theme-tint-weak: #f5f7ff;
+    --cfs-theme-tint: #eef2ff;
+    --cfs-theme-tint-strong: #e0e8ff;
+    --cfs-theme-border: #c8d4f6;
+    --cfs-theme-border-strong: var(--cfs-theme-color);
+}
+
+@supports (color: color-mix(in srgb, #000 50%, #fff)) {
+    .cfs_input {
+        --cfs-theme-tint-weak: color-mix(in srgb, var(--cfs-theme-color) 4%, #fff);
+        --cfs-theme-tint: color-mix(in srgb, var(--cfs-theme-color) 8%, #fff);
+        --cfs-theme-tint-strong: color-mix(in srgb, var(--cfs-theme-color) 15%, #fff);
+        --cfs-theme-border: color-mix(in srgb, var(--cfs-theme-color) 24%, #dcdcde);
+        --cfs-theme-border-strong: color-mix(in srgb, var(--cfs-theme-color) 70%, #1d2327);
+    }
+}
+
 .cfs_input .field {
-    padding: 16px 12px 20px;
+    padding: 24px 24px 28px;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #dfdfdf;
 }
@@ -100,7 +120,7 @@
     font-size: 16px;
     font-weight: bold;
     line-height: 1.45;
-    margin: 0 0 8px;
+    margin: 0 0 12px;
     padding: 0;
     cursor: default;
 }
@@ -126,6 +146,18 @@
     color: #777;
     font-size: 14px;
     line-height: 1.55;
+}
+
+@media screen and (max-width: 782px) {
+    .cfs_input .field {
+        padding: 22px 16px 26px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cfs_input .field {
+        padding: 20px 12px 24px;
+    }
 }
 
 .cfs_input .atshift-cfs-external-metabox-slot {
@@ -1149,11 +1181,11 @@
 .cfs-tab.active {
     border-color: #b9c0c7;
     border-bottom-color: #fff;
-    border-top: 4px solid #d63638;
+    border-top: 4px solid var(--cfs-theme-color);
     background-color: #fff;
     color: #1d2327;
     font-weight: 700;
-    box-shadow: 0 -2px 8px rgba(29, 35, 39, 0.08);
+    box-shadow: 0 -2px 8px rgba(29, 35, 39, 0.08), inset 0 3px 0 rgba(255, 255, 255, 0.35);
 }
 
 .cfs-tab.cfs-has-error {
@@ -1280,12 +1312,12 @@
 }
 
 .cfs-wp-category-list {
-    --cfs-category-border: #d8cabb;
-    --cfs-category-border-strong: #a98862;
-    --cfs-category-bg: #fffdf8;
+    --cfs-category-border: var(--cfs-theme-border);
+    --cfs-category-border-strong: var(--cfs-theme-border-strong);
+    --cfs-category-bg: var(--cfs-theme-tint-weak);
     --cfs-category-card-bg: #fff;
-    --cfs-category-parent-bg: #f4ebe2;
-    --cfs-category-child-bg: #fbf8f4;
+    --cfs-category-parent-bg: var(--cfs-theme-tint);
+    --cfs-category-child-bg: #fff;
     border: 1px solid var(--cfs-category-border);
     border-radius: 6px;
     background: var(--cfs-category-bg);
@@ -1364,7 +1396,10 @@
 .cfs-wp-category-list ul.children {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
     gap: 8px;
+    min-height: 0;
     padding: 8px 0 0 12px;
     border-left: 2px solid var(--cfs-category-border);
 }
@@ -1372,15 +1407,23 @@
 .cfs-wp-category-list ul.children .cfs-wp-category-item {
     width: 100%;
     max-width: 100%;
+    min-height: 0;
 }
 
 .cfs-wp-category-list.is-children-horizontal ul.children {
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
 }
 
 .cfs-wp-category-list.is-children-horizontal ul.children .cfs-wp-category-item {
-    flex: 1 1 180px;
+    flex: 0 1 180px;
+}
+
+.cfs-wp-category-list.is-children-horizontal ul.children .cfs-wp-category-item.has-children {
+    flex-basis: 100%;
 }
 
 .cfs-wp-category-list ul.children .cfs-wp-category-item > label {
@@ -1390,13 +1433,13 @@
 .cfs-wp-category-list.is-children-horizontal ul.children ul.children {
     flex: 1 0 100%;
     margin-top: 0;
-    border-color: rgba(169, 136, 98, 0.5);
+    border-color: var(--cfs-category-border);
 }
 
 .cfs-wp-category-item.is-selected > label {
     border-color: var(--cfs-category-border-strong);
-    background: #f1dfca;
-    color: #3f2d1f;
+    background: var(--cfs-theme-tint-strong);
+    color: #1d2327;
 }
 
 .cfs-wp-category-item.is-filter-hidden {
@@ -1419,9 +1462,9 @@
     max-width: 640px;
     margin-top: 10px;
     padding: 12px;
-    border: 1px solid #d8cabb;
+    border: 1px solid var(--cfs-theme-border);
     border-radius: 6px;
-    background: #fffdf8;
+    background: var(--cfs-theme-tint-weak);
     box-sizing: border-box;
 }
 
@@ -1463,6 +1506,14 @@
     .cfs-wp-category-list.is-parent-horizontal > ul,
     .cfs-wp-category-list.is-children-horizontal ul.children {
         flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .cfs-wp-category-list.is-parent-horizontal > ul > .cfs-wp-category-item,
+    .cfs-wp-category-list.is-children-horizontal ul.children .cfs-wp-category-item,
+    .cfs-wp-category-list.is-children-horizontal ul.children .cfs-wp-category-item.has-children {
+        flex: 0 1 auto;
+        width: 100%;
     }
 
     .cfs-wp-category-add-panel {
@@ -1486,15 +1537,15 @@
     border: 1px solid #dcdcde;
     border-radius: 6px;
     background: #fff;
-    box-shadow: 0 12px 30px rgba(32, 24, 16, 0.12), 0 2px 6px rgba(32, 24, 16, 0.08);
+    box-shadow: 0 8px 22px rgba(32, 24, 16, 0.08), 0 1px 4px rgba(32, 24, 16, 0.06);
     box-sizing: border-box;
 }
 
 .cfs_input .field[data-type="post_publish"] {
-    padding: 22px 12px 28px;
-    border-top-color: #eee5da;
-    border-bottom-color: #eee5da;
-    background: #fbf7f1;
+    padding: 28px 24px 32px;
+    border-top-color: var(--cfs-theme-border);
+    border-bottom-color: var(--cfs-theme-border);
+    background: var(--cfs-theme-tint-weak);
 }
 
 .cfs_input .field > .cfs_post_publish {
@@ -1607,9 +1658,9 @@
     justify-items: end;
     margin: 8px -24px -24px;
     padding: 18px 24px 20px;
-    border-top: 1px solid #dcdcde;
+    border-top: 1px solid var(--cfs-theme-border);
     border-radius: 0 0 6px 6px;
-    background: #f7f3ee;
+    background: var(--cfs-theme-tint);
 }
 
 .cfs-post-publish-final-actions {
@@ -1653,6 +1704,10 @@
 }
 
 @media (max-width: 782px) {
+    .cfs_input .field[data-type="post_publish"] {
+        padding: 24px 16px 28px;
+    }
+
     .cfs-post-publish-control {
         margin-top: 6px;
         padding: 18px;

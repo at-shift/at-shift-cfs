@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.2.4
+Stable tag: 3.0.2.5
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -203,6 +203,17 @@ The release package includes bundled translation files for ca, de_DE, es_ES, fa_
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.2.5 =
+
+* Improved field placement when dragging fields into lower Tab Groups.
+* Improved where the bottom "Add New Field" button places fields when Tab Groups are present.
+* Fixed field addition issues when multiple Loop fields exist on the same field group.
+* Improved mobile spacing for nested category items.
+* Added a warning for empty Tab Group labels.
+* Adjusted several edit-screen colors to follow the user's admin color scheme.
+* Improved Textarea height adjustment for saved long content.
+* Added missing translations.
 
 = 3.0.2.4 =
 

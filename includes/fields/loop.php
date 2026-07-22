@@ -450,12 +450,16 @@ class Atshift_CFS_loop extends Atshift_CFS_field
 
                 $(document).on('click', '.cfs_insert_field', function(event) {
                     event.stopPropagation();
-                    var $add_field = $('.cfs_add_field');
+                    var $loop = $(this).closest('.cfs_loop');
+                    var $add_field = $loop.children('.table_footer').find('.cfs_add_field').first();
+                    if (!$add_field.length) {
+                        return;
+                    }
                     var num_rows = $add_field.attr('data-rows');
                     var loop_tag = $add_field.attr('data-loop-tag');
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
                     var html = CFS.loop_buffer[loop_id].replace(/\[clone\]/g, loop_tag + '[' + num_rows + ']');
-                    $add_field.attr('data-rows', parseInt(num_rows)+1);
+                    $add_field.attr('data-rows', parseInt(num_rows, 10)+1);
                     $(html).insertAfter( $(this).closest('.loop_wrapper') ).addClass('loop_wrapper_new');
                     $add_field.trigger('cfs/ready');
                 });

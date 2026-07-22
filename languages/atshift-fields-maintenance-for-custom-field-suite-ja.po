@@ -1262,6 +1262,12 @@ msgstr ""
 "重複しているフィールド名があります: %s。保存前にフィールド名を一意にしてくだ"
 "さい。"
 
+msgid "Enter a tab label."
+msgstr "タブラベルを入力してください。"
+
+msgid "Some tab labels are empty. Saving will continue, but labels help identify tabs."
+msgstr "タブラベルが未入力です。保存は続行されますが、タブを識別しやすくするため入力してください。"
+
 msgid "Move here"
 msgstr "ここへ移動"
 
@@ -1714,6 +1720,10 @@ msgstr "親カテゴリー"
 #: includes/fields/wp_category.php
 msgid "Add category"
 msgstr "カテゴリーを追加"
+
+#: includes/fields/wp_category.php
+msgid "Cancel"
+msgstr "キャンセル"
 
 #: includes/fields/wp_category.php
 msgid "Category Adding"

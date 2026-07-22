@@ -8,6 +8,30 @@
             return CFS.validation_messages && CFS.validation_messages[key] ? CFS.validation_messages[key] : fallback;
         };
 
+        function resizeTextarea(textarea) {
+            var minHeight = parseFloat(textarea.getAttribute('data-cfs-auto-textarea-min-height') || '0') || 0;
+
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.max(textarea.scrollHeight, minHeight) + 'px';
+        }
+
+        function autoResizeTextareas($context) {
+            $context.find('.cfs_input .field[data-type="textarea"] textarea, .cfs_input .cfs_textarea textarea')
+                .addBack('.cfs_input .field[data-type="textarea"] textarea, .cfs_input .cfs_textarea textarea')
+                .each(function() {
+                    if ($(this).closest('.cfs_wysiwyg, .cfs_code_view, .cfs_post_content, .wp-editor-wrap').length) {
+                        return;
+                    }
+
+                    if (!this.getAttribute('data-cfs-auto-textarea-min-height')) {
+                        this.setAttribute('data-cfs-auto-textarea-min-height', this.offsetHeight || parseFloat($(this).css('min-height')) || 0);
+                    }
+
+                    this.style.overflowY = 'hidden';
+                    resizeTextarea(this);
+                });
+        }
+
         CFS.validators = {
             'required': {
                 'error': validationMessage('enter_value', 'Please enter a value'),
@@ -564,8 +588,23 @@
 
         $(document).on('click', '.cfs_input .cfs-tab', function() {
             window.setTimeout(function() {
+                autoResizeTextareas($('.cfs_input'));
                 CFS.refresh_validation_field_visuals();
             }, 0);
+        });
+
+        $(document).on('click', '.cfs_input .cfs-accordion-toggle, .cfs_input .cfs_loop_head', function() {
+            window.setTimeout(function() {
+                autoResizeTextareas($('.cfs_input'));
+            }, 0);
+        });
+
+        $(document).on('input', '.cfs_input .field[data-type="textarea"] textarea, .cfs_input .cfs_textarea textarea', function() {
+            if ($(this).closest('.cfs_wysiwyg, .cfs_code_view, .cfs_post_content, .wp-editor-wrap').length) {
+                return;
+            }
+
+            resizeTextarea(this);
         });
 
         $(document).on('click', '#atshift-cfs-validation-error-list a', function(event) {
@@ -622,5 +661,7 @@
                 CFS.reveal_validation_field($firstInvalidField);
             }
         }
+
+        autoResizeTextareas($('.cfs_input'));
     });
 })(jQuery);
