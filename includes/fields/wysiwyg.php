@@ -223,8 +223,14 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
     }
 
 
+    function pre_save( $value, $field = null ) {
+        return $this->normalize_editor_input_value( $value );
+    }
+
+
     function format_value_for_api( $value, $field = null ) {
         $formatting = $this->get_option( $field, 'formatting', 'default' );
+        $value = $this->normalize_editor_input_value( $value );
         return ( 'none' == $formatting ) ? $value : apply_filters( 'the_content', $value );
     }
 }

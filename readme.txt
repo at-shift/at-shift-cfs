@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.2.7
+Stable tag: 3.0.2.8
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -203,6 +203,11 @@ The release package includes bundled translation files for ca, de_DE, en_GB, es_
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.2.8 =
+
+* Fixed WYSIWYG field output so escaped paragraph HTML is normalized before `CFS()->get()` formatting.
+* Normalized escaped rich text HTML before saving WYSIWYG and native Post Content field values.
 
 = 3.0.2.7 =
 

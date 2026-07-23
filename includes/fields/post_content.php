@@ -151,6 +151,7 @@ class Atshift_CFS_post_content extends Atshift_CFS_field
         $post_id = isset( $field->post_id ) ? absint( $field->post_id ) : 0;
         $content = is_array( $value ) ? reset( $value ) : $value;
         $content = is_scalar( $content ) ? (string) $content : '';
+        $content = $this->normalize_editor_input_value( $content );
 
         if ( 0 < $post_id && current_user_can( 'edit_post', $post_id ) ) {
             $post = get_post( $post_id );
