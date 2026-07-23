@@ -115,6 +115,33 @@ class Atshift_CFS_field
 
 
     /**
+     * Normalize editor content that may have been stored with escaped HTML tags.
+     *
+     * @param mixed $value
+     * @return string
+     */
+    protected function normalize_editor_input_value( $value ) {
+        $value = is_scalar( $value ) ? (string) $value : '';
+
+        if ( false === strpos( $value, '&lt;' ) && false === strpos( $value, '&gt;' ) ) {
+            return $value;
+        }
+
+        $decoded = wp_specialchars_decode( $value, ENT_QUOTES );
+
+        if ( $decoded === $value ) {
+            return $value;
+        }
+
+        if ( preg_match( '/<\\/?(?:p|br|div|span|strong|em|b|i|ul|ol|li|a|blockquote|h[1-6]|pre|code|figure|figcaption|img|table|thead|tbody|tr|td|th|hr)(?:\\s|>|\\/)/i', $decoded ) ) {
+            return $decoded;
+        }
+
+        return $value;
+    }
+
+
+    /**
      * Format the value before saving to DB
      * @param mixed $value
      * @param mixed $field The field object (optional)

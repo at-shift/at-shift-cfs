@@ -36,12 +36,13 @@ class Atshift_CFS_post_content extends Atshift_CFS_field
 
         if ( 'wysiwyg' === $editor_type && function_exists( 'wp_editor' ) ) {
             $editor_id = 'atshift_cfs_post_content_' . absint( $field->id );
-            $tinymce_settings = is_admin() ? true : [
+            $content = $this->normalize_editor_input_value( $content );
+            $tinymce_settings = [
                 'content_style' => $this->get_tinymce_content_style(),
             ];
 
             wp_editor(
-                format_for_editor( $content ),
+                $content,
                 $editor_id,
                 [
                     'textarea_name' => $field->input_name,

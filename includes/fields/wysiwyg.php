@@ -75,7 +75,7 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
 
 
     function input_head( $field = null ) {
-        $tinymce_content_style = is_admin() ? '' : $this->get_tinymce_content_style();
+        $tinymce_content_style = $this->get_tinymce_content_style();
 
         // make sure the user has WYSIWYG enabled
         if ( 'true' == get_user_meta( get_current_user_id(), 'rich_editing', true ) ) {
@@ -219,7 +219,7 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
 
 
     function format_value_for_input( $value, $field = null ) {
-        return format_for_editor( $value );
+        return $this->normalize_editor_input_value( $value );
     }
 
 
