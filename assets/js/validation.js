@@ -795,10 +795,16 @@
             }, 0);
         });
 
-        $(document).on('click', '.cfs_input .cfs-accordion-toggle, .cfs_input .cfs_loop_head', function() {
+        $(document).on('cfs/layout/changed', function(event) {
+            var $context = $(event.target);
+
             window.setTimeout(function() {
-                autoResizeTextareas($('.cfs_input'));
+                autoResizeTextareas($context);
+                CFS.refresh_validation_field_visuals();
             }, 0);
+            window.setTimeout(function() {
+                autoResizeTextareas($context);
+            }, 80);
         });
 
         $(document).on('input', '.cfs_input .field[data-type="textarea"] textarea, .cfs_input .cfs_textarea textarea', function() {

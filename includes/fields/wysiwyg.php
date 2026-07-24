@@ -123,11 +123,88 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                 }
             }
 
+            function getWysiwygHeight($textarea) {
+                var height = parseInt($textarea.attr('data-cfs-wysiwyg-height'), 10);
+
+                if (!height) {
+                    height = parseInt($textarea[0].style.height, 10);
+                }
+
+                if (!height) {
+                    height = parseInt($textarea.css('height'), 10);
+                }
+
+                return height || 300;
+            }
+
+            function refreshWysiwygEditors($context) {
+                if ('undefined' === typeof tinyMCE || !tinyMCE.get) {
+                    return;
+                }
+
+                $context = $context && $context.length ? $context : $(document);
+
+                $context.find('.wp-editor-area').add($context.filter('.wp-editor-area')).each(function() {
+                    var $textarea = $(this);
+                    var input_id = $textarea.attr('id');
+                    var editor = input_id ? tinyMCE.get(input_id) : null;
+                    var $wrap = $textarea.closest('.wp-editor-wrap');
+                    var $container;
+                    var $iframe;
+                    var minHeight;
+                    var currentHeight;
+                    var currentWidth;
+
+                    if (!editor || !$wrap.is(':visible')) {
+                        return;
+                    }
+
+                    $container = editor.getContainer ? $(editor.getContainer()) : $();
+                    $iframe = editor.iframeElement ? $(editor.iframeElement) : $container.find('iframe').first();
+                    minHeight = getWysiwygHeight($textarea);
+                    currentHeight = $iframe.length ? $iframe.height() : 0;
+                    currentWidth = $wrap.find('.wp-editor-container').innerWidth() || ($container.length ? $container.parent().width() : 0);
+
+                    if ($iframe.length && (!currentHeight || currentHeight < (minHeight * 0.75))) {
+                        $iframe.height(minHeight);
+                        currentHeight = minHeight;
+                    }
+
+                    if (editor.theme && editor.theme.resizeTo && currentWidth) {
+                        try {
+                            editor.theme.resizeTo(currentWidth, Math.max(currentHeight, minHeight));
+                        } catch (e) {}
+                    }
+
+                    try {
+                        editor.fire('ResizeEditor');
+                    } catch (e) {}
+
+                    if (editor.nodeChanged) {
+                        editor.nodeChanged();
+                    }
+                });
+            }
+
+            function scheduleWysiwygRefresh($context) {
+                refreshWysiwygEditors($context);
+                window.setTimeout(function() {
+                    refreshWysiwygEditors($context);
+                }, 80);
+                window.setTimeout(function() {
+                    refreshWysiwygEditors($context);
+                }, 250);
+            }
+
             $(function() {
                 $(document).on('cfs/ready', '.cfs_add_field', function() {
                     $('.cfs_wysiwyg:not(.ready)').init_wysiwyg();
                 });
                 $('.cfs_wysiwyg').init_wysiwyg();
+
+                $(document).on('cfs/layout/changed', function(event) {
+                    scheduleWysiwygRefresh($(event.target));
+                });
 
                 // set the active editor
                 $(document).on('click', 'a.add_media', function() {
@@ -138,15 +215,19 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
 
             $.fn.init_wysiwyg = function() {
                 this.each(function() {
-                    $(this).addClass('ready');
+                    var $wysiwyg = $(this);
+                    var $editor = $wysiwyg.find('.wysiwyg');
+
+                    $wysiwyg.addClass('ready');
 
                     // generate css id
                     wysiwyg_count = wysiwyg_count + 1;
                     var input_id = 'cfs_wysiwyg_' + wysiwyg_count;
 
                     // set the wysiwyg css id
-                    $(this).find('.wysiwyg').attr('id', input_id);
-                    $(this).find('a.add_media').attr('data-editor', input_id);
+                    $editor.attr('id', input_id);
+                    $editor.attr('data-cfs-wysiwyg-height', getWysiwygHeight($editor));
+                    $wysiwyg.find('a.add_media').attr('data-editor', input_id);
 
                     // if all editors on page are in 'text' tab, tinyMCE.settings will not be set
                     if ('undefined' === typeof tinyMCE.settings || Object.keys(tinyMCE.settings).length === 0) {
@@ -185,6 +266,8 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                     tinyMCE.execCommand('mceAddEditor', false, input_id);
                     tinyMCE.settings.wpautop = wpautop;
                     tinyMCE.settings.resize = resize;
+
+                    scheduleWysiwygRefresh($wysiwyg);
                 });
             };
 
@@ -202,6 +285,7 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                 });
                 tinyMCE.settings.wpautop = wpautop;
                 tinyMCE.settings.resize = resize;
+                scheduleWysiwygRefresh($(this));
             });
         })(jQuery);
         <?php } ) ); ?>

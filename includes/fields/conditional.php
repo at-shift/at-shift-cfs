@@ -185,6 +185,7 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
         (function($) {
             function refreshConditional($conditional) {
                 var value = $conditional.find('.cfs-conditional-selector:checked').val();
+                var $openedBranches = $();
 
                 if (undefined === value) {
                     value = $conditional.find('select.cfs-conditional-selector').val() || '';
@@ -192,8 +193,20 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
 
                 $conditional.attr('data-selected-value', value);
                 $conditional.find('> .cfs-conditional-fields > .cfs-conditional-branch').each(function() {
-                    $(this).prop('hidden', '' === value || String($(this).data('conditional-value')) !== String(value));
+                    var $branch = $(this);
+                    var shouldShow = '' !== value && String($branch.data('conditional-value')) === String(value);
+                    var wasHidden = $branch.prop('hidden');
+
+                    $branch.prop('hidden', !shouldShow);
+
+                    if (shouldShow && wasHidden) {
+                        $openedBranches = $openedBranches.add($branch);
+                    }
                 });
+
+                if ($openedBranches.length) {
+                    $openedBranches.trigger('cfs/layout/changed');
+                }
             }
 
             $(document).on('change', '.cfs-conditional-selector', function() {

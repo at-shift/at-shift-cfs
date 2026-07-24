@@ -120,6 +120,11 @@ class Atshift_CFS_accordion extends Atshift_CFS_field
 
                 $accordion.toggleClass('open', isOpen);
                 $(this).attr('aria-expanded', isOpen ? 'true' : 'false');
+
+                if (isOpen) {
+                    $accordion.trigger('cfs/accordion/opened');
+                    $accordion.trigger('cfs/layout/changed');
+                }
             });
         })(jQuery);
         <?php } ) ); ?>

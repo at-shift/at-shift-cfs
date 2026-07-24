@@ -463,6 +463,14 @@ class Atshift_CFS_loop extends Atshift_CFS_field
             $(function() {
                 var remove_loop_row_message = <?php echo wp_json_encode( __( 'Remove this row?', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>;
 
+                function triggerLoopLayoutChange($head) {
+                    var $body = $head.siblings('.cfs_loop_body');
+
+                    if ($body.hasClass('open')) {
+                        $body.trigger('cfs/layout/changed');
+                    }
+                }
+
                 $(document).on('click', '.cfs_add_field', function() {
                     var num_rows = $(this).attr('data-rows');
                     var loop_tag = $(this).attr('data-loop-tag');
@@ -504,6 +512,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     var $head = $(this).closest('.cfs_loop_head');
                     $head.toggleClass('open');
                     $head.siblings('.cfs_loop_body').toggleClass('open');
+                    triggerLoopLayoutChange($head);
                 });
 
                 $(document).on('click', '.cfs_loop_head', function(event) {
@@ -512,6 +521,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     }
                     $(this).toggleClass('open');
                     $(this).siblings('.cfs_loop_body').toggleClass('open');
+                    triggerLoopLayoutChange($(this));
                 });
 
                 // Hide or show all rows
@@ -519,6 +529,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                 $(document).on('click', '.cfs_loop_toggle', function() {
                     $(this).closest('.field').find('.cfs_loop_head').toggleClass('open');
                     $(this).closest('.field').find('.cfs_loop_body').toggleClass('open');
+                    $(this).closest('.field').find('.cfs_loop_body.open').trigger('cfs/layout/changed');
                 });
 
                 $('.cfs_loop').sortable({
