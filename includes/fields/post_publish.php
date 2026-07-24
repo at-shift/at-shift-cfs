@@ -153,6 +153,10 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 return target.getTime() > Date.now();
             }
 
+            function isPublishedStatus(status) {
+                return 'publish' === status || 'future' === status || 'private' === status;
+            }
+
             function getEffectiveStatus($control, submitIntent) {
                 var visibility = $control.find('.post_publish_visibility').val();
                 var dateValue = $control.find('.post_publish_date').val();
@@ -161,11 +165,11 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 var currentStatus = String($control.data('currentStatus') || '');
                 var selectedStatus = allowStatus ? $control.find('.post_publish_status').val() : '';
 
-                if ('private' === visibility || (!visibility && 'private' === currentStatus)) {
+                if (('private' === visibility && canPublish) || 'private' === currentStatus) {
                     return 'private';
                 }
 
-                if (selectedStatus) {
+                if (selectedStatus && ('publish' !== selectedStatus || canPublish)) {
                     if ('publish' === selectedStatus && isFutureDateTime(dateValue)) {
                         return 'future';
                     }
@@ -174,7 +178,15 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 }
 
                 if (!canPublish) {
-                    return 'pending';
+                    if (isPublishedStatus(currentStatus)) {
+                        return currentStatus;
+                    }
+
+                    if ('pending' === currentStatus) {
+                        return 'pending';
+                    }
+
+                    return submitIntent ? 'pending' : currentStatus;
                 }
 
                 if (allowStatus && !selectedStatus) {
@@ -293,10 +305,16 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 var selectedStatus = allowStatus ? $control.find('.post_publish_status').val() : '';
                 var label;
 
-                if ('draft' === selectedStatus || 'pending' === selectedStatus) {
+                if ('draft' === selectedStatus) {
                     label = getButtonLabel($control, 'update');
                 }
+                else if (!canPublish && ('pending' === selectedStatus || (!selectedStatus && !isPublishedStatus(currentStatus)))) {
+                    label = getButtonLabel($control, 'submit-review');
+                }
                 else if (allowStatus && !selectedStatus && ('draft' === status || 'pending' === status)) {
+                    label = getButtonLabel($control, 'update');
+                }
+                else if ('pending' === selectedStatus) {
                     label = getButtonLabel($control, 'update');
                 }
                 else if ('draft' === status || 'pending' === status) {
@@ -767,6 +785,10 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
 
         if ( $allow_status && '' !== $requested_status && '' !== $explicit_status && $this->can_set_status( $explicit_status, $can_publish ) ) {
             return $this->normalize_status_for_save( $explicit_status );
+        }
+
+        if ( ! $can_publish && '' === $explicit_status && in_array( $post->post_status, [ 'publish', 'future', 'private' ], true ) && in_array( $requested_status, [ 'draft', 'pending' ], true ) ) {
+            return $post->post_status;
         }
 
         if ( '' !== $requested_status && $this->can_set_status( $requested_status, $can_publish ) ) {

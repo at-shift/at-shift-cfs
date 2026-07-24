@@ -4,3 +4,7 @@
 README.md export-ignore
 NOTICE.md export-ignore
 composer.json export-ignore
+doc/ export-ignore
+docs/ export-ignore
+private-docs/ export-ignore
+packages/ export-ignore

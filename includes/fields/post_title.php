@@ -24,7 +24,7 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
             $post_title = $field->value;
         }
     ?>
-        <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?> post_title_value" value="<?php echo esc_attr( $post_title ); ?>" placeholder="<?php echo esc_attr( $this->get_input_placeholder( $field ) ); ?>"<?php echo $can_edit_title ? '' : ' readonly="readonly"'; ?> />
+        <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?> post_title_value" value="<?php echo esc_attr( $post_title ); ?>" placeholder="<?php echo esc_attr( $this->get_input_placeholder( $field ) ); ?>" data-post-status="<?php echo esc_attr( $post instanceof WP_Post ? $post->post_status : '' ); ?>"<?php echo $can_edit_title ? '' : ' readonly="readonly"'; ?> />
         <?php if ( ! $can_edit_title ) : ?>
         <p class="notes"><?php esc_html_e( 'You do not have permission to change the native title.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
         <?php endif; ?>
@@ -92,11 +92,27 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
         (function($) {
             function syncPostTitle(value) {
                 var title = value || '';
-                $('#title, input[name="post_title"], textarea[name="post_title"]').val(title).trigger('input').trigger('change');
+                var $nativeTitle = $('#title, input[name="post_title"], textarea[name="post_title"]');
+
+                $nativeTitle.each(function() {
+                    var $input = $(this);
+                    if ($input.val() !== title) {
+                        $input.val(title).trigger('input').trigger('change');
+                    }
+                });
 
                 if (window.wp && wp.data && wp.data.dispatch) {
                     var editor = wp.data.dispatch('core/editor');
-                    if (editor && 'function' === typeof editor.editPost) {
+                    var currentTitle = null;
+
+                    if (window.wp.data.select) {
+                        var selector = wp.data.select('core/editor');
+                        if (selector && 'function' === typeof selector.getEditedPostAttribute) {
+                            currentTitle = selector.getEditedPostAttribute('title');
+                        }
+                    }
+
+                    if (editor && 'function' === typeof editor.editPost && currentTitle !== title) {
                         editor.editPost({ title: title });
                     }
                 }
@@ -108,7 +124,10 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
 
             $(function() {
                 $('.cfs_post_title .post_title_value').each(function() {
-                    syncPostTitle($(this).val());
+                    var $field = $(this);
+                    if ('auto-draft' === String($field.data('postStatus') || '') && $field.val()) {
+                        syncPostTitle($field.val());
+                    }
                 });
             });
         })(jQuery);
@@ -126,10 +145,16 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
             $post = get_post( $post_id );
 
             if ( $post instanceof WP_Post && $post->post_title !== $title ) {
-                wp_update_post( [
+                $post_data = [
                     'ID'         => $post_id,
                     'post_title' => $title,
-                ] );
+                ];
+
+                if ( '' !== (string) $post->post_name ) {
+                    $post_data['post_name'] = $post->post_name;
+                }
+
+                wp_update_post( $post_data );
             }
         }
 
