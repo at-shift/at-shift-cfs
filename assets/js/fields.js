@@ -49,7 +49,7 @@
                 return;
             }
 
-            $context.find('.cfs-post-title-role-select, .cfs-post-native-role-select, .cfs-shortcode-role-select, .cfs-extra-display-role-select, .cfs-wp-category-role-select').each(function() {
+            $context.find('.cfs-post-title-role-select, .cfs-post-native-role-select, .cfs-shortcode-role-select, .cfs-embed-provider-select, .cfs-embed-role-select, .cfs-extra-display-role-select, .cfs-wp-category-role-select').each(function() {
                 var $select = $(this);
 
                 if ($select.data('select2')) {

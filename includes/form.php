@@ -60,7 +60,6 @@ class Atshift_CFS_form
                     die( 'Your session has expired.' );
                 }
 
-                $field_data = isset( $cfs_post['input'] ) ? $this->sanitize_submitted_field_data( $cfs_post['input'] ) : [];
                 $post_data = [];
 
                 // Form settings are session-based for added security
@@ -72,6 +71,9 @@ class Atshift_CFS_form
                 foreach ( $field_groups as $key => $val ) {
                     $field_groups[$key] = (int) $val;
                 }
+
+                $fields_by_id = $this->get_field_definitions_by_id( $field_groups );
+                $field_data = isset( $cfs_post['input'] ) ? $this->sanitize_submitted_field_data( $cfs_post['input'], $fields_by_id ) : [];
 
                 // Title
                 if ( isset( $cfs_post['post_title'] ) ) {
@@ -242,21 +244,59 @@ class Atshift_CFS_form
     }
 
 
-    private function sanitize_submitted_field_data( $value ) {
+    private function get_field_definitions_by_id( $field_groups ) {
+        $fields_by_id = [];
+
+        if ( empty( $field_groups ) ) {
+            return $fields_by_id;
+        }
+
+        $fields = atshift_fields_maintenance_for_custom_field_suite()->api->find_input_fields( [ 'group_id' => $field_groups ] );
+
+        foreach ( $fields as $field ) {
+            $field = (object) $field;
+            $fields_by_id[ (int) $field->id ] = $field;
+        }
+
+        return $fields_by_id;
+    }
+
+
+    private function sanitize_submitted_field_data( $value, $fields_by_id = [], $field_id = 0 ) {
         if ( is_array( $value ) ) {
             $sanitized = [];
             foreach ( $value as $key => $item ) {
                 $sanitized_key = is_int( $key ) ? $key : sanitize_text_field( (string) $key );
-                $sanitized[ $sanitized_key ] = $this->sanitize_submitted_field_data( $item );
+                $next_field_id = isset( $fields_by_id[ (int) $sanitized_key ] ) ? (int) $sanitized_key : (int) $field_id;
+                $sanitized[ $sanitized_key ] = $this->sanitize_submitted_field_data( $item, $fields_by_id, $next_field_id );
             }
             return $sanitized;
         }
 
         if ( is_scalar( $value ) || null === $value ) {
-            return wp_kses_post( (string) $value );
+            return $this->sanitize_submitted_scalar_value( $value, $fields_by_id, $field_id );
         }
 
         return '';
+    }
+
+
+    private function sanitize_submitted_scalar_value( $value, $fields_by_id, $field_id ) {
+        $field_id = absint( $field_id );
+
+        if ( 0 < $field_id && isset( $fields_by_id[ $field_id ] ) ) {
+            $field = $fields_by_id[ $field_id ];
+
+            if (
+                isset( $field->type )
+                && isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ] )
+                && method_exists( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ], 'sanitize_submitted_value' )
+            ) {
+                return atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ]->sanitize_submitted_value( $value, $field );
+            }
+        }
+
+        return wp_kses_post( (string) $value );
     }
 
 
@@ -571,7 +611,7 @@ class Atshift_CFS_form
         return in_array( $field_type, [
             'text', 'textarea', 'wysiwyg', 'phone', 'email', 'url', 'number',
             'radio', 'date', 'file', 'color', 'true_false', 'wp_tag',
-            'post_title', 'featured_image', 'gallery', 'conditional', 'shortcode',
+            'post_title', 'featured_image', 'gallery', 'conditional', 'shortcode', 'embed_code',
         ], true );
     }
 

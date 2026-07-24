@@ -199,6 +199,9 @@
             'code_view': function(el) {
                 return el.find('textarea').val();
             },
+            'embed_code': function(el) {
+                return el.find('textarea').val();
+            },
             'select': function(el) {
                 return el.find('select').val();
             },

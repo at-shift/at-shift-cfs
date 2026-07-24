@@ -51,6 +51,7 @@ Custom Field Suite data can continue to be used.
 - Color
 - Code View
 - Shortcode
+- Embed Code
 - Classic Meta Box Placement
 - Post Title (native WordPress title)
 - Post Content (native WordPress content)
@@ -123,6 +124,7 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 - カラーピッカー
 - コード
 - ショートコード
+- 埋め込みコード
 - メタボックス配置（Classic）
 - 投稿タイトル（WordPress 標準）
 - 本文（WordPress 標準）
@@ -143,7 +145,7 @@ Custom Field Suite (CFS) は、作者による開発が 2024年8月以降停止�
 
 ## Installation (インストール方法)
 
-Current maintenance version: 3.0.3.1 (現在のメンテナンスバージョン: 3.0.3.1)
+Current maintenance version: 3.0.4 (現在のメンテナンスバージョン: 3.0.4)
 
 Install the public release from WordPress.org when possible:
 
@@ -274,6 +276,16 @@ add_action( 'init', function() {
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
 
+### 3.0.4
+
+#### English
+
+- Added a dedicated Embed Code field for iframe-based embeds such as maps, so sites that previously used text fields or textareas for embed code can migrate safely under the strengthened sanitization.
+
+#### 日本語
+
+- 旧 CFS でテキストフィールドやテキストエリアをマップなどの埋め込みコード入力欄として利用していた場合に、セキュリティ更新により埋め込みコードが保存時に削除されることがあるため、埋め込みコード専用フィールドを追加しました。
+
 ### 3.0.3.1
 
 #### English
@@ -294,7 +306,7 @@ add_action( 'init', function() {
 
 #### 日本語
 
-- アコーディオン、条件分岐、ループ内で表示された WYSIWYG フィールドと自動高さ調整のテキストエリアが、表示状態に合わせて再計測されるように改善しました。
+- アコーディオン、条件分岐、ループ内で表示されたリッチエディタフィールドと自動高さ調整のテキストエリアが、表示状態に合わせて再計測されるように改善しました。
 
 ### 3.0.2.8
 
@@ -305,8 +317,8 @@ add_action( 'init', function() {
 
 #### 日本語
 
-- WYSIWYG フィールドの出力時に、エスケープされた段落 HTML が `CFS()->get()` 経由で文字列として表示されることがある問題を修正しました。
-- WYSIWYG フィールドと本文（WordPress 標準）フィールドの保存時に、エスケープされたリッチテキスト HTML を正規化するようにしました。
+- リッチエディタフィールドの出力時に、エスケープされた段落 HTML が `CFS()->get()` 経由で文字列として表示されることがある問題を修正しました。
+- リッチエディタフィールドと本文（WordPress 標準）フィールドの保存時に、エスケープされたリッチテキスト HTML を正規化するようにしました。
 
 ### 3.0.2.7
 
@@ -317,8 +329,8 @@ add_action( 'init', function() {
 
 #### 日本語
 
-- WYSIWYG エディターで、段落などの HTML がエスケープされたタグ文字列として表示されることがある問題を修正しました。
-- 管理画面の WYSIWYG エディターで、フォントが不自然に表示されることがある問題を修正しました。
+- リッチエディタで、段落などの HTML がエスケープされたタグ文字列として表示されることがある問題を修正しました。
+- 管理画面のリッチエディタで、フォントが不自然に表示されることがある問題を修正しました。
 
 ### 3.0.2.6
 
@@ -340,7 +352,7 @@ add_action( 'init', function() {
 - 必須フィールドの入力エラー時に、エラー箇所を見つけて修正しやすくなるよう案内表示を改善しました。
 - エクストラの表示設定に、グローバルカテゴリーを隠す設定を追加しました。
 - ショートコードフィールドからデフォルト値設定を削除しました。
-- WYSIWYG 初期化時の警告によって後続のフィールドスクリプトが止まることがある問題を修正しました。
+- リッチエディタ初期化時の警告によって後続のフィールドスクリプトが止まることがある問題を修正しました。
 
 ### 3.0.2.5
 

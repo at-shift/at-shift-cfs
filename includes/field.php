@@ -154,6 +154,18 @@ class Atshift_CFS_field
 
 
     /**
+     * Sanitize submitted form values before field-specific pre_save handling.
+     *
+     * @param mixed $value
+     * @param mixed $field The field object (optional)
+     * @return string
+     */
+    function sanitize_submitted_value( $value, $field = null ) {
+        return ( is_scalar( $value ) || null === $value ) ? wp_kses_post( (string) $value ) : '';
+    }
+
+
+    /**
      * Modify field settings before saving to DB
      * @param object $field
      * @return object

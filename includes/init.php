@@ -266,6 +266,7 @@ class Atshift_CFS_init
             'color'         => ATSHIFT_CFS_DIR . '/includes/fields/color/color.php',
             'code_view'     => ATSHIFT_CFS_DIR . '/includes/fields/code_view.php',
             'shortcode'     => ATSHIFT_CFS_DIR . '/includes/fields/shortcode.php',
+            'embed_code'    => ATSHIFT_CFS_DIR . '/includes/fields/embed_code.php',
             'external_metabox' => ATSHIFT_CFS_DIR . '/includes/fields/external_metabox.php',
             'post_title'    => ATSHIFT_CFS_DIR . '/includes/fields/post_title.php',
             'post_content'  => ATSHIFT_CFS_DIR . '/includes/fields/post_content.php',
@@ -619,7 +620,7 @@ class Atshift_CFS_init
             }
 
             $value = isset( $values[ $field['name'] ] ) ? $values[ $field['name'] ] : null;
-            $rendered_value = $this->render_block_field_value( $value );
+            $rendered_value = $this->render_block_field_value( $value, $field );
 
             if ( '' === $rendered_value ) {
                 continue;
@@ -649,7 +650,7 @@ class Atshift_CFS_init
     /**
      * Convert saved CFS values to safe, compact block output.
      */
-    private function render_block_field_value( $value ) {
+    private function render_block_field_value( $value, $field = null ) {
         if ( null === $value || '' === $value || [] === $value ) {
             return '';
         }
@@ -666,6 +667,25 @@ class Atshift_CFS_init
             }
 
             return implode( '<br />', $parts );
+        }
+
+        if ( is_array( $field ) && isset( $field['type'] ) && 'embed_code' === $field['type'] ) {
+            return wp_kses( (string) $value, [
+                'iframe' => [
+                    'src' => true,
+                    'width' => true,
+                    'height' => true,
+                    'title' => true,
+                    'class' => true,
+                    'style' => true,
+                    'loading' => true,
+                    'allow' => true,
+                    'allowfullscreen' => true,
+                    'frameborder' => true,
+                    'referrerpolicy' => true,
+                    'aria-label' => true,
+                ],
+            ] );
         }
 
         if ( is_object( $value ) ) {

@@ -1659,3 +1659,67 @@ msgstr ""
 #: includes/init.php
 msgid "You do not have permission to add categories."
 msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Embed Code"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Paste iframe embed code here"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Allowed Providers"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Select the iframe embed providers allowed for this field. Script-based embeds are not supported."
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Default: all supported providers"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Select the roles that can enter or change embed code. If left blank, only administrators can edit this field."
+msgstr ""
+
+#: includes/fields/shortcode.php
+msgid "Select the roles that can enter or change shortcodes. If left blank, only administrators can edit this field."
+msgstr ""
+
+#: includes/fields/embed_code.php includes/fields/shortcode.php
+msgid "Default: administrators only"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Google Maps"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "YouTube"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Vimeo"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "OpenStreetMap"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Google Calendar"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Google Forms"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "Spotify"
+msgstr ""
+
+#: includes/fields/embed_code.php
+msgid "SoundCloud"
+msgstr ""
