@@ -13,7 +13,8 @@ Formal WordPress.org name: **atshift Fields (Maintenance for Custom Field Suite)
 Short name: **atshift Fields**.
 
 [Guides and reference](https://cfs.at-shift.net/en/) |
-[WordPress.org plugin page](https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/)
+[WordPress.org plugin page](https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/) |
+[atshift User Profile Fields](https://github.com/at-shift/atshift-user-profile-fields)
 
 ## Plugin Rename
 
@@ -87,7 +88,8 @@ WordPress.org 上の正式名: **atshift Fields (Maintenance for Custom Field Su
 短縮名: **atshift Fields**。
 
 [ガイド・リファレンス](https://cfs.at-shift.net/) |
-[WordPress.org プラグインページ](https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/)
+[WordPress.org プラグインページ](https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/) |
+[ユーザープロフィール用プラグイン: atshift User Profile Fields](https://github.com/at-shift/atshift-user-profile-fields)
 
 ## プラグイン名称の変更
 
