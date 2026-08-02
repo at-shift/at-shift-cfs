@@ -214,8 +214,12 @@
             },
             'wp_category': function(el) {
                 var values = [];
+                var defaultCategory = String(el.find('.cfs-wp-category-list').attr('data-default-category') || '');
+
                 el.find('.cfs-wp-category-list input[type="checkbox"]:checked').each(function() {
-                    values.push($(this).val());
+                    if (String($(this).val()) !== defaultCategory) {
+                        values.push($(this).val());
+                    }
                 });
                 return values.join(',');
             },

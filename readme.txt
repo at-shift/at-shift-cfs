@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.4
+Stable tag: 3.0.4.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -204,6 +204,11 @@ The release package includes bundled translation files for ca, de_DE, en_GB, es_
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.4.1 =
+
+* Fixed Save / Publish field submission so actions follow the native WordPress save flow, preventing unintended draft saves and unnecessary leave-page warnings.
+* Fixed required Post Categories validation so the WordPress default category alone does not satisfy the requirement.
 
 = 3.0.4 =
 

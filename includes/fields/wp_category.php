@@ -30,6 +30,18 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
     }
 
 
+    public function is_required_selection_empty( $value, $field = null ) {
+        $term_ids = array_values( array_unique( array_filter( array_map( 'absint', (array) $value ) ) ) );
+        $default_term_id = $this->get_default_term_id( $this->get_taxonomy_name( $field ) );
+
+        if ( 0 < $default_term_id ) {
+            $term_ids = array_values( array_diff( $term_ids, [ $default_term_id ] ) );
+        }
+
+        return empty( $term_ids );
+    }
+
+
     protected function get_no_terms_message( $taxonomy ) {
         /* translators: %s: taxonomy label. */
         return sprintf( __( 'No categories found in %s', 'atshift-fields-maintenance-for-custom-field-suite' ), $taxonomy->labels->name );

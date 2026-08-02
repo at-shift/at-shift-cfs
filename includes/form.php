@@ -365,17 +365,26 @@ class Atshift_CFS_form
             }
 
             $value = is_array( $field_data ) && array_key_exists( 'value', $field_data ) ? $field_data['value'] : '';
+            $is_empty = $this->is_empty_submission_value( $value, $field->type );
+
+            if (
+                'wp_category' === $field->type
+                && isset( atshift_fields_maintenance_for_custom_field_suite()->fields['wp_category'] )
+                && method_exists( atshift_fields_maintenance_for_custom_field_suite()->fields['wp_category'], 'is_required_selection_empty' )
+            ) {
+                $is_empty = atshift_fields_maintenance_for_custom_field_suite()->fields['wp_category']->is_required_selection_empty( $value, $field );
+            }
 
             if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'gallery' ], true ) ) {
                 $this->validate_count_limits( $field, count( $this->normalize_submitted_ids( $value ) ), $errors );
             }
 
-            if ( ! in_array( $field->type, [ 'code_view', 'shortcode' ], true ) && ! empty( $field->options['required'] ) && $this->is_empty_submission_value( $value, $field->type ) ) {
+            if ( ! in_array( $field->type, [ 'code_view', 'shortcode' ], true ) && ! empty( $field->options['required'] ) && $is_empty ) {
                 $errors[] = $field->name;
                 continue;
             }
 
-            if ( ! $this->is_empty_submission_value( $value, $field->type ) && ! $this->is_valid_submission_format( $value, $field->type ) ) {
+            if ( ! $is_empty && ! $this->is_valid_submission_format( $value, $field->type ) ) {
                 $errors[] = $field->name;
             }
         }

@@ -423,6 +423,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
 
             function submitPost($control, status, isDraft) {
                 var $form = $('form#post').first();
+                var $nativeButton = isDraft ? $('#save-post') : $('#publish');
 
                 if (window.wp && wp.data && wp.data.dispatch) {
                     var editor = wp.data.dispatch('core/editor');
@@ -433,6 +434,18 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                         editor.savePost();
                         return true;
                     }
+                }
+
+                if ($nativeButton.length && !$nativeButton.prop('disabled') && $form.length && $form[0]) {
+                    if ('function' === typeof $form[0].requestSubmit) {
+                        $nativeButton.triggerHandler('click');
+                        $form[0].requestSubmit($nativeButton[0]);
+                    }
+                    else {
+                        $nativeButton[0].click();
+                    }
+
+                    return true;
                 }
 
                 if ($form.length && $form[0]) {

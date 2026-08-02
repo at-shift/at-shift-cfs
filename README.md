@@ -147,7 +147,7 @@ Custom Field Suite (CFS) は、作者による開発が 2024年8月以降停止�
 
 ## Installation (インストール方法)
 
-Current maintenance version: 3.0.4 (現在のメンテナンスバージョン: 3.0.4)
+Current maintenance version: 3.0.4.1 (現在のメンテナンスバージョン: 3.0.4.1)
 
 Install the public release from WordPress.org when possible:
 
@@ -278,15 +278,17 @@ add_action( 'init', function() {
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
 
-### 3.0.4
+### 3.0.4.1
 
 #### English
 
-- Added a dedicated Embed Code field for iframe-based embeds such as maps, so sites that previously used text fields or textareas for embed code can migrate safely under the strengthened sanitization.
+- Fixed Save / Publish field submission so actions follow the native WordPress save flow, preventing unintended draft saves and unnecessary leave-page warnings.
+- Fixed required Post Categories validation so the WordPress default category alone does not satisfy the requirement.
 
 #### 日本語
 
-- 旧 CFS でテキストフィールドやテキストエリアをマップなどの埋め込みコード入力欄として利用していた場合に、セキュリティ更新により埋め込みコードが保存時に削除されることがあるため、埋め込みコード専用フィールドを追加しました。
+- 保存・公開フィールドからの保存処理を WordPress 標準の送信手順に合わせ、意図せず下書きになる問題と離脱警告を修正しました。
+- 投稿カテゴリーを必須にした場合、WordPress の初期カテゴリーだけでは必須条件を満たさないように修正しました。
 
 For full release history, see [GitHub Releases](https://github.com/at-shift/at-shift-cfs/releases).
 
