@@ -297,6 +297,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
     private function render_row_actions() {
     ?>
         <div class="cfs_loop_row_actions">
+            <button type="button" class="button cfs_loop_close_row"><?php esc_html_e( 'Close', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
             <button type="button" class="button button-primary cfs_loop_insert_row"><?php esc_html_e( 'Add an item below', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
             <button type="button" class="button-link button-link-delete cfs_loop_delete_row"><?php esc_html_e( 'delete', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></button>
         </div>
@@ -504,6 +505,14 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     if (confirm(remove_loop_row_message)) {
                         $(this).closest('.loop_wrapper').remove();
                     }
+                });
+
+                $(document).on('click', '.cfs_loop_close_row', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    var $wrapper = $(this).closest('.loop_wrapper');
+                    $wrapper.children('.cfs_loop_head').removeClass('open');
+                    $wrapper.children('.cfs_loop_body').removeClass('open');
                 });
 
                 $(document).on('click', '.cfs_toggle_field', function(event) {

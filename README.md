@@ -147,7 +147,7 @@ Custom Field Suite (CFS) は、作者による開発が 2024年8月以降停止�
 
 ## Installation (インストール方法)
 
-Current maintenance version: 3.0.4.1 (現在のメンテナンスバージョン: 3.0.4.1)
+Current maintenance version: 3.0.4.2 (現在のメンテナンスバージョン: 3.0.4.2)
 
 Install the public release from WordPress.org when possible:
 
@@ -277,6 +277,16 @@ add_action( 'init', function() {
 ```
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
+
+### 3.0.4.2
+
+#### English
+
+- Added a Close button to each Loop row action area.
+
+#### 日本語
+
+- ループ行の操作エリアに「閉じる」ボタンを追加しました。
 
 ### 3.0.4.1
 
