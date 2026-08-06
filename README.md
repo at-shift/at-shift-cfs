@@ -147,7 +147,7 @@ Custom Field Suite (CFS) は、作者による開発が 2024年8月以降停止�
 
 ## Installation (インストール方法)
 
-Current maintenance version: 3.0.4.2 (現在のメンテナンスバージョン: 3.0.4.2)
+Current maintenance version: 3.0.4.3 (現在のメンテナンスバージョン: 3.0.4.3)
 
 Install the public release from WordPress.org when possible:
 
@@ -278,27 +278,15 @@ add_action( 'init', function() {
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
 
-### 3.0.4.2
+### 3.0.4.3
 
 #### English
 
-- Added a Close button to each Loop row action area.
+- Added a Settings shortcut to the Plugins screen action links.
 
 #### 日本語
 
-- ループ行の操作エリアに「閉じる」ボタンを追加しました。
-
-### 3.0.4.1
-
-#### English
-
-- Fixed Save / Publish field submission so actions follow the native WordPress save flow, preventing unintended draft saves and unnecessary leave-page warnings.
-- Fixed required Post Categories validation so the WordPress default category alone does not satisfy the requirement.
-
-#### 日本語
-
-- 保存・公開フィールドからの保存処理を WordPress 標準の送信手順に合わせ、意図せず下書きになる問題と離脱警告を修正しました。
-- 投稿カテゴリーを必須にした場合、WordPress の初期カテゴリーだけでは必須条件を満たさないように修正しました。
+- プラグイン画面の操作リンクに「設定」へのショートカットを追加しました。
 
 For full release history, see [GitHub Releases](https://github.com/at-shift/at-shift-cfs/releases).
 
