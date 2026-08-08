@@ -59,6 +59,8 @@ if ( ATSHIFT_CFS_FIELD_GROUP_POST_TYPE == $screen->post_type ) {
             'disallowed_conditional_child' => __( 'Tabs and conditional groups cannot be placed inside a Conditional Group.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'add_field_below'        => __( 'Add new field below', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'add_field_inside'       => __( 'Add field inside', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'add_field_confirm'      => __( 'Add this field?', 'atshift-fields-maintenance-for-custom-field-suite' ),
+            'delete_field_confirm'   => __( 'Delete this field? This action cannot be undone.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             'duplicate_field_name_inline' => __( 'This field name is duplicated. Use a unique field name.', 'atshift-fields-maintenance-for-custom-field-suite' ),
             /* translators: %s: comma-separated duplicate field names. */
             'duplicate_field_names_alert' => __( 'Duplicate field names found: %s. Field names must be unique before saving.', 'atshift-fields-maintenance-for-custom-field-suite' ),

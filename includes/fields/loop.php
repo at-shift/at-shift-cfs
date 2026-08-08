@@ -462,6 +462,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
         <?php wp_add_inline_script( 'atshift-cfs-validation', atshift_cfs_capture_output( function() { ?>
         (function($) {
             $(function() {
+                var add_loop_row_message = <?php echo wp_json_encode( __( 'Add this row?', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>;
                 var remove_loop_row_message = <?php echo wp_json_encode( __( 'Remove this row?', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>;
 
                 function triggerLoopLayoutChange($head) {
@@ -472,7 +473,12 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     }
                 }
 
-                $(document).on('click', '.cfs_add_field', function() {
+                $(document).on('click', '.cfs_add_field', function(event) {
+                    event.preventDefault();
+                    if (!confirm(add_loop_row_message)) {
+                        return;
+                    }
+
                     var num_rows = $(this).attr('data-rows');
                     var loop_tag = $(this).attr('data-loop-tag');
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
@@ -490,6 +496,10 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     if (!$add_field.length) {
                         return;
                     }
+                    if (!confirm(add_loop_row_message)) {
+                        return;
+                    }
+
                     var num_rows = $add_field.attr('data-rows');
                     var loop_tag = $add_field.attr('data-loop-tag');
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];

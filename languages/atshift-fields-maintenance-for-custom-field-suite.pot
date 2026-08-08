@@ -793,6 +793,10 @@ msgstr ""
 msgid "Toggle row visibility"
 msgstr ""
 
+#: ../includes/fields/loop.php:465
+msgid "Add this row?"
+msgstr ""
+
 #: ../includes/fields/loop.php:444
 msgid "Remove this row?"
 msgstr ""
@@ -905,6 +909,14 @@ msgid "Add new field below"
 msgstr ""
 
 msgid "Add field inside"
+msgstr ""
+
+#: ../templates/admin_head.php:62
+msgid "Add this field?"
+msgstr ""
+
+#: ../templates/admin_head.php:63
+msgid "Delete this field? This action cannot be undone."
 msgstr ""
 
 msgid "CFS Field Groups"
@@ -1722,4 +1734,12 @@ msgstr ""
 
 #: includes/fields/embed_code.php
 msgid "SoundCloud"
+msgstr ""
+
+#: ../cfs.php:198
+msgid "Translate"
+msgstr ""
+
+#: ../cfs.php:204
+msgid "Output Reference"
 msgstr ""

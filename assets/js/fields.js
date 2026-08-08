@@ -1842,6 +1842,10 @@
 
         // Add a new field
         $(document).on('click', '.cfs_add_field', function() {
+            if (!window.confirm(message('add_field_confirm', 'Add this field?'))) {
+                return;
+            }
+
             var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
             var $new_field = $('<li>' + html + '</li>');
             $('ul.fields').first().append($new_field);
@@ -1867,6 +1871,10 @@
 
         // Add a new field immediately below the current field
         $(document).on('click', '.cfs_add_field_below', function() {
+            if (!window.confirm(message('add_field_confirm', 'Add this field?'))) {
+                return;
+            }
+
             var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
             var $current = $(this).closest('li');
             var parent_id = $current.children('.field').find('.parent_id').first().val();
@@ -1908,7 +1916,12 @@
 
         // Delete a field
         $(document).on('click', '.cfs_delete_field', function() {
+            if (!window.confirm(message('delete_field_confirm', 'Delete this field? This action cannot be undone.'))) {
+                return;
+            }
+
             $(this).closest('.field').closest('li').remove();
+            close_field_action_menus();
             refresh_structure_markers($('ul.fields'));
             refresh_conditional_assignments($('ul.fields'));
             render_duplicate_field_name_warnings();

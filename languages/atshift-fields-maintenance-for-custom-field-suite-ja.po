@@ -833,6 +833,10 @@ msgstr ""
 msgid "Toggle row visibility"
 msgstr "行の表示を切り替え"
 
+#: ../includes/fields/loop.php:465
+msgid "Add this row?"
+msgstr "行を追加しますか？"
+
 #: ../includes/fields/loop.php:444
 msgid "Remove this row?"
 msgstr "この行を削除しますか？"
@@ -950,6 +954,14 @@ msgstr "この下に新規フィールドを追加"
 
 msgid "Add field inside"
 msgstr "この中に新規フィールドを追加"
+
+#: ../templates/admin_head.php:62
+msgid "Add this field?"
+msgstr "フィールドを追加しますか？"
+
+#: ../templates/admin_head.php:63
+msgid "Delete this field? This action cannot be undone."
+msgstr "このフィールドを削除しますか？この操作は元に戻せません。"
 
 msgid "CFS Field Groups"
 msgstr "CFSフィールドグループ"
@@ -1870,6 +1882,14 @@ msgstr "Spotify"
 #: includes/fields/embed_code.php
 msgid "SoundCloud"
 msgstr "SoundCloud"
+
+#: ../cfs.php:198
+msgid "Translate"
+msgstr "翻訳"
+
+#: ../cfs.php:204
+msgid "Output Reference"
+msgstr "出力リファレンス"
 
 #~ msgid "Uncategorized"
 #~ msgstr "未分類"
