@@ -147,7 +147,7 @@ Custom Field Suite (CFS) は、作者による開発が 2024年8月以降停止�
 
 ## Installation (インストール方法)
 
-Current maintenance version: 3.0.5 (現在のメンテナンスバージョン: 3.0.5)
+Current maintenance version: 3.0.5.1 (現在のメンテナンスバージョン: 3.0.5.1)
 
 Install the public release from WordPress.org when possible:
 
@@ -278,17 +278,15 @@ add_action( 'init', function() {
 
 ## Maintenance Release Notes (メンテナンスリリース履歴)
 
-### 3.0.5
+### 3.0.5.1
 
 #### English
 
-- Added confirmation prompts before adding Loop rows or Field Group fields, and before deleting fields in the Field Group editor.
-- Added Translate and Output Reference links to the Plugins screen, and updated the author link to the atshift Fields documentation site.
+- Fixed confirmation dialog cancellation so Loop row and Field Group field add/delete actions are not performed when cancelled.
 
 #### 日本語
 
-- ループ行やフィールドグループ編集画面のフィールド追加、フィールド削除時に確認ダイアログを表示するようにしました。
-- プラグイン画面に「翻訳」と「出力リファレンス」へのリンクを追加し、作者リンクを atshift Fields ドキュメントサイトへ変更しました。
+- ループ行やフィールドグループ編集画面のフィールド追加・削除の確認ダイアログで、キャンセルした場合に処理が実行されないように修正しました。
 
 For full release history, see [GitHub Releases](https://github.com/at-shift/at-shift-cfs/releases).
 

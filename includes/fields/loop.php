@@ -473,10 +473,11 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     }
                 }
 
-                $(document).on('click', '.cfs_add_field', function(event) {
+                $(document).on('click', '.cfs_loop .cfs_add_field', function(event) {
                     event.preventDefault();
                     if (!confirm(add_loop_row_message)) {
-                        return;
+                        event.stopImmediatePropagation();
+                        return false;
                     }
 
                     var num_rows = $(this).attr('data-rows');
@@ -488,7 +489,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     $(this).trigger('cfs/ready');
                 });
 
-                $(document).on('click', '.cfs_loop_insert_row', function(event) {
+                $(document).on('click', '.cfs_loop .cfs_loop_insert_row', function(event) {
                     event.preventDefault();
                     event.stopPropagation();
                     var $loop = $(this).closest('.cfs_loop');
@@ -497,7 +498,8 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                         return;
                     }
                     if (!confirm(add_loop_row_message)) {
-                        return;
+                        event.stopImmediatePropagation();
+                        return false;
                     }
 
                     var num_rows = $add_field.attr('data-rows');
@@ -509,7 +511,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     $add_field.trigger('cfs/ready');
                 });
 
-                $(document).on('click', '.cfs_loop_delete_row', function(event) {
+                $(document).on('click', '.cfs_loop .cfs_loop_delete_row', function(event) {
                     event.preventDefault();
                     event.stopPropagation();
                     if (confirm(remove_loop_row_message)) {
@@ -517,7 +519,7 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                     }
                 });
 
-                $(document).on('click', '.cfs_loop_close_row', function(event) {
+                $(document).on('click', '.cfs_loop .cfs_loop_close_row', function(event) {
                     event.preventDefault();
                     event.stopPropagation();
                     var $wrapper = $(this).closest('.loop_wrapper');

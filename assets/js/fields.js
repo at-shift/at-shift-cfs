@@ -1841,9 +1841,11 @@
         });
 
         // Add a new field
-        $(document).on('click', '.cfs_add_field', function() {
+        $(document).on('click', '#cfs_fields .cfs_add_field', function(event) {
             if (!window.confirm(message('add_field_confirm', 'Add this field?'))) {
-                return;
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return false;
             }
 
             var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
@@ -1870,9 +1872,11 @@
         });
 
         // Add a new field immediately below the current field
-        $(document).on('click', '.cfs_add_field_below', function() {
+        $(document).on('click', '#cfs_fields .cfs_add_field_below', function(event) {
             if (!window.confirm(message('add_field_confirm', 'Add this field?'))) {
-                return;
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return false;
             }
 
             var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
@@ -1915,9 +1919,11 @@
         });
 
         // Delete a field
-        $(document).on('click', '.cfs_delete_field', function() {
+        $(document).on('click', '#cfs_fields .cfs_delete_field', function(event) {
             if (!window.confirm(message('delete_field_confirm', 'Delete this field? This action cannot be undone.'))) {
-                return;
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return false;
             }
 
             $(this).closest('.field').closest('li').remove();
