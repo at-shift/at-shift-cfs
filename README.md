@@ -88,6 +88,7 @@ For field-specific examples and context-appropriate escaping, see the [field out
 ### 3.0.5.1
 
 - Fixed confirmation dialog cancellation so Loop row and Field Group field add/delete actions are not performed when cancelled.
+- Confirmed compatibility with WordPress 7.1 RC3.
 
 For full release history, see [GitHub Releases](https://github.com/at-shift/at-shift-cfs/releases).
 

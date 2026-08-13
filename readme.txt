@@ -2,7 +2,7 @@
 Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 3.0.5.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -208,6 +208,7 @@ See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for se
 = 3.0.5.1 =
 
 * Fixed confirmation dialog cancellation so Loop row and Field Group field add/delete actions are not performed when cancelled.
+* Confirmed compatibility with WordPress 7.1 RC3.
 
 = 3.0.5 =
 
