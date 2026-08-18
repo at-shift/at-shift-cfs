@@ -81,7 +81,7 @@ For field-specific examples and context-appropriate escaping, see the [field out
 ## Related Projects
 
 - [atshift User Profile Fields](https://wordpress.org/plugins/atshift-user-profile-fields/) organizes WordPress user profile fields with a similar field-building experience.
-- [atshift Freeform Login beta](https://upf.at-shift.net/en/freeform-login/) designs the WordPress login screen and provides a matching login form shortcode for site pages.
+- [atshift Freeform Login](https://wordpress.org/plugins/atshift-freeform-login/) designs the WordPress login screen and provides a matching login form shortcode for site pages.
 
 ## Maintenance Release Notes
 
