@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 Plugin Name: atshift Fields (Maintenance for Custom Field Suite)
 Description: This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens.
-Version: 3.0.5.1
+Version: 3.0.5.2
 Author: @shift
-Author URI: https://cfs.at-shift.net
+Author URI: https://cfs.at-shift.net/
 Text Domain: atshift-fields-maintenance-for-custom-field-suite
 Domain Path: /languages
 License: GPLv2
@@ -125,7 +125,7 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
         self::$instance = $this;
 
         // setup variables
-        define( 'ATSHIFT_CFS_VERSION', '3.0.5.1' );
+        define( 'ATSHIFT_CFS_VERSION', '3.0.5.2' );
         define( 'ATSHIFT_CFS_DIR', dirname( __FILE__ ) );
         define( 'ATSHIFT_CFS_URL', plugins_url( '', __FILE__ ) );
         define( 'ATSHIFT_CFS_FIELD_GROUP_POST_TYPE', 'atshift_cfs' );
@@ -149,7 +149,7 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
 
         add_action( 'init', [ $this, 'load_textdomain' ], 0 );
         add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_action_links' ] );
-        add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2 );
+        add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 4 );
 
         // get the gears turning
         include( ATSHIFT_CFS_DIR . '/includes/init.php' );
@@ -187,21 +187,35 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
     /**
      * Add documentation shortcuts to the Plugins screen.
      */
-    function plugin_row_meta( $links, $file ) {
+    function plugin_row_meta( $links, $file, $plugin_data, $status ) {
+        unset( $status );
+
         if ( plugin_basename( __FILE__ ) !== $file ) {
             return $links;
         }
+
+        $links = [
+            sprintf(
+                /* translators: %s: Plugin version. */
+                esc_html__( 'Version %s' ),
+                esc_html( isset( $plugin_data['Version'] ) ? $plugin_data['Version'] : ATSHIFT_CFS_VERSION )
+            ),
+            sprintf(
+                /* translators: %s: Plugin author. */
+                __( 'By %s' ),
+                '<a href="' . esc_url( 'https://cfs.at-shift.net/' ) . '" target="_blank" rel="noopener noreferrer">@shift</a>'
+            ),
+            sprintf(
+                '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+                esc_url( 'https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/' ),
+                esc_html__( 'View details' )
+            ),
+        ];
 
         $links[] = sprintf(
             '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
             esc_url( 'https://translate.wordpress.org/projects/wp-plugins/atshift-fields-maintenance-for-custom-field-suite/' ),
             esc_html__( 'Translate', 'atshift-fields-maintenance-for-custom-field-suite' )
-        );
-
-        $links[] = sprintf(
-            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
-            esc_url( 'https://cfs.at-shift.net/en/output/' ),
-            esc_html__( 'Output Reference', 'atshift-fields-maintenance-for-custom-field-suite' )
         );
 
         return $links;

@@ -85,10 +85,9 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 ## Maintenance Release Notes
 
-### 3.0.5.1
+### 3.0.5.2
 
-- Fixed confirmation dialog cancellation so Loop row and Field Group field add/delete actions are not performed when cancelled.
-- Confirmed compatibility with WordPress 7.1 RC3.
+- Standardized the plugin metadata links shown on the Plugins screen.
 
 For full release history, see [GitHub Releases](https://github.com/at-shift/at-shift-cfs/releases).
 
