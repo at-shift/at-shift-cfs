@@ -15,6 +15,10 @@ class Atshift_CFS_session
      * Constructor
      */
     public function __construct() {
+		if ( 1 === wp_rand( 1, 100 ) ) {
+			$this->cleanup();
+		}
+
         $session_id = '';
         if ( isset( $_POST['cfs']['session_id'] ) ) {
             $session_id = sanitize_text_field( wp_unslash( $_POST['cfs']['session_id'] ) );

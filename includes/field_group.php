@@ -30,9 +30,15 @@ class Atshift_CFS_field_group
         INNER JOIN $wpdb->postmeta m1 ON m1.post_id = p.ID AND m1.meta_key = 'cfs_fields'
         INNER JOIN $wpdb->postmeta m2 ON m2.post_id = p.ID AND m2.meta_key = 'cfs_rules'
         INNER JOIN $wpdb->postmeta m3 ON m3.post_id = p.ID AND m3.meta_key = 'cfs_extras'
-        WHERE p.post_status = 'publish'";
-        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query contains only WordPress table names and fixed meta keys.
-        $results = $wpdb->get_results( $sql );
+        WHERE p.post_status = 'publish'
+            AND p.post_type IN ( %s, %s )";
+        $results = $wpdb->get_results(
+            $wpdb->prepare(
+                $sql,
+                ATSHIFT_CFS_FIELD_GROUP_POST_TYPE,
+                ATSHIFT_CFS_LEGACY_FIELD_GROUP_POST_TYPE
+            )
+        );
 
         $output = [];
         foreach ( $results as $result ) {

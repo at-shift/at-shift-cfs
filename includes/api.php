@@ -460,6 +460,14 @@ class Atshift_CFS_api
         // Clear the cache
         $this->cache[ $post_id ] = null;
 
+		/**
+		 * Fires after atshift Fields values are updated through any save path.
+		 *
+		 * @param int   $post_id Saved post ID.
+		 * @param array $field_data Submitted field data.
+		 */
+		do_action( 'atshift_cfs_values_updated', $post_id, $field_data );
+
         return $post_id;
     }
 

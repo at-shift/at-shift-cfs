@@ -749,6 +749,22 @@ CFS["validation_messages"] = ' . wp_json_encode( [
 
         if ( 0 < $post_id ) {
             $post = get_post( $post_id );
+
+			if ( false !== $params['front_end'] ) {
+				$can_render = current_user_can( 'edit_post', $post_id );
+				/**
+				 * Filters whether an existing post may be rendered in a front-end form.
+				 *
+				 * @param bool  $can_render Whether the current user may render the form.
+				 * @param int   $post_id Post ID.
+				 * @param array $params Form parameters.
+				 */
+				$can_render = (bool) apply_filters( 'atshift_cfs_can_render_existing_post_form', $can_render, $post_id, $params );
+
+				if ( ! $can_render ) {
+					return '';
+				}
+			}
         }
 
         if ( empty( $params['field_groups'] ) ) {

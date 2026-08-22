@@ -581,16 +581,21 @@ class Atshift_CFS_init
      * Render a CFS field group block on the front end.
      */
     function render_field_group_block( $attributes, $content, $block ) {
-        $group_id = isset( $attributes['groupId'] ) ? absint( $attributes['groupId'] ) : 0;
-
         $block_pattern = '/^' . preg_quote( ATSHIFT_CFS_BLOCK_NAMESPACE, '/' ) . '\/field-group-(\d+)$/';
-        if ( 0 === $group_id && is_object( $block ) && isset( $block->name ) && preg_match( $block_pattern, $block->name, $matches ) ) {
+        $group_id     = 0;
+
+        if ( is_object( $block ) && isset( $block->name ) && preg_match( $block_pattern, $block->name, $matches ) ) {
             $group_id = absint( $matches[1] );
         }
 
         if ( 0 === $group_id ) {
             return '';
         }
+
+		$attribute_group_id = isset( $attributes['groupId'] ) ? absint( $attributes['groupId'] ) : 0;
+		if ( $attribute_group_id && $attribute_group_id !== $group_id ) {
+			return '';
+		}
 
         $field_groups = atshift_fields_maintenance_for_custom_field_suite()->field_group->load_field_groups();
 

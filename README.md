@@ -80,14 +80,16 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 ## Related Projects
 
+- [atshift Feed Builder](https://wordpress.org/plugins/atshift-feed-builder/) builds flexible feeds from WordPress content and supported atshift data sources.
 - [atshift User Profile Fields](https://wordpress.org/plugins/atshift-user-profile-fields/) organizes WordPress user profile fields with a similar field-building experience.
 - [atshift Freeform Login](https://wordpress.org/plugins/atshift-freeform-login/) designs the WordPress login screen and provides a matching login form shortcode for site pages.
 
 ## Maintenance Release Notes
 
-### 3.0.5.2
+### 3.0.5.3
 
-- Standardized the plugin metadata links shown on the Plugins screen.
+- Reviewed standalone operation and integrations between atshift projects with Codex Security Check, fixing potential defects and security issues and applying additional hardening.
+- Made other minor fixes.
 
 For full release history, see [GitHub Releases](https://github.com/at-shift/at-shift-cfs/releases).
 
