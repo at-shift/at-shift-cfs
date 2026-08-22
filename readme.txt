@@ -195,10 +195,6 @@ In many cases, yes. The plugin preserves the main data structures and API compat
 
 Yes. It preserves the main APIs used by existing themes, including `CFS()->get()`, `get_field_info()`, `get_reverse_related()`, `save()`, `find_fields()`, and `form()`.
 
-= Which translations are bundled? =
-
-The release package includes bundled translation files for ca, de_DE, en_GB, es_ES, fa_IR, fr_FR, hu_HU, it_IT, ja, ko_KR, nl_NL, pl_PL, pt_BR, ru_RU, tr_TR, zh_CN, and zh_TW.
-
 = Where can I find documentation? =
 
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
