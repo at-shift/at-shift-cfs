@@ -86,10 +86,10 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 ## Maintenance Release Notes
 
-### 3.0.5.3
+### 3.0.6
 
-- Reviewed standalone operation and integrations between atshift projects with Codex Security Check, fixing potential defects and security issues and applying additional hardening.
-- Made other minor fixes.
+- Fixed the native Post Content visual editor so Visual/Code tab switching, editor toolbars, and media controls initialize correctly without inserting TinyMCE bookmark markup into content.
+- Fixed a conflict between native Post Content and WYSIWYG fields that could interrupt editor initialization when both fields appear on the same screen.
 
 For full release history, see [GitHub Releases](https://github.com/at-shift/at-shift-cfs/releases).
 

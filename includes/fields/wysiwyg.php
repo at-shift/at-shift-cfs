@@ -155,7 +155,7 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                     var currentHeight;
                     var currentWidth;
 
-                    if (!editor || !$wrap.is(':visible')) {
+                    if (!editor || !editor.initialized || !$wrap.is(':visible')) {
                         return;
                     }
 

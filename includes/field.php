@@ -219,9 +219,11 @@ class Atshift_CFS_field
      * @return string
      */
     protected function get_tinymce_content_style() {
-        return implode( "\n", [
+        // WordPress embeds this value in a double-quoted inline JavaScript
+        // string, so keep the CSS on one line and use single-quoted font names.
+        return implode( ' ', [
             '/* atshift-cfs-editor-font-reset */',
-            'body.mce-content-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif !important; font-size: 16px; line-height: 1.7; color: #1d2327; }',
+            'body.mce-content-body { font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Hiragino Sans\', \'Hiragino Kaku Gothic ProN\', \'Yu Gothic\', Meiryo, sans-serif !important; font-size: 16px; line-height: 1.7; color: #1d2327; }',
             'body.mce-content-body p, body.mce-content-body div, body.mce-content-body li, body.mce-content-body td, body.mce-content-body th, body.mce-content-body blockquote { font-family: inherit; }',
         ] );
     }
