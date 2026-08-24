@@ -86,6 +86,10 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 ## Maintenance Release Notes
 
+### 3.0.6.1
+
+- Added Indonesian (`id_ID`) translation files, with all strings independently reviewed for accuracy, context, and consistent WordPress terminology.
+
 ### 3.0.6
 
 - Fixed the native Post Content visual editor so Visual/Code tab switching, editor toolbars, and media controls initialize correctly without inserting TinyMCE bookmark markup into content.

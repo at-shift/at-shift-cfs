@@ -1,0 +1,1741 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: at-shift CFS\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2026-08-24 14:02+0900\n"
+"Last-Translator: atshift\n"
+"Language-Team: Indonesian\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../includes/fields/conditional.php:7
+msgid "Conditional Group"
+msgstr "Grup Bersyarat"
+
+#: ../templates/admin_head.php:63
+msgid "Unnamed condition"
+msgstr "Kondisi tanpa nama"
+
+#: ../templates/admin_head.php:65
+#, php-format
+msgid "Condition \"%s\""
+msgstr "Kondisi \"%s\""
+
+#: ../includes/fields/conditional.php:107
+msgid "Display Type"
+msgstr "Jenis Tampilan"
+
+#: ../includes/fields/conditional.php:120
+msgid "Dropdown"
+msgstr "Tarik-turun"
+
+#: ../includes/fields/conditional.php:147
+msgid "Used for radio buttons. The first choice is used when left blank."
+msgstr "Digunakan untuk tombol radio. Pilihan pertama digunakan jika dibiarkan kosong."
+
+#: ../includes/fields/conditional.php:174
+msgid "Require a condition selection"
+msgstr "Wajib memilih kondisi"
+
+#: ../templates/field_html.php:94
+msgid "Display for choice"
+msgstr "Tampilkan untuk pilihan"
+
+#: ../templates/field_html.php:95
+msgid "Choose the parent Conditional Group value that displays this field."
+msgstr "Pilih nilai Grup Bersyarat induk yang akan menampilkan bidang ini."
+
+#: ../templates/admin_head.php:50
+msgid "Tabs and conditional groups cannot be placed inside a Conditional Group."
+msgstr "Tab dan grup bersyarat tidak dapat ditempatkan di dalam Grup Bersyarat."
+
+#: ../includes/field.php:16 ../includes/fields/text.php:8
+msgid "Text"
+msgstr "Teks"
+
+#: ../includes/field.php:42 ../includes/fields/file.php:64
+#: ../includes/fields/select.php:117 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
+#: ../includes/fields/wysiwyg.php:54
+msgid "Validation"
+msgstr "Validasi"
+
+#: ../includes/field.php:51 ../includes/fields/file.php:73
+#: ../includes/fields/select.php:126 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
+#: ../includes/fields/wysiwyg.php:63
+msgid "This is a required field"
+msgstr "Bidang ini wajib diisi"
+
+#: ../includes/form.php:266 ../includes/fields/group.php:147
+msgid "Required"
+msgstr "Wajib"
+
+#: ../includes/field_group.php:112
+msgid "Imported"
+msgstr "Diimpor"
+
+#: ../includes/field_group.php:115
+msgid "Skipped"
+msgstr "Dilewati"
+
+#: ../includes/field_group.php:120
+msgid "Nothing to import"
+msgstr "Tidak ada yang dapat diimpor"
+
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr "Warna"
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Tanggal"
+
+#: ../includes/fields/file.php:8
+msgid "File Upload"
+msgstr "Unggah Berkas"
+
+#: ../includes/fields/file.php:32
+msgid "Add File"
+msgstr "Tambah Berkas"
+
+#: ../includes/fields/file.php:33
+msgid "Remove"
+msgstr "Hapus"
+
+#: ../includes/fields/file.php:43
+msgid "Return Value"
+msgstr "Nilai Kembalian"
+
+#: ../includes/fields/file.php:52
+msgid "File URL"
+msgstr "URL Berkas"
+
+#: ../includes/fields/file.php:53
+msgid "Attachment ID"
+msgstr "ID Lampiran"
+
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr "Tautan"
+
+#: ../includes/fields/hyperlink.php:23
+msgid "URL"
+msgstr "URL"
+
+#: ../includes/fields/hyperlink.php:27
+msgid "Link Text"
+msgstr "Teks Tautan"
+
+#: ../includes/fields/hyperlink.php:31
+msgid "Link Target"
+msgstr "Target Tautan"
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr "Format keluaran"
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr "HTML"
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr "Larik PHP"
+
+#: ../includes/fields/loop.php:8
+msgid "Loop"
+msgstr "Perulangan"
+
+#: ../includes/fields/loop.php:36
+msgid "Row Display"
+msgstr "Tampilan Baris"
+
+#: ../includes/fields/loop.php:45
+msgid "Show the values by default"
+msgstr "Tampilkan nilai secara bawaan"
+
+#: ../includes/fields/loop.php:52
+msgid "Row Label"
+msgstr "Label Baris"
+
+#: ../includes/fields/loop.php:54
+msgid "Leave blank to use the first child field value as the row heading. Enter a child field name wrapped in braces, such as {field_name}, to use that field value instead."
+msgstr "Biarkan kosong untuk menggunakan nilai bidang anak pertama sebagai judul baris. Masukkan nama bidang anak di dalam kurung kurawal, seperti {field_name}, untuk menggunakan nilai bidang tersebut."
+
+#: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
+#: ../includes/fields/loop.php:194
+msgid "Loop Row"
+msgstr "Baris Perulangan"
+
+#: ../includes/fields/loop.php:66
+msgid "Button Label"
+msgstr "Label Tombol"
+
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
+#: ../includes/fields/loop.php:195
+msgid "Add Row"
+msgstr "Tambah Baris"
+
+#: ../includes/fields/loop.php:301
+msgid "Add an item below"
+msgstr "Tambah item di bawah"
+
+#: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr "Batas"
+
+msgid "Minimum sets the fewest terms that can be selected. Maximum sets the most terms that can be selected."
+msgstr "Minimum menentukan jumlah istilah paling sedikit yang dapat dipilih. Maksimum menentukan jumlah istilah paling banyak yang dapat dipilih."
+
+#: ../includes/fields/relationship.php:8
+msgid "Relationship"
+msgstr "Relasi"
+
+#: ../includes/fields/relationship.php:60
+msgid "Search posts"
+msgstr "Cari pos"
+
+#: ../includes/fields/relationship.php:88 ../includes/init.php:282
+#: ../templates/meta_box_rules.php:136
+msgid "Post Types"
+msgstr "Tipe Pos"
+
+#: ../includes/fields/relationship.php:89
+msgid "Limit posts to the following types"
+msgstr "Batasi pos pada tipe berikut"
+
+#: ../includes/fields/select.php:8
+msgid "Select"
+msgstr "Pilihan"
+
+#: ../includes/fields/select.php:43
+msgid "Please select..."
+msgstr "Silakan pilih..."
+
+#: ../includes/fields/code_view.php:210
+msgid "Please select a language..."
+msgstr "Silakan pilih bahasa..."
+
+#: ../includes/fields/select.php:86
+msgid "Choices"
+msgstr "Pilihan"
+
+#: ../includes/fields/select.php:87
+msgid "Enter one choice per line"
+msgstr "Masukkan satu pilihan per baris"
+
+#: ../includes/fields/select.php:101
+msgid "Multi-select?"
+msgstr "Pilihan ganda?"
+
+#: ../includes/fields/select.php:110
+msgid "This is a multi-select field"
+msgstr "Ini adalah bidang pilihan ganda"
+
+#: ../includes/fields/tab.php:12
+msgid "Tab Group"
+msgstr "Grup Tab"
+
+#: ../includes/fields/tab.php:8
+msgid "Tab"
+msgstr "Tab"
+
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
+msgid "Default Value"
+msgstr "Nilai Bawaan"
+
+msgid "Placeholder"
+msgstr "Placeholder"
+
+msgid "The value specified from the beginning."
+msgstr "Nilai yang ditentukan sejak awal."
+
+msgid "An input example or other helpful hint."
+msgstr "Contoh masukan atau petunjuk berguna lainnya."
+
+msgid "at-shift CFS"
+msgstr "at-shift CFS"
+
+msgctxt "date picker"
+msgid "Clear"
+msgstr "Kosongkan"
+
+#: ../includes/fields/textarea.php:8
+msgid "Textarea"
+msgstr "Area Teks"
+
+#: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
+msgid "Formatting"
+msgstr "Pemformatan"
+
+#: ../includes/fields/textarea.php:46
+msgid "None"
+msgstr "Tidak Ada"
+
+#: ../includes/fields/textarea.php:47
+msgid "Convert newlines to <br />"
+msgstr "Ubah baris baru menjadi <br />"
+
+#: ../includes/fields/true_false.php:8
+msgid "True / False"
+msgstr "Benar / Salah"
+
+#: ../includes/fields/true_false.php:30
+msgid "Message"
+msgstr "Pesan"
+
+#: ../includes/fields/true_false.php:31
+msgid "The text beside the checkbox"
+msgstr "Teks di samping kotak centang"
+
+#: ../includes/fields/user.php:8
+msgid "User"
+msgstr "Pengguna"
+
+#: ../includes/fields/user.php:31
+msgid "Search users"
+msgstr "Cari pengguna"
+
+#: ../includes/fields/wysiwyg.php:8
+msgid "Wysiwyg Editor"
+msgstr "Editor WYSIWYG"
+
+#: ../includes/fields/wysiwyg.php:42
+msgid "Default"
+msgstr "Bawaan"
+
+#: ../includes/fields/wysiwyg.php:43
+msgid "None (bypass filters)"
+msgstr "Tidak ada (lewati filter)"
+
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr "Kirim"
+
+#: ../includes/init.php:58
+msgid "Field Groups"
+msgstr "Grup Bidang"
+
+#: ../includes/init.php:59
+msgid "Field Group"
+msgstr "Grup Bidang"
+
+#: ../includes/init.php:60
+msgid "All Field Groups"
+msgstr "Semua Grup Bidang"
+
+#: ../includes/init.php:61
+msgid "Add New Field Group"
+msgstr "Tambah Grup Bidang Baru"
+
+#: ../includes/init.php:62
+msgid "Edit Field Group"
+msgstr "Edit Grup Bidang"
+
+#: ../includes/init.php:63
+msgid "New Field Group"
+msgstr "Grup Bidang Baru"
+
+#: ../includes/init.php:64
+msgid "View Field Group"
+msgstr "Lihat Grup Bidang"
+
+#: ../includes/init.php:65
+msgid "Search Field Groups"
+msgstr "Cari Grup Bidang"
+
+#: ../includes/init.php:66
+msgid "No Field Groups found"
+msgstr "Tidak ada Grup Bidang yang ditemukan"
+
+#: ../includes/init.php:67
+msgid "No Field Groups found in Trash"
+msgstr "Tidak ada Grup Bidang yang ditemukan di Sampah"
+
+#: ../includes/init.php:140 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Peralatan"
+
+#: ../includes/init.php:153
+msgid "Fields"
+msgstr "Bidang"
+
+#: ../includes/init.php:154
+msgid "Placement Rules"
+msgstr "Aturan Penempatan"
+
+#: ../includes/init.php:155
+msgid "Extras"
+msgstr "Tambahan"
+
+#: ../includes/init.php:268
+msgid "Title"
+msgstr "Judul"
+
+#: ../includes/init.php:269
+msgid "Placement"
+msgstr "Penempatan"
+
+#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
+msgid "User Roles"
+msgstr "Peran Pengguna"
+
+#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
+msgid "Posts"
+msgstr "Pos"
+
+#: ../includes/init.php:285
+msgid "Term IDs"
+msgstr "ID Istilah"
+
+#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
+msgid "Page Templates"
+msgstr "Templat Halaman"
+
+#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
+msgid "Post Formats"
+msgstr "Format Pos"
+
+#: ../includes/revision.php:26
+msgid "Post Meta"
+msgstr "Meta Pos"
+
+#: ../templates/admin_head.php:24
+msgid "New Field"
+msgstr "Bidang Baru"
+
+#: ../templates/field_html.php:30
+msgid "Label"
+msgstr "Label"
+
+#: ../templates/field_html.php:32
+msgid "The field label that editors will see."
+msgstr "Label bidang yang akan dilihat penyunting."
+
+#: ../templates/field_html.php:39
+msgid "Name"
+msgstr "Nama"
+
+#: ../templates/field_html.php:42
+msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
+msgstr "Nama bidang diteruskan ke get() untuk mengambil nilai. Gunakan hanya huruf kecil, angka, dan garis bawah."
+
+#: ../templates/field_html.php:49
+msgid "Field Type"
+msgstr "Jenis Bidang"
+
+#: ../templates/field_html.php:67
+msgid "Notes"
+msgstr "Catatan"
+
+#: ../templates/field_html.php:69
+msgid "Notes for editors during data entry"
+msgstr "Catatan untuk penyunting saat memasukkan data"
+
+#: ../templates/field_html.php:82
+msgid "Close"
+msgstr "Tutup"
+
+#: ../templates/field_html.php:83
+msgid "or"
+msgstr "atau"
+
+#: ../templates/field_html.php:83
+msgid "delete"
+msgstr "hapus"
+
+#: ../templates/meta_box_extras.php:33
+msgid "Order"
+msgstr "Urutan"
+
+#: ../templates/meta_box_extras.php:35
+msgid "The field group with the lowest order will appear first."
+msgstr "Grup bidang dengan urutan terendah akan tampil lebih dahulu."
+
+#: ../templates/meta_box_extras.php:281
+msgid "Field Group Position"
+msgstr "Posisi Grup Bidang"
+
+#: ../templates/meta_box_extras.php:284
+msgid "Normal"
+msgstr "Normal"
+
+#: ../templates/meta_box_extras.php:285
+msgid "Side"
+msgstr "Samping"
+
+#: ../templates/meta_box_extras.php:287
+msgid "Controls where this field group appears on the edit screen."
+msgstr "Mengatur tempat grup bidang ini tampil pada layar penyuntingan."
+
+#: ../templates/meta_box_extras.php:293
+msgid "Native Editor Display Settings"
+msgstr "Pengaturan Tampilan Editor Bawaan"
+
+#: ../templates/meta_box_extras.php:298
+msgid "These settings hide native WordPress editor sections for matching posts, regardless of where this field group is displayed."
+msgstr "Pengaturan ini menyembunyikan bagian editor bawaan WordPress untuk pos yang cocok, di mana pun grup bidang ini ditampilkan."
+
+#: ../templates/meta_box_extras.php:64
+msgid "Hide the content editor (also hides the Gutenberg / block editor for matching posts)"
+msgstr "Sembunyikan editor konten (juga menyembunyikan Gutenberg / editor blok untuk pos yang cocok)"
+
+#: ../templates/meta_box_extras.php:78
+msgid "Hide page attributes"
+msgstr "Sembunyikan atribut halaman"
+
+#: ../templates/meta_box_extras.php:92
+msgid "Force the post edit screen layout to 1 column"
+msgstr "Paksa tata letak layar penyuntingan pos menjadi 1 kolom"
+
+#: ../templates/meta_box_extras.php:309
+msgid "Third-party side meta boxes are not hidden; in the 1-column layout, they appear below the main editor area."
+msgstr "Kotak meta samping dari pihak ketiga tidak disembunyikan; dalam tata letak 1 kolom, kotak tersebut tampil di bawah area editor utama."
+
+#: ../templates/meta_box_extras.php:93
+msgid "All roles"
+msgstr "Semua peran"
+
+#: ../templates/meta_box_extras.php:94
+msgid "All roles except Administrators / Web administrators"
+msgstr "Semua peran kecuali Administrator / Administrator web"
+
+#: ../templates/meta_box_extras.php:95
+msgid "Selected roles only"
+msgstr "Hanya peran yang dipilih"
+
+#: ../templates/meta_box_extras.php:96
+msgid "Select roles when using selected roles only"
+msgstr "Pilih peran saat menggunakan opsi hanya peran yang dipilih"
+
+#: ../templates/meta_box_extras.php:157
+msgid "Already controlled by a native field in this field group."
+msgstr "Sudah dikendalikan oleh bidang bawaan dalam grup bidang ini."
+
+#: ../templates/meta_box_extras.php:163
+#, php-format
+msgid "Already controlled by \"%s\"."
+msgstr "Sudah dikendalikan oleh \"%s\"."
+
+#: ../templates/meta_box_extras.php:97
+msgid "Screen Layout"
+msgstr "Tata Letak Layar"
+
+#: ../templates/meta_box_extras.php:98
+msgid "Side Sections"
+msgstr "Bagian Samping"
+
+#: ../templates/meta_box_extras.php:99
+msgid "Hide categories"
+msgstr "Sembunyikan kategori"
+
+#: ../templates/meta_box_extras.php
+msgid "Hide global categories"
+msgstr "Sembunyikan kategori global"
+
+#: ../templates/meta_box_extras.php:100
+msgid "Hide tags"
+msgstr "Sembunyikan tag"
+
+#: ../templates/meta_box_extras.php:101
+msgid "Hide featured image"
+msgstr "Sembunyikan gambar unggulan"
+
+#: ../templates/meta_box_extras.php:313 ../templates/meta_box_extras.php:329
+msgid "Hiding behavior"
+msgstr "Pengaturan penyembunyian"
+
+#: ../templates/meta_box_extras.php:103
+msgid "Main Sections"
+msgstr "Bagian Utama"
+
+#: ../templates/meta_box_extras.php:105
+msgid "Hide format"
+msgstr "Sembunyikan format"
+
+#: ../templates/meta_box_extras.php:106
+msgid "Hide comments"
+msgstr "Sembunyikan komentar"
+
+#: ../templates/meta_box_extras.php:107
+msgid "Hide discussion"
+msgstr "Sembunyikan diskusi"
+
+#: ../templates/meta_box_extras.php:108
+msgid "Hide excerpt"
+msgstr "Sembunyikan kutipan"
+
+#: ../templates/meta_box_extras.php:109
+msgid "Hide trackbacks"
+msgstr "Sembunyikan lacak balik"
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide permalink"
+msgstr "Sembunyikan permalink"
+
+#: ../templates/meta_box_extras.php:110
+msgid "Hide slug"
+msgstr "Sembunyikan slug"
+
+#: ../templates/meta_box_extras.php:111
+msgid "Hide author"
+msgstr "Sembunyikan penulis"
+
+#: ../templates/meta_box_extras.php:112
+msgid "Hide custom fields"
+msgstr "Sembunyikan bidang khusus"
+
+#: ../templates/meta_box_fields.php:60
+msgid "Add New Field"
+msgstr "Tambah Bidang Baru"
+
+#: ../templates/meta_box_rules.php:5
+msgid "equals"
+msgstr "sama dengan"
+
+#: ../templates/meta_box_rules.php:6
+msgid "is not"
+msgstr "bukan"
+
+#: ../templates/meta_box_rules.php:57
+msgid "Standard"
+msgstr "Standar"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Administrator"
+msgstr "Administrator"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Editor"
+msgstr "Editor"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Author"
+msgstr "Penulis"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Contributor"
+msgstr "Kontributor"
+
+#: ../templates/meta_box_rules.php:70
+msgid "Subscriber"
+msgstr "Pelanggan"
+
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
+msgid "Leave blank to skip this rule"
+msgstr "Biarkan kosong untuk melewati aturan ini"
+
+#: ../templates/meta_box_rules.php:248
+msgid "The results could not be loaded."
+msgstr "Hasil tidak dapat dimuat."
+
+#: ../templates/meta_box_rules.php:253
+msgid "Please enter 1 more character"
+msgstr "Masukkan 1 karakter lagi"
+
+#: ../templates/meta_box_rules.php:256
+msgid "Please enter %s or more characters"
+msgstr "Masukkan %s karakter atau lebih"
+
+#: ../templates/meta_box_rules.php:259
+msgid "Loading more results..."
+msgstr "Memuat hasil lainnya..."
+
+#: ../templates/meta_box_rules.php:262
+msgid "No results found"
+msgstr "Tidak ada hasil yang ditemukan"
+
+#: ../templates/meta_box_rules.php:265
+msgid "Searching..."
+msgstr "Mencari..."
+
+#: ../templates/meta_box_rules.php:282
+msgid "%s allowed"
+msgstr "%s diizinkan"
+
+#: ../templates/meta_box_rules.php:258
+msgid "Taxonomy Terms"
+msgstr "Istilah Taksonomi"
+
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
+msgid "Export"
+msgstr "Ekspor"
+
+#: ../templates/page_tools.php:96
+msgid "Select the field groups you want to export, press the button, then save the displayed code. You can select multiple items."
+msgstr "Pilih grup bidang yang ingin diekspor, tekan tombol, lalu simpan kode yang ditampilkan. Anda dapat memilih beberapa item."
+
+#: ../templates/page_tools.php:112
+msgid "Export Code"
+msgstr "Ekspor Kode"
+
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
+msgid "Import"
+msgstr "Impor"
+
+#: ../templates/page_tools.php:122
+msgid "Paste the exported field group code into the input field below, then press the button."
+msgstr "Tempelkan kode grup bidang yang diekspor ke bidang masukan di bawah, lalu tekan tombol."
+
+#: ../templates/page_tools.php:125
+msgid "Import Code"
+msgstr "Impor Kode"
+
+#: ../templates/page_tools.php:120
+msgid "Paste the import code here"
+msgstr "Tempelkan kode impor di sini"
+
+#: ../templates/page_tools.php:78
+msgid "Reset"
+msgstr "Atur Ulang"
+
+#: ../templates/page_tools.php:122
+msgid "Reset and deactivate."
+msgstr "Atur ulang dan nonaktifkan."
+
+#: ../templates/page_tools.php:123
+msgid "This will delete all at-shift CFS data and deactivate the plugin."
+msgstr "Tindakan ini akan menghapus semua data at-shift CFS dan menonaktifkan plugin."
+
+#: ../templates/page_tools.php:24
+msgid "This will delete all at-shift CFS data. Are you sure?"
+msgstr "Tindakan ini akan menghapus semua data at-shift CFS. Anda yakin?"
+
+#: ../templates/page_tools.php:124
+msgid "Delete everything"
+msgstr "Hapus semuanya"
+
+#: ../includes/fields/checkbox.php:8
+msgid "Checkbox"
+msgstr "Kotak Centang"
+
+#: ../includes/fields/file.php:44
+msgid "File Type"
+msgstr "Jenis Berkas"
+
+#: ../includes/fields/file.php:53
+msgid "Any"
+msgstr "Apa Saja"
+
+#: ../includes/fields/file.php:54
+msgid "Image"
+msgstr "Gambar"
+
+#: ../includes/fields/file.php:55
+msgid "Audio"
+msgstr "Audio"
+
+#: ../includes/fields/file.php:56
+msgid "Video"
+msgstr "Video"
+
+#: ../includes/fields/radio.php:8
+msgid "Radio Button"
+msgstr "Tombol Radio"
+
+#: ../includes/fields/select.php:133
+msgid "Select2"
+msgstr "Select2"
+
+msgid "Displays the select field with Select2. This makes long choice lists easier to search and select on edit screens."
+msgstr "Menampilkan bidang pilihan dengan Select2. Ini memudahkan pencarian dan pemilihan dalam daftar pilihan yang panjang pada layar penyuntingan."
+
+#: ../includes/fields/select.php:142
+msgid "Render this field with Select2"
+msgstr "Tampilkan bidang ini dengan Select2"
+
+#: ../includes/fields/term.php:8
+msgid "Term"
+msgstr "Istilah"
+
+#: ../includes/fields/term.php:69
+msgid "Search terms"
+msgstr "Cari istilah"
+
+#: ../includes/fields/term.php:97
+msgid "Taxonomies"
+msgstr "Taksonomi"
+
+#: ../includes/fields/term.php:98
+msgid "Limit terms to the following taxonomies"
+msgstr "Batasi istilah pada taksonomi berikut"
+
+#: ../includes/fields/post_publish.php:59
+msgid "The post was not saved because validation errors were found. Check the error list at the top of the field group."
+msgstr "Pos tidak disimpan karena ditemukan kesalahan validasi. Periksa daftar kesalahan di bagian atas grup bidang."
+
+#: ../includes/fields/post_publish.php:60
+msgid "Go to error list"
+msgstr "Buka daftar kesalahan"
+
+#: ../includes/fields/post_publish.php:61
+msgid "Validation errors have been resolved. You can save the post now."
+msgstr "Kesalahan validasi telah diselesaikan. Anda sekarang dapat menyimpan pos."
+
+#: ../includes/form.php:247
+msgid "One (or more) of your fields had validation errors. More information is available below."
+msgstr "Satu atau beberapa bidang memiliki kesalahan validasi. Informasi selengkapnya tersedia di bawah."
+
+#: ../includes/form.php:444
+msgid "Toggle row visibility"
+msgstr "Tampilkan/sembunyikan baris"
+
+#: ../includes/fields/loop.php:465
+msgid "Add this row?"
+msgstr "Tambahkan baris ini?"
+
+#: ../includes/fields/loop.php:444
+msgid "Remove this row?"
+msgstr "Hapus baris ini?"
+
+#: ../includes/init.php:60
+msgid "Custom Field Suite"
+msgstr "Custom Field Suite"
+
+#: ../includes/init.php:154
+msgid "atshift Fields Tool"
+msgstr "Alat atshift Fields"
+
+#: ../includes/fields/phone.php:8
+msgid "Phone"
+msgstr "Telepon"
+
+#: ../includes/fields/email.php:8
+msgid "Email Address"
+msgstr "Alamat Email"
+
+#: ../includes/fields/number.php:8
+msgid "Number"
+msgstr "Angka"
+
+#: ../includes/fields/number.php:40
+msgid "Number Settings"
+msgstr "Pengaturan Angka"
+
+msgid "Minimum sets the lowest allowed value. Maximum sets the highest allowed value. Step sets the allowed interval between values, such as 1, 0.1, or 5."
+msgstr "Minimum menentukan nilai terendah yang diizinkan. Maksimum menentukan nilai tertinggi yang diizinkan. Langkah menentukan interval yang diizinkan antar nilai, seperti 1, 0.1, atau 5."
+
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Maximum"
+msgstr "Maksimum"
+
+msgid "Step"
+msgstr "Langkah"
+
+#: ../includes/fields/time.php:8
+msgid "Time"
+msgstr "Waktu"
+
+#: ../includes/fields/time.php:54
+msgid "Minute Interval"
+msgstr "Interval Menit"
+
+#: ../includes/fields/time.php:64
+msgid "1 minute"
+msgstr "1 menit"
+
+#: ../includes/fields/time.php:65
+msgid "5 minutes"
+msgstr "5 menit"
+
+#: ../includes/fields/time.php:66
+msgid "10 minutes"
+msgstr "10 menit"
+
+#: ../includes/fields/time.php:67
+msgid "15 minutes"
+msgstr "15 menit"
+
+#: ../includes/fields/time.php:68
+msgid "30 minutes"
+msgstr "30 menit"
+
+#: ../includes/fields/group.php:8
+msgid "Horizontal Group"
+msgstr "Grup Horizontal"
+
+#: ../includes/fields/group.php:68
+msgid "Columns"
+msgstr "Kolom"
+
+msgid "Columns (default: 3)"
+msgstr "Kolom (bawaan: 3)"
+
+#: ../includes/fields/group.php:77
+msgid "Auto"
+msgstr "Otomatis"
+
+#: ../includes/fields/group.php:78
+msgid "2 columns"
+msgstr "2 kolom"
+
+#: ../includes/fields/group.php:79
+msgid "3 columns"
+msgstr "3 kolom"
+
+#: ../includes/fields/group.php:80
+msgid "4 columns"
+msgstr "4 kolom"
+
+#: ../includes/fields/group.php:92
+msgid "Alignment"
+msgstr "Perataan"
+
+#: ../includes/fields/group.php:101
+msgid "Evenly distributed"
+msgstr "Didistribusikan merata"
+
+#: ../includes/fields/group.php:102
+msgid "Left aligned"
+msgstr "Rata kiri"
+
+#: ../templates/field_html.php:84
+msgid "Add new field below"
+msgstr "Tambah bidang baru di bawah"
+
+msgid "Add field inside"
+msgstr "Tambah bidang di dalam"
+
+#: ../templates/admin_head.php:62
+msgid "Add this field?"
+msgstr "Tambahkan bidang ini?"
+
+#: ../templates/admin_head.php:63
+msgid "Delete this field? This action cannot be undone."
+msgstr "Hapus bidang ini? Tindakan ini tidak dapat dibatalkan."
+
+msgid "CFS Field Groups"
+msgstr "Grup Bidang CFS"
+
+msgid "CFS Field Group: %s"
+msgstr "Grup Bidang CFS: %s"
+
+msgid "Displays a CFS field group."
+msgstr "Menampilkan grup bidang CFS."
+
+msgid "No fields in this group."
+msgstr "Tidak ada bidang dalam grup ini."
+
+msgid "Post Title (Native)"
+msgstr "Judul Pos (Bawaan)"
+
+msgid "You do not have permission to change the native title."
+msgstr "Anda tidak memiliki izin untuk mengubah judul bawaan."
+
+msgid "Allowed User Role Groups"
+msgstr "Grup Peran Pengguna yang Diizinkan"
+
+msgid "Select the roles that can change the native title. Leave blank to allow any user role that can edit the post."
+msgstr "Pilih peran yang dapat mengubah judul bawaan. Biarkan kosong untuk mengizinkan peran pengguna apa pun yang dapat mengedit pos."
+
+msgid "Leave blank to allow any role that can edit this post"
+msgstr "Biarkan kosong untuk mengizinkan peran apa pun yang dapat mengedit pos ini"
+
+msgid "Post Categories"
+msgstr "Kategori Pos"
+
+msgid "Post Tags"
+msgstr "Tag Pos"
+
+msgid "Featured Image"
+msgstr "Gambar Unggulan"
+
+msgid "No categories found"
+msgstr "Tidak ada kategori yang ditemukan"
+
+msgid "Separate tags with commas"
+msgstr "Pisahkan tag dengan koma"
+
+msgid "Select Image"
+msgstr "Pilih Gambar"
+
+msgid "Remove Image"
+msgstr "Hapus Gambar"
+
+msgid "Search categories"
+msgstr "Cari kategori"
+
+msgid "Show selected only"
+msgstr "Tampilkan hanya yang dipilih"
+
+msgid "Category Selection"
+msgstr "Pemilihan Kategori"
+
+msgid "Selecting a parent also selects all child categories"
+msgstr "Memilih induk juga memilih semua kategori anak"
+
+msgid "Selecting a child also selects its parent categories"
+msgstr "Memilih anak juga memilih kategori induknya"
+
+msgid "CFS placement warning:"
+msgstr "Peringatan penempatan CFS:"
+
+msgid "This field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Grup bidang ini tidak memiliki aturan penempatan. Grup ini akan tampil pada semua layar pos yang dapat diedit, jadi tetapkan Tipe Pos atau aturan penempatan lain kecuali hal tersebut memang disengaja."
+
+msgid "Saved, but this field group has no placement rules. It will appear on all editable post screens, so set a Post Type or another placement rule unless that is intentional."
+msgstr "Tersimpan, tetapi grup bidang ini tidak memiliki aturan penempatan. Grup ini akan tampil pada semua layar pos yang dapat diedit, jadi tetapkan Tipe Pos atau aturan penempatan lain kecuali hal tersebut memang disengaja."
+
+msgid "No placement rules"
+msgstr "Tidak ada aturan penempatan"
+
+msgid "This field group will appear on all editable post screens."
+msgstr "Grup bidang ini akan tampil pada semua layar pos yang dapat diedit."
+
+msgid "A newer version %s is available on GitHub."
+msgstr "Versi yang lebih baru, %s, tersedia di GitHub."
+
+msgid "Add at least one field to this tab group."
+msgstr "Tambahkan setidaknya satu bidang ke grup tab ini."
+
+msgid "Add two or more fields to this horizontal group."
+msgstr "Tambahkan dua bidang atau lebih ke grup horizontal ini."
+
+msgid "Add at least one field to this loop group."
+msgstr "Tambahkan setidaknya satu bidang ke grup perulangan ini."
+
+msgid "Add at least one field to this accordion group."
+msgstr "Tambahkan setidaknya satu bidang ke grup akordeon ini."
+
+msgid "Contains required fields"
+msgstr "Berisi bidang wajib"
+
+msgid "Set conditions and add fields to each condition."
+msgstr "Tetapkan kondisi dan tambahkan bidang ke setiap kondisi."
+
+msgid "Add fields to each condition."
+msgstr "Tambahkan bidang ke setiap kondisi."
+
+msgid "Create two or more conditions, then add fields to each condition."
+msgstr "Buat dua kondisi atau lebih, lalu tambahkan bidang ke setiap kondisi."
+
+msgid "Add fields to each empty condition."
+msgstr "Tambahkan bidang ke setiap kondisi kosong."
+
+msgid "Tabs, loops, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Tab, perulangan, dan grup horizontal tidak dapat ditempatkan di dalam grup horizontal."
+
+msgid "Code View"
+msgstr "Tampilan Kode"
+
+msgid "Shortcode"
+msgstr "Shortcode"
+
+msgid "A meta box is a settings or input box added to the WordPress post edit screen by a third-party plugin. This field is only for repositioning and moving a third-party meta box into an atshift Fields field group."
+msgstr "Kotak meta adalah kotak pengaturan atau masukan yang ditambahkan ke layar penyuntingan pos WordPress oleh plugin pihak ketiga. Bidang ini hanya untuk mengatur ulang posisi dan memindahkan kotak meta pihak ketiga ke dalam grup bidang atshift Fields."
+
+msgid "Classic Meta Box Placement"
+msgstr "Penempatan Kotak Meta Klasik"
+
+msgid "Meta box ID is not set."
+msgstr "ID kotak meta belum ditetapkan."
+
+msgid "The selected meta box was not found on this edit screen."
+msgstr "Kotak meta yang dipilih tidak ditemukan pada layar penyuntingan ini."
+
+msgid "This meta box is not recommended to move."
+msgstr "Kotak meta ini tidak disarankan untuk dipindahkan."
+
+msgid "This meta box is already placed in another slot."
+msgstr "Kotak meta ini sudah ditempatkan di slot lain."
+
+msgid "Meta Box ID"
+msgstr "ID Kotak Meta"
+
+msgid "Detect a classic third-party meta box from the post types selected in Placement Rules, or enter its HTML source id manually. The original plugin keeps handling saving."
+msgstr "Deteksi kotak meta klasik pihak ketiga dari tipe pos yang dipilih dalam Aturan Penempatan, atau masukkan ID sumber HTML-nya secara manual. Plugin sumber tetap menangani penyimpanan."
+
+msgid "Classic meta boxes rendered in the edit screen can be moved. Block Editor-only panels are not supported."
+msgstr "Kotak meta klasik yang dirender pada layar penyuntingan dapat dipindahkan. Panel yang hanya tersedia di Editor Blok tidak didukung."
+
+msgid "Display Width"
+msgstr "Lebar Tampilan"
+
+msgid "Side width (320px)"
+msgstr "Lebar samping (320px)"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "75%"
+msgstr "75%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "On narrow screens, the meta box is always displayed at 100% width."
+msgstr "Pada layar sempit, kotak meta selalu ditampilkan dengan lebar 100%."
+
+msgid "Detect Meta Boxes"
+msgstr "Deteksi Kotak Meta"
+
+msgid "Detected Meta Boxes"
+msgstr "Kotak Meta Terdeteksi"
+
+msgid "Select at least one post type in Placement Rules first."
+msgstr "Pilih setidaknya satu tipe pos dalam Aturan Penempatan terlebih dahulu."
+
+msgid "Detecting meta boxes..."
+msgstr "Mendeteksi kotak meta..."
+
+msgid "Meta box detection failed. Please try again."
+msgstr "Deteksi kotak meta gagal. Silakan coba lagi."
+
+msgid "No classic meta boxes were detected."
+msgstr "Tidak ada kotak meta klasik yang terdeteksi."
+
+msgid "Select a detected meta box"
+msgstr "Pilih kotak meta yang terdeteksi"
+
+#. translators: %s: post type labels.
+msgid "Available on: %s"
+msgstr "Tersedia pada: %s"
+
+msgid "Already selected in another Classic Meta Box Placement field."
+msgstr "Sudah dipilih dalam bidang Penempatan Kotak Meta Klasik lainnya."
+
+msgid "Plain text"
+msgstr "Teks biasa"
+
+msgid "Copy Button"
+msgstr "Tombol Salin"
+
+msgid "Show copy button"
+msgstr "Tampilkan tombol salin"
+
+msgid "Copy"
+msgstr "Salin"
+
+msgid "Copied"
+msgstr "Disalin"
+
+msgid "Language"
+msgstr "Bahasa"
+
+msgid "This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens."
+msgstr "Plugin ini adalah versi Custom Field Suite yang dipelihara dan diperluas, serta menambahkan bidang masukan yang lebih efektif dan fleksibel ke layar penyuntingan WordPress."
+
+msgid "Accordion Group"
+msgstr "Grup Akordeon"
+
+msgid "Initial State"
+msgstr "Keadaan Awal"
+
+msgid "Open by default"
+msgstr "Terbuka secara bawaan"
+
+msgid "Tabs, loops, accordions, conditional groups, and horizontal groups cannot be placed inside a horizontal group."
+msgstr "Tab, perulangan, akordeon, grup bersyarat, dan grup horizontal tidak dapat ditempatkan di dalam grup horizontal."
+
+msgid "Tabs cannot be placed inside an accordion."
+msgstr "Tab tidak dapat ditempatkan di dalam akordeon."
+
+msgid "Please enter a value"
+msgstr "Masukkan nilai"
+
+msgid "Please enter a valid date (YYYY-MM-DD HH:MM)"
+msgstr "Masukkan tanggal yang valid (YYYY-MM-DD HH:MM)"
+
+msgid "Please enter a valid color HEX (#ff0000)"
+msgstr "Masukkan warna HEX yang valid (#ff0000)"
+
+msgid "Please enter a phone number"
+msgstr "Masukkan nomor telepon"
+
+msgid "Please enter a valid phone number"
+msgstr "Masukkan nomor telepon yang valid"
+
+msgid "Please enter an email address"
+msgstr "Masukkan alamat email"
+
+msgid "Please enter a valid email address"
+msgstr "Masukkan alamat email yang valid"
+
+msgid "Please enter a number"
+msgstr "Masukkan angka"
+
+msgid "Please enter a valid number"
+msgstr "Masukkan angka yang valid"
+
+msgid "Please enter a URL"
+msgstr "Masukkan URL"
+
+msgid "Please enter a valid URL"
+msgstr "Masukkan URL yang valid"
+
+msgid "Please select a condition"
+msgstr "Pilih kondisi"
+
+msgid "Please select a time"
+msgstr "Pilih waktu"
+
+msgid "Please select a valid time"
+msgstr "Pilih waktu yang valid"
+
+msgid "Please select a language and enter code"
+msgstr "Pilih bahasa dan masukkan kode"
+
+msgid "Please select %s item(s)"
+msgstr "Pilih %s item"
+
+msgid "Please select between %1$s and %2$s items"
+msgstr "Pilih antara %1$s dan %2$s item"
+
+msgid "TAB"
+msgstr "TAB"
+
+msgid "LOOP"
+msgstr "PERULANGAN"
+
+msgid "GROUP"
+msgstr "GRUP"
+
+msgid "ACCORDION"
+msgstr "AKORDEON"
+
+msgid "CONDITION"
+msgstr "KONDISI"
+
+msgid "This field name is duplicated. Use a unique field name."
+msgstr "Nama bidang ini sama dengan bidang lain. Gunakan nama bidang yang unik."
+
+msgid "Duplicate field names found: %s. Field names must be unique before saving."
+msgstr "Ditemukan nama bidang yang sama: %s. Nama bidang harus unik sebelum disimpan."
+
+msgid "Enter a tab label."
+msgstr "Masukkan label tab."
+
+msgid "Some tab labels are empty. Saving will continue, but labels help identify tabs."
+msgstr "Beberapa label tab kosong. Penyimpanan akan dilanjutkan, tetapi label membantu mengidentifikasi tab."
+
+msgid "Move here"
+msgstr "Pindahkan ke sini"
+
+msgid "Move here: inside %s"
+msgstr "Pindahkan ke sini: di dalam %s"
+
+msgid "Move here: inside the current Tab"
+msgstr "Pindahkan ke sini: di dalam Tab saat ini"
+
+msgid "Post Categories (Standard / Global)"
+msgstr "Kategori Pos (Standar / Global)"
+
+#, php-format
+msgid "No categories found in %s"
+msgstr "Tidak ada kategori yang ditemukan di %s"
+
+msgid "Standard Category"
+msgstr "Kategori Standar"
+
+msgid "Category Source"
+msgstr "Sumber Kategori"
+
+msgid "Choose the standard category or a registered Shared Taxonomy to show and save with this field."
+msgstr "Pilih kategori standar atau Taksonomi Bersama yang terdaftar untuk ditampilkan dan disimpan dengan bidang ini."
+
+msgid "Photo Gallery"
+msgstr "Galeri Foto"
+
+msgid "Add Images"
+msgstr "Tambah Gambar"
+
+msgid "Clear Gallery"
+msgstr "Kosongkan Galeri"
+
+msgid "Remove image"
+msgstr "Hapus gambar"
+
+msgid "Attachment IDs"
+msgstr "ID Lampiran"
+
+msgid "Image URLs"
+msgstr "URL Gambar"
+
+msgid "Image Data"
+msgstr "Data Gambar"
+
+msgid "Gallery HTML"
+msgstr "HTML Galeri"
+
+msgid "Gallery Display"
+msgstr "Tampilan Galeri"
+
+msgid "Used when the return value is Gallery HTML. Columns sets the number of columns in the generated gallery HTML. Image file links include modal-friendly data attributes."
+msgstr "Digunakan saat nilai kembalian berupa HTML Galeri. Kolom menentukan jumlah kolom dalam HTML galeri yang dibuat. Tautan berkas gambar menyertakan atribut data yang mendukung modal."
+
+msgid "CSS class"
+msgstr "Kelas CSS"
+
+msgid "Link To"
+msgstr "Tautkan ke"
+
+msgid "Image File"
+msgstr "Berkas Gambar"
+
+msgid "Attachment Page"
+msgstr "Laman Lampiran"
+
+msgid "Select Gallery Images"
+msgstr "Pilih Gambar Galeri"
+
+msgid "After input"
+msgstr "Setelah masukan"
+
+msgid "Shown after the input on edit screens. Use this for short units or separators such as kg, %, or ~. This text is not included in saved values or front-end output."
+msgstr "Ditampilkan setelah masukan pada layar penyuntingan. Gunakan untuk satuan singkat atau pemisah seperti kg, %, atau ~. Teks ini tidak disertakan dalam nilai tersimpan atau keluaran front-end."
+
+#: ../includes/fields/gallery.php:88
+msgid "Image Size"
+msgstr "Ukuran Gambar"
+
+#: ../includes/fields/gallery.php:183
+msgid "Thumbnail"
+msgstr "Miniatur"
+
+#: ../includes/fields/gallery.php:184
+msgid "Medium"
+msgstr "Sedang"
+
+#: ../includes/fields/gallery.php:185
+msgid "Medium Large"
+msgstr "Sedang Besar"
+
+#: ../includes/fields/gallery.php:186
+msgid "Large"
+msgstr "Besar"
+
+#: ../includes/fields/gallery.php:187
+msgid "Full Size"
+msgstr "Ukuran Penuh"
+
+#: ../includes/fields/gallery.php:142
+msgid "Minimum sets the fewest images that can be selected. Maximum sets the most images that can be selected."
+msgstr "Minimum menentukan jumlah gambar paling sedikit yang dapat dipilih. Maksimum menentukan jumlah gambar paling banyak yang dapat dipilih."
+
+#: ../includes/fields/loop.php:93
+msgid "Minimum sets the fewest rows that can be added. Maximum sets the most rows that can be added."
+msgstr "Minimum menentukan jumlah baris paling sedikit yang dapat ditambahkan. Maksimum menentukan jumlah baris paling banyak yang dapat ditambahkan."
+
+#: ../includes/fields/relationship.php:125
+msgid "Minimum sets the fewest related items that can be selected. Maximum sets the most related items that can be selected."
+msgstr "Minimum menentukan jumlah item terkait paling sedikit yang dapat dipilih. Maksimum menentukan jumlah item terkait paling banyak yang dapat dipilih."
+
+#: ../includes/fields/user.php:74
+msgid "Minimum sets the fewest users that can be selected. Maximum sets the most users that can be selected."
+msgstr "Minimum menentukan jumlah pengguna paling sedikit yang dapat dipilih. Maksimum menentukan jumlah pengguna paling banyak yang dapat dipilih."
+
+#: ../includes/fields/true_false.php:37
+msgid "Checkbox Label"
+msgstr "Label Kotak Centang"
+
+#: ../includes/fields/true_false.php:39
+msgid "Displayed beside the checkbox on the edit screen."
+msgstr "Ditampilkan di samping kotak centang pada layar penyuntingan."
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish (Native)"
+msgstr "Simpan / Terbitkan (Bawaan)"
+
+#: includes/fields/post_publish.php
+msgid "You do not have permission to change save / publish settings."
+msgstr "Anda tidak memiliki izin untuk mengubah pengaturan simpan / terbitkan."
+
+#: includes/fields/post_publish.php
+msgid "Status"
+msgstr "Status"
+
+#: includes/fields/post_publish.php
+msgid "Current Status"
+msgstr "Status Saat Ini"
+
+#: includes/fields/post_publish.php
+msgid "Change Status"
+msgstr "Ubah Status"
+
+#: includes/fields/post_publish.php
+msgid "Do not change"
+msgstr "Jangan ubah"
+
+#: includes/fields/post_publish.php
+msgid "Change to Draft"
+msgstr "Ubah ke Draf"
+
+#: includes/fields/post_publish.php
+msgid "Change to Pending Review"
+msgstr "Ubah ke Menunggu Peninjauan"
+
+#: includes/fields/post_publish.php
+msgid "Publish / Schedule"
+msgstr "Terbitkan / Jadwalkan"
+
+#: includes/fields/post_publish.php
+msgid "Visibility"
+msgstr "Visibilitas"
+
+#: includes/fields/post_publish.php
+msgid "Public"
+msgstr "Publik"
+
+#: includes/fields/post_publish.php
+msgid "Password protected"
+msgstr "Dilindungi kata sandi"
+
+#: includes/fields/post_publish.php
+msgid "Private"
+msgstr "Privat"
+
+#: includes/fields/post_publish.php
+msgid "Autosaving"
+msgstr "Menyimpan otomatis"
+
+#: includes/fields/post_publish.php
+msgid "Password"
+msgstr "Kata Sandi"
+
+#: includes/fields/post_publish.php
+msgid "Publish Date"
+msgstr "Tanggal Terbit"
+
+#: includes/fields/post_publish.php
+msgid "Set to current date and time"
+msgstr "Atur ke tanggal dan waktu saat ini"
+
+#: includes/fields/post_publish.php
+msgid "Save Draft"
+msgstr "Simpan Draf"
+
+#: includes/fields/post_publish.php
+msgid "Update"
+msgstr "Perbarui"
+
+#: includes/fields/post_publish.php
+msgid "Submit for Review"
+msgstr "Kirim untuk Ditinjau"
+
+#: includes/fields/post_publish.php
+msgid "Publish"
+msgstr "Terbitkan"
+
+#: includes/fields/post_publish.php
+msgid "Schedule"
+msgstr "Jadwalkan"
+
+#: includes/fields/post_publish.php
+msgid "Save / Publish Settings"
+msgstr "Pengaturan Simpan / Terbitkan"
+
+#: includes/fields/post_publish.php
+msgid "Choose which native WordPress save and publish controls are shown in this field."
+msgstr "Pilih kontrol simpan dan terbitkan bawaan WordPress yang ditampilkan dalam bidang ini."
+
+#: includes/fields/post_publish.php
+msgid "Allow status changes"
+msgstr "Izinkan perubahan status"
+
+#: includes/fields/post_publish.php
+msgid "Allow visibility changes"
+msgstr "Izinkan perubahan visibilitas"
+
+#: includes/fields/post_publish.php
+msgid "Allow publish date changes"
+msgstr "Izinkan perubahan tanggal terbit"
+
+#: includes/fields/post_publish.php
+msgid "Draft"
+msgstr "Draf"
+
+#: includes/fields/post_publish.php
+msgid "Pending Review"
+msgstr "Menunggu Peninjauan"
+
+#: includes/fields/post_publish.php
+msgid "Scheduled"
+msgstr "Dijadwalkan"
+
+#: ../templates/field_html.php
+msgid "Actions"
+msgstr "Tindakan"
+
+#: ../templates/field_html.php
+msgid "Duplicate"
+msgstr "Duplikat"
+
+#: templates/admin_head.php templates/field_html.php
+msgid "Automatically named when saved"
+msgstr "Diberi nama otomatis saat disimpan"
+
+#: includes/fields/post_publish.php
+msgid "Allow moving to trash"
+msgstr "Izinkan pemindahan ke Sampah"
+
+#: includes/fields/post_publish.php
+msgid "Allowed Trash Roles"
+msgstr "Peran yang Diizinkan Memindahkan ke Sampah"
+
+#: includes/fields/post_publish.php
+msgid "Select the roles that can move posts to trash from this field. Leave blank to allow any user role that can delete the post."
+msgstr "Pilih peran yang dapat memindahkan pos ke Sampah dari bidang ini. Biarkan kosong untuk mengizinkan peran pengguna apa pun yang dapat menghapus pos."
+
+#: includes/fields/post_publish.php
+msgid "Leave blank to allow any role that can delete this post"
+msgstr "Biarkan kosong untuk mengizinkan peran apa pun yang dapat menghapus pos ini"
+
+#: includes/fields/post_publish.php
+msgid "Move to Trash"
+msgstr "Pindahkan ke Sampah"
+
+#: includes/fields/group.php
+msgid "Not specified"
+msgstr "Tidak ditentukan"
+
+#: includes/fields/wp_tag.php
+msgid "Post Tags (Native)"
+msgstr "Tag Pos (Bawaan)"
+
+#: includes/fields/featured_image.php
+msgid "Featured Image (Native)"
+msgstr "Gambar Unggulan (Bawaan)"
+
+#: includes/fields/phone.php
+msgid "Phone Number"
+msgstr "Nomor Telepon"
+
+#: includes/fields/post_content.php
+msgid "Post Content (Native)"
+msgstr "Konten Pos (Bawaan)"
+
+#: includes/fields/post_content.php
+msgid "Content Editor"
+msgstr "Editor Konten"
+
+#: includes/fields/post_content.php
+msgid "Choose how editors edit the native WordPress content. This field saves to post_content and does not use the Gutenberg / block editor."
+msgstr "Pilih cara konten bawaan WordPress disunting. Nilai bidang ini disimpan ke post_content dan tidak menggunakan Gutenberg / editor blok."
+
+#: includes/fields/post_content.php
+msgid "Visual editor"
+msgstr "Editor visual"
+
+#: includes/fields/post_content.php
+msgid "You do not have permission to change the native content."
+msgstr "Anda tidak memiliki izin untuk mengubah konten bawaan."
+
+#: includes/fields/wp_category.php
+msgid "Category Display"
+msgstr "Tampilan Kategori"
+
+#: includes/fields/wp_category.php
+msgid "Arrange parent categories horizontally"
+msgstr "Susun kategori induk secara horizontal"
+
+#: includes/fields/wp_category.php
+msgid "Arrange child and grandchild categories horizontally"
+msgstr "Susun kategori anak dan cucu secara horizontal"
+
+#: includes/fields/wp_category.php
+msgid "Leave both unchecked to use the traditional category tree."
+msgstr "Biarkan keduanya tidak dicentang untuk menggunakan pohon kategori tradisional."
+
+#: includes/fields/wp_category.php
+msgid "Hide the category search box"
+msgstr "Sembunyikan kotak pencarian kategori"
+
+#: includes/fields/wp_category.php
+msgid "Hide the selected-only filter"
+msgstr "Sembunyikan filter hanya yang dipilih"
+
+#: includes/fields/wp_tag.php:35
+msgid "Choose from the most used tags"
+msgstr "Pilih dari tag yang paling sering digunakan"
+
+#: includes/fields/wp_tag.php:45
+msgid "No frequently used tags are available yet."
+msgstr "Belum ada tag yang sering digunakan."
+
+#: includes/fields/post_publish.php
+msgid "Preview Changes"
+msgstr "Pratinjau Perubahan"
+
+#: includes/fields/post_publish.php
+msgid "Preview"
+msgstr "Pratinjau"
+
+#: includes/fields/post_publish.php
+msgid "Publish or Schedule"
+msgstr "Terbitkan atau Jadwalkan"
+
+#: includes/fields/post_publish.php
+msgid "Change to Scheduled"
+msgstr "Ubah ke Dijadwalkan"
+
+#: includes/fields/post_publish.php
+msgid "Change to Publish or Schedule"
+msgstr "Ubah ke Terbitkan atau Jadwalkan"
+
+#: templates/admin_head.php
+msgid "The number of input fields is large, and some field group settings may not be saved. PHP max_input_vars is commonly 1000 by default. Reduce the number of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or your server settings."
+msgstr "Jumlah bidang masukan sangat banyak dan beberapa pengaturan grup bidang mungkin tidak tersimpan. Nilai bawaan PHP max_input_vars biasanya 1000. Kurangi jumlah bidang atau tingkatkan max_input_vars dalam php.ini, .user.ini, .htaccess, atau pengaturan server Anda."
+
+#: templates/admin_head.php
+#, php-format
+msgid "Current inputs: %1$s / max_input_vars: %2$s"
+msgstr "Masukan saat ini: %1$s / max_input_vars: %2$s"
+
+#: templates/meta_box_extras.php
+msgid "Hide revisions"
+msgstr "Sembunyikan revisi"
+
+#: includes/init.php
+msgid "The field group form exceeded the server input limit, so field settings were not saved to avoid data loss. PHP max_input_vars is commonly 1000 by default. Placement Rules and Extras were saved only if they reached the server. Reduce the number of fields or increase max_input_vars in php.ini, .user.ini, .htaccess, or your server settings."
+msgstr "Formulir grup bidang melampaui batas masukan server, sehingga pengaturan bidang tidak disimpan untuk menghindari kehilangan data. Nilai bawaan PHP max_input_vars biasanya 1000. Aturan Penempatan dan Tambahan hanya disimpan jika datanya mencapai server. Kurangi jumlah bidang atau tingkatkan max_input_vars dalam php.ini, .user.ini, .htaccess, atau pengaturan server Anda."
+
+#: includes/init.php
+msgid "CFS save warning:"
+msgstr "Peringatan penyimpanan CFS:"
+
+#: includes/fields/wp_category.php
+msgid "+ Add category"
+msgstr "+ Tambah kategori"
+
+#: includes/fields/wp_category.php
+msgid "Category name"
+msgstr "Nama kategori"
+
+#: includes/fields/wp_category.php
+msgid "Parent category"
+msgstr "Kategori induk"
+
+#: includes/fields/wp_category.php
+msgid "Add category"
+msgstr "Tambah kategori"
+
+#: includes/fields/wp_category.php
+msgid "Cancel"
+msgstr "Batal"
+
+#: includes/fields/wp_category.php
+msgid "Category Adding"
+msgstr "Penambahan Kategori"
+
+#: includes/fields/wp_category.php
+msgid "Show + Add category"
+msgstr "Tampilkan + Tambah kategori"
+
+#: includes/fields/wp_category.php
+msgid "Users must also have permission to create terms for the selected taxonomy."
+msgstr "Pengguna juga harus memiliki izin untuk membuat istilah pada taksonomi yang dipilih."
+
+#: includes/fields/wp_category.php
+msgid "Allowed Add Roles"
+msgstr "Peran yang Boleh Menambah Kategori"
+
+#: includes/fields/wp_category.php
+msgid "Select the roles that can add categories from this field. Leave blank to allow any role that can create terms for this taxonomy."
+msgstr "Pilih peran yang dapat menambahkan kategori dari bidang ini. Biarkan kosong untuk mengizinkan peran apa pun yang dapat membuat istilah untuk taksonomi ini."
+
+#: includes/fields/wp_category.php
+msgid "Leave blank to allow any role that can create categories"
+msgstr "Biarkan kosong untuk mengizinkan peran apa pun yang dapat membuat kategori"
+
+#: includes/fields/wp_category.php
+msgid "Adding category..."
+msgstr "Menambahkan kategori..."
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Category added."
+msgstr "Kategori ditambahkan."
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Enter a category name."
+msgstr "Masukkan nama kategori."
+
+#: includes/fields/wp_category.php includes/init.php
+msgid "Failed to add category."
+msgstr "Gagal menambahkan kategori."
+
+#: includes/init.php
+msgid "You do not have permission to add categories."
+msgstr "Anda tidak memiliki izin untuk menambahkan kategori."
+
+#: includes/fields/embed_code.php
+msgid "Embed Code"
+msgstr "Kode Sematan"
+
+#: includes/fields/embed_code.php
+msgid "Paste iframe embed code here"
+msgstr "Tempelkan kode sematan iframe di sini"
+
+#: includes/fields/embed_code.php
+msgid "Allowed Providers"
+msgstr "Penyedia yang Diizinkan"
+
+#: includes/fields/embed_code.php
+msgid "Select the iframe embed providers allowed for this field. Script-based embeds are not supported."
+msgstr "Pilih penyedia sematan iframe yang diizinkan untuk bidang ini. Sematan berbasis skrip tidak didukung."
+
+#: includes/fields/embed_code.php
+msgid "Default: all supported providers"
+msgstr "Bawaan: semua penyedia yang didukung"
+
+#: includes/fields/embed_code.php
+msgid "Select the roles that can enter or change embed code. If left blank, only administrators can edit this field."
+msgstr "Pilih peran yang dapat memasukkan atau mengubah kode sematan. Jika dibiarkan kosong, hanya administrator yang dapat mengedit bidang ini."
+
+#: includes/fields/shortcode.php
+msgid "Select the roles that can enter or change shortcodes. If left blank, only administrators can edit this field."
+msgstr "Pilih peran yang dapat memasukkan atau mengubah shortcode. Jika dibiarkan kosong, hanya administrator yang dapat mengedit bidang ini."
+
+#: includes/fields/embed_code.php includes/fields/shortcode.php
+msgid "Default: administrators only"
+msgstr "Bawaan: hanya administrator"
+
+#: includes/fields/embed_code.php
+msgid "Google Maps"
+msgstr "Google Maps"
+
+#: includes/fields/embed_code.php
+msgid "YouTube"
+msgstr "YouTube"
+
+#: includes/fields/embed_code.php
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: includes/fields/embed_code.php
+msgid "OpenStreetMap"
+msgstr "OpenStreetMap"
+
+#: includes/fields/embed_code.php
+msgid "Google Calendar"
+msgstr "Google Calendar"
+
+#: includes/fields/embed_code.php
+msgid "Google Forms"
+msgstr "Google Forms"
+
+#: includes/fields/embed_code.php
+msgid "Spotify"
+msgstr "Spotify"
+
+#: includes/fields/embed_code.php
+msgid "SoundCloud"
+msgstr "SoundCloud"
+
+#: ../cfs.php:198
+msgid "Translate"
+msgstr "Terjemahkan"
+
+#: ../cfs.php:204
+msgid "Output Reference"
+msgstr "Referensi Keluaran"

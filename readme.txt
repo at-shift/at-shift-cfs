@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 3.0.6
+Stable tag: 3.0.6.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -200,6 +200,10 @@ Yes. It preserves the main APIs used by existing themes, including `CFS()->get()
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.6.1 =
+
+* Added Indonesian (`id_ID`) translation files, with all strings independently reviewed for accuracy, context, and consistent WordPress terminology.
 
 = 3.0.6 =
 
