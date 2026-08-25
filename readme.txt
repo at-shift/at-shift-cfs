@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 3.0.6.1
+Stable tag: 3.0.6.2
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -200,6 +200,10 @@ Yes. It preserves the main APIs used by existing themes, including `CFS()->get()
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.6.2 =
+
+* Fixed the native Post Content visual editor so links and other HTML remain valid markup after a post is saved instead of being displayed as escaped text.
 
 = 3.0.6.1 =
 

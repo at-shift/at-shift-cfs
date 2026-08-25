@@ -114,7 +114,17 @@ class Atshift_CFS_post_content extends Atshift_CFS_field
 
             function syncPostContent(value) {
                 var content = value || '';
+                var nativeEditor = window.tinyMCE && tinyMCE.get ? tinyMCE.get('content') : null;
+
                 $('#content, textarea[name="content"]').val(content).trigger('input').trigger('change');
+
+                if (nativeEditor && nativeEditor.initialized && 'function' === typeof nativeEditor.setContent) {
+                    nativeEditor.setContent(content);
+
+                    if ('function' === typeof nativeEditor.save) {
+                        nativeEditor.save();
+                    }
+                }
 
                 if (window.wp && wp.data && wp.data.dispatch) {
                     var editor = wp.data.dispatch('core/editor');
