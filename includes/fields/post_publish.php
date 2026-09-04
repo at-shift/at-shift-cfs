@@ -596,11 +596,21 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 $post_data['post_date'] = $date;
                 $post_data['post_date_gmt'] = get_gmt_from_date( $date );
 
-                if ( 'publish' === $post_data['post_status'] && $this->is_future_local_datetime( $value['date'] ) ) {
+                if ( 'future' === $post_data['post_status'] && ! $can_publish && ! $this->is_safely_future_local_datetime( $value['date'] ) ) {
+                    $post_data['post_date'] = $post->post_date;
+                    $post_data['post_date_gmt'] = $post->post_date_gmt;
+                }
+                elseif ( 'publish' === $post_data['post_status'] && $this->is_future_local_datetime( $value['date'] ) ) {
                     $post_data['post_status'] = 'future';
                 }
                 elseif ( 'future' === $post_data['post_status'] && ! $this->is_future_local_datetime( $value['date'] ) ) {
-                    $post_data['post_status'] = 'publish';
+                    if ( $can_publish ) {
+                        $post_data['post_status'] = 'publish';
+                    }
+                    else {
+                        $post_data['post_date'] = $post->post_date;
+                        $post_data['post_date_gmt'] = $post->post_date_gmt;
+                    }
                 }
             }
         }
@@ -992,6 +1002,18 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
 
         $timestamp = strtotime( $date );
         return false !== $timestamp && current_time( 'timestamp' ) < $timestamp;
+    }
+
+
+    protected function is_safely_future_local_datetime( $value ) {
+        $date = $this->sanitize_local_datetime( $value );
+
+        if ( '' === $date ) {
+            return false;
+        }
+
+        $datetime = date_create_from_format( 'Y-m-d H:i:s', $date, wp_timezone() );
+        return $datetime && time() + MINUTE_IN_SECONDS < $datetime->getTimestamp();
     }
 
 

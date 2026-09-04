@@ -31,6 +31,7 @@ Formal WordPress.org name: **atshift Fields (Maintenance for Custom Field Suite)
 - Role-aware editing controls and edit-screen display settings
 - Drag-and-drop field organization with clearer nested group editing
 - Validation and safer front-end output guidance
+- Administration-only User fields that are omitted from front-end forms and ignored on public submission
 - Bundled translations inherited from the maintained CFS package
 
 ## Requirements
@@ -86,18 +87,10 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 ## Maintenance Release Notes
 
-### 3.0.6.2
+### 3.0.6.3
 
-- Fixed the native Post Content visual editor so links and other HTML remain valid markup after a post is saved instead of being displayed as escaped text.
-
-### 3.0.6.1
-
-- Added Indonesian (`id_ID`) translation files, with all strings independently reviewed for accuracy, context, and consistent WordPress terminology.
-
-### 3.0.6
-
-- Fixed the native Post Content visual editor so Visual/Code tab switching, editor toolbars, and media controls initialize correctly without inserting TinyMCE bookmark markup into content.
-- Fixed a conflict between native Post Content and WYSIWYG fields that could interrupt editor initialization when both fields appear on the same screen.
+- Made User fields unavailable in front-end forms and protected existing values from forged public submissions.
+- Prevented users without publishing capability from making scheduled posts public by changing the publication date.
 
 For full release history, see [GitHub Releases](https://github.com/at-shift/at-shift-cfs/releases).
 

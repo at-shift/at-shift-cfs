@@ -308,6 +308,7 @@ class Atshift_CFS_api
         $defaults = [
             'format'            => 'api', // "api" or "input"
             'field_groups'      => [],
+            'preserve_field_types' => [],
         ];
         $options = array_merge( $defaults, $options );
 
@@ -376,7 +377,7 @@ class Atshift_CFS_api
         }
 
         // If this is an API call, flatten the data!
-        $preserved_input_rows = [];
+        $preserved_input_field_ids = [];
 
         if ( 'api' == $options['format'] ) {
             $field_ids = [];
@@ -408,13 +409,14 @@ class Atshift_CFS_api
 
             // If saving raw input, delete existing postdata
             $results = $this->find_input_fields( [ 'group_id' => $group_ids ] );
-            $preserved_input_rows = $this->get_preserved_input_rows( $post_id, $fields );
+            $preserved_input_field_ids = $this->get_preserved_input_field_ids( $post_id, $fields, $options['preserve_field_types'] );
             if ( ! empty( $results ) ) {
                 $field_ids = [];
                 foreach ( $results as $result ) {
                     $field_ids[] = $result['id'];
                 }
                 $field_ids = array_values( array_filter( array_map( 'absint', $field_ids ) ) );
+                $field_ids = array_values( array_diff( $field_ids, $preserved_input_field_ids ) );
 
                 if ( ! empty( $field_ids ) ) {
                     $field_id_placeholders = implode( ',', array_fill( 0, count( $field_ids ), '%d' ) );
@@ -449,12 +451,9 @@ class Atshift_CFS_api
                     'field_id_lookup'       => $field_id_lookup,
                     'weight'                => 0,
                     'depth'                 => 0,
+                    'preserve_field_types'  => $options['preserve_field_types'],
                 ]
             );
-        }
-
-        if ( ! empty( $preserved_input_rows ) ) {
-            $this->restore_preserved_input_rows( $post_id, $preserved_input_rows );
         }
 
         // Clear the cache
@@ -515,7 +514,7 @@ class Atshift_CFS_api
             $field = $params['all_fields'][ $field_id ];
             $field->post_id = $params['post_id'];
 
-            if ( 'input' === $params['format'] && $this->should_preserve_existing_field_on_save( $field, $params['post_id'] ) ) {
+            if ( 'input' === $params['format'] && $this->should_preserve_existing_field_on_save( $field, $params['post_id'], $params['preserve_field_types'] ) ) {
                 return;
             }
 
@@ -595,9 +594,13 @@ class Atshift_CFS_api
     }
 
 
-    private function should_preserve_existing_field_on_save( $field, $post_id ) {
+    private function should_preserve_existing_field_on_save( $field, $post_id, $preserve_field_types = [] ) {
         if ( ! is_object( $field ) || empty( $field->type ) ) {
             return false;
+        }
+
+        if ( in_array( $field->type, (array) $preserve_field_types, true ) ) {
+            return true;
         }
 
         if ( ! isset( atshift_fields_maintenance_for_custom_field_suite()->fields[ $field->type ] ) ) {
@@ -614,71 +617,16 @@ class Atshift_CFS_api
     }
 
 
-    private function get_preserved_input_rows( $post_id, $fields ) {
-        global $wpdb;
-
+    private function get_preserved_input_field_ids( $post_id, $fields, $preserve_field_types = [] ) {
         $preserved_field_ids = [];
 
         foreach ( $fields as $field_id => $field ) {
-            if ( $this->should_preserve_existing_field_on_save( $field, $post_id ) ) {
+            if ( $this->should_preserve_existing_field_on_save( $field, $post_id, $preserve_field_types ) ) {
                 $preserved_field_ids[] = absint( $field_id );
             }
         }
 
-        $preserved_field_ids = array_values( array_filter( $preserved_field_ids ) );
-
-        if ( empty( $preserved_field_ids ) ) {
-            return [];
-        }
-
-        $field_id_placeholders = implode( ',', array_fill( 0, count( $preserved_field_ids ), '%d' ) );
-        $sql = $wpdb->prepare(
-            "
-            SELECT v.field_id, v.post_id, v.base_field_id, v.hierarchy, v.depth, v.weight, v.sub_weight, m.meta_key, m.meta_value
-            FROM {$wpdb->prefix}cfs_values v
-            INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-            WHERE v.post_id = %d AND v.field_id IN ($field_id_placeholders)",
-            array_merge( [ absint( $post_id ) ], $preserved_field_ids )
-        );
-
-        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $sql is prepared above with sanitized field IDs.
-        return $wpdb->get_results( $sql, ARRAY_A );
-    }
-
-
-    private function restore_preserved_input_rows( $post_id, $rows ) {
-        global $wpdb;
-
-        foreach ( $rows as $row ) {
-            $wpdb->insert(
-                $wpdb->postmeta,
-                [
-                    'post_id'    => absint( $post_id ),
-                    'meta_key'   => isset( $row['meta_key'] ) ? (string) $row['meta_key'] : '',
-                    'meta_value' => isset( $row['meta_value'] ) ? $row['meta_value'] : '',
-                ]
-            );
-
-            $meta_id = absint( $wpdb->insert_id );
-
-            if ( 1 > $meta_id ) {
-                continue;
-            }
-
-            $wpdb->insert(
-                $wpdb->prefix . 'cfs_values',
-                [
-                    'field_id'      => isset( $row['field_id'] ) ? absint( $row['field_id'] ) : 0,
-                    'meta_id'       => $meta_id,
-                    'post_id'       => absint( $post_id ),
-                    'base_field_id' => isset( $row['base_field_id'] ) ? absint( $row['base_field_id'] ) : 0,
-                    'hierarchy'     => isset( $row['hierarchy'] ) ? (string) $row['hierarchy'] : '',
-                    'depth'         => isset( $row['depth'] ) ? absint( $row['depth'] ) : 0,
-                    'weight'        => isset( $row['weight'] ) ? absint( $row['weight'] ) : 0,
-                    'sub_weight'    => isset( $row['sub_weight'] ) ? absint( $row['sub_weight'] ) : 0,
-                ]
-            );
-        }
+        return array_values( array_unique( array_filter( $preserved_field_ids ) ) );
     }
 
 

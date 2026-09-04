@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 3.0.6.2
+Stable tag: 3.0.6.3
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -139,11 +139,15 @@ Post Title, Post Content, Save / Publish, Post Categories, Post Tags, and Featur
 
 For Post Categories, child category selection can also select parent categories, and removing a parent selection removes its child selections. If all categories are removed, WordPress' default category is restored.
 
+User fields are available on WordPress administration screens only. They are omitted from front-end forms, ignored if submitted directly, and existing values are preserved so public forms cannot enumerate or alter WordPress accounts.
+
 = Security maintenance notes =
 
 This package includes local security and compatibility hardening on top of the upstream 2.6.7 codebase.
 
 The maintenance work addresses known vulnerability classes around Loop field code execution, Term field SQL injection, CFS form title / content stored XSS, and existing post updates through CFS forms without normal edit capability checks.
+
+Front-end User fields are blocked at rendering, validation, and saving boundaries. Save / Publish also keeps scheduled posts from becoming public when an editor without the post type's publish capability submits a past publication date.
 
 The changes were verified locally against the built-in CFS field types, added field types, and an upgrade path from the original 2.6.7 codebase. This package has also been adjusted for the WordPress.org plugin directory and published through the official WordPress.org SVN release flow. WordPress.org publication is not a substitute for an independent third-party security audit.
 
@@ -200,6 +204,11 @@ Yes. It preserves the main APIs used by existing themes, including `CFS()->get()
 See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.6.3 =
+
+* Made User fields unavailable in front-end forms and protected existing values from forged public submissions.
+* Prevented users without publishing capability from making scheduled posts public by changing the publication date.
 
 = 3.0.6.2 =
 

@@ -73,7 +73,7 @@ class Atshift_CFS_form
                 }
 
                 $fields_by_id = $this->get_field_definitions_by_id( $field_groups );
-                $field_data = isset( $cfs_post['input'] ) ? $this->sanitize_submitted_field_data( $cfs_post['input'], $fields_by_id ) : [];
+                $field_data = isset( $cfs_post['input'] ) ? $this->sanitize_submitted_field_data( $cfs_post['input'], $fields_by_id, 0, $is_front_end ) : [];
 
                 // Title
                 if ( isset( $cfs_post['post_title'] ) ) {
@@ -107,7 +107,7 @@ class Atshift_CFS_form
                 }
 
                 if ( ! $this->is_admin_draft_save( $is_front_end ) ) {
-                    $validation_errors = $this->validate_submission( $field_data, $field_groups );
+                    $validation_errors = $this->validate_submission( $field_data, $field_groups, $is_front_end );
 
                     if ( ! empty( $validation_errors ) ) {
                         if ( true === $is_front_end ) {
@@ -129,7 +129,8 @@ class Atshift_CFS_form
 
                 $options = [
                     'format'        => 'input',
-                    'field_groups'  => $field_groups
+                    'field_groups'  => $field_groups,
+                    'preserve_field_types' => $is_front_end ? [ 'user' ] : [],
                 ];
 
                 // Hook parameters
@@ -224,7 +225,7 @@ class Atshift_CFS_form
     }
 
 
-    protected function validate_submission( $field_data, $field_groups ) {
+    protected function validate_submission( $field_data, $field_groups, $is_front_end = false ) {
         if ( empty( $field_groups ) ) {
             return [];
         }
@@ -238,7 +239,7 @@ class Atshift_CFS_form
         }
 
         $errors = [];
-        $this->validate_field_container( (array) $field_data, 0, $fields_by_parent, $errors );
+        $this->validate_field_container( (array) $field_data, 0, $fields_by_parent, $errors, null, $is_front_end );
 
         return $errors;
     }
@@ -262,13 +263,18 @@ class Atshift_CFS_form
     }
 
 
-    private function sanitize_submitted_field_data( $value, $fields_by_id = [], $field_id = 0 ) {
+    private function sanitize_submitted_field_data( $value, $fields_by_id = [], $field_id = 0, $is_front_end = false ) {
         if ( is_array( $value ) ) {
             $sanitized = [];
             foreach ( $value as $key => $item ) {
                 $sanitized_key = is_int( $key ) ? $key : sanitize_text_field( (string) $key );
                 $next_field_id = isset( $fields_by_id[ (int) $sanitized_key ] ) ? (int) $sanitized_key : (int) $field_id;
-                $sanitized[ $sanitized_key ] = $this->sanitize_submitted_field_data( $item, $fields_by_id, $next_field_id );
+
+                if ( $is_front_end && isset( $fields_by_id[ $next_field_id ] ) && 'user' === $fields_by_id[ $next_field_id ]->type ) {
+                    continue;
+                }
+
+                $sanitized[ $sanitized_key ] = $this->sanitize_submitted_field_data( $item, $fields_by_id, $next_field_id, $is_front_end );
             }
             return $sanitized;
         }
@@ -300,12 +306,16 @@ class Atshift_CFS_form
     }
 
 
-    private function validate_field_container( $data, $parent_id, $fields_by_parent, &$errors, $conditional_value = null ) {
+    private function validate_field_container( $data, $parent_id, $fields_by_parent, &$errors, $conditional_value = null, $is_front_end = false ) {
         if ( empty( $fields_by_parent[ $parent_id ] ) ) {
             return;
         }
 
         foreach ( $fields_by_parent[ $parent_id ] as $field ) {
+            if ( $is_front_end && 'user' === $field->type ) {
+                continue;
+            }
+
             if ( null !== $conditional_value ) {
                 $field_conditional_value = isset( $field->options['conditional_value'] ) ? (string) $field->options['conditional_value'] : '';
                 if ( $field_conditional_value !== $conditional_value ) {
@@ -342,13 +352,13 @@ class Atshift_CFS_form
                 }
 
                 if ( '' !== $selected ) {
-                    $this->validate_field_container( $data, (int) $field->id, $fields_by_parent, $errors, $selected );
+                    $this->validate_field_container( $data, (int) $field->id, $fields_by_parent, $errors, $selected, $is_front_end );
                 }
                 continue;
             }
 
             if ( in_array( $field->type, [ 'group', 'accordion' ], true ) ) {
-                $this->validate_field_container( $data, (int) $field->id, $fields_by_parent, $errors );
+                $this->validate_field_container( $data, (int) $field->id, $fields_by_parent, $errors, null, $is_front_end );
                 continue;
             }
 
@@ -359,7 +369,7 @@ class Atshift_CFS_form
                 $this->validate_count_limits( $field, count( $rows ), $errors );
 
                 foreach ( $rows as $row ) {
-                    $this->validate_field_container( (array) $row, (int) $field->id, $fields_by_parent, $errors );
+                    $this->validate_field_container( (array) $row, (int) $field->id, $fields_by_parent, $errors, null, $is_front_end );
                 }
                 continue;
             }
@@ -783,6 +793,21 @@ CFS["validation_messages"] = ' . wp_json_encode( [
 
         // Hook to allow for overridden field settings
         $input_fields = atshift_cfs_apply_filters_compat( 'cfs_pre_render_fields', 'atshift_cfs_pre_render_fields', $input_fields, $params );
+
+        if ( false !== $params['front_end'] ) {
+            $input_fields = array_values(
+                array_filter(
+                    $input_fields,
+                    static function ( $field ) {
+                        $type = is_object( $field )
+                            ? (string) ( $field->type ?? '' )
+                            : ( is_array( $field ) ? (string) ( $field['type'] ?? '' ) : '' );
+
+                        return 'user' !== $type;
+                    }
+                )
+            );
+        }
 
         // The SESSION should contain all applicable field group IDs. Since add_meta_box only
         // passes 1 field group at a time, we use atshift_fields_maintenance_for_custom_field_suite()->group_ids from admin_head.php
