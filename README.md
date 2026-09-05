@@ -4,9 +4,10 @@
   <p><strong>Turn WordPress custom fields into clear, practical editing screens.</strong></p>
   <p>
     <a href="https://plugins.at-shift.net/en/fields/">Official Website</a> ·
-    <a href="https://cfs.at-shift.net/en/guide/">Setup Guide</a> ·
-    <a href="https://cfs.at-shift.net/en/output/">Reference</a> ·
-    <a href="https://cfs.at-shift.net/en/examples/">Examples</a> ·
+    <a href="https://plugins.at-shift.net/en/fields/guide/">Setup Guide</a> ·
+    <a href="https://plugins.at-shift.net/en/fields/output/">Reference</a> ·
+    <a href="https://plugins.at-shift.net/en/fields/api/">API</a> ·
+    <a href="https://plugins.at-shift.net/en/fields/examples/">Examples</a> ·
     <a href="https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/">WordPress.org</a> ·
     <a href="https://plugins.at-shift.net/fields/">日本語</a>
   </p>
@@ -49,7 +50,7 @@ Verified locally with WordPress 7.0, PHP 8.3, and MySQL 8.4. These are verificat
 4. Activate **atshift Fields** from the WordPress Plugins screen.
 5. Open **Field Groups** in the WordPress admin menu and review your field groups.
 
-For setup details, see the [field group setup guide](https://cfs.at-shift.net/en/guide/).
+For setup details, see the [field group setup guide](https://plugins.at-shift.net/en/fields/guide/).
 
 ## Compatibility Notes
 
@@ -67,16 +68,17 @@ Do not output CFS values directly in theme templates without escaping them. Alth
 echo esc_html( CFS()->get( 'my_text_field' ) );
 ```
 
-For field-specific examples and context-appropriate escaping, see the [field output reference](https://cfs.at-shift.net/en/output/).
+For field-specific examples and context-appropriate escaping, see the [field output reference](https://plugins.at-shift.net/en/fields/output/).
 
 ## Documentation
 
 | Topic | English | 日本語 |
 | --- | --- | --- |
 | Official website | [plugins.at-shift.net/en/fields](https://plugins.at-shift.net/en/fields/) | [plugins.at-shift.net/fields](https://plugins.at-shift.net/fields/) |
-| Adding and arranging fields | [Setup guide](https://cfs.at-shift.net/en/guide/) | [設定ガイド](https://cfs.at-shift.net/guide/) |
-| Retrieving and displaying values | [Output reference](https://cfs.at-shift.net/en/output/) | [出力リファレンス](https://cfs.at-shift.net/output/) |
-| Implementation examples | [Examples](https://cfs.at-shift.net/en/examples/) | [実装例](https://cfs.at-shift.net/examples/) |
+| Adding and arranging fields | [Setup guide](https://plugins.at-shift.net/en/fields/guide/) | [設定ガイド](https://plugins.at-shift.net/fields/guide/) |
+| Retrieving and displaying values | [Output reference](https://plugins.at-shift.net/en/fields/output/) | [出力リファレンス](https://plugins.at-shift.net/fields/output/) |
+| Compatibility API | [API reference](https://plugins.at-shift.net/en/fields/api/) | [APIリファレンス](https://plugins.at-shift.net/fields/api/) |
+| Implementation examples | [Examples](https://plugins.at-shift.net/en/fields/examples/) | [実装例](https://plugins.at-shift.net/fields/examples/) |
 | WordPress.org | [Plugin page](https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/) | [プラグインページ](https://ja.wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/) |
 
 ## Related Projects

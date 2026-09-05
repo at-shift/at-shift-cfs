@@ -160,9 +160,10 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 = Documentation and support =
 
 * [Official website](https://plugins.at-shift.net/en/fields/)
-* [Field group setup guide](https://cfs.at-shift.net/en/guide/)
-* [Field value output reference](https://cfs.at-shift.net/en/output/)
-* [Implementation examples](https://cfs.at-shift.net/en/examples/)
+* [Field group setup guide](https://plugins.at-shift.net/en/fields/guide/)
+* [Field value output reference](https://plugins.at-shift.net/en/fields/output/)
+* [Compatibility API reference](https://plugins.at-shift.net/en/fields/api/)
+* [Implementation examples](https://plugins.at-shift.net/en/fields/examples/)
 * [Development repository](https://github.com/at-shift/at-shift-cfs)
 * [Original Custom Field Suite source](https://github.com/mgibbs189/custom-field-suite)
 
