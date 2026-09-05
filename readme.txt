@@ -19,7 +19,7 @@ Tab Groups, Horizontal Groups, Accordion Groups, Conditional Groups, and Loops h
 
 Version 3 also brings native WordPress fields into field groups, including post title, content, save and publish controls, categories, tags, featured image, and post editing screen display controls. Code View, Shortcode fields, role-aware editing controls, and Classic Meta Box Placement add more options for safer, more flexible real-world editing workflows.
 
-For setup instructions, field value output examples, migration notes, and implementation examples, see the [atshift Fields documentation site](https://cfs.at-shift.net/en/).
+For setup instructions, field value output examples, migration notes, and implementation examples, see the [atshift Fields website](https://plugins.at-shift.net/en/fields/).
 
 = Things to know =
 
@@ -159,7 +159,7 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 
 = Documentation and support =
 
-* [Documentation site](https://cfs.at-shift.net/en/)
+* [Official website](https://plugins.at-shift.net/en/fields/)
 * [Field group setup guide](https://cfs.at-shift.net/en/guide/)
 * [Field value output reference](https://cfs.at-shift.net/en/output/)
 * [Implementation examples](https://cfs.at-shift.net/en/examples/)
@@ -175,7 +175,7 @@ When redistributing this package, keep the GPLv2 license notice, preserve the or
 5. Create a Field Group, add fields, and set Placement Rules for the edit screens where it should appear.
 6. Use `CFS()->get()` in your theme templates to display saved field values.
 
-For detailed guides and examples, see the [documentation site](https://cfs.at-shift.net/en/).
+For detailed guides and examples, see the [atshift Fields website](https://plugins.at-shift.net/en/fields/).
 
 == Screenshots ==
 
@@ -201,7 +201,7 @@ Yes. It preserves the main APIs used by existing themes, including `CFS()->get()
 
 = Where can I find documentation? =
 
-See the [atshift Fields documentation site](https://cfs.at-shift.net/en/) for setup guides, output examples, API notes, and implementation examples.
+See the [atshift Fields website](https://plugins.at-shift.net/en/fields/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
 

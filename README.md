@@ -3,12 +3,12 @@
   <h1>atshift Fields</h1>
   <p><strong>Turn WordPress custom fields into clear, practical editing screens.</strong></p>
   <p>
-    <a href="https://cfs.at-shift.net/en/">Official Website</a> ·
+    <a href="https://plugins.at-shift.net/en/fields/">Official Website</a> ·
     <a href="https://cfs.at-shift.net/en/guide/">Setup Guide</a> ·
     <a href="https://cfs.at-shift.net/en/output/">Reference</a> ·
     <a href="https://cfs.at-shift.net/en/examples/">Examples</a> ·
     <a href="https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/">WordPress.org</a> ·
-    <a href="https://cfs.at-shift.net/">日本語</a>
+    <a href="https://plugins.at-shift.net/fields/">日本語</a>
   </p>
 </div>
 
@@ -73,7 +73,7 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 | Topic | English | 日本語 |
 | --- | --- | --- |
-| Official website | [cfs.at-shift.net/en](https://cfs.at-shift.net/en/) | [cfs.at-shift.net](https://cfs.at-shift.net/) |
+| Official website | [plugins.at-shift.net/en/fields](https://plugins.at-shift.net/en/fields/) | [plugins.at-shift.net/fields](https://plugins.at-shift.net/fields/) |
 | Adding and arranging fields | [Setup guide](https://cfs.at-shift.net/en/guide/) | [設定ガイド](https://cfs.at-shift.net/guide/) |
 | Retrieving and displaying values | [Output reference](https://cfs.at-shift.net/en/output/) | [出力リファレンス](https://cfs.at-shift.net/output/) |
 | Implementation examples | [Examples](https://cfs.at-shift.net/en/examples/) | [実装例](https://cfs.at-shift.net/examples/) |
