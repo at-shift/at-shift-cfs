@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 3.0.6.3
+Stable tag: 3.0.7
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -205,6 +205,11 @@ Yes. It preserves the main APIs used by existing themes, including `CFS()->get()
 See the [atshift Fields website](https://plugins.at-shift.net/en/fields/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.7 =
+
+* Fixed API and revision saves so fields nested in Horizontal, Accordion, and Conditional groups are saved correctly, including layout groups inside Loop rows.
+* Ignored unknown API field names safely instead of emitting PHP warnings.
 
 = 3.0.6.3 =
 

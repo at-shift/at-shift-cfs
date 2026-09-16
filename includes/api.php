@@ -316,6 +316,7 @@ class Atshift_CFS_api
         $this->saved_fields = [];
         $fields = [];
         $field_id_lookup = [];
+        $parent_fields = [];
 
         // create post if the ID is missing
         if ( empty( $post_data['ID'] ) ) {
@@ -359,19 +360,22 @@ class Atshift_CFS_api
         }
 
         if ( ! empty( $group_ids ) ) {
-            $parent_fields = [];
             $results = $this->find_input_fields( [ 'group_id' => $group_ids ] );
             foreach ( $results as $result ) {
 
                 // Store all the field objects for the current field group(s)
                 $fields[ $result['id'] ] = (object) $result;
+            }
 
-                // Store lookup values for the recursion
-                $field_id_lookup[ $result['parent_id'] . ':' . $result['name'] ] = $result['id'];
+            foreach ( $fields as $field ) {
+                $api_parent_id = $this->get_api_parent_field_id( $field, $fields );
 
-                // Store parent fields separately
-                if ( 0 == (int) $result['parent_id'] ) {
-                    $parent_fields[ $result['name'] ] = $result['id'];
+                // Layout containers are transparent to the public API. Only Loop
+                // fields introduce another level in the saved value structure.
+                $field_id_lookup[ $api_parent_id . ':' . $field->name ] = $field->id;
+
+                if ( 0 === $api_parent_id ) {
+                    $parent_fields[ $field->name ] = $field->id;
                 }
             }
         }
@@ -489,7 +493,13 @@ class Atshift_CFS_api
             // we need to lookup the ID from the "field_id_lookup" array
             if ( 'input' != $params['format'] ) {
                 $field_name = $field_id;
-                $field_id = (int) $params['field_id_lookup'][ $params['parent_id'] . ':' . $field_name ];
+                $lookup_key = $params['parent_id'] . ':' . $field_name;
+
+                if ( ! isset( $params['field_id_lookup'][ $lookup_key ] ) ) {
+                    return;
+                }
+
+                $field_id = (int) $params['field_id_lookup'][ $lookup_key ];
             }
 
             // Exit if the field is missing
@@ -567,7 +577,13 @@ class Atshift_CFS_api
                 // If not raw input, then sub_field_id is actually the field name
                 if ( 'input' != $params['format'] ) {
                     if ( 0 == $new_params['depth'] % 2 ) {
-                        $sub_field_id = $params['field_id_lookup'][ $new_params['parent_id'] . ':' . $sub_field_id ];
+                        $lookup_key = $new_params['parent_id'] . ':' . $sub_field_id;
+
+                        if ( ! isset( $params['field_id_lookup'][ $lookup_key ] ) ) {
+                            continue;
+                        }
+
+                        $sub_field_id = $params['field_id_lookup'][ $lookup_key ];
                     }
                     else {
                         $new_params['parent_id'] = $field_id;
@@ -591,6 +607,25 @@ class Atshift_CFS_api
             'radio', 'date', 'file', 'color', 'true_false', 'wp_tag',
             'post_title', 'post_content', 'featured_image', 'conditional', 'shortcode', 'embed_code',
         ], true );
+    }
+
+
+    private function get_api_parent_field_id( $field, $fields ) {
+        $parent_id = isset( $field->parent_id ) ? (int) $field->parent_id : 0;
+        $visited = [];
+
+        while ( 0 < $parent_id && isset( $fields[ $parent_id ] ) && empty( $visited[ $parent_id ] ) ) {
+            $visited[ $parent_id ] = true;
+            $parent = $fields[ $parent_id ];
+
+            if ( 'loop' === $parent->type ) {
+                return $parent_id;
+            }
+
+            $parent_id = isset( $parent->parent_id ) ? (int) $parent->parent_id : 0;
+        }
+
+        return 0;
     }
 
 

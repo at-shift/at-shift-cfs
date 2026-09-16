@@ -89,10 +89,10 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 ## Maintenance Release Notes
 
-### 3.0.6.3
+### 3.0.7
 
-- Made User fields unavailable in front-end forms and protected existing values from forged public submissions.
-- Prevented users without publishing capability from making scheduled posts public by changing the publication date.
+- Fixed API and revision saves so fields nested in Horizontal, Accordion, and Conditional groups are saved correctly, including layout groups inside Loop rows.
+- Ignored unknown API field names safely instead of emitting PHP warnings.
 
 For full release history, see [GitHub Releases](https://github.com/at-shift/at-shift-cfs/releases).
 
