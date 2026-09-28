@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 3.0.7
+Stable tag: 3.0.7.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -205,6 +205,10 @@ Yes. It preserves the main APIs used by existing themes, including `CFS()->get()
 See the [atshift Fields website](https://plugins.at-shift.net/en/fields/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.7.1 =
+
+* Fixed `CFS()->save()` selecting a field inside a layout group instead of a same-named direct field in another group, while preserving the previous lookup order when only layout fields share a name.
 
 = 3.0.7 =
 

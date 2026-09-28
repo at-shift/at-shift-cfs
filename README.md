@@ -89,6 +89,10 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 ## Maintenance Release Notes
 
+### 3.0.7.1
+
+- Fixed `CFS()->save()` selecting a field inside a layout group instead of a same-named direct field in another group, while preserving the previous lookup order when only layout fields share a name.
+
 ### 3.0.7
 
 - Fixed API and revision saves so fields nested in Horizontal, Accordion, and Conditional groups are saved correctly, including layout groups inside Loop rows.

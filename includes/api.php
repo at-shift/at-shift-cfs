@@ -372,7 +372,17 @@ class Atshift_CFS_api
 
                 // Layout containers are transparent to the public API. Only Loop
                 // fields introduce another level in the saved value structure.
-                $field_id_lookup[ $api_parent_id . ':' . $field->name ] = $field->id;
+                $lookup_key = $api_parent_id . ':' . $field->name;
+
+                // Prefer a direct child without changing the existing order among layout fields.
+                if ( isset( $field_id_lookup[ $lookup_key ] ) ) {
+                    $existing_field = $fields[ $field_id_lookup[ $lookup_key ] ];
+                    if ( (int) $existing_field->parent_id === $api_parent_id && (int) $field->parent_id !== $api_parent_id ) {
+                        continue;
+                    }
+                }
+
+                $field_id_lookup[ $lookup_key ] = $field->id;
 
                 if ( 0 === $api_parent_id ) {
                     $parent_fields[ $field->name ] = $field->id;
