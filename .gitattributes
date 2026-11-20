@@ -8,3 +8,5 @@ doc/ export-ignore
 docs/ export-ignore
 private-docs/ export-ignore
 packages/ export-ignore
+tests/ export-ignore
+.DS_Store export-ignore

@@ -137,6 +137,30 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                 return height || 300;
             }
 
+            function restoreMovedEditor($textarea, editor) {
+                var iframe = editor.iframeElement;
+
+                if (!iframe || editor.getDoc() === iframe.contentDocument) {
+                    return editor;
+                }
+
+                // Moving a metabox can replace the iframe document without replacing TinyMCE.
+                var value = editor.getContent({ format: 'raw' });
+                var settings = $.extend({}, editor.settings);
+                var dirty = editor.isDirty();
+                var input_id = $textarea.attr('id');
+
+                editor.remove();
+                $textarea.val(value);
+                editor = new tinyMCE.Editor(input_id, settings, tinyMCE);
+                editor.on('init', function() {
+                    editor.setDirty(dirty);
+                    scheduleWysiwygRefresh($textarea.closest('.cfs_wysiwyg'));
+                });
+                editor.render();
+                return editor;
+            }
+
             function refreshWysiwygEditors($context) {
                 if ('undefined' === typeof tinyMCE || !tinyMCE.get) {
                     return;
@@ -144,7 +168,7 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
 
                 $context = $context && $context.length ? $context : $(document);
 
-                $context.find('.wp-editor-area').add($context.filter('.wp-editor-area')).each(function() {
+                $context.find('.cfs_wysiwyg .wysiwyg').add($context.filter('.cfs_wysiwyg .wysiwyg')).each(function() {
                     var $textarea = $(this);
                     var input_id = $textarea.attr('id');
                     var editor = input_id ? tinyMCE.get(input_id) : null;
@@ -155,7 +179,12 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                     var currentHeight;
                     var currentWidth;
 
-                    if (!editor || !editor.initialized || !$wrap.is(':visible')) {
+                    if (!editor || !editor.initialized) {
+                        return;
+                    }
+
+                    editor = restoreMovedEditor($textarea, editor);
+                    if (!editor.initialized || !$wrap.is(':visible')) {
                         return;
                     }
 
@@ -196,7 +225,35 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                 }, 250);
             }
 
+            function watchBlockEditorMetaboxes() {
+                var root = document.getElementById('editor');
+                if (!$('body').hasClass('block-editor-page') || !root || !window.MutationObserver) {
+                    return;
+                }
+
+                var pending = false;
+                var observer = new MutationObserver(function(records) {
+                    var moved = records.some(function(record) {
+                        return Array.prototype.some.call(record.addedNodes, function(node) {
+                            return node.nodeType === 1 && ($(node).is('.cfs_wysiwyg') || $(node).find('.cfs_wysiwyg').length);
+                        });
+                    });
+
+                    if (!moved || pending) {
+                        return;
+                    }
+                    pending = true;
+                    window.setTimeout(function() {
+                        pending = false;
+                        $(root).find('.cfs_wysiwyg:not(.ready)').init_wysiwyg();
+                        scheduleWysiwygRefresh($(root));
+                    }, 0);
+                });
+                observer.observe(root, { childList: true, subtree: true });
+            }
+
             $(function() {
+                watchBlockEditorMetaboxes();
                 $(document).on('cfs/ready', '.cfs_add_field', function() {
                     $('.cfs_wysiwyg:not(.ready)').init_wysiwyg();
                 });
@@ -217,6 +274,10 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                 this.each(function() {
                     var $wysiwyg = $(this);
                     var $editor = $wysiwyg.find('.wysiwyg');
+
+                    if ($wysiwyg.hasClass('ready') || ($('body').hasClass('block-editor-page') && $wysiwyg.closest('#metaboxes').length)) {
+                        return;
+                    }
 
                     $wysiwyg.addClass('ready');
 
@@ -267,6 +328,12 @@ class Atshift_CFS_wysiwyg extends Atshift_CFS_field
                     tinyMCE.settings.wpautop = wpautop;
                     tinyMCE.settings.resize = resize;
 
+                    var editor = tinyMCE.get(input_id);
+                    if (editor && !editor.initialized) {
+                        editor.on('init', function() {
+                            scheduleWysiwygRefresh($wysiwyg);
+                        });
+                    }
                     scheduleWysiwygRefresh($wysiwyg);
                 });
             };

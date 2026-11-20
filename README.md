@@ -89,6 +89,12 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 ## Maintenance Release Notes
 
+### 3.0.7.2
+
+- Fixed WYSIWYG fields becoming blank or non-editable after a block-editor reload or metabox move.
+- Preserved unsaved rich-text content when restoring an editor after a metabox move.
+- No changes to stored field data or the CFS API.
+
 ### 3.0.7.1
 
 - Fixed `CFS()->save()` selecting a field inside a layout group instead of a same-named direct field in another group, while preserving the previous lookup order when only layout fields share a name.
