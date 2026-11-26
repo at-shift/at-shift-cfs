@@ -434,7 +434,7 @@ class Atshift_CFS_wp_category extends Atshift_CFS_field
                             <div class="tooltip_inner"><?php esc_html_e( 'Select the roles that can add categories from this field. Leave blank to allow any role that can create terms for this taxonomy.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
                         </div>
                     </label>
-                    <input type="hidden" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][add_allowed_roles][]" value="" />
+                    <input type="hidden" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][add_allowed_roles][]" value="" />
                     <?php
                         atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                             'type' => 'select',

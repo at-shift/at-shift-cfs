@@ -49,9 +49,9 @@ class Atshift_CFS_number extends Atshift_CFS_field
                 </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][min]" value="<?php echo esc_attr( $this->get_option( $field, 'min' ) ); ?>" placeholder="<?php esc_attr_e( 'Minimum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
-                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][max]" value="<?php echo esc_attr( $this->get_option( $field, 'max' ) ); ?>" placeholder="<?php esc_attr_e( 'Maximum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
-                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][step]" value="<?php echo esc_attr( $this->get_option( $field, 'step' ) ); ?>" placeholder="<?php esc_attr_e( 'Step', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][min]" value="<?php echo esc_attr( $this->get_option( $field, 'min' ) ); ?>" placeholder="<?php esc_attr_e( 'Minimum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][max]" value="<?php echo esc_attr( $this->get_option( $field, 'max' ) ); ?>" placeholder="<?php esc_attr_e( 'Maximum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][step]" value="<?php echo esc_attr( $this->get_option( $field, 'step' ) ); ?>" placeholder="<?php esc_attr_e( 'Step', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
             </td>
         </tr>
         <?php $this->input_suffix_option_html( $key, $field ); ?>

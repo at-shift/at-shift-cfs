@@ -158,7 +158,7 @@ class Atshift_CFS_conditional extends Atshift_CFS_field
                 </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][default_value]" value="<?php echo esc_attr( $this->get_option( $field, 'default_value' ) ); ?>" />
+                <input type="text" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][default_value]" value="<?php echo esc_attr( $this->get_option( $field, 'default_value' ) ); ?>" />
             </td>
         </tr>
         <tr class="field_option field_option_conditional">

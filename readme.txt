@@ -2,8 +2,8 @@
 Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
-Tested up to: 7.1
-Stable tag: 3.0.7.2
+Tested up to: 7.2
+Stable tag: 3.0.7.3
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -205,6 +205,11 @@ Yes. It preserves the main APIs used by existing themes, including `CFS()->get()
 See the [atshift Fields website](https://plugins.at-shift.net/en/fields/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.7.3 =
+
+* Confirmed compatibility with WordPress 7.2 and PHP 8.6.
+* Made field-setting attribute escaping explicit and tightened translation, prepared-query, and site-timezone handling.
 
 = 3.0.7.2 =
 

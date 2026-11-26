@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 Plugin Name: atshift Fields (Maintenance for Custom Field Suite)
 Description: This plugin is a maintained and extended version of Custom Field Suite that adds more effective and flexible input fields to WordPress edit screens.
-Version: 3.0.7.2
+Version: 3.0.7.3
 Author: @shift
 Author URI: https://cfs.at-shift.net/
 Text Domain: atshift-fields-maintenance-for-custom-field-suite
@@ -125,7 +125,7 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
         self::$instance = $this;
 
         // setup variables
-        define( 'ATSHIFT_CFS_VERSION', '3.0.7.2' );
+        define( 'ATSHIFT_CFS_VERSION', '3.0.7.3' );
         define( 'ATSHIFT_CFS_DIR', dirname( __FILE__ ) );
         define( 'ATSHIFT_CFS_URL', plugins_url( '', __FILE__ ) );
         define( 'ATSHIFT_CFS_FIELD_GROUP_POST_TYPE', 'atshift_cfs' );
@@ -175,7 +175,7 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
         $settings_link = sprintf(
             '<a href="%s">%s</a>',
             esc_url( admin_url( 'edit.php?post_type=' . ATSHIFT_CFS_FIELD_GROUP_POST_TYPE ) ),
-            esc_html__( 'Settings' )
+            esc_html__( 'Settings', 'atshift-fields-maintenance-for-custom-field-suite' )
         );
 
         array_unshift( $links, $settings_link );
@@ -197,18 +197,18 @@ class Atshift_Fields_Maintenance_For_Custom_Field_Suite
         $links = [
             sprintf(
                 /* translators: %s: Plugin version. */
-                esc_html__( 'Version %s' ),
+                esc_html__( 'Version %s', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 esc_html( isset( $plugin_data['Version'] ) ? $plugin_data['Version'] : ATSHIFT_CFS_VERSION )
             ),
             sprintf(
                 /* translators: %s: Plugin author. */
-                __( 'By %s' ),
+                __( 'By %s', 'atshift-fields-maintenance-for-custom-field-suite' ),
                 '<a href="' . esc_url( 'https://cfs.at-shift.net/' ) . '" target="_blank" rel="noopener noreferrer">@shift</a>'
             ),
             sprintf(
                 '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
                 esc_url( 'https://wordpress.org/plugins/atshift-fields-maintenance-for-custom-field-suite/' ),
-                esc_html__( 'View details' )
+                esc_html__( 'View details', 'atshift-fields-maintenance-for-custom-field-suite' )
             ),
         ];
 

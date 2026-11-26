@@ -24,7 +24,6 @@ $field_name_value = empty( $field->id ) ? '' : (string) $field->name;
 $field_name_display = '' === $field_name_value ? __( 'Automatically named when saved', 'atshift-fields-maintenance-for-custom-field-suite' ) : $field_name_value;
 $field_name_input_value = $uses_generated_name ? '' : $field_name_value;
 $field_weight = 'clone' === (string) $field->weight ? 'clone' : (string) absint( $field->weight );
-$field_weight_attr = esc_attr( $field_weight );
 $field_key_value = 'clone' === $field_weight ? 0 : absint( $field->weight );
 $structure_badges = [
     'tab'         => __( 'TAB', 'atshift-fields-maintenance-for-custom-field-suite' ),
@@ -85,7 +84,7 @@ $structure_badge = isset( $structure_badges[ $field->type ] ) ? $structure_badge
                                             <div class="tooltip_inner"><?php esc_html_e( 'The field label that editors will see.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></div>
                                         </div>
                                     </label>
-                                    <input type="text" name="cfs[fields][<?php echo $field_weight_attr; ?>][label]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->label ); ?>" />
+                                    <input type="text" name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][label]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->label ); ?>" />
                                 </td>
                                 <td class="field_name">
                                     <label>
@@ -99,7 +98,7 @@ $structure_badge = isset( $structure_badges[ $field->type ] ) ? $structure_badge
                                     <input
                                         type="text"
                                         class="cfs-editable-field-name"
-                                        name="cfs[fields][<?php echo $field_weight_attr; ?>][name]"
+                                        name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][name]"
                                         value="<?php echo esc_attr( $field_name_input_value ); ?>"
                                         <?php disabled( $uses_generated_name ); ?>
                                         <?php echo $uses_generated_name ? 'style="display:none;"' : ''; ?>
@@ -107,7 +106,7 @@ $structure_badge = isset( $structure_badges[ $field->type ] ) ? $structure_badge
                                     <input
                                         type="hidden"
                                         class="cfs-generated-field-name-input"
-                                        name="cfs[fields][<?php echo $field_weight_attr; ?>][name]"
+                                        name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][name]"
                                         value="<?php echo esc_attr( $field_name_input_value ); ?>"
                                         <?php disabled( ! $uses_generated_name ); ?>
                                     />
@@ -117,7 +116,7 @@ $structure_badge = isset( $structure_badges[ $field->type ] ) ? $structure_badge
                                 </td>
                                 <td class="field_type">
                                     <label><?php esc_html_e( 'Field Type', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
-                                    <select name="cfs[fields][<?php echo $field_weight_attr; ?>][type]">
+                                    <select name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][type]">
                                         <?php foreach ( atshift_fields_maintenance_for_custom_field_suite()->fields as $type ) : ?>
                                         <option value="<?php echo esc_attr( $type->name ); ?>"<?php selected( $type->name, $field->type ); ?>><?php echo esc_html( $type->label ); ?></option>
                                         <?php endforeach; ?>
@@ -136,7 +135,7 @@ $structure_badge = isset( $structure_badges[ $field->type ] ) ? $structure_badge
                         <p class="description"><?php esc_html_e( 'Choose the parent Conditional Group value that displays this field.', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></p>
                     </td>
                     <td>
-                        <select name="cfs[fields][<?php echo $field_weight_attr; ?>][options][conditional_value]" class="cfs-conditional-value">
+                        <select name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][options][conditional_value]" class="cfs-conditional-value">
                             <?php if ( ! empty( $field->options['conditional_value'] ) ) : ?>
                             <option value="<?php echo esc_attr( $field->options['conditional_value'] ); ?>" selected><?php echo esc_html( $field->options['conditional_value'] ); ?></option>
                             <?php endif; ?>
@@ -157,17 +156,17 @@ $structure_badge = isset( $structure_badges[ $field->type ] ) ? $structure_badge
                         </label>
                     </td>
                     <td>
-                        <textarea name="cfs[fields][<?php echo $field_weight_attr; ?>][notes]"><?php echo esc_textarea( $field->notes ); ?></textarea>
+                        <textarea name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][notes]"><?php echo esc_textarea( $field->notes ); ?></textarea>
                     </td>
                 </tr>
                 <tr class="field_actions">
                     <td class="label"></td>
                     <td style="vertical-align:middle">
-                        <input type="hidden" name="cfs[fields][<?php echo $field_weight_attr; ?>][id]" class="field_id" value="<?php echo absint( $field->id ); ?>" />
-                        <input type="hidden" name="cfs[fields][<?php echo $field_weight_attr; ?>][key]" class="field_key" value="<?php echo esc_attr( $field_key_value ); ?>" />
-                        <input type="hidden" name="cfs[fields][<?php echo $field_weight_attr; ?>][parent_id]" class="parent_id" value="<?php echo absint( $field->parent_id ); ?>" />
-                        <input type="hidden" name="cfs[fields][<?php echo $field_weight_attr; ?>][parent_key]" class="parent_key" value="" />
-                        <input type="hidden" name="cfs[fields][<?php echo $field_weight_attr; ?>][options][outside_tabs]" class="outside_tabs" value="<?php echo empty( $field->options['outside_tabs'] ) ? 0 : 1; ?>" />
+                        <input type="hidden" name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][id]" class="field_id" value="<?php echo absint( $field->id ); ?>" />
+                        <input type="hidden" name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][key]" class="field_key" value="<?php echo esc_attr( $field_key_value ); ?>" />
+                        <input type="hidden" name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][parent_id]" class="parent_id" value="<?php echo absint( $field->parent_id ); ?>" />
+                        <input type="hidden" name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][parent_key]" class="parent_key" value="" />
+                        <input type="hidden" name="cfs[fields][<?php echo esc_attr( $field_weight ); ?>][options][outside_tabs]" class="outside_tabs" value="<?php echo empty( $field->options['outside_tabs'] ) ? 0 : 1; ?>" />
                         <div class="cfs-field-actions">
                             <input type="button" value="<?php esc_attr_e( 'Close', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" class="button-secondary cfs_edit_field" />
                             <input type="button" value="<?php esc_attr_e( 'Add new field below', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" class="button-primary cfs_add_field_below" />

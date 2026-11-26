@@ -6,7 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post, $wpdb, $wp_roles;
 
-$text_domain = 'atshift-fields-maintenance-for-custom-field-suite';
 $equals_text = __( 'equals', 'atshift-fields-maintenance-for-custom-field-suite' );
 $not_equals_text = __( 'is not', 'atshift-fields-maintenance-for-custom-field-suite' );
 $rules = (array) get_post_meta( $post->ID, 'cfs_rules', true );
@@ -60,7 +59,7 @@ foreach ( $types as $post_type ) {
 $post_formats = [];
 if ( current_theme_supports( 'post-formats' ) ) {
     $post_format_strings = get_post_format_strings();
-    $standard_format_label = __( 'Standard', $text_domain );
+    $standard_format_label = __( 'Standard', 'atshift-fields-maintenance-for-custom-field-suite' );
     $post_formats = [ 'standard' => $standard_format_label ];
     $post_formats_slugs = get_theme_support( 'post-formats' );
 
@@ -76,10 +75,6 @@ $user_roles = [];
 foreach ( $wp_roles->roles as $key => $role ) {
     $role_name = $role['name'] ?? $key;
     $role_label = translate_user_role( $role_name );
-
-    if ( $role_label === $role_name ) {
-        $role_label = __( $role_name, $text_domain );
-    }
 
     $user_roles[ $key ] = $role_label;
 }
@@ -279,6 +274,7 @@ foreach ( $templates as $template_name => $filename ) {
             });
         }
 
+        <?php /* translators: %s: Maximum number of selected items. */ ?>
         var ruleSelect2MaxSelectedText = '<?php echo esc_js( __( '%s allowed', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
         var formatRuleSelect2MaxSelected = function(maximum) {
             if (maximum && 'object' === typeof maximum && maximum.maximum) {
@@ -301,6 +297,7 @@ foreach ( $templates as $template_name => $filename ) {
                     return '<?php echo esc_js( __( 'Please enter 1 more character', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
                 }
 
+                <?php /* translators: %s: Number of additional characters required. */ ?>
                 return '<?php echo esc_js( __( 'Please enter %s or more characters', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>'.replace('%s', remaining);
             },
             loadingMore: function() {
@@ -325,6 +322,7 @@ foreach ( $templates as $template_name => $filename ) {
                     return '<?php echo esc_js( __( 'Please enter 1 more character', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>';
                 }
 
+                <?php /* translators: %s: Number of additional characters required. */ ?>
                 return '<?php echo esc_js( __( 'Please enter %s or more characters', 'atshift-fields-maintenance-for-custom-field-suite' ) ); ?>'.replace('%s', remaining);
             },
             formatSelectionTooBig: function(limit) {

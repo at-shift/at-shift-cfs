@@ -87,7 +87,7 @@ class Atshift_CFS_time extends Atshift_CFS_field
                 <label><?php esc_html_e( 'Default Value', 'atshift-fields-maintenance-for-custom-field-suite' ); ?></label>
             </td>
             <td>
-                <select name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][default_hour]" style="width:70px">
+                <select name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][default_hour]" style="width:70px">
                     <option value=""></option>
                     <?php for ( $i = 0; $i < 24; $i++ ) : ?>
                     <?php $option = sprintf( '%02d', $i ); ?>
@@ -95,7 +95,7 @@ class Atshift_CFS_time extends Atshift_CFS_field
                     <?php endfor; ?>
                 </select>
                 :
-                <select name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][default_minute]" class="cfs-time-default-minute" style="width:70px">
+                <select name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][default_minute]" class="cfs-time-default-minute" style="width:70px">
                     <option value=""></option>
                     <?php for ( $i = 0; $i < 60; $i += $minute_interval ) : ?>
                     <?php $option = sprintf( '%02d', $i ); ?>

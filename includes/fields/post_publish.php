@@ -654,7 +654,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
                 </label>
             </td>
             <td>
-                <input type="hidden" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][trash_allowed_roles][]" value="" />
+                <input type="hidden" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][trash_allowed_roles][]" value="" />
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',
@@ -961,13 +961,34 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
     }
 
 
-    protected function format_local_datetime_value( $date ) {
-        if ( empty( $date ) || '0000-00-00 00:00:00' === $date ) {
-            return date( 'Y-m-d\TH:i', current_time( 'timestamp' ) );
+    protected function site_timezone() {
+        $timezone_string = (string) get_option( 'timezone_string', '' );
+
+        if ( '' !== $timezone_string ) {
+            try {
+                return new DateTimeZone( $timezone_string );
+            } catch ( Exception $exception ) {
+                unset( $exception );
+            }
         }
 
-        $timestamp = strtotime( $date );
-        return false === $timestamp ? '' : date( 'Y-m-d\TH:i', $timestamp );
+        $offset  = (float) get_option( 'gmt_offset', 0 );
+        $hours   = (int) $offset;
+        $minutes = (int) round( abs( $offset - $hours ) * 60 );
+
+        return new DateTimeZone(
+            sprintf( '%s%02d:%02d', 0 > $offset ? '-' : '+', abs( $hours ), $minutes )
+        );
+    }
+
+
+    protected function format_local_datetime_value( $date ) {
+        if ( empty( $date ) || '0000-00-00 00:00:00' === $date ) {
+            return ( new DateTimeImmutable( 'now', $this->site_timezone() ) )->format( 'Y-m-d\TH:i' );
+        }
+
+        $datetime = date_create_from_format( 'Y-m-d H:i:s', $date, $this->site_timezone() );
+        return false === $datetime ? '' : $datetime->format( 'Y-m-d\TH:i' );
     }
 
 
@@ -983,7 +1004,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
         }
 
         $date = str_replace( 'T', ' ', $value ) . ':00';
-        $datetime = date_create_from_format( 'Y-m-d H:i:s', $date, wp_timezone() );
+        $datetime = date_create_from_format( 'Y-m-d H:i:s', $date, $this->site_timezone() );
 
         if ( ! $datetime || $datetime->format( 'Y-m-d H:i:s' ) !== $date ) {
             return '';
@@ -1000,8 +1021,8 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
             return false;
         }
 
-        $timestamp = strtotime( $date );
-        return false !== $timestamp && current_time( 'timestamp' ) < $timestamp;
+        $datetime = date_create_from_format( 'Y-m-d H:i:s', $date, $this->site_timezone() );
+        return false !== $datetime && time() < $datetime->getTimestamp();
     }
 
 
@@ -1012,7 +1033,7 @@ class Atshift_CFS_post_publish extends Atshift_CFS_field
             return false;
         }
 
-        $datetime = date_create_from_format( 'Y-m-d H:i:s', $date, wp_timezone() );
+        $datetime = date_create_from_format( 'Y-m-d H:i:s', $date, $this->site_timezone() );
         return $datetime && time() + MINUTE_IN_SECONDS < $datetime->getTimestamp();
     }
 

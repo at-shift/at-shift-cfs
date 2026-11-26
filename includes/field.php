@@ -291,7 +291,7 @@ class Atshift_CFS_field
                 </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][input_suffix]" value="<?php echo esc_attr( $this->get_input_suffix( $field ) ); ?>" />
+                <input type="text" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][input_suffix]" value="<?php echo esc_attr( $this->get_input_suffix( $field ) ); ?>" />
             </td>
         </tr>
     <?php
@@ -403,17 +403,6 @@ class Atshift_CFS_field
      */
     protected function normalize_admin_key( $key ) {
         return 'clone' === (string) $key ? 'clone' : (string) absint( $key );
-    }
-
-
-    /**
-     * Escape a field setting key for use in name attributes.
-     *
-     * @param mixed $key
-     * @return string
-     */
-    protected function admin_key_attr( $key ) {
-        return esc_attr( $this->normalize_admin_key( $key ) );
     }
 }
 

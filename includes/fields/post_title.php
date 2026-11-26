@@ -65,7 +65,7 @@ class Atshift_CFS_post_title extends Atshift_CFS_field
                 </label>
             </td>
             <td>
-                <input type="hidden" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][allowed_roles][]" value="" />
+                <input type="hidden" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][allowed_roles][]" value="" />
                 <?php
                     atshift_fields_maintenance_for_custom_field_suite()->create_field( [
                         'type' => 'select',

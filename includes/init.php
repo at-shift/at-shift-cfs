@@ -1209,7 +1209,7 @@ class Atshift_CFS_init
 
         if ( 'page_templates' === $criteria ) {
             if ( 'default' === $value ) {
-                return $this->format_label_with_slug( __( 'Default' ), $value );
+                return $this->format_label_with_slug( __( 'Default', 'atshift-fields-maintenance-for-custom-field-suite' ), $value );
             }
 
             $template_label = array_search( $value, get_page_templates(), true );

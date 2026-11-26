@@ -40,7 +40,7 @@ Formal WordPress.org name: **atshift Fields (Maintenance for Custom Field Suite)
 - WordPress 5.0 or later
 - PHP 7.4 or later
 
-Verified locally with WordPress 7.0, PHP 8.3, and MySQL 8.4. These are verification versions, not strict minimum requirements.
+Verified locally with WordPress 7.2 RC, PHP 8.6, and MySQL 8.4. These are verification versions, not strict minimum requirements.
 
 ## Installation
 
@@ -88,6 +88,11 @@ For field-specific examples and context-appropriate escaping, see the [field out
 - [atshift Freeform Login](https://wordpress.org/plugins/atshift-freeform-login/) designs the WordPress login screen and provides a matching login form shortcode for site pages.
 
 ## Maintenance Release Notes
+
+### 3.0.7.3
+
+- Confirmed compatibility with WordPress 7.2 and PHP 8.6.
+- Made field-setting attribute escaping explicit and tightened translation, prepared-query, and site-timezone handling.
 
 ### 3.0.7.2
 

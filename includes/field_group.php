@@ -34,7 +34,7 @@ class Atshift_CFS_field_group
             AND p.post_type IN ( %s, %s )";
         $results = $wpdb->get_results(
             $wpdb->prepare(
-                $sql,
+                $sql, // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Static query with placeholders declared immediately above.
                 ATSHIFT_CFS_FIELD_GROUP_POST_TYPE,
                 ATSHIFT_CFS_LEGACY_FIELD_GROUP_POST_TYPE
             )

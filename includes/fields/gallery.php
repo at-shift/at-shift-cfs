@@ -109,8 +109,8 @@ class Atshift_CFS_gallery extends Atshift_CFS_field
                 </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][columns]" value="<?php echo esc_attr( $this->get_option( $field, 'columns', 3 ) ); ?>" placeholder="<?php esc_attr_e( 'Columns (default: 3)', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:140px" />
-                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][css_class]" value="<?php echo esc_attr( $this->get_option( $field, 'css_class' ) ); ?>" placeholder="<?php esc_attr_e( 'CSS class', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
+                <input type="text" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][columns]" value="<?php echo esc_attr( $this->get_option( $field, 'columns', 3 ) ); ?>" placeholder="<?php esc_attr_e( 'Columns (default: 3)', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:140px" />
+                <input type="text" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][css_class]" value="<?php echo esc_attr( $this->get_option( $field, 'css_class' ) ); ?>" placeholder="<?php esc_attr_e( 'CSS class', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" />
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
@@ -143,8 +143,8 @@ class Atshift_CFS_gallery extends Atshift_CFS_field
                 </div>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="<?php esc_attr_e( 'Minimum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
-                <input type="text" name="cfs[fields][<?php echo $this->admin_key_attr( $key ); ?>][options][limit_max]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_max' ) ); ?>" placeholder="<?php esc_attr_e( 'Maximum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][limit_min]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_min' ) ); ?>" placeholder="<?php esc_attr_e( 'Minimum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
+                <input type="text" name="cfs[fields][<?php echo esc_attr( $this->normalize_admin_key( $key ) ); ?>][options][limit_max]" value="<?php echo esc_attr( $this->get_option( $field, 'limit_max' ) ); ?>" placeholder="<?php esc_attr_e( 'Maximum', 'atshift-fields-maintenance-for-custom-field-suite' ); ?>" style="width:80px" />
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo esc_attr( $this->name ); ?>">
