@@ -3,7 +3,7 @@ Contributors: mgibbs189, atshift
 Tags: custom fields, postmeta, relationship, repeater, fields
 Requires at least: 5.0
 Tested up to: 7.2
-Stable tag: 3.0.7.3
+Stable tag: 3.0.7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -205,6 +205,11 @@ Yes. It preserves the main APIs used by existing themes, including `CFS()->get()
 See the [atshift Fields website](https://plugins.at-shift.net/en/fields/) for setup guides, output examples, API notes, and implementation examples.
 
 == Changelog ==
+
+= 3.0.7.4 =
+
+* Fixed nested Loop rows being saved under the wrong parent after reordering and adding or inserting rows.
+* Kept nested row paths consistent for empty loops and deeper nesting. No changes to the stored data format or CFS API.
 
 = 3.0.7.3 =
 

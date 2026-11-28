@@ -556,31 +556,31 @@ class Atshift_CFS_loop extends Atshift_CFS_field
                 $('.cfs_loop').sortable({
                     axis: 'y',
                     containment: 'parent',
-                    items: '.loop_wrapper',
+                    items: '> .loop_wrapper',
                     handle: '.cfs_loop_head',
                     cancel: '.cfs_loop_actions, .cfs_loop_actions *, .cfs_loop_row_actions, .cfs_loop_row_actions *',
                     update: function(event, ui) {
 
-                        // To re-order field names:
-                        // 1. Get the depth of the dragged element
-                        // 2. Loop through each input field within the dragged element
-                        // 3. Reset the array index within the name attribute
-                        var $container = ui.item.closest('.field');
-                        var depth = $container.closest('.cfs_loop').parents('.cfs_loop').length;
+                        var $loop = $(this);
+                        var $rows = $loop.children('.loop_wrapper');
+                        var depth = $loop.parents('.cfs_loop').length;
                         var array_element = 3 + (depth * 2);
+                        var tag_element = 2 + (depth * 2);
 
-                        var counter = -1;
-                        var last_index = -1;
-                        $container.find('[name^="cfs[input]"]').each(function() {
-                            var name_attr = $(this).attr('name').split('[');
-                            var current_index = parseInt( name_attr[array_element] );
-                            if (current_index != last_index) {
-                                counter += 1;
-                            }
-                            name_attr[array_element] = counter + ']';
-                            last_index = current_index;
-                            $(this).attr('name', name_attr.join('['));
+                        // Include empty rows and keep nested add/insert paths in sync.
+                        $rows.each(function(index) {
+                            $(this).find('[name^="cfs[input]"]').each(function() {
+                                var name_attr = $(this).attr('name').split('[');
+                                name_attr[array_element] = index + ']';
+                                $(this).attr('name', name_attr.join('['));
+                            });
+                            $(this).find('.cfs_add_field[data-loop-tag]').each(function() {
+                                var loop_tag = $(this).attr('data-loop-tag').split('[');
+                                loop_tag[tag_element] = index + ']';
+                                $(this).attr('data-loop-tag', loop_tag.join('['));
+                            });
                         });
+                        $loop.children('.table_footer').find('.cfs_add_field').attr('data-rows', $rows.length);
                     }
                 });
             });

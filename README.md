@@ -89,6 +89,11 @@ For field-specific examples and context-appropriate escaping, see the [field out
 
 ## Maintenance Release Notes
 
+### 3.0.7.4
+
+- Fixed nested Loop rows being saved under the wrong parent after reordering and adding or inserting rows.
+- Kept nested row paths consistent for empty loops and deeper nesting. No changes to the stored data format or CFS API.
+
 ### 3.0.7.3
 
 - Confirmed compatibility with WordPress 7.2 and PHP 8.6.
